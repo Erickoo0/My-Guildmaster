@@ -221,7 +221,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4611245308921733550, guid: ce849ea991ffc5546a605759eb9ac09f, type: 3}
+  m_Sprite: {fileID: -7624568416128722216, guid: b74fdf224fc1cfc47b86af072b76d273, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -295,8 +295,8 @@ BoxCollider2D:
   m_Offset: {x: -0.000000029802322, y: 0.24055314}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.0625, y: 1.8125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -314,7 +314,7 @@ Animator:
   m_GameObject: {fileID: 7531220670705793847}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1703dbfc5984b4e4cafa5ebb071f41a2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 22a89c78899c2554a89a7a33bc5b6840, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrary
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 9e94d7cbdbd270b49a23c3d54fd8d97e, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: db4ad55348da7444ca69a8eedd2ade99, type: 3}
 --- !u!114 &7759030371112986302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_CategoryHash: 1.8625731e-11
   m_labelHash: 1.1909236e-32
   m_SpriteKey: 0
-  m_SpriteHash: 500807929
+  m_SpriteHash: 950981272
 --- !u!114 &6990653571150878097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,8 +536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b738caa94a6360641b76c8902eb4eb18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  hpBase: 100
   hpMax: 100
-  hpCurrent: 100
+  hpPerLvl: 10
   entityRoot: {fileID: 0}
   destroyOnDeath: 1
 --- !u!114 &3685750868421853756
@@ -554,7 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthUI
   healthBarPrefab: {fileID: 1143244870389784472, guid: bbafd3c610ab3284ca44a329d7eae5df, type: 3}
   offset: {x: 0, y: 1, z: 0}
-  hpTarget: {fileID: 0}
+  hpComponent: {fileID: 0}
   progressBarRef: {fileID: 0}
   showText: 0
 --- !u!114 &7784520383436025491

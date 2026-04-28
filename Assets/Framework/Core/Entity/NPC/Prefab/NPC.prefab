@@ -126,7 +126,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: b18afb82f803b374bbdf045dc8a7d6ff, type: 3}
+  m_Sprite: {fileID: -7624568416128722216, guid: b74fdf224fc1cfc47b86af072b76d273, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -200,8 +200,8 @@ BoxCollider2D:
   m_Offset: {x: -0.001785636, y: 0.2504368}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.0625, y: 1.8125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -338,7 +338,7 @@ Animator:
   m_GameObject: {fileID: 1295489641667029861}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1703dbfc5984b4e4cafa5ebb071f41a2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 22a89c78899c2554a89a7a33bc5b6840, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrary
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 690c36863b63d7040930e28d09c67a4a, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: db4ad55348da7444ca69a8eedd2ade99, type: 3}
 --- !u!114 &5775654112022256840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_CategoryHash: 0.009161512
   m_labelHash: 1.3971405e-28
   m_SpriteKey: 0
-  m_SpriteHash: 163368403
+  m_SpriteHash: 950981272
 --- !u!114 &7485716094007412697
 MonoBehaviour:
   m_ObjectHideFlags: 0

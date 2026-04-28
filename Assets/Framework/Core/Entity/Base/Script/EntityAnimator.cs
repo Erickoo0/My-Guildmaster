@@ -24,10 +24,10 @@ public class EntityAnimator : MonoBehaviour
         Vector2 moveDirection = _entityMover.MoveDirection;
         
         // Only set walking if move is significant
-        bool isWalking = moveDirection.magnitude > _moveThreshold; 
-        _animator.SetBool("IsWalking", isWalking);
+        bool IsRunning = moveDirection.magnitude > _moveThreshold; 
+        _animator.SetBool("IsRunning", IsRunning);
         
-        if (isWalking)
+        if (IsRunning)
         {
             Vector2 animationDirection = snapToCardinalDirections ? GetSnappedDirection(moveDirection) : moveDirection;
             

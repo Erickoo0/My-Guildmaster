@@ -1,0 +1,1659 @@
+fileFormatVersion: 2
+guid: 4f7fd84e742df9948b2f95594b6022a0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8872187007673143649
+    second: Eric Attack Strong_0
+  - first:
+      213: 4717994020031450398
+    second: Eric Attack Strong_1
+  - first:
+      213: 4391397536857699253
+    second: Eric Attack Strong_2
+  - first:
+      213: -2069956361799635937
+    second: Eric Attack Strong_3
+  - first:
+      213: 5248951157676746634
+    second: Eric Attack Strong_4
+  - first:
+      213: -2657150782497534156
+    second: Eric Attack Strong_5
+  - first:
+      213: 2103139998142966298
+    second: Eric Attack Strong_6
+  - first:
+      213: 6593959141262026740
+    second: Eric Attack Strong_7
+  - first:
+      213: -8485589419366523419
+    second: Eric Attack Strong_8
+  - first:
+      213: 1268116537013868372
+    second: Eric Attack Strong_9
+  - first:
+      213: -2121344506182588013
+    second: Eric Attack Strong_10
+  - first:
+      213: 4452453898366643378
+    second: Eric Attack Strong_11
+  - first:
+      213: -1811671522568497405
+    second: Eric Attack Strong_12
+  - first:
+      213: 5736489541440301394
+    second: Eric Attack Strong_13
+  - first:
+      213: -7433460349400447983
+    second: Eric Attack Strong_14
+  - first:
+      213: 7239483992428506979
+    second: Eric Attack Strong_15
+  - first:
+      213: -6791288219148508091
+    second: Eric Attack Strong_16
+  - first:
+      213: -8225938261647088274
+    second: Eric Attack Strong_17
+  - first:
+      213: 3413762992034157308
+    second: Eric Attack Strong_18
+  - first:
+      213: -2827928696047036527
+    second: Eric Attack Strong_19
+  - first:
+      213: -3454820048092455959
+    second: Eric Attack Strong_20
+  - first:
+      213: 5544096979112383951
+    second: Eric Attack Strong_21
+  - first:
+      213: -7173666317302398902
+    second: Eric Attack Strong_22
+  - first:
+      213: -4001388342764169895
+    second: Eric Attack Strong_23
+  - first:
+      213: 7799842491886063881
+    second: Eric Attack Strong_24
+  - first:
+      213: -5295780072938054924
+    second: Eric Attack Strong_25
+  - first:
+      213: -7975523520367752223
+    second: Eric Attack Strong_26
+  - first:
+      213: -5151687412584549181
+    second: Eric Attack Strong_27
+  - first:
+      213: -6314205308097719520
+    second: Eric Attack Strong_28
+  - first:
+      213: 3789194329680264597
+    second: Eric Attack Strong_29
+  - first:
+      213: 8519373704592727797
+    second: Eric Attack Strong_30
+  - first:
+      213: 4126875862543959349
+    second: Eric Attack Strong_31
+  - first:
+      213: -5616576464217402506
+    second: Eric Attack Strong_32
+  - first:
+      213: -1110013571656685321
+    second: Eric Attack Strong_33
+  - first:
+      213: -4561131277711048167
+    second: Eric Attack Strong_34
+  - first:
+      213: -1785364878645106786
+    second: Eric Attack Strong_35
+  - first:
+      213: 2627437130451216434
+    second: Eric Attack Strong_36
+  - first:
+      213: 6564341910867564769
+    second: Eric Attack Strong_37
+  - first:
+      213: -8969305547638548911
+    second: Eric Attack Strong_38
+  - first:
+      213: 4467511713354805757
+    second: Eric Attack Strong_39
+  - first:
+      213: 1400466150525255383
+    second: Eric Attack Strong_40
+  - first:
+      213: -6174194329679764595
+    second: Eric Attack Strong_41
+  - first:
+      213: -2900427168922007953
+    second: Eric Attack Strong_42
+  - first:
+      213: 2476551320128797566
+    second: Eric Attack Strong_43
+  - first:
+      213: 168960457575560262
+    second: Eric Attack Strong_44
+  - first:
+      213: -5050097141839192646
+    second: Eric Attack Strong_45
+  - first:
+      213: 404045207879755035
+    second: Eric Attack Strong_46
+  - first:
+      213: -4040355412145751204
+    second: Eric Attack Strong_47
+  - first:
+      213: 803680567243259691
+    second: Eric Attack Strong_48
+  - first:
+      213: -5810644586049964529
+    second: Eric Attack Strong_49
+  - first:
+      213: 7857730104431249612
+    second: Eric Attack Strong_50
+  - first:
+      213: -4842686111903190050
+    second: Eric Attack Strong_51
+  - first:
+      213: -2859985913153292936
+    second: Eric Attack Strong_52
+  - first:
+      213: -4782157083809539466
+    second: Eric Attack Strong_53
+  - first:
+      213: -7206698323897760359
+    second: Eric Attack Strong_54
+  - first:
+      213: 8750696776876285073
+    second: Eric Attack Strong_55
+  - first:
+      213: -4915028245395670916
+    second: Eric Attack Strong_56
+  - first:
+      213: 8851328575040302893
+    second: Eric Attack Strong_57
+  - first:
+      213: 7707360592687081481
+    second: Eric Attack Strong_58
+  - first:
+      213: -4901386022668371909
+    second: Eric Attack Strong_59
+  - first:
+      213: 6036918629655059485
+    second: Eric Attack Strong_60
+  - first:
+      213: -497908392241368830
+    second: Eric Attack Strong_61
+  - first:
+      213: -2008382358451021836
+    second: Eric Attack Strong_62
+  - first:
+      213: 1962262981000142202
+    second: Eric Attack Strong_63
+  - first:
+      213: -9110324149534818844
+    second: Eric Attack Strong_64
+  - first:
+      213: 4518375932805011904
+    second: Eric Attack Strong_65
+  - first:
+      213: -7315823255242773667
+    second: Eric Attack Strong_66
+  - first:
+      213: -3011108862363506032
+    second: Eric Attack Strong_67
+  - first:
+      213: 1422565467398770262
+    second: Eric Attack Strong_68
+  - first:
+      213: -4299287709255191738
+    second: Eric Attack Strong_69
+  - first:
+      213: 7484195611215703933
+    second: Eric Attack Strong_70
+  - first:
+      213: -4489635088223836698
+    second: Eric Attack Strong_71
+  - first:
+      213: 7240483056576837753
+    second: Eric Attack Strong_72
+  - first:
+      213: -2847880007277309967
+    second: Eric Attack Strong_73
+  - first:
+      213: -7971462783820356410
+    second: Eric Attack Strong_74
+  - first:
+      213: -5971295752138823119
+    second: Eric Attack Strong_75
+  - first:
+      213: 1986684407070453995
+    second: Eric Attack Strong_76
+  - first:
+      213: -4740955227873045205
+    second: Eric Attack Strong_77
+  - first:
+      213: -964156104876866508
+    second: Eric Attack Strong_78
+  - first:
+      213: 3258138970739145365
+    second: Eric Attack Strong_79
+  - first:
+      213: -3081674319550869582
+    second: Eric Attack Strong_80
+  - first:
+      213: -419387037964152339
+    second: Eric Attack Strong_81
+  - first:
+      213: 7240159299088505020
+    second: Eric Attack Strong_82
+  - first:
+      213: 4036605565116276713
+    second: Eric Attack Strong_83
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Eric Attack Strong_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 161913d9317502b70800000000000000
+      internalID: 8872187007673143649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d4460709ea97140800000000000000
+      internalID: 4717994020031450398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3bdeb0bc061fc30800000000000000
+      internalID: 4391397536857699253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c6f52f7a90643e0800000000000000
+      internalID: -2069956361799635937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a87a2bc844508d840800000000000000
+      internalID: 5248951157676746634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f45960177ef1bd0800000000000000
+      internalID: -2657150782497534156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1a2a367faadf2d10800000000000000
+      internalID: 2103139998142966298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f7ec5617e2728b50800000000000000
+      internalID: 6593959141262026740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ed58d4b1612d3a80800000000000000
+      internalID: -8485589419366523419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457928a8541499110800000000000000
+      internalID: 1268116537013868372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_10
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 399a2c639687f82e0800000000000000
+      internalID: -2121344506182588013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_11
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc62fefa3b4acd30800000000000000
+      internalID: 4452453898366643378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3071d9f4956abd6e0800000000000000
+      internalID: -1811671522568497405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_13
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 150
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 259ea4f38da1c9f40800000000000000
+      internalID: 5736489541440301394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d1c44aa77f82040b999d023515a646
+      internalID: -7433460349400447983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_15
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30cb8d966983924b808f4d0f3bf7e39
+      internalID: 7239483992428506979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_16
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cccdd18af3ceab44a8f912b6352acade
+      internalID: -6791288219148508091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_17
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10490260402730045bfd0648a32d0edb
+      internalID: -8225938261647088274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_18
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90117ecba6523349abe1ba6d0ce772d
+      internalID: 3413762992034157308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_19
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbcb4c292d8075e4bbd9f4f7c91de92e
+      internalID: -2827928696047036527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_20
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f0a3e955181824e8882a92e9a09c65
+      internalID: -3454820048092455959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_21
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a401f8a32b4ed104d97d401cb6a4f16d
+      internalID: 5544096979112383951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_22
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443879e7f7a7be841a0ff5c186a91c0f
+      internalID: -7173666317302398902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_23
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b3962d081ea47443abf725f6d2076df
+      internalID: -4001388342764169895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_24
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be01583fb2a53744185780deb9bde2c7
+      internalID: 7799842491886063881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_25
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85cff5475a5d38c4499dc2e2f2b636ff
+      internalID: -5295780072938054924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_26
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3fdfbb7aff9b9442986d0232165c3f1
+      internalID: -7975523520367752223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_27
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 100
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b90e5ae38ba6096468e42fdd1e80c751
+      internalID: -5151687412584549181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bf963567645e3b479c77ad462f51657
+      internalID: -6314205308097719520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_29
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee162ce11faaac549b8eb3046cea7cde
+      internalID: 3789194329680264597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_30
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a23791c88f858445805c260803a2522
+      internalID: 8519373704592727797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_31
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d06c4507b4bff7b4e80ae1aeb2403b56
+      internalID: 4126875862543959349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_32
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298e14cb94306214bba9c6af628867a8
+      internalID: -5616576464217402506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_33
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b22cf70e1739eda448660669d7eefb55
+      internalID: -1110013571656685321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_34
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3878b9dc8fd7d4397877ea428967f8
+      internalID: -4561131277711048167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_35
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e68275bb6552d8c438e84203292f43cb
+      internalID: -1785364878645106786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_36
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8918acac6e8ce4c41a35dfcbdce95001
+      internalID: 2627437130451216434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_37
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88eb85527dc53f94e8a6a20a6085d8b9
+      internalID: 6564341910867564769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_38
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057e04dbfcb7ae845af540431242b353
+      internalID: -8969305547638548911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_39
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a260fd1f91353ed4b806e5a04247bee1
+      internalID: 4467511713354805757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_40
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94144af1aac835449b46ee3c401fe679
+      internalID: 1400466150525255383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_41
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 50
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f5edbeb02c270444b076c22847c2162
+      internalID: -6174194329679764595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11b7391357c3664b82e06bd1e4bd203
+      internalID: -2900427168922007953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_43
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbbd98171594b744b82472aee0347c5
+      internalID: 2476551320128797566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_44
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98344bb176cc85f46a9edb0b02d3f95e
+      internalID: 168960457575560262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_45
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482a87d8251b2dd4086680b7c80e7336
+      internalID: -5050097141839192646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_46
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f99f45bb57b544db9869e67bbd7a99
+      internalID: 404045207879755035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_47
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c527af3c043ee8b46914cce52b9b2a79
+      internalID: -4040355412145751204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_48
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42fc85140f58ede46972ac4cc0657ffe
+      internalID: 803680567243259691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_49
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3566be54a9b00441a04cb46519fc5c5
+      internalID: -5810644586049964529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_50
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d135e21aeca4fcb4ab4a8cbbd555257c
+      internalID: 7857730104431249612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_51
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c88022d752c0444bce37ccf1eda0a2
+      internalID: -4842686111903190050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_52
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7130dcd828491a44b9f57f875307905c
+      internalID: -2859985913153292936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_53
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12e18ac00d4d94438cc003bedbc97ab
+      internalID: -4782157083809539466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_54
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476b27c43a4ceba4abce7a07aa4a27c2
+      internalID: -7206698323897760359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eric Attack Strong_55
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 0
+        width: 50
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a35177404cdaec4eb3b2cdd67ee8017
+      internalID: 8750696776876285073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b621728eb4932f64f974bf8e9b0924f5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":50.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Eric Attack Strong_0: 8872187007673143649
+      Eric Attack Strong_1: 4717994020031450398
+      Eric Attack Strong_10: -2121344506182588013
+      Eric Attack Strong_11: 4452453898366643378
+      Eric Attack Strong_12: -1811671522568497405
+      Eric Attack Strong_13: 5736489541440301394
+      Eric Attack Strong_14: -7433460349400447983
+      Eric Attack Strong_15: 7239483992428506979
+      Eric Attack Strong_16: -6791288219148508091
+      Eric Attack Strong_17: -8225938261647088274
+      Eric Attack Strong_18: 3413762992034157308
+      Eric Attack Strong_19: -2827928696047036527
+      Eric Attack Strong_2: 4391397536857699253
+      Eric Attack Strong_20: -3454820048092455959
+      Eric Attack Strong_21: 5544096979112383951
+      Eric Attack Strong_22: -7173666317302398902
+      Eric Attack Strong_23: -4001388342764169895
+      Eric Attack Strong_24: 7799842491886063881
+      Eric Attack Strong_25: -5295780072938054924
+      Eric Attack Strong_26: -7975523520367752223
+      Eric Attack Strong_27: -5151687412584549181
+      Eric Attack Strong_28: -6314205308097719520
+      Eric Attack Strong_29: 3789194329680264597
+      Eric Attack Strong_3: -2069956361799635937
+      Eric Attack Strong_30: 8519373704592727797
+      Eric Attack Strong_31: 4126875862543959349
+      Eric Attack Strong_32: -5616576464217402506
+      Eric Attack Strong_33: -1110013571656685321
+      Eric Attack Strong_34: -4561131277711048167
+      Eric Attack Strong_35: -1785364878645106786
+      Eric Attack Strong_36: 2627437130451216434
+      Eric Attack Strong_37: 6564341910867564769
+      Eric Attack Strong_38: -8969305547638548911
+      Eric Attack Strong_39: 4467511713354805757
+      Eric Attack Strong_4: 5248951157676746634
+      Eric Attack Strong_40: 1400466150525255383
+      Eric Attack Strong_41: -6174194329679764595
+      Eric Attack Strong_42: -2900427168922007953
+      Eric Attack Strong_43: 2476551320128797566
+      Eric Attack Strong_44: 168960457575560262
+      Eric Attack Strong_45: -5050097141839192646
+      Eric Attack Strong_46: 404045207879755035
+      Eric Attack Strong_47: -4040355412145751204
+      Eric Attack Strong_48: 803680567243259691
+      Eric Attack Strong_49: -5810644586049964529
+      Eric Attack Strong_5: -2657150782497534156
+      Eric Attack Strong_50: 7857730104431249612
+      Eric Attack Strong_51: -4842686111903190050
+      Eric Attack Strong_52: -2859985913153292936
+      Eric Attack Strong_53: -4782157083809539466
+      Eric Attack Strong_54: -7206698323897760359
+      Eric Attack Strong_55: 8750696776876285073
+      Eric Attack Strong_6: 2103139998142966298
+      Eric Attack Strong_7: 6593959141262026740
+      Eric Attack Strong_8: -8485589419366523419
+      Eric Attack Strong_9: 1268116537013868372
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
