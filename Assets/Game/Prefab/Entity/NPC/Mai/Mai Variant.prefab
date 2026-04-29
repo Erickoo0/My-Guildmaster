@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8599917643118256384
+--- !u!1001 &5865850803299567248
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,35 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_Name
-      value: Green Orc Variant
+      value: Mai Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
-      value: Green Orc
+      value: Mai
       objectReference: {fileID: 0}
     - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
-      propertyPath: dialogueStartNode
+      propertyPath: dialoguePortrait
       value: 
-      objectReference: {fileID: 11400000, guid: faf66a9cb53daf145841f2e696d49009, type: 2}
-    - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
-      propertyPath: 'dialogueLines.Array.data[0]'
-      value: Hi, my name is Green Orc.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
-      propertyPath: 'dialogueLines.Array.data[1]'
-      value: I may be ugly, but your even uglier!
-      objectReference: {fileID: 0}
-    - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
-      propertyPath: 'dialogueLines.Array.data[2]'
-      value: Haha, just kidding. Your alright I suppose.
+      objectReference: {fileID: 4723107735738678597, guid: b6e95c8ab9bc1aa43b9015542050a92c, type: 3}
+    - target: {fileID: 5775654112022256840, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_labelHash
+      value: 1.3971405e-28
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.02051
+      value: 2.72
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.54417
+      value: -4.29
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.z
