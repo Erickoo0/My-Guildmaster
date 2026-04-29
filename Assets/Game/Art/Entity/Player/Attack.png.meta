@@ -1,79 +1,115 @@
 fileFormatVersion: 2
-guid: cd3f6722f2e4e974d820a57fd4e18de5
+guid: 578d6baaff5755044bf26659c2a47cb1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3316532285543594284
-    second: Eric Run_0
+      213: -7008412969330441016
+    second: Attack_0
   - first:
-      213: 914472591324437628
-    second: Eric Run_1
+      213: -7763475090823894447
+    second: Attack_1
   - first:
-      213: 2982952131959262452
-    second: Eric Run_2
+      213: 302641331129538988
+    second: Attack_2
   - first:
-      213: 2067184786689773404
-    second: Eric Run_3
+      213: -6329420634031446844
+    second: Attack_3
   - first:
-      213: -38190334891779191
-    second: Eric Run_4
+      213: -910092549403018386
+    second: Attack_4
   - first:
-      213: -4700861314238668061
-    second: Eric Run_5
+      213: 221524225039350300
+    second: Attack_5
   - first:
-      213: -4972706082331507548
-    second: Eric Run_6
+      213: 1290532464073988732
+    second: Attack_6
   - first:
-      213: 1214890106097549274
-    second: Eric Run_7
+      213: 4780903288873104255
+    second: Attack_7
   - first:
-      213: 8381510654243088577
-    second: Eric Run_8
+      213: -2238382357930459393
+    second: Attack_8
   - first:
-      213: 4241509140054609467
-    second: Eric Run_9
+      213: -297473348006037033
+    second: Attack_9
   - first:
-      213: -3487185816700126178
-    second: Eric Run_10
+      213: -4098942091326826159
+    second: Attack_10
   - first:
-      213: -7940334519874942676
-    second: Eric Run_11
+      213: -9192815492500660022
+    second: Attack_11
   - first:
-      213: -2147196404211889501
-    second: Eric Run_12
+      213: -8528791842903838742
+    second: Attack_12
   - first:
-      213: -2316821339629344602
-    second: Eric Run_13
+      213: 5714683192730101994
+    second: Attack_13
   - first:
-      213: -5818881114308170139
-    second: Eric Run_14
+      213: 967789818437793053
+    second: Attack_14
   - first:
-      213: 6975397856639933566
-    second: Eric Run_15
+      213: -1764178081267469583
+    second: Attack_15
   - first:
-      213: 4683579598089681711
-    second: Eric Run_16
+      213: 3677593348458361963
+    second: Attack_16
   - first:
-      213: 1761465983881848104
-    second: Eric Run_17
+      213: 460462634867118153
+    second: Attack_17
   - first:
-      213: 3247946124957619688
-    second: Eric Run_18
+      213: -8097450822796382144
+    second: Attack_18
   - first:
-      213: 3457817204779812342
-    second: Eric Run_19
+      213: -7916165071839859959
+    second: Attack_19
   - first:
-      213: -7103000860711506301
-    second: Eric Run_20
+      213: 5323006567862791825
+    second: Attack_20
   - first:
-      213: 2126474399269320803
-    second: Eric Run_21
+      213: 4874547320261154453
+    second: Attack_21
   - first:
-      213: 3373030527974864899
-    second: Eric Run_22
+      213: -2135509771054715489
+    second: Attack_22
   - first:
-      213: -1504766188673362545
-    second: Eric Run_23
+      213: 5289050447128901616
+    second: Attack_23
+  - first:
+      213: -3257436178398632492
+    second: Attack_24
+  - first:
+      213: -7886763478996549932
+    second: Attack_25
+  - first:
+      213: 2157678649479473423
+    second: Attack_26
+  - first:
+      213: 4162410773825762160
+    second: Attack_27
+  - first:
+      213: 4809169048258422260
+    second: Attack_28
+  - first:
+      213: -919084922697612701
+    second: Attack_29
+  - first:
+      213: -2616172178391473155
+    second: Attack_30
+  - first:
+      213: 8747086813065474719
+    second: Attack_31
+  - first:
+      213: 2183943628247396092
+    second: Attack_32
+  - first:
+      213: 1925261899672838293
+    second: Attack_33
+  - first:
+      213: 6955429728755063387
+    second: Attack_34
+  - first:
+      213: -3792639051465132705
+    second: Attack_35
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -169,7 +205,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eric Run_0
+      name: Attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -184,14 +220,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c29b0fdba80b60e20800000000000000
-      internalID: 3316532285543594284
+      spriteID: 8c481db598d1dbe90800000000000000
+      internalID: -7008412969330441016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_1
+      name: Attack_1
       rect:
         serializedVersion: 2
         x: 32
@@ -206,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7c59ba0afbd0bc00800000000000000
-      internalID: 914472591324437628
+      spriteID: 15a29dc9988924490800000000000000
+      internalID: -7763475090823894447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_2
+      name: Attack_2
       rect:
         serializedVersion: 2
         x: 64
@@ -228,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4fc0d6fd823956920800000000000000
-      internalID: 2982952131959262452
+      spriteID: ca9d35cefa2333400800000000000000
+      internalID: 302641331129538988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_3
+      name: Attack_3
       rect:
         serializedVersion: 2
         x: 96
@@ -250,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5f4cbf6c9d10bc10800000000000000
-      internalID: 2067184786689773404
+      spriteID: 4c42782d7716928a0800000000000000
+      internalID: -6329420634031446844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_4
+      name: Attack_4
       rect:
         serializedVersion: 2
         x: 128
@@ -272,14 +308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98b1ceeb712587ff0800000000000000
-      internalID: -38190334891779191
+      spriteID: e6b7a10f5a3be53f0800000000000000
+      internalID: -910092549403018386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_5
+      name: Attack_5
       rect:
         serializedVersion: 2
         x: 160
@@ -294,14 +330,80 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e2ad6a7a8f23ceb0800000000000000
-      internalID: -4700861314238668061
+      spriteID: c1a3d96eb13031300800000000000000
+      internalID: 221524225039350300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_6
+      name: Attack_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a5d344074e8e110800000000000000
+      internalID: 1290532464073988732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7337cef53e295240800000000000000
+      internalID: 4780903288873104255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffebd0cda1bafe0e0800000000000000
+      internalID: -2238382357930459393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_9
       rect:
         serializedVersion: 2
         x: 0
@@ -316,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a4c4362a266dfab0800000000000000
-      internalID: -4972706082331507548
+      spriteID: 7d934f9e0992fdbf0800000000000000
+      internalID: -297473348006037033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_7
+      name: Attack_10
       rect:
         serializedVersion: 2
         x: 32
@@ -338,14 +440,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: adfb41f5d182cd010800000000000000
-      internalID: 1214890106097549274
+      spriteID: 159519392e1ad17c0800000000000000
+      internalID: -4098942091326826159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_8
+      name: Attack_11
       rect:
         serializedVersion: 2
         x: 64
@@ -360,14 +462,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c8af4b688b115470800000000000000
-      internalID: 8381510654243088577
+      spriteID: ac06ac3e30f8c6080800000000000000
+      internalID: -9192815492500660022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_9
+      name: Attack_12
       rect:
         serializedVersion: 2
         x: 96
@@ -382,14 +484,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3e0784271edcda30800000000000000
-      internalID: 4241509140054609467
+      spriteID: aefa770a105a3a980800000000000000
+      internalID: -8528791842903838742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_10
+      name: Attack_13
       rect:
         serializedVersion: 2
         x: 128
@@ -404,14 +506,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1cfec1c9f60b9fc0800000000000000
-      internalID: -3487185816700126178
+      spriteID: ae8a29a0612ae4f40800000000000000
+      internalID: 5714683192730101994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_11
+      name: Attack_14
       rect:
         serializedVersion: 2
         x: 160
@@ -426,14 +528,80 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c290519e2d34ec190800000000000000
-      internalID: -7940334519874942676
+      spriteID: d15793956b74e6d00800000000000000
+      internalID: 967789818437793053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_12
+      name: Attack_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f2b581d1616487e0800000000000000
+      internalID: -1764178081267469583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_16
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64333b6aaf690330800000000000000
+      internalID: 3677593348458361963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9405897a354e36600800000000000000
+      internalID: 460462634867118153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_18
       rect:
         serializedVersion: 2
         x: 0
@@ -448,14 +616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3aa44f72f30a332e0800000000000000
-      internalID: -2147196404211889501
+      spriteID: 040f609f06310af80800000000000000
+      internalID: -8097450822796382144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_13
+      name: Attack_19
       rect:
         serializedVersion: 2
         x: 32
@@ -470,14 +638,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a82953444ff8dfd0800000000000000
-      internalID: -2316821339629344602
+      spriteID: 90b61ad0fc1242290800000000000000
+      internalID: -7916165071839859959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_14
+      name: Attack_20
       rect:
         serializedVersion: 2
         x: 64
@@ -492,14 +660,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56eae6fc47e2f3fa0800000000000000
-      internalID: -5818881114308170139
+      spriteID: 19e688e554e1fd940800000000000000
+      internalID: 5323006567862791825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_15
+      name: Attack_21
       rect:
         serializedVersion: 2
         x: 96
@@ -514,14 +682,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e7c5b04b4679dc060800000000000000
-      internalID: 6975397856639933566
+      spriteID: 5969ff816fed5a340800000000000000
+      internalID: 4874547320261154453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_16
+      name: Attack_22
       rect:
         serializedVersion: 2
         x: 128
@@ -536,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2bf66d64da6ff040800000000000000
-      internalID: 4683579598089681711
+      spriteID: f9d68e97d252d52e0800000000000000
+      internalID: -2135509771054715489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_17
+      name: Attack_23
       rect:
         serializedVersion: 2
         x: 160
@@ -558,14 +726,80 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 825263dcafbf17810800000000000000
-      internalID: 1761465983881848104
+      spriteID: 0f73d3ceb5b766940800000000000000
+      internalID: 5289050447128901616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_18
+      name: Attack_24
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d52b0ced034bc2d0800000000000000
+      internalID: -3257436178398632492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_25
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4def2e6d6669c8290800000000000000
+      internalID: -7886763478996549932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f092ba1cc4d91fd10800000000000000
+      internalID: 2157678649479473423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_27
       rect:
         serializedVersion: 2
         x: 0
@@ -580,14 +814,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e594b3dac5031d20800000000000000
-      internalID: 3247946124957619688
+      spriteID: 073b42f9b8ad3c930800000000000000
+      internalID: 4162410773825762160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_19
+      name: Attack_28
       rect:
         serializedVersion: 2
         x: 32
@@ -602,14 +836,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f5822d6d62acff20800000000000000
-      internalID: 3457817204779812342
+      spriteID: 4f52f32f4c99db240800000000000000
+      internalID: 4809169048258422260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_20
+      name: Attack_29
       rect:
         serializedVersion: 2
         x: 64
@@ -624,14 +858,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38e2ff9b9521d6d90800000000000000
-      internalID: -7103000860711506301
+      spriteID: 3620130e121ce33f0800000000000000
+      internalID: -919084922697612701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_21
+      name: Attack_30
       rect:
         serializedVersion: 2
         x: 96
@@ -646,14 +880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 368f8681331c28d10800000000000000
-      internalID: 2126474399269320803
+      spriteID: df367bbc34d71bbd0800000000000000
+      internalID: -2616172178391473155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_22
+      name: Attack_31
       rect:
         serializedVersion: 2
         x: 128
@@ -668,14 +902,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3087d74e4696fce20800000000000000
-      internalID: 3373030527974864899
+      spriteID: f927548cc15e36970800000000000000
+      internalID: 8747086813065474719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Run_23
+      name: Attack_32
       rect:
         serializedVersion: 2
         x: 160
@@ -690,8 +924,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f851b1ebf1ffd1be0800000000000000
-      internalID: -1504766188673362545
+      spriteID: cfee92ba82dee4e10800000000000000
+      internalID: 2183943628247396092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 590e79d4f77e7ba10800000000000000
+      internalID: 1925261899672838293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_34
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5a13a2ac76a68060800000000000000
+      internalID: 6955429728755063387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_35
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55752080e6dd5bc0800000000000000
+      internalID: -3792639051465132705
       vertices: []
       indices: 
       edges: []
@@ -700,7 +1000,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 73fdcf303755e724ea46a5b1a003e091
+    spriteID: 54e8791c9e30e4f48a717257f39b4555
     internalID: 0
     vertices: []
     indices: 
@@ -712,30 +1012,42 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Eric Run_0: 3316532285543594284
-      Eric Run_1: 914472591324437628
-      Eric Run_10: -3487185816700126178
-      Eric Run_11: -7940334519874942676
-      Eric Run_12: -2147196404211889501
-      Eric Run_13: -2316821339629344602
-      Eric Run_14: -5818881114308170139
-      Eric Run_15: 6975397856639933566
-      Eric Run_16: 4683579598089681711
-      Eric Run_17: 1761465983881848104
-      Eric Run_18: 3247946124957619688
-      Eric Run_19: 3457817204779812342
-      Eric Run_2: 2982952131959262452
-      Eric Run_20: -7103000860711506301
-      Eric Run_21: 2126474399269320803
-      Eric Run_22: 3373030527974864899
-      Eric Run_23: -1504766188673362545
-      Eric Run_3: 2067184786689773404
-      Eric Run_4: -38190334891779191
-      Eric Run_5: -4700861314238668061
-      Eric Run_6: -4972706082331507548
-      Eric Run_7: 1214890106097549274
-      Eric Run_8: 8381510654243088577
-      Eric Run_9: 4241509140054609467
+      Attack_0: -7008412969330441016
+      Attack_1: -7763475090823894447
+      Attack_10: -4098942091326826159
+      Attack_11: -9192815492500660022
+      Attack_12: -8528791842903838742
+      Attack_13: 5714683192730101994
+      Attack_14: 967789818437793053
+      Attack_15: -1764178081267469583
+      Attack_16: 3677593348458361963
+      Attack_17: 460462634867118153
+      Attack_18: -8097450822796382144
+      Attack_19: -7916165071839859959
+      Attack_2: 302641331129538988
+      Attack_20: 5323006567862791825
+      Attack_21: 4874547320261154453
+      Attack_22: -2135509771054715489
+      Attack_23: 5289050447128901616
+      Attack_24: -3257436178398632492
+      Attack_25: -7886763478996549932
+      Attack_26: 2157678649479473423
+      Attack_27: 4162410773825762160
+      Attack_28: 4809169048258422260
+      Attack_29: -919084922697612701
+      Attack_3: -6329420634031446844
+      Attack_30: -2616172178391473155
+      Attack_31: 8747086813065474719
+      Attack_32: 2183943628247396092
+      Attack_33: 1925261899672838293
+      Attack_34: 6955429728755063387
+      Attack_35: -3792639051465132705
+      Attack_4: -910092549403018386
+      Attack_5: 221524225039350300
+      Attack_6: 1290532464073988732
+      Attack_7: 4780903288873104255
+      Attack_8: -2238382357930459393
+      Attack_9: -297473348006037033
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

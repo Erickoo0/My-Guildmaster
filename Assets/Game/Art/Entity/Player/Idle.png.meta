@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: b74fdf224fc1cfc47b86af072b76d273
+guid: fd55e1988702c7149b6f005dcd006143
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7624568416128722216
-    second: Eric Idle_0
+      213: 4723107735738678597
+    second: Idle_0
   - first:
-      213: -813685497834958878
-    second: Eric Idle_1
+      213: -7385789195546760866
+    second: Idle_1
   - first:
-      213: 8050190779450683899
-    second: Eric Idle_2
+      213: 3234629978573100161
+    second: Idle_2
   - first:
-      213: -2456242121695432791
-    second: Eric Idle_3
+      213: 6373048116405451881
+    second: Idle_3
   - first:
-      213: 7493316015516511575
-    second: Eric Idle_4
+      213: 7264182050183361747
+    second: Idle_4
   - first:
-      213: -4541010199224759253
-    second: Eric Idle_5
+      213: -2834552850196481573
+    second: Idle_5
   - first:
-      213: 752799529225516793
-    second: Eric Idle_6
+      213: 3278449094680734212
+    second: Idle_6
   - first:
-      213: 4992695015456525581
-    second: Eric Idle_7
+      213: 3384493420599841878
+    second: Idle_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eric Idle_0
+      name: Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -136,14 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8da1cf61c67103690800000000000000
-      internalID: -7624568416128722216
+      spriteID: 54d7a982679db8140800000000000000
+      internalID: 4723107735738678597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Idle_1
+      name: Idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ef09aec95535b4f0800000000000000
-      internalID: -813685497834958878
+      spriteID: e596485bbd7608990800000000000000
+      internalID: -7385789195546760866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Idle_2
+      name: Idle_2
       rect:
         serializedVersion: 2
         x: 0
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf17847bcd508bf60800000000000000
-      internalID: 8050190779450683899
+      spriteID: 184dda4e3d6b3ec20800000000000000
+      internalID: 3234629978573100161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Idle_3
+      name: Idle_3
       rect:
         serializedVersion: 2
         x: 32
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9afedf5ddcca9edd0800000000000000
-      internalID: -2456242121695432791
+      spriteID: 96cb1dafe7d917850800000000000000
+      internalID: 6373048116405451881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Idle_4
+      name: Idle_4
       rect:
         serializedVersion: 2
         x: 0
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 75d6b9ef63b9df760800000000000000
-      internalID: 7493316015516511575
+      spriteID: 3d4b2fc561f8fc460800000000000000
+      internalID: 7264182050183361747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Idle_5
+      name: Idle_5
       rect:
         serializedVersion: 2
         x: 32
@@ -246,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2c48c978471bf0c0800000000000000
-      internalID: -4541010199224759253
+      spriteID: bd9b7fa6335a9a8d0800000000000000
+      internalID: -2834552850196481573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Idle_6
+      name: Idle_6
       rect:
         serializedVersion: 2
         x: 0
@@ -268,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f6719eee2b727a00800000000000000
-      internalID: 752799529225516793
+      spriteID: 40a65a6e4146f7d20800000000000000
+      internalID: 3278449094680734212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Eric Idle_7
+      name: Idle_7
       rect:
         serializedVersion: 2
         x: 32
@@ -290,8 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0d46240aad994540800000000000000
-      internalID: 4992695015456525581
+      spriteID: 654108f85d228fe20800000000000000
+      internalID: 3384493420599841878
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1a0d7489c3a258848b6015fdca5b7333
+    spriteID: 96863eb8d25deb54090e52ca67a6e74f
     internalID: 0
     vertices: []
     indices: 
@@ -312,14 +312,14 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Eric Idle_0: -7624568416128722216
-      Eric Idle_1: -813685497834958878
-      Eric Idle_2: 8050190779450683899
-      Eric Idle_3: -2456242121695432791
-      Eric Idle_4: 7493316015516511575
-      Eric Idle_5: -4541010199224759253
-      Eric Idle_6: 752799529225516793
-      Eric Idle_7: 4992695015456525581
+      Idle_0: 4723107735738678597
+      Idle_1: -7385789195546760866
+      Idle_2: 3234629978573100161
+      Idle_3: 6373048116405451881
+      Idle_4: 7264182050183361747
+      Idle_5: -2834552850196481573
+      Idle_6: 3278449094680734212
+      Idle_7: 3384493420599841878
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

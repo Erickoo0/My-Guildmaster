@@ -126,12 +126,12 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7624568416128722216, guid: b74fdf224fc1cfc47b86af072b76d273, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: b6e95c8ab9bc1aa43b9015542050a92c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -201,8 +201,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0625, y: 1.8125}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 1.6875}
+    newSize: {x: 1, y: 1.6875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrary
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: db4ad55348da7444ca69a8eedd2ade99, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 7b5759c91b626a6429acd0723c88dc53, type: 3}
 --- !u!114 &5775654112022256840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_CategoryHash: 0.009161512
   m_labelHash: 1.3971405e-28
   m_SpriteKey: 0
-  m_SpriteHash: 950981272
+  m_SpriteHash: 163368403
 --- !u!114 &7485716094007412697
 MonoBehaviour:
   m_ObjectHideFlags: 0
