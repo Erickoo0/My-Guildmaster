@@ -49,6 +49,7 @@ MonoBehaviour:
   targetDestinationTeleporter: {fileID: 0}
   targetDestinationTag: Town
   teleportCooldown: 2
+  faceDirection: 0
 --- !u!212 &2970126344644673746
 SpriteRenderer:
   serializedVersion: 2
@@ -99,7 +100,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2913089383398367032, guid: 6e08e06ba14fdf648919d2425bee5efd, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.7294118}
+  m_Color: {r: 1, g: 0.34509805, b: 0.043137256, a: 0.2784314}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
