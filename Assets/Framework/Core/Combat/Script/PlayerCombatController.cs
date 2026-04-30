@@ -42,10 +42,22 @@ public class PlayerCombatController : MonoBehaviour
         // Check the library for mouse attack data
         if (GetAttackData<MouseAttackData>() == null) return;
         
+        // Calculate the distance between the camera and the world plane (Z=0)
+        // If camera is at -11, this becomes 11.
+        float distanceToPlane = Mathf.Abs(_mainCam.transform.position.z);
+        
+        // Create the projection vector using that distance
+        Vector3 mouseInput = new Vector3(_rawMousePosition.x, _rawMousePosition.y, distanceToPlane);
+        
+        // Convert to world space
+        Vector3 worldMousePos = _mainCam.ScreenToWorldPoint(mouseInput);
+        
+        worldMousePos.z = 0f;
+        
         // Gather the context 
         CombatContext combatContext = CombatContext;
         combatContext.source = gameObject;
-        combatContext.mousePosition = _mainCam.ScreenToWorldPoint(_rawMousePosition);
+        combatContext.mousePosition = worldMousePos;
         combatContext.userPosition = transform.position;
         combatContext.facingDirection = transform.right;
         CombatContext = combatContext;
