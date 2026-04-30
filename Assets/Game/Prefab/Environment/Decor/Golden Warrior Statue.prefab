@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4508587952483685653}
   - component: {fileID: 7609310739346850127}
   - component: {fileID: 554427051988523113}
+  - component: {fileID: -2234775251044698694}
   m_Layer: 0
   m_Name: Golden Warrior Statue
   m_TagString: Untagged
@@ -139,6 +140,64 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.2368765, y: 0.84055233}
   m_EdgeRadius: 0
+--- !u!114 &-2234775251044698694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304775972138604063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 000000000518e9550b7b370f1576083363f91387291cb7f4552b234e
+  m_ShapePath:
+  - {x: -0.68895435, y: 0.011445999, z: 0}
+  - {x: -0.6867385, y: 1.0125532, z: 0}
+  - {x: -0.46823072, y: 1.2102518, z: 0}
+  - {x: -0.46823072, y: 1.6888876, z: 0}
+  - {x: -1.1237535, y: 2.0010414, z: 0}
+  - {x: -1.1653738, y: 2.2091436, z: 0}
+  - {x: -0.52025604, y: 2.2819796, z: 0}
+  - {x: -0.3039646, y: 3.0229588, z: 0}
+  - {x: 0.56409264, y: 3.0437698, z: 0}
+  - {x: 0.68895435, y: -0.030174255, z: 0}
+  m_ShapePathHash: -1623653931
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: -0.23820972, y: 1.5067978, z: 0}
+      m_Extent: {x: 0.9271641, y: 1.536972, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.2
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.2
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 7609310739346850127}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &8865141851594749533
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 8865141851594749533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 2.71, z: 0}
+  m_LocalPosition: {x: -1.08, y: 2.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
