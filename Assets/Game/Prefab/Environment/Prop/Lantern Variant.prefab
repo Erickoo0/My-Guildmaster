@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4873388758682456808, guid: 2d13c0603aee7b045a4767dd8a6b4d6c, type: 3}
       propertyPath: m_Color.b
-      value: 0.05882353
+      value: 0.090196095
       objectReference: {fileID: 0}
     - target: {fileID: 4873388758682456808, guid: 2d13c0603aee7b045a4767dd8a6b4d6c, type: 3}
       propertyPath: m_Color.g
-      value: 0.48810998
+      value: 0.33574468
       objectReference: {fileID: 0}
     - target: {fileID: 4873388758682456808, guid: 2d13c0603aee7b045a4767dd8a6b4d6c, type: 3}
       propertyPath: m_Color.r
-      value: 0.74509805
+      value: 0.9254902
       objectReference: {fileID: 0}
     - target: {fileID: 4873388758682456808, guid: 2d13c0603aee7b045a4767dd8a6b4d6c, type: 3}
       propertyPath: m_Enabled
@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4873388758682456808, guid: 2d13c0603aee7b045a4767dd8a6b4d6c, type: 3}
       propertyPath: m_Intensity
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4873388758682456808, guid: 2d13c0603aee7b045a4767dd8a6b4d6c, type: 3}
       propertyPath: m_FalloffIntensity
