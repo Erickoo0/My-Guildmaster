@@ -5701,6 +5701,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree1
       objectReference: {fileID: 0}
+    - target: {fileID: 5812627671166687094, guid: dcaf5c3e28a6ba442b62aa7c8225ca29, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812627671166687094, guid: dcaf5c3e28a6ba442b62aa7c8225ca29, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5894318356717075096, guid: dcaf5c3e28a6ba442b62aa7c8225ca29, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -5751,7 +5759,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5894318356717075096, guid: dcaf5c3e28a6ba442b62aa7c8225ca29, type: 3}
   m_PrefabInstance: {fileID: 1569800441391124178}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &977530749741853967
+--- !u!114 &3953341734722952541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
