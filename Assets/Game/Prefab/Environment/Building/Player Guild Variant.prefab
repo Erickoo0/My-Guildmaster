@@ -13,6 +13,14 @@ PrefabInstance:
       value: Player Guild Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5282647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.025502004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 4.5625
       objectReference: {fileID: 0}
@@ -64,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -6871032511782127585, guid: 31033ed680e82294580ac25d84c30653, type: 3}
+    - target: {fileID: 7075265867487723541, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075265867487723541, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

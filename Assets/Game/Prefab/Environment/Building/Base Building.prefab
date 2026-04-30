@@ -92,7 +92,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &4486911655114145573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_Offset: {x: -0.06990433, y: -1.0905066}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.48509258, y: 0.11105183}
     oldSize: {x: 7, y: 8}
     newSize: {x: 7, y: 8}
     adaptiveTilingThreshold: 0.5
@@ -157,11 +157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2161512220252752642, guid: 2f010840ab4157f4eabcd0f9ab2cc7db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7088
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 2161512220252752642, guid: 2f010840ab4157f4eabcd0f9ab2cc7db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1986
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2161512220252752642, guid: 2f010840ab4157f4eabcd0f9ab2cc7db, type: 3}
       propertyPath: m_LocalPosition.z

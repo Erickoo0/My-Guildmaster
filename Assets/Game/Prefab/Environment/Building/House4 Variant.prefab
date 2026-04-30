@@ -13,6 +13,14 @@ PrefabInstance:
       value: House4 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.48812115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.11342347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 7.1875
       objectReference: {fileID: 0}
@@ -70,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7075265867487723541, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.67
+      value: 0.69
       objectReference: {fileID: 0}
     - target: {fileID: 7075265867487723541, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1205
+      value: -0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
