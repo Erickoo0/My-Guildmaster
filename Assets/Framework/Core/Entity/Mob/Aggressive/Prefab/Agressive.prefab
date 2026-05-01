@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: -1747576445313389302}
   - component: {fileID: 3685750868421853756}
   - component: {fileID: 7784520383436025491}
+  - component: {fileID: 2427207226992605419}
   m_Layer: 3
   m_Name: Agressive
   m_TagString: Untagged
@@ -221,12 +222,12 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7624568416128722216, guid: b74fdf224fc1cfc47b86af072b76d273, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: fd55e1988702c7149b6f005dcd006143, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -295,9 +296,9 @@ BoxCollider2D:
   m_Offset: {x: -0.000000029802322, y: 0.24055314}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0625, y: 1.8125}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.07310557}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -368,7 +369,7 @@ MonoBehaviour:
   m_CategoryHash: 1.8625731e-11
   m_labelHash: 1.1909236e-32
   m_SpriteKey: 0
-  m_SpriteHash: 950981272
+  m_SpriteHash: 163368403
 --- !u!114 &6990653571150878097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3891c3e5f98f4d639b32e782089d8fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityController
-  entityID: 
+  entityID: Aggressive_Mob
+  <WanderRadius>k__BackingField: 15
   attackLibrary:
   - {fileID: 11400000, guid: 6ecc94032b379694fb61fee6c1844c77, type: 2}
   <mobType>k__BackingField: 2
@@ -484,10 +486,6 @@ MonoBehaviour:
   - Player
   currentTarget: {fileID: 0}
   <ActionCooldown>k__BackingField: 2
-  <DefaultWaypointWaitTime>k__BackingField: 2
-  <LoopWaypoints>k__BackingField: 1
-  waypointsList: []
-  currentWaypointIndex: 0
   IdleState:
     rid: 7572515169101152256
   WanderState:
@@ -583,6 +581,28 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &2427207226992605419
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2
+  m_Speed: 15
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 2
 --- !u!1 &8755887523427810583
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
 public class EntityController : BaseEntityController
 {
+    [Header("Movement Settings")]
+    public NavMeshAgent NavMeshAgent { get; private set; }
+    [field: SerializeField] public float WanderRadius { get; private set; } = 5f;
+    public Vector2 SpawnPosition { get; private set; }
+    
     [Header("Attack Library")]
     [SerializeField] private List<AttackData> attackLibrary;
     
@@ -19,14 +25,6 @@ public class EntityController : BaseEntityController
     [Header("Action Settings")] 
     [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
     private float _lastActionTime;
-
-    
-    [Header("Movement Data")]
-    [field: SerializeField] public float DefaultWaypointWaitTime { get; private set; } = 2f;
-    [field: SerializeField] public bool LoopWaypoints { get; private set; } = true;
-    private Transform _waypointParent;
-    public Vector2[] waypointsList;
-    public int currentWaypointIndex = 0;
     
     [Header("State References")]
     [SerializeReference, SubclassSelector] public BaseIdleState IdleState;
@@ -38,12 +36,18 @@ public class EntityController : BaseEntityController
     {
         base.Awake();
         
+        // Set up the NavMesh Agent
+        NavMeshAgent = GetComponent<NavMeshAgent>();
+        NavMeshAgent.updateRotation = false;
+        NavMeshAgent.updateUpAxis = false;
+        NavMeshAgent.updatePosition = false;
+        
         IdleState?.Setup(this, StateMachine);
         WanderState?.Setup(this, StateMachine);
         ChaseState?.Setup(this, StateMachine);
         AttackState?.Setup(this, StateMachine);
         
-        SetupWaypointsList();
+        SpawnPosition = transform.position;
     }
 
     protected virtual void Start()
@@ -55,7 +59,7 @@ public class EntityController : BaseEntityController
     protected override void Update()
     {
         base.Update();
-
+        NavMeshAgent.nextPosition = transform.position;
         UpdateTargeting();
         //Debug.Log($"Current State: {StateMachine.CurrentState}");
     }
@@ -121,52 +125,6 @@ public class EntityController : BaseEntityController
         if (currentTarget == null) return false;
         else return Vector2.Distance(transform.position, currentTarget.transform.position) <= range;
     }
-    
-    
-    //---- Waypoint Methods ----
-    private void SetupWaypointsList()
-    {
-        // Find the childed "Waypoint Parent" object
-        if (_waypointParent == null) _waypointParent = transform.Find("Waypoint Parent");
-        
-        // If there is no childed Waypoint Parent, return
-        if (_waypointParent == null) return;
-        
-        // Get the childed objects of "Waypoint Parent" and save their positions in a list
-        waypointsList = new Vector2[_waypointParent.childCount];
-        for (int i = 0; i < _waypointParent.childCount; i++) 
-        {
-            waypointsList[i] = _waypointParent.GetChild(i).position;
-        }
-
-    }
-    
-    public Vector2 GetCurrentWaypointPosition()
-    {
-        // If no waypoints, stand still
-        if (waypointsList == null || waypointsList.Length <= 0)
-        {
-            Debug.Log("No waypoint List found");
-            return transform.position;
-        }
-        // Return waypoint position
-        return waypointsList[currentWaypointIndex];
-    }
-
-    public void AdvanceToNextWaypoint()
-    {
-        // Safety check
-        if (waypointsList == null || waypointsList.Length <= 0)
-        {
-            Debug.Log("No waypoint List found");
-            return;
-        }
-        
-        // Advance the waypoint
-        if (LoopWaypoints) currentWaypointIndex = (currentWaypointIndex + 1) % waypointsList.Length;
-        else if (currentWaypointIndex < waypointsList.Length - 1) currentWaypointIndex++;
-    } 
-    
     
     //---- Action Methods -----
     public bool CheckActionCooldown() 

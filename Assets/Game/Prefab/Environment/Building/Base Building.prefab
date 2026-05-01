@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6893436922188022894}
   - component: {fileID: 4486911655114145573}
   - component: {fileID: 1302900630753478804}
+  - component: {fileID: 8045675689434746215}
   m_Layer: 0
   m_Name: Base Building
   m_TagString: Untagged
@@ -193,6 +194,22 @@ MonoBehaviour:
     - rid: 7572515380916125983
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &8045675689434746215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448186117685072514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &9209684459045620503
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8582651515627719988}
   - component: {fileID: 2729788813391978784}
   - component: {fileID: -8657298478108449127}
+  - component: {fileID: 362153758272332484}
   m_Layer: 0
   m_Name: Tree2
   m_TagString: Untagged
@@ -192,3 +193,19 @@ MonoBehaviour:
     - rid: 7572515380916125985
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &362153758272332484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7893960335455333790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
