@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1555686807593446289}
   - component: {fileID: 3964044364488848716}
   - component: {fileID: 8740457094798489904}
+  - component: {fileID: 2812287241592502420}
   m_Layer: 0
   m_Name: Square Table
   m_TagString: Untagged
@@ -138,3 +139,55 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.9394721, y: 0.83693504}
   m_EdgeRadius: 0
+--- !u!114 &2812287241592502420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839434415633378826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 000000000518e9550b7b370f1576083363f91387291cb7f4552b234e
+  m_ShapePath:
+  - {x: -1.1025132, y: 0.010454178, z: 0}
+  - {x: -1.1161965, y: 2.486786, z: 0}
+  - {x: 1.0964514, y: 2.4594193, z: 0}
+  - {x: 1.055401, y: -0.03743744, z: 0}
+  m_ShapePathHash: 1848434569
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: -0.009872556, y: 1.2246742, z: 0}
+      m_Extent: {x: 1.106324, y: 1.2621117, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.1
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.1
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.1
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 3964044364488848716}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

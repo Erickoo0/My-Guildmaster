@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4331879370188311870}
   - component: {fileID: 2804812807710835045}
   - component: {fileID: 771866333017970434}
+  - component: {fileID: 4818856977788211852}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -138,3 +139,61 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6459855, y: 0.6752739}
   m_EdgeRadius: 0
+--- !u!114 &4818856977788211852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040607554958413437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 000000000518e9550b7b370f1576083363f91387291cb7f4552b234e
+  m_ShapePath:
+  - {x: -0.29885328, y: -0.00081443787, z: 0}
+  - {x: -0.31521165, y: 0.34989738, z: 0}
+  - {x: -0.4282605, y: 0.4354477, z: 0}
+  - {x: -0.42412364, y: 0.8014355, z: 0}
+  - {x: -0.23882723, y: 0.90291977, z: 0}
+  - {x: 0.25308824, y: 0.90291977, z: 0}
+  - {x: 0.44755065, y: 0.7892132, z: 0}
+  - {x: 0.43641055, y: 0.39878273, z: 0}
+  - {x: 0.32336175, y: 0.35600853, z: 0}
+  - {x: 0.32839096, y: 0.0022411346, z: 0}
+  m_ShapePathHash: -988035521
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.009645075, y: 0.45105267, z: 0}
+      m_Extent: {x: 0.43790558, y: 0.4518671, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.05
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.05
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.05
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 2804812807710835045}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

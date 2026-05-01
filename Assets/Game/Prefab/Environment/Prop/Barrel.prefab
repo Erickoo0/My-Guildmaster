@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3867381640245738163}
   - component: {fileID: 8155419759061580161}
   - component: {fileID: 3263492814630245652}
+  - component: {fileID: 8140279257065264316}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -138,3 +139,59 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1517204, y: 0.7157326}
   m_EdgeRadius: 0
+--- !u!114 &8140279257065264316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206291085069793483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 000000000518e9550b7b370f1576083363f91387291cb7f4552b234e
+  m_ShapePath:
+  - {x: -0.6329014, y: 0.22875214, z: 0}
+  - {x: -0.61906564, y: 1.3058949, z: 0}
+  - {x: -0.29499733, y: 1.5203667, z: 0}
+  - {x: 0.30916166, y: 1.5157547, z: 0}
+  - {x: 0.61964405, y: 1.3151169, z: 0}
+  - {x: 0.63809156, y: 0.24720001, z: 0}
+  - {x: 0.31838548, y: -0.024620056, z: 0}
+  - {x: -0.31344497, y: -0.015396118, z: 0}
+  m_ShapePathHash: -897949036
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.0025951266, y: 0.7478733, z: 0}
+      m_Extent: {x: 0.6354965, y: 0.77249336, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.06
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.06
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

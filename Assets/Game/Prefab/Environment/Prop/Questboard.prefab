@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3883216605462902629}
   - component: {fileID: 4614037445889212878}
   - component: {fileID: 8393885541391313688}
+  - component: {fileID: 3329047292843636872}
   m_Layer: 0
   m_Name: Questboard
   m_TagString: Untagged
@@ -138,3 +139,55 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.4754224, y: 1.3365803}
   m_EdgeRadius: 0
+--- !u!114 &3329047292843636872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165406094193012437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 000000000518e9550b7b370f1576083363f91387291cb7f4552b234e
+  m_ShapePath:
+  - {x: -1.672462, y: -0.097473145, z: 0}
+  - {x: -1.6813645, y: 1.8692932, z: 0}
+  - {x: 1.6863784, y: 1.8514881, z: 0}
+  - {x: 1.6507682, y: -0.08856964, z: 0}
+  m_ShapePathHash: 1234526439
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.0025069714, y: 0.88591003, z: 0}
+      m_Extent: {x: 1.6838715, y: 0.9833832, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.1
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.1
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.1
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 4614037445889212878}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

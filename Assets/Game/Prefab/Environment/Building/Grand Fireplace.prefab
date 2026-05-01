@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4853085008740203670}
   - component: {fileID: 6565439191448724319}
   - component: {fileID: 6851196716425420645}
+  - component: {fileID: 1228253488550702586}
   m_Layer: 0
   m_Name: Grand Fireplace
   m_TagString: Untagged
@@ -130,8 +131,8 @@ BoxCollider2D:
   m_Offset: {x: 0.121418, y: 1.0259967}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.6875, y: 11.4375}
+    pivot: {x: 0.5, y: 0.1105465}
+    oldSize: {x: 7.8125, y: 11.875}
     newSize: {x: 7, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -139,6 +140,68 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.0235367, y: 2.1084833}
   m_EdgeRadius: 0
+--- !u!114 &1228253488550702586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900935533279388848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 000000000518e9550b7b370f1576083363f91387291cb7f4552b234e
+  m_ShapePath:
+  - {x: -1.1558437, y: 2.0524654, z: 0}
+  - {x: -0.43930244, y: 3.171421, z: 0}
+  - {x: -0.3098774, y: 3.9480114, z: 0}
+  - {x: -0.81142235, y: 4.206873, z: 0}
+  - {x: -0.7952442, y: 4.4980927, z: 0}
+  - {x: -0.27751923, y: 4.9511013, z: 0}
+  - {x: -0.1206913, y: 5.7296314, z: 0}
+  - {x: 0.68449783, y: 5.5685444, z: 0}
+  - {x: 0.70939064, y: 4.8378487, z: 0}
+  - {x: 1.3403664, y: 4.4495564, z: 0}
+  - {x: 1.2432928, y: 4.1421585, z: 0}
+  - {x: 0.8226414, y: 3.9641895, z: 0}
+  - {x: 0.9197235, y: 3.2361336, z: 0}
+  - {x: 1.7544613, y: 2.0524616, z: 0}
+  m_ShapePathHash: 1060025749
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.29930878, y: 3.8910465, z: 0}
+      m_Extent: {x: 1.4551525, y: 1.8385849, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.3
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.3
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.3
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 6565439191448724319}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &8823231404425318012
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 8823231404425318012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16, y: -0.12, z: 0}
+  m_LocalPosition: {x: 0.19, y: 4.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,8 +280,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayerID: -189326295
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2157701011445501912, guid: 7e7550780fd2d984391a690739c7cdcb, type: 3}
