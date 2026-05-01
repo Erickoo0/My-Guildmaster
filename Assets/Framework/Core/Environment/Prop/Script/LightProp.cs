@@ -28,10 +28,17 @@ public class LightProp : MonoBehaviour
 
     private void HandleTimeUpdate(object sender, TimeSpan currentTime)
     {
-        // Connvert current time into hours
         int currentHour = currentTime.Hours;
-        
-        bool isDayTime = currentHour >= turnOnHour && currentHour < turnOffHour;
-        _light.enabled = isDayTime;
+
+        // Logic for spanning across midnight (e.g., 20:00 to 06:00)
+        if (turnOnHour > turnOffHour)
+        {
+            _light.enabled = (currentHour >= turnOnHour || currentHour < turnOffHour);
+        }
+        // Logic for normal daytime range (e.g., 06:00 to 20:00)
+        else
+        {
+            _light.enabled = (currentHour >= turnOnHour && currentHour < turnOffHour);
+        }
     }
 }

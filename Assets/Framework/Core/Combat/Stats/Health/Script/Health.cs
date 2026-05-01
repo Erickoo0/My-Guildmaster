@@ -68,10 +68,18 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void OnEnable() => _lvlComponent.OnLevelUpdated += UpdateHpOnLevelUp;
-    
-    private void OnDisable() => _lvlComponent.OnLevelUpdated -= UpdateHpOnLevelUp;
-    
+    private void OnEnable()
+    {
+        if (_lvlComponent == null) return;
+        _lvlComponent.OnLevelUpdated += UpdateHpOnLevelUp;
+    }
+
+    private void OnDisable()
+    {
+        if (_lvlComponent == null) return;
+        _lvlComponent.OnLevelUpdated -= UpdateHpOnLevelUp;
+    }
+
     private void Update()
     {
         // Exit early if not healing
