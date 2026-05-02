@@ -6,6 +6,7 @@ public enum MobType { Passive, Neutral, Aggressive }
 
 public class EntityController : BaseEntityController
 {
+    
     [Header("Movement Settings")]
     public AIPath aiPath;
     [field: SerializeField] public float WanderRadius { get; private set; } = 5f;
@@ -146,5 +147,11 @@ public class EntityController : BaseEntityController
             if (data is T specificData) return specificData;
         }
         return null;
+    }
+    
+    public void OnAttackAnimationFinished()
+    {
+        // Reset the bool so the State Machine's Update() can catch it
+        EntityAnimator.animator.SetBool("IsAttacking", false);
     }
 }

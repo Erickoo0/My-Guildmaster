@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator), (typeof(EntityMover)))]
 public class EntityAnimator : MonoBehaviour
 {
-    private Animator _animator;
+    public Animator animator;
     private EntityMover _entityMover;
 
     [Header("Animation Settings")] 
@@ -14,7 +14,7 @@ public class EntityAnimator : MonoBehaviour
     
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         _entityMover = GetComponent<EntityMover>();
     }
 
@@ -25,18 +25,18 @@ public class EntityAnimator : MonoBehaviour
         
         // Only set walking if move is significant
         bool IsRunning = moveDirection.magnitude > _moveThreshold; 
-        _animator.SetBool("IsRunning", IsRunning);
+        animator.SetBool("IsRunning", IsRunning);
         
         if (IsRunning)
         {
             Vector2 animationDirection = snapToCardinalDirections ? GetSnappedDirection(moveDirection) : moveDirection;
             
-            _animator.SetFloat("InputX", animationDirection.x);
-            _animator.SetFloat("InputY", animationDirection.y);
+            animator.SetFloat("InputX", animationDirection.x);
+            animator.SetFloat("InputY", animationDirection.y);
             
             // Store the last facing direction for idle animations
-            _animator.SetFloat("LastInputX", animationDirection.x);
-            _animator.SetFloat("LastInputY", animationDirection.y);
+            animator.SetFloat("LastInputX", animationDirection.x);
+            animator.SetFloat("LastInputY", animationDirection.y);
         }
     }
 
@@ -47,12 +47,12 @@ public class EntityAnimator : MonoBehaviour
     public void FaceDirection(Vector2 lookDirection)
     {
         // Safety check
-        if (_animator == null || lookDirection == Vector2.zero) return;
+        if (animator == null || lookDirection == Vector2.zero) return;
         
         Vector2 animDir = snapToCardinalDirections ? GetSnappedDirection(lookDirection) : lookDirection;
 
-        _animator.SetFloat("LastInputX", animDir.x);
-        _animator.SetFloat("LastInputY", animDir.y);
+        animator.SetFloat("LastInputX", animDir.x);
+        animator.SetFloat("LastInputY", animDir.y);
     }
 
     private Vector2 GetSnappedDirection(Vector2 moveInput)
