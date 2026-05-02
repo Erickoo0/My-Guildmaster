@@ -7,7 +7,6 @@ public enum MobType { Passive, Neutral, Aggressive }
 public class EntityController : BaseEntityController
 {
     [Header("Movement Settings")]
-    public NavMeshAgent NavMeshAgent { get; private set; }
     [field: SerializeField] public float WanderRadius { get; private set; } = 5f;
     public Vector2 SpawnPosition { get; private set; }
     
@@ -36,12 +35,6 @@ public class EntityController : BaseEntityController
     {
         base.Awake();
         
-        // Set up the NavMesh Agent
-        NavMeshAgent = GetComponent<NavMeshAgent>();
-        NavMeshAgent.updateRotation = false;
-        NavMeshAgent.updateUpAxis = false;
-        NavMeshAgent.updatePosition = false;
-        
         IdleState?.Setup(this, StateMachine);
         WanderState?.Setup(this, StateMachine);
         ChaseState?.Setup(this, StateMachine);
@@ -59,7 +52,6 @@ public class EntityController : BaseEntityController
     protected override void Update()
     {
         base.Update();
-        NavMeshAgent.nextPosition = transform.position;
         UpdateTargeting();
         //Debug.Log($"Current State: {StateMachine.CurrentState}");
     }

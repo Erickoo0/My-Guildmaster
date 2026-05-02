@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7614317912809375945}
   - component: {fileID: 6969444083804079813}
   - component: {fileID: 445087857294655504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Magic Orb Altar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 6010272377127093092}
   - component: {fileID: 6602367085550715750}
   - component: {fileID: 4589677150607913084}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
