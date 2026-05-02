@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: pickNextWaypointDist
-      value: 4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1464378444622734768, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: snapToCardinalDirections

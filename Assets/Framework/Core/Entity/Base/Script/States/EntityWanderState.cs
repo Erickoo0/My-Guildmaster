@@ -3,26 +3,18 @@ using UnityEngine;
 
 public class EntityWanderState : BaseWanderState
 {
-    private AIPath _aiPath;
     private Vector2 _targetDestination;
 
-    public override void Setup(EntityController controller, StateMachine stateMachine)
-    {
-        base.Setup(controller, stateMachine);
-        _aiPath = controller.GetComponent<AIPath>();
-
-        // Block AIPath direct control
-        if (_aiPath != null)
-        {
-            _aiPath.canMove = false; // We use EntityMover for physics now
-            _aiPath.updateRotation = false; // Let your animator/mover handle rotation
-        }
-    }
-
+    [Header("Anti-Stuck Variables")] 
+    private float stuckTimer;
+    private float stuckTimerMax = 5f;
+    private Vector2 _lastPosition;
+    private float stuckThreshold = 0.1f;
+    
     public override void Enter()
     {
         // 1. Tell the AI to start calculating paths again
-        _aiPath.canSearch = true;
+        controller.aiPath.canSearch = true;
 
         SetNewDestination();
     }
@@ -30,8 +22,8 @@ public class EntityWanderState : BaseWanderState
     private void SetNewDestination()
     {
         _targetDestination = (Vector2)controller.SpawnPosition + (Random.insideUnitCircle * controller.WanderRadius);
-        _aiPath.destination = _targetDestination;
-        _aiPath.SearchPath();
+        controller.aiPath.destination = _targetDestination;
+        controller.aiPath.SearchPath();
     }
 
     public override void Update()
@@ -43,14 +35,14 @@ public class EntityWanderState : BaseWanderState
         }
 
         // 3. Check if we have arrived
-        if (!_aiPath.pathPending && _aiPath.reachedEndOfPath)
+        if (!controller.aiPath.pathPending && controller.aiPath.reachedEndOfPath)
         {
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
 
         // 4. Act as the bridge between AIPath (The Brain) and EntityMover (The Legs)
-        Vector2 desiredVelocity = (Vector2)_aiPath.desiredVelocity;
+        Vector2 desiredVelocity = (Vector2)controller.aiPath.desiredVelocity;
         
         // Normalize the vector so EntityMover handles the speed via its moveSpeed variable
         Vector2 moveDirection = desiredVelocity.normalized;
@@ -60,16 +52,39 @@ public class EntityWanderState : BaseWanderState
         
 
         // 5. Force AIPath to update its internal logic based on where our EntityMover just moved us
-        _aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
+        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
+        
+        CheckForStuck();
     }
 
     public override void Exit()
     {
         // 6. Shut down pathfinding and halt the EntityMover
-        _aiPath.canSearch = false;
+        controller.aiPath.canSearch = false;
         
         if (controller.EntityMover != null)
             controller.EntityMover.SetMoveDirection(Vector2.zero);
         
+    }
+
+    private void CheckForStuck()
+    {
+        if (Vector2.Distance(_lastPosition, controller.transform.position) < stuckThreshold)
+        {
+            stuckTimer += Time.deltaTime;
+        }
+        else
+        {
+            stuckTimer = 0;
+        }
+        
+        if (stuckTimer > stuckTimerMax)
+        {
+            Debug.Log("Entity stuck! Resetting path.");
+            stuckTimer = 0;
+            SetNewDestination();
+        }
+        
+        _lastPosition = controller.transform.position;
     }
 }

@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.AI;
+using Pathfinding;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
 public class EntityController : BaseEntityController
 {
     [Header("Movement Settings")]
+    public AIPath aiPath;
     [field: SerializeField] public float WanderRadius { get; private set; } = 5f;
     public Vector2 SpawnPosition { get; private set; }
     
@@ -34,6 +35,14 @@ public class EntityController : BaseEntityController
     protected override void Awake()
     {
         base.Awake();
+        
+        aiPath = GetComponent<AIPath>();
+        if (aiPath != null)
+        {
+            aiPath.canMove = false;
+            aiPath.updateRotation = false;
+        }
+
         
         IdleState?.Setup(this, StateMachine);
         WanderState?.Setup(this, StateMachine);

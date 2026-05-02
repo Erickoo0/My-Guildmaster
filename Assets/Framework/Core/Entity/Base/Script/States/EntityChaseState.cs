@@ -1,31 +1,69 @@
 ﻿using UnityEngine;
+using Pathfinding;
 
 [System.Serializable]
 public class EntityChaseState : BaseChaseState
 {
-    public override void Enter() { }
+    public override void Enter()
+    {
+        // Tell the AI t o start calculating paths again
+        if (controller.aiPath != null)
+        {
+            controller.aiPath.canSearch = true;
+
+            // Set the initial destination and search for a path
+            if (controller.currentTarget != null)
+            {
+                controller.aiPath.destination = controller.currentTarget.position;
+                controller.aiPath.SearchPath();
+            }
+        }
+    }
 
     public override void Update()
     {
+        // Safety check
+        if (controller.currentTarget == null || controller.aiPath == null)
+        {
+            Debug.LogWarning("EntityChaseState: Target is null or AIPath is null");
+            stateMachine.ChangeState(controller.IdleState);
+            return;
+        }
+
+        // Pause the state if the entity is knocked back
+        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack)
+        {
+            return;
+        }
+        
         Vector2 currentPosition = controller.transform.position;
         Vector2 targetPosition = controller.currentTarget.position;
-        
         float distance = Vector2.Distance(currentPosition, targetPosition);
+        
+        // Update A* destination to follow target
+        controller.aiPath.destination = targetPosition;
         
         // If in action range and action cooldown is over, switch to the action state
         if (distance <= controller.ActionRange && controller.CheckActionCooldown())
         {
             stateMachine.ChangeState(controller.AttackState);
+            return;
         }
-        else if (distance > 3f) // Keep Chasing up to certain distance
+        
+        // Movement Logic
+        if (distance > controller.ActionRange)
         {
-            Vector2 moveDirection = (targetPosition - currentPosition).normalized;
-            controller.EntityMover.SetMoveDirection(moveDirection);
+            Vector2 directionToCorner = ((Vector2)controller.aiPath.steeringTarget - (Vector2)controller.transform.position).normalized;
+            controller.EntityMover.SetMoveDirection(directionToCorner);
+
         }
-        else
+        else // We are close enough to attack, but maybe waiting for attack cooldown
         {
             controller.EntityMover.SetMoveDirection(Vector2.zero);
         }
+        
+        // Force AIPath to update its internal logic based on where our EntityMover just moved us
+        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
     }
     
     public override void PhysicsUpdate() { }
@@ -33,7 +71,10 @@ public class EntityChaseState : BaseChaseState
 
     public override void Exit()
     {
-        // Stop moving when leaving chase state so entity does not slide when transitioning
-        controller.EntityMover.SetMoveDirection(Vector2.zero);
+        if (controller.EntityMover != null) 
+            controller.EntityMover.SetMoveDirection(Vector2.zero);
+        
+        if (controller.aiPath != null)
+            controller.aiPath.canSearch = false;
     }
 }
