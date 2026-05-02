@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7f655e61f1e57488fc13e5e41e56dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityAnimator
+  animator: {fileID: 0}
   snapToCardinalDirections: 1
 --- !u!114 &5766307546840848036
 MonoBehaviour:
@@ -480,6 +481,7 @@ MonoBehaviour:
   <WanderRadius>k__BackingField: 15
   attackLibrary:
   - {fileID: 11400000, guid: 6ecc94032b379694fb61fee6c1844c77, type: 2}
+  - {fileID: 11400000, guid: 3ae452862e0e6234180795a619ff46e7, type: 2}
   <mobType>k__BackingField: 2
   <DetectionRange>k__BackingField: 6
   <DetectionLostRange>k__BackingField: 8

@@ -4,6 +4,7 @@ using Pathfinding;
 [System.Serializable]
 public class EntityChaseState : BaseChaseState
 {
+
     public override void Enter()
     {
         // Tell the AI t o start calculating paths again

@@ -12,7 +12,7 @@ public class EntityChargeAttackState : BaseActionState
     private float _originalSpeed;
     private bool _isFinished;
     private bool _hasHitThisExecute;
-
+    
     public override void Setup(EntityController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);

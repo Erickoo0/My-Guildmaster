@@ -2,20 +2,71 @@ using UnityEngine;
 
 public class GoblinArcherAttackState : BaseActionState
 {
+    private ProjectileAttackData arrowData;
+    
+    public override void Setup(EntityController controller, StateMachine stateMachine)
+    {
+        base.Setup(controller, stateMachine);
+        arrowData = controller?.GetAttackData<ProjectileAttackData>();
+    }
+    
     public override void Enter()
     {
+        if (arrowData == null)
+        {
+            Debug.LogWarning("Arrow data is null");
+            stateMachine.ChangeState(controller.IdleState);
+            return;
+        }
+        
+        controller.OnAnimationActionRequested += FireArrow;
+
+        
         controller.EntityMover.SetMoveDirection(Vector2.zero);
         controller.EntityAnimator.animator.SetBool("IsAttacking", true);
-        Debug.Log("GoblinArcherAttackState entered");
     }
 
     public override void Update()
     {
         if (controller.EntityAnimator.animator.GetBool("IsAttacking") == false)
         {
-            Debug.Log("GoblinArcherAttackState exited");
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
     }
+
+    private void FireArrow()
+    {
+        // Safety Check
+        if (controller.currentTarget == null)
+        {
+            Debug.LogWarning("No target to fire arrow at");
+            return;
+        }
+        
+        Vector2 spawnPosition = controller.transform.position;
+        Vector2 targetPosition = controller.currentTarget.transform.position;
+        Vector2 direction = (targetPosition - spawnPosition).normalized;
+        
+        GameObject arrow = Object.Instantiate(arrowData.projectilePrefab, spawnPosition, Quaternion.identity);
+
+        if (arrow.TryGetComponent(out Projectile projectile))
+        {
+            // Pass the DamageData from AttackData onto the projectile prefab (because we need to change source and hit direction)
+            DamageData damageDataInstance = arrowData.damageData;
+            damageDataInstance.source = controller.gameObject;
+            damageDataInstance.hitDirection = direction;
+            
+            projectile.Setup(direction, arrowData.projectileSpeed, arrowData.projectileLifetime, damageDataInstance);
+        }
+    }
+    
+    public override void PhysicsUpdate() { }
+    public override void HandleInput() { }
+
+    public override void Exit()
+    {
+        controller.OnAnimationActionRequested -= FireArrow;
+    }
+    
 }

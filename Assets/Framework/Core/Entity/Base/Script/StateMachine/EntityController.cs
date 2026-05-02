@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Pathfinding;
+using Unity.VisualScripting;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
@@ -26,6 +27,7 @@ public class EntityController : BaseEntityController
     [Header("Action Settings")] 
     [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
     private float _lastActionTime;
+    public event System.Action OnAnimationActionRequested;
     
     [Header("State References")]
     [SerializeReference, SubclassSelector] public BaseIdleState IdleState;
@@ -154,4 +156,11 @@ public class EntityController : BaseEntityController
         // Reset the bool so the State Machine's Update() can catch it
         EntityAnimator.animator.SetBool("IsAttacking", false);
     }
+
+    public void RequestAnimationEvent()
+    {
+        OnAnimationActionRequested?.Invoke();
+        Debug.Log("Animation Event Requested");
+    }
+    
 }
