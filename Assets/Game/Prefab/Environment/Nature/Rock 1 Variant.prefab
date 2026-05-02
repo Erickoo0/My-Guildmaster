@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock 1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7714553535268852933, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.98605
@@ -68,7 +72,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.18783
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5873180863118631351, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

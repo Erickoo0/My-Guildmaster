@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8582651515627719988}
   - component: {fileID: 2729788813391978784}
   - component: {fileID: -8657298478108449127}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_ShadowGroup: 0
   m_Priority: 0
   m_ComponentVersion: 5
-  m_HasRenderer: 0
+  m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
@@ -182,10 +182,10 @@ MonoBehaviour:
     m_FlipY: 0
     m_InitialTrim: 0.2
   m_CastingOption: 1
-  m_PreviousTrimEdge: 0
-  m_PreviousEdgeProcessing: -1
-  m_PreviousShadowCastingSource: -1
-  m_PreviousShadowShape2DSource: {fileID: 0}
+  m_PreviousTrimEdge: 0.2
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 8582651515627719988}
   references:
     version: 2
     RefIds:

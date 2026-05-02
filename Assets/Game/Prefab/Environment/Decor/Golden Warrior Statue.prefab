@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7609310739346850127}
   - component: {fileID: 554427051988523113}
   - component: {fileID: -2234775251044698694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Golden Warrior Statue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7617988655778640604}
   - component: {fileID: 5989325798489205300}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

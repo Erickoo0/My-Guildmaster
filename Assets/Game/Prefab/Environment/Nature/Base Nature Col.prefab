@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base Nature Col
       objectReference: {fileID: 0}
+    - target: {fileID: 3205569930908425709, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Size.x
       value: 1.5

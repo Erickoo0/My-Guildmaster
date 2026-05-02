@@ -149,6 +149,8 @@ GameObject:
   - component: {fileID: -1747576445313389302}
   - component: {fileID: 3685750868421853756}
   - component: {fileID: 7784520383436025491}
+  - component: {fileID: -8014178294535799309}
+  - component: {fileID: 1216699505466028575}
   m_Layer: 3
   m_Name: Agressive
   m_TagString: Untagged
@@ -221,12 +223,12 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7624568416128722216, guid: b74fdf224fc1cfc47b86af072b76d273, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: fd55e1988702c7149b6f005dcd006143, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -295,9 +297,9 @@ BoxCollider2D:
   m_Offset: {x: -0.000000029802322, y: 0.24055314}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0625, y: 1.8125}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.07310557}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -368,7 +370,7 @@ MonoBehaviour:
   m_CategoryHash: 1.8625731e-11
   m_labelHash: 1.1909236e-32
   m_SpriteKey: 0
-  m_SpriteHash: 950981272
+  m_SpriteHash: 163368403
 --- !u!114 &6990653571150878097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3891c3e5f98f4d639b32e782089d8fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityController
-  entityID: 
+  entityID: Aggressive_Mob
+  aiPath: {fileID: 0}
+  <WanderRadius>k__BackingField: 15
   attackLibrary:
   - {fileID: 11400000, guid: 6ecc94032b379694fb61fee6c1844c77, type: 2}
   <mobType>k__BackingField: 2
@@ -484,10 +488,6 @@ MonoBehaviour:
   - Player
   currentTarget: {fileID: 0}
   <ActionCooldown>k__BackingField: 2
-  <DefaultWaypointWaitTime>k__BackingField: 2
-  <LoopWaypoints>k__BackingField: 1
-  waypointsList: []
-  currentWaypointIndex: 0
   IdleState:
     rid: 7572515169101152256
   WanderState:
@@ -583,6 +583,76 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8014178294535799309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.Seeker
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &1216699505466028575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
+  version: 5
+  radius: 0.5
+  height: 2
+  canMove: 0
+  maxSpeed: 5
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  repathRateCompatibility: NaN
+  canSearchCompability: 0
+  orientation: 1
+  enableRotation: 0
+  autoRepath:
+    mode: 2
+    interval: 0.5
+    sensitivity: 10
+    maximumInterval: 2
+    visualizeSensitivity: 0
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 360
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 0.3
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 1
 --- !u!1 &8755887523427810583
 GameObject:
   m_ObjectHideFlags: 0
