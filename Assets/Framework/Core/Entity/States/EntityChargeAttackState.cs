@@ -100,7 +100,8 @@ public class EntityChargeAttackState : BaseActionState
             {
                 _originalExcludeLayers = _entityCollider.excludeLayers; // Save the original layers
                 HitBox attackHitbox = _attackData.attackPrefab.GetComponent<HitBox>();
-                _entityCollider.excludeLayers |= attackHitbox.victimLayer;
+                if (attackHitbox != null)
+                    _entityCollider.excludeLayers |= attackHitbox.victimLayer;
             }
 
             _chargeTimer -= Time.deltaTime;

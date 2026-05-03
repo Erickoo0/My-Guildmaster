@@ -51,7 +51,7 @@ public class PlayerDashState : State<PlayerController>
     private void SpawnAfterImage()
     {
         GameObject player = controller.gameObject;
-        SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRenderer = player.GetComponentInChildren<SpriteRenderer>();
         AfterImageManager.Instance.SpawnAfterImage(spriteRenderer.sprite, player.transform.position);
     }
 }

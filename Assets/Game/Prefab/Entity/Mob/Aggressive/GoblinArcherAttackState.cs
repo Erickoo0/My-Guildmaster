@@ -3,6 +3,7 @@ using UnityEngine;
 public class GoblinArcherAttackState : BaseActionState
 {
     private ProjectileAttackData arrowData;
+    private bool hasFired = false;
     
     public override void Setup(EntityController controller, StateMachine stateMachine)
     {
@@ -12,6 +13,8 @@ public class GoblinArcherAttackState : BaseActionState
     
     public override void Enter()
     {
+        hasFired = false;
+        
         if (arrowData == null)
         {
             Debug.LogWarning("Arrow data is null");
@@ -19,7 +22,7 @@ public class GoblinArcherAttackState : BaseActionState
             return;
         }
         
-        controller.OnAnimationActionRequested += FireArrow;
+        controller.EntityAnimator.OnAnimationEventRequested += FireArrow;
 
         
         controller.EntityMover.SetMoveDirection(Vector2.zero);
@@ -37,6 +40,8 @@ public class GoblinArcherAttackState : BaseActionState
 
     private void FireArrow()
     {
+        if (hasFired) return;
+        
         // Safety Check
         if (controller.currentTarget == null)
         {
@@ -59,6 +64,8 @@ public class GoblinArcherAttackState : BaseActionState
             
             projectile.Setup(direction, arrowData.projectileSpeed, arrowData.projectileLifetime, damageDataInstance);
         }
+        
+        hasFired = true;
     }
     
     public override void PhysicsUpdate() { }
@@ -66,7 +73,7 @@ public class GoblinArcherAttackState : BaseActionState
 
     public override void Exit()
     {
-        controller.OnAnimationActionRequested -= FireArrow;
+        controller.EntityAnimator.OnAnimationEventRequested -= FireArrow;
     }
     
 }

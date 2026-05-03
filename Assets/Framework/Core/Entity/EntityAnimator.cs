@@ -9,8 +9,11 @@ public class EntityAnimator : MonoBehaviour
     [Header("Animation Settings")] 
     [Tooltip("It true, snaps animations to 4 way cardinal directions")]
     [SerializeField] private bool snapToCardinalDirections;
+    private bool isEventRequested = false;
     
     private readonly float _moveThreshold = 0.25f;
+    
+    public event System.Action OnAnimationEventRequested;
     
     private void Start()
     {
@@ -39,11 +42,7 @@ public class EntityAnimator : MonoBehaviour
             animator.SetFloat("LastInputY", animationDirection.y);
         }
     }
-
-    /// <summary>
-    /// Forces the entity to look in a specific direction without input / walking
-    /// Useful for dialogue interactions, cutscenes, etc
-    /// </summary>
+    
     public void FaceDirection(Vector2 lookDirection)
     {
         // Safety check
@@ -66,5 +65,18 @@ public class EntityAnimator : MonoBehaviour
         {
             return new Vector2(0, Mathf.Sign(moveInput.y));
         }
+    }
+
+    public void OnAttackAnimationFinished()
+    {
+        animator.SetBool("IsAttacking", false);
+        isEventRequested = false;
+    }
+
+    public void RequestAnimationEvent()
+    {
+        if (isEventRequested) return;
+        isEventRequested = true;
+        OnAnimationEventRequested?.Invoke();
     }
 }

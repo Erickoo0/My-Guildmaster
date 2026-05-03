@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8645527083103906127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.18455, y: -1.30031, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -181,5 +181,7 @@ MonoBehaviour:
   victimLayer:
     serializedVersion: 2
     m_Bits: 72
-  collider: {fileID: 0}
   enableHitbox: 1
+  collider: {fileID: 0}
+  hitOncePerTarget: 1
+  disableAfterFirstHit: 1

@@ -20,7 +20,7 @@ public abstract class BaseEntityController : MonoBehaviour, ITargetable
         // Get all the components
         StateMachine = GetComponent<StateMachine>();
         EntityMover = GetComponent<EntityMover>();
-        EntityAnimator = GetComponent<EntityAnimator>();
+        EntityAnimator = GetComponentInChildren<EntityAnimator>();
     } 
     
     protected virtual void Update()
