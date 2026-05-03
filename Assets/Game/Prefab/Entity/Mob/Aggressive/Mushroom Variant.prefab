@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: 'managedReferences[5971588418814869593]'
       value: Assembly-CSharp EntityWanderState
       objectReference: {fileID: 0}
+    - target: {fileID: 392546489883438871, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2802695987966501644, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
     - target: {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: maxSpeed
       value: 5
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1ee877be264bfca4db31e2ceb4939e33, type: 2}
+    - target: {fileID: 4385708376921955726, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_SpriteLibraryAsset
+      value: 
+      objectReference: {fileID: 7108339969198208228, guid: 7708bd7e3fede86448036945e2cb8737, type: 3}
     - target: {fileID: 5742111724304672418, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Size.y
       value: 0.5095689
@@ -144,6 +152,10 @@ PrefabInstance:
       propertyPath: m_CategoryHash
       value: 1.0429618e-14
       objectReference: {fileID: 0}
+    - target: {fileID: 7880788856405151743, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1ee877be264bfca4db31e2ceb4939e33, type: 2}
     - target: {fileID: 9144581462164995658, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Size.x
       value: 1.875

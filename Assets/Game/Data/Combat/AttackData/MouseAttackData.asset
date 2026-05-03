@@ -17,7 +17,7 @@ MonoBehaviour:
     damageAmount: 1
     hitDirection: {x: 0, y: 0}
     knockbackForce: 30
-    knockbackDuration: 3
-    knockbackHeight: 15
+    knockbackDuration: 0.2
+    knockbackHeight: 0.35
     damageType: 0
     source: {fileID: 0}

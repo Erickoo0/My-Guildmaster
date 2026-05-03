@@ -16,10 +16,18 @@ PrefabInstance:
       propertyPath: 'managedReferences[5971588438707929172]'
       value: Assembly-CSharp GoblinArcherAttackState
       objectReference: {fileID: 0}
+    - target: {fileID: 392546489883438871, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4723107735738678597, guid: 4249e11a316f9064382ec51e1729f7af, type: 3}
     - target: {fileID: 4059931002005490084, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4b75a9d58b157c54f92a4de9d9cf46c0, type: 2}
+    - target: {fileID: 4385708376921955726, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_SpriteLibraryAsset
+      value: 
+      objectReference: {fileID: 7108339969198208228, guid: 32d50f7fb84e1d04c84fd71cad70160f, type: 3}
     - target: {fileID: 5742111724304672418, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.16
@@ -92,6 +100,10 @@ PrefabInstance:
       propertyPath: m_CategoryHash
       value: 9.932601e-39
       objectReference: {fileID: 0}
+    - target: {fileID: 7880788856405151743, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b75a9d58b157c54f92a4de9d9cf46c0, type: 2}
     - target: {fileID: 9144581462164995658, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Sprite
       value: 

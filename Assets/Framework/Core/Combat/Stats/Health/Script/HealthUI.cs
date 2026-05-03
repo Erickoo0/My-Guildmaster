@@ -7,6 +7,7 @@ public class HealthUI : MonoBehaviour
     [Header("Setup")] 
     [SerializeField] private GameObject healthBarPrefab;
     [SerializeField] private Vector3 offset = new Vector3(0, 1f, 0);
+    private SpriteRenderer _spriteRenderer;
     
     [Header("UI")]
     [Tooltip("If blank, default to parent object")]
@@ -18,6 +19,7 @@ public class HealthUI : MonoBehaviour
     private void Awake()
     {
         // If no health target (assigned ui), assume it's the parent object.
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (hpComponent == null) hpComponent = GetComponentInParent<Health>();
         if (progressBarRef == null && healthBarPrefab != null) SpawnHealthBar();
     }
@@ -39,7 +41,7 @@ public class HealthUI : MonoBehaviour
     private void SpawnHealthBar()
     {
         // Create the health bar as a child of this gameobject
-        GameObject healthbarInstance = Instantiate(healthBarPrefab, transform);
+        GameObject healthbarInstance = Instantiate(healthBarPrefab, _spriteRenderer.transform);
         healthbarInstance.transform.localPosition = offset;
         
         // Assign the components from the prefab

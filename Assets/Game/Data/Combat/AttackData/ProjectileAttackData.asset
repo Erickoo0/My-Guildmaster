@@ -12,18 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac726f3eeb3bde469dd979aeb272eac, type: 3}
   m_Name: ProjectileAttackData
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttackData
-  hitboxPrefab: {fileID: 0}
+  attackPrefab: {fileID: 0}
   damageData:
     damageAmount: 5
     hitDirection: {x: 0, y: 0}
-    knockbackForce: 5
-    knockbackDuration: 5
-    knockbackHeight: 5
-    type: 0
+    knockbackForce: 30
+    knockbackDuration: 0.2
+    knockbackHeight: 0.35
+    damageType: 0
     source: {fileID: 0}
-  hitboxRadius: 1
-  hitboxOffset: {x: 0, y: 0}
-  hitOncePerExecute: 1
   projectilePrefab: {fileID: 7074327856698990621, guid: 386222c92002bb24e96302a909835807, type: 3}
   projectileSpeed: 5
   projectileLifetime: 5
