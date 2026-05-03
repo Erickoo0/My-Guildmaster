@@ -61,7 +61,7 @@ public class QuestManager : MonoBehaviour, ISaveable
     
     public void AcceptQuest(string dialogueEvent, object questData)
     {
-        // 1. Safety check for the event type
+        // 1. Safety check for the event damageType
         if (dialogueEvent != "AcceptQuest") return;
 
         // 2. Pattern Match: Try to treat questData as a string. 

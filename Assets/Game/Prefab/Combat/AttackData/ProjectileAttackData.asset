@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac726f3eeb3bde469dd979aeb272eac, type: 3}
   m_Name: ProjectileAttackData
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttackData
-  hitboxPrefab: {fileID: 2873761913983823598, guid: ebda2ed39dab96546955db76e4086f77, type: 3}
+  hitboxPrefab: {fileID: 0}
   damageData:
     damageAmount: 5
     hitDirection: {x: 0, y: 0}

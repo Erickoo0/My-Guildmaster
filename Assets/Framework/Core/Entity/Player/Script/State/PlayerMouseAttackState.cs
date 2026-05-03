@@ -23,48 +23,36 @@ public class PlayerMouseAttackState : State<PlayerController>
             Debug.LogWarning($"{controller.gameObject.name} has MouseAttackState but no MouseAttackData in library.");
 
     }
-
-    public void SetupContext(CombatContext combatContext)
-    {
-        //_context = combatContext;
-    } 
-
     
     public override void Enter()
     {
         _isFinished = false;
 
         // Safety Check
-        if (_attackData == null)
+        if (_attackData == null || _attackData.attackPrefab == null)
         {
             _isFinished = true;
             return;
         }
-        
-        // 1. Spawn Hitbox exactly at the mouse position
-        HitBox spawnedHitbox = Object.Instantiate(_attackData.hitboxPrefab, _combatController.CombatContext.mousePosition, Quaternion.identity);
-        spawnedHitbox.enableHitbox = true;
-        
-        // 2. Configure Hitbox Radius
-        if (spawnedHitbox is HitBoxCircle circle) 
-        { 
-            circle.radius = _attackData.hitboxRadius; 
-        }
-        
-        // 3. Trigger Visuals
-        if (_attackData.attackFX != null)
-        {
-            GameObject fxInstance = Object.Instantiate(_attackData.attackFX, _combatController.CombatContext.mousePosition, Quaternion.identity);
-            spawnedHitbox.ScaleVisual(fxInstance);
-        }
-        
-        // 4. Process Damage using the injected context
+    
+        // 1. Prepare Damage using the injected context
         DamageData executionDamage = _attackData.damageData;
         executionDamage.source = _combatController.CombatContext.source;
-        spawnedHitbox.CheckForHits(executionDamage);
+    
+        // 2. Spawn the Attack Prefab
+        GameObject attackInstance = Object.Instantiate(_attackData.attackPrefab, _combatController.CombatContext.mousePosition, Quaternion.identity);
+    
+        // 3. Give the HitBox the actual damage data!
+        if (attackInstance.TryGetComponent<HitBox>(out HitBox spawnedHitbox))
+        {
+            spawnedHitbox.Setup(executionDamage);
+            spawnedHitbox.enableHitbox = true;
+        }
+        else
+        {
+            Debug.LogWarning("Mouse attack prefab does not have a HitBox component attached!");
+        }
         
-        // 5. Clean up hierarchy immediately for an instant attack
-        Object.Destroy(spawnedHitbox.gameObject);
         _isFinished = true;
     }
     

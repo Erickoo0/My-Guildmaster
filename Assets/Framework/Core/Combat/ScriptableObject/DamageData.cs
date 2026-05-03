@@ -19,18 +19,18 @@ public struct DamageData
     public float knockbackForce;
     public float knockbackDuration;
     public float knockbackHeight;
-    public DamageType type;
+    public DamageType damageType;
     public GameObject source;
     
     // Constructor to easily create damage types on the fly
-    public DamageData(float amount, Vector2 direction, float force, float duration, float height, DamageType dmgType, GameObject from = null)
+    public DamageData(float amount, Vector2 direction, float force, float duration, float height, DamageType dmgDamageType, GameObject from = null)
     {
         damageAmount = amount;
         hitDirection = direction;
         knockbackForce = force;
         knockbackDuration = duration;
         knockbackHeight = height;
-        type = dmgType;
+        damageType = dmgDamageType;
         source = from;
     }
 }

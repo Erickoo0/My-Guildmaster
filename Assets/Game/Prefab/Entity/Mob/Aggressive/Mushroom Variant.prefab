@@ -25,6 +25,10 @@ PrefabInstance:
       value: Assembly-CSharp EntityWanderState
       objectReference: {fileID: 0}
     - target: {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: maxSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -90,11 +94,11 @@ PrefabInstance:
       objectReference: {fileID: 7108339969198208228, guid: 7708bd7e3fede86448036945e2cb8737, type: 3}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25134
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.67853
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -161,7 +165,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8755887523427810583, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}

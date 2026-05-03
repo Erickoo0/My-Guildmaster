@@ -21,7 +21,7 @@ public class ShopManager : MonoBehaviour
     {
         if (dialogueEvent != "OpenShop") return;
         
-        // Cast the object back to an array type
+        // Cast the object back to an array damageType
         ItemDataSo[] shopList = data as ItemDataSo[];
         
         // Safety Check
