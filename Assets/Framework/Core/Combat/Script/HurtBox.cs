@@ -11,7 +11,6 @@ public class HurtBox : MonoBehaviour, IDamagable
     private void Awake()
     {
         if (health == null) health = GetComponent<Health>();
-        //animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(DamageData data)
@@ -22,14 +21,17 @@ public class HurtBox : MonoBehaviour, IDamagable
         
         if (TryGetComponent<EntityMover>(out EntityMover entityMover))
         {
-            entityMover.ApplyKnockback(data.hitDirection, data.knockbackForce, data.knockbackDuration, data.source);
+            entityMover.ApplyKnockback(data.hitDirection, data.knockbackForce, data.knockbackDuration, data.knockbackHeight, data.source);
             GetComponent<CinemachineImpulseSource>().GenerateImpulse();  
         }
         
         // Apply flash shader
-        if (TryGetComponent<FlashShader>(out FlashShader flashShader))
+        FlashShader flashShader = GetComponentInChildren<FlashShader>();
+        if (flashShader != null)
         {
+            Debug.Log("Flash Shader Found");
             flashShader.ApplyFlash();
+
         }
     }
 }

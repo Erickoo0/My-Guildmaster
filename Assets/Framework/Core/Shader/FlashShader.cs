@@ -9,11 +9,10 @@ public class FlashShader : MonoBehaviour
     private MaterialPropertyBlock _materialPropertyBlock;
     private float _flashFactor; // From materiall property block
     
-    private void Start()
+    private void Awake() 
     {
-        // Get all sprite renders from game object
-        _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
-        
+        // Get all sprite renderers on this specific child object
+        _spriteRenderer = GetComponents<SpriteRenderer>();
         _materialPropertyBlock = new MaterialPropertyBlock();
     }
 
@@ -31,6 +30,14 @@ public class FlashShader : MonoBehaviour
 
     public void ApplyFlash()
     {
+        Debug.Log("Applying Flash");
+        // Safety check in case Awake hasn't run or GetComponents failed
+        if (_spriteRenderer == null || _spriteRenderer.Length == 0)
+        {
+            _spriteRenderer = GetComponents<SpriteRenderer>();
+            if (_materialPropertyBlock == null) _materialPropertyBlock = new MaterialPropertyBlock();
+        }
+
         _flashFactor = 1f;
         ApplyFlashFactor();
     }

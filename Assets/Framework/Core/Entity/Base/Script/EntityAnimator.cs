@@ -1,9 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator), (typeof(EntityMover)))]
+[RequireComponent(typeof(Animator))]
 public class EntityAnimator : MonoBehaviour
 {
-    public Animator animator;
+    [HideInInspector] public Animator animator;
     private EntityMover _entityMover;
 
     [Header("Animation Settings")] 
@@ -15,7 +15,7 @@ public class EntityAnimator : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        _entityMover = GetComponent<EntityMover>();
+        _entityMover = GetComponentInParent<EntityMover>();
     }
 
     private void Update()

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // A Data Hub that provides the API for states
-[RequireComponent(typeof(EntityMover), typeof(EntityAnimator), typeof(StateMachine))]
+[RequireComponent(typeof(EntityMover), typeof(StateMachine))]
 public abstract class BaseEntityController : MonoBehaviour, ITargetable
 {
     [Header("ID")] 
