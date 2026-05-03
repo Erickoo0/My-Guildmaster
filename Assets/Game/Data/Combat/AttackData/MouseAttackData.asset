@@ -18,6 +18,6 @@ MonoBehaviour:
     hitDirection: {x: 0, y: 0}
     knockbackForce: 30
     knockbackDuration: 3
-    knockbackHeight: 2
+    knockbackHeight: 15
     damageType: 0
     source: {fileID: 0}
