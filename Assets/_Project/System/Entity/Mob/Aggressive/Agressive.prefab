@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 6005183180620732811}
   - component: {fileID: 2401922767416282471}
   - component: {fileID: 5742111724304672418}
+  - component: {fileID: 9181716830030837955}
   - component: {fileID: 6990653571150878097}
   - component: {fileID: 5819134255891694365}
   - component: {fileID: -6041577575005612142}
@@ -196,6 +197,7 @@ GameObject:
   - component: {fileID: 7784520383436025491}
   - component: {fileID: -8014178294535799309}
   - component: {fileID: 1216699505466028575}
+  - component: {fileID: -1862256494693202073}
   m_Layer: 3
   m_Name: Agressive
   m_TagString: Untagged
@@ -292,6 +294,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.87160856, y: 0.48110628}
   m_EdgeRadius: 0
+--- !u!114 &9181716830030837955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf83ac40b649302438b58a83cb9cb65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UniqueIdentifier
+  id: 7cb89247-ffd4-4c74-96e4-4d9d0eb93147
 --- !u!114 &6990653571150878097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,3 +577,28 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 1
+--- !u!114 &-1862256494693202073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73248bb41aed5034386e27eb7f437214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
+  containerOpenedSprite: {fileID: 0}
+  containerContents:
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  spreadRadius: 1.5

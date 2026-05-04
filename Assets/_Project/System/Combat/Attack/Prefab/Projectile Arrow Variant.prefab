@@ -48,9 +48,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.20427164
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.49878308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.5625
+      objectReference: {fileID: 0}
     - target: {fileID: 7074327856698990621, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Name
-      value: ArrowProjectile Variant
+      value: Projectile Arrow Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8014193221650302708, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Sprite
@@ -58,11 +74,11 @@ PrefabInstance:
       objectReference: {fileID: -4346244404228752641, guid: 1c9f975501c0af342a0355bbb8a45f6d, type: 3}
     - target: {fileID: 8014193221650302708, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_SortingLayer
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8014193221650302708, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_SortingLayerID
-      value: -189326295
+      value: -2028734109
       objectReference: {fileID: 0}
     - target: {fileID: 8014193221650302708, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_SpriteSortPoint

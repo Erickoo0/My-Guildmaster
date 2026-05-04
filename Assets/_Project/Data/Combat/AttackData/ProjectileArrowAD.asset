@@ -22,5 +22,5 @@ MonoBehaviour:
     knockbackHeight: 0.35
     damageType: 0
     source: {fileID: 0}
-  projectileSpeed: 15
+  projectileSpeed: 12
   projectileLifetime: 6

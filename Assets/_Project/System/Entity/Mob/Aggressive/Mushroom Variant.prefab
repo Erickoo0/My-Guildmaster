@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: entityID
+      value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: WanderState
       value: 5971588418814869593
       objectReference: {fileID: 0}
@@ -175,6 +179,10 @@ PrefabInstance:
     - target: {fileID: 9144581462164995658, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181716830030837955, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: id
+      value: 4ad0e706-2870-4825-84ac-f84e726520b2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
