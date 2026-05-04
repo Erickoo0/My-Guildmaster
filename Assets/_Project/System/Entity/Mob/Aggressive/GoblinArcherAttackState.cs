@@ -9,6 +9,8 @@ public class GoblinArcherAttackState : BaseActionState
     private GameObject _firePoint;
     private bool _hasFired = false;
 
+    private float _defaultActionRange;
+
     public override void Setup(EntityController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
@@ -55,6 +57,11 @@ public class GoblinArcherAttackState : BaseActionState
             return;
         }
 
+        // Save the default action range then Increase action range during the attack
+        _defaultActionRange = controller.ActionRange;
+        controller.ActionRange = _defaultActionRange * 1.5f;
+        
+        // Calculate the direction of the projectile
         Vector2 spawnPosition = _firePoint.transform.position;
         Vector2 targetPosition = controller.currentTarget.transform.position;
         Vector2 direction = (targetPosition - spawnPosition).normalized;
@@ -83,6 +90,8 @@ public class GoblinArcherAttackState : BaseActionState
         controller.EntityAnimator.OnAnimationEventRequested -= FireProjectile;
         
         controller.EntityAnimator.animator.SetBool("IsAttacking", false);
+        
+        controller.ActionRange = _defaultActionRange;
         
         controller.SetActionCooldown();
         
