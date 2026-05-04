@@ -24,7 +24,7 @@ public class SubclassSelectorDrawer : PropertyDrawer
         // Calculate dropdown rect
         var dropdownRect = new Rect(position.x + EditorGUIUtility.labelWidth, position.y, position.width - EditorGUIUtility.labelWidth, EditorGUIUtility.singleLineHeight);
 
-        // Get the current type name
+        // Get the current damageType name
         string typeName = property.managedReferenceFullTypename.Split(' ').LastOrDefault();
         if (string.IsNullOrEmpty(typeName)) typeName = "None (null)";
         else typeName = typeName.Split('.').Last();
@@ -50,18 +50,18 @@ public class SubclassSelectorDrawer : PropertyDrawer
             property.serializedObject.ApplyModifiedProperties();
         });
 
-        // fieldInfo.FieldType is the type of the variable in your Controller 
+        // fieldInfo.FieldType is the damageType of the variable in your Controller 
         // (e.g., State<EntityController>)
         var fieldType = fieldInfo.FieldType;
 
-        // TypeCache is ultra-fast but needs a specific base type.
+        // TypeCache is ultra-fast but needs a specific base damageType.
         // This will find everything that inherits from your specific State<T>
         var types = TypeCache.GetTypesDerivedFrom(fieldType)
             .Where(t => !t.IsAbstract && !t.IsInterface);
 
         foreach (var type in types)
         {
-            // We use type.FullName or type.Name for the menu display
+            // We use damageType.FullName or damageType.Name for the menu display
             menu.AddItem(new GUIContent(type.Name), false, () => {
                 // Create instance using the parameterless constructor 
                 // (Which is why we removed the constructors earlier!)
