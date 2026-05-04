@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(PlayerController))]
 public class PlayerCombatController : MonoBehaviour
@@ -26,21 +27,17 @@ public class PlayerCombatController : MonoBehaviour
         _rawMousePosition = context.ReadValue<Vector2>();
     }
     
-    public T GetAttackData<T>() where T : AttackData
+    public T GetAttackData<T>(string id) where T : AttackData
     {
-        foreach (var data in attackLibrary)
-        {
-            if (data is T specificData) return specificData;
-        }
-        return null;
+        // Search the library for a piece of data that:
+        // 1. Matches the ID string
+        // 2. Is of the type (T) we are looking for
+        return attackLibrary.OfType<T>().FirstOrDefault(data => data.attackID == id);
     }
 
     public void OnMouseClick(InputAction.CallbackContext context)
     { 
         if (!context.performed) return;
-        
-        // Check the library for mouse attack data
-        if (GetAttackData<MouseAttackData>() == null) return;
         
         // Calculate the distance between the camera and the world plane (Z=0)
         // If camera is at -11, this becomes 11.
@@ -61,8 +58,6 @@ public class PlayerCombatController : MonoBehaviour
         combatContext.userPosition = transform.position;
         combatContext.facingDirection = transform.right;
         CombatContext = combatContext;
-      
-
         
         // Execute attack module
         _playerController.StateMachine.ChangeState(_playerController.MouseAttackState);

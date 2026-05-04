@@ -4,6 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class GoblinArcherAttackState : BaseActionState
 {
+    [SerializeField] private string attackID;
     private ProjectileAttackData arrowData;
     private GameObject firePoint;
     private bool hasFired = false;
@@ -11,7 +12,7 @@ public class GoblinArcherAttackState : BaseActionState
     public override void Setup(EntityController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
-        arrowData = controller?.GetAttackData<ProjectileAttackData>();
+        arrowData = controller?.GetAttackData<ProjectileAttackData>(attackID);
 
         firePoint = controller?.GetComponentInChildren<FirePoint>().gameObject;
     }

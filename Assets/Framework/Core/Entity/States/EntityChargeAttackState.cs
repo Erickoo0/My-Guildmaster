@@ -3,7 +3,8 @@
 [System.Serializable]
 public class EntityChargeAttackState : BaseActionState
 {
-    [Header("References")]
+    [Header("References")] 
+    [SerializeField] private string attackID;
     private ChargeAttackData _attackData;
     private GameObject _spawnedAttackPrefab;
     private HitBox _spawnedHitbox;
@@ -22,7 +23,7 @@ public class EntityChargeAttackState : BaseActionState
         base.Setup(controller, stateMachine);
         
         // Grab the attack data from the controllers attack library
-        _attackData = controller.GetAttackData<ChargeAttackData>();
+        _attackData = controller?.GetAttackData<ChargeAttackData>(attackID);
         
         if (_attackData == null) 
             Debug.LogError($"ChargeAttackData not found in attack library for {controller.gameObject.name}");

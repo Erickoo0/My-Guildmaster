@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerMouseAttackState : State<PlayerController>
 {
+    [SerializeField] private string attackID;
     private MouseAttackData _attackData;
     private PlayerCombatController _combatController;
     private bool _isFinished;
@@ -16,24 +17,22 @@ public class PlayerMouseAttackState : State<PlayerController>
         
         if (_combatController != null)
         {
-            _attackData = _combatController.GetAttackData<MouseAttackData>();
+            _attackData = _combatController.GetAttackData<MouseAttackData>(attackID);
         }
-
-        if (_attackData == null) 
-            Debug.LogWarning($"{controller.gameObject.name} has MouseAttackState but no MouseAttackData in library.");
-
     }
     
     public override void Enter()
     {
-        _isFinished = false;
-
         // Safety Check
         if (_attackData == null || _attackData.attackPrefab == null)
         {
+            Debug.LogWarning($"{controller.gameObject.name} has MouseAttackState but no MouseAttackData in library.");
+
             _isFinished = true;
             return;
         }
+        
+        _isFinished = false;
     
         // 1. Prepare Damage using the injected context
         DamageData executionDamage = _attackData.damageData;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using Pathfinding;
 using Unity.VisualScripting;
 
@@ -129,13 +130,12 @@ public class EntityController : BaseEntityController
         _lastActionTime = Time.time;
     }
     
-    public T GetAttackData<T>() where T : AttackData
+    public T GetAttackData<T>(string id) where T : AttackData
     {
-        foreach (var data in attackLibrary)
-        {
-            if (data is T specificData) return specificData;
-        }
-        return null;
+        // Search the library for a piece of data that:
+        // 1. Matches the ID string
+        // 2. Is of the type (T) we are looking for
+        return attackLibrary.OfType<T>().FirstOrDefault(data => data.attackID == id);
     }
     
     
