@@ -6,7 +6,7 @@ public abstract class HitBox : MonoBehaviour
     [Header("Base Settings")] 
     public LayerMask victimLayer; // Layer to check for collisions
     public bool enableHitbox = true;
-    [HideInInspector] public Collider2D collider;
+    [HideInInspector] public Collider2D entityCollider;
 
     [Header("Behavior Settings")] 
     [Tooltip("If true, the hitbox will only be triggered once per target")]
@@ -22,7 +22,7 @@ public abstract class HitBox : MonoBehaviour
     
     protected virtual void Awake()
     {
-        collider = GetComponent<Collider2D>();
+        entityCollider = GetComponent<Collider2D>();
     }
 
     public virtual void Setup(DamageData data)

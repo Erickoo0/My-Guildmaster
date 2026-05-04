@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
+[System.Serializable]
 public class GoblinArcherAttackState : BaseActionState
 {
     private ProjectileAttackData arrowData;
@@ -70,6 +71,7 @@ public class GoblinArcherAttackState : BaseActionState
         }
         
         hasFired = true;
+        controller.SetActionCooldown();
     }
     
     public override void PhysicsUpdate() { }
@@ -78,6 +80,10 @@ public class GoblinArcherAttackState : BaseActionState
     public override void Exit()
     {
         controller.EntityAnimator.OnAnimationEventRequested -= FireArrow;
+        
+        controller.EntityAnimator.animator.SetBool("IsAttacking", false);
+        
+        controller.SetActionCooldown();
     }
     
 }

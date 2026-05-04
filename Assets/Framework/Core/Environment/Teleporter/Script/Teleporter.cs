@@ -15,7 +15,8 @@ public class Teleporter : MonoBehaviour
 
     private void Awake()
     {
-        _targetDestinationTag = targetDestinationTeleporter.targetDestinationTag;
+        if (_targetDestinationTag != null) 
+            _targetDestinationTag = targetDestinationTeleporter.targetDestinationTag;
     }
     
     private void Update()

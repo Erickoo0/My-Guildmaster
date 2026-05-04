@@ -1,6 +1,7 @@
 using Pathfinding;
 using UnityEngine;
 
+[System.Serializable]
 public class EntityWanderState : BaseWanderState
 {
     private Vector2 _targetDestination;
@@ -10,12 +11,14 @@ public class EntityWanderState : BaseWanderState
     private float stuckTimerMax = 5f;
     private Vector2 _lastPosition;
     private float stuckThreshold = 0.1f;
+    private float _positionCheckTimer;
+    private float _positionCheckInterval = 0.5f;
     
     public override void Enter()
     {
         // 1. Tell the AI to start calculating paths again
         controller.aiPath.canSearch = true;
-
+        _lastPosition = controller.transform.position;
         SetNewDestination();
     }
 
@@ -52,7 +55,7 @@ public class EntityWanderState : BaseWanderState
         
 
         // 5. Force AIPath to update its internal logic based on where our EntityMover just moved us
-        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
+        //controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
         
         CheckForStuck();
     }
@@ -69,22 +72,31 @@ public class EntityWanderState : BaseWanderState
 
     private void CheckForStuck()
     {
-        if (Vector2.Distance(_lastPosition, controller.transform.position) < stuckThreshold)
-        {
-            stuckTimer += Time.deltaTime;
-        }
-        else
-        {
-            stuckTimer = 0;
-        }
+        // Tick down interval timer
+        _positionCheckTimer -= Time.deltaTime;
         
-        if (stuckTimer > stuckTimerMax)
+        if (_positionCheckTimer <= 0f)
         {
-            Debug.Log("Entity stuck! Resetting path.");
-            stuckTimer = 0;
-            SetNewDestination();
+            // Check if the entity moved less than the threshold over the LAST 0.5 SECONDS
+            if (Vector2.Distance(_lastPosition, controller.transform.position) < stuckThreshold)
+            {
+                stuckTimer += _positionCheckInterval;
+            }
+            else
+            {
+                stuckTimer = 0;
+            }
+            
+            if (stuckTimer > stuckTimerMax)
+            {
+                Debug.Log("Entity stuck! Resetting path.");
+                stuckTimer = 0;
+                SetNewDestination();
+            }
+            
+            // Reset the interval variables
+            _lastPosition = controller.transform.position;
+            _positionCheckTimer = _positionCheckInterval;
         }
-        
-        _lastPosition = controller.transform.position;
     }
 }

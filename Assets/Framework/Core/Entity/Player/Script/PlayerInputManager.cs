@@ -22,9 +22,6 @@ public class PlayerInputManager : MonoBehaviour
         
         // Grab the component
         PlayerInput = GetComponent<PlayerInput>();
-        
-        // Keep this manager alive when changing scenes
-        DontDestroyOnLoad(gameObject);
     }
     
 }

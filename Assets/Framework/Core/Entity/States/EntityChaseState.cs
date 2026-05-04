@@ -54,17 +54,14 @@ public class EntityChaseState : BaseChaseState
         // Movement Logic
         if (distance > controller.ActionRange)
         {
-            Vector2 directionToCorner = ((Vector2)controller.aiPath.steeringTarget - (Vector2)controller.transform.position).normalized;
-            controller.EntityMover.SetMoveDirection(directionToCorner);
+            Vector2 moveDirection = ((Vector2)controller.aiPath.desiredVelocity).normalized;
+            controller.EntityMover.SetMoveDirection(moveDirection);
 
         }
         else // We are close enough to attack, but maybe waiting for attack cooldown
         {
             controller.EntityMover.SetMoveDirection(Vector2.zero);
         }
-        
-        // Force AIPath to update its internal logic based on where our EntityMover just moved us
-        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
     }
     
     public override void PhysicsUpdate() { }

@@ -8,7 +8,6 @@ public class EntityMover : MonoBehaviour
     public float moveSpeed = 5f;
     
     [Header("Knockback Settings")]
-    [SerializeField] private float knockbackDecay = 8f;
     private bool _isKnockedBack = false;
     private float _knockbackTimer;
     private float _totalKnockbackDuration;
@@ -55,9 +54,6 @@ public class EntityMover : MonoBehaviour
 
     private void HandleKnockbackLoop()
     {
-        // Horizontal Knockback decay
-        //_rigidbody.linearVelocity = Vector2.MoveTowards(_rigidbody.linearVelocity, Vector2.zero, knockbackDecay * Time.fixedDeltaTime * 10f);
-        
         _knockbackTimer -= Time.fixedDeltaTime;
         
         // 1. Calculate progress from 0 to 1

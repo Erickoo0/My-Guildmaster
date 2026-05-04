@@ -95,7 +95,7 @@ public class EntityChargeAttackState : BaseActionState
         // Phase B: Active Charge
         else if (_chargeTimer > 0)
         {
-            // Tell the collider to ignore entity collision
+            // Tell the entityCollider to ignore entity collision
             if (_entityCollider != null)
             {
                 _originalExcludeLayers = _entityCollider.excludeLayers; // Save the original layers

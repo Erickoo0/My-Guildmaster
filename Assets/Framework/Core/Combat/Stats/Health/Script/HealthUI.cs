@@ -21,6 +21,7 @@ public class HealthUI : MonoBehaviour
         // If no health target (assigned ui), assume it's the parent object.
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         if (hpComponent == null) hpComponent = GetComponentInParent<Health>();
+        if (hpComponent == null) hpComponent = GetComponent<Health>();
         if (progressBarRef == null && healthBarPrefab != null) SpawnHealthBar();
     }
 

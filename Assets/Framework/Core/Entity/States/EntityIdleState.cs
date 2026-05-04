@@ -14,13 +14,6 @@ public class EntityIdleState : BaseIdleState
 
     public override void Update()
     {
-        // If theres a target, immediately switch to chase state
-        if (controller.currentTarget != null)
-        {
-            stateMachine.ChangeState(controller.ChaseState);
-            return;
-        }
-        
         // if  no target, wait for a random time, then switch to wander state
         if (_idleTime > 0) _idleTime -= Time.deltaTime;
         else stateMachine.ChangeState(controller.WanderState);
