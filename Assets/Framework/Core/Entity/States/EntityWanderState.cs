@@ -58,6 +58,9 @@ public class EntityWanderState : BaseWanderState
         //controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
         
         CheckForStuck();
+        
+        // Tell the AIPath where the transform actually is so it can calculate the next velocity correctly
+        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
     }
 
     public override void Exit()

@@ -36,10 +36,9 @@ public class GoblinArcherAttackState : BaseActionState
 
     public override void Update()
     {
-        if (controller.EntityAnimator.animator.GetBool("IsAttacking") == false)
+        if (!controller.EntityAnimator.animator.GetBool("IsAttacking"))
         {
             stateMachine.ChangeState(controller.IdleState);
-            return;
         }
     }
 
@@ -84,6 +83,8 @@ public class GoblinArcherAttackState : BaseActionState
         controller.EntityAnimator.animator.SetBool("IsAttacking", false);
         
         controller.SetActionCooldown();
+        
+        controller.currentTarget = null;
     }
     
 }

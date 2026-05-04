@@ -50,6 +50,13 @@ public class EntityChaseState : BaseChaseState
             stateMachine.ChangeState(controller.AttackState);
             return;
         }
+        else if (distance <= controller.ActionRange) // If in action range, but action cooldown is not over
+        {
+            controller.EntityMover.SetMoveDirection(Vector2.zero);
+            
+            Vector2 faceDirection = (targetPosition - currentPosition).normalized;
+            controller.EntityAnimator.FaceDirection(faceDirection);
+        }
         
         // Movement Logic
         if (distance > controller.ActionRange)
@@ -62,7 +69,9 @@ public class EntityChaseState : BaseChaseState
         {
             controller.EntityMover.SetMoveDirection(Vector2.zero);
         }
-    }
+        
+        // Tell the AIPath where the transform actually is so it can calculate the next velocity correctly
+        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);    }
     
     public override void PhysicsUpdate() { }
     public override void HandleInput() { }

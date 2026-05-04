@@ -70,16 +70,18 @@ public class EntityController : BaseEntityController
     //---- Targeting Methods ----
     private void UpdateTargeting()
     {
-        if (currentTarget == null)
+        // If we have a target, check if they ran away too far
+        if (currentTarget != null)
         {
-            FindTarget();
-            return;
+            if (!IsTargetInRange(DetectionLostRange))
+            {
+                ClearTarget();
+            }
+            return; 
         }
 
-        if (!IsTargetInRange(DetectionLostRange))
-        {
-            ClearTarget();
-        }
+        // If we DON'T have a target, scan the area
+        FindTarget();
     }
 
     private void FindTarget()
@@ -108,20 +110,6 @@ public class EntityController : BaseEntityController
         currentTarget = null;
         StateMachine.ChangeState(IdleState);
     }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player")) return;
-
-        if (StateMachine.CurrentState != ChaseState && StateMachine.CurrentState != AttackState)
-        {
-            Vector2 lookDirection = (other.transform.position - transform.position).normalized;    
-            EntityAnimator.FaceDirection(lookDirection);
-            
-            // If wandering, force idle state
-            if (StateMachine.CurrentState == WanderState) StateMachine.ChangeState(IdleState);
-        }
-    }
     
     private bool IsTargetInRange(float range)
     {
@@ -148,5 +136,44 @@ public class EntityController : BaseEntityController
             if (data is T specificData) return specificData;
         }
         return null;
+    }
+    
+    
+    //----Debug Methods-----
+    private void OnDrawGizmosSelected()
+    {
+        // 1. Detection Range (Aggro Zone)
+        Gizmos.color = Color.yellow;
+        DrawGizmoCircle(transform.position, DetectionRange);
+
+        // 2. Detection Lost Range (Leash Zone)
+        Gizmos.color = Color.red;
+        DrawGizmoCircle(transform.position, DetectionLostRange);
+
+        // 3. Action Range (Attack Zone)
+        Gizmos.color = Color.cyan;
+        DrawGizmoCircle(transform.position, ActionRange);
+    
+        // 4. Wander Radius (Spawn Zone)
+        // We check if SpawnPosition is zero to avoid drawing at world center before Start()
+        if (SpawnPosition != Vector2.zero)
+        {
+            Gizmos.color = Color.green;
+            DrawGizmoCircle(SpawnPosition, WanderRadius);
+        }
+    }
+
+    private void DrawGizmoCircle(Vector2 center, float radius)
+    {
+        float angle = 0f;
+        Vector2 lastPoint = center + new Vector2(Mathf.Cos(0) * radius, Mathf.Sin(0) * radius);
+
+        for (int i = 1; i <= 32; i++)
+        {
+            angle += (2f * Mathf.PI) / 32f;
+            Vector2 nextPoint = center + new Vector2(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius);
+            Gizmos.DrawLine(lastPoint, nextPoint);
+            lastPoint = nextPoint;
+        }
     }
 }
