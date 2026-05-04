@@ -35,6 +35,7 @@ public abstract class HitBox : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (!enableHitbox || !isDamageDataAssigned) return;
+        if (other.isTrigger) return;
         if (((1 << other.gameObject.layer) & victimLayer) == 0) return;
         if (other.gameObject == damageData.source) return;
 

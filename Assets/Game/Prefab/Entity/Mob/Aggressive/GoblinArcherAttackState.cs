@@ -1,16 +1,20 @@
+using System.Linq;
 using UnityEngine;
 
 public class GoblinArcherAttackState : BaseActionState
 {
     private ProjectileAttackData arrowData;
+    private GameObject firePoint;
     private bool hasFired = false;
-    
+
     public override void Setup(EntityController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
         arrowData = controller?.GetAttackData<ProjectileAttackData>();
+
+        firePoint = controller?.GetComponentInChildren<FirePoint>().gameObject;
     }
-    
+
     public override void Enter()
     {
         hasFired = false;
@@ -48,8 +52,8 @@ public class GoblinArcherAttackState : BaseActionState
             Debug.LogWarning("No target to fire arrow at");
             return;
         }
-        
-        Vector2 spawnPosition = controller.transform.position;
+
+        Vector2 spawnPosition = firePoint.transform.position;
         Vector2 targetPosition = controller.currentTarget.transform.position;
         Vector2 direction = (targetPosition - spawnPosition).normalized;
         
