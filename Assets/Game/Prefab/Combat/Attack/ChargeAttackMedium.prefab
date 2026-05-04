@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2095625670179130192}
   - component: {fileID: 6340206786309236797}
   - component: {fileID: 740351689030124618}
+  - component: {fileID: 181789367141450437}
   m_Layer: 0
   m_Name: ChargeAttackMedium
   m_TagString: Untagged
@@ -128,3 +129,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &181789367141450437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013176712899462862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
+  victimLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  enableHitbox: 1
+  collider: {fileID: 0}
+  hitOncePerTarget: 1
+  disableAfterFirstHit: 0

@@ -29,7 +29,6 @@ public class HurtBox : MonoBehaviour, IDamagable
         FlashShader flashShader = GetComponentInChildren<FlashShader>();
         if (flashShader != null)
         {
-            Debug.Log("Flash Shader Found");
             flashShader.ApplyFlash();
 
         }

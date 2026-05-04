@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HitBoxCircle : HitBox
+public class HitBoxContact : HitBox
 {
     protected override Vector2 GetKnockbackDirection(Collider2D other)
     {

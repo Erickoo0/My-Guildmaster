@@ -30,7 +30,6 @@ public class FlashShader : MonoBehaviour
 
     public void ApplyFlash()
     {
-        Debug.Log("Applying Flash");
         // Safety check in case Awake hasn't run or GetComponents failed
         if (_spriteRenderer == null || _spriteRenderer.Length == 0)
         {

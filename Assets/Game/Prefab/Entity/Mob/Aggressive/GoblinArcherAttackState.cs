@@ -53,7 +53,7 @@ public class GoblinArcherAttackState : BaseActionState
         Vector2 targetPosition = controller.currentTarget.transform.position;
         Vector2 direction = (targetPosition - spawnPosition).normalized;
         
-        GameObject arrow = Object.Instantiate(arrowData.projectilePrefab, spawnPosition, Quaternion.identity);
+        GameObject arrow = Object.Instantiate(arrowData.attackPrefab, spawnPosition, Quaternion.identity);
 
         if (arrow.TryGetComponent(out Projectile projectile))
         {
