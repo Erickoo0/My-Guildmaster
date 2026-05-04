@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrarySourceAsset
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Mushroom Idle_0
+      m_Hash: 122818848
+      m_Sprite: {fileID: -2802695987966501644, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2802695987966501644, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+    - m_Name: Mushroom Idle_1
+      m_Hash: 810885558
+      m_Sprite: {fileID: 4365278107156670141, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4365278107156670141, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+    - m_Name: Mushroom Idle_2
+      m_Hash: 693923852
+      m_Sprite: {fileID: 7483359292661666553, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7483359292661666553, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+    - m_Name: Mushroom Idle_3
+      m_Hash: 509296794
+      m_Sprite: {fileID: 2147716474952460080, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2147716474952460080, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+    - m_Name: Mushroom Idle_4
+      m_Hash: 4183353
+      m_Sprite: {fileID: -9030731280858339891, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9030731280858339891, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+    - m_Name: Mushroom Idle_5
+      m_Hash: 926475695
+      m_Sprite: {fileID: 6344510759501076868, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6344510759501076868, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+    - m_Name: Mushroom Idle_6
+      m_Hash: 775009301
+      m_Sprite: {fileID: 1414759608453489548, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1414759608453489548, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+    - m_Name: Mushroom Idle_7
+      m_Hash: 423003267
+      m_Sprite: {fileID: 1470753880071346100, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1470753880071346100, guid: f8606f10e270b4b438f5f2cc7fe3586f, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 8
+  - m_Name: Run
+    m_Hash: 675013152
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Mushroom Run_0
+      m_Hash: 721538895
+      m_Sprite: {fileID: -8167452996446749364, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8167452996446749364, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+    - m_Name: Mushroom Run_1
+      m_Hash: 470220761
+      m_Sprite: {fileID: -1907791405997958532, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1907791405997958532, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+    - m_Name: Mushroom Run_2
+      m_Hash: 84913763
+      m_Sprite: {fileID: 5483132111904702306, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5483132111904702306, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+    - m_Name: Mushroom Run_3
+      m_Hash: 839425781
+      m_Sprite: {fileID: 4271407390288208459, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4271407390288208459, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+    - m_Name: Mushroom Run_4
+      m_Hash: 745278294
+      m_Sprite: {fileID: 5311103747510935447, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5311103747510935447, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+    - m_Name: Mushroom Run_5
+      m_Hash: 460012480
+      m_Sprite: {fileID: -3154654830565636776, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3154654830565636776, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+    - m_Name: Mushroom Run_6
+      m_Hash: 40004218
+      m_Sprite: {fileID: 4632816080479219413, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4632816080479219413, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+    - m_Name: Mushroom Run_7
+      m_Hash: 895834860
+      m_Sprite: {fileID: -6587008913193205627, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6587008913193205627, guid: ee5d9dd344de4274586aa0392dc28300, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 8
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 639130542506968267
+  m_Version: 1
