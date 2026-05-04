@@ -370,7 +370,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityMover
   moveSpeed: 5
-  knockbackDecay: 5
 --- !u!114 &-3679579161091551708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +418,8 @@ MonoBehaviour:
       data: 
     - rid: 7572515179751800910
       type: {class: EntityChargeAttackState, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        attackID: 
 --- !u!114 &6447096566392552272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 0.3
+  pickNextWaypointDist: 1
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1

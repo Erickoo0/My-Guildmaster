@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ac726f3eeb3bde469dd979aeb272eac, type: 3}
-  m_Name: ArrowProjectileAttackData
+  m_Name: FireballProjectileAttackData
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttackData
-  attackID: ArrowProjectileAttackData
-  attackPrefab: {fileID: 3407802505861899660, guid: 0db544e496dadf34982b3eaa0f05aef2, type: 3}
+  attackID: FireballProjectileAttackData
+  attackPrefab: {fileID: 3301934860267052368, guid: 4af734ae41faf5c4b94b5a521cbb2fc7, type: 3}
   damageData:
-    damageAmount: 5
+    damageAmount: 21
     hitDirection: {x: 0, y: 0}
     knockbackForce: 30
-    knockbackDuration: 0.2
-    knockbackHeight: 0.35
+    knockbackDuration: 0.5
+    knockbackHeight: 1.2
     damageType: 0
     source: {fileID: 0}
-  projectileSpeed: 10
-  projectileLifetime: 6
+  projectileSpeed: 5
+  projectileLifetime: 5

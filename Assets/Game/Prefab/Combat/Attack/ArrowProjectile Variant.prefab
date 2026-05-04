@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7074327856698990621, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Name
-      value: ArrowAttack Variant
+      value: ArrowProjectile Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8014193221650302708, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Sprite
@@ -75,9 +75,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7074327856698990621, guid: 386222c92002bb24e96302a909835807, type: 3}
       insertIndex: 2
       addedObject: {fileID: 2527236803279091460}
-    - targetCorrespondingSourceObject: {fileID: 7074327856698990621, guid: 386222c92002bb24e96302a909835807, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2052355663030095781}
   m_SourcePrefab: {fileID: 100100000, guid: 386222c92002bb24e96302a909835807, type: 3}
 --- !u!1 &3407802505861899660 stripped
 GameObject:
@@ -130,22 +127,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.33597982, y: 0.19641986}
   m_EdgeRadius: 0
---- !u!114 &2052355663030095781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3407802505861899660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
-  victimLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  enableHitbox: 1
-  collider: {fileID: 0}
-  hitOncePerTarget: 1
-  disableAfterFirstHit: 0

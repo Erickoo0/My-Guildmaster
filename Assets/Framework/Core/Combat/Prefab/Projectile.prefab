@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 987499135808754145}
   - component: {fileID: 8014193221650302708}
+  - component: {fileID: 2321007536757467925}
   - component: {fileID: 485556858776694668}
+  - component: {fileID: -2872043633173323930}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -92,6 +94,52 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &2321007536757467925
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7074327856698990621}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5625, y: 0.5}
+    newSize: {x: 0.5625, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5625, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!114 &485556858776694668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,3 +152,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27f772687e572a46bffe3ff678a350e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+--- !u!114 &-2872043633173323930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7074327856698990621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
+  victimLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  enableHitbox: 1
+  entityCollider: {fileID: 0}
+  hitOncePerTarget: 1
+  disableAfterFirstHit: 0
