@@ -8,18 +8,23 @@ using TMPro;
 /// <summary>
 /// A centralized manager that handles drag-and-drop logic for any <see cref="IStorageSlot"/>.
 /// </summary>
-public class ItemDragManager : MonoBehaviour
+public class MouseManager : MonoBehaviour
 {
-    public static ItemDragManager Instance { get; private set; }
+    public static MouseManager Instance { get; private set; }
 
-    [Header("References")] 
-    [SerializeField] private Image ghostIcon; 
+    [Header("Drag and Drop References")] 
+    [SerializeField] private GameObject ghostPanel; 
     [SerializeField] private TMP_Text ghostName;
     [SerializeField] private TMP_Text ghostStack;
+    
+    [Header("Tooltip References")]
+    [SerializeField] private GameObject tooltipPanel;
+    [SerializeField] private TMP_Text tooltipName;
+    [SerializeField] private TMP_Text tooltipDescription;
+    [SerializeField] private Vector2 tooltipOffset = new Vector2(100f, 50f);
         
     private IStorageSlot _sourceSlot;
     private Vector2 _currentMousePosition;
-    private RectTransform _ghostIconRect;
     
     // Raycast Variables
     private PointerEventData _eventData;
@@ -29,7 +34,7 @@ public class ItemDragManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.unityLogger.Log("Multiple DragManagers detected. Disabling script.");
+            Debug.unityLogger.Log("Multiple MouseManagers detected. Disabling script.");
             Destroy(gameObject);
             return;
         }
@@ -37,8 +42,8 @@ public class ItemDragManager : MonoBehaviour
         
         _eventData = new PointerEventData(EventSystem.current);
 
-        _ghostIconRect = ghostIcon.GetComponent<RectTransform>();
         ToggleGhost(false);
+        ToggleTooltip(false);
     }
 
     private void Update()
@@ -48,10 +53,40 @@ public class ItemDragManager : MonoBehaviour
         // Updates mouse position
         _currentMousePosition = Pointer.current.position.ReadValue();
         
+        // Find what the mouse is hovering over
+        IStorageSlot hoveredSlot = GetSlotUnderMouse();
+        
+        // Handle tooltip logic
+        HandleTooltip(hoveredSlot);
+        
         // Detects Input
         if (Pointer.current.press.wasPressedThisFrame) StartDrag();
         if (Pointer.current.press.isPressed) WhileDragging();
         if (Pointer.current.press.wasReleasedThisFrame) EndDrag();
+    }
+
+    private void HandleTooltip(IStorageSlot hoveredSlot)
+    {
+        // Hide the tooltip if currently dragging an item
+        if (_sourceSlot != null)
+        {
+            ToggleTooltip(false);
+            return;
+        }
+
+        // If hovering over a valid slot with an item, show tooltip
+        if (hoveredSlot != null && hoveredSlot.itemInstance != null && hoveredSlot.itemInstance.DataSo != null)
+        {
+            tooltipName.text = hoveredSlot.itemInstance.DataSo.ItemName;
+            tooltipDescription.text = hoveredSlot.itemInstance.DataSo.ItemDescription;
+            tooltipPanel.transform.position = _currentMousePosition + tooltipOffset;
+            tooltipPanel.transform.SetAsLastSibling();
+            ToggleTooltip(true);
+        }
+        else
+        {
+            ToggleTooltip(false);
+        }
     }
 
     private void StartDrag()
@@ -63,23 +98,21 @@ public class ItemDragManager : MonoBehaviour
             // Set the text
             ghostName.text = _sourceSlot.itemInstance.DataSo.ItemName;
             ghostStack.text = _sourceSlot.itemInstance.stackSize.ToString();
-            _ghostIconRect.position = _currentMousePosition;
+            ghostPanel.transform.position = _currentMousePosition;
             
             // Hide item from source slot to "pick it up"
             ToggleGhost(true);
         }
         
-        ghostIcon.transform.SetAsLastSibling();
+        ghostPanel.transform.SetAsLastSibling();
     }
 
     private void WhileDragging()
     {
-        if (!ghostIcon.enabled) return;
+        ghostPanel.transform.position = _currentMousePosition;
+        if (_sourceSlot == null || _sourceSlot.itemInstance.DataSo.ItemIcon == null) return; 
         
-        _ghostIconRect.position = _currentMousePosition;
-        if (_sourceSlot.itemInstance.DataSo.ItemIcon == null) return; 
-        
-        ghostIcon.sprite = GlobalHelper.GetAnimatedSprite(_sourceSlot.itemInstance.DataSo);
+        ghostPanel.GetComponent<Image>().sprite = GlobalHelper.GetAnimatedSprite(_sourceSlot.itemInstance.DataSo);
     }
 
     private void EndDrag()
@@ -112,8 +145,8 @@ public class ItemDragManager : MonoBehaviour
 
     private void ToggleGhost(bool toggle)
     {
-        _ghostIconRect.gameObject.SetActive(toggle);
-        ghostIcon.enabled = toggle;
+        ghostPanel.SetActive(toggle);
+        ghostPanel.GetComponent<Image>().enabled = toggle;
         ghostName.enabled = toggle;
         ghostStack.enabled = toggle;
 
@@ -121,6 +154,13 @@ public class ItemDragManager : MonoBehaviour
         { 
             _sourceSlot.SetDraggingState(toggle); // Tell the slot to hide its UI
         }
+    }
+    
+    private void ToggleTooltip(bool toggle)
+    {
+        tooltipPanel.SetActive(toggle);
+        tooltipName.enabled = toggle;
+        tooltipDescription.enabled = toggle;
     }
     
     // ReSharper disable Unity.PerformanceAnalysis

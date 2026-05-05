@@ -44,7 +44,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
         itemsList = new ItemInstance[inventorySize];
         
         // Initial active slot index 
-        //OnActiveSlotIndexChanged?.Invoke(0);
+        OnActiveSlotIndexChanged?.Invoke(0);
     }
     
     public bool AddItems(ItemInstance item)
