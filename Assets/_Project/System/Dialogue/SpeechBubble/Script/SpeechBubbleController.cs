@@ -42,7 +42,7 @@ public class SpeechBubbleController : MonoBehaviour
         // 2. Find the TextMeshPro component in the children and set the text
         TypeWriter typewriter = _currentBubble.GetComponentInChildren<TypeWriter>();
         //NEED TO FIX, CONVERT TO DIALOGUENODE
-        //if (typewriter != null) typewriter.StartTyping(speechBubbleLines[Random.Range(0, speechBubbleLines.Length)]);
+        if (typewriter != null) typewriter.StartTyping(speechBubbleLines[Random.Range(0, speechBubbleLines.Length)]);
         
         // 3. Set alive timer 
         _timer = speechBubbleDuration;

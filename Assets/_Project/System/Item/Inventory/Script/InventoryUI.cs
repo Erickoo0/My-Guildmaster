@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages the visual representation of the player's inventory. 
@@ -12,8 +13,10 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject hotbarSlotPrefab; // Hotbar slot to spawn
     [SerializeField] private GameObject inventoryMenuPanel;
     [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private Image inventoryPortrait;
     [SerializeField] private GameObject hotbarPanel;
     [SerializeField] private int hotbarSize;
+    private SpriteRenderer _playerSprite;
 
     [Header("Selection Frame Settings")] 
     [SerializeField] private RectTransform selectionFrame;
@@ -30,7 +33,7 @@ public class InventoryUI : MonoBehaviour
         // Subscribe to events
         InventoryManager.Instance.OnSlotUpdated += RefreshSlotUI;
         InventoryManager.Instance.OnActiveSlotIndexChanged += MoveSelectionFrame;
-        
+
         // Initial Refresh: Sync UI with whatever data is already in the Inventory Manager (Saved data)
         for (int i = 0; i < InventoryManager.Instance.itemsList.Length; i++)
         {
@@ -38,6 +41,11 @@ public class InventoryUI : MonoBehaviour
         }
 
         selectionFrame.gameObject.SetActive(true);
+
+        // Get the inventory portrait
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        var visualComponent = player.transform.Find("Visual");
+        _playerSprite = visualComponent.GetComponent<SpriteRenderer>();
     }
 
     private void OnDestroy()
@@ -54,6 +62,9 @@ public class InventoryUI : MonoBehaviour
     {
         // Moves selection frame to target position
         selectionFrame.position = Vector3.Lerp(selectionFrame.position, _targetPosition, Time.deltaTime * lerpSpeed);
+        
+        inventoryPortrait.sprite = _playerSprite.sprite;
+
     }
     
     public void ToggleMenu(InputAction.CallbackContext context)

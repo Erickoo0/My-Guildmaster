@@ -10,7 +10,7 @@ public class EntityController : BaseEntityController
 {
     
     [Header("Movement Settings")]
-    public AIPath aiPath;
+    [HideInInspector] public AIPath aiPath;
     [field: SerializeField] public float WanderRadius { get; private set; } = 5f;
     public Vector2 SpawnPosition { get; private set; }
     

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerFireballAttackState : State<PlayerController>
 {
     [SerializeField] private string attackID;
