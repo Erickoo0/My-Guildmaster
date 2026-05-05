@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22b118d02523bf4e839eff9262a3a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpeechBubbleManager
-  speechBubblePrefab: {fileID: 0}
+  speechBubblePrefab: {fileID: 8936567896374602222, guid: 2c8d6c5837f715f46a7e77ff2af6fd88, type: 3}
   speechBubbleLines:
   - Hello Man
   - Is this thing working?

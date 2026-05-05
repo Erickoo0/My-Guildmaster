@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 18.748, y: 3.025}
+  m_AnchoredPosition: {x: 0.9217, y: 1.0746}
+  m_SizeDelta: {x: 2.1135, y: 0.7438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4334482431900093521
 MeshRenderer:
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5862108258229975326, guid: d8a378d20c207f846ae8693b9a8ef15f, type: 2}
+  - {fileID: -3214657711778352668, guid: e72b3c35ed744294d87868c4546bb5e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,15 +109,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hello Man, dont you think the weather is great?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d8a378d20c207f846ae8693b9a8ef15f, type: 2}
-  m_sharedMaterial: {fileID: 5862108258229975326, guid: d8a378d20c207f846ae8693b9a8ef15f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e72b3c35ed744294d87868c4546bb5e0, type: 2}
+  m_sharedMaterial: {fileID: -3214657711778352668, guid: e72b3c35ed744294d87868c4546bb5e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -134,13 +134,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 4
+  m_fontSizeBase: 4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -222,7 +222,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.6289, y: -2.8651, z: 0}
-  m_LocalScale: {x: 0.12455953, y: 0.29836258, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5069300144556009193}
@@ -273,11 +273,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1310927701
-  m_SortingLayer: 6
+  m_SortingLayerID: -2028734109
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5256508804588260846, guid: e8e661730dda51047a0b4fb3c2c68218, type: 3}
+  m_Sprite: {fileID: 759063965118591060, guid: 3c72175ce6b90994c91cfabefb5d47fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
