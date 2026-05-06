@@ -7,17 +7,10 @@ public class Teleporter : MonoBehaviour
 {
     [Header("Teleporter Settings")] 
     [SerializeField] private Teleporter targetDestinationTeleporter;
-    private string _targetDestinationTag;
-    [SerializeField] private string targetDestinationTag;
-    [SerializeField] private float teleportCooldown = 0f;
+    [SerializeField] private GameLocation targetLocation;
     [SerializeField] private TeleportFacing faceDirection;
+    [SerializeField] private float teleportCooldown = 1f;
     private float _teleportCooldownTimer;
-
-    private void Awake()
-    {
-        if (_targetDestinationTag != null) 
-            _targetDestinationTag = targetDestinationTeleporter.targetDestinationTag;
-    }
     
     private void Update()
     {
@@ -29,9 +22,10 @@ public class Teleporter : MonoBehaviour
     {
         // 1. Validation checks
         if (!other.CompareTag("Player") || _teleportCooldownTimer > 0 || other.isTrigger) return;
-        if (targetDestinationTeleporter == null || targetDestinationTag == null || targetDestinationTag == null || targetDestinationTag == "")
+        
+        if (targetDestinationTeleporter == null)
         {
-            Debug.LogWarning("Teleporter: missing variables!");
+            Debug.LogWarning($"Teleporter on {gameObject.name} is missing a target destination!");
             return;
         }
         
@@ -45,13 +39,20 @@ public class Teleporter : MonoBehaviour
         var controller = other.GetComponent<PlayerController>();
         if (FadeController.Instance != null)
         {
+            // Stop player from moving during the animation
             controller.SetCanMove(false);
             yield return FadeController.Instance.FadeOut();
         }
+        
         // 2. Teleport the player
         other.transform.position = targetDestinationTeleporter.transform.position;
         
-        // 3. Set the face direction 
+        // 3. Update location
+        if (LocationManager.Instance != null)
+            LocationManager.Instance.UpdateLocation(targetLocation);
+
+        
+        // 4. Set the face direction 
         var playerAnimator = other.GetComponent<EntityAnimator>(); // Replace with your actual class name
         if (playerAnimator != null)
         {
@@ -59,13 +60,10 @@ public class Teleporter : MonoBehaviour
             playerAnimator.FaceDirection(lookDir);
         }
         
-        // 4. Set the cooldown for BOTH teleporters
+        // 5. Set the cooldown for BOTH teleporters
         SetTeleporterCooldown();
         targetDestinationTeleporter.SetTeleporterCooldown();
         
-        // 5. Set the location tag
-        if (MapManager.Instance != null) 
-            MapManager.Instance.SetLocationTag(targetDestinationTag);
         
         // 6. Give the camera some time to catch up to the new position
         yield return new WaitForSeconds(0.1f);
@@ -78,10 +76,7 @@ public class Teleporter : MonoBehaviour
         }
     }
     
-    private void SetTeleporterCooldown()
-    {
-        _teleportCooldownTimer = teleportCooldown;
-    }
+    private void SetTeleporterCooldown() => _teleportCooldownTimer = teleportCooldown;
     
     private Vector2 GetFacingDirection()
     {

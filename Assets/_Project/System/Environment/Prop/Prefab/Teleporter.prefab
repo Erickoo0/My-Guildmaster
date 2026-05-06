@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1815957425832613897}
   - component: {fileID: 2970126344644673746}
   - component: {fileID: 808445040520794373}
-  - component: {fileID: 5451278297401083766}
   m_Layer: 0
   m_Name: Teleporter
   m_TagString: Untagged
@@ -48,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Teleporter
   targetDestinationTeleporter: {fileID: 0}
-  targetDestinationTag: Town
-  teleportCooldown: 2
+  targetLocation: 0
   faceDirection: 0
+  teleportCooldown: 2
 --- !u!212 &2970126344644673746
 SpriteRenderer:
   serializedVersion: 2
@@ -156,19 +155,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4, y: 1.25}
   m_EdgeRadius: 0
---- !u!114 &5451278297401083766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3208409185888887620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ef337b492647a449c61bfed004fd44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Teleporter
-  targetDestinationTeleporter: {fileID: 0}
-  targetDestinationTag: 
-  teleportCooldown: 0
-  faceDirection: 0

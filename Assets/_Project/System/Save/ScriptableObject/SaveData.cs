@@ -15,6 +15,7 @@ public class SaveData
     public float currentMana;
     public int currentLevel;
     public int currentExperience;
+    public int currentPlayerGold;
     
     //----Location Variables----
     public string currentLocation;

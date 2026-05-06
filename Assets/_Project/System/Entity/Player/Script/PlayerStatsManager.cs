@@ -6,8 +6,8 @@ public class PlayerStatsManager : MonoBehaviour
 {
     public static PlayerStatsManager Instance { get; private set; }
 
-    [Header("Player Stats")] [SerializeField]
-    private Health healthComponent;
+    [Header("Player Stats")] 
+    private Health _healthComponent;
     private Mana _manaComponent;
     private Level _levelComponent;
 
@@ -31,7 +31,7 @@ public class PlayerStatsManager : MonoBehaviour
         Instance = this;
 
         // Get the components
-        healthComponent = GetComponent<Health>();
+        _healthComponent = GetComponent<Health>();
         _manaComponent = GetComponent<Mana>();
         _levelComponent = GetComponent<Level>();
         
@@ -41,7 +41,7 @@ public class PlayerStatsManager : MonoBehaviour
     private void OnEnable()
     {
         // Catch and discard the broadcasted values as we dont need them here
-        healthComponent.OnHpUpdated += UpdateStatsMenu;
+        _healthComponent.OnHpUpdated += UpdateStatsMenu;
         _manaComponent.OnMpUpdated += UpdateStatsMenu;
         _levelComponent.OnLevelUpdated += UpdateStatsMenu;
         _levelComponent.OnExperienceGained += UpdateStatsMenu;
@@ -51,7 +51,7 @@ public class PlayerStatsManager : MonoBehaviour
     
     private void OnDisable()
     {
-        healthComponent.OnHpUpdated -= UpdateStatsMenu;
+        _healthComponent.OnHpUpdated -= UpdateStatsMenu;
         _manaComponent.OnMpUpdated -=  UpdateStatsMenu;
         _levelComponent.OnLevelUpdated -= UpdateStatsMenu;
         _levelComponent.OnExperienceGained -= UpdateStatsMenu;
@@ -82,7 +82,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void UpdateStatsMenu()
     {
-        playerHpText.text = ($"HP: {healthComponent.HpCurrent}/{healthComponent.hpMax}");
+        playerHpText.text = ($"HP: {_healthComponent.HpCurrent}/{_healthComponent.hpMax}");
         playerMpText.text = ($"MP: {_manaComponent.MpCurrent}/{_manaComponent.mpMax}");
         playerLvlText.text = ($"Lvl: {_levelComponent.LvlCurrent}");
         playerExpText.text = ($"Exp: {_levelComponent.ExpCurrent}/{_levelComponent.ExpToNextLvl}");
