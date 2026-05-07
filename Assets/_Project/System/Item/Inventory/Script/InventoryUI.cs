@@ -62,8 +62,9 @@ public class InventoryUI : MonoBehaviour
     {
         // Moves selection frame to target position
         selectionFrame.position = Vector3.Lerp(selectionFrame.position, _targetPosition, Time.deltaTime * lerpSpeed);
-        
-        inventoryPortrait.sprite = _playerSprite.sprite;
+            
+        if (inventoryPortrait != null && _playerSprite != null)
+            inventoryPortrait.sprite = _playerSprite.sprite;
 
     }
     

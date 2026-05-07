@@ -77,7 +77,6 @@ public class DungeonController : MonoBehaviour
         
         StartCoroutine(BeginRoundRoutine());
         OnDungeonStarted?.Invoke();
-        OnRoundStarted?.Invoke(_currentRound);
     }
     
     // Called when leaving a dungeon or died
@@ -93,7 +92,7 @@ public class DungeonController : MonoBehaviour
         _currentZone = null; // Clear the zone
         
         _dungeonSpawner.StopSpawning();
-        _dungeonEnemyTracker.ClearTracking();
+        _dungeonEnemyTracker.ClearDungeon();
         OnDungeonEnded?.Invoke();
     }
 
@@ -117,5 +116,6 @@ public class DungeonController : MonoBehaviour
         
         // Tell the spawner to start spawning enemies
         _dungeonSpawner.StartSpawning(_currentDungeon, _currentZone, _currentRound, totalToSpawn);
+        OnRoundStarted?.Invoke(_currentRound);
     }
 }

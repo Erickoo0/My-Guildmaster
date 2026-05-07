@@ -32,7 +32,7 @@ public abstract class HitBox : MonoBehaviour
         targetsHit.Clear();
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
         if (!enableHitbox || !isDamageDataAssigned) return;
         if (other.isTrigger) return;
@@ -50,7 +50,8 @@ public abstract class HitBox : MonoBehaviour
             // 3. Send the damage to the target
             DamageData finalData = damageData;
             finalData.hitDirection = direction;
-            
+            Debug.Log("Attacking!!!!!");
+
             if (SendDamage(finalData, other))
             {
                 targetsHit.Add(victim);

@@ -35,15 +35,21 @@ public class DungeonEnemyTracker : MonoBehaviour
             if (_currentEnemies.Count == 0)
             {
                 OnAllEnemiesCleared?.Invoke();
-                Debug.Log("All enemies cleared.");
             }
         }
     }
 
     // Called by the DungeonController when the current round is cleared
-    public void ClearTracking()
+    public void ClearDungeon()
     {
+        // Loop through the HashSet and destroy each enemy
+        foreach (GameObject enemy in _currentEnemies)
+        {
+            if (enemy != null)
+                Destroy(enemy);
+        }
+        
         _currentEnemies.Clear();
-        Debug.Log("Enemy tracking cleared.");
+        OnEnemyCountChanged?.Invoke(0);
     }
 }
