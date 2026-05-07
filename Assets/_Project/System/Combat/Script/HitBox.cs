@@ -50,7 +50,6 @@ public abstract class HitBox : MonoBehaviour
             // 3. Send the damage to the target
             DamageData finalData = damageData;
             finalData.hitDirection = direction;
-            Debug.Log("Attacking!!!!!");
 
             if (SendDamage(finalData, other))
             {

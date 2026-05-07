@@ -68,22 +68,19 @@ public class DungeonController : MonoBehaviour
     // Called when entering a dungeon
     private void StartDungeon(DungeonData dungeon, DungeonZone zone)
     {
-        Debug.Log($"Entering {dungeon.dungeonLocation}. Starting Round 1.");
-        
         _currentDungeon = dungeon;
         _currentZone = zone; 
         _currentRound = 1;
         _isDungeonActive = true;
         
         StartCoroutine(BeginRoundRoutine());
+        OnRoundStarted?.Invoke(_currentRound);
         OnDungeonStarted?.Invoke();
     }
     
     // Called when leaving a dungeon or died
     private void StopAndResetDungeon()
     {
-        Debug.Log($"Exiting {_currentDungeon?.dungeonLocation}.");
-        
         StopAllCoroutines();
         
         _isDungeonActive = false;

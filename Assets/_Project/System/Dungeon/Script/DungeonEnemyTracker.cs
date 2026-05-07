@@ -29,8 +29,6 @@ public class DungeonEnemyTracker : MonoBehaviour
             
             OnEnemyCountChanged?.Invoke(_currentEnemies.Count);
             
-            Debug.Log($"Remaining: {_currentEnemies.Count}");
-            
             // If there are no enemies left, invoke the event
             if (_currentEnemies.Count == 0)
             {
