@@ -411,6 +411,8 @@ MonoBehaviour:
   - Player
   currentTarget: {fileID: 0}
   <ActionCooldown>k__BackingField: 2
+  SpawnState:
+    rid: 5971588556629475422
   IdleState:
     rid: 7572515169101152256
   WanderState:
@@ -422,6 +424,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 5971588556629475422
+      type: {class: EntitySpawnState, ns: , asm: Assembly-CSharp}
+      data:
+        spawnFXPrefab: {fileID: 7750971636722915851, guid: 131a8da79a3297745858cbf34f5cd43a, type: 3}
+        spawnDuration: 2
     - rid: 7572515169101152256
       type: {class: EntityIdleState, ns: , asm: Assembly-CSharp}
       data: 
