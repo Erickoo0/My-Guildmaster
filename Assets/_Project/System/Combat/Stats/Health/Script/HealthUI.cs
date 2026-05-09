@@ -13,6 +13,7 @@ public class HealthUI : MonoBehaviour
     [Tooltip("If blank, default to parent object")]
     [SerializeField] private Health hpComponent;
     [SerializeField] private ProgressBar progressBarRef;
+    [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private bool showText;
 
 
@@ -57,5 +58,6 @@ public class HealthUI : MonoBehaviour
         
         string label = showText ? $"HP: {hpComponent.HpCurrent}/{hpComponent.hpMax}" : "";
         progressBarRef.SetValues(hpComponent.HpCurrent, hpComponent.hpMax, label);
+        if (hpText != null && showText) hpText.text = label;
     }
 }

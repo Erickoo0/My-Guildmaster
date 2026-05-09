@@ -50,8 +50,9 @@ public class PlayerDashState : State<PlayerController>
     
     private void SpawnAfterImage()
     {
+        float startingAlpha = 0.7f;
         GameObject player = controller.gameObject;
         SpriteRenderer spriteRenderer = player.GetComponentInChildren<SpriteRenderer>();
-        AfterImageManager.Instance.SpawnAfterImage(spriteRenderer.sprite, player.transform.position);
+        AfterImageManager.Instance.SpawnAfterImage(spriteRenderer.sprite, player.transform.position, Color.mediumPurple, startingAlpha);
     }
 }

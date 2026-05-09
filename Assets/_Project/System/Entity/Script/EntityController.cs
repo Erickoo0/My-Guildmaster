@@ -29,7 +29,8 @@ public class EntityController : BaseEntityController
     [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
     private float _lastActionTime;
     
-    [Header("State References")]
+    [Header("References")]
+    [SerializeReference, SubclassSelector] public BaseSpawnState SpawnState;
     [SerializeReference, SubclassSelector] public BaseIdleState IdleState;
     [SerializeReference, SubclassSelector] public BaseWanderState WanderState;
     [SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
@@ -46,7 +47,7 @@ public class EntityController : BaseEntityController
             aiPath.updateRotation = false;
         }
 
-        
+        SpawnState?.Setup(this, StateMachine);
         IdleState?.Setup(this, StateMachine);
         WanderState?.Setup(this, StateMachine);
         ChaseState?.Setup(this, StateMachine);
@@ -58,13 +59,14 @@ public class EntityController : BaseEntityController
     protected virtual void Start()
     {
         // Start by wandering to first waypoint
-        StateMachine.SetupState(WanderState);
+        StateMachine.SetupState(SpawnState);
     }
 
     protected override void Update()
     {
         base.Update();
-        UpdateTargeting();
+        if (StateMachine.CurrentState != SpawnState)
+            UpdateTargeting();
         //Debug.Log($"Current State: {StateMachine.CurrentState}");
     }
 

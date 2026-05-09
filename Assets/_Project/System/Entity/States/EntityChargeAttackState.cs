@@ -17,6 +17,8 @@ public class EntityChargeAttackState : BaseActionState
     private Vector2 _chargeDirection;
     private float _originalSpeed;
     private bool _isFinished;
+    private float _afterImageTimer;
+    private float _afterImageInterval = 0.04f;
     
     public override void Setup(EntityController controller, StateMachine stateMachine)
     {
@@ -114,6 +116,15 @@ public class EntityChargeAttackState : BaseActionState
             if (_spawnedHitbox != null)
                 _spawnedHitbox.enableHitbox = true;
             
+            // Create after images
+            if (_afterImageTimer <= 0)
+            {
+                SpawnAfterImage();
+                _afterImageTimer = _afterImageInterval;
+            }
+        
+            _afterImageTimer -= Time.deltaTime;
+            
         }
         // Phase C: Completion
         else
@@ -144,4 +155,11 @@ public class EntityChargeAttackState : BaseActionState
     
     public override void PhysicsUpdate() { }
     public override void HandleInput() { }
+    
+    private void SpawnAfterImage()
+    {
+        GameObject entity = controller.gameObject;
+        SpriteRenderer spriteRenderer = entity.GetComponentInChildren<SpriteRenderer>();
+        AfterImageManager.Instance.SpawnAfterImage(spriteRenderer.sprite, entity.transform.position, Color.softRed);
+    }
 }

@@ -13,6 +13,7 @@ public abstract class HitBox : MonoBehaviour
     public bool hitOncePerTarget = true;
     [Tooltip("If true, the hitbox will be disabled after the first hit")]
     public bool disableAfterFirstHit = true;
+    private int maxEnemiesHitCount;
     
     
     protected DamageData damageData;
@@ -30,9 +31,10 @@ public abstract class HitBox : MonoBehaviour
         damageData = data;
         isDamageDataAssigned = true;
         targetsHit.Clear();
+        maxEnemiesHitCount = data.maxEnemiesHitCount;
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
         if (!enableHitbox || !isDamageDataAssigned) return;
         if (other.isTrigger) return;
@@ -50,7 +52,8 @@ public abstract class HitBox : MonoBehaviour
             // 3. Send the damage to the target
             DamageData finalData = damageData;
             finalData.hitDirection = direction;
-            
+            maxEnemiesHitCount--;
+
             if (SendDamage(finalData, other))
             {
                 targetsHit.Add(victim);
@@ -59,6 +62,9 @@ public abstract class HitBox : MonoBehaviour
                 
                 if (disableAfterFirstHit) enableHitbox = false;
             }
+            
+            // Destroy hitbox if max enemies hit count reached
+            if (maxEnemiesHitCount <= 0) Destroy(gameObject);
         }
     }
     

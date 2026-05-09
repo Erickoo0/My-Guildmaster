@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashShader
   flashDecaySpeed: 5
+  blinkFrequency: 20
 --- !u!1 &7531220670705793847
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,9 +196,9 @@ GameObject:
   - component: {fileID: -1747576445313389302}
   - component: {fileID: 3685750868421853756}
   - component: {fileID: 7784520383436025491}
+  - component: {fileID: -1862256494693202073}
   - component: {fileID: -8014178294535799309}
   - component: {fileID: 1216699505466028575}
-  - component: {fileID: -1862256494693202073}
   m_Layer: 3
   m_Name: Agressive
   m_TagString: Untagged
@@ -411,6 +412,8 @@ MonoBehaviour:
   - Player
   currentTarget: {fileID: 0}
   <ActionCooldown>k__BackingField: 2
+  SpawnState:
+    rid: 5971588556629475422
   IdleState:
     rid: 7572515169101152256
   WanderState:
@@ -422,6 +425,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 5971588556629475422
+      type: {class: EntitySpawnState, ns: , asm: Assembly-CSharp}
+      data:
+        spawnFXPrefab: {fileID: 7750971636722915851, guid: 131a8da79a3297745858cbf34f5cd43a, type: 3}
+        spawnDuration: 2
     - rid: 7572515169101152256
       type: {class: EntityIdleState, ns: , asm: Assembly-CSharp}
       data: 
@@ -448,6 +456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBox
   health: {fileID: 0}
+  invulnerabilityDuration: 5
+  hitFX: {fileID: 859993028651516591, guid: 7fd6a3cb735b43f4d98f0db8a4358b46, type: 3}
 --- !u!114 &-1747576445313389302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +491,7 @@ MonoBehaviour:
   offset: {x: 0, y: 1, z: 0}
   hpComponent: {fileID: 0}
   progressBarRef: {fileID: 0}
+  hpText: {fileID: 0}
   showText: 0
 --- !u!114 &7784520383436025491
 MonoBehaviour:
@@ -507,6 +518,31 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1862256494693202073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73248bb41aed5034386e27eb7f437214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
+  containerOpenedSprite: {fileID: 0}
+  containerContents:
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
+    dropAmount: 1
+  spreadRadius: 1.5
 --- !u!114 &-8014178294535799309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,28 +613,3 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 1
---- !u!114 &-1862256494693202073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531220670705793847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73248bb41aed5034386e27eb7f437214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
-  containerOpenedSprite: {fileID: 0}
-  containerContents:
-  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
-    dropAmount: 1
-  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
-    dropAmount: 1
-  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
-    dropAmount: 1
-  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
-    dropAmount: 1
-  - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
-    dropAmount: 1
-  spreadRadius: 1.5

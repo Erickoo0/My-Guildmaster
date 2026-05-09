@@ -15,9 +15,11 @@ public class GoblinArcherAttackState : BaseActionState
     {
         base.Setup(controller, stateMachine);
         
-        _attackData = controller?.GetAttackData<ProjectileAttackData>(attackID);
+        _attackData = controller.GetAttackData<ProjectileAttackData>(attackID);
         
-        _firePoint = controller?.GetComponentInChildren<FirePoint>().gameObject;
+        var firePointComponent = controller.GetComponentInChildren<FirePoint>();
+        
+        _firePoint = (firePointComponent != null) ? firePointComponent.gameObject : controller.gameObject;
     }
 
     public override void Enter()
@@ -79,7 +81,6 @@ public class GoblinArcherAttackState : BaseActionState
         }
         
         _hasFired = true;
-        controller.SetActionCooldown();
     }
     
     public override void PhysicsUpdate() { }

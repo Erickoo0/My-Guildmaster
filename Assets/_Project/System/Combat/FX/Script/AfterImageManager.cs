@@ -6,7 +6,7 @@ public class AfterImageManager : MonoBehaviour
    public static AfterImageManager Instance { get; private set; }
    
    [SerializeField] private AfterImage afterImagePrefab;
-   [SerializeField] private int poolSize = 10;
+   [SerializeField] private int poolSize = 100;
    
    private readonly Queue<AfterImage> _afterImagePool = new Queue<AfterImage>();
 
@@ -28,7 +28,7 @@ public class AfterImageManager : MonoBehaviour
       }
    }
 
-   public void SpawnAfterImage(Sprite sprite, Vector3 position)
+   public void SpawnAfterImage(Sprite sprite, Vector3 position, Color tintColor, float startingAlpha = 0.5f)
    {
       AfterImage afterImage;
 
@@ -42,7 +42,7 @@ public class AfterImageManager : MonoBehaviour
          afterImage = CreateAfterImage();
       }
 
-      afterImage.Initialize(sprite, position, ReturnToPool);
+      afterImage.Initialize(sprite, position, tintColor, startingAlpha, ReturnToPool);
    }
 
    private void ReturnToPool(AfterImage afterImage)
