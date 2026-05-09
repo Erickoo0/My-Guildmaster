@@ -1,54 +1,77 @@
-using System;
 using UnityEngine;
 
 public class FlashShader : MonoBehaviour
 {
+    [Header("Flash Settings")]
     [SerializeField] private float flashDecaySpeed = 5f;
     
-    private SpriteRenderer[] _spriteRenderer;
-    private MaterialPropertyBlock _materialPropertyBlock;
-    private float _flashFactor; // From materiall property block
+    [Header("Blink Settings")]
+    [SerializeField] private float blinkFrequency = 20f; 
     
+    private SpriteRenderer[] _spriteRenderers;
+    private MaterialPropertyBlock _materialPropertyBlock;
+    
+    private float _flashFactor;
+    private bool _isBlinking;
+    private float _currentAlpha = 1f;
+    
+    // NEW: A dedicated timer for the blink, replacing Time.time
+    private float _blinkTimer; 
+
     private void Awake() 
     {
-        // Get all sprite renderers on this specific child object
-        _spriteRenderer = GetComponents<SpriteRenderer>();
+        _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         _materialPropertyBlock = new MaterialPropertyBlock();
     }
 
     private void Update()
     {
-        if (_flashFactor <= 0f) return;
-        
-        _flashFactor = Mathf.Lerp(_flashFactor, 0f, flashDecaySpeed * Time.deltaTime);
-        if (_flashFactor < 0.01f)
+        // 1. Handle Flash Decay
+        if (_flashFactor > 0f)
         {
-            _flashFactor = 0f;
+            _flashFactor = Mathf.MoveTowards(_flashFactor, 0f, flashDecaySpeed * Time.deltaTime);
         }
-        ApplyFlashFactor();
+        
+        // 2. Handle Blinking Logic
+        if (_isBlinking)
+        {
+            _blinkTimer += Time.deltaTime;
+            
+            _currentAlpha = (Mathf.FloorToInt(_blinkTimer * blinkFrequency) % 2 == 0) ? 1f : 0f;
+            
+            if (_flashFactor > 0.5f)
+            {
+                _currentAlpha = 1f;
+            }
+        }
+        else
+        {
+            _currentAlpha = 1f;
+            _blinkTimer = 0f; // Reset for the next time we get hit
+        }
+
+        // 3. Apply everything to the Renderers
+        ApplyProperties();
     }
 
     public void ApplyFlash()
     {
-        // Safety check in case Awake hasn't run or GetComponents failed
-        if (_spriteRenderer == null || _spriteRenderer.Length == 0)
-        {
-            _spriteRenderer = GetComponents<SpriteRenderer>();
-            if (_materialPropertyBlock == null) _materialPropertyBlock = new MaterialPropertyBlock();
-        }
-
         _flashFactor = 1f;
-        ApplyFlashFactor();
+    }
+
+    public void SetBlinking(bool active)
+    {
+        _isBlinking = active;
     }
     
-    private void ApplyFlashFactor()
+    private void ApplyProperties()
     {
-        foreach (var spriteRenderer in _spriteRenderer)
+        foreach (var sr in _spriteRenderers)
         {
-            // Set the flash factor in the material property block
-            spriteRenderer.GetPropertyBlock(_materialPropertyBlock);
+            sr.GetPropertyBlock(_materialPropertyBlock);
             _materialPropertyBlock.SetFloat("_FlashFactor", _flashFactor);
-            spriteRenderer.SetPropertyBlock(_materialPropertyBlock);
+            _materialPropertyBlock.SetFloat("_Alpha", _currentAlpha);
+            sr.SetPropertyBlock(_materialPropertyBlock);
         }
     }
 }

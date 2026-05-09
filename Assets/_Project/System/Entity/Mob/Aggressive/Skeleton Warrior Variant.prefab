@@ -41,6 +41,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3ae452862e0e6234180795a619ff46e7, type: 2}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <ActionCooldown>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[5971588533496578048]'
       value: Assembly-CSharp GoblinArcherAttackState
       objectReference: {fileID: 0}
@@ -142,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 800d034269520c546adb89b074600ca3, type: 2}
     - target: {fileID: 9181716830030837955, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: id
-      value: d6a3e575-9d1a-4fc6-bc1c-4a7dae0630a5
+      value: 65d462b4-fdf9-4cc9-83b5-235be73d2dc3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
