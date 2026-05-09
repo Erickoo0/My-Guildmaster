@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashShader
   flashDecaySpeed: 5
+  blinkFrequency: 20
 --- !u!1 &7531220670705793847
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBox
   health: {fileID: 0}
+  invulnerabilityDuration: 5
+  hitFX: {fileID: 859993028651516591, guid: 7fd6a3cb735b43f4d98f0db8a4358b46, type: 3}
 --- !u!114 &-1747576445313389302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +491,7 @@ MonoBehaviour:
   offset: {x: 0, y: 1, z: 0}
   hpComponent: {fileID: 0}
   progressBarRef: {fileID: 0}
+  hpText: {fileID: 0}
   showText: 0
 --- !u!114 &7784520383436025491
 MonoBehaviour:

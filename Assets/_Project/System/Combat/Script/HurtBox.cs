@@ -4,10 +4,16 @@ using Unity.Cinemachine;
 [RequireComponent(typeof(Collider2D)), RequireComponent(typeof(Rigidbody2D))]
 public class HurtBox : MonoBehaviour, IDamagable
 {
+    [Header("References)")]
     [SerializeField] private Health health;
+    
+    [Header("Invulnerability")]
     [SerializeField] private float invulnerabilityDuration = 5f;
     private float _invulnerabilityTimer;
-    
+
+    [Header("FX")] 
+    [SerializeField] private ParticleSystem hitFX;
+    private ParticleSystem hitFXInstance;
     private FlashShader _flashShader; 
 
     private void Awake()
@@ -46,11 +52,26 @@ public class HurtBox : MonoBehaviour, IDamagable
             GetComponent<CinemachineImpulseSource>().GenerateImpulse();  
         }
         
-        // Trigger visual effects ONCE here!
+        // Trigger shader effects
         if (_flashShader != null)
         {
             _flashShader.ApplyFlash();     // Start the white flash
             _flashShader.SetBlinking(true); // Start the invulnerability flicker
         }
+        
+        // Trigger hit fx
+        SpawnHitFX(data.hitDirection, data.hitImpactPoint);
+        
+    }
+
+    private void SpawnHitFX(Vector2 hitDirection, Vector2 hitImpactPoint)
+    {
+        float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;
+        Quaternion fxRotation = Quaternion.Euler(0, 0, angle);
+        
+        // 3. Spawn the FX
+        if (hitFX != null) 
+            Instantiate(hitFX, hitImpactPoint, fxRotation);
+        
     }
 }
