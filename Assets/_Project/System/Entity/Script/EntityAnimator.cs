@@ -82,4 +82,5 @@ public class EntityAnimator : MonoBehaviour
         isEventRequested = true;
         OnAnimationEventRequested?.Invoke();
     }
+
 }

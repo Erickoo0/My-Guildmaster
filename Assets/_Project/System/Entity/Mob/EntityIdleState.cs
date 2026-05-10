@@ -5,7 +5,6 @@ public class EntityIdleState : BaseIdleState
 {
     private float _idleTime;
     
-    
     public override void Enter()
     {
         controller.EntityMover.SetMoveDirection(Vector2.zero); 

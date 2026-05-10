@@ -20,7 +20,7 @@ public class EntityChargeAttackState : BaseActionState
     private float _afterImageTimer;
     private float _afterImageInterval = 0.04f;
     
-    public override void Setup(EntityController controller, StateMachine stateMachine)
+    public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
         

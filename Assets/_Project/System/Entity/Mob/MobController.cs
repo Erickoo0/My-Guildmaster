@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
-public class EntityController : BaseEntityController
+public class MobController : BaseEntityController
 {
     
     [Header("Movement Settings")]
@@ -58,7 +58,7 @@ public class EntityController : BaseEntityController
 
     protected virtual void Start()
     {
-        // Start by wandering to first waypoint
+        // Start by entering the spawn state (or idle/wander if spawn isn't needed)
         StateMachine.SetupState(SpawnState);
     }
 

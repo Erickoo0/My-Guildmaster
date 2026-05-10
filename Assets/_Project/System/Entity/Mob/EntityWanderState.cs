@@ -7,12 +7,12 @@ public class EntityWanderState : BaseWanderState
     private Vector2 _targetDestination;
 
     [Header("Anti-Stuck Variables")] 
-    private float stuckTimer;
-    private float stuckTimerMax = 5f;
+    private float _stuckTimer;
+    private readonly float _stuckTimerMax = 5f;
     private Vector2 _lastPosition;
-    private float stuckThreshold = 0.1f;
+    private readonly float _stuckThreshold = 0.1f;
     private float _positionCheckTimer;
-    private float _positionCheckInterval = 0.5f;
+    private readonly float _positionCheckInterval = 0.5f;
     
     public override void Enter()
     {
@@ -31,36 +31,38 @@ public class EntityWanderState : BaseWanderState
 
     public override void Update()
     {
-        // 2. Pause pathfinding execution if the entity is currently taking knockback
-        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack)
-        {
-            return;
-        }
+        // 2. Check for knocked back
+        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack) return;
+        
 
-        // 3. Check if we have arrived
+        // 3. Check for arrival
         if (!controller.aiPath.pathPending && controller.aiPath.reachedEndOfPath)
         {
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
 
-        // 4. Act as the bridge between AIPath (The Brain) and EntityMover (The Legs)
-        Vector2 desiredVelocity = (Vector2)controller.aiPath.desiredVelocity;
-        
-        // Normalize the vector so EntityMover handles the speed via its moveSpeed variable
-        Vector2 moveDirection = desiredVelocity.normalized;
+        // 3. Tell AIPath to calculate the next step
+        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
 
-        if (controller.EntityMover != null)
+        // 4. CALCULATE THE DIRECTION
+        // We move toward 'nextPos' rather than using 'desiredVelocity'
+        Vector2 moveDirection = ((Vector2)nextPos - (Vector2)controller.transform.position).normalized;
+        // 5. PREVENT OVERSHOOTING
+        float distanceToTarget = Vector2.Distance(controller.transform.position, controller.aiPath.destination);
+    
+        // Stop the legs if we are within the stopping distance
+        if (distanceToTarget < controller.aiPath.endReachedDistance)
+        {
+            controller.EntityMover.SetMoveDirection(Vector2.zero);
+        }
+        else
+        {
             controller.EntityMover.SetMoveDirection(moveDirection);
-        
-
-        // 5. Force AIPath to update its internal logic based on where our EntityMover just moved us
-        //controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
+        }
         
         CheckForStuck();
-        
-        // Tell the AIPath where the transform actually is so it can calculate the next velocity correctly
-        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
+
     }
 
     public override void Exit()
@@ -81,19 +83,19 @@ public class EntityWanderState : BaseWanderState
         if (_positionCheckTimer <= 0f)
         {
             // Check if the entity moved less than the threshold over the LAST 0.5 SECONDS
-            if (Vector2.Distance(_lastPosition, controller.transform.position) < stuckThreshold)
+            if (Vector2.Distance(_lastPosition, controller.transform.position) < _stuckThreshold)
             {
-                stuckTimer += _positionCheckInterval;
+                _stuckTimer += _positionCheckInterval;
             }
             else
             {
-                stuckTimer = 0;
+                _stuckTimer = 0;
             }
             
-            if (stuckTimer > stuckTimerMax)
+            if (_stuckTimer > _stuckTimerMax)
             {
                 Debug.Log("Entity stuck! Resetting path.");
-                stuckTimer = 0;
+                _stuckTimer = 0;
                 SetNewDestination();
             }
             

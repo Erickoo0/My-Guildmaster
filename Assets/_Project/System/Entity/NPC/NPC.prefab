@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 3662397687984171361}
   - component: {fileID: 6489739227427479816}
   - component: {fileID: -955231815517902689}
-  - component: {fileID: 4859369203713870365}
   - component: {fileID: 3324052278730299444}
+  - component: {fileID: -6023604561836040514}
+  - component: {fileID: -4420673444012068834}
   - component: {fileID: 7485716094007412697}
   - component: {fileID: 7406667262316240941}
   - component: {fileID: 5281906852817332908}
@@ -163,55 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b52ac14ec3a44d39e9c9f2574261b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
---- !u!114 &4859369203713870365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1295489641667029861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3891c3e5f98f4d639b32e782089d8fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EntityController
-  entityID: Base_NPC
-  aiPath: {fileID: 0}
-  <WanderRadius>k__BackingField: 5
-  attackLibrary: []
-  <mobType>k__BackingField: 0
-  <DetectionRange>k__BackingField: 6
-  <DetectionLostRange>k__BackingField: 10
-  <ActionRange>k__BackingField: 5
-  <TargetableList>k__BackingField: []
-  currentTarget: {fileID: 0}
-  <ActionCooldown>k__BackingField: 1
-  SpawnState:
-    rid: 5971588556629475426
-  IdleState:
-    rid: 7572515187600130146
-  WanderState:
-    rid: 7572515187600130147
-  ChaseState:
-    rid: -2
-  AttackState:
-    rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 5971588556629475426
-      type: {class: EntitySpawnState, ns: , asm: Assembly-CSharp}
-      data:
-        spawnFXPrefab: {fileID: 7750971636722915851, guid: 131a8da79a3297745858cbf34f5cd43a, type: 3}
-        spawnDuration: 2
-    - rid: 7572515187600130146
-      type: {class: EntityIdleState, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 7572515187600130147
-      type: {class: EntityWanderState, ns: , asm: Assembly-CSharp}
-      data: 
 --- !u!114 &3324052278730299444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +191,73 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
   - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
   - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
+--- !u!114 &-6023604561836040514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295489641667029861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954a727ec33f52a4881dca2bb3e2bc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCController
+  entityID: Base_NPC
+  aiPath: {fileID: 0}
+  IdleState:
+    rid: 5971588601634619496
+  HomeState:
+    rid: 5971588601634619508
+  SleepState:
+    rid: 5971588601634619511
+  HobbyState:
+    rid: 5971588601634619497
+  WorkState:
+    rid: 5971588601634619512
+  <NpcScheduleData>k__BackingField:
+    HomePOIList:
+    - Home
+    SleepPOIList:
+    - Bridge
+    HobbyPOIList:
+    - Library_Checkout
+    - Grand_Tree_Front
+    - Grand_Shrine
+    - Forest
+    WorkPOIList:
+    - Tavern_Table
+    - Community_Center
+  references:
+    version: 2
+    RefIds:
+    - rid: 5971588601634619496
+      type: {class: NPCIdleState, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5971588601634619497
+      type: {class: NPCHobbyState, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5971588601634619508
+      type: {class: NPCHomeState, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5971588601634619511
+      type: {class: NPCSleepState, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5971588601634619512
+      type: {class: NPCWorkState, ns: , asm: Assembly-CSharp}
+      data: 
+--- !u!114 &-4420673444012068834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295489641667029861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de74a54627afd45b20c73d50660f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCScheduleController
 --- !u!114 &7485716094007412697
 MonoBehaviour:
   m_ObjectHideFlags: 0
