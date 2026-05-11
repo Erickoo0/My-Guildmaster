@@ -3,6 +3,7 @@
 public class StateMachine : MonoBehaviour
 {
     public State CurrentState { get; private set; }
+    public State PreviousState { get; private set; }
     
     // Starts the initial state and calls it
     public void SetupState(State startingState)
@@ -27,5 +28,10 @@ public class StateMachine : MonoBehaviour
     public void FixedUpdateState()
     {
         CurrentState.PhysicsUpdate();
+    }
+
+    public void SetPreviousState(State previousState)
+    {
+        PreviousState = previousState;
     }
 }

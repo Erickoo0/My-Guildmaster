@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Show me your wares
+  m_text: Show me your wares. Or else I will cry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d8a378d20c207f846ae8693b9a8ef15f, type: 2}
   m_sharedMaterial: {fileID: 5862108258229975326, guid: d8a378d20c207f846ae8693b9a8ef15f, type: 2}
@@ -98,14 +98,14 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -15
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 10, y: 0, z: 10, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -174,7 +174,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -54.8959, y: 0.9981}
-  m_SizeDelta: {x: 500, y: 98.0038}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &792135188113072188
 CanvasRenderer:
@@ -204,8 +204,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5256508804588260846, guid: e8e661730dda51047a0b4fb3c2c68218, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -7301262357740061112, guid: 3f94cf12aeb6c4d45b0792991a073706, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -236,9 +236,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.8784314, g: 0.5176471, b: 0.24313726, a: 1}
-    m_PressedColor: {r: 0.9716981, g: 0.7140046, b: 0.5179334, a: 1}
-    m_SelectedColor: {r: 0.8784314, g: 0.5176471, b: 0.24313726, a: 1}
+    m_HighlightedColor: {r: 0.8490566, g: 0.5631026, b: 0.35644355, a: 1}
+    m_PressedColor: {r: 0.8509804, g: 0.5647059, b: 0.35686275, a: 1}
+    m_SelectedColor: {r: 0.8509804, g: 0.5647059, b: 0.35686275, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

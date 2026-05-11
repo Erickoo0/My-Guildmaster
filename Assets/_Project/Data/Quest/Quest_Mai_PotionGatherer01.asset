@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 286c654a86bfddf49a552de14dc3c579, type: 3}
-  m_Name: QuestBeefFarm
+  m_Name: Quest_Mai_PotionGatherer01
   m_EditorClassIdentifier: Assembly-CSharp::QuestSo
-  questID: Item_Green_Orc_001_Beef
-  questName: Hungry Man
-  questDescription: Feed orc some beef
+  questID: Quest_Mai_PotionGatherer01
+  questName: 'Potion Gatherer '
+  questDescription: Gather some herbs for Mai
   questObjectives:
   - {fileID: 11400000, guid: 4f36d40cc92565f4d843f78b034bd276, type: 2}

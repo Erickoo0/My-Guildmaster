@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edb1411f2ace4a1ab2532817c7aa94f8, type: 3}
-  m_Name: TestDialogueBranching
+  m_Name: Dialogue_Default
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueLines:
-  - Hello
-  - 'This is a test of '
-  - 'the new dialogue system '
-  - Is it good?
+  - Hello.
+  - 'This is a default dialogue. '
+  - I dont really have much to say.
   dialogueOptions:
-  - optionName: Yes! Now open shop!!!
+  - optionName: Open shop panel
     nextNode: {fileID: 0}
     dialogueEvent: OpenShop
-    eventData: {fileID: 0}
-  - optionName: No its horrible!
+    eventParameter: 
+  - optionName: Okay, good bye!
     nextNode: {fileID: 11400000, guid: 3fd5a02c6e450e1459d4c22630f751a5, type: 2}
     dialogueEvent: AcceptQuest
-    eventData: {fileID: 11400000, guid: 36fbb57dd37cd6241a5572ea2a24118c, type: 2}
+    eventParameter: Quest_Default_SlimeQuest
   nodeEvent: 

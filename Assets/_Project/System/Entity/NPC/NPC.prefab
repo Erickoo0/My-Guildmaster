@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3662397687984171361}
   - component: {fileID: 6489739227427479816}
   - component: {fileID: -955231815517902689}
-  - component: {fileID: 3324052278730299444}
+  - component: {fileID: 2529391709761804287}
   - component: {fileID: -6023604561836040514}
   - component: {fileID: -4420673444012068834}
   - component: {fileID: 7485716094007412697}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b52ac14ec3a44d39e9c9f2574261b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
---- !u!114 &3324052278730299444
+--- !u!114 &2529391709761804287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,18 +178,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Npc
   dialogueName: Base NPC
   dialoguePortrait: {fileID: 4723107735738678597, guid: b6e95c8ab9bc1aa43b9015542050a92c, type: 3}
-  dialogueStartNode: {fileID: 11400000, guid: 567c091ad9553f649a148e0856e15657, type: 2}
+  npcDialogueData:
+    DefaultDialogueNode: {fileID: 11400000, guid: 567c091ad9553f649a148e0856e15657, type: 2}
+    HomeDialogueNode: {fileID: 0}
+    SleepDialogueNode: {fileID: 0}
+    HobbyDialogueNode: {fileID: 0}
+    WorkDialogueNode: {fileID: 0}
   shopList:
   - {fileID: 11400000, guid: 100db236c2a3c8d438e5b5f38f7577b9, type: 2}
   - {fileID: 11400000, guid: e0dc600b517fe9f4db1460e4581704a4, type: 2}
-  - {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
-  - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
-  - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
-  - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
-  - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
-  - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
-  - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
-  - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
   - {fileID: 11400000, guid: 8499a701070f6ef40aa142455e36e4a7, type: 2}
 --- !u!114 &-6023604561836040514
 MonoBehaviour:
@@ -228,6 +225,8 @@ MonoBehaviour:
     WorkPOIList:
     - Tavern_Table
     - Community_Center
+    - WorkPlace1
+    - WorkPlace2
   references:
     version: 2
     RefIds:

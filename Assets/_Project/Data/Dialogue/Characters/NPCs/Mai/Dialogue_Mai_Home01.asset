@@ -10,18 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edb1411f2ace4a1ab2532817c7aa94f8, type: 3}
-  m_Name: Dialogue_Mai_Shop_Rejected
+  m_Name: Dialogue_Mai_Home01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueLines:
-  - Before you go, would you possibly be able to help me gather some herbs for my
-    potion crafting?
-  dialogueOptions:
-  - optionName: Sure, I can do that.
-    nextNode: {fileID: 0}
-    dialogueEvent: AcceptQuest
-    eventParameter: Quest_Mai_PotionGatherer01
-  - optionName: Do I look like your servant?
-    nextNode: {fileID: 0}
-    dialogueEvent: 
-    eventParameter: 
+  - I am currently in my home state
+  dialogueOptions: []
   nodeEvent: 

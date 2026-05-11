@@ -12,6 +12,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mai Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: dialogueName
+      value: Mai
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: npcDialogueData.HomeDialogueNode
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b7abacf5ea596e44af2e435923d3c83, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: npcDialogueData.WorkDialogueNode
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b0bd9152b4784e4480decc20700f6de, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: npcDialogueData.HobbyDialogueNode
+      value: 
+      objectReference: {fileID: 11400000, guid: 590186f3992bb2a43a41d0b92b8600e7, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: npcDialogueData.SleepDialogueNode
+      value: 
+      objectReference: {fileID: 11400000, guid: 079547121c2889a4cad0612f8afcb0b8, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: npcDialogueData.DefaultDialogueNode
+      value: 
+      objectReference: {fileID: 11400000, guid: ff8b49567eb1a0e438ece5899c9452c6, type: 2}
     - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
       value: Mai

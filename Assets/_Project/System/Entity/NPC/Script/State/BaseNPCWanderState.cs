@@ -21,6 +21,11 @@ public class BaseNPCWanderState : State<NPCController>
     
     public override void Enter()
     {
+        // 1. Reset state flags
+        _arrivedMainDestination = false;
+        _stuckTimer = 0f;
+        _positionCheckTimer = 0f;
+        
         // 2. Ask the POI Registry for the POI objects
         _poiList = POIRegistry.GetPOIByIDs(GetPOITargetIDs());
         
@@ -113,11 +118,13 @@ public class BaseNPCWanderState : State<NPCController>
     
     public override void Exit()
     {
+        
         // 6. Shut down pathfinding and halt the EntityMover
         controller.aiPath.canSearch = false;
         
         if (controller.EntityMover != null)
             controller.EntityMover.SetMoveDirection(Vector2.zero);
-        
+
+        stateMachine.SetPreviousState(this);
     }
 }

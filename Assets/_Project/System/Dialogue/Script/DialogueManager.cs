@@ -72,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         
         // Set the starting data
         _currentSpeaker = speaker;
-        _currentNode = _currentSpeaker.DialogueStartNode;
+        _currentNode = _currentSpeaker.CurrentDialogueNode;
         _currentLineIndex = 0;
         _isWaitingChoice = false;
         

@@ -33,5 +33,7 @@ public class NPCIdleState : BaseNPCIdleState
     public override void Exit()
     {
         controller.EntityMover.SetMoveDirection(Vector2.zero);
+        
+        stateMachine.SetPreviousState(this);
     }
 }

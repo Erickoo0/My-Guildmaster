@@ -12,7 +12,7 @@ public class NPCScheduleController : MonoBehaviour
     private void OnEnable() => EventBus.OnWorldTimeChanged += HandleTimeChanged;
     
     private void OnDisable() => EventBus.OnWorldTimeChanged -= HandleTimeChanged;
-
+    
     private void HandleTimeChanged(object sender, TimeSpan time)
     {
         // Check if the hour has changed
@@ -27,33 +27,30 @@ public class NPCScheduleController : MonoBehaviour
     {
         State nextState;
 
-        // 10 PM  to 6 AM
-        if (currentHour >= 22 || currentHour < 6)
+        if (currentHour >= 23 || currentHour < 6)
         {
-            nextState = _npcController.SleepState;
+            nextState = _npcController.SleepState;  // 11 PM - 5:59 AM
         }
-        // 6 AM to 8 AM 
-        else if (currentHour >= 6 && currentHour < 8)
-        {
-            nextState = _npcController.HomeState;
-        }
-        // 8 AM to 5 PM 
         else if (currentHour >= 8 && currentHour < 17)
         {
-            nextState = _npcController.WorkState;
+            nextState = _npcController.WorkState;   // 8 AM - 4:59 PM
         }
-        // 5 PM to 10 PM
+        else if (currentHour >= 17 && currentHour < 21)
+        {
+            nextState = _npcController.HobbyState;  // 5 PM - 8:59 PM
+        }
         else 
         {
-            nextState = _npcController.HobbyState;
+            // This covers 6 AM - 8 AM AND 9 PM - 11 PM
+            nextState = _npcController.HomeState;
         }
 
-        // Save the current state so Idle knows what to do next
         CurrentScheduledState = nextState;
-        
-        // Check if already in that state
+    
+        // State Change Logic
         if (_npcController.StateMachine.CurrentState != nextState)
+        {
             _npcController.StateMachine.ChangeState(nextState);
-        
+        }
     }
 }

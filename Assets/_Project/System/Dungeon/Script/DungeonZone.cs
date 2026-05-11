@@ -27,8 +27,6 @@ public class DungeonZone : MonoBehaviour
             {
                 enemySpawnPoints.Add(point);
             }
-            
-            Debug.Log($"[DungeonZone] Found {enemySpawnPoints.Count} points in '{zoneLocation}'");
         }
         else
         {

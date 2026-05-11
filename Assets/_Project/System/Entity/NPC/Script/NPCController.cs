@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 using Pathfinding;
-using Unity.VisualScripting;
 
 [System.Serializable]
 public class NPCScheduleData
@@ -12,6 +10,7 @@ public class NPCScheduleData
     public List<string> HobbyPOIList;
     public List<string> WorkPOIList;
 }
+
 
 public class NPCController : BaseEntityController
 {
@@ -27,7 +26,6 @@ public class NPCController : BaseEntityController
     
     [Header("NPC Schedule")]
     [field: SerializeField] public NPCScheduleData NpcScheduleData {get; private set;}
-    
 
     protected override void Awake()
     {

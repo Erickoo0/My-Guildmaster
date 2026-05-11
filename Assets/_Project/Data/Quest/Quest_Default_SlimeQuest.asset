@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 286c654a86bfddf49a552de14dc3c579, type: 3}
-  m_Name: QuestSlimeSlayer
+  m_Name: Quest_Default_SlimeQuest
   m_EditorClassIdentifier: Assembly-CSharp::QuestSo
-  questID: Kill_Princess_001_Slime_Slayer
-  questName: Slime Slayer
-  questDescription: The slayer of slimes
+  questID: Quest_Default_SlimeQuest
+  questName: Intro Quest
+  questDescription: Go kill some slimes - I mean, Mushrooms!
   questObjectives:
   - {fileID: 11400000, guid: 16fde836e9d81fe458ad4f6694a0ce05, type: 2}
