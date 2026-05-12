@@ -11,6 +11,7 @@ public class Npc : MonoBehaviour, IInteractable
     [SerializeField] private string dialogueName;
     [SerializeField] private Sprite dialoguePortrait;
     [SerializeField] private NPCDialogueData npcDialogueData;
+    [SerializeField] private NPCSpeechBubbleData speechBubbleData;
 
     [Header("Shop Data")] 
     [SerializeField] private ItemDataSo[] shopList;
@@ -21,6 +22,7 @@ public class Npc : MonoBehaviour, IInteractable
     public string  DialogueName => dialogueName;
     public Sprite DialoguePortrait => dialoguePortrait;
     public DialogueNode CurrentDialogueNode => GetDialogueForCurrentState();
+    public string[] CurrentSpeechBubble => GetSpeechBubbleForCurrentState();
     
     private void Start() => _npcController = GetComponent<NPCController>();
     
@@ -46,17 +48,34 @@ public class Npc : MonoBehaviour, IInteractable
         // 2. Switch based on the scheduled state reference
         if (scheduledState == _npcController.WorkState)
             return npcDialogueData.WorkDialogueNode ?? npcDialogueData.DefaultDialogueNode;
-    
         if (scheduledState == _npcController.HomeState)
             return npcDialogueData.HomeDialogueNode ?? npcDialogueData.DefaultDialogueNode;
-    
         if (scheduledState == _npcController.HobbyState)
             return npcDialogueData.HobbyDialogueNode ?? npcDialogueData.DefaultDialogueNode;
-    
         if (scheduledState == _npcController.SleepState)
             return npcDialogueData.SleepDialogueNode ?? npcDialogueData.DefaultDialogueNode;
 
         return npcDialogueData.DefaultDialogueNode;
+    }
+
+    private string[] GetSpeechBubbleForCurrentState()
+    {
+        // 1. Get the Schedule Controller
+        var scheduleController = GetComponent<NPCScheduleController>();
+        if (scheduleController == null) return speechBubbleData.DefaultSpeechBubbles;
+        
+        var scheduledState = scheduleController.CurrentScheduledState;
+        
+        if (scheduledState == _npcController.WorkState) 
+            return speechBubbleData.WorkSpeechBubbles ?? speechBubbleData.DefaultSpeechBubbles;
+        if (scheduledState == _npcController.HomeState) 
+            return speechBubbleData.HomeSpeechBubbles ?? speechBubbleData.DefaultSpeechBubbles;
+        if (scheduledState == _npcController.HobbyState) 
+            return speechBubbleData.HobbySpeechBubbles ?? speechBubbleData.DefaultSpeechBubbles;
+        if (scheduledState == _npcController.SleepState)
+            return speechBubbleData.SleepSpeechBubbles ?? speechBubbleData.DefaultSpeechBubbles;
+        
+        return speechBubbleData.DefaultSpeechBubbles;
     }
 }
 
@@ -68,4 +87,14 @@ public class NPCDialogueData
     public DialogueNode SleepDialogueNode;
     public DialogueNode HobbyDialogueNode;
     public DialogueNode WorkDialogueNode;
+}
+
+[System.Serializable]
+public class NPCSpeechBubbleData
+{
+    public string[] DefaultSpeechBubbles;
+    public string[] HomeSpeechBubbles;
+    public string[] SleepSpeechBubbles;
+    public string[] HobbySpeechBubbles;
+    public string[] WorkSpeechBubbles;
 }

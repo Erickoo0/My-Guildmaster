@@ -16,7 +16,7 @@ public class NPCController : BaseEntityController
 {
     [Header("Movement Settings")]
     [HideInInspector] public AIPath aiPath;
-
+    
     [Header("References")]
     [SerializeReference, SubclassSelector] public BaseNPCIdleState IdleState;
     [SerializeReference, SubclassSelector] public BaseNPCHomeState HomeState;

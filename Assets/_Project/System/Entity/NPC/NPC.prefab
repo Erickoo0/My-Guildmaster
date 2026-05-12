@@ -184,6 +184,17 @@ MonoBehaviour:
     SleepDialogueNode: {fileID: 0}
     HobbyDialogueNode: {fileID: 0}
     WorkDialogueNode: {fileID: 0}
+  speechBubbleData:
+    DefaultSpeechBubbles:
+    - Hello, this is the default speech
+    HomeSpeechBubbles:
+    - Hello, I am relaxing
+    SleepSpeechBubbles:
+    - Zzzzz
+    HobbySpeechBubbles:
+    - Hello, I am doing my hobby
+    WorkSpeechBubbles:
+    - Hello, I am working
   shopList:
   - {fileID: 11400000, guid: 100db236c2a3c8d438e5b5f38f7577b9, type: 2}
   - {fileID: 11400000, guid: e0dc600b517fe9f4db1460e4581704a4, type: 2}
@@ -270,10 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpeechBubbleManager
   speechBubblePrefab: {fileID: 8936567896374602222, guid: 2c8d6c5837f715f46a7e77ff2af6fd88, type: 3}
-  speechBubbleLines:
-  - Hello Man
-  - Is this thing working?
-  - testing 1,2,3
   spawnOffset: {x: 0, y: 1.75, z: 0}
   speechBubbleMinWaitTime: 3
   speechBubbleMaxWaitTime: 9

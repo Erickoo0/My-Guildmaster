@@ -6,7 +6,7 @@ public class SpeechBubbleController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject speechBubblePrefab;
-    [SerializeField] private string[] speechBubbleLines;
+    private Npc _npc;
     
     [Header("Speech Bubble Settings")]
     [SerializeField] private Vector3 spawnOffset = new Vector3(0f, 2f, 0f);
@@ -18,7 +18,11 @@ public class SpeechBubbleController : MonoBehaviour
     private GameObject _currentBubble;
     private TypeWriter _typeWriter;
     
-    private void Start() => SetRandomWaitTime();
+    private void Start()
+    {
+        _npc = GetComponent<Npc>();
+        SetRandomWaitTime();
+    }
 
     private void Update()
     {
@@ -33,15 +37,17 @@ public class SpeechBubbleController : MonoBehaviour
 
     private void SpawnBubble()
     {
+        // 1. Get speech bubble lines from NPC
+        string[] speechBubbleLines = _npc.CurrentSpeechBubble;
+        
         // Safety Check
-        if (speechBubbleLines.Length == 0 || speechBubblePrefab == null) return;
+        if (speechBubblePrefab == null || speechBubbleLines == null || speechBubbleLines.Length == 0) return;
         
         // 1. Create bubble and parent it to NPC with offset
         _currentBubble = Instantiate(speechBubblePrefab, transform.position + spawnOffset, Quaternion.identity, transform);
         
         // 2. Find the TextMeshPro component in the children and set the text
         TypeWriter typewriter = _currentBubble.GetComponentInChildren<TypeWriter>();
-        //NEED TO FIX, CONVERT TO DIALOGUENODE
         if (typewriter != null) typewriter.StartTyping(speechBubbleLines[Random.Range(0, speechBubbleLines.Length)]);
         
         // 3. Set alive timer 
