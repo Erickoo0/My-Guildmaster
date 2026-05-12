@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: Dialogue_Mai_Shop_Rejected
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueLines:
-  - Well, you know where to find me if you do!
-  dialogueOptions: []
+  - Before you go, would you possibly be able to help me gather some herbs for my
+    potion crafting?
+  dialogueOptions:
+  - optionName: Sure, I can do that.
+    nextNode: {fileID: 0}
+    dialogueEvent: AcceptQuest
+    eventParameter: Quest_Mai_PotionGatherer01
+  - optionName: Do I look like your servant?
+    nextNode: {fileID: 0}
+    dialogueEvent: 
+    eventParameter: 
   nodeEvent: 

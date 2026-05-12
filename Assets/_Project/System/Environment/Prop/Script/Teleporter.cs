@@ -8,9 +8,11 @@ public class Teleporter : MonoBehaviour
     [Header("Teleporter Settings")] 
     [SerializeField] private Teleporter targetDestinationTeleporter;
     [SerializeField] private GameLocation targetLocation;
-    [SerializeField] private TeleportFacing faceDirection;
+    [SerializeField] private FacingDirection faceDirection;
     [SerializeField] private float teleportCooldown = 1f;
     private float _teleportCooldownTimer;
+    
+    public FacingDirection GetFacingDirection() => faceDirection;
     
     private void Update()
     {
@@ -53,12 +55,7 @@ public class Teleporter : MonoBehaviour
 
         
         // 4. Set the face direction 
-        var playerAnimator = other.GetComponent<EntityAnimator>(); // Replace with your actual class name
-        if (playerAnimator != null)
-        {
-            Vector2 lookDir = targetDestinationTeleporter.GetFacingDirection();
-            playerAnimator.FaceDirection(lookDir);
-        }
+        controller.EntityAnimator.FaceDirection(targetDestinationTeleporter.GetFacingDirection());
         
         // 5. Set the cooldown for BOTH teleporters
         SetTeleporterCooldown();
@@ -77,16 +74,4 @@ public class Teleporter : MonoBehaviour
     }
     
     private void SetTeleporterCooldown() => _teleportCooldownTimer = teleportCooldown;
-    
-    private Vector2 GetFacingDirection()
-    {
-        return faceDirection switch
-        {
-            TeleportFacing.Up    => Vector2.up,
-            TeleportFacing.Down  => Vector2.down,
-            TeleportFacing.Left  => Vector2.left,
-            TeleportFacing.Right => Vector2.right,
-            _                    => Vector2.zero
-        };
-    }
 }

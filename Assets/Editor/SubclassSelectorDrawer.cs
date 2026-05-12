@@ -51,7 +51,7 @@ public class SubclassSelectorDrawer : PropertyDrawer
         });
 
         // fieldInfo.FieldType is the damageType of the variable in your Controller 
-        // (e.g., State<EntityController>)
+        // (e.g., State<MobController>)
         var fieldType = fieldInfo.FieldType;
 
         // TypeCache is ultra-fast but needs a specific base damageType.

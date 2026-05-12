@@ -9,7 +9,7 @@ public class SkeletonWarriorAttackState : BaseActionState
     
     private float _defaultActionRange;
 
-    public override void Setup(EntityController controller, StateMachine stateMachine)
+    public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
 
