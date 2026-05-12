@@ -231,7 +231,7 @@ MonoBehaviour:
     HobbyPOIList:
     - Library_Checkout
     - Grand_Tree_Front
-    - Grand_Shrine
+    - Grand_Shrine_Front
     - Forest
     WorkPOIList:
     - Tavern_Table

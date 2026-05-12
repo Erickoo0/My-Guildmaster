@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class EntityAnimator : MonoBehaviour
+public class EntityAnimator : MonoBehaviour, IFaceable
 {
     [HideInInspector] public Animator animator;
     private EntityMover _entityMover;
@@ -43,6 +43,7 @@ public class EntityAnimator : MonoBehaviour
         }
     }
     
+    // Ver 1: Executes the face direction change
     public void FaceDirection(Vector2 lookDirection)
     {
         // Safety check
@@ -54,7 +55,14 @@ public class EntityAnimator : MonoBehaviour
         animator.SetFloat("InputY", animDir.y);
         animator.SetFloat("LastInputX", animDir.x);
         animator.SetFloat("LastInputY", animDir.y);
-        
+    }
+
+    // Ver 2: Converts a FacingDirection ENUM to a raw Vector2
+    public void FaceDirection(FacingDirection lookDirection)
+    {
+        if (lookDirection == FacingDirection.None) return;
+        // Convert Enum to a Vector2 
+        FaceDirection(lookDirection.ToVector2());
     }
 
     private Vector2 GetSnappedDirection(Vector2 moveInput)
@@ -82,5 +90,4 @@ public class EntityAnimator : MonoBehaviour
         isEventRequested = true;
         OnAnimationEventRequested?.Invoke();
     }
-
 }

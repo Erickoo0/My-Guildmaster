@@ -7,5 +7,5 @@ public class PointOfInterest : MonoBehaviour
 
     public string ID;
     public Vector2 Position => transform.position;
-    public TeleportFacing faceDirection;
+    public FacingDirection lookDirection;
 }

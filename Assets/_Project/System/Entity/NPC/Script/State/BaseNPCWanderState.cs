@@ -112,6 +112,9 @@ public class BaseNPCWanderState : State<NPCController>
 
     protected virtual void OnReachedDestination()
     {
+        // Face Direction logic
+        controller.EntityAnimator.FaceDirection((_selectedPOI.lookDirection));
+        
         _arrivedMainDestination = true;
         stateMachine.ChangeState(controller.IdleState);
     }
