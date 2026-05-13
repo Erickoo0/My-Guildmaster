@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flower 2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2372282115379217171, guid: 58fa1ef9c1c001f46b14af0d6f33d0b8, type: 3}
+      propertyPath: animationData
+      value: 
+      objectReference: {fileID: 11400000, guid: 461cb93bd9cfd6d4da88c29fc1ec2023, type: 2}
     - target: {fileID: 3347461358177733513, guid: 58fa1ef9c1c001f46b14af0d6f33d0b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.98605

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6605508725099801630}
   - component: {fileID: 3110344450300513188}
   - component: {fileID: 4084164577867588583}
+  - component: {fileID: -8591481748582981421}
   m_Layer: 7
   m_Name: Tree3
   m_TagString: Untagged
@@ -192,3 +193,18 @@ MonoBehaviour:
     - rid: 7572515380916125986
       type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &-8591481748582981421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990019722237308294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e461814b7ef324cabd6465989c99fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationController
+  animationData: {fileID: 11400000, guid: 2924c7efadf9ab6439eb367a45b73d22, type: 2}
+  minIdleTime: 2
+  maxIdleTime: 10

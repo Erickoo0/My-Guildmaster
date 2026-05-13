@@ -112,12 +112,12 @@ TextureImporter:
       name: Flower 3_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 11
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.508, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: Flower 3_1
       rect:
         serializedVersion: 2
-        x: 25
+        x: 20
         y: 0
-        width: 11
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.508, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: Flower 3_2
       rect:
         serializedVersion: 2
-        x: 45
+        x: 40
         y: 0
-        width: 11
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.508, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: Flower 3_3
       rect:
         serializedVersion: 2
-        x: 65
+        x: 60
         y: 0
-        width: 12
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.508, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a894c9bae72d5484aa9a9aff96e6891f
     internalID: 0
     vertices: []
     indices: 
@@ -208,7 +208,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":20.0,"y":20.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5080000162124634,"y":0.10000000149011612},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Flower 3_0: -4273644229069522723
       Flower 3_1: -3789535027738409786
