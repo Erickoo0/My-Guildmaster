@@ -2,12 +2,26 @@ using UnityEngine;
 
 public abstract class AttackData : ScriptableObject
 {
-    [Header("IDs")] 
+    [Header("References")] 
     [Tooltip("This ID is automatically set to the filename of this ScriptableObject.")]
     public string attackID;
-    
     public GameObject attackPrefab;
-    public DamageData damageData;
+
+    [Header("Base Stats")] 
+    public float baseDamage;
+    //public float baseMpCost; // Not needed for enemies
+    public float baseCastTime;
+
+    [Header("Behavior Settings")] 
+    public bool hitOncePerTarget = true;
+    public bool destroyOnMaxHits = true;
+    public int baseMaxEnemiesHit;
+    
+    [Header("Knockback & Type")]
+    public DamageType damageType;
+    public float knockbackForce = 30f;
+    public float knockbackDuration = 0.35f;
+    public float knockbackHeight = 1f;
     
     protected virtual void OnValidate()
     {
@@ -22,5 +36,25 @@ public abstract class AttackData : ScriptableObject
             UnityEditor.EditorUtility.SetDirty(this);
 #endif
         }
+    }
+
+    // Helper function to take the Base Stats from the SO and turn them into a DamageData struct
+    // This DamageData gets passed from State -> Hitbox
+    // Then the Hitbox modifies that damage data before passing to the Hurtbox
+    public DamageData CreateDamageData(GameObject attacker)
+    {
+        return new DamageData(
+            baseDamage,
+            Vector2.zero, // Calculated in Hitbox
+            Vector2.zero, // Calculated in Hitbox
+            knockbackForce,
+            knockbackDuration,
+            knockbackHeight,
+            damageType,
+            attacker,
+            baseMaxEnemiesHit,
+            hitOncePerTarget,
+            destroyOnMaxHits
+        );
     }
 }

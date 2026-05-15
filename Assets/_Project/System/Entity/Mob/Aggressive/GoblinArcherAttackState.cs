@@ -26,6 +26,7 @@ public class GoblinArcherAttackState : BaseActionState
     {
         _hasFired = false;
         
+        // Safety Check
         if (_attackData == null)
         {
             Debug.LogWarning("Arrow data is null");
@@ -34,7 +35,6 @@ public class GoblinArcherAttackState : BaseActionState
         }
         
         controller.EntityAnimator.OnAnimationEventRequested += FireProjectile;
-
         
         controller.EntityMover.SetMoveDirection(Vector2.zero);
         controller.EntityAnimator.animator.SetBool("IsAttacking", true);
@@ -50,20 +50,13 @@ public class GoblinArcherAttackState : BaseActionState
 
     private void FireProjectile()
     {
-        if (_hasFired) return;
-        
-        // Safety Check
-        if (controller.currentTarget == null)
-        {
-            Debug.LogWarning("No target to fire arrow at");
-            return;
-        }
+        if (_hasFired || controller.currentTarget == null) return;
 
         // Save the default action range then Increase action range during the attack
         _defaultActionRange = controller.ActionRange;
         controller.ActionRange = _defaultActionRange * 1.5f;
         
-        // Calculate the direction of the projectile
+        // Calculate the flight direction of the projectile
         Vector2 spawnPosition = _firePoint.transform.position;
         Vector2 targetPosition = controller.currentTarget.transform.position;
         Vector2 direction = (targetPosition - spawnPosition).normalized;
@@ -72,12 +65,9 @@ public class GoblinArcherAttackState : BaseActionState
 
         if (projectile.TryGetComponent(out Projectile projectileComponent))
         {
-            // Pass the DamageData from AttackData onto the projectile prefab (because we need to change source and hit direction)
-            DamageData damageDataInstance = _attackData.damageData;
-            damageDataInstance.source = controller.gameObject;
-            damageDataInstance.hitDirection = direction;
+            DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
             
-            projectileComponent.Setup(direction, _attackData.projectileSpeed, _attackData.projectileLifetime, damageDataInstance);
+            projectileComponent.Setup(direction, _attackData.projectileSpeed, _attackData.projectileLifetime, finalDamage);
         }
         
         _hasFired = true;

@@ -14,6 +14,7 @@ public enum DamageType
 [System.Serializable]
 public struct DamageData
 {
+    [Header("Base Data")]
     public float damageAmount;
     public Vector2 hitDirection;
     public Vector2 hitImpactPoint;
@@ -22,10 +23,15 @@ public struct DamageData
     public float knockbackHeight;
     public DamageType damageType;
     public GameObject source;
+    
+    [Header("Behavior Data")]
+    public bool hitOncePerTarget;
+    public bool destroyOnMaxHits;
     public int maxEnemiesHitCount;
     
     // Constructor to easily create damage types on the fly
-    public DamageData(float amount, Vector2 direction, Vector2 impactPoint, float force, float duration, float height, DamageType dmgDamageType, GameObject from = null, int hitCount = 1)
+    public DamageData(float amount, Vector2 direction, Vector2 impactPoint, float force, float duration, float height, 
+        DamageType dmgType, GameObject from, int hitCount, bool oncePerTarget, bool destroyOnMax)
     {
         damageAmount = amount;
         hitDirection = direction;
@@ -33,8 +39,10 @@ public struct DamageData
         knockbackForce = force;
         knockbackDuration = duration;
         knockbackHeight = height;
-        damageType = dmgDamageType;
+        damageType = dmgType;
         source = from;
         maxEnemiesHitCount = hitCount;
+        hitOncePerTarget = oncePerTarget;
+        destroyOnMaxHits = destroyOnMax;
     }
 }

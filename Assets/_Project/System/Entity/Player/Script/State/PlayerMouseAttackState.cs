@@ -28,8 +28,7 @@ public class PlayerMouseAttackState : State<PlayerController>
         _isFinished = false;
     
         // 1. Prepare Damage using the injected context
-        DamageData executionDamage = _attackData.damageData;
-        executionDamage.source = controller.gameObject;
+        DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
     
         // 2. Spawn the Attack Prefab
         GameObject attackInstance = Object.Instantiate(_attackData.attackPrefab, controller.WorldMousePosition, Quaternion.identity);
@@ -37,7 +36,7 @@ public class PlayerMouseAttackState : State<PlayerController>
         // 3. Give the HitBox the actual damage data!
         if (attackInstance.TryGetComponent<HitBox>(out HitBox spawnedHitbox))
         {
-            spawnedHitbox.Setup(executionDamage);
+            spawnedHitbox.Setup(finalDamage);
             spawnedHitbox.enableHitbox = true;
         }
         else

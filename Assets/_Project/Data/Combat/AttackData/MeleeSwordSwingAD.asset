@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MeleeAttackData
   attackID: MeleeSwordSwingAD
   attackPrefab: {fileID: 0}
-  damageData:
-    damageAmount: 20
-    hitDirection: {x: 0, y: 0}
-    knockbackForce: 40
-    knockbackDuration: 0.3
-    knockbackHeight: 0.4
-    damageType: 0
-    source: {fileID: 0}
+  baseDamage: 20
+  baseCastTime: 0
+  hitOncePerTarget: 1
+  destroyOnMaxHits: 1
+  baseMaxEnemiesHit: 0
+  damageType: 0
+  knockbackForce: 30
+  knockbackDuration: 0.35
+  knockbackHeight: 1

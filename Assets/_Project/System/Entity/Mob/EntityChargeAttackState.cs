@@ -74,10 +74,9 @@ public class EntityChargeAttackState : BaseActionState
                 _spawnedHitbox.enableHitbox = false;
                 
                 // Create a local instance of the damage data and pass the source
-                DamageData damageData = _attackData.damageData;
-                damageData.source = controller.gameObject;
+                DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
                 
-                _spawnedHitbox.Setup(damageData);
+                _spawnedHitbox.Setup(finalDamage);
             }
         }
     }

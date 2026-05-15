@@ -53,12 +53,13 @@ public class SkeletonWarriorAttackState : BaseActionState
         _defaultActionRange = controller.ActionRange;
         controller.ActionRange = _defaultActionRange * 10f; // Large range so they commit to the attack
         
-        // Setup Damage Data
-        DamageData damageDataInstance = _attackData.damageData;
-        damageDataInstance.source = controller.gameObject;
-        //damageDataInstance.hitDirection = direction;
+        // Calculate direction
+        Vector2 direction = (controller.currentTarget.transform.position - controller.transform.position).normalized;
         
-        _meleeHitbox.Setup(damageDataInstance);
+        // Setup Damage Data
+        DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
+        
+        _meleeHitbox.Setup(finalDamage);
         _meleeHitbox.enableHitbox = true; ;
     }
     

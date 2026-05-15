@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBox
   health: {fileID: 0}
-  invulnerabilityDuration: 5
+  invulnerabilityDuration: 0.5
   hitFX: {fileID: 859993028651516591, guid: 7fd6a3cb735b43f4d98f0db8a4358b46, type: 3}
 --- !u!114 &-1747576445313389302
 MonoBehaviour:

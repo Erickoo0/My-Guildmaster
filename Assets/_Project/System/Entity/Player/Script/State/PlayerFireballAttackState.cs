@@ -59,13 +59,9 @@ public class PlayerFireballAttackState : State<PlayerController>
 
         if (projectile.TryGetComponent(out Projectile projectileComponent))
         {
-            DamageData damageDataInstance = _attackData.damageData;
-            damageDataInstance.source = controller.gameObject;
+            DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
         
-            // Use the direction we just calculated
-            damageDataInstance.hitDirection = direction;
-        
-            projectileComponent.Setup(direction, _attackData.projectileSpeed, _attackData.projectileLifetime, damageDataInstance);
+            projectileComponent.Setup(direction, _attackData.projectileSpeed, _attackData.projectileLifetime, finalDamage);
         }
     
         _hasFired = true;
