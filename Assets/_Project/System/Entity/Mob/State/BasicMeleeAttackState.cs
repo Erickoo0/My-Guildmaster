@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class SkeletonWarriorAttackState : BaseActionState
+public class BasicMeleeAttackState : BaseActionState
 {
     [SerializeField] private string attackID;
     private MeleeAttackData _attackData;

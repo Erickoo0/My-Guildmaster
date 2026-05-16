@@ -5,6 +5,7 @@ public abstract class AttackData : ScriptableObject
     [Header("References")] 
     [Tooltip("This ID is automatically set to the filename of this ScriptableObject.")]
     public string attackID;
+    public string attackName;
     public GameObject attackPrefab;
 
     [Header("Base Stats")] 
@@ -16,6 +17,7 @@ public abstract class AttackData : ScriptableObject
     public bool hitOncePerTarget = true;
     public bool destroyOnMaxHits = true;
     public int baseMaxEnemiesHit;
+    public float attackScale = 1;
     
     [Header("Knockback & Type")]
     public DamageType damageType;

@@ -58,12 +58,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: AttackState
-      value: 5971588481192558723
+      value: 5971588739801284696
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: attackLibrary.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'attackLibrary.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 734e846a641d9854f982ab8d7b334548, type: 2}
+      objectReference: {fileID: 11400000, guid: 189d42c047e7c894e9ca547a9cba13da, type: 2}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'attackLibrary.Array.data[1]'
       value: 
@@ -73,8 +77,16 @@ PrefabInstance:
       value: Assembly-CSharp GoblinArcherAttackState
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[5971588739801284696]'
+      value: Assembly-CSharp BasicProjectileAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588481192558723].attackID
       value: ProjectileFireballAD
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[5971588739801284696].attackID
+      value: ProjectileFireballLargeAD
       objectReference: {fileID: 0}
     - target: {fileID: 392546489883438871, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Sprite

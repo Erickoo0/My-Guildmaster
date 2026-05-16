@@ -37,37 +37,40 @@ public class EntityChaseState : BaseChaseState
             return;
         }
         
+        // Check if target is in range
+        if (!controller.IsTargetInRange(controller.DetectionLostRange))
+        {
+            controller.currentTarget = null;
+            stateMachine.ChangeState(controller.IdleState);
+            return;
+        }
+        
         Vector2 currentPosition = controller.transform.position;
         Vector2 targetPosition = controller.currentTarget.position;
         float distance = Vector2.Distance(currentPosition, targetPosition);
         
         // Update A* destination to follow target
         controller.aiPath.destination = targetPosition;
-        
-        // If in action range and action cooldown is over, switch to the action state
-        if (distance <= controller.ActionRange && controller.CheckActionCooldown())
+
+        if (distance <= controller.ActionRange)
         {
-            stateMachine.ChangeState(controller.AttackState);
-            return;
-        }
-        else if (distance <= controller.ActionRange) // If in action range, but action cooldown is not over
-        {
+            // 1. In range, halt movement
             controller.EntityMover.SetMoveDirection(Vector2.zero);
-            
             Vector2 faceDirection = (targetPosition - currentPosition).normalized;
             controller.EntityAnimator.FaceDirection(faceDirection);
+            
+            // 2. Attack if off cooldown
+            if (controller.CheckActionCooldown())
+            {
+                stateMachine.ChangeState(controller.AttackState);
+                return;
+            }
         }
-        
-        // Movement Logic
-        if (distance > controller.ActionRange)
+        else
         {
+            // 3. Out of range, move towards target
             Vector2 moveDirection = ((Vector2)controller.aiPath.desiredVelocity).normalized;
             controller.EntityMover.SetMoveDirection(moveDirection);
-
-        }
-        else // We are close enough to attack, but maybe waiting for attack cooldown
-        {
-            controller.EntityMover.SetMoveDirection(Vector2.zero);
         }
         
         // Tell the AIPath where the transform actually is so it can calculate the next velocity correctly

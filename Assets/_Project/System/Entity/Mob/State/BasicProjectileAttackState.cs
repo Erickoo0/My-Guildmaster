@@ -2,14 +2,12 @@ using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class GoblinArcherAttackState : BaseActionState
+public class BasicProjectileAttackState : BaseCastState
 {
+    [Header("References")]
     [SerializeField] private string attackID;
     private ProjectileAttackData _attackData;
     private GameObject _firePoint;
-    private bool _hasFired = false;
-
-    private float _defaultActionRange;
 
     public override void Setup(MobController controller, StateMachine stateMachine)
     {
@@ -18,43 +16,32 @@ public class GoblinArcherAttackState : BaseActionState
         _attackData = controller.GetAttackData<ProjectileAttackData>(attackID);
         
         var firePointComponent = controller.GetComponentInChildren<FirePoint>();
-        
         _firePoint = (firePointComponent != null) ? firePointComponent.gameObject : controller.gameObject;
     }
 
     public override void Enter()
     {
-        _hasFired = false;
+        base.Enter();
         
-        // Safety Check
         if (_attackData == null)
         {
-            Debug.LogWarning("Arrow data is null");
+            Debug.LogWarning("Attack data is null");
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
-        
-        controller.EntityAnimator.OnAnimationEventRequested += FireProjectile;
-        
+    
+        controller.EntityAnimator.OnAnimationEventRequested += ExecuteAttack;
         controller.EntityMover.SetMoveDirection(Vector2.zero);
-        controller.EntityAnimator.animator.SetBool("IsAttacking", true);
+
+        StartCastingRoutine(_attackData.baseCastTime, _attackData.attackID);
     }
 
-    public override void Update()
+    private void ExecuteAttack()
     {
-        if (!controller.EntityAnimator.animator.GetBool("IsAttacking"))
-        {
-            stateMachine.ChangeState(controller.IdleState);
-        }
-    }
-
-    private void FireProjectile()
-    {
-        if (_hasFired || controller.currentTarget == null) return;
-
-        // Save the default action range then Increase action range during the attack
-        _defaultActionRange = controller.ActionRange;
-        controller.ActionRange = _defaultActionRange * 1.5f;
+        // Safety Check
+        if (controller.currentTarget == null) return;
+        
+        if (hasFired) return;
         
         // Calculate the flight direction of the projectile
         Vector2 spawnPosition = _firePoint.transform.position;
@@ -62,7 +49,8 @@ public class GoblinArcherAttackState : BaseActionState
         Vector2 direction = (targetPosition - spawnPosition).normalized;
         
         GameObject projectile = Object.Instantiate(_attackData.attackPrefab, spawnPosition, Quaternion.identity);
-
+        projectile.transform.localScale *= _attackData.attackScale;
+        
         if (projectile.TryGetComponent(out Projectile projectileComponent))
         {
             DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
@@ -70,7 +58,7 @@ public class GoblinArcherAttackState : BaseActionState
             projectileComponent.Setup(direction, _attackData.projectileSpeed, _attackData.projectileLifetime, finalDamage);
         }
         
-        _hasFired = true;
+        hasFired = true;
     }
     
     public override void PhysicsUpdate() { }
@@ -78,15 +66,7 @@ public class GoblinArcherAttackState : BaseActionState
 
     public override void Exit()
     {
-        controller.EntityAnimator.OnAnimationEventRequested -= FireProjectile;
-        
-        controller.EntityAnimator.animator.SetBool("IsAttacking", false);
-        
-        controller.ActionRange = _defaultActionRange;
-        
-        controller.SetActionCooldown();
-        
-        controller.currentTarget = null;
+        controller.EntityAnimator.OnAnimationEventRequested -= ExecuteAttack;
+        base.Exit();
     }
-    
 }

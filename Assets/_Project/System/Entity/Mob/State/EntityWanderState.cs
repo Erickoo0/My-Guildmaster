@@ -18,7 +18,11 @@ public class EntityWanderState : BaseWanderState
     {
         // 1. Tell the AI to start calculating paths again
         controller.aiPath.canSearch = true;
+        
+        _stuckTimer = 0f;
+        _positionCheckTimer = _positionCheckInterval;
         _lastPosition = controller.transform.position;
+        
         SetNewDestination();
     }
 

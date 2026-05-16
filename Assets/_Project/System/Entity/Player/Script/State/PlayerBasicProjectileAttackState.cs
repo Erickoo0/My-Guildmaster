@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerFireballAttackState : State<PlayerController>
+public class PlayerBasicProjectileAttackState : State<PlayerController>
 {
     [SerializeField] private string attackID;
     private ProjectileAttackData _attackData;
@@ -35,6 +35,20 @@ public class PlayerFireballAttackState : State<PlayerController>
         controller.EntityAnimator.FaceDirection(aimDirection);
         controller.EntityMover.SetMoveDirection(Vector2.zero);
         controller.EntityAnimator.animator.SetBool("IsAttacking", true);
+        
+        // Get the duration of the animation 
+        float clipDuration = controller.EntityAnimator.animator.GetCurrentAnimatorStateInfo(0).length;
+        
+        // Apply animation speed multiplier based on Cast Time
+        if (_attackData.baseCastTime > 0)
+        {
+            float castSpeedMultiplier = clipDuration/_attackData.baseCastTime;
+            controller.EntityAnimator.animator.speed = castSpeedMultiplier;
+        }
+        else // If cast time is 0, use default
+        {
+            controller.EntityAnimator.animator.speed = 1f;
+        }
     }
 
     public override void Update()
@@ -75,6 +89,7 @@ public class PlayerFireballAttackState : State<PlayerController>
     {
         controller.EntityAnimator.OnAnimationEventRequested -= FireProjectile;
         
+        controller.EntityAnimator.animator.speed = 1f;
         controller.EntityAnimator.animator.SetBool("IsAttacking", false);
         
         controller.SetActionCooldown();

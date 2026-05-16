@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 862454d2803430d4fb9f0114c735e52a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - castBarPrefab: {fileID: 1143244870389784472, guid: fc7b0bca65ad7874ebf63dc03f715275, type: 3}
+  - progressBarRef: {instanceID: 0}
+  - castText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

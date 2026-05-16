@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5524832305169211343}
   - component: {fileID: 2889655232077048249}
   m_Layer: 5
-  m_Name: Health Bar
+  m_Name: CastBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HP: 20/100'
+  m_text: 0.5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e72b3c35ed744294d87868c4546bb5e0, type: 2}
   m_sharedMaterial: {fileID: -3214657711778352668, guid: e72b3c35ed744294d87868c4546bb5e0, type: 2}
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9150943, g: 0.26330543, b: 0.26330543, a: 1}
+  m_Color: {r: 0.764151, g: 0.75886613, b: 0.27033645, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

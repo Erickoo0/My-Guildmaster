@@ -14,6 +14,7 @@ public class EntityAnimator : MonoBehaviour, IFaceable
     private readonly float _moveThreshold = 0.25f;
     
     public event System.Action OnAnimationEventRequested;
+    public event System.Action OnAnimationFinished;
     
     private void Start()
     {
@@ -82,6 +83,7 @@ public class EntityAnimator : MonoBehaviour, IFaceable
     {
         animator.SetBool("IsAttacking", false);
         isEventRequested = false;
+        OnAnimationFinished?.Invoke();
     }
 
     public void RequestAnimationEvent()
