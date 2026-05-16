@@ -14,6 +14,9 @@ public class SimpleAnimationController : MonoBehaviour
     private float _frameDuration;
     private bool _isSwaying;
     private float _nextSwayCooldown;
+    
+    // Flag to determine if we should bypass idle timers entirely
+    private bool _isConstantPlay;
 
     private void Awake()
     {
@@ -23,10 +26,20 @@ public class SimpleAnimationController : MonoBehaviour
         if (animationData == null) return;
         
         _frameDuration = 1f / animationData.fps;
-
-        // Start at frame 0 and pick a random wait time
         _spriteRenderer.sprite = animationData.animationFrames[0];
-        ResetSwayTimer();
+
+        // Check if both idle values are exactly 0 (or practically 0)
+        _isConstantPlay = Mathf.Approximately(minIdleTime, 0f) && Mathf.Approximately(maxIdleTime, 0f);
+
+        if (_isConstantPlay)
+        {
+            _isSwaying = true;
+            _timer = 0;
+        }
+        else
+        {
+            ResetSwayTimer();
+        }
     }
 
     private void Update()
@@ -51,22 +64,40 @@ public class SimpleAnimationController : MonoBehaviour
             _timer -= _frameDuration;
             _currentFrame++;
             
-            // Check if we've reached the end of the animation'
+            // Check if we've reached the end of the animation
             if (_currentFrame < animationData.animationFrames.Length)
             {
                 _spriteRenderer.sprite = animationData.animationFrames[_currentFrame];
             }
             else
             {
-                _isSwaying = false;
-                _spriteRenderer.sprite = animationData.animationFrames[0];
-                ResetSwayTimer();
+                // Loop behavior depends on constant play flag
+                if (_isConstantPlay)
+                {
+                    _currentFrame = 0;
+                    _spriteRenderer.sprite = animationData.animationFrames[0];
+                }
+                else
+                {
+                    _isSwaying = false;
+                    _spriteRenderer.sprite = animationData.animationFrames[0];
+                    ResetSwayTimer();
+                }
             }
         }
     }
 
     private void HandleIdle()
     {
+        // Safety guard: if constant play somehow reaches here, force it back out
+        if (_isConstantPlay)
+        {
+            _isSwaying = true;
+            _timer = 0;
+            _currentFrame = 0;
+            return;
+        }
+
         _timer += Time.deltaTime;
         if (_timer >= _nextSwayCooldown)
         {
@@ -82,5 +113,3 @@ public class SimpleAnimationController : MonoBehaviour
         _nextSwayCooldown = Random.Range(minIdleTime, maxIdleTime);
     }
 }
-
-

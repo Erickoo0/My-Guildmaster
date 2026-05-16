@@ -5063,9 +5063,9 @@ MonoBehaviour:
   - {x: 2.04, y: -0.6399379, z: 0}
   m_ShapePathHash: 0
   m_InstanceId: 0
-  m_ShadowShape2DComponent: {fileID: 8582651515627719988}
+  m_ShadowShape2DComponent: {fileID: 2729788813391978784}
   m_ShadowShape2DProvider:
-    rid: 7572515380916125985
+    rid: 5971588750356512895
   m_ShadowCastingSource: 2
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
@@ -5085,8 +5085,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7572515380916125985
-      type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+    - rid: 5971588750356512895
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
 --- !u!114 &4142893051948239753
 MonoBehaviour:

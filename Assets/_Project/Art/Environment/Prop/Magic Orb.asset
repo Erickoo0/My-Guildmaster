@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe65a1c16bb03449abfce93e24961be, type: 3}
+  m_Name: Magic Orb
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationData
+  animationFrames:
+  - {fileID: -4071169064871073133, guid: 8f7cfab211a878d43beda27dc72e5db5, type: 3}
+  - {fileID: 6727560859525351598, guid: 8f7cfab211a878d43beda27dc72e5db5, type: 3}
+  - {fileID: -283202728664014863, guid: 8f7cfab211a878d43beda27dc72e5db5, type: 3}
+  - {fileID: 4351662808984292283, guid: 8f7cfab211a878d43beda27dc72e5db5, type: 3}
+  - {fileID: -2854499704365225475, guid: 8f7cfab211a878d43beda27dc72e5db5, type: 3}
+  - {fileID: -2408620813984682831, guid: 8f7cfab211a878d43beda27dc72e5db5, type: 3}
+  - {fileID: -6138563190435636061, guid: 8f7cfab211a878d43beda27dc72e5db5, type: 3}
+  - {fileID: 3065486886376148875, guid: 8f7cfab211a878d43beda27dc72e5db5, type: 3}
+  fps: 4

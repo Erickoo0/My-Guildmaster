@@ -103,12 +103,12 @@ TextureImporter:
       name: Square Table_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 40
-        height: 44
+        width: 37
+        height: 38
       alignment: 9
-      pivot: {x: 0.49300233, y: 0.053420268}
+      pivot: {x: 0.49500048, y: 0.02659127}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e7e191f4690f7724798a7a41a52b035d
+    spriteID: 6625f48f949b3a44190dfc3a37c455fe
     internalID: 0
     vertices: []
     indices: 
