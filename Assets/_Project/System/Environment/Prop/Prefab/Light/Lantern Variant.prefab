@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_PointLightOuterRadius
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 9069851214713551932, guid: a8d26a619e363f74a93f0dff91cde61e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069851214713551932, guid: a8d26a619e363f74a93f0dff91cde61e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -189326295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

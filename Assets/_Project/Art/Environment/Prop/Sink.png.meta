@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 857dd2c551f059846ab823230f16fc66
+guid: fff81c4dd5a34c148b575a96bb3e8a0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2491897223048795810
-    second: House4_0
+      213: -5222742899494102466
+    second: Sink_0
+  - first:
+      213: 3955005448596366384
+    second: Sink_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +103,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House4_0
+      name: Sink_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 3
-        width: 100
-        height: 123
+        x: 0
+        y: 0
+        width: 22
+        height: 30
       alignment: 9
-      pivot: {x: 0.5077888, y: 0.09346621}
+      pivot: {x: 0.49004278, y: 0.025374169}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a61b9c525ff49220800000000000000
-      internalID: 2491897223048795810
+      spriteID: e3ad57211071587b0800000000000000
+      internalID: -5222742899494102466
       vertices: []
       indices: 
       edges: []
@@ -125,7 +128,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e9b97811a0be86c4793a28823b5d5052
+    spriteID: b56d6c87cb945f245b3cf71d52ebf29a
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +136,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":22.0,"y":30.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      House4_0: 2491897223048795810
+      Sink_0: -5222742899494102466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

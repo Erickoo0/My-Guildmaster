@@ -5,7 +5,7 @@ public class CastBar : MonoBehaviour
 {
     [Header("References")] 
     [SerializeField] private GameObject castBarPrefab;
-    [SerializeField] private Vector3 offset = new Vector3(0, 2f, 0);
+    [SerializeField] private Vector3 offset = new Vector3(0, 3f, 0);
     private SpriteRenderer _spriteRenderer;
     
     [Header("UI")]

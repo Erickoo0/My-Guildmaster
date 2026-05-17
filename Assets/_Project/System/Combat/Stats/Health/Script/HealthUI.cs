@@ -6,7 +6,7 @@ public class HealthUI : MonoBehaviour
 {
     [Header("References")] 
     [SerializeField] private GameObject healthBarPrefab;
-    [SerializeField] private Vector3 offset = new Vector3(0, 1f, 0);
+    [SerializeField] private Vector3 offset = new Vector3(0, 2f, 0);
     private SpriteRenderer _spriteRenderer;
     
     [Header("UI")]

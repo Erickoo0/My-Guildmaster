@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthUI
   healthBarPrefab: {fileID: 1143244870389784472, guid: bbafd3c610ab3284ca44a329d7eae5df, type: 3}
-  offset: {x: 0, y: 1, z: 0}
+  offset: {x: 0, y: 2, z: 0}
   hpComponent: {fileID: 0}
   progressBarRef: {fileID: 0}
   hpText: {fileID: 0}
@@ -507,9 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CastBar
   castBarPrefab: {fileID: 1143244870389784472, guid: fc7b0bca65ad7874ebf63dc03f715275, type: 3}
-  offset: {x: 0, y: 2, z: 0}
-  progressBarRef: {fileID: 0}
-  castText: {fileID: 0}
+  offset: {x: 0, y: 2.5, z: 0}
 --- !u!114 &7784520383436025491
 MonoBehaviour:
   m_ObjectHideFlags: 0
