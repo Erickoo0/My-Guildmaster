@@ -26,6 +26,8 @@ public class NPCController : BaseEntityController
     
     [Header("NPC Schedule")]
     [field: SerializeField] public NPCScheduleData NpcScheduleData {get; private set;}
+    public State OverrideState { get; private set; }
+    public bool IsOverrideState => OverrideState != null;
 
     protected override void Awake()
     {
@@ -49,5 +51,27 @@ public class NPCController : BaseEntityController
     {
         // Start by entering the spawn state 
         StateMachine.SetupState(IdleState);
+    }
+
+    public void SetOverrideState(State newState)
+    {
+        OverrideState = newState;
+        StateMachine.ChangeState(OverrideState);
+    }
+
+    public void ClearOverrideState()
+    {
+        OverrideState = null;
+        
+        // Fallback safely to whatever the schedule says they should be doing right now
+        var scheduleController = GetComponent<NPCScheduleController>();
+        if (scheduleController != null)
+        {
+            StateMachine.ChangeState(scheduleController.CurrentScheduledState);
+        }
+        else
+        {
+            StateMachine.ChangeState(IdleState);
+        }
     }
 }
