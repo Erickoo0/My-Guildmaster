@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    [Header("Setup")] 
+    [Header("References")] 
     [SerializeField] private GameObject healthBarPrefab;
-    [SerializeField] private Vector3 offset = new Vector3(0, 1f, 0);
+    [SerializeField] private Vector3 offset = new Vector3(0, 2f, 0);
     private SpriteRenderer _spriteRenderer;
     
     [Header("UI")]
@@ -21,6 +21,7 @@ public class HealthUI : MonoBehaviour
     {
         // If no health target (assigned ui), assume it's the parent object.
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (_spriteRenderer == null) _spriteRenderer = GetComponent<SpriteRenderer>();
         if (hpComponent == null) hpComponent = GetComponentInParent<Health>();
         if (hpComponent == null) hpComponent = GetComponent<Health>();
         if (progressBarRef == null && healthBarPrefab != null) SpawnHealthBar();

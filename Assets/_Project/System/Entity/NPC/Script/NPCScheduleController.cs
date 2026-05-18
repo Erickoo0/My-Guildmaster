@@ -47,10 +47,14 @@ public class NPCScheduleController : MonoBehaviour
 
         CurrentScheduledState = nextState;
     
-        // State Change Logic
-        if (_npcController.StateMachine.CurrentState != nextState)
+        // State Change Logic 
+        // If the NPC is not in override state, change the state
+        if (!_npcController.IsOverrideState)
         {
-            _npcController.StateMachine.ChangeState(nextState);
+            if (_npcController.StateMachine.CurrentState != nextState)
+            {
+                _npcController.StateMachine.ChangeState(nextState);
+            }
         }
     }
 }

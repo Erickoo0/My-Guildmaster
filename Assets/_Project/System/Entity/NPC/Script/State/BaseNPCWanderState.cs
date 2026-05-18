@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class BaseNPCWanderState : State<NPCController>
+public abstract class BaseNPCWanderState : State<NPCController>
 {
     [Header("Location Settings")] 
     protected List<PointOfInterest> _poiList = new List<PointOfInterest>();

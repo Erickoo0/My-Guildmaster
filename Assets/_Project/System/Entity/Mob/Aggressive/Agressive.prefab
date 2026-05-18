@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 6447096566392552272}
   - component: {fileID: -1747576445313389302}
   - component: {fileID: 3685750868421853756}
+  - component: {fileID: -692213946481136408}
   - component: {fileID: 7784520383436025491}
   - component: {fileID: -1862256494693202073}
   - component: {fileID: -8014178294535799309}
@@ -456,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBox
   health: {fileID: 0}
-  invulnerabilityDuration: 5
+  invulnerabilityDuration: 0.5
   hitFX: {fileID: 859993028651516591, guid: 7fd6a3cb735b43f4d98f0db8a4358b46, type: 3}
 --- !u!114 &-1747576445313389302
 MonoBehaviour:
@@ -488,11 +489,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthUI
   healthBarPrefab: {fileID: 1143244870389784472, guid: bbafd3c610ab3284ca44a329d7eae5df, type: 3}
-  offset: {x: 0, y: 1, z: 0}
+  offset: {x: 0, y: 2, z: 0}
   hpComponent: {fileID: 0}
   progressBarRef: {fileID: 0}
   hpText: {fileID: 0}
   showText: 0
+--- !u!114 &-692213946481136408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862454d2803430d4fb9f0114c735e52a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CastBar
+  castBarPrefab: {fileID: 1143244870389784472, guid: fc7b0bca65ad7874ebf63dc03f715275, type: 3}
+  offset: {x: 0, y: 2.5, z: 0}
 --- !u!114 &7784520383436025491
 MonoBehaviour:
   m_ObjectHideFlags: 0

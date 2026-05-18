@@ -103,12 +103,12 @@ TextureImporter:
       name: Alchemy Store_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 12
-        width: 182
-        height: 111
+        x: 2
+        y: 13
+        width: 180
+        height: 109
       alignment: 9
-      pivot: {x: 0.50439006, y: 0.23366618}
+      pivot: {x: 0.5034615, y: 0.2198913}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1c13f7cbf36c0b244bac38bf183637e1
+    spriteID: d97dc74eb50000f44ad4a132061e3c97
     internalID: 0
     vertices: []
     indices: 

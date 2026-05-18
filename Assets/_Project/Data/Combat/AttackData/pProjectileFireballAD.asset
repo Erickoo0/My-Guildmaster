@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: pProjectileFireballAD
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttackData
   attackID: pProjectileFireballAD
+  attackName: 
   attackPrefab: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
-  damageData:
-    damageAmount: 100
-    hitDirection: {x: 0, y: 0}
-    knockbackForce: 10
-    knockbackDuration: 0.2
-    knockbackHeight: 0.35
-    damageType: 1
-    source: {fileID: 0}
-    maxEnemiesHitCount: 2
+  baseDamage: 100
+  baseCastTime: 0.1
+  hitOncePerTarget: 1
+  destroyOnMaxHits: 1
+  baseMaxEnemiesHit: 1
+  damageType: 1
+  knockbackForce: 30
+  knockbackDuration: 0.35
+  knockbackHeight: 1
   projectileSpeed: 12
-  projectileLifetime: 5
+  projectileLifetime: 6

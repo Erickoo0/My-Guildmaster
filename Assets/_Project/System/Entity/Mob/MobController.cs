@@ -80,7 +80,13 @@ public class MobController : BaseEntityController
             {
                 ClearTarget();
             }
-            return; 
+            // If target is still in range, and we arent currently chasing, enter chase state
+            else if (StateMachine.CurrentState != AttackState && StateMachine.CurrentState != ChaseState)
+            {
+                StateMachine.ChangeState(ChaseState);
+            }
+
+            return;
         }
 
         // If we DON'T have a target, scan the area
@@ -89,6 +95,7 @@ public class MobController : BaseEntityController
 
     private void FindTarget()
     {
+        // Safety Check
         if (ChaseState == null || TargetableList == null) return;
         
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, DetectionRange);
@@ -114,7 +121,7 @@ public class MobController : BaseEntityController
         StateMachine.ChangeState(IdleState);
     }
     
-    private bool IsTargetInRange(float range)
+    public bool IsTargetInRange(float range)
     {
         if (currentTarget == null) return false;
         else return Vector2.Distance(transform.position, currentTarget.transform.position) <= range;

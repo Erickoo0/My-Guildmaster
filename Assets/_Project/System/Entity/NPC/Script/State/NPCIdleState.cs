@@ -36,7 +36,6 @@ public class NPCIdleState : BaseNPCIdleState
         if (_idleTime > 0) _idleTime -= Time.deltaTime;
         else
         {
-            Debug.Log($"Change State to {_scheduleController.CurrentScheduledState.GetType().Name}");
             stateMachine.ChangeState(_scheduleController.CurrentScheduledState);
         }
     }

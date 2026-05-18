@@ -6,17 +6,14 @@ public abstract class HitBox : MonoBehaviour
     [Header("Base Settings")] 
     public LayerMask victimLayer; // Layer to check for collisions
     public bool enableHitbox = true;
+    
     [HideInInspector] public Collider2D entityCollider;
-
-    [Header("Behavior Settings")] 
-    [Tooltip("If true, the hitbox will only be triggered once per target")]
-    public bool hitOncePerTarget = true;
-    [Tooltip("If true, the hitbox will be disabled after the first hit")]
-    public bool disableAfterFirstHit = true;
-    private int maxEnemiesHitCount;
     
+    private int _maxEnemiesHitCount;
+    private bool _hitOncePerTarget;
+    private bool _destroyOnMaxHits;
     
-    protected DamageData damageData;
+    protected DamageData baseDamageData;
     protected bool isDamageDataAssigned = false;
     
     private readonly HashSet<IDamagable> targetsHit = new HashSet<IDamagable>();
@@ -28,48 +25,62 @@ public abstract class HitBox : MonoBehaviour
 
     public virtual void Setup(DamageData data)
     {
-        damageData = data;
+        baseDamageData = data;
         isDamageDataAssigned = true;
         targetsHit.Clear();
-        maxEnemiesHitCount = data.maxEnemiesHitCount;
+        
+        // Read the data from the DamageData
+        _maxEnemiesHitCount = data.maxEnemiesHitCount;
+        _hitOncePerTarget = data.hitOncePerTarget;
+        _destroyOnMaxHits = data.destroyOnMaxHits;
     }
 
     public void OnTriggerStay2D(Collider2D other)
     {
+        // Safety Check
         if (!enableHitbox || !isDamageDataAssigned) return;
         if (other.isTrigger) return;
+        
+        // Filter out wrong layers and Source
         if (((1 << other.gameObject.layer) & victimLayer) == 0) return;
-        if (other.gameObject == damageData.source) return;
+        if (other.gameObject == baseDamageData.source) return;
 
         if (other.TryGetComponent<IDamagable>(out IDamagable victim))
         {
             // 1. Check if we already hit the target
-            if (hitOncePerTarget && targetsHit.Contains(victim)) return;
+            if (_hitOncePerTarget && targetsHit.Contains(victim)) return;
             
-            // 2. Calculate direction (Implemented by inherited classes)
-            Vector2 direction = GetKnockbackDirection(other);
+            // 2. Calculate knockback direction (Implemented by inherited classes)
+            CalculateImpactPhysics(other, out Vector2 direction, out Vector2 impactPoint);
             
             // 3. Send the damage to the target
-            DamageData finalData = damageData;
+            DamageData finalData = baseDamageData;
             finalData.hitDirection = direction;
-            maxEnemiesHitCount--;
-
+            finalData.hitImpactPoint = impactPoint;
+            
             if (SendDamage(finalData, other))
             {
                 targetsHit.Add(victim);
-
                 HandlePostHit(other);
-                
-                if (disableAfterFirstHit) enableHitbox = false;
+
+                if (_maxEnemiesHitCount > 0)
+                {
+                    _maxEnemiesHitCount--;
+
+                    if (_maxEnemiesHitCount <= 0)
+                    {
+                        enableHitbox = false;
+
+                        if (_destroyOnMaxHits)
+                            Destroy(gameObject);
+                    }
+                }
             }
-            
-            // Destroy hitbox if max enemies hit count reached
-            if (maxEnemiesHitCount <= 0) Destroy(gameObject);
         }
     }
     
     // All children must implement this method
-    protected abstract Vector2 GetKnockbackDirection(Collider2D other);
+    protected abstract void CalculateImpactPhysics(Collider2D other, out Vector2 knockbackDirection, out Vector2 impactPoint);
     // All children can implement this method
     protected virtual void HandlePostHit(Collider2D other) { }
     

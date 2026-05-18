@@ -8,7 +8,7 @@ public class HurtBox : MonoBehaviour, IDamagable
     [SerializeField] private Health health;
     
     [Header("Invulnerability")]
-    [SerializeField] private float invulnerabilityDuration = 5f;
+    [SerializeField] private float invulnerabilityDuration = 0.5f;
     private float _invulnerabilityTimer;
 
     [Header("FX")] 

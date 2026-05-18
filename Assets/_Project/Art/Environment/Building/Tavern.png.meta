@@ -103,12 +103,12 @@ TextureImporter:
       name: Tavern_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 6
-        width: 293
-        height: 174
+        x: 27
+        y: 19
+        width: 266
+        height: 159
       alignment: 9
-      pivot: {x: 0.48543024, y: 0.163882}
+      pivot: {x: 0.5008235, y: 0.10321558}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7bdb2c848ebf87042b4276afa7c4ab25
+    spriteID: 92d6aa0838192ea449da0cd5a8a0a9d4
     internalID: 0
     vertices: []
     indices: 

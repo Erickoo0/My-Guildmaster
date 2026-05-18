@@ -166,8 +166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
   victimLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
   enableHitbox: 1
   entityCollider: {fileID: 0}
-  hitOncePerTarget: 1
-  disableAfterFirstHit: 0

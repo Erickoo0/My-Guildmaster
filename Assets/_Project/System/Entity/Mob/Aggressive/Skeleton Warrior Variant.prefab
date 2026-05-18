@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: AttackState
-      value: 5971588533496578134
+      value: 5971588739801284695
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: WanderState
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'attackLibrary.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 734e846a641d9854f982ab8d7b334548, type: 2}
+      objectReference: {fileID: 11400000, guid: 4caeca3d133592d4788ee107c1afb71e, type: 2}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'attackLibrary.Array.data[1]'
       value: 
@@ -73,6 +73,14 @@ PrefabInstance:
       value: Assembly-CSharp GoblinArcherAttackState
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[5971588739801284693]'
+      value: Assembly-CSharp SkeletonWarriorAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[5971588739801284695]'
+      value: Assembly-CSharp BasicMeleeAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588533496578048].attackID
       value: ChargeAD
       objectReference: {fileID: 0}
@@ -83,6 +91,14 @@ PrefabInstance:
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588533496578134].attackID
       value: ProjectileFireballAD
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[5971588739801284693].attackID
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[5971588739801284695].attackID
+      value: MeleeSwordSwingAD
       objectReference: {fileID: 0}
     - target: {fileID: 392546489883438871, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Sprite

@@ -66,6 +66,11 @@ public class Health : MonoBehaviour
         {
             UpdateHpOnLevelUp();
         }
+        else // Default fallback for objects with no level component
+        {
+            hpMax = hpBase;
+            HpCurrent = hpMax;
+        }
     }
 
     private void OnEnable()
