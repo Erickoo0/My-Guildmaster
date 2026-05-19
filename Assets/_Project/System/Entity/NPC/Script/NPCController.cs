@@ -60,7 +60,6 @@ public class NPCController : BaseEntityController
     protected override void Update()
     {
         base.Update();
-        
         // Only evaluate if we aren't already IN an override state.
         if (!IsOverrideState)
         {
@@ -93,10 +92,12 @@ public class NPCController : BaseEntityController
     {
         OverrideState = newState as State;
         StateMachine.ChangeState(OverrideState);
+        Debug.Log("NPC is now in override state: " + newState.GetType().Name);
     }
 
     public void ClearOverrideState()
     {
+        Debug.Log("NPC is no longer in override state");
         OverrideState = null;
         
         // Fallback safely to whatever the schedule says they should be doing right now

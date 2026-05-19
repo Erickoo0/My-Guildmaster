@@ -34,8 +34,13 @@ public class Npc : MonoBehaviour, IInteractable
     public DialogueNode CurrentDialogueNode => GetDialogueForCurrentState();
     public string[] CurrentSpeechBubble => GetSpeechBubbleForCurrentState();
     
-    private void Start() => _npcController = GetComponent<NPCController>();
-    
+    private void Start()
+    {
+        _npcController = GetComponent<NPCController>();
+        // Evaluate the daily dialogue immediately for the first time
+        EvaluateDailyDialogue(this, TimeSpan.Zero);
+    }
+
     public bool CanInteract()
     {
         return true;

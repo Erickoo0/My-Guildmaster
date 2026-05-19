@@ -83,6 +83,9 @@ public class DialogueManager : MonoBehaviour
 
     public void OnAdvanceDialogueInput(InputAction.CallbackContext context)
     {
+        // Guard Clause
+        if (_currentNode == null) return;
+        
         if (!context.performed || !_dialogueUI.IsVisible) return; 
         
         // 1. If still typing, finish instantly
@@ -194,16 +197,23 @@ public class DialogueManager : MonoBehaviour
     private void CloseDialogue()
     {
         EventBus.RequestCloseMenu(_dialogueUI.DialoguePanel);      
+        ResetDialogueState(); // Clean up logic instantly!
     }
-    
+
     private void HandleForcedClose(GameObject closedMenu)
     {
         if (closedMenu == _dialogueUI.DialoguePanel)
         {
-            _currentNode = null;
-            _isWaitingChoice = false;
-            _dialogueOptionController.ClearOptions();
-            _currentSpeaker = null;
+            ResetDialogueState();
         }
+    }
+
+    private void ResetDialogueState()
+    {
+        _currentLineIndex = 0;
+        _currentNode = null;
+        _isWaitingChoice = false;
+        _dialogueOptionController.ClearOptions();
+        _currentSpeaker = null;
     }
 }
