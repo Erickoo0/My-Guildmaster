@@ -12,6 +12,46 @@ PrefabInstance:
       propertyPath: entityID
       value: Mai_NPC
       objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: dormantOverrideStates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'dormantOverrideStates.Array.data[0]'
+      value: 5971588823152066637
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971588823152066637]'
+      value: Assembly-CSharp MaiTutorialState
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588823152066637].priority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588823152066637].dialogueNode
+      value: 
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588823152066637].requirements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971588823152066637].requirements.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 57995173b24fe5d4eaa86b7e58516cb4, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588823152066637].speechBubbleDialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971588823152066637].speechBubbleDialogue.Array.data[0]'
+      value: Come talk to me
+      objectReference: {fileID: 0}
     - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_Name
       value: Mai Variant

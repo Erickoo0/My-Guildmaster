@@ -7,6 +7,8 @@ public static class EventBus
     public static event EventHandler<TimeSpan> OnWorldTimeChanged;
     public static void RequestUpdateWorldTime(object sender,TimeSpan time) => OnWorldTimeChanged?.Invoke(sender, time);
     
+    public static EventHandler<TimeSpan> OnDayChanged;
+    public static void RequestDayChanged(object sender, TimeSpan time) => OnDayChanged?.Invoke(sender, time);
     //-----------------------Dialogue Events--------------------------
     //Signals when a dialogue option is selected that has an action
     public static Action<string, object> OnDialogueEventRequested;
@@ -21,6 +23,9 @@ public static class EventBus
 
     public static event Action<GameObject> OnMenuCloseRequested;
     public static void RequestCloseMenu(GameObject menu = null) => OnMenuCloseRequested?.Invoke(menu);
+    
+    public static event Action<GameObject> OnPlayerMovementToggleRequested;
+    public static bool RequestPlayerMovementToggle(GameObject player) => OnPlayerMovementToggleRequested?.Invoke(player);
     
     //--------------------------Quest Events-------------------------
     public static event Action<string, int> OnUpdateQuestObjectiveRequested;
