@@ -27,13 +27,26 @@ public class QuestManager : MonoBehaviour, ISaveable
     private void OnEnable()
     {
         EventBus.OnUpdateQuestObjectiveRequested += HandleObjectiveUpdate;
+        EventBus.OnEntityDeathRequested += HandleEntityDeath;
         EventBus.OnDialogueEventRequested += AcceptQuest;
     }
 
     private void OnDisable()
     {
         EventBus.OnUpdateQuestObjectiveRequested -= HandleObjectiveUpdate;
+        EventBus.OnEntityDeathRequested -= HandleEntityDeath;
         EventBus.OnDialogueEventRequested -= AcceptQuest;
+    }
+
+    private void HandleEntityDeath(GameObject entityRoot)
+    {
+        if (entityRoot.TryGetComponent(out BaseEntityController entityController))
+        {
+            string targetID = entityController.GetTargetID();
+
+            if (!string.IsNullOrEmpty(targetID))
+                HandleObjectiveUpdate(targetID, 1);
+        }
     }
 
     private void HandleObjectiveUpdate(string targetID, int amount)
@@ -61,7 +74,7 @@ public class QuestManager : MonoBehaviour, ISaveable
     
     public void AcceptQuest(string dialogueEvent, object questData)
     {
-        // 1. Safety check for the event damageType
+        // 1. Filter out non-quest events
         if (dialogueEvent != "AcceptQuest") return;
 
         // 2. Pattern Match: Try to treat questData as a string. 
@@ -78,16 +91,20 @@ public class QuestManager : MonoBehaviour, ISaveable
             {
                 _questList.Add(new QuestActive(questDataSo));
                 questUI.AddQuestUI(_questList[^1]); // [^1] is shorthand for 'last index'
-                Debug.Log($"Quest {questID} accepted!.");
+                
+                // Scan Inventory to immediately update item related quest progress
+                foreach (ItemInstance item in InventoryManager.Instance.itemsList)
+                {
+                    if (item != null && item.DataSo != null)
+                    {
+                        HandleObjectiveUpdate(item.DataSo.ItemID, item.stackSize);
+                    }
+                }
             }
             else
             {
                 Debug.LogError($"Quest ID {questID} not found in database!");
             }
-        }
-        else
-        {
-            Debug.LogWarning("AcceptQuest received, but data was not a string ID.");
         }
     }
     

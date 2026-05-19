@@ -65,9 +65,13 @@ public class InventoryManager : MonoBehaviour, ISaveable
                 // If whole new stack fits in current slot
                 if (item.stackSize <= spaceLeft)
                 {
+                    int amountAdded = item.stackSize; // Cache the amount added for quest update
+                    
                     itemsList[i].stackSize += item.stackSize;
                     OnSlotUpdated?.Invoke(i);
                     OnItemAddedToInventory?.Invoke(item);
+                    
+                    EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, amountAdded);
                     return true;
                 }
                 // If partial new stack fits in current slow
@@ -76,6 +80,8 @@ public class InventoryManager : MonoBehaviour, ISaveable
                     itemsList[i].stackSize = itemsList[i].DataSo.MaxStackSize;
                     item.stackSize -= spaceLeft;
                     OnSlotUpdated?.Invoke(i);
+                    
+                    EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, spaceLeft);
                     // Do not return true yet, code continues to find open slot for remainder
                 }
             }
@@ -89,6 +95,8 @@ public class InventoryManager : MonoBehaviour, ISaveable
                 itemsList[i] = item; // Adds the item
                 OnSlotUpdated?.Invoke(i);
                 OnItemAddedToInventory?.Invoke(item);
+                
+                EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, item.stackSize);
                 return true;
             }
         }
