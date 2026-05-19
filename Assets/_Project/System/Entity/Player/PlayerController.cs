@@ -29,7 +29,9 @@ public class PlayerController : BaseEntityController
     public Vector3 WorldMousePosition { get; private set; }
     [HideInInspector] public bool dashInput;
 
-
+    private void OnEnable() => EventBus.OnPlayerMovementToggleRequested += SetCanMove;
+    private void OnDisable() => EventBus.OnPlayerMovementToggleRequested -= SetCanMove;
+    
     protected override void Awake()
     {
         base.Awake();

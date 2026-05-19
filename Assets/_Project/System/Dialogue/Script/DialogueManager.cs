@@ -9,13 +9,15 @@ public class DialogueManager : MonoBehaviour
     // References
     private DialogueUI _dialogueUI;
     private DialogueOptionController _dialogueOptionController;
-    private PlayerController _playerController;
     
     private Npc _currentSpeaker;
     private DialogueNode _currentNode;
     private int _currentLineIndex;
     private bool _isWaitingChoice = false;
 
+    private void OnEnable() => EventBus.OnMenuClosed += HandleForcedClose;
+    private void OnDisable() => EventBus.OnMenuClosed -= HandleForcedClose;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -63,12 +65,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Npc speaker, PlayerController playerController)
     {
-        // Stop player from moving
-        _playerController = playerController;
-        _playerController.SetCanMove(false);
-        
         // Guard Clause
-        if (_dialogueUI.IsVisible) return;
+        if (_currentNode != null) return;
         
         // Set the starting data
         _currentSpeaker = speaker;
@@ -195,10 +193,17 @@ public class DialogueManager : MonoBehaviour
     
     private void CloseDialogue()
     {
-        _dialogueOptionController.ClearOptions();
-        _currentNode = null;
-        
         EventBus.RequestCloseMenu(_dialogueUI.DialoguePanel);      
-        _playerController.SetCanMove(true);
+    }
+    
+    private void HandleForcedClose(GameObject closedMenu)
+    {
+        if (closedMenu == _dialogueUI.DialoguePanel)
+        {
+            _currentNode = null;
+            _isWaitingChoice = false;
+            _dialogueOptionController.ClearOptions();
+            _currentSpeaker = null;
+        }
     }
 }

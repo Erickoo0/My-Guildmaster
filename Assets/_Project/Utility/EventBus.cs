@@ -23,9 +23,12 @@ public static class EventBus
 
     public static event Action<GameObject> OnMenuCloseRequested;
     public static void RequestCloseMenu(GameObject menu = null) => OnMenuCloseRequested?.Invoke(menu);
+
+    public static event Action<GameObject> OnMenuClosed;
+    public static void NotifyMenuClosed(GameObject menu) => OnMenuClosed?.Invoke(menu);
     
-    public static event Action<GameObject> OnPlayerMovementToggleRequested;
-    public static bool RequestPlayerMovementToggle(GameObject player) => OnPlayerMovementToggleRequested?.Invoke(player);
+    public static event Action<bool> OnPlayerMovementToggleRequested;
+    public static void RequestPlayerMovementToggle(bool canMove) => OnPlayerMovementToggleRequested?.Invoke(canMove);
     
     //--------------------------Quest Events-------------------------
     public static event Action<string, int> OnUpdateQuestObjectiveRequested;
