@@ -9,6 +9,7 @@ public static class EventBus
     
     public static EventHandler<TimeSpan> OnDayChanged;
     public static void RequestDayChanged(object sender, TimeSpan time) => OnDayChanged?.Invoke(sender, time);
+    
     //-----------------------Dialogue Events--------------------------
     //Signals when a dialogue option is selected that has an action
     public static Action<string, object> OnDialogueEventRequested;
@@ -36,6 +37,9 @@ public static class EventBus
     
     public static event Action OnUpdateQuestRequested;
     public static void RequestUpdateQuest()=> OnUpdateQuestRequested?.Invoke();
+
+    public static event Action<string> OnQuestProgressCompleted;
+    public static void RequestQuestProgressCompleted(string questID) => OnQuestProgressCompleted?.Invoke(questID);
     
     //--------------------------Combat Events-------------------------
     // Signals when a floating text gets requested

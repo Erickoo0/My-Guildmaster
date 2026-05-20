@@ -182,15 +182,16 @@ public class DialogueManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(eventName)) return;
 
-        switch (eventName)
+        // Special case for open shop
+        if (eventName == "OpenShop")
         {
-            case "OpenShop":
-                EventBus.RequestDialogueEvent(eventName, _currentSpeaker.ShopList);
-                break;
-            
-            case "AcceptQuest":
-                EventBus.RequestDialogueEvent(eventName, eventParameter);
-                break;
+            EventBus.RequestDialogueEvent(eventName, _currentSpeaker.ShopList);
+        }
+        else
+        {
+            // For everything else (AcceptQuest, CompleteQuest, GiveItem, etc.)
+            // Just broadcast it! Let the receiving managers figure out if they care about it.
+            EventBus.RequestDialogueEvent(eventName, eventParameter);
         }
     }
     

@@ -22,8 +22,15 @@ public class Npc : MonoBehaviour, IInteractable
     private DialogueNode _dailyHobbyNode;
     private DialogueNode _dailyWorkNode;
     
-    private void OnEnable() => EventBus.OnDayChanged += EvaluateDailyDialogue;
-    private void OnDisable() => EventBus.OnDayChanged -= EvaluateDailyDialogue;
+    private void OnEnable()
+    {
+        EventBus.OnDayChanged += EvaluateDailyDialogue;
+    }
+
+    private void OnDisable()
+    {
+        EventBus.OnDayChanged -= EvaluateDailyDialogue;
+    }
 
     [Header("Shop Data")] 
     [SerializeField] private ItemDataSo[] shopList;
@@ -94,19 +101,21 @@ public class Npc : MonoBehaviour, IInteractable
     
     private DialogueNode GetDialogueForCurrentState()
     {
-        // If we have an Override State active, prioritize its dialogue
-        if (_npcController.IsOverrideState && _npcController.OverrideState is IStateOverrider stateOverrider)
-        {
-            return stateOverrider.GetDialogue();
-        }
+        // 1. Check for global override DialogueNodes (ex: quest turn in)
+        DialogueNode globalPriorityNode = SelectNode(npcDialogueData.GlobalDialogueNodes);
+        if (globalPriorityNode != null) return globalPriorityNode;
         
-        // 1. Get the Schedule Controller
+        // 2. Check if in Override State and use its DialogueNode
+        if (_npcController.IsOverrideState && _npcController.OverrideState is IStateOverrider stateOverrider)
+            return stateOverrider.GetDialogue();
+        
+        // 3. Get the Schedule Controller
         var scheduleController = GetComponent<NPCScheduleController>();
         if (scheduleController == null) return _dailyDefaultNode;
         
         var scheduledState = scheduleController.CurrentScheduledState;
 
-        // 2. Switch based on the scheduled state reference
+        // 4. Switch based on the scheduled state reference
         if (scheduledState == _npcController.WorkState) return _dailyWorkNode ?? _dailyDefaultNode;
         if (scheduledState == _npcController.HomeState) return _dailyHomeNode ?? _dailyDefaultNode;
         if (scheduledState == _npcController.HobbyState) return _dailyHobbyNode ?? _dailyDefaultNode;
@@ -136,7 +145,10 @@ public class Npc : MonoBehaviour, IInteractable
 [System.Serializable]
 public class NPCDialogueData
 {
-    // Currently expanding from single DialogueNode to array
+    [Header("Global Override Dialogue")] 
+    public DialogueNode[] GlobalDialogueNodes;
+    
+    [Header("Daily Schedule Dialogue")]
     public DialogueNode[] DefaultDialogueNode;
     public DialogueNode[] HomeDialogueNode;
     public DialogueNode[] SleepDialogueNode;

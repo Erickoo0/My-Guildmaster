@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edb1411f2ace4a1ab2532817c7aa94f8, type: 3}
-  m_Name: Dialogue_Mai_Tutorial01
+  m_Name: Dialogue_Quest_Mai_Tutorial01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   dialogueLines:
   - Hi! Welcome to SpellHarbor, Im Mai.
@@ -21,7 +21,7 @@ MonoBehaviour:
   - optionName: Yes beautiful
     nextNode: {fileID: 0}
     dialogueEvent: AcceptQuest
-    eventParameter: Quest_Mmai_Tutorial01
+    eventParameter: Quest_Mai_Tutorial01
   - optionName: No thank you!
     nextNode: {fileID: 0}
     dialogueEvent: 

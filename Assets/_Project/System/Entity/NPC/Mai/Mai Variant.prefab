@@ -22,10 +22,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'dormantOverrideStates.Array.data[0]'
-      value: 5971588823152066637
+      value: 5971588844456771584
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[5971588823152066637]'
+      value: Assembly-CSharp MaiTutorialState
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971588844456771584]'
       value: Assembly-CSharp MaiTutorialState
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
@@ -33,7 +37,15 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].priority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588823152066637].dialogueNode
+      value: 
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].dialogueNode
       value: 
       objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
@@ -41,12 +53,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].requirements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[5971588823152066637].requirements.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 57995173b24fe5d4eaa86b7e58516cb4, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971588844456771584].requirements.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 57995173b24fe5d4eaa86b7e58516cb4, type: 2}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588823152066637].speechBubbleDialogue.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].speechBubbleDialogue.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[5971588823152066637].speechBubbleDialogue.Array.data[0]'
@@ -85,6 +109,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: npcDialogueData.GlobalDialogueNodes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.HomeDialogueNode.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 2b7abacf5ea596e44af2e435923d3c83, type: 2}
@@ -104,6 +132,10 @@ PrefabInstance:
       propertyPath: 'npcDialogueData.DefaultDialogueNode.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: ff8b49567eb1a0e438ece5899c9452c6, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'npcDialogueData.GlobalDialogueNodes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8919d8d5328cef5468d0c02ca5edaeb5, type: 2}
     - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
       value: Mai

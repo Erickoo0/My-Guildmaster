@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e36da90f48f945488284fbb9dd0c836, type: 3}
-  m_Name: Req_Quest_Mai_Tutorial01
+  m_Name: Req_Quest_Mai_Tutorial01_Not_Started
   m_EditorClassIdentifier: Assembly-CSharp::QuestRequirement
   questID: Quest_Mai_Tutorial01
   requiredState: 0
