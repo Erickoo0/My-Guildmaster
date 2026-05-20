@@ -41,11 +41,7 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
-      propertyPath: managedReferences[5971588823152066637].dialogueNode
-      value: 
-      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
-    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
-      propertyPath: managedReferences[5971588844456771584].dialogueNode
+      propertyPath: managedReferences[5971588844456771584].dialogueGroup
       value: 
       objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
@@ -139,27 +135,27 @@ PrefabInstance:
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.HomeDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 2b7abacf5ea596e44af2e435923d3c83, type: 2}
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.WorkDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 4b0bd9152b4784e4480decc20700f6de, type: 2}
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.HobbyDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 590186f3992bb2a43a41d0b92b8600e7, type: 2}
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.SleepDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 079547121c2889a4cad0612f8afcb0b8, type: 2}
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.DefaultDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: ff8b49567eb1a0e438ece5899c9452c6, type: 2}
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.GlobalDialogueNodes.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 8919d8d5328cef5468d0c02ca5edaeb5, type: 2}
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
     - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
       value: Mai

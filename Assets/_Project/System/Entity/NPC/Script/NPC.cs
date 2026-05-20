@@ -16,11 +16,11 @@ public class Npc : MonoBehaviour, IInteractable
     [SerializeField] private NPCSpeechBubbleData speechBubbleData;
     
     [Header("Cached Daily Dialogue")]
-    private DialogueNode _dailyDefaultNode;
-    private DialogueNode _dailyHomeNode;
-    private DialogueNode _dailySleepNode;
-    private DialogueNode _dailyHobbyNode;
-    private DialogueNode _dailyWorkNode;
+    private DialogueGroup _dailyDefaultGroup;
+    private DialogueGroup _dailyHomeGroup;
+    private DialogueGroup _dailySleepGroup;
+    private DialogueGroup _dailyHobbyGroup;
+    private DialogueGroup _dailyWorkGroup;
     
     private void OnEnable()
     {
@@ -38,7 +38,8 @@ public class Npc : MonoBehaviour, IInteractable
     public ItemDataSo[] ShopList => shopList;
     public string  DialogueName => dialogueName;
     public Sprite DialoguePortrait => dialoguePortrait;
-    public DialogueNode CurrentDialogueNode => GetDialogueForCurrentState();
+    
+    public DialogueGroup CurrentDialogueGroup => GetDialogueForCurrentState();
     public string[] CurrentSpeechBubble => GetSpeechBubbleForCurrentState();
     
     private void Start()
@@ -48,11 +49,8 @@ public class Npc : MonoBehaviour, IInteractable
         EvaluateDailyDialogue(this, TimeSpan.Zero);
     }
 
-    public bool CanInteract()
-    {
-        return true;
-    }
-    //
+    public bool CanInteract() => true;
+    
     public void Interact(PlayerController playerController)
     {
         if (!CanInteract()) return;
@@ -61,67 +59,82 @@ public class Npc : MonoBehaviour, IInteractable
     
     private void EvaluateDailyDialogue(object sender, TimeSpan time)
     {
-        // Pass the DialogueNode Array to the SelectNode method for each state
-        _dailyDefaultNode = SelectNode(npcDialogueData.DefaultDialogueNode);
-        _dailyHomeNode = SelectNode(npcDialogueData.HomeDialogueNode);
-        _dailySleepNode = SelectNode(npcDialogueData.SleepDialogueNode);
-        _dailyHobbyNode = SelectNode(npcDialogueData.HobbyDialogueNode);
-        _dailyWorkNode = SelectNode(npcDialogueData.WorkDialogueNode);
+        // Pass the DialogueGroup Array to the SelectGroup method for each state
+        _dailyDefaultGroup = SelectGroup(npcDialogueData.DefaultDialogueNode);
+        _dailyHomeGroup = SelectGroup(npcDialogueData.HomeDialogueNode);
+        _dailySleepGroup = SelectGroup(npcDialogueData.SleepDialogueNode);
+        _dailyHobbyGroup = SelectGroup(npcDialogueData.HobbyDialogueNode);
+        _dailyWorkGroup = SelectGroup(npcDialogueData.WorkDialogueNode);
     }
 
-    // Returns a DialogueNode from the given DialogueNode array
-    private DialogueNode SelectNode(DialogueNode[] nodes)
+    // Returns a DialogueGroup from the given DialogueGroup array
+    private DialogueGroup SelectGroup(DialogueGroup[] nodeGroup)
     {
         // Safety Check
-        if (nodes == null || nodes.Length == 0) return null;
+        if (nodeGroup == null || nodeGroup.Length == 0) return null;
         
-        // 1. Only return nodes that have all their requirements met
-        List<DialogueNode> validNodes = nodes.Where(n => n.requirements.All(r => r.IsMet())).ToList();
-        // If no nodes were found, return null
-        if (validNodes.Count == 0) return null;
-        
-        // 2. Check for any important nodes
-        DialogueNode importantNode = validNodes.FirstOrDefault(n => n.isImportant);
-        // If it exists, return it
-        if (importantNode != null) return importantNode;
-        
-        // 3. Otherwise, return a random node through weighted probabilities
-        float totalWeight = validNodes.Sum(n => n.selectionWeight);
-        float randomValue = Random.Range(0, totalWeight);
-        float currentWeight = 0f;
-        foreach (DialogueNode node in validNodes)
+        // 1. Create a list to hold valid DialogueGroups
+        List<DialogueGroup> validGroups = new List<DialogueGroup>();
+
+        // 2. Iterate through each DialogueGroup in the array
+        foreach (DialogueGroup dialogueGroup in nodeGroup)
         {
-            currentWeight += node.selectionWeight;
-            if (randomValue <= currentWeight) return node;
+            // Safety Check
+            if (dialogueGroup == null) continue;
+            
+            // 3. Get the starting node of the DialogueGroup
+            DialogueNode startNode = dialogueGroup.GetStartingNode();
+            
+            // 4. Check if all requirements are met and add to the valid groups list
+            if (startNode != null && startNode.requirements.All(r => r.IsMet()))
+                validGroups.Add(dialogueGroup);
         }
         
-        // Fallback if random node was not selected for some reason
-        return validNodes[0];
+        // 5. If no valid node groups were found, return null
+        if (validGroups.Count == 0) return null;
+        
+        // 6. Check for any important nodeGroup
+        DialogueGroup importantGroup = validGroups.FirstOrDefault(n => n.GetStartingNode().isImportant);
+        // If there is, return it
+        if (importantGroup != null) return importantGroup;
+        
+        // 7. Otherwise, return a random node through weighted probabilities
+        float totalWeight = validGroups.Sum(n => n.GetStartingNode().selectionWeight);
+        float randomValue = Random.Range(0, totalWeight);
+        float currentWeight = 0f;
+        foreach (DialogueGroup dialogueGroup in validGroups)
+        {
+            currentWeight += dialogueGroup.GetStartingNode().selectionWeight;
+            if (randomValue <= currentWeight) return dialogueGroup;
+        }
+        
+        // Fallback if random group was not selected for some reason
+        return validGroups[0];
     }
     
-    private DialogueNode GetDialogueForCurrentState()
+    private DialogueGroup GetDialogueForCurrentState()
     {
-        // 1. Check for global override DialogueNodes (ex: quest turn in)
-        DialogueNode globalPriorityNode = SelectNode(npcDialogueData.GlobalDialogueNodes);
-        if (globalPriorityNode != null) return globalPriorityNode;
+        // 1. Check for global override DialogueGroups (ex: quest turn in)
+        DialogueGroup globalPriorityGroup = SelectGroup(npcDialogueData.GlobalDialogueNodes);
+        if (globalPriorityGroup != null) return globalPriorityGroup;
         
         // 2. Check if in Override State and use its DialogueNode
         if (_npcController.IsOverrideState && _npcController.OverrideState is IStateOverrider stateOverrider)
-            return stateOverrider.GetDialogue();
+            return stateOverrider.GetDialogueGroup();
         
         // 3. Get the Schedule Controller
         var scheduleController = GetComponent<NPCScheduleController>();
-        if (scheduleController == null) return _dailyDefaultNode;
+        if (scheduleController == null) return _dailyDefaultGroup;
         
         var scheduledState = scheduleController.CurrentScheduledState;
 
         // 4. Switch based on the scheduled state reference
-        if (scheduledState == _npcController.WorkState) return _dailyWorkNode ?? _dailyDefaultNode;
-        if (scheduledState == _npcController.HomeState) return _dailyHomeNode ?? _dailyDefaultNode;
-        if (scheduledState == _npcController.HobbyState) return _dailyHobbyNode ?? _dailyDefaultNode;
-        if (scheduledState == _npcController.SleepState) return _dailySleepNode ?? _dailyDefaultNode;
+        if (scheduledState == _npcController.WorkState) return _dailyWorkGroup ?? _dailyDefaultGroup;
+        if (scheduledState == _npcController.HomeState) return _dailyHomeGroup ?? _dailyDefaultGroup;
+        if (scheduledState == _npcController.HobbyState) return _dailyHobbyGroup ?? _dailyDefaultGroup;
+        if (scheduledState == _npcController.SleepState) return _dailySleepGroup ?? _dailyDefaultGroup;
 
-        return _dailyDefaultNode;
+        return _dailyDefaultGroup;
         
     }
 
@@ -146,14 +159,14 @@ public class Npc : MonoBehaviour, IInteractable
 public class NPCDialogueData
 {
     [Header("Global Override Dialogue")] 
-    public DialogueNode[] GlobalDialogueNodes;
+    public DialogueGroup[] GlobalDialogueNodes;
     
     [Header("Daily Schedule Dialogue")]
-    public DialogueNode[] DefaultDialogueNode;
-    public DialogueNode[] HomeDialogueNode;
-    public DialogueNode[] SleepDialogueNode;
-    public DialogueNode[] HobbyDialogueNode;
-    public DialogueNode[] WorkDialogueNode;
+    public DialogueGroup[] DefaultDialogueNode;
+    public DialogueGroup[] HomeDialogueNode;
+    public DialogueGroup[] SleepDialogueNode;
+    public DialogueGroup[] HobbyDialogueNode;
+    public DialogueGroup[] WorkDialogueNode;
 }
 
 [System.Serializable]

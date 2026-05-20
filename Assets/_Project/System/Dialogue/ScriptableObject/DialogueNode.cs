@@ -2,15 +2,16 @@
 using UnityEngine.Events;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "DialogueNode", menuName = "Dialogue System/Dialogue Node")]
-public class DialogueNode : ScriptableObject
+[System.Serializable]
+public class DialogueNode
 {
+    public string nodeID;
     public string[] dialogueLines;
     public DialogueOption[] dialogueOptions;
     public string nodeEvent; // Future, if we want to play animations or events when the a specific dialogue node starts
     
     [Header("Selection Criteria")]
-    public List<RequirementData> requirements;
+    public List<RequirementData> requirements = new List<RequirementData>();
     [Range(0, 100)] public float selectionWeight = 10f;
     [Tooltip("If true and requirements are met, this node is guaranteed to be picked.")]
     public bool isImportant = false;
@@ -21,7 +22,7 @@ public class DialogueNode : ScriptableObject
 public class DialogueOption
 {
     public string optionName;
-    public DialogueNode nextNode;
+    public string targetNodeID;
     
     [Header("Event Data")]
     public string dialogueEvent;

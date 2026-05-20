@@ -7,13 +7,13 @@ public abstract class BaseNPCOverrideWanderState : BaseNPCWanderState, IStateOve
     public List<RequirementData> requirements = new List<RequirementData>();
     
     [Header("Override Dialogue Data")]
-    [SerializeField] private DialogueNode dialogueNode;
+    [SerializeField] private DialogueGroup dialogueGroup;
     [SerializeField] private string[] speechBubbleDialogue;
     [SerializeField] private int priority = 10; // Higher priority means it will be evaluated first
     
     public int Priority => priority;
     
-    public DialogueNode GetDialogue() => dialogueNode;
+    public DialogueGroup GetDialogueGroup() => dialogueGroup;
     public string[] GetSpeechBubbles() => speechBubbleDialogue;
 
     public abstract bool EvaluateRequirements();

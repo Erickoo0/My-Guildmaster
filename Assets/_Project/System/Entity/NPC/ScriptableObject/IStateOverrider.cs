@@ -4,6 +4,6 @@ public interface IStateOverrider
 {
     int Priority { get; }
     bool EvaluateRequirements();
-    DialogueNode GetDialogue();
+    DialogueGroup GetDialogueGroup();
     string[] GetSpeechBubbles();
 }

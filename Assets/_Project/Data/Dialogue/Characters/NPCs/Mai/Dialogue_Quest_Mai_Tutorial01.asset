@@ -9,24 +9,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edb1411f2ace4a1ab2532817c7aa94f8, type: 3}
+  m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
   m_Name: Dialogue_Quest_Mai_Tutorial01
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueLines:
-  - Hi! Welcome to SpellHarbor, Im Mai.
-  - I would love to show you around! But im very hungry.
-  - Could you walk around and find some beef for me?  Thanks!
-  - Ill be walking around in my normal scheduled state.
-  dialogueOptions:
-  - optionName: Yes beautiful
-    nextNode: {fileID: 0}
-    dialogueEvent: AcceptQuest
-    eventParameter: Quest_Mai_Tutorial01
-  - optionName: No thank you!
-    nextNode: {fileID: 0}
-    dialogueEvent: 
-    eventParameter: 
-  nodeEvent: 
-  requirements: []
-  selectionWeight: 10
-  isImportant: 0
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
+  startingNodeID: Intro
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Hello, this is the intro
+    - This dialogue will test if the new system works
+    dialogueOptions:
+    - optionName: 'Go to option numba 1 '
+      targetNodeID: Option_1
+      dialogueEvent: 
+      eventParameter: 
+    - optionName: 'Go to option numba 2 '
+      targetNodeID: Option_2
+      dialogueEvent: 
+      eventParameter: 
+    nodeEvent: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Option_1
+    dialogueLines:
+    - Welcome to Option 1!
+    dialogueOptions:
+    - optionName: Open a shop
+      targetNodeID: 
+      dialogueEvent: OpenShop
+      eventParameter: 
+    - optionName: Give me a quest
+      targetNodeID: 
+      dialogueEvent: AcceptQuest
+      eventParameter: Quest_Mai_Tutorial01
+    nodeEvent: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Option_2
+    dialogueLines:
+    - Welcome to option 2! There is nothing here, so byee
+    dialogueOptions: []
+    nodeEvent: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
