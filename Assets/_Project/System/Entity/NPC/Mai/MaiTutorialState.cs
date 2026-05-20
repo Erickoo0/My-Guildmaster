@@ -5,8 +5,6 @@ using System.Linq;
 [System.Serializable]
 public class MaiTutorialState : BaseNPCOverrideWanderState
 {
-    [SerializeField] private Requirement[] requirements;
-
     protected override List<string> GetPOITargetIDs()
     {
         return new List<string> { "Grand_Tree_Front" };
@@ -14,7 +12,7 @@ public class MaiTutorialState : BaseNPCOverrideWanderState
 
     public override bool EvaluateRequirements()
     {
-        if (requirements == null || requirements.Length == 0) return false;
+        if (requirements == null || requirements.Count == 0) return false;
         
         // "All" only returns true if every requirement in the List returns true
         return requirements.All(r => r.IsMet());

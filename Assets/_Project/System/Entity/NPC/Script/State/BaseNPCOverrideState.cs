@@ -1,8 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public abstract class BaseNPCOverrideWanderState : BaseNPCWanderState, IStateOverrider
 {
+    public List<RequirementData> requirements = new List<RequirementData>();
+    
     [Header("Override Dialogue Data")]
     [SerializeField] private DialogueNode dialogueNode;
     [SerializeField] private string[] speechBubbleDialogue;

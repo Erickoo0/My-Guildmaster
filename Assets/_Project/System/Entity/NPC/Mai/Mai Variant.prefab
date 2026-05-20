@@ -69,12 +69,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].requirements.Array.data[0].type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].requirements.Array.data[1].type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588844456771584].speechBubbleDialogue.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[5971588823152066637].speechBubbleDialogue.Array.data[0]'
       value: Come talk to me
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].requirements.Array.data[0].questID
+      value: Quest_Mai_Tutorial01
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].requirements.Array.data[1].questID
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].requirements.Array.data[0].requiredState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971588844456771584].requirements.Array.data[1].requiredState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_Name

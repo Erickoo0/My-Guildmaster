@@ -10,7 +10,7 @@ public class DialogueNode : ScriptableObject
     public string nodeEvent; // Future, if we want to play animations or events when the a specific dialogue node starts
     
     [Header("Selection Criteria")]
-    public List<Requirement> requirements;
+    public List<RequirementData> requirements;
     [Range(0, 100)] public float selectionWeight = 10f;
     [Tooltip("If true and requirements are met, this node is guaranteed to be picked.")]
     public bool isImportant = false;
