@@ -135,27 +135,27 @@ PrefabInstance:
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.HomeDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+      objectReference: {fileID: 11400000, guid: cb22f93d82b8c414c9a4b593c67a65eb, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.WorkDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+      objectReference: {fileID: 11400000, guid: a9a6c9cde6ad07c4f874c3a38e88a94d, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.HobbyDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+      objectReference: {fileID: 11400000, guid: eeae8b97e9def4b4987f5729359d4a08, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.SleepDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+      objectReference: {fileID: 11400000, guid: 132f9a26b53e6064fafa877bee9eacc0, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.DefaultDialogueNode.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+      objectReference: {fileID: 11400000, guid: b03e8296f93f0124ea4b28be0c7e72e6, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.GlobalDialogueNodes.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+      objectReference: {fileID: 11400000, guid: 13ced9917832adc479b525cd6b0ce28f, type: 2}
     - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
       value: Mai

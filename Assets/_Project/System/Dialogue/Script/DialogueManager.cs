@@ -113,6 +113,12 @@ public class DialogueManager : MonoBehaviour
         string currentLine = _currentDialogueNode.dialogueLines[_currentLineIndex];
         _dialogueUI.UpdateUI(_currentSpeaker.DialogueName, currentLine, _currentSpeaker.DialoguePortrait);
         
+        // Check if we are on the last line & execute node event
+        bool isLastLine = _currentLineIndex == _currentDialogueNode.dialogueLines.Length - 1;
+        if (isLastLine && !string.IsNullOrEmpty(_currentDialogueNode.nodeEvent))
+            HandleDialogueEvents(_currentDialogueNode.nodeEvent, _currentDialogueNode.nodeEventParameter);
+        
+        
         CheckForOptions();
     }
 

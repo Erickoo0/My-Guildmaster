@@ -9,6 +9,7 @@ public class DialogueNode
     public string[] dialogueLines;
     public DialogueOption[] dialogueOptions;
     public string nodeEvent; // Future, if we want to play animations or events when the a specific dialogue node starts
+    public string nodeEventParameter;
     
     [Header("Selection Criteria")]
     public List<RequirementData> requirements = new List<RequirementData>();
