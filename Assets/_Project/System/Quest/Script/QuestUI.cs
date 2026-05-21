@@ -14,30 +14,30 @@ public class QuestUI : MonoBehaviour
     [SerializeField] private GameObject questSoPanel;
     [SerializeField] private GameObject questPrefab;
 
-    private List<Quest> _activeQuestsListUI = new List<Quest>();
+    private List<GameObject> _spawnedUIElements = new List<GameObject>();
 
-    public void AddQuestUI(QuestActive quest)
-    {
-        // Spawn the quest Prefab
-        GameObject newQuest = Instantiate(questPrefab, questSoPanel.transform);
-        
-        // Tell the quest prefab to set up itself
-        newQuest.GetComponent<Quest>().Setup(quest);
-        
-        // Add the quest prefab to the Quest UI List
-        _activeQuestsListUI.Add(newQuest.GetComponent<Quest>());
-    }
+    private void OnEnable() => EventBus.OnUpdateQuestRequested += RefreshUI;
+    private void OnDisable() => EventBus.OnUpdateQuestRequested -= RefreshUI;
 
-    public void UpdateQuestUI(QuestActive updatedQuest)
+    private void RefreshUI()
     {
-        // Loop through all quests in UI list 
-        foreach (Quest quest in _activeQuestsListUI)
+        // 1. Wipe out the old visual elements
+        foreach (GameObject uiElement in _spawnedUIElements)
         {
-            // If the quest ID matches, update the quest
-            if (quest.QuestID == updatedQuest.QuestData.QuestID)
-            {
-                quest.UpdateProgressText(updatedQuest);
-            }
+            Destroy(uiElement);
+        }
+        _spawnedUIElements.Clear();
+
+        // 2. Safely read directly from the Manager's updated data
+        if (QuestManager.Instance == null) return;
+
+        foreach (QuestActive activeQuest in QuestManager.Instance.QuestList)
+        {
+            GameObject newQuestVisual = Instantiate(questPrefab, questSoPanel.transform);
+            newQuestVisual.GetComponent<Quest>().Setup(activeQuest);
+            newQuestVisual.GetComponent<Quest>().UpdateProgressText(activeQuest);
+            
+            _spawnedUIElements.Add(newQuestVisual);
         }
     }
     
@@ -47,5 +47,4 @@ public class QuestUI : MonoBehaviour
         if (!questMenuPanel.activeSelf)EventBus.RequestOpenMenu(questMenuPanel);
         else if (questMenuPanel.activeSelf) EventBus.RequestCloseMenu(questMenuPanel);
     }
-
 }

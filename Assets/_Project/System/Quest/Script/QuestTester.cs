@@ -9,7 +9,7 @@ public class QuestTester : MonoBehaviour
     {
         if (!context.performed) return;
         
-        QuestManager.Instance.AcceptQuest("AcceptQuest",testQuest);
+        //QuestManager.Instance.AcceptQuest("AcceptQuest",testQuest);
     }
 
     public void ProgressQuest(InputAction.CallbackContext context)

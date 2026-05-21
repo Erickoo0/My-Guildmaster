@@ -54,7 +54,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: entityID
-      value: Goblin_Archer
+      value: Mob_Aggressive_Goblin_Archer
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: AttackState

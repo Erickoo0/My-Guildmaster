@@ -17,14 +17,13 @@ public class SubclassSelectorDrawer : PropertyDrawer
 
         EditorGUI.BeginProperty(position, label, property);
 
-        // Draw the label
-        var labelRect = new Rect(position.x, position.y, EditorGUIUtility.labelWidth, EditorGUIUtility.singleLineHeight);
-        EditorGUI.LabelField(labelRect, label);
+        // 1. Draw the foldout (the little arrow) and label
+        Rect foldoutRect = new Rect(position.x, position.y, EditorGUIUtility.labelWidth, EditorGUIUtility.singleLineHeight);
+        property.isExpanded = EditorGUI.Foldout(foldoutRect, property.isExpanded, label, true);
 
-        // Calculate dropdown rect
-        var dropdownRect = new Rect(position.x + EditorGUIUtility.labelWidth, position.y, position.width - EditorGUIUtility.labelWidth, EditorGUIUtility.singleLineHeight);
-
-        // Get the current damageType name
+        // 2. Draw the Dropdown Button
+        Rect dropdownRect = new Rect(position.x + EditorGUIUtility.labelWidth, position.y, position.width - EditorGUIUtility.labelWidth, EditorGUIUtility.singleLineHeight);
+        
         string typeName = property.managedReferenceFullTypename.Split(' ').LastOrDefault();
         if (string.IsNullOrEmpty(typeName)) typeName = "None (null)";
         else typeName = typeName.Split('.').Last();
@@ -34,8 +33,35 @@ public class SubclassSelectorDrawer : PropertyDrawer
             ShowTypeMenu(property);
         }
 
-        // Draw the children (the public variables inside your state)
-        EditorGUI.PropertyField(position, property, label, true);
+        // 3. THE FIX: Safely draw the child variables only if expanded, preventing the infinite loop!
+        if (property.isExpanded && !string.IsNullOrEmpty(property.managedReferenceFullTypename))
+        {
+            EditorGUI.indentLevel++;
+            
+            SerializedProperty child = property.Copy();
+            SerializedProperty end = property.GetEndProperty();
+
+            float yOffset = position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+
+            // Iterate through every variable inside your state and draw it
+            if (child.NextVisible(true))
+            {
+                do
+                {
+                    if (SerializedProperty.EqualContents(child, end)) break;
+                    
+                    float childHeight = EditorGUI.GetPropertyHeight(child, true);
+                    Rect childRect = new Rect(position.x, yOffset, position.width, childHeight);
+                    
+                    EditorGUI.PropertyField(childRect, child, true);
+                    
+                    yOffset += childHeight + EditorGUIUtility.standardVerticalSpacing;
+                }
+                while (child.NextVisible(false));
+            }
+            
+            EditorGUI.indentLevel--;
+        }
 
         EditorGUI.EndProperty();
     }
@@ -43,40 +69,58 @@ public class SubclassSelectorDrawer : PropertyDrawer
     private void ShowTypeMenu(SerializedProperty property)
     {
         var menu = new GenericMenu();
-    
-        // Option to clear the slot
+        
         menu.AddItem(new GUIContent("None"), string.IsNullOrEmpty(property.managedReferenceFullTypename), () => {
             property.managedReferenceValue = null;
             property.serializedObject.ApplyModifiedProperties();
         });
 
-        // fieldInfo.FieldType is the damageType of the variable in your Controller 
-        // (e.g., State<MobController>)
-        var fieldType = fieldInfo.FieldType;
+        // Correctly identify the type whether it's a single variable, a List, or an Array
+        Type targetType = fieldInfo.FieldType;
+        if (targetType.IsGenericType && targetType.GetGenericTypeDefinition() == typeof(List<>))
+        {
+            targetType = targetType.GetGenericArguments()[0];
+        }
+        else if (targetType.IsArray)
+        {
+            targetType = targetType.GetElementType();
+        }
 
-        // TypeCache is ultra-fast but needs a specific base damageType.
-        // This will find everything that inherits from your specific State<T>
-        var types = TypeCache.GetTypesDerivedFrom(fieldType)
+        var types = TypeCache.GetTypesDerivedFrom(targetType)
             .Where(t => !t.IsAbstract && !t.IsInterface);
 
         foreach (var type in types)
         {
-            // We use damageType.FullName or damageType.Name for the menu display
             menu.AddItem(new GUIContent(type.Name), false, () => {
-                // Create instance using the parameterless constructor 
-                // (Which is why we removed the constructors earlier!)
-                object instance = Activator.CreateInstance(type);
-            
-                property.managedReferenceValue = instance;
+                property.managedReferenceValue = Activator.CreateInstance(type);
                 property.serializedObject.ApplyModifiedProperties();
             });
         }
-    
+        
         menu.ShowAsContext();
     }
 
+    // THE FIX PART 2: We must manually calculate the height of all children in the list
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        return EditorGUI.GetPropertyHeight(property, true);
+        float height = EditorGUIUtility.singleLineHeight;
+
+        if (property.isExpanded && !string.IsNullOrEmpty(property.managedReferenceFullTypename))
+        {
+            SerializedProperty child = property.Copy();
+            SerializedProperty end = property.GetEndProperty();
+
+            if (child.NextVisible(true))
+            {
+                do
+                {
+                    if (SerializedProperty.EqualContents(child, end)) break;
+                    height += EditorGUI.GetPropertyHeight(child, true) + EditorGUIUtility.standardVerticalSpacing;
+                }
+                while (child.NextVisible(false));
+            }
+        }
+
+        return height;
     }
 }

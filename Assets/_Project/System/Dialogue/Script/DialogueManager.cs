@@ -9,13 +9,16 @@ public class DialogueManager : MonoBehaviour
     // References
     private DialogueUI _dialogueUI;
     private DialogueOptionController _dialogueOptionController;
-    private PlayerController _playerController;
     
     private Npc _currentSpeaker;
-    private DialogueNode _currentNode;
+    private DialogueGroup _currentDialogueGroup;
+    private DialogueNode _currentDialogueNode;
     private int _currentLineIndex;
     private bool _isWaitingChoice = false;
 
+    private void OnEnable() => EventBus.OnMenuClosed += HandleForcedClose;
+    private void OnDisable() => EventBus.OnMenuClosed -= HandleForcedClose;
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -41,51 +44,34 @@ public class DialogueManager : MonoBehaviour
             if (first != null) EventSystem.current.SetSelectedGameObject(first);
         }
     }
-    
-    private void HandleInput()
-    {
-        // 1. If still typing, finish instantly
-        if (_dialogueUI.IsTyping)
-        {
-            _dialogueUI.FinishLineEarly();
-        }
-        // 2. If waiting for option selection, do nothing
-        else if (_isWaitingChoice)
-        {
-            return;
-        }
-        // 3. Continue
-        else
-        {
-            ContinueDialogue();
-        }
-    }
 
     public void StartDialogue(Npc speaker, PlayerController playerController)
     {
-        // Stop player from moving
-        _playerController = playerController;
-        _playerController.SetCanMove(false);
-        
         // Guard Clause
-        if (_dialogueUI.IsVisible) return;
+        if (_currentDialogueNode != null) return;
         
         // Set the starting data
         _currentSpeaker = speaker;
-        _currentNode = _currentSpeaker.CurrentDialogueNode;
+        
+        _currentDialogueGroup = _currentSpeaker.CurrentDialogueGroup;
+        if (_currentDialogueGroup == null) return;
+
+        _currentDialogueNode = _currentDialogueGroup.GetStartingNode();
+        if (_currentDialogueNode == null) return;
+        
         _currentLineIndex = 0;
         _isWaitingChoice = false;
         
         _dialogueOptionController.ClearOptions();
         
         EventBus.RequestOpenMenu(_dialogueUI.DialoguePanel);
-        
         UpdateDisplay();
     }
 
     public void OnAdvanceDialogueInput(InputAction.CallbackContext context)
     {
-        if (!context.performed || !_dialogueUI.IsVisible) return; 
+        // Guard Clause
+        if (_currentDialogueNode == null || !context.performed || !_dialogueUI.IsVisible) return;
         
         // 1. If still typing, finish instantly
         if (_dialogueUI.IsTyping)
@@ -110,7 +96,7 @@ public class DialogueManager : MonoBehaviour
         _currentLineIndex++;
 
         // Update the display to show new line index
-        if (_currentLineIndex < _currentNode.dialogueLines.Length)
+        if (_currentLineIndex < _currentDialogueNode.dialogueLines.Length)
         {
             UpdateDisplay();
         }
@@ -124,8 +110,14 @@ public class DialogueManager : MonoBehaviour
     private void UpdateDisplay()
     {
         // Tell the Dialogue UI class to update the UI with the new line
-        string currentLine = _currentNode.dialogueLines[_currentLineIndex];
+        string currentLine = _currentDialogueNode.dialogueLines[_currentLineIndex];
         _dialogueUI.UpdateUI(_currentSpeaker.DialogueName, currentLine, _currentSpeaker.DialoguePortrait);
+        
+        // Check if we are on the last line & execute node event
+        bool isLastLine = _currentLineIndex == _currentDialogueNode.dialogueLines.Length - 1;
+        if (isLastLine && !string.IsNullOrEmpty(_currentDialogueNode.nodeEvent))
+            HandleDialogueEvents(_currentDialogueNode.nodeEvent, _currentDialogueNode.nodeEventParameter);
+        
         
         CheckForOptions();
     }
@@ -133,14 +125,14 @@ public class DialogueManager : MonoBehaviour
     private void CheckForOptions()
     {
         // Check if dialogue is on the last line
-        bool isLastLine = _currentLineIndex == _currentNode.dialogueLines.Length - 1;
-        bool hasOptions = _currentNode.dialogueOptions != null && _currentNode.dialogueOptions.Length > 0;
+        bool isLastLine = _currentLineIndex == _currentDialogueNode.dialogueLines.Length - 1;
+        bool hasOptions = _currentDialogueNode.dialogueOptions != null && _currentDialogueNode.dialogueOptions.Length > 0;
 
         // Tell the Option Controller to create buttons if on the last line
         if (isLastLine && hasOptions)
         {
             _isWaitingChoice = true;
-            _dialogueOptionController.CreateButtons(_currentNode.dialogueOptions, OnOptionSelected); 
+            _dialogueOptionController.CreateButtons(_currentDialogueNode.dialogueOptions, OnOptionSelected); 
             
             // Find the first button
             GameObject firstButton = _dialogueOptionController.GetFirstButton();
@@ -159,17 +151,26 @@ public class DialogueManager : MonoBehaviour
         _isWaitingChoice = false;
         _dialogueOptionController.ClearOptions();
 
-        // 1. Execut the options event if it has one
+        // 1. Execute the options event if it has one
         if (!string.IsNullOrEmpty(selectedOption.dialogueEvent))
         {
             HandleDialogueEvents(selectedOption.dialogueEvent, selectedOption.eventParameter);
         }
-        // 2. Advance to the next node if it has one
-        if (selectedOption.nextNode != null) 
+        // 2. Advance to the next node through its nodeID
+        if (!string.IsNullOrEmpty(selectedOption.targetNodeID)) 
         {
-            _currentNode = selectedOption.nextNode;
-            _currentLineIndex = 0;
-            UpdateDisplay();
+            DialogueNode nextNode = _currentDialogueGroup.GetNodeByID(selectedOption.targetNodeID);
+            if (nextNode != null)
+            {
+                _currentDialogueNode = nextNode;
+                _currentLineIndex = 0;
+                UpdateDisplay();
+            }
+            else
+            {
+                Debug.LogError($"DialogueManager: Could not find node with ID {selectedOption.targetNodeID}");
+                CloseDialogue();
+            }
         }
         else // 3. Close the dialogue if there is no next node
         {
@@ -181,24 +182,40 @@ public class DialogueManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(eventName)) return;
 
-        switch (eventName)
+        // Special case for open shop
+        if (eventName == "OpenShop")
         {
-            case "OpenShop":
-                EventBus.RequestDialogueEvent(eventName, _currentSpeaker.ShopList);
-                break;
-            
-            case "AcceptQuest":
-                EventBus.RequestDialogueEvent(eventName, eventParameter);
-                break;
+            EventBus.RequestDialogueEvent(eventName, _currentSpeaker.ShopList);
+        }
+        else
+        {
+            // For everything else (AcceptQuest, CompleteQuest, GiveItem, etc.)
+            // Just broadcast it! Let the receiving managers figure out if they care about it.
+            EventBus.RequestDialogueEvent(eventName, eventParameter);
         }
     }
     
     private void CloseDialogue()
     {
-        _dialogueOptionController.ClearOptions();
-        _currentNode = null;
-        
         EventBus.RequestCloseMenu(_dialogueUI.DialoguePanel);      
-        _playerController.SetCanMove(true);
+        ResetDialogueState(); // Clean up logic instantly!
+    }
+
+    private void HandleForcedClose(GameObject closedMenu)
+    {
+        if (closedMenu == _dialogueUI.DialoguePanel)
+        {
+            ResetDialogueState();
+        }
+    }
+
+    private void ResetDialogueState()
+    {
+        _currentLineIndex = 0;
+        _currentDialogueGroup = null;
+        _currentDialogueNode = null;
+        _isWaitingChoice = false;
+        _dialogueOptionController.ClearOptions();
+        _currentSpeaker = null;
     }
 }

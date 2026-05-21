@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edb1411f2ace4a1ab2532817c7aa94f8, type: 3}
-  m_Name: Dialogue_Mai_Sleep01
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueLines:
-  - zZzZzzZz
-  dialogueOptions: []
-  nodeEvent: 
+  m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
+  m_Name: Dialogue_Quest_Mai_Tutorial01_Fin
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
+  startingNodeID: Intro
+  dialogueNodes: []

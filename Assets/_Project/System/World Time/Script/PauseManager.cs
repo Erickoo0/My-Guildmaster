@@ -22,8 +22,11 @@ public class PauseManager : MonoBehaviour
 
     }
     
-    public static void SetPause(bool pause) => IsGamePaused = pause;  
-    
+    public static void SetPause(bool pause)
+    {
+        IsGamePaused = pause;
+    }
+
     public void TogglePauseMenu(InputAction.CallbackContext context)
     {
         if (!context.performed) return;

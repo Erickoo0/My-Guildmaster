@@ -1,19 +1,32 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public abstract class BasseNPCOverrideState : State<NPCController>, IStateOverrider
+[System.Serializable]
+public abstract class BaseNPCOverrideWanderState : BaseNPCWanderState, IStateOverrider
 {
-    [Header("Override Dialogue Data")]
-    [SerializeField] private DialogueNode dialogueNode;
-    [SerializeField] private string[] speechBubbleDialogue;
+    public List<RequirementData> requirements = new List<RequirementData>();
     
-    public DialogueNode GetDialogue() => dialogueNode;
+    [Header("Override Dialogue Data")]
+    [SerializeField] private DialogueGroup dialogueGroup;
+    [SerializeField] private string[] speechBubbleDialogue;
+    [SerializeField] private int priority = 10; // Higher priority means it will be evaluated first
+    
+    public int Priority => priority;
+    
+    public DialogueGroup GetDialogueGroup() => dialogueGroup;
     public string[] GetSpeechBubbles() => speechBubbleDialogue;
 
     public abstract bool EvaluateRequirements();
 
+    // Override the base method to prevent going into Idle upon reaching destination
+    protected override void OnReachedDestination()
+    {
+        controller.EntityAnimator.FaceDirection((_selectedPOI.lookDirection));
+        _arrivedMainDestination = true;
+    }
+    
     protected void FinishOverride()
     {
         controller.ClearOverrideState();
     }
-
 }
