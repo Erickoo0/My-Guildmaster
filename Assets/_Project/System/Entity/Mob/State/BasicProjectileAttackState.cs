@@ -6,14 +6,14 @@ public class BasicProjectileAttackState : BaseCastState
 {
     [Header("References")]
     [SerializeField] private string attackID;
-    private ProjectileAttackData _attackData;
+    private ProjectileSpellData _spellData;
     private GameObject _firePoint;
 
     public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
         
-        _attackData = controller.GetAttackData<ProjectileAttackData>(attackID);
+        _spellData = controller.GetAttackData<ProjectileSpellData>(attackID);
         
         var firePointComponent = controller.GetComponentInChildren<FirePoint>();
         _firePoint = (firePointComponent != null) ? firePointComponent.gameObject : controller.gameObject;
@@ -23,7 +23,7 @@ public class BasicProjectileAttackState : BaseCastState
     {
         base.Enter();
         
-        if (_attackData == null)
+        if (_spellData == null)
         {
             Debug.LogWarning("Attack data is null");
             stateMachine.ChangeState(controller.IdleState);
@@ -33,7 +33,7 @@ public class BasicProjectileAttackState : BaseCastState
         controller.EntityAnimator.OnAnimationEventRequested += ExecuteAttack;
         controller.EntityMover.SetMoveDirection(Vector2.zero);
 
-        StartCastingRoutine(_attackData.baseCastTime, _attackData.attackID);
+        StartCastingRoutine(_spellData.baseCastTime, _spellData.spellID);
     }
 
     private void ExecuteAttack()
@@ -48,14 +48,14 @@ public class BasicProjectileAttackState : BaseCastState
         Vector2 targetPosition = controller.currentTarget.transform.position;
         Vector2 direction = (targetPosition - spawnPosition).normalized;
         
-        GameObject projectile = Object.Instantiate(_attackData.attackPrefab, spawnPosition, Quaternion.identity);
-        projectile.transform.localScale *= _attackData.attackScale;
+        GameObject projectile = Object.Instantiate(_spellData.spellPrefab, spawnPosition, Quaternion.identity);
+        projectile.transform.localScale *= _spellData.spellScale;
         
         if (projectile.TryGetComponent(out Projectile projectileComponent))
         {
-            DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
+            DamageData finalDamage = _spellData.CreateDamageData(controller.gameObject);
             
-            projectileComponent.Setup(direction, _attackData.projectileSpeed, _attackData.projectileLifetime, finalDamage);
+            projectileComponent.Setup(direction, _spellData.projectileSpeed, _spellData.projectileLifetime, finalDamage);
         }
         
         hasFired = true;

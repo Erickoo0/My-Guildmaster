@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ChargeAttackData", menuName = "AttackData/ChargeAttackData")]
-public class ChargeAttackData : AttackData
+[CreateAssetMenu(fileName = "ChargeSpellData", menuName = "SpellData/ChargeSpellData")]
+public class ChargeSpellData : SpellData
 {
     [Header("Movement Settings")] 
     public float windUpDuration = 0.75f;

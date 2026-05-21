@@ -4,7 +4,7 @@ using UnityEngine;
 public class BasicMeleeAttackState : BaseActionState
 {
     [SerializeField] private string attackID;
-    private MeleeAttackData _attackData;
+    private MeleeSpellData _spellData;
     private HitBox _meleeHitbox;
     
     private float _defaultActionRange;
@@ -13,7 +13,7 @@ public class BasicMeleeAttackState : BaseActionState
     {
         base.Setup(controller, stateMachine);
 
-        _attackData = controller.GetAttackData<MeleeAttackData>(attackID);
+        _spellData = controller.GetAttackData<MeleeSpellData>(attackID);
         
         // Find the hitbox attached to the enemy
         _meleeHitbox = controller.GetComponentInChildren<HitBoxContact>(true);
@@ -27,7 +27,7 @@ public class BasicMeleeAttackState : BaseActionState
 
     public override void Enter()
     {
-        if (_attackData == null || _meleeHitbox == null)
+        if (_spellData == null || _meleeHitbox == null)
         {
             stateMachine.ChangeState(controller.IdleState);
             return;
@@ -57,7 +57,7 @@ public class BasicMeleeAttackState : BaseActionState
         Vector2 direction = (controller.currentTarget.transform.position - controller.transform.position).normalized;
         
         // Setup Damage Data
-        DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
+        DamageData finalDamage = _spellData.CreateDamageData(controller.gameObject);
         
         _meleeHitbox.Setup(finalDamage);
         _meleeHitbox.enableHitbox = true; ;

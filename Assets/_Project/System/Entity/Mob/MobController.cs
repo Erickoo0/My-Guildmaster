@@ -15,7 +15,7 @@ public class MobController : BaseEntityController
     public Vector2 SpawnPosition { get; private set; }
     
     [Header("Attack Library")]
-    [SerializeField] private List<AttackData> attackLibrary;
+    [SerializeField] private List<SpellData> attackLibrary;
     
     [Header("Mob Type & Targeting")] 
     [field: SerializeField] public MobType mobType { get; private set; }  = MobType.Aggressive;
@@ -139,12 +139,12 @@ public class MobController : BaseEntityController
         _lastActionTime = Time.time;
     }
     
-    public T GetAttackData<T>(string id) where T : AttackData
+    public T GetAttackData<T>(string id) where T : SpellData
     {
         // Search the library for a piece of data that:
         // 1. Matches the ID string
         // 2. Is of the type (T) we are looking for
-        return attackLibrary.OfType<T>().FirstOrDefault(data => data.attackID == id);
+        return attackLibrary.OfType<T>().FirstOrDefault(data => data.spellID == id);
     }
     
     

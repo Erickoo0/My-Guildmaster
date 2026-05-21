@@ -34,7 +34,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "AttackM1",
                     "type": "Button",
                     "id": "cdf373b3-af63-4ec4-b6e6-c60684113c6e",
                     "expectedControlType": "",
@@ -140,6 +140,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "AttackQ",
+                    "type": "Button",
+                    "id": "31dba293-46f5-4428-94f2-06dbc28497b8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackE",
+                    "type": "Button",
+                    "id": "f930712b-e8ea-44b6-96aa-0d4dc4a56544",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackR",
+                    "type": "Button",
+                    "id": "b0d953a9-3a18-446a-9204-3dd41cf2c118",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackF",
+                    "type": "Button",
+                    "id": "e7d72189-587a-40b6-a78d-615ff027482d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -315,7 +351,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Fire",
+                    "action": "AttackM1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -326,7 +362,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "AttackM1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -337,7 +373,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "Fire",
+                    "action": "AttackM1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -348,7 +384,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Fire",
+                    "action": "AttackM1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -359,7 +395,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Fire",
+                    "action": "AttackM1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -833,6 +869,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43ee8dd8-2204-45e0-b6a2-4746dab284e2",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackQ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "363b161e-b595-4083-9d2d-07f7f7863350",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackE",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a0d4ff9-0a1f-425c-abf4-8fabc686ca26",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b986899-dcad-4f85-a4e4-5a69f1e628b7",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackF",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

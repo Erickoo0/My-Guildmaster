@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public abstract class AttackData : ScriptableObject
+public abstract class SpellData : ScriptableObject
 {
     [Header("References")] 
     [Tooltip("This ID is automatically set to the filename of this ScriptableObject.")]
-    public string attackID;
-    public string attackName;
-    public GameObject attackPrefab;
+    public string spellID;
+    public string spellName;
+    public Sprite spellIcon;
+    public GameObject spellPrefab;
 
     [Header("Base Stats")] 
     public float baseDamage;
@@ -17,7 +18,7 @@ public abstract class AttackData : ScriptableObject
     public bool hitOncePerTarget = true;
     public bool destroyOnMaxHits = true;
     public int baseMaxEnemiesHit;
-    public float attackScale = 1;
+    public float spellScale = 1;
     
     [Header("Knockback & Type")]
     public DamageType damageType;
@@ -29,9 +30,9 @@ public abstract class AttackData : ScriptableObject
     {
         // 'name' is a built-in Unity property that returns the filename 
         // of the ScriptableObject 
-        if (attackID != name)
+        if (spellID != name)
         {
-            attackID = name;
+            spellID = name;
             
             // Marks the object as 'dirty' so Unity knows to save the change
 #if UNITY_EDITOR

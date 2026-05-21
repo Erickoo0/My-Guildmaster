@@ -3,8 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerBasicProjectileAttackState : State<PlayerController>
 {
-    [SerializeField] private string attackID;
-    private ProjectileAttackData _attackData;
+    [SerializeField] private string spellID;
+    private ProjectileSpellData _spellData;
     private GameObject _firePoint;
     private bool _hasFired = false;
     
@@ -12,7 +12,7 @@ public class PlayerBasicProjectileAttackState : State<PlayerController>
     {
         base.Setup(controller, stateMachine);
         
-        _attackData = controller?.GetAttackData<ProjectileAttackData>(attackID);
+        _spellData = controller?.GetAttackData<ProjectileSpellData>(spellID);
         
         _firePoint = controller?.GetComponentInChildren<FirePoint>().gameObject;
     }
@@ -22,7 +22,7 @@ public class PlayerBasicProjectileAttackState : State<PlayerController>
         _hasFired = false;
         
         // Safety Check
-        if (_attackData == null || _attackData.attackPrefab == null || _firePoint == null)
+        if (_spellData == null || _spellData.spellPrefab == null || _firePoint == null)
         {
             Debug.LogWarning("Attack data is null");
             stateMachine.ChangeState(controller.IdleState);
@@ -40,9 +40,9 @@ public class PlayerBasicProjectileAttackState : State<PlayerController>
         float clipDuration = controller.EntityAnimator.animator.GetCurrentAnimatorStateInfo(0).length;
         
         // Apply animation speed multiplier based on Cast Time
-        if (_attackData.baseCastTime > 0)
+        if (_spellData.baseCastTime > 0)
         {
-            float castSpeedMultiplier = clipDuration/_attackData.baseCastTime;
+            float castSpeedMultiplier = clipDuration/_spellData.baseCastTime;
             controller.EntityAnimator.animator.speed = castSpeedMultiplier;
         }
         else // If cast time is 0, use default
@@ -69,13 +69,13 @@ public class PlayerBasicProjectileAttackState : State<PlayerController>
         Vector2 direction = (controller.WorldMousePosition - spawnPosition).normalized;
     
         // 2. Instantiate the projectile
-        GameObject projectile = Object.Instantiate(_attackData.attackPrefab, spawnPosition, Quaternion.identity);
+        GameObject projectile = Object.Instantiate(_spellData.spellPrefab, spawnPosition, Quaternion.identity);
 
         if (projectile.TryGetComponent(out Projectile projectileComponent))
         {
-            DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
+            DamageData finalDamage = _spellData.CreateDamageData(controller.gameObject);
         
-            projectileComponent.Setup(direction, _attackData.projectileSpeed, _attackData.projectileLifetime, finalDamage);
+            projectileComponent.Setup(direction, _spellData.projectileSpeed, _spellData.projectileLifetime, finalDamage);
         }
     
         _hasFired = true;

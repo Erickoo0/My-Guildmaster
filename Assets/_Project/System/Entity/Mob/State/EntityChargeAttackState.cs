@@ -5,7 +5,7 @@ public class EntityChargeAttackState : BaseActionState
 {
     [Header("References")] 
     [SerializeField] private string attackID;
-    private ChargeAttackData _attackData;
+    private ChargeSpellData _spellData;
     private GameObject _spawnedAttackPrefab;
     private HitBox _spawnedHitbox;
     private Collider2D _entityCollider;
@@ -25,10 +25,10 @@ public class EntityChargeAttackState : BaseActionState
         base.Setup(controller, stateMachine);
         
         // Grab the attack data from the controllers attack library
-        _attackData = controller?.GetAttackData<ChargeAttackData>(attackID);
+        _spellData = controller?.GetAttackData<ChargeSpellData>(attackID);
         
-        if (_attackData == null) 
-            Debug.LogError($"ChargeAttackData not found in attack library for {controller.gameObject.name}");
+        if (_spellData == null) 
+            Debug.LogError($"ChargeSpellData not found in attack library for {controller.gameObject.name}");
         
         _entityCollider = controller.GetComponent<Collider2D>();
     }
@@ -41,7 +41,7 @@ public class EntityChargeAttackState : BaseActionState
         
         // 2. Freeze and set timers
         controller.EntityMover.SetMoveDirection(Vector2.zero);
-        _windUpTimer = _attackData.windUpDuration;
+        _windUpTimer = _spellData.windUpDuration;
     
         // 3. Target Validation & Direction Logic
         if (controller.currentTarget != null)
@@ -49,8 +49,8 @@ public class EntityChargeAttackState : BaseActionState
             Vector2 direction = (Vector2)controller.currentTarget.position - (Vector2)controller.transform.position;
             _chargeDirection = direction.normalized;
     
-            float totalDistance = direction.magnitude + _attackData.overshootDistance;
-            float totalChargeSpeed = _originalSpeed * _attackData.chargeSpeedMultiplier;
+            float totalDistance = direction.magnitude + _spellData.overshootDistance;
+            float totalChargeSpeed = _originalSpeed * _spellData.chargeSpeedMultiplier;
             _chargeTimer = totalDistance / totalChargeSpeed;
             
             controller.EntityAnimator.FaceDirection(_chargeDirection);
@@ -62,10 +62,10 @@ public class EntityChargeAttackState : BaseActionState
         }
     
         // 4. Spawn the attack prefab (hitbox)
-        if (_attackData.attackPrefab != null)
+        if (_spellData.spellPrefab != null)
         {
             // Spawn as child so it moves with the entity automatically
-            _spawnedAttackPrefab = Object.Instantiate(_attackData.attackPrefab, controller.transform);
+            _spawnedAttackPrefab = Object.Instantiate(_spellData.spellPrefab, controller.transform);
             _spawnedHitbox = _spawnedAttackPrefab.GetComponent<HitBox>();
             
             // Setup the hitbox
@@ -74,7 +74,7 @@ public class EntityChargeAttackState : BaseActionState
                 _spawnedHitbox.enableHitbox = false;
                 
                 // Create a local instance of the damage data and pass the source
-                DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
+                DamageData finalDamage = _spellData.CreateDamageData(controller.gameObject);
                 
                 _spawnedHitbox.Setup(finalDamage);
             }
@@ -101,14 +101,14 @@ public class EntityChargeAttackState : BaseActionState
             if (_entityCollider != null)
             {
                 _originalExcludeLayers = _entityCollider.excludeLayers; // Save the original layers
-                HitBox attackHitbox = _attackData.attackPrefab.GetComponent<HitBox>();
+                HitBox attackHitbox = _spellData.spellPrefab.GetComponent<HitBox>();
                 if (attackHitbox != null)
                     _entityCollider.excludeLayers |= attackHitbox.victimLayer;
             }
 
             _chargeTimer -= Time.deltaTime;
             
-            controller.EntityMover.moveSpeed = _originalSpeed * _attackData.chargeSpeedMultiplier;
+            controller.EntityMover.moveSpeed = _originalSpeed * _spellData.chargeSpeedMultiplier;
             controller.EntityMover.SetMoveDirection(_chargeDirection);
     
             // Enable the hitbox

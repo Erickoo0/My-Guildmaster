@@ -443,7 +443,7 @@ MonoBehaviour:
     - rid: 7572515179751800910
       type: {class: EntityChargeAttackState, ns: , asm: Assembly-CSharp}
       data:
-        attackID: 
+        attackID: Spell_Data_Charge
 --- !u!114 &6447096566392552272
 MonoBehaviour:
   m_ObjectHideFlags: 0
