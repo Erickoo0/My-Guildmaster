@@ -13,8 +13,11 @@ public class EntityAnimator : MonoBehaviour, IFaceable
     
     private readonly float _moveThreshold = 0.25f;
     
+    private int _currentActionBoolHash;
+    
     public event System.Action OnAnimationEventRequested;
     public event System.Action OnAnimationFinished;
+    public event System.Action OnAnimationCanceled;
     
     private void Start()
     {
@@ -79,9 +82,20 @@ public class EntityAnimator : MonoBehaviour, IFaceable
         }
     }
 
+    public void StartSpellAnimation(int boolHash)
+    {
+        _currentActionBoolHash = boolHash;
+        isEventRequested = false;
+        animator.SetBool(_currentActionBoolHash, true);
+    }
+    
     public void OnAttackAnimationFinished()
     {
-        animator.SetBool("IsAttacking", false);
+        if (_currentActionBoolHash != 0)
+        {
+            animator.SetBool(_currentActionBoolHash, false);
+        }
+        
         isEventRequested = false;
         OnAnimationFinished?.Invoke();
     }
@@ -91,5 +105,11 @@ public class EntityAnimator : MonoBehaviour, IFaceable
         if (isEventRequested) return;
         isEventRequested = true;
         OnAnimationEventRequested?.Invoke();
+    }
+
+    public void RequestAnimationCancel()
+    {
+        isEventRequested = false;
+        OnAnimationCanceled?.Invoke();
     }
 }

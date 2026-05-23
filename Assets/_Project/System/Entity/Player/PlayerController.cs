@@ -13,6 +13,8 @@ public class PlayerController : BaseEntityController
     [Header("Spell Loadout")]
     [Tooltip("Slot 0: M1, Slot 1: Q, Slot 2: E, Slot 3: R, Slot 4: F")]
     [SerializeReference, SubclassSelector] public List<BasePlayerSpellState> SpellSlots = new List<BasePlayerSpellState>();
+    // Track whether a spell key is held down (true = held, false = released)
+    private bool[] _spellKeyHeld = new bool[5];
     
     [Header("Action Settings")]
     [SerializeField] private List<SpellData> attackLibrary;
@@ -100,19 +102,29 @@ public class PlayerController : BaseEntityController
 
     public void TryTriggerAbility(int slotIndex, InputAction.CallbackContext context)
     {
-        // 1. Check if we can use a spell in our current condition
+        // 1. Check if the key is being held
+        if (context.started || context.performed)
+            _spellKeyHeld[slotIndex] = true;
+        else if (context.canceled)
+            _spellKeyHeld[slotIndex] = false;
+        
+        // 2. Check if we can use a spell in our current condition
         if (!context.performed || !CheckActionCooldown() || StateMachine.CurrentState == DashState)
             return;
         
-        // 2. Safety Check
+        // 3. Safety Check
         if (SpellSlots == null || slotIndex >= SpellSlots.Count || SpellSlots[slotIndex] == null)
             return;
         
-        // 3. Prevent Interrupting an ongoing spell with another spell
+        // 4. Prevent Interrupting an ongoing spell with another spell
         if (SpellSlots.Contains(StateMachine.CurrentState))
             return;
         
-        // 4. Change to attack state
+        // 5. Give the spell state its own slot index right before entering
+        // so it knows exactly which slot to track for key release
+        SpellSlots[slotIndex].CurrentSlotIndex = slotIndex;
+        
+        // 5. Change to attack state
         StateMachine.ChangeState(SpellSlots[slotIndex]);
     }
     
@@ -158,5 +170,11 @@ public class PlayerController : BaseEntityController
     public void SetActionCooldown()
     {
         _lastActionTime = Time.time;
+    }
+
+    public bool IsSpellKeyHeld(int slotIndex)
+    {
+        if (slotIndex < 0 || slotIndex >= _spellKeyHeld.Length) return false;
+        return _spellKeyHeld[slotIndex];
     }
 }

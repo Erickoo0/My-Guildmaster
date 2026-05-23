@@ -8,6 +8,8 @@ public abstract class SpellData : ScriptableObject
     public string spellName;
     public Sprite spellIcon;
     public GameObject spellPrefab;
+    public AnimationBool spellAnimation;
+    public int AnimationTag => Animator.StringToHash(spellAnimation.ToString());
 
     [Header("Base Stats")] 
     public float baseDamage;
@@ -60,4 +62,10 @@ public abstract class SpellData : ScriptableObject
             destroyOnMaxHits
         );
     }
+}
+
+public enum AnimationBool
+{
+    IsAttacking,
+    IsAttackingStrong
 }

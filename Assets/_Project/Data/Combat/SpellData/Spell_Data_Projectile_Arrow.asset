@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ac726f3eeb3bde469dd979aeb272eac, type: 3}
-  m_Name: Spell_Data_Projectile_Fireball_Large
+  m_Name: Spell_Data_Projectile_Arrow
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttackData
-  spellID: Spell_Data_Projectile_Fireball_Large
-  spellName: Large Fireball
+  spellID: Spell_Data_Projectile_Arrow
+  spellName: Arrow
   spellIcon: {fileID: 0}
-  spellPrefab: {fileID: 3301934860267052368, guid: 4af734ae41faf5c4b94b5a521cbb2fc7, type: 3}
-  baseDamage: 30
-  baseCastTime: 5
+  spellPrefab: {fileID: 3407802505861899660, guid: 0db544e496dadf34982b3eaa0f05aef2, type: 3}
+  spellAnimation: 0
+  baseDamage: 10
+  baseCastTime: 0
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
-  baseMaxEnemiesHit: 10
-  spellScale: 3
+  baseMaxEnemiesHit: 1
+  spellScale: 1
   damageType: 0
   knockbackForce: 30
   knockbackDuration: 0.35
   knockbackHeight: 1
   projectileSpeed: 12
-  projectileLifetime: 5
+  projectileLifetime: 6

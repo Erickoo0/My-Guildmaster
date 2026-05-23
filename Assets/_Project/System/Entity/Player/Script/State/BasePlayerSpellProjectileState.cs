@@ -16,8 +16,7 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
 
    public override void Enter()
    {
-      base.Enter();
-      
+      // Safety Check
       if (_spellProjectileData == null || _spellProjectileData.spellPrefab == null || _firePoint == null)
       {
          Debug.LogWarning("Missing Projectile Data or FirePoint!");
@@ -28,11 +27,24 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
       // Face the aim direction
       Vector2 aimDirection = (controller.WorldMousePosition - _firePoint.transform.position).normalized;
       controller.EntityAnimator.FaceDirection(aimDirection);
+      controller.EntityAnimator.animator.Update(0f);
+      
+      base.Enter();
+   }
+
+   public override void Exit()
+   {
+      base.Exit();
+      
+      Vector2 aimDirection = (controller.WorldMousePosition - _firePoint.transform.position).normalized;
+      controller.EntityAnimator.FaceDirection(aimDirection);
+      controller.EntityAnimator.animator.Update(0f);
+
    }
 
    protected override void HandleAnimationEvent()
    {
-      if (_hasTriggered) return;
+      if (hasTriggered) return;
       
       Vector3 spawnPosition = _firePoint.transform.position;
       Vector2 direction = (controller.WorldMousePosition - spawnPosition).normalized;
@@ -45,6 +57,6 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
          projectileComponent.Setup(direction, _spellProjectileData.projectileSpeed, _spellProjectileData.projectileLifetime, finalDamage);
       }
       
-      _hasTriggered = true;
+      hasTriggered = true;
    }
 }

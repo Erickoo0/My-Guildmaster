@@ -18,11 +18,11 @@ public class MobController : BaseEntityController
     [SerializeField] private List<SpellData> attackLibrary;
     
     [Header("Mob Type & Targeting")] 
+    [field: SerializeField] public List<string> TargetableList { get; private set; }
     [field: SerializeField] public MobType mobType { get; private set; }  = MobType.Aggressive;
     [field: SerializeField] public float DetectionRange { get; private set; } = 6f;
-    [field: SerializeField] public float DetectionLostRange { get; private set; } = 10f;
+    [field: SerializeField] public float DetectionLostRange { get; set; } = 10f;
     [field: SerializeField] public float ActionRange { get; set; } = 5f;
-    [field: SerializeField] public List<string> TargetableList { get; private set; }
     public Transform currentTarget ;
     
     [Header("Action Settings")] 

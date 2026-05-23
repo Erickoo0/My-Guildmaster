@@ -1,58 +1,59 @@
 using UnityEngine;
 
 [System.Serializable]
-public abstract class BasePlayerSpellState : State<PlayerController>
+public abstract class BaseAttackState : BaseActionState
 {
-    [Header("Spell Meta Data")]
-    [SerializeField] protected string spellID;
-    protected SpellData spellData;
-    [HideInInspector] public int CurrentSlotIndex = -1;
+    [Header("Attack Meta Data")] 
+    [SerializeField] protected string attackID;
+    protected SpellData attackData;
     
     [Header("Cast Bar")]
     protected CastBar castBar;
     protected bool isCasting;
-    
-    protected bool hasTriggered = false;
 
-    public override void Setup(PlayerController controller, StateMachine stateMachine)
+    protected bool hasTriggered = false;
+    protected float defaultDetectionLostRange;
+    
+    public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
-        
-        spellData = controller?.GetAttackData<SpellData>(spellID);
-        
-        castBar = controller?.GetComponent<CastBar>();
+        attackData = controller?.GetAttackData<SpellData>(attackID);
+        castBar = controller.GetComponent<CastBar>();
     }
 
     public override void Enter()
     {
         hasTriggered = false;
         isCasting = false;
-        
-        // Safety check
-        if (spellData == null || CurrentSlotIndex == -1)
+
+        // Safety Check
+        if (attackData == null)
         {
-            Debug.LogWarning($"spellData or CurrentSlotIndex is null for {controller.gameObject.name}");
+            Debug.LogWarning($"AttackData is null for {controller.gameObject.name}");
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
+        
+        defaultDetectionLostRange = controller.DetectionLostRange;
+        controller.DetectionLostRange = defaultDetectionLostRange * 4f;
 
         controller.EntityAnimator.OnAnimationEventRequested += HandleAnimationEvent;
         
         controller.EntityMover.SetMoveDirection(Vector2.zero);
-        controller.EntityAnimator.StartSpellAnimation(spellData.AnimationTag);
+        controller.EntityAnimator.StartSpellAnimation(attackData.AnimationTag);
         controller.EntityAnimator.animator.Update(0f); // Force transition
         
-        // Get the exact time the event fires, rather than just clip length
+        // Use the helper method to cleanly grab the timing
         float eventTime = GetAnimationEventTime();
         
-        // Cast Logic
-        if (spellData.baseCastTime > 0)
+        // --- Data-Driven Cast Logic ---
+        if (attackData.baseCastTime > 0)
         {
             isCasting = true;
             
-            castBar?.BeginCast(spellData.baseCastTime, spellData.spellName);
+            castBar?.BeginCast(attackData.baseCastTime, attackID);
             
-            float castSpeedMultiplier = eventTime / spellData.baseCastTime;
+            float castSpeedMultiplier = eventTime / attackData.baseCastTime;
             controller.EntityAnimator.animator.speed = castSpeedMultiplier;
         }
         else
@@ -63,37 +64,32 @@ public abstract class BasePlayerSpellState : State<PlayerController>
 
     public override void Update()
     {
-        // 1. Check if the spell keybind is still being held
-        if (!hasTriggered && isCasting)
-        {
-            if (!controller.IsSpellKeyHeld(CurrentSlotIndex))
-            {
-                castBar?.StopCast();
-                stateMachine.ChangeState(controller.IdleState);
-                return;
-            }
-        }
         
-        // 2. Stop the cast bar when the spell executes
         if (hasTriggered && isCasting)
         {
             isCasting = false;
             castBar?.StopCast();
         }
         
-        if (!controller.EntityAnimator.animator.GetBool(spellData.AnimationTag))
+        if (!controller.EntityAnimator.animator.GetBool(attackData.AnimationTag))
             stateMachine.ChangeState(controller.IdleState);
+        
     }
-
+    
     public override void Exit()
     {
         isCasting = false;
         castBar?.StopCast();
-        
+
         controller.EntityAnimator.OnAnimationEventRequested -= HandleAnimationEvent;
         
         controller.EntityAnimator.animator.speed = 1f;
-        controller.EntityAnimator.animator.SetBool(spellData.AnimationTag, false);
+        controller.EntityAnimator.animator.SetBool(attackData.AnimationTag, false);
+        controller.EntityAnimator.RequestAnimationCancel();
+        
+        controller.EntityAnimator.animator.Update(0f);
+        
+        controller.DetectionLostRange = defaultDetectionLostRange;
         
         if (hasTriggered)
             controller.SetActionCooldown();
@@ -102,10 +98,10 @@ public abstract class BasePlayerSpellState : State<PlayerController>
     public override void PhysicsUpdate() { }
     public override void HandleInput() { }
     
-    // Child classes should implement this method to handle the attack logic
     protected abstract void HandleAnimationEvent();
-    
-    //----Helper Methods----
+
+    // --- Helper Methods ---
+
     private float GetAnimationEventTime()
     {
         var clipInfo = controller.EntityAnimator.animator.GetCurrentAnimatorClipInfo(0);
@@ -115,15 +111,13 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         
         foreach (var eventInfo in clip.events)
         {
-            // This string must perfectly match the method in EntityAnimator.cs
             if (eventInfo.functionName == "RequestAnimationEvent") 
             {
                 return eventInfo.time;
             }
         }
         
-        // Default to full clip length if you forgot to place an event on the timeline
+        // Default to full clip length if there is no event
         return clip.length; 
-        
     }
 }

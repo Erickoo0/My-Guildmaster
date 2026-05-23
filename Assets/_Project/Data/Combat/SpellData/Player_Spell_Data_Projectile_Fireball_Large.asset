@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac726f3eeb3bde469dd979aeb272eac, type: 3}
+  m_Name: Player_Spell_Data_Projectile_Fireball_Large
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttackData
+  spellID: Player_Spell_Data_Projectile_Fireball_Large
+  spellName: Fireball
+  spellIcon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+  spellPrefab: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
+  spellAnimation: 1
+  baseDamage: 100
+  baseCastTime: 1
+  hitOncePerTarget: 1
+  destroyOnMaxHits: 1
+  baseMaxEnemiesHit: 1
+  spellScale: 3
+  damageType: 1
+  knockbackForce: 30
+  knockbackDuration: 0.35
+  knockbackHeight: 1
+  projectileSpeed: 12
+  projectileLifetime: 6
