@@ -26,16 +26,20 @@ public class BasicProjectileAttackState : BaseAttackState
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
-    
+
+        base.Enter();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        
         // Face the aim direction
         if (controller.currentTarget != null)
         {
             Vector2 aimDirection = (controller.currentTarget.transform.position - _firePoint.transform.position).normalized;
             controller.EntityAnimator.FaceDirection(aimDirection);
-            controller.EntityAnimator.animator.Update(0f);
         }
-
-        base.Enter();
     }
     
     protected override void HandleAnimationEvent()
