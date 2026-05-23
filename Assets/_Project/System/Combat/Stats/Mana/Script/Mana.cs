@@ -37,10 +37,10 @@ public class Mana : MonoBehaviour
             // Only notify listeners if health actually changed.
             if (!Mathf.Approximately(_mpCurrent, mpPrevious))
             {
-                float difference = _mpCurrent - mpPrevious;
-                int differenceRounded = Mathf.RoundToInt(difference);
-                EventBus.RequestFloatingText(differenceRounded, transform.position);
-                
+                // float difference = _mpCurrent - mpPrevious;
+                // int differenceRounded = Mathf.RoundToInt(difference);
+                // EventBus.RequestFloatingText(differenceRounded, transform.position);
+                //
                 OnMpUpdated?.Invoke();
             }
         }
@@ -104,5 +104,16 @@ public class Mana : MonoBehaviour
         mpMax = mpBase + (_lvlComponent.LvlCurrent - 1) * mpPerLvl;
         _mpCurrent = mpMax;
         OnMpUpdated?.Invoke();
+    }
+
+    public bool HasEnoughMp (float mpCost) 
+    {
+        return MpCurrent >= mpCost;
+    }
+
+    public void ConsumeMp (float mpCost) 
+    {
+        if (!HasEnoughMp(mpCost)) return;
+        MpCurrent -= mpCost;
     }
 }

@@ -7,6 +7,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
     [SerializeField] protected string spellID;
     protected SpellData spellData;
     [HideInInspector] public int CurrentSlotIndex = -1;
+    public float MpCost => spellData != null ? spellData.baseMpCost : 0f;
     
     [Header("Cast Bar")]
     protected CastBar castBar;

@@ -13,7 +13,7 @@ public abstract class SpellData : ScriptableObject
 
     [Header("Base Stats")] 
     public float baseDamage;
-    //public float baseMpCost; // Not needed for enemies
+    public float baseMpCost = 0; // Not needed for enemies
     public float baseCastTime;
 
     [Header("Behavior Settings")] 

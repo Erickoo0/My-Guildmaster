@@ -51,11 +51,24 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
       
       GameObject projectile = Object.Instantiate(_spellProjectileData.spellPrefab, spawnPosition, Quaternion.identity);
       
+      // Apply Scale
+      if (spellData.spellScale != 1f) projectile.transform.localScale *= spellData.spellScale;
+      
       if (projectile.TryGetComponent(out Projectile projectileComponent))
       {
          DamageData finalDamage = _spellProjectileData.CreateDamageData(controller.gameObject);
          projectileComponent.Setup(direction, _spellProjectileData.projectileSpeed, _spellProjectileData.projectileLifetime, finalDamage);
       }
+      
+      // Apply Recoil
+      if (spellData.spellAnimation == AnimationBool.IsAttackingStrong) 
+      {
+         controller?.EntityMover.ApplyRecoil(direction);
+
+      }
+      
+      // Consume Mana
+      controller?.mpComponent.ConsumeMp(spellData.baseMpCost);
       
       hasTriggered = true;
    }

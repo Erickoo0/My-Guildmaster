@@ -3,12 +3,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : BaseEntityController
-{
-    [Header("State References")]
+public class PlayerController : BaseEntityController {
+    [Header("References")]
+    public Mana mpComponent;
     [SerializeReference, SubclassSelector] public State<PlayerController> IdleState;
     [SerializeReference, SubclassSelector] public State<PlayerController> MoveState;
     [SerializeReference, SubclassSelector] public State<PlayerController> DashState;
+
     
     [Header("Spell Loadout")]
     [Tooltip("Slot 0: M1, Slot 1: Q, Slot 2: E, Slot 3: R, Slot 4: F")]
@@ -102,30 +103,37 @@ public class PlayerController : BaseEntityController
 
     public void TryTriggerAbility(int slotIndex, InputAction.CallbackContext context)
     {
-        // 1. Check if the key is being held
+        // 1. Safety Check
+        if (SpellSlots == null || slotIndex < 0 || slotIndex >= SpellSlots.Count || SpellSlots[slotIndex] == null)
+            return;
+        
+        // 2. Track key input state 
         if (context.started || context.performed)
             _spellKeyHeld[slotIndex] = true;
         else if (context.canceled)
             _spellKeyHeld[slotIndex] = false;
         
-        // 2. Check if we can use a spell in our current condition
-        if (!context.performed || !CheckActionCooldown() || StateMachine.CurrentState == DashState)
+        // 3. Only proceed with the actual cast on the 'performed' phase
+        if (!context.performed)
             return;
         
-        // 3. Safety Check
-        if (SpellSlots == null || slotIndex >= SpellSlots.Count || SpellSlots[slotIndex] == null)
+        BasePlayerSpellState intendedSpell = SpellSlots[slotIndex];
+
+        // 4. State & Cooldown validation
+        if (!CheckActionCooldown() || StateMachine.CurrentState == DashState)
             return;
         
-        // 4. Prevent Interrupting an ongoing spell with another spell
+        // 5. Prevent interrupting an ongoing spell with another spell
         if (SpellSlots.Contains(StateMachine.CurrentState))
             return;
         
-        // 5. Give the spell state its own slot index right before entering
-        // so it knows exactly which slot to track for key release
-        SpellSlots[slotIndex].CurrentSlotIndex = slotIndex;
+        // 6. Mana validation 
+        if (mpComponent == null || !mpComponent.HasEnoughMp(intendedSpell.MpCost))
+            return;
         
-        // 5. Change to attack state
-        StateMachine.ChangeState(SpellSlots[slotIndex]);
+        // 7. Assign slot index and change state
+        intendedSpell.CurrentSlotIndex = slotIndex;
+        StateMachine.ChangeState(intendedSpell);
     }
     
     public void OnAttackM1(InputAction.CallbackContext context) => TryTriggerAbility(0, context);

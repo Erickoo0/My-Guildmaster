@@ -6,15 +6,21 @@ public class EntityMover : MonoBehaviour
 {
     [Header("Movement Settings")] 
     public float moveSpeed = 5f;
-    
+
     [Header("Knockback Settings")]
     private bool _isKnockedBack = false;
     private float _knockbackTimer;
     private float _totalKnockbackDuration;
     private float _knockbackHeight;
     private Vector2 _initialKnockbackVelocity;
-    private SpriteRenderer _spriteRenderer;
     
+    [Header("Recoil Settings")]
+    private bool _isRecoiling = false;
+    private float _recoilTimer;
+    private float _recoilDuration;
+    private Vector2 _initialRecoilVelocity;
+    
+    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private Vector2 _moveDirection;
     private Collider2D _collider;
@@ -40,6 +46,10 @@ public class EntityMover : MonoBehaviour
         if (_isKnockedBack)
         {
             HandleKnockbackLoop();
+        }
+        else if (_isRecoiling) 
+        {
+            HandleRecoiling();
         }
         else
         {
@@ -79,6 +89,24 @@ public class EntityMover : MonoBehaviour
         }
     }
 
+    private void HandleRecoiling () 
+    {
+        _recoilTimer -= Time.fixedDeltaTime;
+        
+        // 1. Calculate progress from 0 to 1
+        float recoilProgress = Mathf.Clamp01(1f - (_recoilTimer/_recoilDuration));
+        
+        // 2. Horizontal Decay logic
+        _rigidbody.linearVelocity = Vector2.Lerp(_initialRecoilVelocity, Vector2.zero, recoilProgress);
+        
+        // 3. Exit Logic
+        if (_recoilTimer <= 0f)
+        {
+            _isRecoiling = false;
+            _rigidbody.linearVelocity = Vector2.zero;
+        }
+    }
+
     private void HandleNormalMovement()
     {
         _rigidbody.linearVelocity = _moveDirection * moveSpeed;
@@ -103,6 +131,20 @@ public class EntityMover : MonoBehaviour
         if (source != null)
             StartCoroutine(TemporaryIgnoreCollision(source, knockbackDuration));
         
+    }
+
+    public void ApplyRecoil (Vector2 direction, float recoilForce = 8f, float recoilDuration = 0.1f) 
+    {
+        // Dont apply recoil if entity is getting knocked back
+        if (_isKnockedBack) return;
+        
+        _isRecoiling = true;
+        _recoilTimer = recoilDuration;
+        _recoilDuration = recoilDuration;
+        
+        // Reverse the attack direction for recoil
+        _initialRecoilVelocity = -direction.normalized * recoilForce;
+        _rigidbody.linearVelocity = _initialRecoilVelocity;
     }
     
     private IEnumerator TemporaryIgnoreCollision(GameObject source, float knockbackDuration)
