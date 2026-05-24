@@ -10,7 +10,7 @@ public class SquashAndStretch : MonoBehaviour
     private Coroutine activeRoutine;
     
     private float elapsedTime;
-    private float totalDuration = 2f;
+    private float totalDuration = 0.2f;
 
     private void Awake()
     {

@@ -18,7 +18,7 @@ MonoBehaviour:
   spellPrefab: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
   spellAnimation: 1
   baseDamage: 100
-  baseMpCost: 110
+  baseMpCost: 20
   baseCastTime: 1
   hitOncePerTarget: 1
   destroyOnMaxHits: 1

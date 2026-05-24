@@ -6,6 +6,8 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
    private ProjectileSpellData _spellProjectileData;
    private GameObject _firePoint;
 
+   [SerializeField] private AnimationCurve _projectileCurve;
+
    public override void Setup(PlayerController controller, StateMachine stateMachine)
    {
       base.Setup(controller, stateMachine);
