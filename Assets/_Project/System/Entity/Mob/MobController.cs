@@ -54,20 +54,17 @@ public class MobController : BaseEntityController
         AttackState?.Setup(this, StateMachine);
         
         SpawnPosition = transform.position;
-    }
-
-    protected virtual void Start()
-    {
-        // Start by entering the spawn state (or idle/wander if spawn isn't needed)
         StateMachine.SetupState(SpawnState);
     }
 
     protected override void Update()
     {
         base.Update();
+        if (ChaseState == null) return;
+        if (AttackState == null) return;
+        
         if (StateMachine.CurrentState != SpawnState)
             UpdateTargeting();
-        //Debug.Log($"Current State: {StateMachine.CurrentState}");
     }
 
     //---- Targeting Methods ----

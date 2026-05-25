@@ -15,7 +15,8 @@ public class EntityIdleState : BaseIdleState
     {
         // if  no target, wait for a random time, then switch to wander state
         if (_idleTime > 0) _idleTime -= Time.deltaTime;
-        else stateMachine.ChangeState(controller.WanderState);
+        else if (controller.WanderState != null)
+            stateMachine.ChangeState(controller.WanderState);
     }
     
     public override void PhysicsUpdate() { }
