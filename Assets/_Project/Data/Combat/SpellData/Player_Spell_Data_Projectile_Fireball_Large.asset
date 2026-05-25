@@ -30,3 +30,4 @@ MonoBehaviour:
   knockbackHeight: 1
   projectileSpeed: 12
   projectileLifetime: 6
+  projectileHeight: 0.2

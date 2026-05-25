@@ -14,6 +14,9 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
       
       _spellProjectileData = spellData as ProjectileSpellData;
       _firePoint = controller?.GetComponentInChildren<FirePoint>()?.gameObject;
+
+      if (_projectileCurve == null || _projectileCurve.length == 0)
+         _projectileCurve = CreateDefaultArcCurve();
    }
 
    public override void Enter()
@@ -59,7 +62,7 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
       if (projectile.TryGetComponent(out Projectile projectileComponent))
       {
          DamageData finalDamage = _spellProjectileData.CreateDamageData(controller.gameObject);
-         projectileComponent.Setup(direction, _spellProjectileData.projectileSpeed, _spellProjectileData.projectileLifetime, finalDamage);
+         projectileComponent.Setup(controller.WorldMousePosition, _spellProjectileData.projectileSpeed, _spellProjectileData.projectileLifetime, _projectileCurve, _spellProjectileData.projectileHeight, finalDamage);
       }
       
       // Apply Recoil
@@ -73,5 +76,15 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
       controller?.mpComponent.ConsumeMp(spellData.baseMpCost);
       
       hasTriggered = true;
+   }
+
+   private AnimationCurve CreateDefaultArcCurve ()
+   {
+      return new AnimationCurve
+         (
+         new Keyframe(0f, 0f, 0f, 4f), 
+         new Keyframe(0.5f, 1f, 0f, 0f),
+         new Keyframe(1f, 0f, -4f, 0f)
+         );
    }
 }

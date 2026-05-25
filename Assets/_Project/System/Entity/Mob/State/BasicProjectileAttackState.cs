@@ -6,7 +6,9 @@ public class BasicProjectileAttackState : BaseAttackState
 {
     private ProjectileSpellData _projectileAttackData;
     private GameObject _firePoint;
-
+    
+    [SerializeField] private AnimationCurve _projectileCurve;
+    
     public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
@@ -15,6 +17,9 @@ public class BasicProjectileAttackState : BaseAttackState
         
         var firePointComponent = controller.GetComponentInChildren<FirePoint>();
         _firePoint = (firePointComponent != null) ? firePointComponent.gameObject : controller.gameObject;
+        
+        if (_projectileCurve == null || _projectileCurve.length == 0)
+            _projectileCurve = CreateDefaultArcCurve();
     }
 
     public override void Enter()
@@ -50,18 +55,30 @@ public class BasicProjectileAttackState : BaseAttackState
         
         // Calculate the flight direction of the projectile
         Vector2 spawnPosition = _firePoint.transform.position;
-        Vector2 targetPosition = controller.currentTarget.transform.position;
-        Vector2 direction = (targetPosition - spawnPosition).normalized;
+        Vector2 targetPosition = controller.currentTarget.position;
         
         GameObject projectile = Object.Instantiate(_projectileAttackData.spellPrefab, spawnPosition, Quaternion.identity);
-        projectile.transform.localScale *= _projectileAttackData.spellScale;
+        
+        // Apply scale
+        if (attackData.spellScale != 1f)
+            projectile.transform.localScale *= _projectileAttackData.spellScale;
         
         if (projectile.TryGetComponent(out Projectile projectileComponent))
         {
             DamageData finalDamage = _projectileAttackData.CreateDamageData(controller.gameObject);
-            projectileComponent.Setup(direction, _projectileAttackData.projectileSpeed, _projectileAttackData.projectileLifetime, finalDamage);
+            projectileComponent.Setup(targetPosition, _projectileAttackData.projectileSpeed, _projectileAttackData.projectileLifetime, _projectileCurve, _projectileAttackData.projectileHeight, finalDamage);
         }
         
         hasTriggered = true;
+    }
+    
+    private AnimationCurve CreateDefaultArcCurve ()
+    {
+        return new AnimationCurve
+            (
+            new Keyframe(0f, 0f, 0f, 4f), 
+            new Keyframe(0.5f, 1f, 0f, 0f),
+            new Keyframe(1f, 0f, -4f, 0f)
+            );
     }
 }

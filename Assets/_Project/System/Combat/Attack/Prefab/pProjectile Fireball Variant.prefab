@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8558347627467632917}
+  m_Father: {fileID: 8333756660194974934}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &949812403664996174
 ParticleSystem:
@@ -4848,10 +4848,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8735117967119591277, guid: db405245bb740a14e925f56d0dc3e272, type: 3}
+    - target: {fileID: 1613335551354747412, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1809801951772242465, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
       propertyPath: m_Name
       value: pProjectile Fireball Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5905571795527156344, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8735117967119591277, guid: db405245bb740a14e925f56d0dc3e272, type: 3}
     - target: {fileID: 6558748435001784617, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.6875
@@ -4899,7 +4907,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8540223225322406877, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8351608385603792414, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7842253172827355303}
     m_AddedComponents:
@@ -4964,8 +4972,8 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!4 &8558347627467632917 stripped
+--- !u!4 &8333756660194974934 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8540223225322406877, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8351608385603792414, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
   m_PrefabInstance: {fileID: 18485078747378376}
   m_PrefabAsset: {fileID: 0}
