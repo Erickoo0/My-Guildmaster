@@ -18,8 +18,8 @@ MonoBehaviour:
   spellPrefab: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
   spellAnimation: 0
   baseDamage: 50
-  baseMpCost: 10
-  baseCastTime: 0
+  baseMpCost: 0
+  baseCastTime: 0.5
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 1
@@ -30,3 +30,4 @@ MonoBehaviour:
   knockbackHeight: 1
   projectileSpeed: 12
   projectileLifetime: 6
+  projectileHeight: 0

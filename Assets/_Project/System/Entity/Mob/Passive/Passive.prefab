@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 5819134255891694365}
   - component: {fileID: -6041577575005612142}
   - component: {fileID: -3679579161091551708}
+  - component: {fileID: -4540030197224601435}
   - component: {fileID: 6447096566392552272}
   - component: {fileID: -1747576445313389302}
   - component: {fileID: 3685750868421853756}
@@ -530,6 +531,18 @@ MonoBehaviour:
     - rid: 7572515169101152257
       type: {class: EntityWanderState, ns: , asm: Assembly-CSharp}
       data: 
+--- !u!114 &-4540030197224601435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11387cd49130af840a1582552ab97974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityStatProvider
 --- !u!114 &6447096566392552272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,8 +571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   hpBase: 100
-  hpMax: 100
   hpPerLvl: 10
+  HpMax: 0
   entityRoot: {fileID: 0}
   destroyOnDeath: 1
 --- !u!114 &3685750868421853756

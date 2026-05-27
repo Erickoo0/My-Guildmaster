@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7e979bc955cfc946b0d615184a38d0b, type: 3}
-  m_Name: ItemDataCoin
+  m_Name: Item_Resource_Coin
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataCoin
-  itemID: 
+  itemID: Item_Resource_Coin
   itemIcon:
   - {fileID: -192515303, guid: 5657a16119f23ac41be370f0c2db90b8, type: 3}
   - {fileID: 283125078, guid: 5657a16119f23ac41be370f0c2db90b8, type: 3}

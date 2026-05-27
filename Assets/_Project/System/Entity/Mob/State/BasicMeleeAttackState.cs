@@ -1,19 +1,16 @@
 using UnityEngine;
 
 [System.Serializable]
-public class BasicMeleeAttackState : BaseActionState
+public class BasicMeleeAttackState : BaseAttackState
 {
-    [SerializeField] private string attackID;
-    private MeleeSpellData _spellData;
-    private HitBox _meleeHitbox;
+    private MeleeSpellData _meleeSpellData;
+    private HitBoxContact _meleeHitbox;
     
-    private float _defaultActionRange;
-
     public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
 
-        _spellData = controller.GetAttackData<MeleeSpellData>(attackID);
+        _meleeSpellData = attackData as MeleeSpellData;
         
         // Find the hitbox attached to the enemy
         _meleeHitbox = controller.GetComponentInChildren<HitBoxContact>(true);
@@ -22,45 +19,46 @@ public class BasicMeleeAttackState : BaseActionState
 
         if (_meleeHitbox != null)
             _meleeHitbox.enableHitbox = false;;
-        
     }
 
     public override void Enter()
     {
-        if (_spellData == null || _meleeHitbox == null)
+        if (_meleeSpellData == null || _meleeHitbox == null)
         {
+            Debug.LogWarning("Missing Melee Attack Data or Hitbox!");
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
 
-        controller.EntityAnimator.OnAnimationEventRequested += ActivateHitbox;
-        
-        controller.EntityMover.SetMoveDirection(Vector2.zero);
-        controller.EntityAnimator.animator.SetBool("IsAttacking", true);
+        base.Enter();
+
+        _meleeHitbox.enableHitbox = false;
     }
 
     public override void Update()
     {
-        if (!controller.EntityAnimator.animator.GetBool("IsAttacking"))
+        base.Update();
+        
+        // Face the target while winding up, stop tracking once we swing
+        if (controller.currentTarget != null && !hasTriggered)
         {
-            stateMachine.ChangeState(controller.IdleState);
+            Vector2 aimDirection = (controller.currentTarget.transform.position - controller.transform.position).normalized;
+            controller.EntityAnimator.FaceDirection(aimDirection);
         }
     }
     
-    private void ActivateHitbox()
-    {
-        // Save the default action range, then increase action range during the attack
-        _defaultActionRange = controller.ActionRange;
-        controller.ActionRange = _defaultActionRange * 10f; // Large range so they commit to the attack
-        
-        // Calculate direction
-        Vector2 direction = (controller.currentTarget.transform.position - controller.transform.position).normalized;
+    protected override void HandleAnimationEvent()
+    { 
+        // Safety Check
+        if (hasTriggered) return;
+        if (controller.currentTarget == null) return;
         
         // Setup Damage Data
-        DamageData finalDamage = _spellData.CreateDamageData(controller.gameObject);
-        
+        DamageData finalDamage = _meleeSpellData.CreateDamageData(controller.gameObject);
         _meleeHitbox.Setup(finalDamage);
         _meleeHitbox.enableHitbox = true; ;
+        
+        hasTriggered = true;
     }
     
     public override void PhysicsUpdate() { }
@@ -68,17 +66,10 @@ public class BasicMeleeAttackState : BaseActionState
 
     public override void Exit()
     {
-        controller.EntityAnimator.OnAnimationEventRequested -= ActivateHitbox;
-        
-        controller.EntityAnimator.animator.SetBool("IsAttacking", false);
-        
         if (_meleeHitbox != null)
             _meleeHitbox.enableHitbox = false;
-        
-        controller.ActionRange = _defaultActionRange;
-        
-        controller.SetActionCooldown();
-        
-        controller.currentTarget = null;
+
+        base.Exit();
+        //controller.currentTarget = null;
     }
 }

@@ -1,18 +1,20 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class SpellParticleController : MonoBehaviour
+public class ParticleSpriteController : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
     private Light2D _light;
     private EntityAnimator _entityAnimator;
     
-    private void Awake()
+    private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (_spriteRenderer == null) _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _light = GetComponent<Light2D>();
         
         _entityAnimator = GetComponentInParent<EntityAnimator>();
+        if (_entityAnimator == null) _entityAnimator = GetComponent<EntityAnimator>();
         if (_entityAnimator != null) _entityAnimator.OnAnimationCanceled += ClearParticles;
     }
 

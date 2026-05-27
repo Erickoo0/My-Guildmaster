@@ -169,7 +169,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "AttackF",
+                    "name": "AttackRMB",
                     "type": "Button",
                     "id": "e7d72189-587a-40b6-a78d-615ff027482d",
                     "expectedControlType": "",
@@ -666,7 +666,7 @@
                 {
                     "name": "",
                     "id": "c5492288-d538-498a-8167-530adbb7feeb",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -908,11 +908,11 @@
                 {
                     "name": "",
                     "id": "8b986899-dcad-4f85-a4e4-5a69f1e628b7",
-                    "path": "<Keyboard>/f",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AttackF",
+                    "action": "AttackRMB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1207,7 +1207,7 @@
                 {
                     "name": "",
                     "id": "ad565292-3363-4bba-9088-5dd55c3afda6",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

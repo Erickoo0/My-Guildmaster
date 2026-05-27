@@ -10,12 +10,15 @@ public class ItemContainer : MonoBehaviour, IInteractable, ISaveable
     private SpriteRenderer _spriteRenderer;
     private Health _health;
     
+    [Header("Interaction Settings")]
+    [SerializeField] private bool interactable = true;
+    
     [Header("Drop Settings")]
     [SerializeField] private List<ItemDrop> containerContents = new List<ItemDrop>();
     [SerializeField] private float spreadRadius = 1.5f;
     
     [Header("Save Data")] 
-    private bool IsOpened { get; set; }
+    public bool IsOpened { get; private set; }
     private UniqueIdentifier _uniqueID;
     private string GetID() => _uniqueID.ID;
     
@@ -47,7 +50,7 @@ public class ItemContainer : MonoBehaviour, IInteractable, ISaveable
     }
 
     //----IInteractable Methods-----
-    public bool CanInteract() => !IsOpened;
+    public bool CanInteract() => interactable && !IsOpened;
 
     public void Interact(PlayerController playerController = null)
     {

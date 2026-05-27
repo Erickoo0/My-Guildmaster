@@ -6,25 +6,30 @@ public class Buff : MonoBehaviour
     private Health _health;
     private Mana _mana;
     private BuffSpellData.BuffType _buffType;
+    public BuffSpellData.BuffType BuffType => _buffType;
     
     private float _buffDuration;
-    private float _buffAmountPerSecond;
+    private float _buffAmount;
+    private float _buffAmountPerTick;
+    private float _buffTickRate = 0.5f;
+    private float _buffTickTimer;
 
     public void Setup(GameObject buffReceiver, BuffSpellData.BuffType buffType, float buffAmount, float buffDuration)
     {
         _buffReceiver = buffReceiver;
         _buffType = buffType;
         _buffDuration = buffDuration;
+        _buffAmount = buffAmount;
         
-        // Calculate how much to apply per second
-        _buffAmountPerSecond = buffAmount / _buffDuration;
+        // Calculate total ticks and amount per tick
+        int totalTicks = Mathf.CeilToInt(_buffDuration / _buffTickRate);
+        _buffAmountPerTick = _buffAmount / totalTicks;
         
         Destroy(gameObject, _buffDuration);
 
         HandleBuffType();
     }
     
-
     private void HandleBuffType()
     {
         // 1. Get stats from the IStatProvider interface (if it exists)
@@ -62,9 +67,20 @@ public class Buff : MonoBehaviour
 
     private void Update()
     {
+        _buffTickTimer += Time.deltaTime;
+
+        if (_buffTickTimer >= _buffTickRate)
+        {
+            ApplyTick();
+            _buffTickTimer = 0;
+        }
+    }
+
+    private void ApplyTick()
+    {
         if (_health != null)
-            _health.HpCurrent += _buffAmountPerSecond * Time.deltaTime;
+            _health.HpHealInstant(_buffAmountPerTick);
         else if (_mana != null)
-            _mana.MpCurrent += _buffAmountPerSecond * Time.deltaTime; 
+            _mana.MpHealInstant(_buffAmountPerTick);
     }
 }

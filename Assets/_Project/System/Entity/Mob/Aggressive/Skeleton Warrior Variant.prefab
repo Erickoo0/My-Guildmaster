@@ -1,5 +1,92 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &271823608376821909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5041361315177456624}
+  - component: {fileID: 8001324711926840024}
+  - component: {fileID: 2864035070521332273}
+  m_Layer: 3
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5041361315177456624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271823608376821909}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5463018445498935671}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8001324711926840024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271823608376821909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
+  victimLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  enableHitbox: 1
+  entityCollider: {fileID: 0}
+--- !u!70 &2864035070521332273
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271823608376821909}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.6997007, y: 0.38357973}
+  m_Size: {x: 1.5359956, y: 2.1536365}
+  m_Direction: 0
 --- !u!1001 &1188665081184898439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: AttackState
-      value: 5971588739801284695
+      value: 5971589007239807061
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: WanderState
@@ -40,6 +127,10 @@ PrefabInstance:
       propertyPath: 'attackLibrary.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 3ae452862e0e6234180795a619ff46e7, type: 2}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <ActionRange>k__BackingField
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: <ActionCooldown>k__BackingField
       value: 1
@@ -81,6 +172,10 @@ PrefabInstance:
       value: Assembly-CSharp BasicMeleeAttackState
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[5971589007239807061]'
+      value: Assembly-CSharp BasicMeleeAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588533496578048].attackID
       value: ChargeAD
       objectReference: {fileID: 0}
@@ -100,13 +195,25 @@ PrefabInstance:
       propertyPath: managedReferences[5971588739801284695].attackID
       value: Spell_Data_Melee_Sword_Swing
       objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[5971589007239807061].attackID
+      value: Spell_Data_Melee_Sword_Swing
+      objectReference: {fileID: 0}
     - target: {fileID: 392546489883438871, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 221524225039350300, guid: 258a5f5780141d74dbed93a4d894ccd7, type: 3}
     - target: {fileID: 2210906133152737803, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_labelHash
+      value: 1.8652305e-13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210906133152737803, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_SpriteHash
       value: 469825205
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210906133152737803, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_CategoryHash
+      value: 9.932601e-39
       objectReference: {fileID: 0}
     - target: {fileID: 4385708376921955726, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_SpriteLibraryAsset
@@ -114,11 +221,11 @@ PrefabInstance:
       objectReference: {fileID: 7108339969198208228, guid: 759de2d668751664090d0dcd305fc491, type: 3}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.6129155
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.74612
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -162,10 +269,18 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 800d034269520c546adb89b074600ca3, type: 2}
     - target: {fileID: 9181716830030837955, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: id
-      value: 45875a1d-d8fd-4dc9-b432-c7e7731a371e
+      value: 5b05c0af-92ad-4a6f-8cd2-f9f8a35dcb82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6606348283385292016, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5041361315177456624}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+--- !u!4 &5463018445498935671 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6606348283385292016, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+  m_PrefabInstance: {fileID: 1188665081184898439}
+  m_PrefabAsset: {fileID: 0}

@@ -54,12 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Name
-      value: DestructibleProp Variant
+      value: DestructibleProp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3169598573834851712}
     - targetCorrespondingSourceObject: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 567268418546475467}
@@ -78,6 +81,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
   m_PrefabInstance: {fileID: 5506479328130904331}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3169598573834851712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2216521720108471509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11387cd49130af840a1582552ab97974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityStatProvider
 --- !u!114 &567268418546475467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   hpBase: 100
-  hpMax: 0
   hpPerLvl: 10
+  HpMax: 0
   entityRoot: {fileID: 0}
   destroyOnDeath: 1
 --- !u!114 &8951844872444627828

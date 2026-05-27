@@ -11,8 +11,8 @@ public class Terrain : MonoBehaviour
 
 	public void Setup(Vector2 lookDirection, float hpMax, float terrainLifetime)
 	{
-		if (TryGetComponent(out Health hpComponent))
-			hpComponent.hpMax = hpMax;
+		if (TryGetComponent(out IStatProvider statProvider))
+			statProvider.EntityHealth.HpMax = hpMax;
         
 		Destroy(gameObject, terrainLifetime);
         

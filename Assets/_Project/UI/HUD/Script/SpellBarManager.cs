@@ -29,7 +29,7 @@ public class SpellBarManager : MonoBehaviour
         UpdateSpellSlotUI(3, spellBarRIcon, spellBarRText, "R");
         
         // Slot 4: F
-        UpdateSpellSlotUI(4, spellBarFIcon, spellBarFText, "F");
+        UpdateSpellSlotUI(4, spellBarFIcon, spellBarFText, "RMB");
     }
 
     private void UpdateSpellSlotUI(int slotIndex, Image slotImage, TextMeshProUGUI slotKeybindText, string keyName)
