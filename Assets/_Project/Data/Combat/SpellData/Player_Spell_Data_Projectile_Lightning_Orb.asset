@@ -17,7 +17,7 @@ MonoBehaviour:
   spellIcon: {fileID: -1487120408008746009, guid: 4f853357d0039bf44866b9a04c452ed2, type: 3}
   spellPrefab: {fileID: 8396159159101520813, guid: cf1d54f605aba5d4abe4cc8a56ed626d, type: 3}
   spellAnimation: 1
-  baseDamage: 5
+  baseDamage: 25
   baseMpCost: 0
   baseCastTime: 1
   hitOncePerTarget: 0
@@ -28,6 +28,6 @@ MonoBehaviour:
   knockbackForce: 10
   knockbackDuration: 0.2
   knockbackHeight: 0.4
-  projectileSpeed: 2
+  projectileSpeed: 3
   projectileLifetime: 10
   projectileHeight: 0

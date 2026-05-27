@@ -4,6 +4,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Transform _projectileVisual;
+    [SerializeField] private GameObject _projectileHitFX;
     private enum MovementType {Linear, Curved}
     private MovementType _movementType;
     private bool _destroyOnCollisions;
@@ -142,7 +143,9 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!_destroyOnCollisions) return;
-
+        
+        Instantiate(_projectileHitFX, transform.position, Quaternion.identity);
+        
         if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
         {
             Destroy(gameObject);
