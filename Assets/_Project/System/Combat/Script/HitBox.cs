@@ -62,7 +62,8 @@ public abstract class HitBox : MonoBehaviour
             {
                 targetsHit.Add(victim);
                 HandlePostHit(other);
-
+                
+                // If there is a enemies hit limit
                 if (_maxEnemiesHitCount > 0)
                 {
                     _maxEnemiesHitCount--;

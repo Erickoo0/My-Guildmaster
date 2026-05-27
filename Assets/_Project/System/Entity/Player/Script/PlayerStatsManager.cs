@@ -10,6 +10,9 @@ public class PlayerStatsManager : MonoBehaviour
     private Health _healthComponent;
     private Mana _manaComponent;
     private Level _levelComponent;
+    public Health HealthComponent => _healthComponent;
+    public Mana ManaComponent => _manaComponent;
+    public Level LevelComponent => _levelComponent;
 
     [Header("UI References")] [SerializeField]
     private GameObject playerStatsPanel;

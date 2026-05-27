@@ -15,8 +15,48 @@ public class SpellBarManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spellBarFText;
     [SerializeField] private PlayerController _playerController;
 
-    private void awake()
+    private void Start()
     {
-        //Sprite spellIconQ = _playerController.SpellSlots[0];
+        if (_playerController == null || _playerController.SpellSlots == null) return;
+        
+        // Slot 1: Q
+        UpdateSpellSlotUI(1, spellBarQIcon, spellBarQText, "Q");
+        
+        // Slot 2: E
+        UpdateSpellSlotUI(2, spellBarEIcon, spellBarEText, "E");
+        
+        // Slot 3: R
+        UpdateSpellSlotUI(3, spellBarRIcon, spellBarRText, "R");
+        
+        // Slot 4: F
+        UpdateSpellSlotUI(4, spellBarFIcon, spellBarFText, "F");
+    }
+
+    private void UpdateSpellSlotUI(int slotIndex, Image slotImage, TextMeshProUGUI slotKeybindText, string keyName)
+    {
+        // 1. Ensure index exists within spell slots list
+        if (_playerController.SpellSlots.Count > slotIndex && _playerController.SpellSlots[slotIndex] != null)
+        {
+            // 2. Ensure spell data exists
+            var spell = _playerController.SpellSlots[slotIndex];
+            var spellData = spell.GetSpellData();
+            
+            // 3. Update UI
+            if (spellData != null && spellData.spellIcon != null)
+            {
+                slotImage.sprite = spellData.spellIcon;
+                slotKeybindText.text = keyName;
+                slotImage.enabled = true;
+            } 
+            else // Turn off the slot if there's no spell data'
+            {
+                slotImage.enabled = false;
+                slotKeybindText.text = "";
+            }
+        } else // Turn off the slot if there's no spell data'
+        {
+            slotImage.enabled = false;
+            slotKeybindText.text = "";
+        }
     }
 }

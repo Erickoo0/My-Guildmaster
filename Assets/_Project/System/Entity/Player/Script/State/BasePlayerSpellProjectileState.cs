@@ -50,6 +50,7 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
    protected override void HandleAnimationEvent()
    {
       if (hasTriggered) return;
+      if (controller == null) return;
       
       Vector3 spawnPosition = _firePoint.transform.position;
       Vector2 direction = (controller.WorldMousePosition - spawnPosition).normalized;

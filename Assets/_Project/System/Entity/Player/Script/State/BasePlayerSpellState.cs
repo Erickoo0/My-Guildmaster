@@ -8,6 +8,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
     protected SpellData spellData;
     [HideInInspector] public int CurrentSlotIndex = -1;
     public float MpCost => spellData != null ? spellData.baseMpCost : 0f;
+    public SpellData GetSpellData() => spellData;
     
     [Header("Cast Bar")]
     protected CastBar castBar;
@@ -64,6 +65,9 @@ public abstract class BasePlayerSpellState : State<PlayerController>
 
     public override void Update()
     {
+        // Safety check
+        if (spellData == null || CurrentSlotIndex == -1) return;
+        
         // 1. Check if the spell keybind is still being held
         if (!hasTriggered && isCasting)
         {

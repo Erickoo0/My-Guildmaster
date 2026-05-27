@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
 
     // Track movement progress
     private float _totalDuration;
-    private float _elapsedTime;
+    private float _currentDuration;
 
     public void Setup(Vector3 projectileTargetPosition, float projectileSpeed, float projectileLifetime, AnimationCurve projectileCurve, float projectileMaxHeight, DamageData damageData)
     {
@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
 
             _projectileTargetPosition = projectileTargetPosition;
             _projectileCurve = projectileCurve;
-            _elapsedTime = 0f;
+            _currentDuration = 0f;
             
             // Disable hitbox during movement
             if (_hitBox != null) _hitBox.enableHitbox = false;
@@ -93,8 +93,8 @@ public class Projectile : MonoBehaviour
     private void UpdateCurvedMovement()
     {
         // 1. Accumulate elapsed time and normalize it between 0.0 and 1.0
-        _elapsedTime += Time.deltaTime;
-        float t = Mathf.Clamp01(_elapsedTime / _totalDuration);
+        _currentDuration += Time.deltaTime;
+        float t = Mathf.Clamp01(_currentDuration / _totalDuration);
         
         // 2. Move the ROOT game object (Hitbox & Shadow) linearly
         transform.position = Vector3.Lerp(_projectileStartPosition, _projectileTargetPosition, t);
