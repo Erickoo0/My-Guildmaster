@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: Dialogue_Quest_Mai_Tutorial01_Fin
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
-  dialogueNodes: []
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Wow, you got me the beef! thank you so much!
+    dialogueOptions: []
+    nodeEvent: CompleteQuest
+    nodeEventParameter: Quest_Mai_Tutorial01
+    requirements:
+    - type: 0
+      questID: Quest_Mai_Tutorial01
+      requiredState: 2
+    selectionWeight: 0
+    isImportant: 0

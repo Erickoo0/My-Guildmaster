@@ -13,4 +13,13 @@ MonoBehaviour:
   m_Name: Dialogue_Mai_Hobby
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
-  dialogueNodes: []
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - I love shopping, yayyy
+    dialogueOptions: []
+    nodeEvent: 
+    nodeEventParameter: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0

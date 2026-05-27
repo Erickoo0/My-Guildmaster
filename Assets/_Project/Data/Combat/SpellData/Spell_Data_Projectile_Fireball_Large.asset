@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac726f3eeb3bde469dd979aeb272eac, type: 3}
+  m_Name: Spell_Data_Projectile_Fireball_Large
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttackData
+  spellID: Spell_Data_Projectile_Fireball_Large
+  spellName: Large Fireball
+  spellIcon: {fileID: 0}
+  spellPrefab: {fileID: 3301934860267052368, guid: 4af734ae41faf5c4b94b5a521cbb2fc7, type: 3}
+  spellAnimation: 1
+  baseDamage: 30
+  baseCastTime: 3
+  hitOncePerTarget: 1
+  destroyOnMaxHits: 1
+  baseMaxEnemiesHit: 10
+  spellScale: 3
+  damageType: 0
+  knockbackForce: 30
+  knockbackDuration: 0.35
+  knockbackHeight: 1
+  projectileSpeed: 12
+  projectileLifetime: 5

@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 public class HurtBox : MonoBehaviour, IDamagable
 {
     [Header("References)")]
+    [Tooltip("If null, will look for a Health component on the same GameObject")]
     [SerializeField] private Health health;
     
     [Header("Invulnerability")]
@@ -50,6 +51,12 @@ public class HurtBox : MonoBehaviour, IDamagable
         {
             entityMover.ApplyKnockback(data.hitDirection, data.knockbackForce, data.knockbackDuration, data.knockbackHeight, data.source);
             GetComponent<CinemachineImpulseSource>().GenerateImpulse();  
+        }
+        
+        // Handle Squash and Stretch
+        if (TryGetComponent<SquashAndStretch>(out SquashAndStretch squishAndSquashEffect)) 
+        {
+            squishAndSquashEffect.SquishAndSquash();
         }
         
         // Trigger shader effects

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffbd146ed975b38448f5483321998b40, type: 3}
+  m_Name: Player_Spell_Data_Buff_Heal
+  m_EditorClassIdentifier: Assembly-CSharp::BuffSpellData
+  spellID: Player_Spell_Data_Buff_Heal
+  spellName: Heal
+  spellIcon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+  spellPrefab: {fileID: 6139296669300658502, guid: 75bbde1e2d2aaa547a410fdb4f7422b4, type: 3}
+  spellAnimation: 0
+  baseDamage: 0
+  baseMpCost: 0
+  baseCastTime: 0
+  hitOncePerTarget: 1
+  destroyOnMaxHits: 1
+  baseMaxEnemiesHit: 0
+  spellScale: 1
+  damageType: 0
+  knockbackForce: 30
+  knockbackDuration: 0.35
+  knockbackHeight: 1
+  buffType: 0
+  buffAmount: 30
+  buffDuration: 2

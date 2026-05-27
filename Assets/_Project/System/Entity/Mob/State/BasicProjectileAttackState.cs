@@ -2,71 +2,83 @@ using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class BasicProjectileAttackState : BaseCastState
+public class BasicProjectileAttackState : BaseAttackState
 {
-    [Header("References")]
-    [SerializeField] private string attackID;
-    private ProjectileAttackData _attackData;
+    private ProjectileSpellData _projectileAttackData;
     private GameObject _firePoint;
-
+    
+    [SerializeField] private AnimationCurve _projectileCurve;
+    
     public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
         
-        _attackData = controller.GetAttackData<ProjectileAttackData>(attackID);
+        _projectileAttackData = attackData as ProjectileSpellData;
         
         var firePointComponent = controller.GetComponentInChildren<FirePoint>();
         _firePoint = (firePointComponent != null) ? firePointComponent.gameObject : controller.gameObject;
+        
+        if (_projectileCurve == null || _projectileCurve.length == 0)
+            _projectileCurve = CreateDefaultArcCurve();
     }
 
     public override void Enter()
     {
-        base.Enter();
-        
-        if (_attackData == null)
+        // Safety CHeck
+        if (_projectileAttackData == null || _projectileAttackData.spellPrefab == null)
         {
-            Debug.LogWarning("Attack data is null");
+            Debug.LogWarning("Missing Projectile Attack Data or Prefab!");
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
-    
-        controller.EntityAnimator.OnAnimationEventRequested += ExecuteAttack;
-        controller.EntityMover.SetMoveDirection(Vector2.zero);
 
-        StartCastingRoutine(_attackData.baseCastTime, _attackData.attackID);
+        base.Enter();
     }
 
-    private void ExecuteAttack()
+    public override void Update()
+    {
+        base.Update();
+        
+        // Face the aim direction
+        if (controller.currentTarget != null)
+        {
+            Vector2 aimDirection = (controller.currentTarget.transform.position - _firePoint.transform.position).normalized;
+            controller.EntityAnimator.FaceDirection(aimDirection);
+        }
+    }
+    
+    protected override void HandleAnimationEvent()
     {
         // Safety Check
+        if (hasTriggered) return;
         if (controller.currentTarget == null) return;
-        
-        if (hasFired) return;
         
         // Calculate the flight direction of the projectile
         Vector2 spawnPosition = _firePoint.transform.position;
-        Vector2 targetPosition = controller.currentTarget.transform.position;
-        Vector2 direction = (targetPosition - spawnPosition).normalized;
+        Vector2 targetPosition = controller.currentTarget.position;
         
-        GameObject projectile = Object.Instantiate(_attackData.attackPrefab, spawnPosition, Quaternion.identity);
-        projectile.transform.localScale *= _attackData.attackScale;
+        GameObject projectile = Object.Instantiate(_projectileAttackData.spellPrefab, spawnPosition, Quaternion.identity);
+        
+        // Apply scale
+        if (attackData.spellScale != 1f)
+            projectile.transform.localScale *= _projectileAttackData.spellScale;
         
         if (projectile.TryGetComponent(out Projectile projectileComponent))
         {
-            DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
-            
-            projectileComponent.Setup(direction, _attackData.projectileSpeed, _attackData.projectileLifetime, finalDamage);
+            DamageData finalDamage = _projectileAttackData.CreateDamageData(controller.gameObject);
+            projectileComponent.Setup(targetPosition, _projectileAttackData.projectileSpeed, _projectileAttackData.projectileLifetime, _projectileCurve, _projectileAttackData.projectileHeight, _projectileAttackData.destroyOnMaxHits, finalDamage);
         }
         
-        hasFired = true;
+        hasTriggered = true;
     }
     
-    public override void PhysicsUpdate() { }
-    public override void HandleInput() { }
-
-    public override void Exit()
+    private AnimationCurve CreateDefaultArcCurve ()
     {
-        controller.EntityAnimator.OnAnimationEventRequested -= ExecuteAttack;
-        base.Exit();
+        return new AnimationCurve
+            (
+            new Keyframe(0f, 0f, 0f, 4f), 
+            new Keyframe(0.5f, 1f, 0f, 0f),
+            new Keyframe(1f, 0f, -4f, 0f)
+            );
     }
 }

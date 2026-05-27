@@ -17,6 +17,8 @@ public class GoldManager : MonoBehaviour, ISaveable
       }
       
       Instance = this;
+      
+      goldText.text = playerGold.ToString();
    }
    
    public void AddGold(int amount)

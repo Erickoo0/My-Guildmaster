@@ -20,7 +20,7 @@ public class PlayerStatsPersistance : MonoBehaviour, ISaveable
     {
         saveData.playerPosition = transform.position;
         saveData.currentHealth = _healthComponent.HpCurrent;
-        saveData.maxHealth = _healthComponent.hpMax;
+        saveData.maxHealth = _healthComponent.HpMax;
         saveData.currentMana = _manaComponent.MpCurrent;
         saveData.maxMana = _manaComponent.mpMax;
         saveData.currentLevel = _levelComponent.LvlCurrent;

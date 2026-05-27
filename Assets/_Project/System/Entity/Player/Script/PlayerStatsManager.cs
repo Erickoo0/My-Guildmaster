@@ -6,10 +6,15 @@ public class PlayerStatsManager : MonoBehaviour
 {
     public static PlayerStatsManager Instance { get; private set; }
 
-    [Header("Player Stats")] 
+    [Header("Player Stats")]
+    private GameObject _player;
     private Health _healthComponent;
     private Mana _manaComponent;
     private Level _levelComponent;
+    
+    public Health HealthComponent => _healthComponent;
+    public Mana ManaComponent => _manaComponent;
+    public Level LevelComponent => _levelComponent;
 
     [Header("UI References")] [SerializeField]
     private GameObject playerStatsPanel;
@@ -31,6 +36,7 @@ public class PlayerStatsManager : MonoBehaviour
         Instance = this;
 
         // Get the components
+        _player = GameObject.FindGameObjectWithTag("Player");
         _healthComponent = GetComponent<Health>();
         _manaComponent = GetComponent<Mana>();
         _levelComponent = GetComponent<Level>();
@@ -44,6 +50,7 @@ public class PlayerStatsManager : MonoBehaviour
         _healthComponent.OnHpUpdated += UpdateStatsMenu;
         _manaComponent.OnMpUpdated += UpdateStatsMenu;
         _levelComponent.OnLevelUpdated += UpdateStatsMenu;
+        _levelComponent.OnLevelUpdated += HandleLevelUp;
         _levelComponent.OnExperienceGained += UpdateStatsMenu;
 
         EventBus.OnEntityDeathRequested += HandleEntityDeath;
@@ -54,12 +61,26 @@ public class PlayerStatsManager : MonoBehaviour
         _healthComponent.OnHpUpdated -= UpdateStatsMenu;
         _manaComponent.OnMpUpdated -=  UpdateStatsMenu;
         _levelComponent.OnLevelUpdated -= UpdateStatsMenu;
+        _levelComponent.OnLevelUpdated -= HandleLevelUp;
         _levelComponent.OnExperienceGained -= UpdateStatsMenu;
         EventBus.OnEntityDeathRequested -= HandleEntityDeath;
     }
 
+    private void Start() => HandleLevelUp();
+
+    private void HandleLevelUp()
+    {
+        if (_levelComponent == null) return;
+        
+        int currentLevel = _levelComponent.LvlCurrent;
+
+        if (_healthComponent != null) _healthComponent.RecalculateMaxHp(currentLevel);
+        if (_manaComponent != null) _manaComponent.RecalculateMaxMp(currentLevel);
+    }
+
     private void HandleEntityDeath(GameObject entity)
     {
+        // Get the level component of the dead entity and add experience to the player level component
         if (entity.TryGetComponent(out Level entityLevelComponent))
         {
             _levelComponent.AddExperience(entityLevelComponent.ExpYield);
@@ -68,9 +89,8 @@ public class PlayerStatsManager : MonoBehaviour
     
     private void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player is not null)
-            transform.position = player.transform.position;
+        if (_player != null)
+            transform.position = _player.transform.position;
     }
 
     public void ToggleMenu(InputAction.CallbackContext context)
@@ -82,7 +102,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void UpdateStatsMenu()
     {
-        playerHpText.text = ($"HP: {_healthComponent.HpCurrent}/{_healthComponent.hpMax}");
+        playerHpText.text = ($"HP: {_healthComponent.HpCurrent}/{_healthComponent.HpMax}");
         playerMpText.text = ($"MP: {_manaComponent.MpCurrent}/{_manaComponent.mpMax}");
         playerLvlText.text = ($"Lvl: {_levelComponent.LvlCurrent}");
         playerExpText.text = ($"Exp: {_levelComponent.ExpCurrent}/{_levelComponent.ExpToNextLvl}");

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ada14571e42364fa947ce1701c83be, type: 3}
+  m_Name: Spell_Data_Melee_Sword_Swing
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeAttackData
+  spellID: Spell_Data_Melee_Sword_Swing
+  spellName: Sword Swing
+  spellIcon: {fileID: 0}
+  spellPrefab: {fileID: 0}
+  baseDamage: 20
+  baseCastTime: 0
+  hitOncePerTarget: 1
+  destroyOnMaxHits: 1
+  baseMaxEnemiesHit: 0
+  spellScale: 1
+  damageType: 0
+  knockbackForce: 30
+  knockbackDuration: 0.35
+  knockbackHeight: 1

@@ -1,0 +1,42 @@
+using UnityEngine;
+
+public class EntityStatProvider : MonoBehaviour, IStatProvider
+{
+    private Health _health;
+    private Mana _mana;
+    private Level _level;
+    
+    public Health EntityHealth => _health;
+    public Mana EntityMana => _mana;
+    public Level EntityLevel => _level;
+    
+    private void Awake()
+    {
+        _health = GetComponent<Health>();
+        _mana = GetComponent<Mana>();
+        _level = GetComponent<Level>();
+    }
+    
+    private void OnEnable()
+    {
+        if (_level != null) _level.OnLevelUpdated += SyncStatsToLevel;
+    }
+
+    private void OnDisable()
+    {
+        if (_level != null) _level.OnLevelUpdated -= SyncStatsToLevel;
+    }
+
+    private void Start()
+    {
+        SyncStatsToLevel();
+    }
+    
+    private void SyncStatsToLevel()
+    {
+        if (_level == null) return;
+        
+        if (_health != null) _health.RecalculateMaxHp(_level.LvlCurrent);
+        if (_mana != null) _mana.RecalculateMaxMp(_level.LvlCurrent);
+    }
+}

@@ -5,7 +5,6 @@ public class PlayerEquipment : MonoBehaviour
     public static PlayerEquipment Instance { get; private set; }
     
     [Header("Equipment Settings")]
-    [Tooltip("The transform where the instantiated item will be parented")]
     [SerializeField] private Transform parentTransform;
     
     private GameObject _currentActiveItem;
@@ -93,7 +92,7 @@ public class PlayerEquipment : MonoBehaviour
 
         if (activeItem.DataSo.IsUsable == true)
         {
-            bool wasUsed = activeItem.DataSo.Use(activeItem);
+            bool wasUsed = activeItem.DataSo.Use(activeItem, gameObject);
             if (wasUsed)
             {
                 InventoryManager.Instance.RemoveItems(_currentActiveSlotIndex);

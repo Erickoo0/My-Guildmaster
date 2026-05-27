@@ -13,4 +13,13 @@ MonoBehaviour:
   m_Name: Dialogue_Mai_Sleep
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
-  dialogueNodes: []
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - You shouldnt wake a princess during her beauty sleep.
+    dialogueOptions: []
+    nodeEvent: 
+    nodeEventParameter: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0

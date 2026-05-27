@@ -120,9 +120,17 @@ public class ItemObject : MonoBehaviour
         await transform.DOMove(collision.transform.position, pullSpeed).SetEase(pullEase).AsyncWaitForCompletion();
             
         // 4. Execute pickup
-        bool wasPickedUp = InventoryManager.Instance.AddItems(_itemInstance);
-        if (wasPickedUp)
+        if (_itemInstance.DataSo.ItemID != "Item_Resource_Coin")
         {
+            bool wasPickedUp = InventoryManager.Instance.AddItems(_itemInstance);
+            if (wasPickedUp)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (_itemInstance.DataSo.ItemID == "Item_Resource_Coin")
+        {
+            GoldManager.Instance.AddGold(_itemInstance.stackSize);
             Destroy(gameObject);
         }
     }

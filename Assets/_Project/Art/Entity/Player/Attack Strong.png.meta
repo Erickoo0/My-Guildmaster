@@ -134,126 +134,6 @@ TextureImporter:
   - first:
       213: 6559553003940740000
     second: Attack Strong_43
-  - first:
-      213: 4266954155313715453
-    second: Attack Strong_44
-  - first:
-      213: 2880218483599823139
-    second: Attack Strong_45
-  - first:
-      213: -4280018637634658699
-    second: Attack Strong_46
-  - first:
-      213: -6562488464055736885
-    second: Attack Strong_47
-  - first:
-      213: -4126545109117550140
-    second: Attack Strong_48
-  - first:
-      213: -4894741420590505353
-    second: Attack Strong_49
-  - first:
-      213: -9096170655544182410
-    second: Attack Strong_50
-  - first:
-      213: 5602409232083143553
-    second: Attack Strong_51
-  - first:
-      213: -7815423741993772428
-    second: Attack Strong_52
-  - first:
-      213: 9092229236740649003
-    second: Attack Strong_53
-  - first:
-      213: 6942004726089972633
-    second: Attack Strong_54
-  - first:
-      213: -4242402197431662650
-    second: Attack Strong_55
-  - first:
-      213: 480676538832196951
-    second: Attack Strong_56
-  - first:
-      213: 1490635056321548788
-    second: Attack Strong_57
-  - first:
-      213: -3532157307976971504
-    second: Attack Strong_58
-  - first:
-      213: 3557575042456465985
-    second: Attack Strong_59
-  - first:
-      213: -7629729809012495114
-    second: Attack Strong_60
-  - first:
-      213: -5936705404209290915
-    second: Attack Strong_61
-  - first:
-      213: -8927929391353356994
-    second: Attack Strong_62
-  - first:
-      213: -2199406024041963045
-    second: Attack Strong_63
-  - first:
-      213: -8229961520657753031
-    second: Attack Strong_64
-  - first:
-      213: 8364101395456795100
-    second: Attack Strong_65
-  - first:
-      213: 5432558821808505006
-    second: Attack Strong_66
-  - first:
-      213: 6619983333138132268
-    second: Attack Strong_67
-  - first:
-      213: -5260325751559028739
-    second: Attack Strong_68
-  - first:
-      213: 6237988274170858457
-    second: Attack Strong_69
-  - first:
-      213: 410469447203913485
-    second: Attack Strong_70
-  - first:
-      213: 7020549612732013234
-    second: Attack Strong_71
-  - first:
-      213: 3942938546888623398
-    second: Attack Strong_72
-  - first:
-      213: -7554428128334363997
-    second: Attack Strong_73
-  - first:
-      213: -1199431927796595860
-    second: Attack Strong_74
-  - first:
-      213: 2163855414024333222
-    second: Attack Strong_75
-  - first:
-      213: 5874012307870905684
-    second: Attack Strong_76
-  - first:
-      213: 6729748051478759666
-    second: Attack Strong_77
-  - first:
-      213: -2694968985165453349
-    second: Attack Strong_78
-  - first:
-      213: 4996773769295824001
-    second: Attack Strong_79
-  - first:
-      213: 6457884536007051762
-    second: Attack Strong_80
-  - first:
-      213: -1295946297949828662
-    second: Attack Strong_81
-  - first:
-      213: -5091071100065957637
-    second: Attack Strong_82
-  - first:
-      213: -6667631483707162922
-    second: Attack Strong_83
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -357,7 +237,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -379,7 +259,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -401,7 +281,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -423,7 +303,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -445,7 +325,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -467,7 +347,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -489,7 +369,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -511,7 +391,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -533,7 +413,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -555,7 +435,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -577,7 +457,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -594,12 +474,12 @@ TextureImporter:
       name: Attack Strong_11
       rect:
         serializedVersion: 2
-        x: 550
-        y: 150
+        x: 0
+        y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -616,12 +496,12 @@ TextureImporter:
       name: Attack Strong_12
       rect:
         serializedVersion: 2
-        x: 600
-        y: 150
+        x: 50
+        y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -638,12 +518,12 @@ TextureImporter:
       name: Attack Strong_13
       rect:
         serializedVersion: 2
-        x: 650
-        y: 150
+        x: 100
+        y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -660,19 +540,19 @@ TextureImporter:
       name: Attack Strong_14
       rect:
         serializedVersion: 2
-        x: 0
+        x: 150
         y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7504f3c06d7276a4697d728709dc90f0
+      spriteID: 881e314b726087380800000000000000
       internalID: -8973415489941020280
       vertices: []
       indices: 
@@ -682,19 +562,19 @@ TextureImporter:
       name: Attack Strong_15
       rect:
         serializedVersion: 2
-        x: 50
+        x: 200
         y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7cc6602f57bdbe64a9e14817b12f1de8
+      spriteID: f7d5a6de310b879c0800000000000000
       internalID: -3929197075246719617
       vertices: []
       indices: 
@@ -704,19 +584,19 @@ TextureImporter:
       name: Attack Strong_16
       rect:
         serializedVersion: 2
-        x: 100
+        x: 250
         y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 906e7486cf955e64b98d27b68912b176
+      spriteID: c1979d71a625dc760800000000000000
       internalID: 7479725171752401180
       vertices: []
       indices: 
@@ -726,19 +606,19 @@ TextureImporter:
       name: Attack Strong_17
       rect:
         serializedVersion: 2
-        x: 150
+        x: 300
         y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5da3068b0fc7e5649a50a3d4ef4b3b02
+      spriteID: 6a550116803680060800000000000000
       internalID: 6919889715094115750
       vertices: []
       indices: 
@@ -748,19 +628,19 @@ TextureImporter:
       name: Attack Strong_18
       rect:
         serializedVersion: 2
-        x: 200
+        x: 350
         y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 75f3b0a4ef278064cba8a3b48bcec8d2
+      spriteID: 8b74959a7f9ce0640800000000000000
       internalID: 5048194297864210360
       vertices: []
       indices: 
@@ -770,19 +650,19 @@ TextureImporter:
       name: Attack Strong_19
       rect:
         serializedVersion: 2
-        x: 250
+        x: 400
         y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8f5615b3d1327c24f88b15551e9b4537
+      spriteID: 1457760ba46aa7350800000000000000
       internalID: 6015303092024079681
       vertices: []
       indices: 
@@ -792,19 +672,19 @@ TextureImporter:
       name: Attack Strong_20
       rect:
         serializedVersion: 2
-        x: 300
+        x: 450
         y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 475cdc55006138a4f88e48f94aa45749
+      spriteID: f72af59011a508590800000000000000
       internalID: -7674034735821118849
       vertices: []
       indices: 
@@ -814,19 +694,19 @@ TextureImporter:
       name: Attack Strong_21
       rect:
         serializedVersion: 2
-        x: 350
+        x: 500
         y: 100
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d6de914dfd8fa2548a3df3a6130f5f18
+      spriteID: 021e6ff5fcceb8700800000000000000
       internalID: 543788555440677152
       vertices: []
       indices: 
@@ -836,19 +716,19 @@ TextureImporter:
       name: Attack Strong_22
       rect:
         serializedVersion: 2
-        x: 400
-        y: 100
+        x: 0
+        y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3a05217bd3108dd44915d096185089e5
+      spriteID: 46d75d371b9b6c320800000000000000
       internalID: 2577952008519908708
       vertices: []
       indices: 
@@ -858,19 +738,19 @@ TextureImporter:
       name: Attack Strong_23
       rect:
         serializedVersion: 2
-        x: 450
-        y: 100
+        x: 50
+        y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1ac6fc507e7722949abc5d8f5f72f7ce
+      spriteID: 421a718ba93e53e90800000000000000
       internalID: -7046475788298247900
       vertices: []
       indices: 
@@ -880,19 +760,19 @@ TextureImporter:
       name: Attack Strong_24
       rect:
         serializedVersion: 2
-        x: 500
-        y: 100
+        x: 100
+        y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ac89304d7f99c534785fcd5f2487fa58
+      spriteID: b01f4bd4d7ccda9a0800000000000000
       internalID: -6220090671782104821
       vertices: []
       indices: 
@@ -902,19 +782,19 @@ TextureImporter:
       name: Attack Strong_25
       rect:
         serializedVersion: 2
-        x: 550
-        y: 100
+        x: 150
+        y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6bb46576c135aac459723767c2292967
+      spriteID: eb046797a9eb7cd40800000000000000
       internalID: 5604657831957905598
       vertices: []
       indices: 
@@ -924,19 +804,19 @@ TextureImporter:
       name: Attack Strong_26
       rect:
         serializedVersion: 2
-        x: 600
-        y: 100
+        x: 200
+        y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b8c739f755b77eb49806b3c7d89ae37a
+      spriteID: 561a86095cdd03180800000000000000
       internalID: -9137559803333664411
       vertices: []
       indices: 
@@ -946,19 +826,19 @@ TextureImporter:
       name: Attack Strong_27
       rect:
         serializedVersion: 2
-        x: 650
-        y: 100
+        x: 250
+        y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2790a0d33375d19438195631597340cf
+      spriteID: a60e44f022d188000800000000000000
       internalID: 38312628954914922
       vertices: []
       indices: 
@@ -968,19 +848,19 @@ TextureImporter:
       name: Attack Strong_28
       rect:
         serializedVersion: 2
-        x: 0
+        x: 300
         y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1d5a7252a2028a74699381140f3f84f3
+      spriteID: 8a9878a78c1d21ca0800000000000000
       internalID: -6047540690625787480
       vertices: []
       indices: 
@@ -990,19 +870,19 @@ TextureImporter:
       name: Attack Strong_29
       rect:
         serializedVersion: 2
-        x: 50
+        x: 350
         y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cd81d3a6fd93bfc4dbe908493562813d
+      spriteID: 1e2e8d0ec9d6ceff0800000000000000
       internalID: -5508978979577119
       vertices: []
       indices: 
@@ -1012,19 +892,19 @@ TextureImporter:
       name: Attack Strong_30
       rect:
         serializedVersion: 2
-        x: 100
+        x: 400
         y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6675c0dbc37e74d409b7f1f61ba762fd
+      spriteID: 004c4c2a2e2831230800000000000000
       internalID: 3608371636358923264
       vertices: []
       indices: 
@@ -1034,19 +914,19 @@ TextureImporter:
       name: Attack Strong_31
       rect:
         serializedVersion: 2
-        x: 150
+        x: 450
         y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2215d611730a9854ca1f52c707aae8a9
+      spriteID: 82cc3c397cc68c2b0800000000000000
       internalID: -5564077735182873560
       vertices: []
       indices: 
@@ -1056,19 +936,19 @@ TextureImporter:
       name: Attack Strong_32
       rect:
         serializedVersion: 2
-        x: 200
+        x: 500
         y: 50
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 32b36dc05bf86744297b30b2fd5477c6
+      spriteID: d60f6ec3728e51c50800000000000000
       internalID: 6635464881223430253
       vertices: []
       indices: 
@@ -1078,19 +958,19 @@ TextureImporter:
       name: Attack Strong_33
       rect:
         serializedVersion: 2
-        x: 250
-        y: 50
+        x: 0
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b7ece3cfa85cf5244820459899b44b55
+      spriteID: 0aaf8acbd450b39b0800000000000000
       internalID: -5099476321631143264
       vertices: []
       indices: 
@@ -1100,19 +980,19 @@ TextureImporter:
       name: Attack Strong_34
       rect:
         serializedVersion: 2
-        x: 300
-        y: 50
+        x: 50
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5a5b7b2e83ac7064fab5c1e074cab256
+      spriteID: 3cc70a49433a0cd60800000000000000
       internalID: 7908500391889763523
       vertices: []
       indices: 
@@ -1122,19 +1002,19 @@ TextureImporter:
       name: Attack Strong_35
       rect:
         serializedVersion: 2
-        x: 350
-        y: 50
+        x: 100
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5953210c186ac4c45a3009096a009809
+      spriteID: 4824be30153e70af0800000000000000
       internalID: -430125302292987260
       vertices: []
       indices: 
@@ -1144,19 +1024,19 @@ TextureImporter:
       name: Attack Strong_36
       rect:
         serializedVersion: 2
-        x: 400
-        y: 50
+        x: 150
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6386a0f0445577147ac5b13155fb42b1
+      spriteID: 2114af6b091d89ff0800000000000000
       internalID: -29042978102558446
       vertices: []
       indices: 
@@ -1166,19 +1046,19 @@ TextureImporter:
       name: Attack Strong_37
       rect:
         serializedVersion: 2
-        x: 450
-        y: 50
+        x: 200
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9cdbc5c0a431b9c40bb0014f01cc7acb
+      spriteID: 7a5fdd27fcfcd17a0800000000000000
       internalID: -6404734605158648409
       vertices: []
       indices: 
@@ -1188,19 +1068,19 @@ TextureImporter:
       name: Attack Strong_38
       rect:
         serializedVersion: 2
-        x: 500
-        y: 50
+        x: 250
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6e017db9560c40047b026bf0b7ce21d0
+      spriteID: 3570fdfc4c940e950800000000000000
       internalID: 6476257373808691027
       vertices: []
       indices: 
@@ -1210,19 +1090,19 @@ TextureImporter:
       name: Attack Strong_39
       rect:
         serializedVersion: 2
-        x: 550
-        y: 50
+        x: 300
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8c0f22dfa30a96c4ebec100c9865e328
+      spriteID: ac199ed835eb600a0800000000000000
       internalID: -6915630911708360246
       vertices: []
       indices: 
@@ -1232,19 +1112,19 @@ TextureImporter:
       name: Attack Strong_40
       rect:
         serializedVersion: 2
-        x: 600
-        y: 50
+        x: 350
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 17930441896f1ef4fa830acfb7aa42d8
+      spriteID: f845c1f0e54665b20800000000000000
       internalID: 3122793746771235983
       vertices: []
       indices: 
@@ -1254,19 +1134,19 @@ TextureImporter:
       name: Attack Strong_41
       rect:
         serializedVersion: 2
-        x: 650
-        y: 50
+        x: 400
+        y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8de732d47f6a8814a812490029265189
+      spriteID: 764e0ef0bd6dbba30800000000000000
       internalID: 4232212511197291623
       vertices: []
       indices: 
@@ -1276,19 +1156,19 @@ TextureImporter:
       name: Attack Strong_42
       rect:
         serializedVersion: 2
-        x: 0
+        x: 450
         y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5bd4e31a7cefa5445820638b22599528
+      spriteID: 4b75157763ccd7180800000000000000
       internalID: -9115905536425896012
       vertices: []
       indices: 
@@ -1298,284 +1178,20 @@ TextureImporter:
       name: Attack Strong_43
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c62962a6087559448826ac39d22e913
-      internalID: 6559553003940740000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_44
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4d7c470275afa54fa2f0a4697a63048
-      internalID: 4266954155313715453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_45
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c368493698d940142a9b7e855735f7b9
-      internalID: 2880218483599823139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_46
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4e29ebd8c2421842b5ba213553e75b2
-      internalID: -4280018637634658699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_47
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ae0795f19fe60e4689a34de927e5f7c
-      internalID: -6562488464055736885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_48
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ddac42b2149823b4bb2788774852bd10
-      internalID: -4126545109117550140
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_49
-      rect:
-        serializedVersion: 2
-        x: 350
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aed155dc00625c743a297cc64c409b85
-      internalID: -4894741420590505353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_50
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2da898201e754a9489fc095dd90e8655
-      internalID: -9096170655544182410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_51
-      rect:
-        serializedVersion: 2
-        x: 450
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27e24e8a319665e4987d06e92e86ceb8
-      internalID: 5602409232083143553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_52
-      rect:
-        serializedVersion: 2
         x: 500
         y: 0
         width: 50
         height: 50
       alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
+      pivot: {x: 0.52, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3ee905de0bec4e24b9976575af2ee80a
-      internalID: -7815423741993772428
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_53
-      rect:
-        serializedVersion: 2
-        x: 550
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 919cd34a36edcc6438680d43c5fbf6be
-      internalID: 9092229236740649003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_54
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90732e35b6a06aa4899e168a9930a9b4
-      internalID: 6942004726089972633
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack Strong_55
-      rect:
-        serializedVersion: 2
-        x: 650
-        y: 0
-        width: 50
-        height: 50
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2285916}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f086222dc6b78724dae93ac41da46e23
-      internalID: -4242402197431662650
+      spriteID: 0abfb3df3b6380b50800000000000000
+      internalID: 6559553003940740000
       vertices: []
       indices: 
       edges: []
@@ -1584,7 +1200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1c6a8f2ef24c9a445bf8fc59dacc6475
+    spriteID: 9f33a97d434b81e41b0aa51ed1304444
     internalID: 0
     vertices: []
     indices: 
@@ -1594,7 +1210,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":50.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.22859160602092744},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":50.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5199999809265137,"y":0.23999999463558198},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Attack Strong_0: 506119693168407321
       Attack Strong_1: 8289364927863168214
@@ -1635,19 +1251,7 @@ TextureImporter:
       Attack Strong_41: 4232212511197291623
       Attack Strong_42: -9115905536425896012
       Attack Strong_43: 6559553003940740000
-      Attack Strong_44: 4266954155313715453
-      Attack Strong_45: 2880218483599823139
-      Attack Strong_46: -4280018637634658699
-      Attack Strong_47: -6562488464055736885
-      Attack Strong_48: -4126545109117550140
-      Attack Strong_49: -4894741420590505353
       Attack Strong_5: -8339908133775099030
-      Attack Strong_50: -9096170655544182410
-      Attack Strong_51: 5602409232083143553
-      Attack Strong_52: -7815423741993772428
-      Attack Strong_53: 9092229236740649003
-      Attack Strong_54: 6942004726089972633
-      Attack Strong_55: -4242402197431662650
       Attack Strong_6: 5090181259459502744
       Attack Strong_7: -3586967060269912754
       Attack Strong_8: 5045274783950331832

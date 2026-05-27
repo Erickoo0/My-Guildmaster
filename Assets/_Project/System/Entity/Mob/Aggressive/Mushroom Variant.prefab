@@ -17,6 +17,10 @@ PrefabInstance:
       value: 5971588418814869593
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: attackLibrary.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: <DetectionRange>k__BackingField
       value: 10
       objectReference: {fileID: 0}
@@ -30,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[7572515179751800910].attackID
-      value: ChargeAD
+      value: Spell_Data_Charge
       objectReference: {fileID: 0}
     - target: {fileID: 392546489883438871, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Sprite

@@ -13,4 +13,15 @@ MonoBehaviour:
   m_Name: Dialogue_Mai_Default
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
-  dialogueNodes: []
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Hello traveller, nice to meet you.
+    - 'My name is Mai. '
+    - Looking forward to seeing you around
+    dialogueOptions: []
+    nodeEvent: 
+    nodeEventParameter: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0

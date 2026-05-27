@@ -1,0 +1,1314 @@
+fileFormatVersion: 2
+guid: 93b9dcde0ead8a44fbcb42ea65bfe86f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3027118085372989620
+    second: Attack Strong Particles_0
+  - first:
+      213: -6876673134477660256
+    second: Attack Strong Particles_1
+  - first:
+      213: 6644017969890065105
+    second: Attack Strong Particles_2
+  - first:
+      213: 5421933473624293843
+    second: Attack Strong Particles_3
+  - first:
+      213: 2320319597795233917
+    second: Attack Strong Particles_4
+  - first:
+      213: 981878170303871241
+    second: Attack Strong Particles_5
+  - first:
+      213: 5418980320179885878
+    second: Attack Strong Particles_6
+  - first:
+      213: 8448297115599469081
+    second: Attack Strong Particles_7
+  - first:
+      213: -7098850426442192964
+    second: Attack Strong Particles_8
+  - first:
+      213: -5421560177085553461
+    second: Attack Strong Particles_9
+  - first:
+      213: 7471827207853989835
+    second: Attack Strong Particles_10
+  - first:
+      213: 786449111924657361
+    second: Attack Strong Particles_11
+  - first:
+      213: -5604078749326568926
+    second: Attack Strong Particles_12
+  - first:
+      213: 5523434904477606975
+    second: Attack Strong Particles_13
+  - first:
+      213: 5775866231849699767
+    second: Attack Strong Particles_14
+  - first:
+      213: 579930825529965320
+    second: Attack Strong Particles_15
+  - first:
+      213: -9058522095845597101
+    second: Attack Strong Particles_16
+  - first:
+      213: -2872067689620253526
+    second: Attack Strong Particles_17
+  - first:
+      213: 2561808538739751018
+    second: Attack Strong Particles_18
+  - first:
+      213: -5586698245911844070
+    second: Attack Strong Particles_19
+  - first:
+      213: -6148890228080674030
+    second: Attack Strong Particles_20
+  - first:
+      213: -5314076991933385809
+    second: Attack Strong Particles_21
+  - first:
+      213: -3440983863907798900
+    second: Attack Strong Particles_22
+  - first:
+      213: -4407912536060013317
+    second: Attack Strong Particles_23
+  - first:
+      213: -4977191878954932182
+    second: Attack Strong Particles_24
+  - first:
+      213: -5932222319424333734
+    second: Attack Strong Particles_25
+  - first:
+      213: 5341070083622170597
+    second: Attack Strong Particles_26
+  - first:
+      213: -8298439406825813517
+    second: Attack Strong Particles_27
+  - first:
+      213: -1242033436064717793
+    second: Attack Strong Particles_28
+  - first:
+      213: 2093085291764591324
+    second: Attack Strong Particles_29
+  - first:
+      213: 556238195810356284
+    second: Attack Strong Particles_30
+  - first:
+      213: 3667167530354976564
+    second: Attack Strong Particles_31
+  - first:
+      213: 6455066488921751013
+    second: Attack Strong Particles_32
+  - first:
+      213: 4246754708574682797
+    second: Attack Strong Particles_33
+  - first:
+      213: 6067366637265633947
+    second: Attack Strong Particles_34
+  - first:
+      213: -5296364407000512748
+    second: Attack Strong Particles_35
+  - first:
+      213: 6967404480913287483
+    second: Attack Strong Particles_36
+  - first:
+      213: 2008001852981570667
+    second: Attack Strong Particles_37
+  - first:
+      213: 3419767108845245713
+    second: Attack Strong Particles_38
+  - first:
+      213: 7684940635836880757
+    second: Attack Strong Particles_39
+  - first:
+      213: -5019141395276068218
+    second: Attack Strong Particles_40
+  - first:
+      213: 2143691148082428642
+    second: Attack Strong Particles_41
+  - first:
+      213: 2166807900545687779
+    second: Attack Strong Particles_42
+  - first:
+      213: 1857872208378895987
+    second: Attack Strong Particles_43
+  - first:
+      213: 3508370312041923480
+    second: Attack Strong Particles_44
+  - first:
+      213: -1639090511639431439
+    second: Attack Strong Particles_45
+  - first:
+      213: -6831821432081453993
+    second: Attack Strong Particles_46
+  - first:
+      213: -7121342161392410918
+    second: Attack Strong Particles_47
+  - first:
+      213: -8849098194989110758
+    second: Attack Strong Particles_48
+  - first:
+      213: -7219052374909942452
+    second: Attack Strong Particles_49
+  - first:
+      213: 6861657299877153334
+    second: Attack Strong Particles_50
+  - first:
+      213: -2562893593954684071
+    second: Attack Strong Particles_51
+  - first:
+      213: -2038179500055925230
+    second: Attack Strong Particles_52
+  - first:
+      213: -5181106202853556262
+    second: Attack Strong Particles_53
+  - first:
+      213: 342275044406315791
+    second: Attack Strong Particles_54
+  - first:
+      213: 5048167529325354526
+    second: Attack Strong Particles_55
+  - first:
+      213: -1745001880866904675
+    second: Attack Strong Particles_56
+  - first:
+      213: -4491533831642166974
+    second: Attack Strong Particles_57
+  - first:
+      213: 4695280600835698393
+    second: Attack Strong Particles_58
+  - first:
+      213: 7612788227420477242
+    second: Attack Strong Particles_59
+  - first:
+      213: -6240868507788602446
+    second: Attack Strong Particles_60
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Attack Strong Particles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b051db3cdb720a20800000000000000
+      internalID: 3027118085372989620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0afacf6e7362190a0800000000000000
+      internalID: -6876673134477660256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dafb90642b443c50800000000000000
+      internalID: 6644017969890065105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d10d2384c39e3b40800000000000000
+      internalID: 5421933473624293843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7056ff616e633020800000000000000
+      internalID: 2320319597795233917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9093ca16ef450ad00800000000000000
+      internalID: 981878170303871241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6379725e3e5143b40800000000000000
+      internalID: 5418980320179885878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a734437716e3570800000000000000
+      internalID: 8448297115599469081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb768420621db7d90800000000000000
+      internalID: -7098850426442192964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc4696c5ebfb2c4b0800000000000000
+      internalID: -5421560177085553461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_10
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 150
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf5c33124341b760800000000000000
+      internalID: 7471827207853989835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dcc03eec470aea00800000000000000
+      internalID: 786449111924657361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_12
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2221315b1105a32b0800000000000000
+      internalID: -5604078749326568926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_13
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34a16df7ce27ac40800000000000000
+      internalID: 5523434904477606975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_14
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b9439b6cbff72050800000000000000
+      internalID: 5775866231849699767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_15
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b330263045c0800800000000000000
+      internalID: 579930825529965320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_16
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350a81fd52aa94280800000000000000
+      internalID: -9058522095845597101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_17
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa4de4537ad5428d0800000000000000
+      internalID: -2872067689620253526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_18
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a68352efa4f5d8320800000000000000
+      internalID: 2561808538739751018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_19
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b60218b8f0872b0800000000000000
+      internalID: -5586698245911844070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_20
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b71607ae0caaaa0800000000000000
+      internalID: -6148890228080674030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_21
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 100
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3fbba812b9046b0800000000000000
+      internalID: -5314076991933385809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80bce9286b2f30d0800000000000000
+      internalID: -3440983863907798900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_23
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4d62f07e2f3d2c0800000000000000
+      internalID: -4407912536060013317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_24
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a28aeeb3b567deab0800000000000000
+      internalID: -4977191878954932182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_25
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5891121b338cada0800000000000000
+      internalID: -5932222319424333734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_26
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5efe3ce51fa4f1a40800000000000000
+      internalID: 5341070083622170597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_27
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f94b06935506dc80800000000000000
+      internalID: -8298439406825813517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_28
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f146434ab2963cee0800000000000000
+      internalID: -1242033436064717793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_29
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda2934bbf12c0d10800000000000000
+      internalID: 2093085291764591324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_30
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3cc7c721b728b700800000000000000
+      internalID: 556238195810356284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_31
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 437a7aa707564e230800000000000000
+      internalID: 3667167530354976564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_32
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 50
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ed75b175c0059950800000000000000
+      internalID: 6455066488921751013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daebfcc38e08fea30800000000000000
+      internalID: 4246754708574682797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_34
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9246407fcd933450800000000000000
+      internalID: 6067366637265633947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_35
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41746b712a88f76b0800000000000000
+      internalID: -5296364407000512748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_36
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5017448a6d68ac48badc406b959e335
+      internalID: 632225701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_37
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 499c6fd0cc278454a91ba719e233ace7
+      internalID: -1413601116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_38
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b5f4cb5fba30346b7087ad5121e879
+      internalID: 1570227336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_39
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81782be93f509e34fba32aaf3e33ba31
+      internalID: -1995486893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_40
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba25231856572f44ab52165ebb31a4d
+      internalID: 1287593987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_41
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cfcf70ff3b754c4682d6d73da82487d
+      internalID: -476850163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_42
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c3680676c67f3544a34885ad82d3836
+      internalID: -93029265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_43
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.52, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe1023c550b4834c961e67a7eb954cc
+      internalID: -1610866469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ebb651dedba26b947a16433ac5f255c4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":50.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5199999809265137,"y":0.23999999463558198},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":true,"isAlternate":false}'
+    nameFileIdTable:
+      Attack Strong Particles_0: 3027118085372989620
+      Attack Strong Particles_1: -6876673134477660256
+      Attack Strong Particles_10: 7471827207853989835
+      Attack Strong Particles_11: 786449111924657361
+      Attack Strong Particles_12: -5604078749326568926
+      Attack Strong Particles_13: 5523434904477606975
+      Attack Strong Particles_14: 5775866231849699767
+      Attack Strong Particles_15: 579930825529965320
+      Attack Strong Particles_16: -9058522095845597101
+      Attack Strong Particles_17: -2872067689620253526
+      Attack Strong Particles_18: 2561808538739751018
+      Attack Strong Particles_19: -5586698245911844070
+      Attack Strong Particles_2: 6644017969890065105
+      Attack Strong Particles_20: -6148890228080674030
+      Attack Strong Particles_21: -5314076991933385809
+      Attack Strong Particles_22: -3440983863907798900
+      Attack Strong Particles_23: -4407912536060013317
+      Attack Strong Particles_24: -4977191878954932182
+      Attack Strong Particles_25: -5932222319424333734
+      Attack Strong Particles_26: 5341070083622170597
+      Attack Strong Particles_27: -8298439406825813517
+      Attack Strong Particles_28: -1242033436064717793
+      Attack Strong Particles_29: 2093085291764591324
+      Attack Strong Particles_3: 5421933473624293843
+      Attack Strong Particles_30: 556238195810356284
+      Attack Strong Particles_31: 3667167530354976564
+      Attack Strong Particles_32: 6455066488921751013
+      Attack Strong Particles_33: 4246754708574682797
+      Attack Strong Particles_34: 6067366637265633947
+      Attack Strong Particles_35: -5296364407000512748
+      Attack Strong Particles_36: 632225701
+      Attack Strong Particles_37: -1413601116
+      Attack Strong Particles_38: 1570227336
+      Attack Strong Particles_39: -1995486893
+      Attack Strong Particles_4: 2320319597795233917
+      Attack Strong Particles_40: 1287593987
+      Attack Strong Particles_41: -476850163
+      Attack Strong Particles_42: -93029265
+      Attack Strong Particles_43: -1610866469
+      Attack Strong Particles_5: 981878170303871241
+      Attack Strong Particles_6: 5418980320179885878
+      Attack Strong Particles_7: 8448297115599469081
+      Attack Strong Particles_8: -7098850426442192964
+      Attack Strong Particles_9: -5421560177085553461
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

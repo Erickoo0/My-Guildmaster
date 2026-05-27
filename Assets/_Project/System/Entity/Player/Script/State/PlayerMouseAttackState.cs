@@ -4,22 +4,22 @@ using UnityEngine;
 public class PlayerMouseAttackState : State<PlayerController>
 {
     [SerializeField] private string attackID;
-    private MouseAttackData _attackData;
+    private MouseSpellData _spellData;
     private bool _isFinished;
     
     public override void Setup(PlayerController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
         
-        _attackData = controller?.GetAttackData<MouseAttackData>(attackID);
+        _spellData = controller?.GetAttackData<MouseSpellData>(attackID);
     }
     
     public override void Enter()
     {
         // Safety Check
-        if (_attackData == null || _attackData.attackPrefab == null)
+        if (_spellData == null || _spellData.spellPrefab == null)
         {
-            Debug.LogWarning($"{controller.gameObject.name} has MouseAttackState but no MouseAttackData in library.");
+            Debug.LogWarning($"{controller.gameObject.name} has MouseAttackState but no MouseSpellData in library.");
 
             _isFinished = true;
             return;
@@ -28,10 +28,10 @@ public class PlayerMouseAttackState : State<PlayerController>
         _isFinished = false;
     
         // 1. Prepare Damage using the injected context
-        DamageData finalDamage = _attackData.CreateDamageData(controller.gameObject);
+        DamageData finalDamage = _spellData.CreateDamageData(controller.gameObject);
     
         // 2. Spawn the Attack Prefab
-        GameObject attackInstance = Object.Instantiate(_attackData.attackPrefab, controller.WorldMousePosition, Quaternion.identity);
+        GameObject attackInstance = Object.Instantiate(_spellData.spellPrefab, controller.WorldMousePosition, Quaternion.identity);
     
         // 3. Give the HitBox the actual damage data!
         if (attackInstance.TryGetComponent<HitBox>(out HitBox spawnedHitbox))

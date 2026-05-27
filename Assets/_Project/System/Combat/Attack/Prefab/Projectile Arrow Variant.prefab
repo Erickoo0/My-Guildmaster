@@ -49,6 +49,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8661183
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Size.y
+      value: 0.18513653
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.016867697
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.016867682
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321007536757467925, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.20427164
       objectReference: {fileID: 0}
@@ -67,6 +83,118 @@ PrefabInstance:
     - target: {fileID: 7074327856698990621, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Name
       value: Projectile Arrow Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Time
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Emitting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_MotionVectors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.shadowBias
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.68425465
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.2216981
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.8304152
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.5956746
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outWeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8014193221650302708, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Sprite
@@ -131,7 +259,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.62027645, y: -0.0015775114}
+  m_Offset: {x: 0.0046058595, y: 0.01810145}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.20427164, y: 0.49878308}
@@ -141,5 +269,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.33597982, y: 0.19641986}
+  m_Size: {x: 0.8588782, y: 0.15706193}
   m_EdgeRadius: 0

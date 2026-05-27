@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: Dialogue_Mai_Work
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
-  dialogueNodes: []
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - I hate my job.
+    - I want to go home.
+    dialogueOptions: []
+    nodeEvent: 
+    nodeEventParameter: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0

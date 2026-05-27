@@ -3,16 +3,22 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : BaseEntityController
-{
-    [Header("State References")]
+public class PlayerController : BaseEntityController {
+    [Header("References")]
+    public Mana mpComponent;
     [SerializeReference, SubclassSelector] public State<PlayerController> IdleState;
     [SerializeReference, SubclassSelector] public State<PlayerController> MoveState;
     [SerializeReference, SubclassSelector] public State<PlayerController> DashState;
-    [SerializeReference, SubclassSelector] public State<PlayerController> AttackState;
+
+    
+    [Header("Spell Loadout")]
+    [Tooltip("Slot 0: M1, Slot 1: Q, Slot 2: E, Slot 3: R, Slot 4: F")]
+    [SerializeReference, SubclassSelector] public List<BasePlayerSpellState> SpellSlots = new List<BasePlayerSpellState>();
+    // Track whether a spell key is held down (true = held, false = released)
+    private bool[] _spellKeyHeld = new bool[5];
     
     [Header("Action Settings")]
-    [SerializeField] private List<AttackData> attackLibrary;
+    [SerializeField] private List<SpellData> attackLibrary;
     [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
     private float _lastActionTime;
 
@@ -40,7 +46,11 @@ public class PlayerController : BaseEntityController
         IdleState?.Setup(this, StateMachine);
         MoveState?.Setup(this, StateMachine);
         DashState?.Setup(this, StateMachine);
-        AttackState?.Setup(this, StateMachine);
+
+        foreach (State<PlayerController> spell in SpellSlots)
+        {
+            spell?.Setup(this, StateMachine);
+        }
     }
 
     protected virtual void Start()
@@ -89,28 +99,48 @@ public class PlayerController : BaseEntityController
     public void OnPoint(InputAction.CallbackContext context)
     {
         _rawMousePosition = context.ReadValue<Vector2>();
+    }
+
+    public void TryTriggerAbility(int slotIndex, InputAction.CallbackContext context)
+    {
+        // 1. Safety Check
+        if (SpellSlots == null || slotIndex < 0 || slotIndex >= SpellSlots.Count || SpellSlots[slotIndex] == null)
+            return;
         
-        // // Continuously update where the mouse is in the world so the Attack State can read it
-        // if (_mainCam != null)
-        // {
-        //     float distanceToPlane = Mathf.Abs(_mainCam.transform.position.z);
-        //     Vector3 mouseInput = new Vector3(_rawMousePosition.x, _rawMousePosition.y, distanceToPlane);
-        //     WorldMousePosition = _mainCam.ScreenToWorldPoint(mouseInput);
-        //     WorldMousePosition = new Vector3(WorldMousePosition.x, WorldMousePosition.y, 0f);
-        // }
+        // 2. Track key input state 
+        if (context.started || context.performed)
+            _spellKeyHeld[slotIndex] = true;
+        else if (context.canceled)
+            _spellKeyHeld[slotIndex] = false;
+        
+        // 3. Only proceed with the actual cast on the 'performed' phase
+        if (!context.performed)
+            return;
+        
+        BasePlayerSpellState intendedSpell = SpellSlots[slotIndex];
+
+        // 4. State & Cooldown validation
+        if (!CheckActionCooldown() || StateMachine.CurrentState == DashState)
+            return;
+        
+        // 5. Prevent interrupting an ongoing spell with another spell
+        if (SpellSlots.Contains(StateMachine.CurrentState))
+            return;
+        
+        // 6. Mana validation 
+        if (mpComponent == null || !mpComponent.HasEnoughMp(intendedSpell.MpCost))
+            return;
+        
+        // 7. Assign slot index and change state
+        intendedSpell.CurrentSlotIndex = slotIndex;
+        StateMachine.ChangeState(intendedSpell);
     }
     
-    public void OnMouseClick(InputAction.CallbackContext context)
-    { 
-        // Only trigger the attack state if the button was just pressed, the cooldown is ready, 
-        // and we aren't already attacking or dashing.
-        if (context.performed && CheckActionCooldown() && 
-            StateMachine.CurrentState != AttackState &&  
-            StateMachine.CurrentState != DashState)
-        {
-            StateMachine.ChangeState(AttackState);
-        }
-    }
+    public void OnAttackM1(InputAction.CallbackContext context) => TryTriggerAbility(0, context);
+    public void OnAttackQ(InputAction.CallbackContext context)  => TryTriggerAbility(1, context);
+    public void OnAttackE(InputAction.CallbackContext context)  => TryTriggerAbility(2, context);
+    public void OnAttackR(InputAction.CallbackContext context)  => TryTriggerAbility(3, context);
+    public void OnAttackF(InputAction.CallbackContext context)  => TryTriggerAbility(4, context);
     
     // ---- Helper Methods ----
     public void SetCanMove(bool canMove)
@@ -130,12 +160,12 @@ public class PlayerController : BaseEntityController
         }
     }
     
-    public T GetAttackData<T>(string id) where T : AttackData
+    public T GetAttackData<T>(string id) where T : SpellData
     {
         // Search the library for a piece of data that:
         // 1. Matches the ID string
         // 2. Is of the type (T) we are looking for
-        return attackLibrary.OfType<T>().FirstOrDefault(data => data.attackID == id);
+        return attackLibrary.OfType<T>().FirstOrDefault(data => data.spellID == id);
     }
     
     //---- Action Methods -----
@@ -148,5 +178,11 @@ public class PlayerController : BaseEntityController
     public void SetActionCooldown()
     {
         _lastActionTime = Time.time;
+    }
+
+    public bool IsSpellKeyHeld(int slotIndex)
+    {
+        if (slotIndex < 0 || slotIndex >= _spellKeyHeld.Length) return false;
+        return _spellKeyHeld[slotIndex];
     }
 }

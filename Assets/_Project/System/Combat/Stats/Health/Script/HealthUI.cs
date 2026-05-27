@@ -57,8 +57,8 @@ public class HealthUI : MonoBehaviour
         // Safety Check
         if (hpComponent is null || progressBarRef is null) return;
         
-        string label = showText ? $"HP: {hpComponent.HpCurrent}/{hpComponent.hpMax}" : "";
-        progressBarRef.SetValues(hpComponent.HpCurrent, hpComponent.hpMax, label);
+        string label = showText ? $"HP: {hpComponent.HpCurrent}/{hpComponent.HpMax}" : "";
+        progressBarRef.SetValues(hpComponent.HpCurrent, hpComponent.HpMax, label);
         if (hpText != null && showText) hpText.text = label;
     }
 }
