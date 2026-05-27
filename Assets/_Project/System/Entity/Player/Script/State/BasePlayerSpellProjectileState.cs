@@ -63,7 +63,7 @@ public class BasePlayerSpellProjectileState : BasePlayerSpellState
       if (projectile.TryGetComponent(out Projectile projectileComponent))
       {
          DamageData finalDamage = _spellProjectileData.CreateDamageData(controller.gameObject);
-         projectileComponent.Setup(controller.WorldMousePosition, _spellProjectileData.projectileSpeed, _spellProjectileData.projectileLifetime, _projectileCurve, _spellProjectileData.projectileHeight, finalDamage);
+         projectileComponent.Setup(controller.WorldMousePosition, _spellProjectileData.projectileSpeed, _spellProjectileData.projectileLifetime, _projectileCurve, _spellProjectileData.projectileHeight, _spellProjectileData.destroyOnMaxHits, finalDamage);
       }
       
       // Apply Recoil

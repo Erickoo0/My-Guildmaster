@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9035953319917977621}
   - component: {fileID: 664717825545069536}
   - component: {fileID: 7488573979446071067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6875, y: 4}
+    oldSize: {x: 1.5625, y: 3.875}
     newSize: {x: 1.6875, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   hpBase: 20
-  hpMax: 0
   hpPerLvl: 10
+  HpMax: 0
   entityRoot: {fileID: 0}
   destroyOnDeath: 1

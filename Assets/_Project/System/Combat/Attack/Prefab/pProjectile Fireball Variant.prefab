@@ -4856,10 +4856,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: pProjectile Fireball Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2026280860471842571, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.44663763
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026280860471842571, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.30539358
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026280860471842571, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.064383924
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026280860471842571, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0073916316
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527866796607327578, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: victimLayer.m_Bits
+      value: 137
+      objectReference: {fileID: 0}
     - target: {fileID: 5905571795527156344, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8735117967119591277, guid: db405245bb740a14e925f56d0dc3e272, type: 3}
+    - target: {fileID: 6558748435001784617, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.44677588
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558748435001784617, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.32575786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558748435001784617, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.06526275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558748435001784617, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.017420702
+      objectReference: {fileID: 0}
     - target: {fileID: 6558748435001784617, guid: a7577eb736ccfcd48bbd4cc63c7a839b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.6875

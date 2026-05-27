@@ -5188,6 +5188,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: pProjectile Lightning Orb Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7435004597167981879, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6487112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435004597167981879, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6610379
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435004597167981879, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.031152248
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435004597167981879, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.010664701
+      objectReference: {fileID: 0}
     - target: {fileID: 7877643333223508008, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Enabled
       value: 0

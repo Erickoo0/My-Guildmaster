@@ -66,7 +66,7 @@ public class BasicProjectileAttackState : BaseAttackState
         if (projectile.TryGetComponent(out Projectile projectileComponent))
         {
             DamageData finalDamage = _projectileAttackData.CreateDamageData(controller.gameObject);
-            projectileComponent.Setup(targetPosition, _projectileAttackData.projectileSpeed, _projectileAttackData.projectileLifetime, _projectileCurve, _projectileAttackData.projectileHeight, finalDamage);
+            projectileComponent.Setup(targetPosition, _projectileAttackData.projectileSpeed, _projectileAttackData.projectileLifetime, _projectileCurve, _projectileAttackData.projectileHeight, _projectileAttackData.destroyOnMaxHits, finalDamage);
         }
         
         hasTriggered = true;

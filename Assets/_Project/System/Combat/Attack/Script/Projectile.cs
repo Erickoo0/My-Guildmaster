@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Transform _projectileVisual;
     private enum MovementType {Linear, Curved}
     private MovementType _movementType;
+    private bool _destroyOnCollisions;
     private Vector3 _linearDirection;
     
     private Vector3 _projectileStartPosition;
@@ -23,13 +24,14 @@ public class Projectile : MonoBehaviour
     private float _totalDuration;
     private float _currentDuration;
 
-    public void Setup(Vector3 projectileTargetPosition, float projectileSpeed, float projectileLifetime, AnimationCurve projectileCurve, float projectileMaxHeight, DamageData damageData)
+    public void Setup(Vector3 projectileTargetPosition, float projectileSpeed, float projectileLifetime, AnimationCurve projectileCurve, float projectileMaxHeight, bool projectileDestroy, DamageData damageData)
     {
         // 1. Pass the data
         _projectileStartPosition = transform.position;
         _projectileTargetPosition = projectileTargetPosition;
         _projectileSpeed = projectileSpeed;
         _damageData = damageData;
+        _destroyOnCollisions = projectileDestroy;
         
         // 2. Get the Hitbox
         if (TryGetComponent(out _hitBox))
@@ -134,6 +136,16 @@ public class Projectile : MonoBehaviour
             
             // 3. Destroy after a tiny delay for hitbox effect to register
             Destroy(gameObject, 0.1f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!_destroyOnCollisions) return;
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
+        {
+            Destroy(gameObject);
         }
     }
 }
