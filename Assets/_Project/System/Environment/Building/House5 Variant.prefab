@@ -13,6 +13,10 @@ PrefabInstance:
       value: House5 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_ShadowMesh.m_TrimEdge
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_ShadowMesh.m_InitialTrim
       value: 0
       objectReference: {fileID: 0}

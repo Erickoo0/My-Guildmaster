@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_ShadowCastingSource
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: 'managedReferences[-2]'
@@ -38,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_ShadowShape2DProvider
-      value: -2
+      value: 5971589033871016036
       objectReference: {fileID: 0}
     - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_PreviousEdgeProcessing
@@ -47,7 +47,7 @@ PrefabInstance:
     - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_ShadowShape2DComponent
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 474983819273287294}
     - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_ShadowMesh.m_InitialTrim
       value: 0.6
@@ -107,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
       value: 3.6505775
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: 'managedReferences[5971589033871016036]'
+      value: Unity.RenderPipelines.Universal.2D.Runtime UnityEngine.Rendering.Universal.ShadowShape2DProvider_SpriteRenderer
       objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_Size.x

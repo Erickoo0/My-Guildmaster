@@ -53,20 +53,11 @@ MonoBehaviour:
     dialogueLines:
     - Welcome to option 2! There is nothing here, so byee
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    nodeEvent: SetGameFlag
+    nodeEventParameter: NPC_Met_Mai
     requirements: []
     selectionWeight: 0
     isImportant: 0
-  - nodeID: Option_3
-    dialogueLines:
-    - Welcome to option 2! There is nothing here, so byee
-    dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
-    requirements:
-    - type: 0
-      questID: Quest_Mai_Tutorial01
-      requiredState: 2
-    selectionWeight: 0
-    isImportant: 1
+  references:
+    version: 2
+    RefIds: []

@@ -10,18 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
-  m_Name: Dialogue_Mai_Default
+  m_Name: Dialogue_Mai_Intro
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
     - Hello traveller, nice to meet you.
-    - 'My name is Mai. '
-    - Looking forward to seeing you around
+    - 'My name is Mai. Come see me by the potion shop if you need some potions! '
+    - Looking forward to seeing you around.
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
-    requirements: []
+    nodeEvent: SetGameFlag
+    nodeEventParameter: NPC_Met_Mai
+    requirements:
+    - rid: 5971589033871016021
     selectionWeight: 0
     isImportant: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5971589033871016021
+      type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
+      data:
+        requiredGameFlag: 0
+        requiredState: 0

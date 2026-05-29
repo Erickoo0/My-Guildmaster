@@ -178,7 +178,7 @@ MonoBehaviour:
       m_Center: {x: 0.10434723, y: 3.11158, z: 0}
       m_Extent: {x: 3.1999893, y: 3.6999893, z: 0}
     m_EdgeProcessing: 1
-    m_TrimEdge: 0.3
+    m_TrimEdge: 1.3
     m_FlipX: 0
     m_FlipY: 0
     m_InitialTrim: 0.3

@@ -187,6 +187,20 @@ public class DialogueManager : MonoBehaviour
         {
             EventBus.RequestDialogueEvent(eventName, _currentSpeaker.ShopList);
         }
+        else if (eventName == "SetGameFlag")
+        {
+            Debug.Log("Test");
+            if (string.IsNullOrEmpty(eventParameter))
+            {
+                Debug.LogError("'SetGameFlag' event fired but is missing a parameter");
+                return;
+            }
+            
+            // Parse eventParameter string to GameFlag enum
+            if (System.Enum.TryParse(eventParameter, out FlagKeys.GameFlag flagKey))
+                GameFlagManager.Instance.SetGameFlag(flagKey, true);
+            else Debug.LogError($"DialogueManager: Failed to parse '{eventParameter}' into a valid FlagKeys.GameFlag enum!");
+        }
         else
         {
             // For everything else (AcceptQuest, CompleteQuest, GiveItem, etc.)

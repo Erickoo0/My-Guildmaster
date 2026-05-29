@@ -16,10 +16,50 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - Woah, what are you doing in my home!
+    - Reading before bed is my favourite part of the day.
+    - Do you like to read as well?
+    dialogueOptions:
+    - optionName: I love reading!
+      targetNodeID: 
+      dialogueEvent: 
+      eventParameter: 
+    - optionName: No, not really.
+      targetNodeID: 
+      dialogueEvent: 
+      eventParameter: 
+    nodeEvent: 
+    nodeEventParameter: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Option_1
+    dialogueLines:
+    - Thats lovely!
+    - Please recommend me some books sometime.
     dialogueOptions: []
     nodeEvent: 
     nodeEventParameter: 
     requirements: []
     selectionWeight: 0
     isImportant: 0
+  - nodeID: Option_2
+    dialogueLines:
+    - Oh, I see.
+    - Well, I guess reading is not for everyone
+    dialogueOptions:
+    - optionName: I love reading!
+      targetNodeID: 
+      dialogueEvent: 
+      eventParameter: 
+    - optionName: No, not really.
+      targetNodeID: 
+      dialogueEvent: 
+      eventParameter: 
+    nodeEvent: 
+    nodeEventParameter: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  references:
+    version: 2
+    RefIds: []

@@ -12,7 +12,8 @@ public class DialogueNode
     public string nodeEventParameter;
     
     [Header("Selection Criteria")]
-    public List<RequirementData> requirements = new List<RequirementData>();
+    [SerializeReference, SubclassSelector]
+    public List<Requirement> requirements = new List<Requirement>();
     [Range(0, 100)] public float selectionWeight = 10f;
     [Tooltip("If true and requirements are met, this node is guaranteed to be picked.")]
     public bool isImportant = false;
