@@ -5,9 +5,13 @@ using Pathfinding;
 [System.Serializable]
 public class NPCScheduleData
 {
+    [HierarchySelector(typeof(PointOfInterest))]
     public List<string> HomePOIList;
+    [HierarchySelector(typeof(PointOfInterest))]
     public List<string> SleepPOIList;
+    [HierarchySelector(typeof(PointOfInterest))]
     public List<string> HobbyPOIList;
+    [HierarchySelector(typeof(PointOfInterest))]
     public List<string> WorkPOIList;
 }
 
@@ -23,8 +27,9 @@ public class NPCController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseNPCHobbyState HobbyState;
     [SerializeReference, SubclassSelector] public BaseNPCWorkState WorkState;
     [SerializeReference, SubclassSelector] public List<BaseNPCOverrideWanderState> dormantOverrideStates = new List<BaseNPCOverrideWanderState>();
-    
+
     [Header("NPC Schedule")]
+    public GameLocation currentLocation;
     [field: SerializeField] public NPCScheduleData NpcScheduleData {get; private set;}
     public State OverrideState { get; private set; }
     public bool IsOverrideState => OverrideState != null;

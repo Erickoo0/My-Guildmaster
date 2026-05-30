@@ -69,12 +69,108 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.HomePOIList.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.WorkPOIList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971589033871015936].requiredGameStat
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971589033871016012].requiredGameFlag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.HobbyPOIList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.SleepPOIList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[0]'
+      value: POI_Mai_Home_Entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[1]'
+      value: POI_Mai_Interior_Home_Bathroom_Sink
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[2]'
+      value: POI_Mai_Interior_Home_Bedroom_Bookshelf
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[3]'
+      value: POI_Mai_Interior_Home_Bedroom_Closet
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[4]'
+      value: POI_Mai_Interior_Home_Kitchen_Sink
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[5]'
+      value: POI_Mai_Interior_Home_Kitchen_Stove
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[6]'
+      value: POI_Mai_Interior_Home_Table
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[7]'
+      value: POI_Mai_Interior_Home_Bathroom_Bath
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[8]'
+      value: POI_Mai_Interior_Home_Table
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[0]'
+      value: POI_Tavern_Entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[1]'
+      value: POI_Tavern_Interior_Counter_Behind
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[2]'
+      value: POI_Tavern_Interior_Fireplace2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[3]'
+      value: POI_Tavern_Interior_Upstairs
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[0]'
+      value: POI_Tavern_Interior_Entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[1]'
+      value: POI_Tavern_Table2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[2]'
+      value: POI_Library_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[3]'
+      value: POI_Grand_Tree_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[4]'
+      value: POI_Grand_Shrine_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[5]'
+      value: POI_Docks_Entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.SleepPOIList.Array.data[0]'
+      value: POI_Mai_Interior_Home_Bedroom_Bed
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971589033871015936].requiredMinimumValue
@@ -218,11 +314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.72
+      value: 2.9081542
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.29
+      value: 1.1615968
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.z

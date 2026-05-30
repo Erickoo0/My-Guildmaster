@@ -6,7 +6,7 @@ public abstract class BaseNPCWanderState : State<NPCController>
     [Header("Location Settings")] 
     protected List<PointOfInterest> _poiList = new List<PointOfInterest>();
     protected PointOfInterest _selectedPOI;
-    protected bool _arrivedMainDestination = false;
+    protected bool _IsMovingToEntrance = false;
     
     [Header("Anti-Stuck Variables")]
     protected float _stuckTimer;
@@ -22,7 +22,6 @@ public abstract class BaseNPCWanderState : State<NPCController>
     public override void Enter()
     {
         // 1. Reset state flags
-        _arrivedMainDestination = false;
         _stuckTimer = 0f;
         _positionCheckTimer = 0f;
         
@@ -51,7 +50,7 @@ public abstract class BaseNPCWanderState : State<NPCController>
         }
         
         // 3. Tell AIPath to calculate the next step
-        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
+        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out _);
         
         // 4. Calculate Direction based on the NEXT position calculated by A*
         Vector2 moveDirection = ((Vector2)nextPos - (Vector2)controller.transform.position).normalized;
@@ -73,9 +72,37 @@ public abstract class BaseNPCWanderState : State<NPCController>
 
     protected virtual void SetNewDestination()
     {
-        if (_poiList != null && _poiList.Count > 0)
-            _selectedPOI = _poiList[Random.Range(0, _poiList.Count)];
+        if (_poiList == null || _poiList.Count == 0) return;
         
+        // 1. Pick the ultimate destination straight away!
+        // No more slot hacks required. Your lists can just contain actual targets now.
+        PointOfInterest ultimateDestination = _poiList[Random.Range(0, _poiList.Count)];
+        
+        // 2. Are we in the correct location?
+        if (controller.currentLocation != ultimateDestination.Location)
+        {
+            // 3. We are in the wrong location. Ask the GPS for the correct door to take.
+            PointOfInterest transitNode = LocationRouter.GetNextTransitNode(controller.currentLocation, ultimateDestination.Location);
+            
+            if (transitNode != null)
+            {
+                _IsMovingToEntrance = true;
+                _selectedPOI = transitNode;
+            }
+            else
+            {
+                Debug.LogError($"[{controller.gameObject.name}] is stuck! No route from {controller.currentLocation} to {ultimateDestination.Location}");
+                return; 
+            }
+        } 
+        else
+        {
+            // We are in the correct room. Walk straight to the destination.
+            _IsMovingToEntrance = false;
+            _selectedPOI = ultimateDestination;
+        }
+        
+        // 4. Send the data to the A* Pathfinding
         controller.aiPath.destination = _selectedPOI.transform.position;
         controller.aiPath.SearchPath();
     }
@@ -112,10 +139,38 @@ public abstract class BaseNPCWanderState : State<NPCController>
 
     protected virtual void OnReachedDestination()
     {
-        // Face Direction logic
-        controller.EntityAnimator.FaceDirection((_selectedPOI.lookDirection));
+        // 1. Check if POI is a teleporter
+        if (!string.IsNullOrEmpty(_selectedPOI.TeleportPOI))
+        {
+            // 2. Ask the POI Registry for the associated GameObject of the string
+            PointOfInterest teleportTarget = POIRegistry.GetPOIByID(_selectedPOI.TeleportPOI);
+            
+            // 3. Ensure the registry found the associated GameObject
+            if (teleportTarget != null)
+            {
+                controller.aiPath.Teleport(teleportTarget.transform.position); // Teleport to the teleportTarget POI
+                controller.currentLocation = teleportTarget.Location;
+                controller.EntityAnimator.FaceDirection(teleportTarget.lookDirection);
+            }
+            else
+                Debug.LogWarning($"[{controller.gameObject.name}] Teleport failed! Could not find POI with ID: '{_selectedPOI.TeleportPOI}' in the POIRegistry.");
+        } 
+        else
+        {
+            controller.currentLocation = _selectedPOI.Location;
+            controller.EntityAnimator.FaceDirection(_selectedPOI.lookDirection);
+        }
         
-        _arrivedMainDestination = true;
+        // Check if we just arrived at the entrance
+        if (_IsMovingToEntrance)
+        {
+            _IsMovingToEntrance = false;
+            
+            // Cast the state and trigger the skip idle time
+            if (controller.IdleState is NPCIdleState idleState)
+                idleState.SkipNextIdle();
+        }
+        
         stateMachine.ChangeState(controller.IdleState);
     }
     
