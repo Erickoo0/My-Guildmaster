@@ -80,6 +80,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.5625
       objectReference: {fileID: 0}
+    - target: {fileID: 3081716410090950724, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Size.x
+      value: 0.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3081716410090950724, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7074327856698990621, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Name
       value: Projectile Arrow Variant

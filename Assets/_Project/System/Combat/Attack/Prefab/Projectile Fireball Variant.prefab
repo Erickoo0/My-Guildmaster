@@ -4905,6 +4905,14 @@ PrefabInstance:
       value: 0.6875
       objectReference: {fileID: 0}
     - target: {fileID: 3081716410090950724, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3081716410090950724, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3081716410090950724, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8735117967119591277, guid: db405245bb740a14e925f56d0dc3e272, type: 3}

@@ -103,12 +103,12 @@ TextureImporter:
       name: Guard Barracks_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 93
-        width: 196
-        height: 117
+        x: 0
+        y: 0
+        width: 210
+        height: 216
       alignment: 9
-      pivot: {x: 0.5102041, y: 0.025641026}
+      pivot: {x: 0.5, y: 0.43055555}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":105.0,"y":215.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.9523809552192688,"y":0.013953488320112229},"pivotPixels":{"x":100.0,"y":3.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":210.0,"y":216.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Guard Barracks_0: -5128221700824884878
   mipmapLimitGroupName: 
