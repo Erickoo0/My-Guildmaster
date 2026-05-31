@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 12
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e72b3c35ed744294d87868c4546bb5e0, type: 2}
-  m_sharedMaterial: {fileID: -3214657711778352668, guid: e72b3c35ed744294d87868c4546bb5e0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3f872808e083af348a11e5b135b5d5d7, type: 2}
+  m_sharedMaterial: {fileID: 9222514374358146323, guid: 3f872808e083af348a11e5b135b5d5d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -159,11 +159,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2630526910992943543, guid: 496ef414966e54a4faa172bc1d549805, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2630526910992943543, guid: 496ef414966e54a4faa172bc1d549805, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f872808e083af348a11e5b135b5d5d7, type: 2}
+    - target: {fileID: 2630526910992943543, guid: 496ef414966e54a4faa172bc1d549805, type: 3}
       propertyPath: m_fontSizeBase
-      value: 16
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630526910992943543, guid: 496ef414966e54a4faa172bc1d549805, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9222514374358146323, guid: 3f872808e083af348a11e5b135b5d5d7, type: 2}
+    - target: {fileID: 2630526910992943543, guid: 496ef414966e54a4faa172bc1d549805, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2699805258191711014, guid: 496ef414966e54a4faa172bc1d549805, type: 3}
       propertyPath: itemNameText
@@ -315,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7303835181601851606, guid: 496ef414966e54a4faa172bc1d549805, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 14.7537
+      value: 12.3537
       objectReference: {fileID: 0}
     - target: {fileID: 7303835181601851606, guid: 496ef414966e54a4faa172bc1d549805, type: 3}
       propertyPath: m_AnchoredPosition.x

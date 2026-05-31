@@ -112,12 +112,12 @@ TextureImporter:
       name: Grass 2_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: Grass 2_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 1
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 0
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: Grass 2_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 1
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 36
+        y: 0
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,12 +178,12 @@ TextureImporter:
       name: Grass 2_3
       rect:
         serializedVersion: 2
-        x: 58
-        y: 1
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 54
+        y: 0
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 920e852452f94b84e9419e8a701bc901
     internalID: 0
     vertices: []
     indices: 
@@ -208,7 +208,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":18.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5555555820465088,"y":0.125},"pivotPixels":{"x":133.0,"y":18.0},"autoSlicingMethod":1,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Grass 2_0: 7638217276388808536
       Grass 2_1: -2942873021967128138

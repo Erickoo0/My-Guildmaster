@@ -103,12 +103,12 @@ TextureImporter:
       name: Bar Chairs_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 16
-        height: 21
+        width: 18
+        height: 22
       alignment: 9
-      pivot: {x: 0.4882865, y: 0.09839357}
+      pivot: {x: 0.5, y: 0.13636364}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,7 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":18.0,"y":22.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.13636364042758943},"pivotPixels":{"x":133.0,"y":18.0},"autoSlicingMethod":1,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Bar Chairs_0: -7359750752802016338
   mipmapLimitGroupName: 

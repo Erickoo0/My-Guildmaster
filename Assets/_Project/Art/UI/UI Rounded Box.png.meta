@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7b484f935c2425c45bc16cd4ce951aee
+guid: 490d3b789ccda9c43899572eb0bb2276
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5907086895721584000
-    second: Tavern Interior_0
+      213: -2036523127283088291
+    second: UI Rounded Box_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tavern Interior_0
+      name: UI Rounded Box_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1000
-        height: 600
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        width: 89
+        height: 28
+      alignment: 9
+      pivot: {x: 0.49438202, y: 0.035714287}
+      border: {x: 5, y: 5, z: 5, w: 5}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08599dc0c303af150800000000000000
-      internalID: 5907086895721584000
+      spriteID: d548c657101dcb3e0800000000000000
+      internalID: -2036523127283088291
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 00ed231132ab2bc40a89d1143ba713a4
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tavern Interior_0: 5907086895721584000
+      UI Rounded Box_0: -2036523127283088291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

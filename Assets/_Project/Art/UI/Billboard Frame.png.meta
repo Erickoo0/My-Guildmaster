@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 801cabf1f2653aa4eaf153e4b40b114e
+guid: 06c17de77e597f343abb8798a875068f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7177978000580941246
-    second: Action Bar Spells_0
+      213: -4723228954297845988
+    second: Calendar Frame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -53,7 +53,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Action Bar Spells_0
+      name: Calendar Frame_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 212
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 148
+        height: 75
+      alignment: 9
+      pivot: {x: 0.49324325, y: 0.013333334}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 24aedcdf903b26c90800000000000000
-      internalID: -7177978000580941246
+      spriteID: c17bc327a48b37eb0800000000000000
+      internalID: -4723228954297845988
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5107a6946923a93418264c8d1d6e50f6
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Action Bar Spells_0: -7177978000580941246
+      Calendar Frame_0: -4723228954297845988
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

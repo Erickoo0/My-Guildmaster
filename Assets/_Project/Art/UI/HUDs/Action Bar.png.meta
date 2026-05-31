@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 06c17de77e597f343abb8798a875068f
+guid: 3dc3e6728bb56c94c9ba2c87a681e508
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4723228954297845988
-    second: Calendar Frame_0
+      213: 7566408653351910859
+    second: Action Bar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Calendar Frame_0
+      name: Action Bar_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 47
         y: 0
-        width: 148
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 386
+        height: 65
+      alignment: 9
+      pivot: {x: 0.4818653, y: 0.07692308}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c17bc327a48b37eb0800000000000000
-      internalID: -4723228954297845988
+      spriteID: bcd7b78e498410960800000000000000
+      internalID: 7566408653351910859
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: de1b47d7019f4c04ab0aa138987bc936
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Calendar Frame_0: -4723228954297845988
+      Action Bar_0: 7566408653351910859
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

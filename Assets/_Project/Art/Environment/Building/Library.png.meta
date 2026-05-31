@@ -106,9 +106,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 148
-        height: 97
+        height: 128
       alignment: 9
-      pivot: {x: 0.41385198, y: 0.10880237}
+      pivot: {x: 0.4054054, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,7 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":148.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.4054054021835327,"y":0.0859375},"pivotPixels":{"x":45.0,"y":8.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Library_0: 1072071239456008496
   mipmapLimitGroupName: 

@@ -106,9 +106,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 50
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 50
+      alignment: 9
+      pivot: {x: 0.56, y: 0.26}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cb0d357574f41b74a8426b9b6b2837ef
     internalID: 0
     vertices: []
     indices: 
@@ -133,7 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":50.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5600000023841858,"y":0.25999999046325686},"pivotPixels":{"x":133.0,"y":18.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Fallen Tree 2_0: -1064232573901945699
   mipmapLimitGroupName: 
