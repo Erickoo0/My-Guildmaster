@@ -6,6 +6,7 @@ public static class FlagKeys
 		// NPC & DIALOGUE
 		NPC_Met_Mai,
 		NPC_Met_Assistant,
+		NPC_Met_Stob,
     
 		// SPELLS
 		Spell_Unlocked_Fireball,
