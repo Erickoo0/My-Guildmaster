@@ -1,0 +1,40 @@
+using UnityEngine;
+
+[System.Serializable]
+public class EffectMpHeal : Effect
+{
+    public float baseMpHeal;
+
+    public override bool Execute(EffectPayload payload)
+    {
+        GameObject healTarget = payload.Target != null ? payload.Target : payload.User;
+
+        if (healTarget.TryGetComponent(out IStatProvider statProvider))
+        {
+            // Safety Check
+            Mana mana = statProvider.EntityMana != null ? statProvider.EntityMana : null;
+            if (mana == null) return false;
+
+            // Calculate final value
+            float totalHeal = baseMpHeal * payload.PotencyMultiplier;
+            
+            if (totalHeal > 0)
+            {
+                if (mana.MpCurrent >= mana.mpMax) return false;
+                mana.MpHealInstant(totalHeal);
+                return true;
+            }
+
+            // Damage Logic
+            if (totalHeal < 0)
+            {
+                if (mana.MpCurrent <= 0) return false;
+                mana.MpHealInstant(totalHeal);
+                return true;
+            }
+            return true;
+        }
+
+        return false;
+    }
+}

@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class Buff : MonoBehaviour
 {
+    [Header("References")]
     private GameObject _buffReceiver;
     private Health _health;
     private Mana _mana;
     private BuffSpellData.BuffType _buffType;
     public BuffSpellData.BuffType BuffType => _buffType;
     
+    [Header("Buff Settings")]
     private float _buffDuration;
     private float _buffAmount;
     private float _buffAmountPerTick;
@@ -78,9 +80,14 @@ public class Buff : MonoBehaviour
 
     private void ApplyTick()
     {
-        if (_health != null)
-            _health.HpHealInstant(_buffAmountPerTick);
-        else if (_mana != null)
-            _mana.MpHealInstant(_buffAmountPerTick);
+        switch (_buffType)
+        {
+            case BuffSpellData.BuffType.Health:
+                if (_health != null) _health.HpHealInstant(_buffAmountPerTick);
+                break;
+            case BuffSpellData.BuffType.Mana:
+                if (_mana != null) _mana.MpHealInstant(_buffAmountPerTick);
+                break;
+        }
     }
 }
