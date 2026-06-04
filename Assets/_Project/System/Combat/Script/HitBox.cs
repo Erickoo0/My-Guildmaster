@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,38 +13,32 @@ public abstract class HitBox : MonoBehaviour
     private int _maxEnemiesHitCount;
     private bool _hitOncePerTarget;
     private bool _destroyOnMaxHits;
-    
-    protected DamageData baseDamageData;
-    protected bool isDamageDataAssigned = false;
-    
+
+    protected GameObject spellSource;
+    protected List<Effect> onHitEffects;
+
     private readonly HashSet<IDamagable> targetsHit = new HashSet<IDamagable>();
     
-    protected virtual void Awake()
-    {
-        entityCollider = GetComponent<Collider2D>();
-    }
+    protected virtual void Awake() => entityCollider = GetComponent<Collider2D>();
 
-    public virtual void Setup(DamageData data)
+    public virtual void Setup(GameObject user, [CanBeNull] List<Effect> effects, int maxHits, bool hitOnce, bool destroyOnMax)
     {
-        baseDamageData = data;
-        isDamageDataAssigned = true;
+        spellSource = user;
+        onHitEffects = effects;
         targetsHit.Clear();
         
         // Read the data from the DamageData
-        _maxEnemiesHitCount = data.maxEnemiesHitCount;
-        _hitOncePerTarget = data.hitOncePerTarget;
-        _destroyOnMaxHits = data.destroyOnMaxHits;
+        _maxEnemiesHitCount = maxHits;
+        _hitOncePerTarget = hitOnce;
+        _destroyOnMaxHits = destroyOnMax;
     }
 
     public void OnTriggerStay2D(Collider2D other)
     {
         // Safety Check
-        if (!enableHitbox || !isDamageDataAssigned) return;
-        if (other.isTrigger) return;
-        
-        // Filter out wrong layers and Source
+        if (!enableHitbox || other.isTrigger) return;
         if (((1 << other.gameObject.layer) & victimLayer) == 0) return;
-        if (other.gameObject == baseDamageData.source) return;
+        if (other.gameObject == spellSource) return;
 
         if (other.TryGetComponent<IDamagable>(out IDamagable victim))
         {
@@ -53,17 +48,30 @@ public abstract class HitBox : MonoBehaviour
             // 2. Calculate knockback direction (Implemented by inherited classes)
             CalculateImpactPhysics(other, out Vector2 direction, out Vector2 impactPoint);
             
-            // 3. Send the damage to the target
-            DamageData finalData = baseDamageData;
-            finalData.hitDirection = direction;
-            finalData.hitImpactPoint = impactPoint;
+            // 3. Create effect payload
+            EffectPayload effectPayload = new EffectPayload(
+                spellSource,
+                other.gameObject,
+                other.transform.position,
+                direction,
+                impactPoint
+                );
             
-            if (SendDamage(finalData, other))
+            // 4. Execute all spell effects
+            bool anyEffectSucceeded = false;
+            if (onHitEffects != null && onHitEffects.Count > 0)
+                foreach (Effect effect in onHitEffects)
+                {
+                    if (effect.Execute(effectPayload))
+                        anyEffectSucceeded = true;
+                }
+
+            // 5. If any effect succeeded, add the target to the hit list
+            if (anyEffectSucceeded)
             {
                 targetsHit.Add(victim);
                 HandlePostHit(other);
                 
-                // If there is a enemies hit limit
                 if (_maxEnemiesHitCount > 0)
                 {
                     _maxEnemiesHitCount--;
@@ -71,9 +79,7 @@ public abstract class HitBox : MonoBehaviour
                     if (_maxEnemiesHitCount <= 0)
                     {
                         enableHitbox = false;
-
-                        if (_destroyOnMaxHits)
-                            Destroy(gameObject);
+                        if (_destroyOnMaxHits) Destroy(gameObject);
                     }
                 }
             }
@@ -84,17 +90,4 @@ public abstract class HitBox : MonoBehaviour
     protected abstract void CalculateImpactPhysics(Collider2D other, out Vector2 knockbackDirection, out Vector2 impactPoint);
     // All children can implement this method
     protected virtual void HandlePostHit(Collider2D other) { }
-    
-    protected bool SendDamage(DamageData data, Collider2D victimCollider)
-    {
-        if (!enableHitbox) return false;
-        
-        if (victimCollider.TryGetComponent<IDamagable>(out IDamagable victim))
-        {
-            victim.TakeDamage(data);
-            return true; // Successfully hit an IDamagable
-        }
-
-        return false; // It was on the layer mask, but not an IDamagable
-    }
 }

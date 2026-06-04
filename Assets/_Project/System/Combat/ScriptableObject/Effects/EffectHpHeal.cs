@@ -16,7 +16,7 @@ public class EffectHpHeal : Effect
             if (health == null) return false;
             
             // Calculate final value
-            float totalHeal = baseHpHeal * payload.PotencyMultiplier;
+            float totalHeal = baseHpHeal;
             
             // Healing Logic
             if (totalHeal > 0)

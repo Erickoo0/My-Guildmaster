@@ -1,10 +1,12 @@
 using UnityEngine;
 
+public enum BuffType { Health, Mana }
+
 [System.Serializable]
 public class EffectApplyBuff : Effect
 { 
     public GameObject buffPrefab;
-    public BuffSpellData.BuffType buffType;
+    public BuffType buffType;
     public float amount;
     public float duration;
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0755dda66a5af4eb1db19137715feb, type: 3}
   m_Name: Goblin Forest Dungeon Data
   m_EditorClassIdentifier: Assembly-CSharp::DungeonData
-  dungeonLocation: 1
+  dungeonLocation: 28
   baseEnemyCount: 5
   enemiesPerRoundScaling: 2
   delayBetweenRounds: 5
@@ -27,7 +27,7 @@ MonoBehaviour:
     minRoundRequirement: 2
   - enemyPrefab: {fileID: 7501037571369695415, guid: 1a903ede916c51e4f9eeacaf2250015f, type: 3}
     spawnWeight: 50
-    minRoundRequirement: 2
+    minRoundRequirement: 1
   - enemyPrefab: {fileID: 8717484381973821104, guid: be47aeb0ca3d0354097f97a3112e8df7, type: 3}
     spawnWeight: 50
-    minRoundRequirement: 1
+    minRoundRequirement: 2

@@ -16,7 +16,7 @@ public class EffectMpHeal : Effect
             if (mana == null) return false;
 
             // Calculate final value
-            float totalHeal = baseMpHeal * payload.PotencyMultiplier;
+            float totalHeal = baseMpHeal;
             
             if (totalHeal > 0)
             {

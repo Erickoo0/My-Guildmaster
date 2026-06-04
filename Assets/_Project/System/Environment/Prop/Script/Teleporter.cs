@@ -51,7 +51,7 @@ public class Teleporter : MonoBehaviour
         
         // 3. Update location
         if (LocationManager.Instance != null)
-            LocationManager.Instance.UpdateLocation(targetLocation);
+            LocationManager.Instance.UpdateLocation(targetDestinationTeleporter.targetLocation);
 
         
         // 4. Set the face direction 

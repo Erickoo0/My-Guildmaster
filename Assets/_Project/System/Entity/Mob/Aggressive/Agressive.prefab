@@ -496,9 +496,7 @@ MonoBehaviour:
   entityID: Aggressive_Mob
   aiPath: {fileID: 0}
   <WanderRadius>k__BackingField: 15
-  attackLibrary:
-  - {fileID: 11400000, guid: 6ecc94032b379694fb61fee6c1844c77, type: 2}
-  - {fileID: 11400000, guid: 3ae452862e0e6234180795a619ff46e7, type: 2}
+  attackLibrary: []
   <TargetableList>k__BackingField:
   - Player
   <mobType>k__BackingField: 2
@@ -516,10 +514,12 @@ MonoBehaviour:
   ChaseState:
     rid: 7572515169101152258
   AttackState:
-    rid: 7572515179751800910
+    rid: -2
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 5971588556629475422
       type: {class: EntitySpawnState, ns: , asm: Assembly-CSharp}
       data:
@@ -534,10 +534,6 @@ MonoBehaviour:
     - rid: 7572515169101152258
       type: {class: EntityChaseState, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 7572515179751800910
-      type: {class: EntityChargeAttackState, ns: , asm: Assembly-CSharp}
-      data:
-        attackID: Spell_Data_Charge
 --- !u!114 &-1126634882369786296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,6 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
   containerOpenedSprite: {fileID: 0}
+  interactable: 1
   containerContents:
   - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
     dropAmount: 1
