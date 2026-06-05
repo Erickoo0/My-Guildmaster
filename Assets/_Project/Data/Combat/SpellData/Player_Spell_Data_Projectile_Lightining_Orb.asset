@@ -10,64 +10,46 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
-  m_Name: Player_Spell_Data_Projectile_Fireball
+  m_Name: Player_Spell_Data_Projectile_Lightining_Orb
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
-  spellID: Player_Spell_Data_Projectile_Fireball
-  spellName: Fireball
-  spellIcon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+  spellID: Player_Spell_Data_Projectile_Lightining_Orb
+  spellName: 
+  spellIcon: {fileID: -1487120408008746009, guid: 4f853357d0039bf44866b9a04c452ed2, type: 3}
   spellPrefab: {fileID: 0}
   spellAnimation: 0
   baseMpCost: 0
-  baseCastTime: 0.25
+  baseCastTime: 0
   spellEffects:
-  - rid: 3505743447765811278
+  - rid: 3505743470580727883
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
   references:
     version: 2
     RefIds:
-    - rid: 3505743447765811278
+    - rid: 3505743470580727883
       type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
       data:
-        projectilePrefab: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
+        projectilePrefab: {fileID: 8396159159101520813, guid: cf1d54f605aba5d4abe4cc8a56ed626d, type: 3}
         projectileScale: 1
         projectileSpeed: 12
         projectileLifetime: 3
         projectileHeight: 0
         projectileCurve:
           serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 1
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 1
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
+          m_Curve: []
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        maxEnemiesHit: 1
-        hitOncePerTarget: 1
-        destroyOnMaxHits: 1
+        maxEnemiesHit: 0
+        hitOncePerTarget: 0
+        destroyOnMaxHits: 0
         onHitEffects:
-        - rid: 3505743447765811279
-    - rid: 3505743447765811279
+        - rid: 3505743470580727884
+    - rid: 3505743470580727884
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 50
+        damageAmount: 15
         damageType: 0
         knockbackForce: 30
         knockbackDuration: 0.35

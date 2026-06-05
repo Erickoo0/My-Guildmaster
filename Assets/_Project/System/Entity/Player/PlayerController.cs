@@ -5,20 +5,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : BaseEntityController {
     [Header("References")]
-    public Mana mpComponent;
+    [HideInInspector] public Mana mpComponent;
     [SerializeReference, SubclassSelector] public State<PlayerController> IdleState;
     [SerializeReference, SubclassSelector] public State<PlayerController> MoveState;
     [SerializeReference, SubclassSelector] public State<PlayerController> DashState;
 
-    
-    [Header("Spell Loadout")]
+
+    [Header("Spell Settings")]
+    public SpellDataDatabase globalSpellDatabase;
     [Tooltip("Slot 0: M1, Slot 1: Q, Slot 2: E, Slot 3: R, Slot 4: F")]
     [SerializeReference, SubclassSelector] public List<BasePlayerSpellState> SpellSlots = new List<BasePlayerSpellState>();
-    // Track whether a spell key is held down (true = held, false = released)
     private bool[] _spellKeyHeld = new bool[5];
     
     [Header("Action Settings")]
-    [SerializeField] private List<SpellData> attackLibrary;
     [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
     private float _lastActionTime;
 
@@ -57,6 +56,8 @@ public class PlayerController : BaseEntityController {
     {
         // Default to the idle state
         StateMachine.SetupState(IdleState);
+        
+        mpComponent = PlayerStatsManager.Instance.ManaComponent; // Avoid race condition
     }
 
     protected override void Update()
@@ -77,8 +78,6 @@ public class PlayerController : BaseEntityController {
             WorldMousePosition = new Vector3(worldPos.x, worldPos.y, 0f);
         }
     }
-    
-    
     
     // ---- Input Routing ----
     public void OnMove(InputAction.CallbackContext context)
@@ -158,14 +157,6 @@ public class PlayerController : BaseEntityController {
         {
             MovementInput = _rawInput;
         }
-    }
-    
-    public T GetAttackData<T>(string id) where T : SpellData
-    {
-        // Search the library for a piece of data that:
-        // 1. Matches the ID string
-        // 2. Is of the type (T) we are looking for
-        return attackLibrary.OfType<T>().FirstOrDefault(data => data.spellID == id);
     }
     
     //---- Action Methods -----

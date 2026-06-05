@@ -20,7 +20,10 @@ public abstract class BasePlayerSpellState : State<PlayerController>
     {
         base.Setup(controller, stateMachine);
         
-        spellData = controller?.GetAttackData<SpellData>(spellID);
+        if (controller.globalSpellDatabase != null)
+            spellData = controller.globalSpellDatabase.GetSpell<SpellData>(spellID);
+        else
+            Debug.LogError("PlayerController.globalSpellDatabase is null");
         
         castBar = controller?.GetComponent<CastBar>();
     }

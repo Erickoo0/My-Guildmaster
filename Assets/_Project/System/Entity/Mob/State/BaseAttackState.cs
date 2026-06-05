@@ -17,7 +17,10 @@ public abstract class BaseAttackState : BaseActionState
     public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
-        attackData = controller?.GetAttackData<SpellData>(attackID);
+
+        if (controller.globalSpellDatabase != null)
+            attackData = controller.globalSpellDatabase.GetSpell<SpellData>(attackID);
+        
         castBar = controller.GetComponent<CastBar>();
     }
 

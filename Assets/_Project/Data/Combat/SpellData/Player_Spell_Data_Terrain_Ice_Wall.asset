@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
+  m_Name: Player_Spell_Data_Terrain_Ice_Wall
+  m_EditorClassIdentifier: Assembly-CSharp::SpellData
+  spellID: Player_Spell_Data_Terrain_Icewall
+  spellName: Ice Wall
+  spellIcon: {fileID: 5234705123545024623, guid: b94d4d42ec62cf14bbc44c3a8e247d71, type: 3}
+  spellPrefab: {fileID: 0}
+  spellAnimation: 0
+  baseMpCost: 0
+  baseCastTime: 0
+  spellEffects:
+  - rid: 3505743447765811312
+  hitOncePerTarget: 1
+  destroyOnMaxHits: 1
+  baseMaxEnemiesHit: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743447765811312
+      type: {class: EffectSpawnTerrain, ns: , asm: Assembly-CSharp}
+      data:
+        terrainPrefab: {fileID: 3961226781002053672, guid: d50cd93cf5957c643a4475b565f55589, type: 3}
+        terrainDuration: 5
+        terrainHpMax: 50

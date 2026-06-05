@@ -13,9 +13,9 @@ public class MobController : BaseEntityController
     [HideInInspector] public AIPath aiPath;
     [field: SerializeField] public float WanderRadius { get; private set; } = 5f;
     public Vector2 SpawnPosition { get; private set; }
-    
-    [Header("Attack Library")]
-    [SerializeField] private List<SpellData> attackLibrary;
+
+    [Header("Spell Settings")]
+    public SpellDataDatabase globalSpellDatabase;
     
     [Header("Mob Type & Targeting")] 
     [field: SerializeField] public List<string> TargetableList { get; private set; }
@@ -135,15 +135,6 @@ public class MobController : BaseEntityController
     {
         _lastActionTime = Time.time;
     }
-    
-    public T GetAttackData<T>(string id) where T : SpellData
-    {
-        // Search the library for a piece of data that:
-        // 1. Matches the ID string
-        // 2. Is of the type (T) we are looking for
-        return attackLibrary.OfType<T>().FirstOrDefault(data => data.spellID == id);
-    }
-    
     
     //----Debug Methods-----
     private void OnDrawGizmosSelected()

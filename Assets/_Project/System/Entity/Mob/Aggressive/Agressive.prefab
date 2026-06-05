@@ -282,8 +282,8 @@ GameObject:
   - component: {fileID: 9181716830030837955}
   - component: {fileID: 6990653571150878097}
   - component: {fileID: 5819134255891694365}
+  - component: {fileID: -5434272593035035782}
   - component: {fileID: -6041577575005612142}
-  - component: {fileID: -3679579161091551708}
   - component: {fileID: -1126634882369786296}
   - component: {fileID: 6447096566392552272}
   - component: {fileID: -1747576445313389302}
@@ -468,6 +468,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b52ac14ec3a44d39e9c9f2574261b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
+--- !u!114 &-5434272593035035782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3891c3e5f98f4d639b32e782089d8fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobController
+  entityID: 
+  aiPath: {fileID: 0}
+  <WanderRadius>k__BackingField: 5
+  globalSpellDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+  <TargetableList>k__BackingField:
+  - Player
+  <mobType>k__BackingField: 2
+  <DetectionRange>k__BackingField: 6
+  <DetectionLostRange>k__BackingField: 10
+  <ActionRange>k__BackingField: 5
+  currentTarget: {fileID: 0}
+  <ActionCooldown>k__BackingField: 0.5
+  SpawnState:
+    rid: 3505743470580727907
+  IdleState:
+    rid: 3505743470580727908
+  WanderState:
+    rid: 3505743470580727909
+  ChaseState:
+    rid: 3505743470580727910
+  AttackState:
+    rid: 3505743470580727911
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743470580727907
+      type: {class: EntitySpawnState, ns: , asm: Assembly-CSharp}
+      data:
+        spawnFXPrefab: {fileID: 0}
+        spawnDuration: 2
+    - rid: 3505743470580727908
+      type: {class: EntityIdleState, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 3505743470580727909
+      type: {class: EntityWanderState, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 3505743470580727910
+      type: {class: EntityChaseState, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 3505743470580727911
+      type: {class: EntityAttackState, ns: , asm: Assembly-CSharp}
+      data:
+        attackID: 
 --- !u!114 &-6041577575005612142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,59 +536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityMover
   moveSpeed: 5
---- !u!114 &-3679579161091551708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531220670705793847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3891c3e5f98f4d639b32e782089d8fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EntityController
-  entityID: Aggressive_Mob
-  aiPath: {fileID: 0}
-  <WanderRadius>k__BackingField: 15
-  attackLibrary: []
-  <TargetableList>k__BackingField:
-  - Player
-  <mobType>k__BackingField: 2
-  <DetectionRange>k__BackingField: 6
-  <DetectionLostRange>k__BackingField: 8
-  <ActionRange>k__BackingField: 5
-  currentTarget: {fileID: 0}
-  <ActionCooldown>k__BackingField: 2
-  SpawnState:
-    rid: 5971588556629475422
-  IdleState:
-    rid: 7572515169101152256
-  WanderState:
-    rid: 7572515169101152257
-  ChaseState:
-    rid: 7572515169101152258
-  AttackState:
-    rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 5971588556629475422
-      type: {class: EntitySpawnState, ns: , asm: Assembly-CSharp}
-      data:
-        spawnFXPrefab: {fileID: 7750971636722915851, guid: 131a8da79a3297745858cbf34f5cd43a, type: 3}
-        spawnDuration: 2
-    - rid: 7572515169101152256
-      type: {class: EntityIdleState, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 7572515169101152257
-      type: {class: EntityWanderState, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 7572515169101152258
-      type: {class: EntityChaseState, ns: , asm: Assembly-CSharp}
-      data: 
 --- !u!114 &-1126634882369786296
 MonoBehaviour:
   m_ObjectHideFlags: 0
