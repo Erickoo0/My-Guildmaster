@@ -54,12 +54,12 @@ MonoBehaviour:
         hitOncePerTarget: 1
         destroyOnMaxHits: 1
         onHitEffects:
-        - rid: 3505743447765811301
-    - rid: 3505743447765811301
+        - rid: 3505743470580727942
+    - rid: 3505743470580727942
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 30
+        damageAmount: 20
         damageType: 1
-        knockbackForce: 30
-        knockbackDuration: 0.35
-        knockbackHeight: 1
+        knockbackForce: 20
+        knockbackDuration: 0.2
+        knockbackHeight: 0.75

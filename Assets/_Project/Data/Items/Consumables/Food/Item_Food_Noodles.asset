@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
-  m_Name: Item_Poison_Berry
+  m_Name: Item_Food_Noodles
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Poison_Berry
-  <ItemName>k__BackingField: Poison Berry
-  <ItemDescription>k__BackingField: 
+  <ItemID>k__BackingField: Item_Noodles
+  <ItemName>k__BackingField: Noodles
+  <ItemDescription>k__BackingField: A delicious bowl of hot noodles
   <Category>k__BackingField: 6
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
-  - {fileID: -4787621849507200261, guid: a5809f7487b03e34dae4aae7b34a8742, type: 3}
+  - {fileID: 307049234662581677, guid: f38d287a1e2b9d449aba488a6bef0290, type: 3}
   <ItemObject>k__BackingField: {fileID: 0}
-  <ItemValue>k__BackingField: 5
+  <ItemValue>k__BackingField: 25
   <IsSellable>k__BackingField: 1
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
   <IsUsable>k__BackingField: 1
   effects:
-  - rid: 3505743419375091803
+  - rid: 3505743419375091792
   references:
     version: 2
     RefIds:
-    - rid: 3505743419375091803
+    - rid: 3505743419375091792
       type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
       data:
-        baseHpHeal: -20
+        baseHpHeal: 20

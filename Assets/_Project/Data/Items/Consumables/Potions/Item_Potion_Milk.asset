@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
-  m_Name: Item_Hp_Potion
+  m_Name: Item_Potion_Milk
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Hp_Potion
-  <ItemName>k__BackingField: Minor Hp Potion
-  <ItemDescription>k__BackingField: A minor Hp potion that heals 25 Hp instantly,
-    then 25 Hp over 5 seconds.
+  <ItemID>k__BackingField: Item_Potion_Milk
+  <ItemName>k__BackingField: Milk
+  <ItemDescription>k__BackingField: A cup of milk
   <Category>k__BackingField: 5
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
-  - {fileID: -2354079490960433704, guid: 006d2b4ed352ae84e85da703852c3e2b, type: 3}
+  - {fileID: -5041735488819484629, guid: cc6dde6c98945d246ba3fd041037a037, type: 3}
   <ItemObject>k__BackingField: {fileID: 0}
   <ItemValue>k__BackingField: 0
   <IsSellable>k__BackingField: 1

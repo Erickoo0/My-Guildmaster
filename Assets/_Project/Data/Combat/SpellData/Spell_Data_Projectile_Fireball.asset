@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
   m_Name: Spell_Data_Projectile_Fireball
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
-  spellID: Spell_Data_Projectile_Fireball_1
+  spellID: Spell_Data_Projectile_Fireball
   spellName: Fireball
   spellIcon: {fileID: 0}
   spellPrefab: {fileID: 0}
@@ -24,7 +24,6 @@ MonoBehaviour:
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
-  spellScale: 1
   references:
     version: 2
     RefIds:
@@ -32,6 +31,7 @@ MonoBehaviour:
       type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
       data:
         projectilePrefab: {fileID: 3301934860267052368, guid: 4af734ae41faf5c4b94b5a521cbb2fc7, type: 3}
+        projectileScale: 1
         projectileSpeed: 12
         projectileLifetime: 3
         projectileHeight: 0
@@ -63,12 +63,12 @@ MonoBehaviour:
         hitOncePerTarget: 1
         destroyOnMaxHits: 1
         onHitEffects:
-        - rid: 3505743447765811286
-    - rid: 3505743447765811286
+        - rid: 3505743470580727941
+    - rid: 3505743470580727941
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 15
+        damageAmount: 10
         damageType: 1
-        knockbackForce: 30
-        knockbackDuration: 0.35
-        knockbackHeight: 1
+        knockbackForce: 20
+        knockbackDuration: 0.2
+        knockbackHeight: 0.75
