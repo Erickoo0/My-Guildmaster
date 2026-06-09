@@ -20,8 +20,11 @@ MonoBehaviour:
     - The names Stob, I run the Sky Haven food stall.
     - If your ever looking for a bite to eat, come on by.
     dialogueOptions: []
-    nodeEvent: SetGameFlag
-    nodeEventParameter: NPC_Met_Stob
+    nodeEvents:
+    - eventName: IncrementGameStat
+      eventParameter: NPCs_Met
+    - eventName: SetGameFlag
+      eventParameter: NPC_Met_Stob
     requirements:
     - rid: 5971589033871016021
     selectionWeight: 0

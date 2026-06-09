@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286c654a86bfddf49a552de14dc3c579, type: 3}
+  m_Name: Quest_Edwin_Tutorial01
+  m_EditorClassIdentifier: Assembly-CSharp::QuestSo
+  questID: Quest_Edwin_Tutorial01
+  questName: My Guild Master
+  questDescription: Follow Edwind to your new guild.
+  questObjectives:
+  - rid: 3505743512665063518
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743512665063518
+      type: {class: QuestObjectiveState, ns: , asm: Assembly-CSharp}
+      data:
+        objectiveTitle: 'Follow Edwind '
+        requirement:
+          rid: 3505743512665063519
+    - rid: 3505743512665063519
+      type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
+      data:
+        requiredGameFlag: 11
+        requiredState: 1

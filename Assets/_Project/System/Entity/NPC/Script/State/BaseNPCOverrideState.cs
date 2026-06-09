@@ -4,19 +4,32 @@ using System.Collections.Generic;
 [System.Serializable]
 public abstract class BaseNPCOverrideWanderState : BaseNPCWanderState, IStateOverrider
 {
+    public string stateName;
+    
     [SerializeReference, SubclassSelector]
     public List<Requirement> requirements = new List<Requirement>();
+    
+    [Header("Target Destinations")]
+    [HierarchySelector(typeof(PointOfInterest))]
+    public List<string> targetPOIList = new List<string>();
     
     [Header("Override Dialogue Data")]
     [SerializeField] private DialogueGroup dialogueGroup;
     [SerializeField] private string[] speechBubbleDialogue;
     [SerializeField] private int priority = 10; // Higher priority means it will be evaluated first
+    [SerializeField] private bool disableInteractionWhileMoving = false;
     private bool isStateFinished = false; // Optional bool to permanently disable state after first override
+
+    [Header("Arrival Event Logic")]
+    [SerializeField] private bool setFlagOnArrival = false;
+    [SerializeField] private FlagKeys.GameFlag arrivalFlag;
     
     public DialogueGroup GetDialogueGroup() => dialogueGroup;
     public string[] GetSpeechBubbles() => speechBubbleDialogue;
     public int Priority => priority;
 
+    protected override List<string> GetPOITargetIDs() => targetPOIList;
+    
     public virtual bool EvaluateRequirements()
     {
         // If there are no requirements assigned, keep the state dormant.
@@ -39,6 +52,15 @@ public abstract class BaseNPCOverrideWanderState : BaseNPCWanderState, IStateOve
         return true;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+
+        // Optionally disable interaction while moving
+        if (disableInteractionWhileMoving)
+            controller.IsInteractable = false;
+    }
+
     // Override the base method to prevent going into Idle upon reaching destination
     protected override void OnReachedDestination()
     {
@@ -55,15 +77,38 @@ public abstract class BaseNPCOverrideWanderState : BaseNPCWanderState, IStateOve
                 Debug.LogWarning($"[{controller.gameObject.name}] Teleport failed! Could not find POI with ID: '{_selectedPOI.TeleportPOI}' in the POIRegistry.");
         }
         
+        // Stop Moving
+        controller.EntityMover.SetMoveDirection(Vector2.zero);
+        
         // Face Direction logic
         controller.EntityAnimator.FaceDirection((_selectedPOI.lookDirection));
 
         // Set the location
         controller.currentLocation = _selectedPOI.Location;
+        
+        // Reenable interaction if disabled
+        if (disableInteractionWhileMoving)
+            controller.IsInteractable = true;
+        
+        // Set game flag on arrival
+        if (setFlagOnArrival)
+            GameFlagManager.Instance.SetGameFlag(arrivalFlag, true);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        // Guarantee interaction is restored is the state is interrupted
+        // before arriving at destination
+        controller.IsInteractable = true;
     }
     
-    protected void FinishOverride()
+    protected void FinishOverride(bool disablePermanently = false)
     {
+        if (disablePermanently)
+            isStateFinished = true;
+        
         controller.ClearOverrideState();
     }
 }

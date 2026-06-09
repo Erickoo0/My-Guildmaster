@@ -8,10 +8,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[0]'
+      value: POI_Haven_Hills_Interior
+      objectReference: {fileID: 0}
     - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_Name
       value: Stob Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: dialogueName
+      value: Stob
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: dialoguePortrait
+      value: 
+      objectReference: {fileID: 4723107735738678597, guid: aba9f70dc2c46dc409c5ca91f37f3e37, type: 3}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: shopList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2aad0c2addc1abd4abc543fada0f5150, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e22a02855ce163458c3878464a649d7, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 96a5db5c4805e3a4bacc011de34ec237, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cb09fea25ea7dab43a8e184695f8bb7d, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6592521c13dd7af4b856aa99b8f4f75b, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d02127c3cdbde14696c60f0a6b5c2a3, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 81090d1e79ab0604ea4783770d81c1b2, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: npcDialogueData.DefaultDialogueNode.Array.size
       value: 1
@@ -50,11 +94,11 @@ PrefabInstance:
       objectReference: {fileID: 7108339969198208228, guid: 68e1f73d5d8f26946af16982b044d5b3, type: 3}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.12
+      value: -14.12
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.52
+      value: 25.54
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.z

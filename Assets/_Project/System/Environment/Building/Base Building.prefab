@@ -131,8 +131,8 @@ BoxCollider2D:
   m_Offset: {x: 0.121418, y: 1.0259967}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.50167495, y: 0.08795099}
-    oldSize: {x: 5.8125, y: 7.75}
+    pivot: {x: 0.5078125, y: 0.1171875}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 5.8125, y: 7.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -168,30 +168,30 @@ MonoBehaviour:
   - {x: 3.604352, y: -0.8884144, z: 0}
   m_ShapePathHash: 0
   m_InstanceId: 0
-  m_ShadowShape2DComponent: {fileID: 6893436922188022894}
+  m_ShadowShape2DComponent: {fileID: 4486911655114145573}
   m_ShadowShape2DProvider:
-    rid: 7572515380916125983
+    rid: 3505743492058447873
   m_ShadowCastingSource: 2
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0.10434723, y: 3.11158, z: 0}
-      m_Extent: {x: 3.1999893, y: 3.6999893, z: 0}
+      m_Center: {x: 0.03125, y: 3.0625, z: 0}
+      m_Extent: {x: 1.793747, y: 2.699997, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 1.3
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0.3
+    m_InitialTrim: 0.4
   m_CastingOption: 1
-  m_PreviousTrimEdge: 0.3
+  m_PreviousTrimEdge: 1.3
   m_PreviousEdgeProcessing: 1
   m_PreviousShadowCastingSource: 2
   m_PreviousShadowShape2DSource: {fileID: 6893436922188022894}
   references:
     version: 2
     RefIds:
-    - rid: 7572515380916125983
-      type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+    - rid: 3505743492058447873
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
 --- !u!1001 &9209684459045620503
 PrefabInstance:

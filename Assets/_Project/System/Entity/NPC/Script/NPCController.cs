@@ -27,12 +27,20 @@ public class NPCController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseNPCHobbyState HobbyState;
     [SerializeReference, SubclassSelector] public BaseNPCWorkState WorkState;
     [SerializeReference, SubclassSelector] public List<BaseNPCOverrideWanderState> dormantOverrideStates = new List<BaseNPCOverrideWanderState>();
+    private NPCScheduleController _scheduleController;
 
     [Header("NPC Schedule")]
     public GameLocation currentLocation;
     [field: SerializeField] public NPCScheduleData NpcScheduleData {get; private set;}
     public State OverrideState { get; private set; }
     public bool IsOverrideState => OverrideState != null;
+
+    [Header("NPC Interaction")]
+    public bool IsInteractable { get; set; } = true;
+    
+    [Header("Evaluation timers")]
+    private float _evaluationTimer = 0f;
+    private float _evaluationInterval = 0.5f;
 
     protected override void Awake()
     {
@@ -50,10 +58,13 @@ public class NPCController : BaseEntityController
         SleepState?.Setup(this, StateMachine);
         HobbyState?.Setup(this, StateMachine);
         WorkState?.Setup(this, StateMachine);
+        
         foreach (BaseNPCOverrideWanderState overrideState in dormantOverrideStates)
         {
             overrideState?.Setup(this, StateMachine);
         }
+        
+        _scheduleController = GetComponent<NPCScheduleController>();
     }
     
     protected virtual void Start()
@@ -65,10 +76,15 @@ public class NPCController : BaseEntityController
     protected override void Update()
     {
         base.Update();
-        // Only evaluate if we aren't already IN an override state.
+        
         if (!IsOverrideState)
         {
-            EvaluateOverrideStates();
+            _evaluationTimer += Time.deltaTime;
+            if (_evaluationTimer >= _evaluationInterval)
+            {
+                EvaluateOverrideStates();
+                _evaluationTimer = 0f;
+            }
         }
     }
 
@@ -106,14 +122,9 @@ public class NPCController : BaseEntityController
         OverrideState = null;
         
         // Fallback safely to whatever the schedule says they should be doing right now
-        var scheduleController = GetComponent<NPCScheduleController>();
-        if (scheduleController != null)
-        {
-            StateMachine.ChangeState(scheduleController.CurrentScheduledState);
-        }
+        if (_scheduleController != null)
+            StateMachine.ChangeState(_scheduleController.CurrentScheduledState);
         else
-        {
             StateMachine.ChangeState(IdleState);
-        }
     }
 }

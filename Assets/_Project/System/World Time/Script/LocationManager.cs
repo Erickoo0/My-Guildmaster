@@ -14,6 +14,7 @@ public enum GameLocation
     Tavern,
     Library,
     Church,
+    Haven_Hills,
     Clinic,
     Community_Center,
     Weapon_Shop,

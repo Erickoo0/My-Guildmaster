@@ -7,6 +7,10 @@ public abstract class BaseNPCWanderState : State<NPCController>
     protected List<PointOfInterest> _poiList = new List<PointOfInterest>();
     protected PointOfInterest _selectedPOI;
     protected bool _IsMovingToEntrance = false;
+
+    [Header("Pathing Logic")]
+    [SerializeField] protected bool walkInSequence = false;
+    protected int _currentPOIIndex = 0;
     
     [Header("Anti-Stuck Variables")]
     protected float _stuckTimer;
@@ -74,9 +78,21 @@ public abstract class BaseNPCWanderState : State<NPCController>
     {
         if (_poiList == null || _poiList.Count == 0) return;
         
-        // 1. Pick the ultimate destination straight away!
-        // No more slot hacks required. Your lists can just contain actual targets now.
-        PointOfInterest ultimateDestination = _poiList[Random.Range(0, _poiList.Count)];
+        PointOfInterest ultimateDestination;
+        
+        // 1. Pick a destination
+        if (walkInSequence)
+        {
+            // Safety Check
+            if (_currentPOIIndex >= _poiList.Count) _currentPOIIndex = 0;
+            // Set the destination to the current POI index
+            ultimateDestination = _poiList[_currentPOIIndex];
+            _currentPOIIndex++;
+        } 
+        else // If not walk in sequence, pick a random destination
+        {
+            ultimateDestination = _poiList[Random.Range(0, _poiList.Count)];
+        }
         
         // 2. Are we in the correct location?
         if (controller.currentLocation != ultimateDestination.Location)

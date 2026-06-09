@@ -5,11 +5,6 @@ using System.Linq;
 [System.Serializable]
 public class MaiTutorialState : BaseNPCOverrideWanderState
 {
-    protected override List<string> GetPOITargetIDs()
-    {
-        return new List<string> { "Grand_Tree_Front" };
-    }
-
     public override void Update()
     {
         base.Update();

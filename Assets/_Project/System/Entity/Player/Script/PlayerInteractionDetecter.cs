@@ -17,10 +17,13 @@ public class PlayerInteractionDetecter : MonoBehaviour
 
     private void UpdateTarget()
     {
-        // 1. Clean the list of objects that are no longer interactable
-        _interactablesInRange.RemoveAll(i => i == null || !i.CanInteract());
-
-        if (_interactablesInRange.Count == 0)
+        // 1. Clean the list of objects that are null
+        _interactablesInRange.RemoveAll(i => i == null || ((MonoBehaviour)i) == null);
+        
+        // 2. Filter a temporary list of things we can currently interact with
+        var validInteractables = _interactablesInRange.Where(i => i.CanInteract()).ToList();
+        
+        if (validInteractables.Count == 0)
         {
             _interactableTarget = null;
             interactIcon.SetActive(false);
@@ -28,7 +31,7 @@ public class PlayerInteractionDetecter : MonoBehaviour
         }
         
         // 2. Set the target to the closest target
-        _interactableTarget = _interactablesInRange
+        _interactableTarget = validInteractables
             .OrderBy(i => Vector2.Distance(transform.position, ((MonoBehaviour)i).transform.position))
             .FirstOrDefault();    
         

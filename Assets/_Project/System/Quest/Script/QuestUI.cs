@@ -23,19 +23,22 @@ public class QuestUI : MonoBehaviour
     {
         // 1. Wipe out the old visual elements
         foreach (GameObject uiElement in _spawnedUIElements)
-        {
             Destroy(uiElement);
-        }
         _spawnedUIElements.Clear();
 
-        // 2. Safely read directly from the Manager's updated data
+        // 2. Safety Check
         if (QuestManager.Instance == null) return;
 
-        foreach (QuestActive activeQuest in QuestManager.Instance.QuestList)
+        // 3. Loop through dictionary
+        foreach (QuestActive activeQuest in QuestManager.Instance.ActiveQuestDictionary.Values)
         {
             GameObject newQuestVisual = Instantiate(questPrefab, questSoPanel.transform);
-            newQuestVisual.GetComponent<Quest>().Setup(activeQuest);
-            newQuestVisual.GetComponent<Quest>().UpdateProgressText(activeQuest);
+            
+            if (newQuestVisual.TryGetComponent(out Quest questVisualComponent))
+            {
+                questVisualComponent.Setup(activeQuest);
+                questVisualComponent.UpdateProgressText(activeQuest);
+            }
             
             _spawnedUIElements.Add(newQuestVisual);
         }

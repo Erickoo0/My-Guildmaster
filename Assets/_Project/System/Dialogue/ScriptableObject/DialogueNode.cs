@@ -8,8 +8,7 @@ public class DialogueNode
     public string nodeID;
     public string[] dialogueLines;
     public DialogueOption[] dialogueOptions;
-    public string nodeEvent; // Future, if we want to play animations or events when the a specific dialogue node starts
-    public string nodeEventParameter;
+    public NodeEventData[] nodeEvents;
     
     [Header("Selection Criteria")]
     [SerializeReference, SubclassSelector]
@@ -29,4 +28,11 @@ public class DialogueOption
     [Header("Event Data")]
     public string dialogueEvent;
     public string eventParameter; // For quests, put the QuestID here.
+}
+
+[System.Serializable]
+public class NodeEventData
+{
+    public string eventName;
+    public string eventParameter;
 }

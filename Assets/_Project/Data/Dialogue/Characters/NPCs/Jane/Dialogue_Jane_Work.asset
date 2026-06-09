@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
+  m_Name: Dialogue_Jane_Work
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
+  startingNodeID: Intro
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Hello there... are you looking for potions?
+    dialogueOptions:
+    - optionName: Yes I am.
+      targetNodeID: 
+      dialogueEvent: OpenShop
+      eventParameter: 
+    - optionName: Just passing by.
+      targetNodeID: Rejection
+      dialogueEvent: 
+      eventParameter: 
+    nodeEvent: 
+    nodeEventParameter: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Rejection
+    dialogueLines:
+    - I see... Well, good day to you then.
+    dialogueOptions: []
+    nodeEvent: 
+    nodeEventParameter: 
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  references:
+    version: 2
+    RefIds: []

@@ -27,9 +27,7 @@ public class QuestActive
             // Set the objective progress to the loaded progress, but not more than the required amount
             int count = Mathf.Min(objectiveProgress.Length, ObjectiveProgress.Length);
             for (int i = 0; i < count; i++)
-            {
                 ObjectiveProgress[i] = objectiveProgress[i];
-            }
         }
         
         IsCompleted = isCompleted;
@@ -41,14 +39,21 @@ public class QuestActive
 
         int completedCount = 0; // Counts how many objectives are completed
 
-        // Check for objective completion 
+        // Loop through every quest objective
         for (int i = 0; i < QuestData.QuestObjectives.Count; i++)
         {
-            if (ObjectiveProgress[i] >= QuestData.QuestObjectives[i].RequiredAmount)
+            // Instance of quest objective
+            QuestObjectiveBase objective = QuestData.QuestObjectives[i];
+            
+            // If the objective is State-Based, check if the condition is met
+            if (!objective.IsCountBased)
             {
-                completedCount++;
-                Debug.Log($"Quest {QuestData.QuestName}: Objective {QuestData.QuestObjectives[i].ObjectiveTitle}: completed!");
+                ObjectiveProgress[i] = objective.IsConditionMet() ? 1 : 0;
+                if (ObjectiveProgress[i] == 1) completedCount++;
             }
+            else if (objective.IsCountBased)
+                if (ObjectiveProgress[i] >= objective.RequiredAmount)
+                    completedCount++;
         }
 
         // If all objectives are completed, mark the quest as completed
@@ -62,7 +67,10 @@ public class QuestActive
     // Method to add progress to an objective (called by Source -> EventBus -> QuestManager)
     public void AddObjectiveProgress(int objectiveIndex, int progress)
     {
-        ObjectiveProgress[objectiveIndex] += progress;
+        // Only increment count-based objectives
+        if (QuestData.QuestObjectives[objectiveIndex].IsCountBased)
+            ObjectiveProgress[objectiveIndex] += progress;
+        
         CheckQuestCompletion();
     }
 }

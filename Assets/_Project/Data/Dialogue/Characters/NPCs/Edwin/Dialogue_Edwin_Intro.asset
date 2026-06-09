@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
+  m_Name: Dialogue_Edwin_Intro
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
+  startingNodeID: Intro
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Hi there friend! Welcome to Spellharbor!
+    - I've been awaiting you. My name is Edwin.
+    - I am your humble and handsome assistant, here to help you with setting up your
+      new guild.
+    dialogueOptions:
+    - optionName: Nice to meet you Edwin.
+      targetNodeID: Option1
+      dialogueEvent: 
+      eventParameter: 
+    - optionName: Edwin? Haven't heard of you.
+      targetNodeID: Option2
+      dialogueEvent: 
+      eventParameter: 
+    nodeEvents: []
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Option1
+    dialogueLines:
+    - Well then, lets not waste any time.
+    - We have a lot of work to do to get this guild up and running.
+    dialogueOptions: []
+    nodeEvents:
+    - eventName: AcceptQuest
+      eventParameter: Quest_Edwin_Tutorial01
+    - eventName: SetGameFlag
+      eventParameter: Edwin_Tutorial01_Finished
+    - eventName: SetGameFlag
+      eventParameter: NPC_Met_Edwin
+    - eventName: IncrementGameStat
+      eventParameter: NPCs_Met
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Option2
+    dialogueLines:
+    - Oh, they must have forgotten to mention.
+    - Someone in the community center surely..
+    - Well anyways! Let's not waste any time.
+    - We have a lot of work to do to get this guild up and running.
+    dialogueOptions: []
+    nodeEvents:
+    - eventName: SetGameFlag
+      eventParameter: Edwin_Tutorial01_Finished
+    - eventName: AcceptQuest
+      eventParameter: Quest_Edwin_Tutorial01
+    - eventName: SetGameFlag
+      eventParameter: NPC_Met_Edwin
+    requirements:
+    - rid: 5971589033871016021
+    selectionWeight: 0
+    isImportant: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5971589033871016021
+      type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
+      data:
+        requiredGameFlag: 1
+        requiredState: 0

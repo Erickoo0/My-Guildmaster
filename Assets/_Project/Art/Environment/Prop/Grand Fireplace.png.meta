@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 00d5fb433df3f5140a5d2d3cd82914c0
+guid: c9b5f3d68040e6e418e46ba9f8613a31
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -129,7 +129,7 @@ TextureImporter:
         width: 125
         height: 190
       alignment: 9
-      pivot: {x: 0.52, y: 0.4631579}
+      pivot: {x: 0.52, y: 0.057894737}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,7 +151,7 @@ TextureImporter:
         width: 125
         height: 190
       alignment: 9
-      pivot: {x: 0.52, y: 0.4631579}
+      pivot: {x: 0.52, y: 0.057894737}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -173,7 +173,7 @@ TextureImporter:
         width: 125
         height: 190
       alignment: 9
-      pivot: {x: 0.52, y: 0.4631579}
+      pivot: {x: 0.52, y: 0.057894737}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -195,7 +195,7 @@ TextureImporter:
         width: 125
         height: 190
       alignment: 9
-      pivot: {x: 0.52, y: 0.4631579}
+      pivot: {x: 0.52, y: 0.057894737}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -217,7 +217,7 @@ TextureImporter:
         width: 125
         height: 190
       alignment: 9
-      pivot: {x: 0.52, y: 0.4631579}
+      pivot: {x: 0.52, y: 0.057894737}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -239,7 +239,7 @@ TextureImporter:
         width: 125
         height: 190
       alignment: 9
-      pivot: {x: 0.52, y: 0.4631579}
+      pivot: {x: 0.52, y: 0.057894737}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -261,7 +261,7 @@ TextureImporter:
         width: 125
         height: 190
       alignment: 9
-      pivot: {x: 0.52, y: 0.4631579}
+      pivot: {x: 0.52, y: 0.057894737}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -283,7 +283,7 @@ TextureImporter:
         width: 125
         height: 190
       alignment: 9
-      pivot: {x: 0.52, y: 0.4631579}
+      pivot: {x: 0.52, y: 0.057894737}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c8c389073967c68478e0f6110fb23374
+    spriteID: c6f8517698f8f534bbdf221da28565c7
     internalID: 0
     vertices: []
     indices: 
@@ -310,7 +310,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":125.0,"y":190.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5199999809265137,"y":0.46315789222717287},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":125.0,"y":190.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5199999809265137,"y":0.057894736528396609},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Grand Fireplace_0: -8328861079958565051
       Grand Fireplace_1: 6168557341378261772

@@ -18,6 +18,13 @@ public static class EventBus
         OnDialogueEventRequested?.Invoke(dialogueEvent, data);
     }
     
+    //-----------------------Stat/Flag Events--------------------------
+    public static event Action<FlagKeys.GameFlag, bool> OnGameFlagChanged;
+    public static void RequestGameFlagChanged(FlagKeys.GameFlag flag, bool state) => OnGameFlagChanged?.Invoke(flag, state);
+    
+    public static event Action<FlagKeys.GameStat, int> OnGameStatChanged;
+    public static void RequestGameStatChanged(FlagKeys.GameStat stat, int value) => OnGameStatChanged?.Invoke(stat, value);
+    
     //-----------------------UI Events--------------------------
     public static event Action<GameObject> OnMenuOpenRequested;
     public static void RequestOpenMenu(GameObject menu) => OnMenuOpenRequested?.Invoke(menu);

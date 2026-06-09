@@ -323,21 +323,22 @@ MonoBehaviour:
   WorkState:
     rid: 5971588601634619512
   dormantOverrideStates: []
+  currentLocation: 0
   <NpcScheduleData>k__BackingField:
     HomePOIList:
-    - Home
+    - POI_Church_Interior_Chair1
+    - POI_Church_Interior_Chair2
     SleepPOIList:
-    - Bridge
+    - POI_Church_Interior_Altar_Front
     HobbyPOIList:
-    - Library_Checkout
-    - Grand_Tree_Front
-    - Grand_Shrine_Front
-    - Forest
+    - POI_Haven_Hills_Front
+    - POI_Grand_Tree_Front
+    - POI_Grand_Shrine_Front
+    - POI_Forest01
+    - POI_Questboard_Front
+    - POI_Haven_Hills_Front
     WorkPOIList:
-    - Tavern_Table
-    - Community_Center
-    - WorkPlace1
-    - WorkPlace2
+    - POI_Questboard_Front
   references:
     version: 2
     RefIds:

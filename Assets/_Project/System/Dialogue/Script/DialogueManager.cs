@@ -113,11 +113,16 @@ public class DialogueManager : MonoBehaviour
         string currentLine = _currentDialogueNode.dialogueLines[_currentLineIndex];
         _dialogueUI.UpdateUI(_currentSpeaker.DialogueName, currentLine, _currentSpeaker.DialoguePortrait);
         
-        // Check if we are on the last line & execute node event
+        // Check if we are on the last line
         bool isLastLine = _currentLineIndex == _currentDialogueNode.dialogueLines.Length - 1;
-        if (isLastLine && !string.IsNullOrEmpty(_currentDialogueNode.nodeEvent))
-            HandleDialogueEvents(_currentDialogueNode.nodeEvent, _currentDialogueNode.nodeEventParameter);
         
+        // Loop through and execute all node events 
+        if (isLastLine && _currentDialogueNode.nodeEvents != null)
+        {
+            foreach (NodeEventData nodeEvent in _currentDialogueNode.nodeEvents)
+                if (!string.IsNullOrEmpty(nodeEvent.eventName))
+                    HandleDialogueEvents(nodeEvent.eventName, nodeEvent.eventParameter);
+        }
         
         CheckForOptions();
     }
@@ -182,30 +187,43 @@ public class DialogueManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(eventName)) return;
 
-        // Special case for open shop
-        if (eventName == "OpenShop")
+        switch (eventName)
         {
+        case "OpenShop":
             EventBus.RequestDialogueEvent(eventName, _currentSpeaker.ShopList);
-        }
-        else if (eventName == "SetGameFlag")
-        {
-            Debug.Log("Test");
+            break;
+
+        case "SetGameFlag":
             if (string.IsNullOrEmpty(eventParameter))
             {
                 Debug.LogError("'SetGameFlag' event fired but is missing a parameter");
-                return;
+                break;
             }
             
-            // Parse eventParameter string to GameFlag enum
             if (System.Enum.TryParse(eventParameter, out FlagKeys.GameFlag flagKey))
                 GameFlagManager.Instance.SetGameFlag(flagKey, true);
-            else Debug.LogError($"DialogueManager: Failed to parse '{eventParameter}' into a valid FlagKeys.GameFlag enum!");
-        }
-        else
-        {
+            else 
+                Debug.LogError($"DialogueManager: Failed to parse '{eventParameter}' into a valid FlagKeys.GameFlag enum!");
+            break;
+
+        case "IncrementGameStat":
+            if (string.IsNullOrEmpty(eventParameter))
+            {
+                Debug.LogError("'IncrementGameStat' event fired but is missing a parameter");
+                break; // FIX: Prevents the code from trying to parse a null string below
+            }
+            
+            if (System.Enum.TryParse(eventParameter, out FlagKeys.GameStat statKey))
+                GameFlagManager.Instance.IncrementGameStat(statKey, 1);
+            else 
+                Debug.LogError($"DialogueManager: Failed to parse '{eventParameter}' into a valid FlagKeys.GameStat enum!");
+            break;
+
+        default:
             // For everything else (AcceptQuest, CompleteQuest, GiveItem, etc.)
             // Just broadcast it! Let the receiving managers figure out if they care about it.
             EventBus.RequestDialogueEvent(eventName, eventParameter);
+            break;
         }
     }
     

@@ -20,8 +20,11 @@ MonoBehaviour:
     - 'My name is Mai. Come see me by the potion shop if you need some potions! '
     - Looking forward to seeing you around.
     dialogueOptions: []
-    nodeEvent: SetGameFlag
-    nodeEventParameter: NPC_Met_Mai
+    nodeEvents:
+    - eventName: IncrementGameStat
+      eventParameter: NPCs_Met
+    - eventName: SetGameFlag
+      eventParameter: NPC_Met_Mai
     requirements:
     - rid: 5971589033871016021
     selectionWeight: 0
