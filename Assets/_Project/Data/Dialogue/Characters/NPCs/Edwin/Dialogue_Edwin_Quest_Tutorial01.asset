@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
-  m_Name: Dialogue_Edwin_Intro
+  m_Name: Dialogue_Edwin_Quest_Tutorial01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
   dialogueNodes:
@@ -40,9 +40,9 @@ MonoBehaviour:
     dialogueOptions: []
     nodeEvents:
     - eventName: AcceptQuest
-      eventParameter: Quest_Edwin_Tutorial01
+      eventParameter: Quest_Tutorial01
     - eventName: SetGameFlag
-      eventParameter: Edwin_Tutorial01_Finished
+      eventParameter: Quest_Tutorial01_Fin
     - eventName: SetGameFlag
       eventParameter: NPC_Met_Edwin
     - eventName: IncrementGameStat
@@ -58,12 +58,14 @@ MonoBehaviour:
     - We have a lot of work to do to get this guild up and running.
     dialogueOptions: []
     nodeEvents:
-    - eventName: SetGameFlag
-      eventParameter: Edwin_Tutorial01_Finished
     - eventName: AcceptQuest
-      eventParameter: Quest_Edwin_Tutorial01
+      eventParameter: Quest_Tutorial01
+    - eventName: SetGameFlag
+      eventParameter: Quest_Tutorial01_Fin
     - eventName: SetGameFlag
       eventParameter: NPC_Met_Edwin
+    - eventName: IncrementGameStat
+      eventParameter: NPCs_Met
     requirements:
     - rid: 5971589033871016021
     selectionWeight: 0

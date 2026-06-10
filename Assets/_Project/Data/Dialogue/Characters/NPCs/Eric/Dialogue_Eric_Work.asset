@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
-  m_Name: Dialogue_Mai_Work
+  m_Name: Dialogue_Eric_Work
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - I hate my job.
-    - I want to go home...
-    - 'Oh! Sorry, didnt see you there. '
-    dialogueOptions:
-    - optionName: Browse Shop
-      targetNodeID: 
-      dialogueEvent: OpenShop
-      eventParameter: 
+    - Hi there! Im here to protect and serve.
+    - Let me know if anyones causing trouble in town.
+    dialogueOptions: []
+    nodeEvents: []
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Rejection
+    dialogueLines:
+    - I see... Well, good day to you then.
+    dialogueOptions: []
     nodeEvents: []
     requirements: []
     selectionWeight: 0

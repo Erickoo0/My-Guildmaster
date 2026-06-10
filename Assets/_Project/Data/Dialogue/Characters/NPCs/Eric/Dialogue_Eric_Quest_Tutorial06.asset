@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
-  m_Name: Dialogue_Mai_Work
+  m_Name: Dialogue_Eric_Quest_Tutorial06
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - I hate my job.
-    - I want to go home...
-    - 'Oh! Sorry, didnt see you there. '
-    dialogueOptions:
-    - optionName: Browse Shop
-      targetNodeID: 
-      dialogueEvent: OpenShop
-      eventParameter: 
-    nodeEvents: []
+    - Whats that? Your looking for a job to earn some gold?
+    - Well, lucky for you, we do have a small problem up north of the city.
+    - A small tribe of Goblins have been causing trouble in the forest.
+    - The city guards have their hands tied with other trouble at the moment.
+    - If you could take care of the issue, the guards watch will be sure to repay
+      you.
+    dialogueOptions: []
+    nodeEvents:
+    - eventName: AcceptQuest
+      eventParameter: Quest_Tutorial04
     requirements: []
     selectionWeight: 0
     isImportant: 0

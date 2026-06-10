@@ -8,6 +8,7 @@ public static class FlagKeys
 		NPC_Met_Edwin,
 		NPC_Met_Stob,
 		NPC_Met_Jane,
+		NPC_Met_Eric,
     
 		// SPELLS
 		Spell_Unlocked_Fireball,
@@ -18,12 +19,6 @@ public static class FlagKeys
 		// WORLD & TIME
 		Event_Bridge_Repaired,
 		Season_First_Winter_Reached,
-		
-		// QUESTS
-		Edwin_Tutorial01_Finished,
-		Edwin_Tutorial02_Finished,
-		Edwin_Tutorial03_Finished,
-		Edwin_Tutorial04_Finished,
 	}
 
 	// Returns an int
@@ -31,7 +26,14 @@ public static class FlagKeys
 	{
 		// NPC & DIALOGUE
 		NPCs_Met,
+		
+		// QUESTS
+		Quest_Tutorial,
+		
+		// WORLD
 		SkyTower_HighestFloorReached,
+		
+		// STATS
 		Player_CurrentLevel
 	}
 }

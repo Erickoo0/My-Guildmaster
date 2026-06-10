@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
+  m_Name: Dialogue_Edwin_Quest_Tutorial05
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
+  startingNodeID: Intro
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Alright, are you done looking around?
+    dialogueOptions:
+    - optionName: Yes
+      targetNodeID: Yes
+      dialogueEvent: 
+      eventParameter: 
+    - optionName: No
+      targetNodeID: No
+      dialogueEvent: 
+      eventParameter: 
+    nodeEvents: []
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Yes
+    dialogueLines:
+    - 'Great! Now, before we can truly get this guild up and running, '
+    - we need a Guild Ledger to keep all our transactions and balance sheets.
+    - You can buy one from the local library run by Mai.
+    - It does cost 50 gold though.
+    - Oh! Maybe you can go to the barracks and see if someone has a task for you
+      to earn some gold!
+    dialogueOptions: []
+    nodeEvents:
+    - eventName: SetGameFlag
+      eventParameter: Quest_Tutorial05_Fin
+    - eventName: AcceptQuest
+      eventParameter: Quest_Tutorial05
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: No
+    dialogueLines:
+    - Take your time, let me know when your finished.
+    dialogueOptions: []
+    nodeEvents: []
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  references:
+    version: 2
+    RefIds: []

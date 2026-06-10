@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 286c654a86bfddf49a552de14dc3c579, type: 3}
-  m_Name: Quest_Edwin_Tutorial02
+  m_Name: Quest_Tutorial03
   m_EditorClassIdentifier: Assembly-CSharp::QuestSo
-  questID: Quest_Edwin_Tutorial02
-  questName: Spellharbor Citizens
-  questDescription: Introduce yourself to the city folk
+  questID: Quest_Tutorial03
+  questName: My Guild...
+  questDescription: Look around your new guild
   questObjectives:
-  - rid: 3505743540369490024
+  - rid: 3505743512665063518
   references:
     version: 2
     RefIds:
-    - rid: 3505743540369490024
+    - rid: 3505743512665063518
       type: {class: QuestObjectiveState, ns: , asm: Assembly-CSharp}
       data:
-        objectiveTitle: Objective Text
+        objectiveTitle: 
         requirement:
-          rid: 3505743540369490025
-    - rid: 3505743540369490025
-      type: {class: RequirementGameStat, ns: , asm: Assembly-CSharp}
+          rid: 3505743562535600211
+    - rid: 3505743562535600211
+      type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
       data:
-        requiredGameStat: 0
-        requiredMinimumValue: 3
+        requiredGameFlag: 14
+        requiredState: 0

@@ -21,10 +21,10 @@ MonoBehaviour:
   enemySpawnPool:
   - enemyPrefab: {fileID: 7477142461379063261, guid: 44b7f2adab97d0d4996abeec5d9ec67f, type: 3}
     spawnWeight: 50
-    minRoundRequirement: 2
+    minRoundRequirement: 1
   - enemyPrefab: {fileID: 7501037571369695415, guid: 1a903ede916c51e4f9eeacaf2250015f, type: 3}
     spawnWeight: 50
     minRoundRequirement: 2
   - enemyPrefab: {fileID: 8717484381973821104, guid: be47aeb0ca3d0354097f97a3112e8df7, type: 3}
     spawnWeight: 50
-    minRoundRequirement: 1
+    minRoundRequirement: 2

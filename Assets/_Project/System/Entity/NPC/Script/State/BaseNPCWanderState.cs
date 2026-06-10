@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public abstract class BaseNPCWanderState : State<NPCController>
 {
+    public string stateName;
+    
     [Header("Location Settings")] 
     protected List<PointOfInterest> _poiList = new List<PointOfInterest>();
     protected PointOfInterest _selectedPOI;

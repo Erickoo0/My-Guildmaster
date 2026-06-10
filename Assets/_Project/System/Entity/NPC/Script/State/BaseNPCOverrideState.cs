@@ -4,8 +4,6 @@ using System.Collections.Generic;
 [System.Serializable]
 public abstract class BaseNPCOverrideWanderState : BaseNPCWanderState, IStateOverrider
 {
-    public string stateName;
-    
     [SerializeReference, SubclassSelector]
     public List<Requirement> requirements = new List<Requirement>();
     

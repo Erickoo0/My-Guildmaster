@@ -10,21 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
-  m_Name: Dialogue_Mai_Work
+  m_Name: Dialogue_Edwin_Quest_Tutorial03
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
   startingNodeID: Intro
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - I hate my job.
-    - I want to go home...
-    - 'Oh! Sorry, didnt see you there. '
-    dialogueOptions:
-    - optionName: Browse Shop
-      targetNodeID: 
-      dialogueEvent: OpenShop
-      eventParameter: 
-    nodeEvents: []
+    - Welcome back. I hope you were able to get familar with everyone.
+    - This town is great. Theres tons of unique personalities around here.
+    - 'Now that I cleaned up abit, let me show you inside. '
+    dialogueOptions: []
+    nodeEvents:
+    - eventName: SetGameFlag
+      eventParameter: Quest_Tutorial03_Fin
+    - eventName: CompleteQuest
+      eventParameter: Quest_Tutorial02
+    - eventName: AcceptQuest
+      eventParameter: Quest_Tutorial03
     requirements: []
     selectionWeight: 0
     isImportant: 0
