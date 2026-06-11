@@ -67,7 +67,7 @@ MonoBehaviour:
     - rid: 3505743470580727937
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 25
+        damageAmount: 15
         damageType: 1
         knockbackForce: 20
         knockbackDuration: 0.2

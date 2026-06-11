@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     private DialogueOptionController _dialogueOptionController;
     
     private Npc _currentSpeaker;
+    public Npc CurrentSpeaker => _currentSpeaker;
     private DialogueGroup _currentDialogueGroup;
     private DialogueNode _currentDialogueNode;
     private int _currentLineIndex;
@@ -119,9 +120,9 @@ public class DialogueManager : MonoBehaviour
         // Loop through and execute all node events 
         if (isLastLine && _currentDialogueNode.nodeEvents != null)
         {
-            foreach (NodeEventData nodeEvent in _currentDialogueNode.nodeEvents)
-                if (!string.IsNullOrEmpty(nodeEvent.eventName))
-                    HandleDialogueEvents(nodeEvent.eventName, nodeEvent.eventParameter);
+            foreach (DialogueAction nodeEvent in _currentDialogueNode.nodeEvents)
+                if (nodeEvent != null)
+                    nodeEvent.Execute();
         }
         
         CheckForOptions();
@@ -156,11 +157,12 @@ public class DialogueManager : MonoBehaviour
         _isWaitingChoice = false;
         _dialogueOptionController.ClearOptions();
 
-        // 1. Execute the options event if it has one
-        if (!string.IsNullOrEmpty(selectedOption.dialogueEvent))
-        {
-            HandleDialogueEvents(selectedOption.dialogueEvent, selectedOption.eventParameter);
-        }
+        // 1. Execute the options events 
+        if (selectedOption.optionEvents != null)
+            foreach (DialogueAction optionEvent in selectedOption.optionEvents)
+                if (optionEvent != null) 
+                    optionEvent.Execute();
+        
         // 2. Advance to the next node through its nodeID
         if (!string.IsNullOrEmpty(selectedOption.targetNodeID)) 
         {
@@ -180,50 +182,6 @@ public class DialogueManager : MonoBehaviour
         else // 3. Close the dialogue if there is no next node
         {
             CloseDialogue();
-        }
-    }
-
-    private void HandleDialogueEvents(string eventName, string eventParameter = null)
-    {
-        if (string.IsNullOrEmpty(eventName)) return;
-
-        switch (eventName)
-        {
-        case "OpenShop":
-            EventBus.RequestDialogueEvent(eventName, _currentSpeaker.ShopList);
-            break;
-
-        case "SetGameFlag":
-            if (string.IsNullOrEmpty(eventParameter))
-            {
-                Debug.LogError("'SetGameFlag' event fired but is missing a parameter");
-                break;
-            }
-            
-            if (System.Enum.TryParse(eventParameter, out FlagKeys.GameFlag flagKey))
-                GameFlagManager.Instance.SetGameFlag(flagKey, true);
-            else 
-                Debug.LogError($"DialogueManager: Failed to parse '{eventParameter}' into a valid FlagKeys.GameFlag enum!");
-            break;
-
-        case "IncrementGameStat":
-            if (string.IsNullOrEmpty(eventParameter))
-            {
-                Debug.LogError("'IncrementGameStat' event fired but is missing a parameter");
-                break; // FIX: Prevents the code from trying to parse a null string below
-            }
-            
-            if (System.Enum.TryParse(eventParameter, out FlagKeys.GameStat statKey))
-                GameFlagManager.Instance.IncrementGameStat(statKey, 1);
-            else 
-                Debug.LogError($"DialogueManager: Failed to parse '{eventParameter}' into a valid FlagKeys.GameStat enum!");
-            break;
-
-        default:
-            // For everything else (AcceptQuest, CompleteQuest, GiveItem, etc.)
-            // Just broadcast it! Let the receiving managers figure out if they care about it.
-            EventBus.RequestDialogueEvent(eventName, eventParameter);
-            break;
         }
     }
     

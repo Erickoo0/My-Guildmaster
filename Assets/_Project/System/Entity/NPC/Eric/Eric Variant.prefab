@@ -13,8 +13,176 @@ PrefabInstance:
       value: NPC_Eric
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: dormantOverrideStates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'dormantOverrideStates.Array.data[0]'
+      value: 3505743600646619235
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'dormantOverrideStates.Array.data[1]'
+      value: 3505743600646619237
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619235]'
+      value: Assembly-CSharp NPCOverrideState
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619236]'
+      value: Assembly-CSharp RequirementGameStat
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619237]'
+      value: Assembly-CSharp NPCOverrideState
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619238]'
+      value: Assembly-CSharp RequirementGameStat
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619239]'
+      value: Assembly-CSharp RequirementQuest
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].priority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].priority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].stateName
+      value: Quest_Tutorial06
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].stateName
+      value: Quest_Tutorial07
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].arrivalFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].arrivalFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].dialogueGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: b4be842e09d5b004f87f1af0201428b6, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].dialogueGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: 3677d0ef408d603408aca668b9ac02e9, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619239].requiredQuest
+      value: 
+      objectReference: {fileID: 11400000, guid: 00dfbea9d2c963e4494900e5c87dbb38, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619239].requiredState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].walkInSequence
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].walkInSequence
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].setFlagOnArrival
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619236].requiredGameStat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].setFlagOnArrival
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619238].requiredGameStat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619236].requireEqualValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619238].requireEqualValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[0]'
       value: POI_Barracks_Left
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619236].requiredMinimumValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619238].requiredMinimumValue
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].requirements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].requirements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].targetPOIList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].targetPOIList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619235].requirements.Array.data[0]'
+      value: 3505743600646619236
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619237].requirements.Array.data[0]'
+      value: 3505743600646619238
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619237].requirements.Array.data[1]'
+      value: 3505743600646619239
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619235].targetPOIList.Array.data[0]'
+      value: POI_Barracks_Left
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743600646619237].targetPOIList.Array.data[0]'
+      value: POI_Barracks_Left
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].disableInteractionWhileMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].disableInteractionWhileMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619235].speechBubbleDialogue.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743600646619237].speechBubbleDialogue.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_Name

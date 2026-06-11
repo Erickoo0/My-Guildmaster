@@ -22,11 +22,25 @@ MonoBehaviour:
     - Heres your payment as promised.
     dialogueOptions: []
     nodeEvents:
-    - eventName: CompleteQuest
-      eventParameter: Quest_Tutorial04
+    - rid: 3505743600646619232
+    - rid: 3505743600646619233
+    - rid: 3505743600646619234
     requirements: []
     selectionWeight: 0
     isImportant: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743600646619232
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1
+    - rid: 3505743600646619233
+      type: {class: DialogueActionCompleteQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToComplete: {fileID: 11400000, guid: 00dfbea9d2c963e4494900e5c87dbb38, type: 2}
+    - rid: 3505743600646619234
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: e591e002f710076468a01109d00d6a8b, type: 2}

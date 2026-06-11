@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: Quest_Tutorial04
   m_EditorClassIdentifier: Assembly-CSharp::QuestSo
   questID: Quest_Tutorial04
-  questName: Goblin Slayer
-  questDescription: Take care of the goblin attacks in the forest.
+  questName: Need a Job
+  questDescription: Look for the City Guards and see ift hey have anyt ask for you.
   questObjectives:
-  - rid: 3505743585136345163
+  - rid: 3505743600646619229
   references:
     version: 2
     RefIds:
-    - rid: 3505743585136345163
-      type: {class: QuestObjectiveCount, ns: , asm: Assembly-CSharp}
+    - rid: 3505743600646619229
+      type: {class: QuestObjectiveState, ns: , asm: Assembly-CSharp}
       data:
-        objectiveTitle: 'Goblins Slain:'
-        targetID: Entity_Aggressive_Goblin_Archer
-        requiredAmount: 5
+        objectiveTitle: Objective Text
+        requirement:
+          rid: 3505743600646619230
+    - rid: 3505743600646619230
+      type: {class: RequirementGameStat, ns: , asm: Assembly-CSharp}
+      data:
+        requiredGameStat: 1
+        requiredMinimumValue: 0
+        requireEqualValue: 0

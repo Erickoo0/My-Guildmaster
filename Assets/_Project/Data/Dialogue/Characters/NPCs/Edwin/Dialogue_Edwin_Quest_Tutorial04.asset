@@ -23,11 +23,15 @@ MonoBehaviour:
     - Once you've looked around, come talk to me again.
     dialogueOptions: []
     nodeEvents:
-    - eventName: SetGameFlag
-      eventParameter: Quest_Tutorial04_Fin
+    - rid: 3505743600646619142
     requirements: []
     selectionWeight: 0
     isImportant: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743600646619142
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1

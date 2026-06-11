@@ -12,22 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286c654a86bfddf49a552de14dc3c579, type: 3}
   m_Name: Quest_Tutorial01
   m_EditorClassIdentifier: Assembly-CSharp::QuestSo
-  questID: Quest_Edwin_Tutorial01
+  questID: Quest_Tutorial01
   questName: My Guild Master
   questDescription: Follow Edwind to your new guild.
   questObjectives:
-  - rid: 3505743512665063518
+  - rid: 3505743589636833390
   references:
     version: 2
     RefIds:
-    - rid: 3505743512665063518
+    - rid: 3505743589636833390
       type: {class: QuestObjectiveState, ns: , asm: Assembly-CSharp}
       data:
-        objectiveTitle: 'Follow Edwind '
+        objectiveTitle: 'Follow Edwind:'
         requirement:
-          rid: 3505743512665063519
-    - rid: 3505743512665063519
-      type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
+          rid: 3505743589636833392
+    - rid: 3505743589636833392
+      type: {class: RequirementGameStat, ns: , asm: Assembly-CSharp}
       data:
-        requiredGameFlag: 11
-        requiredState: 1
+        requiredGameStat: 1
+        requiredMinimumValue: 2
+        requireEqualValue: 1

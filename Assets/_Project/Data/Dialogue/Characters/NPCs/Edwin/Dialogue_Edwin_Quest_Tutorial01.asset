@@ -23,12 +23,10 @@ MonoBehaviour:
     dialogueOptions:
     - optionName: Nice to meet you Edwin.
       targetNodeID: Option1
-      dialogueEvent: 
-      eventParameter: 
+      optionEvents: []
     - optionName: Edwin? Haven't heard of you.
       targetNodeID: Option2
-      dialogueEvent: 
-      eventParameter: 
+      optionEvents: []
     nodeEvents: []
     requirements: []
     selectionWeight: 0
@@ -39,14 +37,10 @@ MonoBehaviour:
     - We have a lot of work to do to get this guild up and running.
     dialogueOptions: []
     nodeEvents:
-    - eventName: AcceptQuest
-      eventParameter: Quest_Tutorial01
-    - eventName: SetGameFlag
-      eventParameter: Quest_Tutorial01_Fin
-    - eventName: SetGameFlag
-      eventParameter: NPC_Met_Edwin
-    - eventName: IncrementGameStat
-      eventParameter: NPCs_Met
+    - rid: 3505743589636833361
+    - rid: 3505743589636833362
+    - rid: 3505743589636833363
+    - rid: 3505743589636833364
     requirements: []
     selectionWeight: 0
     isImportant: 0
@@ -58,23 +52,51 @@ MonoBehaviour:
     - We have a lot of work to do to get this guild up and running.
     dialogueOptions: []
     nodeEvents:
-    - eventName: AcceptQuest
-      eventParameter: Quest_Tutorial01
-    - eventName: SetGameFlag
-      eventParameter: Quest_Tutorial01_Fin
-    - eventName: SetGameFlag
-      eventParameter: NPC_Met_Edwin
-    - eventName: IncrementGameStat
-      eventParameter: NPCs_Met
-    requirements:
-    - rid: 5971589033871016021
+    - rid: 3505743589636833365
+    - rid: 3505743589636833366
+    - rid: 3505743589636833367
+    - rid: 3505743589636833369
+    requirements: []
     selectionWeight: 0
     isImportant: 0
   references:
     version: 2
     RefIds:
-    - rid: 5971589033871016021
-      type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
+    - rid: 3505743589636833361
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
       data:
-        requiredGameFlag: 1
-        requiredState: 0
+        questToAccept: {fileID: 11400000, guid: 7d268194430186748b5864a804aad8cd, type: 2}
+    - rid: 3505743589636833362
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1
+    - rid: 3505743589636833363
+      type: {class: DialogueActionSetGameFlag, ns: , asm: Assembly-CSharp}
+      data:
+        flagToSet: 1
+        stateToSet: 1
+    - rid: 3505743589636833364
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 0
+        amount: 1
+    - rid: 3505743589636833365
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: 7d268194430186748b5864a804aad8cd, type: 2}
+    - rid: 3505743589636833366
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1
+    - rid: 3505743589636833367
+      type: {class: DialogueActionSetGameFlag, ns: , asm: Assembly-CSharp}
+      data:
+        flagToSet: 1
+        stateToSet: 1
+    - rid: 3505743589636833369
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 0
+        amount: 1

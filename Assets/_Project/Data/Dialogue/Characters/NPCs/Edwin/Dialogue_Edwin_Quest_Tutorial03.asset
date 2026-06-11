@@ -21,15 +21,25 @@ MonoBehaviour:
     - 'Now that I cleaned up abit, let me show you inside. '
     dialogueOptions: []
     nodeEvents:
-    - eventName: SetGameFlag
-      eventParameter: Quest_Tutorial03_Fin
-    - eventName: CompleteQuest
-      eventParameter: Quest_Tutorial02
-    - eventName: AcceptQuest
-      eventParameter: Quest_Tutorial03
+    - rid: 3505743589636833382
+    - rid: 3505743589636833383
+    - rid: 3505743589636833385
     requirements: []
     selectionWeight: 0
     isImportant: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743589636833382
+      type: {class: DialogueActionCompleteQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToComplete: {fileID: 11400000, guid: 1b375ae69e7adf74bb444985000f4113, type: 2}
+    - rid: 3505743589636833383
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: 452e73db4a11fd241bc9632d46b9f30f, type: 2}
+    - rid: 3505743589636833385
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1

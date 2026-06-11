@@ -21,10 +21,8 @@ MonoBehaviour:
     - If your ever looking for a bite to eat, come on by.
     dialogueOptions: []
     nodeEvents:
-    - eventName: IncrementGameStat
-      eventParameter: NPCs_Met
-    - eventName: SetGameFlag
-      eventParameter: NPC_Met_Stob
+    - rid: 3505743600646619139
+    - rid: 3505743604711161935
     requirements:
     - rid: 5971589033871016021
     selectionWeight: 0
@@ -32,6 +30,16 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 3505743600646619139
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 0
+        amount: 1
+    - rid: 3505743604711161935
+      type: {class: DialogueActionSetGameFlag, ns: , asm: Assembly-CSharp}
+      data:
+        flagToSet: 2
+        stateToSet: 1
     - rid: 5971589033871016021
       type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
       data:

@@ -22,15 +22,25 @@ MonoBehaviour:
     - I'll be waiting here.
     dialogueOptions: []
     nodeEvents:
-    - eventName: SetGameFlag
-      eventParameter: Quest_Tutorial02_Fin
-    - eventName: CompleteQuest
-      eventParameter: Quest_Tutorial01
-    - eventName: AcceptQuest
-      eventParameter: Quest_Tutorial02
+    - rid: 3505743589636833381
+    - rid: 3505743589636833379
+    - rid: 3505743589636833380
     requirements: []
     selectionWeight: 0
     isImportant: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743589636833379
+      type: {class: DialogueActionCompleteQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToComplete: {fileID: 11400000, guid: 7d268194430186748b5864a804aad8cd, type: 2}
+    - rid: 3505743589636833380
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: 1b375ae69e7adf74bb444985000f4113, type: 2}
+    - rid: 3505743589636833381
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1

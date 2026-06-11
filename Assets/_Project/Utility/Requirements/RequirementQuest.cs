@@ -5,7 +5,7 @@ using UnityEngine;
 public class RequirementQuest : Requirement
 {
     [Header("Quest Fields")]
-    public string questID;
+    public QuestSo requiredQuest;
     public QuestStateCondition requiredState = QuestStateCondition.ReadyForTurnIn;
 
     public override bool IsMet()
@@ -15,8 +15,8 @@ public class RequirementQuest : Requirement
             return requiredState == QuestStateCondition.NotStarted;
         
         // 1. Check if the quest is active or completed
-        bool isActive = QuestManager.Instance.TryGetActiveQuest(questID, out QuestActive quest);
-        bool isCompleted = QuestManager.Instance.CheckQuestCompletion(questID);
+        bool isActive = QuestManager.Instance.TryGetActiveQuest(requiredQuest.QuestID, out QuestActive quest);
+        bool isCompleted = QuestManager.Instance.CheckQuestCompletion(requiredQuest.QuestID);
         
         switch (requiredState)
         {

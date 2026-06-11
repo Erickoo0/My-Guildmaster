@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 286c654a86bfddf49a552de14dc3c579, type: 3}
-  m_Name: Quest_Tutorial05
+  m_Name: Quest_Tutorial06
   m_EditorClassIdentifier: Assembly-CSharp::QuestSo
   questID: Quest_Tutorial04
-  questName: Goblin Slayer
-  questDescription: Take care of the goblin attacks in the forest.
+  questName: Guild Ledger
+  questDescription: Buy a Guiild Ledger from Mai and return it to Edwin
   questObjectives:
-  - rid: 3505743585136345163
+  - rid: 3505743574757277771
   references:
     version: 2
     RefIds:
-    - rid: 3505743585136345163
+    - rid: 3505743574757277771
       type: {class: QuestObjectiveCount, ns: , asm: Assembly-CSharp}
       data:
-        objectiveTitle: 'Goblins Slain:'
-        targetID: Entity_Aggressive_Goblin_Archer
-        requiredAmount: 5
+        objectiveTitle: Guild Ledger
+        targetID: Item_Object_Guild_Ledger
+        requiredAmount: 1

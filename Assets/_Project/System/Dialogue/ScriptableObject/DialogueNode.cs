@@ -8,7 +8,8 @@ public class DialogueNode
     public string nodeID;
     public string[] dialogueLines;
     public DialogueOption[] dialogueOptions;
-    public NodeEventData[] nodeEvents;
+    [SerializeReference, SubclassSelector]
+    public DialogueAction[] nodeEvents;
     
     [Header("Selection Criteria")]
     [SerializeReference, SubclassSelector]
@@ -25,14 +26,6 @@ public class DialogueOption
     public string optionName;
     public string targetNodeID;
     
-    [Header("Event Data")]
-    public string dialogueEvent;
-    public string eventParameter; // For quests, put the QuestID here.
-}
-
-[System.Serializable]
-public class NodeEventData
-{
-    public string eventName;
-    public string eventParameter;
+    [SerializeReference, SubclassSelector]
+    public DialogueAction[] optionEvents;
 }

@@ -20,12 +20,10 @@ MonoBehaviour:
     dialogueOptions:
     - optionName: Yes
       targetNodeID: Yes
-      dialogueEvent: 
-      eventParameter: 
+      optionEvents: []
     - optionName: No
       targetNodeID: No
-      dialogueEvent: 
-      eventParameter: 
+      optionEvents: []
     nodeEvents: []
     requirements: []
     selectionWeight: 0
@@ -40,10 +38,9 @@ MonoBehaviour:
       to earn some gold!
     dialogueOptions: []
     nodeEvents:
-    - eventName: SetGameFlag
-      eventParameter: Quest_Tutorial05_Fin
-    - eventName: AcceptQuest
-      eventParameter: Quest_Tutorial05
+    - rid: 3505743600646619145
+    - rid: 3505743600646619147
+    - rid: 3505743600646619148
     requirements: []
     selectionWeight: 0
     isImportant: 0
@@ -57,4 +54,17 @@ MonoBehaviour:
     isImportant: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743600646619145
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1
+    - rid: 3505743600646619147
+      type: {class: DialogueActionCompleteQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToComplete: {fileID: 11400000, guid: 452e73db4a11fd241bc9632d46b9f30f, type: 2}
+    - rid: 3505743600646619148
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: 63ab1ee7adf605348bcef0686a4f44ba, type: 2}

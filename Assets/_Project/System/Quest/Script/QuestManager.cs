@@ -35,7 +35,6 @@ public class QuestManager : MonoBehaviour, ISaveable
     {
         EventBus.OnUpdateQuestObjectiveRequested += HandleObjectiveUpdate;
         EventBus.OnEntityDeathRequested += HandleEntityDeath;
-        EventBus.OnDialogueEventRequested += HandleDialogueEvent;
         
         EventBus.OnGameFlagChanged += HandleFlagAndStateObjective;
         EventBus.OnGameStatChanged += HandleFlagAndStateObjective;
@@ -46,7 +45,6 @@ public class QuestManager : MonoBehaviour, ISaveable
     {
         EventBus.OnUpdateQuestObjectiveRequested -= HandleObjectiveUpdate;
         EventBus.OnEntityDeathRequested -= HandleEntityDeath;
-        EventBus.OnDialogueEventRequested -= HandleDialogueEvent;
         
         EventBus.OnGameFlagChanged -= HandleFlagAndStateObjective;
         EventBus.OnGameStatChanged -= HandleFlagAndStateObjective;
@@ -90,19 +88,6 @@ public class QuestManager : MonoBehaviour, ISaveable
         if (questUpdated) EventBus.RequestUpdateQuest();
     }
     
-    private void HandleDialogueEvent(string dialogueEvent, object questData)
-    {
-        switch (dialogueEvent)
-        {
-            case "AcceptQuest":
-                AcceptQuest(dialogueEvent, questData);
-                break;
-            case "CompleteQuest":
-                CompleteQuest(dialogueEvent, questData);
-                break;
-        }
-    }
-
     // Triggered automatically whenever a Game Flag or Game Stat updates via the EventBus
     private void HandleFlagAndStateObjective(FlagKeys.GameFlag flag, bool state) => UpdateFlagAndStateObjectives();
     private void HandleFlagAndStateObjective(FlagKeys.GameStat stat, int value) => UpdateFlagAndStateObjectives();
@@ -130,12 +115,9 @@ public class QuestManager : MonoBehaviour, ISaveable
         EventBus.RequestUpdateQuest();
     }
     
-    private void AcceptQuest(string dialogueEvent, object questData)
+    public void AcceptQuest(object questData)
     {
-        // 1. Filter out non-quest events
-        if (dialogueEvent != "AcceptQuest") return;
-
-        // 2. Pattern Match: Try to treat questData as a string. 
+        // 1. Pattern Match: Try to treat questData as a string. 
         // If it is a string, assign it to the variable 'questID'.
         if (questData is string questID)
         {
@@ -169,11 +151,8 @@ public class QuestManager : MonoBehaviour, ISaveable
         }
     }
     
-    private void CompleteQuest(string dialogueEvent, object questData)
+    public void CompleteQuest(object questData)
     {
-        // Safety check
-        if (dialogueEvent != "CompleteQuest") return;
-        
         // 1. Pattern Match
         if (questData is string questID)
         {

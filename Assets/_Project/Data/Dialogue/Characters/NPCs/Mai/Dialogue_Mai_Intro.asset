@@ -21,10 +21,8 @@ MonoBehaviour:
     - Looking forward to seeing you around.
     dialogueOptions: []
     nodeEvents:
-    - eventName: IncrementGameStat
-      eventParameter: NPCs_Met
-    - eventName: SetGameFlag
-      eventParameter: NPC_Met_Mai
+    - rid: 3505743600646619138
+    - rid: 3505743604711161933
     requirements:
     - rid: 5971589033871016021
     selectionWeight: 0
@@ -32,6 +30,16 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 3505743600646619138
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 0
+        amount: 1
+    - rid: 3505743604711161933
+      type: {class: DialogueActionSetGameFlag, ns: , asm: Assembly-CSharp}
+      data:
+        flagToSet: 0
+        stateToSet: 1
     - rid: 5971589033871016021
       type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
       data:

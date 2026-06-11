@@ -24,11 +24,25 @@ MonoBehaviour:
       you.
     dialogueOptions: []
     nodeEvents:
-    - eventName: AcceptQuest
-      eventParameter: Quest_Tutorial04
+    - rid: 3505743600646619151
+    - rid: 3505743600646619149
+    - rid: 3505743600646619150
     requirements: []
     selectionWeight: 0
     isImportant: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743600646619149
+      type: {class: DialogueActionCompleteQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToComplete: {fileID: 11400000, guid: 63ab1ee7adf605348bcef0686a4f44ba, type: 2}
+    - rid: 3505743600646619150
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: 00dfbea9d2c963e4494900e5c87dbb38, type: 2}
+    - rid: 3505743600646619151
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1

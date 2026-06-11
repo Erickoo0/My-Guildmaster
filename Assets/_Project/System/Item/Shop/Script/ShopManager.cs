@@ -6,6 +6,7 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
+    public static ShopManager Instance { get; private set; }
 
     [Header("References")] 
     [SerializeField] private GameObject shopMainPanel;
@@ -13,14 +14,17 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopItemPrefab;
     
     private void Awake()
-    { 
-        EventBus.OnDialogueEventRequested += SetupShop;
+    {
+        if (Instance != null & Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
     
-    private void SetupShop(string dialogueEvent, object data)
+    public void SetupShop(object data)
     {
-        if (dialogueEvent != "OpenShop") return;
-        
         // Cast the object back to an array damageType
         ItemDataSo[] shopList = data as ItemDataSo[];
         

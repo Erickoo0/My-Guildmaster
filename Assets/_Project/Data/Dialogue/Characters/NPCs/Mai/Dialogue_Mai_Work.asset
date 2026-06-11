@@ -22,12 +22,15 @@ MonoBehaviour:
     dialogueOptions:
     - optionName: Browse Shop
       targetNodeID: 
-      dialogueEvent: OpenShop
-      eventParameter: 
+      optionEvents:
+      - rid: 3505743604711161937
     nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743604711161937
+      type: {class: DialogueActionOpenShop, ns: , asm: Assembly-CSharp}
+      data: 

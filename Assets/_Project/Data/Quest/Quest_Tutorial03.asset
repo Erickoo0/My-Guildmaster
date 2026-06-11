@@ -25,9 +25,10 @@ MonoBehaviour:
       data:
         objectiveTitle: 
         requirement:
-          rid: 3505743562535600211
-    - rid: 3505743562535600211
-      type: {class: RequirementGameFlag, ns: , asm: Assembly-CSharp}
+          rid: 3505743600646619231
+    - rid: 3505743600646619231
+      type: {class: RequirementGameStat, ns: , asm: Assembly-CSharp}
       data:
-        requiredGameFlag: 14
-        requiredState: 0
+        requiredGameStat: 1
+        requiredMinimumValue: 4
+        requireEqualValue: 1
