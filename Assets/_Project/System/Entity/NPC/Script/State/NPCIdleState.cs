@@ -16,6 +16,7 @@ public class NPCIdleState : BaseNPCIdleState
         if (_scheduleController == null) _scheduleController = controller.GetComponent<NPCScheduleController>();
         
         controller.EntityMover.SetMoveDirection(Vector2.zero);
+        controller.EntityAnimator.SetMoveAnimation(Vector2.zero);
 
         if (_skipNextIdle)
         {

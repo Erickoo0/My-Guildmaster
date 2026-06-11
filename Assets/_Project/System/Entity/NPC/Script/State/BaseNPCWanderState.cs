@@ -72,6 +72,10 @@ public abstract class BaseNPCWanderState : State<NPCController>
             controller.EntityMover.SetMoveDirection(moveDirection);
         }
         
+        // 5. Animation Logic
+        if (controller.EntityAnimator != null)
+            controller.EntityAnimator.SetMoveAnimation(controller.EntityMover.MoveDirection);
+        
         CheckForStuck();
 
     }

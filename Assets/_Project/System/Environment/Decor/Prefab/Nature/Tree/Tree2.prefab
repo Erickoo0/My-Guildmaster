@@ -4906,7 +4906,6 @@ GameObject:
   - component: {fileID: 8582651515627719988}
   - component: {fileID: 2729788813391978784}
   - component: {fileID: -8657298478108449127}
-  - component: {fileID: 4142893051948239753}
   m_Layer: 7
   m_Name: Tree2
   m_TagString: Untagged
@@ -4984,7 +4983,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.125, y: 4.625}
+  m_Size: {x: 4.0625, y: 4.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5026,9 +5025,9 @@ BoxCollider2D:
   m_Offset: {x: 0.02174735, y: 0.303873}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.52, y: 0.1279876}
+    pivot: {x: 0.5147059, y: 0.112500004}
     oldSize: {x: 4.25, y: 5}
-    newSize: {x: 4.125, y: 4.625}
+    newSize: {x: 4.0625, y: 4.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -5088,18 +5087,3 @@ MonoBehaviour:
     - rid: 5971588750356512895
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
---- !u!114 &4142893051948239753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7893960335455333790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38e461814b7ef324cabd6465989c99fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationController
-  animationData: {fileID: 11400000, guid: 0344d369387dc894d99692db5e3b2af5, type: 2}
-  minIdleTime: 2
-  maxIdleTime: 10

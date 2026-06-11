@@ -71,6 +71,7 @@ public class EntityChaseState : BaseChaseState
             // 3. Out of range, move towards target
             Vector2 moveDirection = ((Vector2)controller.aiPath.desiredVelocity).normalized;
             controller.EntityMover.SetMoveDirection(moveDirection);
+            controller.EntityAnimator.SetMoveAnimation(moveDirection);
         }
         
         // Tell the AIPath where the transform actually is so it can calculate the next velocity correctly

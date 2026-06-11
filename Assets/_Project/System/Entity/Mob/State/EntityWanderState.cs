@@ -52,10 +52,9 @@ public class EntityWanderState : BaseWanderState
         // 4. CALCULATE THE DIRECTION
         // We move toward 'nextPos' rather than using 'desiredVelocity'
         Vector2 moveDirection = ((Vector2)nextPos - (Vector2)controller.transform.position).normalized;
-        // 5. PREVENT OVERSHOOTING
+        
+        // 5. Handle Overshooting: Check distance to the destination
         float distanceToTarget = Vector2.Distance(controller.transform.position, controller.aiPath.destination);
-    
-        // Stop the legs if we are within the stopping distance
         if (distanceToTarget < controller.aiPath.endReachedDistance)
         {
             controller.EntityMover.SetMoveDirection(Vector2.zero);
@@ -64,6 +63,10 @@ public class EntityWanderState : BaseWanderState
         {
             controller.EntityMover.SetMoveDirection(moveDirection);
         }
+        
+        // 6. Animation Logic
+        if (controller.EntityAnimator != null)
+            controller.EntityAnimator.SetMoveAnimation(controller.EntityMover.MoveDirection);
         
         CheckForStuck();
 

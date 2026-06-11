@@ -12,7 +12,10 @@ public class PlayerIdleState : State<PlayerController>
         if (input != Vector2.zero)
             stateMachine.ChangeState(controller.MoveState);
         else
+        {
             controller.EntityMover.SetMoveDirection(Vector2.zero);
+            controller.EntityAnimator.SetMoveAnimation(Vector2.zero);
+        }
     }
     
     public override void PhysicsUpdate() { }

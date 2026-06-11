@@ -1,18 +1,13 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class EntityAnimator : MonoBehaviour, IFaceable
 {
     [HideInInspector] public Animator animator;
-    private EntityMover _entityMover;
 
-    [Header("Animation Settings")] 
-    [Tooltip("It true, snaps animations to 4 way cardinal directions")]
-    [SerializeField] private bool snapToCardinalDirections;
     private bool isEventRequested = false;
-    
     private readonly float _moveThreshold = 0.25f;
-    
     private int _currentActionBoolHash;
     
     public event System.Action OnAnimationEventRequested;
@@ -22,43 +17,41 @@ public class EntityAnimator : MonoBehaviour, IFaceable
     private void Start()
     {
         animator = GetComponent<Animator>();
-        _entityMover = GetComponentInParent<EntityMover>();
     }
-
-    private void Update()
+    
+    public void SetMoveAnimation(Vector2 moveDirection)
     {
-        // Read the direction from the EntityMover
-        Vector2 moveDirection = _entityMover.MoveDirection;
+        // Safety Check
+        if (animator == null) return;
         
-        // Only set walking if move is significant
-        bool IsRunning = moveDirection.magnitude > _moveThreshold; 
-        animator.SetBool("IsRunning", IsRunning);
-        
-        if (IsRunning)
+        bool isRunning = moveDirection.magnitude > _moveThreshold;
+        animator.SetBool("IsRunning", isRunning);
+
+        if (isRunning)
         {
-            Vector2 animationDirection = snapToCardinalDirections ? GetSnappedDirection(moveDirection) : moveDirection;
-            
-            animator.SetFloat("InputX", animationDirection.x);
-            animator.SetFloat("InputY", animationDirection.y);
-            
-            // Store the last facing direction for idle animations
-            animator.SetFloat("LastInputX", animationDirection.x);
-            animator.SetFloat("LastInputY", animationDirection.y);
+            animator.SetFloat("InputX", moveDirection.x);
+            animator.SetFloat("InputY", moveDirection.y);
+            animator.SetFloat("LastInputX", moveDirection.x);
+            animator.SetFloat("LastInputY", moveDirection.y);
         }
     }
     
     // Ver 1: Executes the face direction change
     public void FaceDirection(Vector2 lookDirection)
     {
-        // Safety check
+        // Safety Check
         if (animator == null || lookDirection == Vector2.zero) return;
         
-        Vector2 animDir = snapToCardinalDirections ? GetSnappedDirection(lookDirection) : lookDirection;
+        // Forcing a direction usually means we are stationary
+        animator.SetBool("IsRunning", false);
+        
+        // SNAP TO 4-WAY CARDINAL DIRECTION
+        Vector2 snappedDirection = SnapToCardinal(lookDirection);
 
-        animator.SetFloat("InputX", animDir.x);
-        animator.SetFloat("InputY", animDir.y);
-        animator.SetFloat("LastInputX", animDir.x);
-        animator.SetFloat("LastInputY", animDir.y);
+        animator.SetFloat("InputX", snappedDirection.x);
+        animator.SetFloat("InputY", snappedDirection.y);
+        animator.SetFloat("LastInputX", snappedDirection.x);
+        animator.SetFloat("LastInputY", snappedDirection.y);
     }
 
     // Ver 2: Converts a FacingDirection ENUM to a raw Vector2
@@ -69,17 +62,12 @@ public class EntityAnimator : MonoBehaviour, IFaceable
         FaceDirection(lookDirection.ToVector2());
     }
 
-    private Vector2 GetSnappedDirection(Vector2 moveInput)
+    private Vector2 SnapToCardinal(Vector2 rawDirection)
     {
-        // Favors horizontal animation if diagonal input is perfectly equal
-        if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y))
-        {
-            return new Vector2(Mathf.Sign(moveInput.x), 0);
-        }
+        if (Mathf.Abs(rawDirection.x) > Mathf.Abs(rawDirection.y))
+            return new Vector2(Mathf.Sign(rawDirection.x), 0);
         else
-        {
-            return new Vector2(0, Mathf.Sign(moveInput.y));
-        }
+            return new Vector2(0, Mathf.Sign(rawDirection.y));
     }
 
     public void StartSpellAnimation(int boolHash)
