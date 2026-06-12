@@ -6,25 +6,22 @@ public class EntityAnimator : MonoBehaviour, IFaceable
 {
     [HideInInspector] public Animator animator;
 
-    private bool isEventRequested = false;
     private readonly float _moveThreshold = 0.25f;
     private int _currentActionBoolHash;
     
+    private bool isEventRequested = false;
     public event System.Action OnAnimationEventRequested;
     public event System.Action OnAnimationFinished;
     public event System.Action OnAnimationCanceled;
     
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    private void Start() => animator = GetComponent<Animator>();
     
     public void SetMoveAnimation(Vector2 moveDirection)
     {
         // Safety Check
         if (animator == null) return;
         
-        bool isRunning = moveDirection.magnitude > _moveThreshold;
+        bool isRunning = moveDirection.sqrMagnitude > (_moveThreshold * _moveThreshold);
         animator.SetBool("IsRunning", isRunning);
 
         if (isRunning)
@@ -64,10 +61,10 @@ public class EntityAnimator : MonoBehaviour, IFaceable
 
     private Vector2 SnapToCardinal(Vector2 rawDirection)
     {
-        if (Mathf.Abs(rawDirection.x) > Mathf.Abs(rawDirection.y))
-            return new Vector2(Mathf.Sign(rawDirection.x), 0);
-        else
-            return new Vector2(0, Mathf.Sign(rawDirection.y));
+        // Strict > ensures we favor horizontal if exactly diagonal
+        return Mathf.Abs(rawDirection.x) > Mathf.Abs(rawDirection.y) 
+            ? new Vector2(Mathf.Sign(rawDirection.x), 0) 
+            : new Vector2(0, Mathf.Sign(rawDirection.y));
     }
 
     public void StartSpellAnimation(int boolHash)

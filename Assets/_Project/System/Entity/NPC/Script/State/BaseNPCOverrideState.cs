@@ -70,7 +70,7 @@ public abstract class BaseNPCOverrideWanderState : BaseNPCWanderState, IStateOve
             
             // 3. Ensure the registry found the associated GameObject
             if (teleportTarget != null)
-                controller.aiPath.Teleport(teleportTarget.transform.position);
+                controller.aiLerp.Teleport(teleportTarget.transform.position);
             else
                 Debug.LogWarning($"[{controller.gameObject.name}] Teleport failed! Could not find POI with ID: '{_selectedPOI.TeleportPOI}' in the POIRegistry.");
         }

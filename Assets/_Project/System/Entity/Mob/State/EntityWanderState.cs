@@ -17,8 +17,13 @@ public class EntityWanderState : BaseWanderState
     public override void Enter()
     {
         // 1. Tell the AI to start calculating paths again
-        controller.aiPath.canSearch = true;
+        if (controller.aiLerp != null)
+        {
+            controller.aiLerp.canSearch = true;
+            controller.aiLerp.canMove = true;
+        }
         
+        // 2. Reset state flags
         _stuckTimer = 0f;
         _positionCheckTimer = _positionCheckInterval;
         _lastPosition = controller.transform.position;
@@ -28,68 +33,54 @@ public class EntityWanderState : BaseWanderState
 
     private void SetNewDestination()
     {
+        if (controller.aiLerp == null) return;
+
         _targetDestination = (Vector2)controller.SpawnPosition + (Random.insideUnitCircle * controller.WanderRadius);
-        controller.aiPath.destination = _targetDestination;
-        controller.aiPath.SearchPath();
+        controller.aiLerp.destination = _targetDestination;
+        controller.aiLerp.SearchPath();
     }
 
     public override void Update()
     {
-        // 2. Check for knocked back
+        // 1. Pause state logic if knocked back
         if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack) return;
         
-
-        // 3. Check for arrival
-        if (!controller.aiPath.pathPending && controller.aiPath.reachedEndOfPath)
+        // 2. Check for arrival (AIPath handles this automatically now!)
+        if (controller.aiLerp != null && !controller.aiLerp.pathPending && controller.aiLerp.reachedEndOfPath)
         {
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
 
-        // 3. Tell AIPath to calculate the next step
-        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out Quaternion nextRot);
-
-        // 4. CALCULATE THE DIRECTION
-        // We move toward 'nextPos' rather than using 'desiredVelocity'
-        Vector2 moveDirection = ((Vector2)nextPos - (Vector2)controller.transform.position).normalized;
-        
-        // 5. Handle Overshooting: Check distance to the destination
-        float distanceToTarget = Vector2.Distance(controller.transform.position, controller.aiPath.destination);
-        if (distanceToTarget < controller.aiPath.endReachedDistance)
+        // 3. Feed the animator using AIPath's native velocity
+        // This ensures the walk animation blends down to idle perfectly as it arrives
+        if (controller.EntityAnimator != null && controller.aiLerp != null)
         {
-            controller.EntityMover.SetMoveDirection(Vector2.zero);
-        }
-        else
-        {
-            controller.EntityMover.SetMoveDirection(moveDirection);
+            controller.EntityAnimator.SetMoveAnimation(controller.aiLerp.velocity);
         }
         
-        // 6. Animation Logic
-        if (controller.EntityAnimator != null)
-            controller.EntityAnimator.SetMoveAnimation(controller.EntityMover.MoveDirection);
-        
+        // 4. Keep your anti-stuck logic as a safety net
         CheckForStuck();
-
     }
 
     public override void Exit()
     {
-        // 6. Shut down pathfinding and halt the EntityMover
-        controller.aiPath.canSearch = false;
-        
-        if (controller.EntityMover != null)
-            controller.EntityMover.SetMoveDirection(Vector2.zero);
-        
+        // 6. Shut down pathfinding search
+        if (controller.aiLerp != null)
+        {
+            controller.aiLerp.canSearch = false;
+            // Tell AIPath to stop right where it is
+            controller.aiLerp.destination = controller.transform.position; 
+        }
     }
 
     private void CheckForStuck()
     {
-        // Tick down interval timer
         _positionCheckTimer -= Time.deltaTime;
         
         if (_positionCheckTimer <= 0f)
         {
-            // Check if the entity moved less than the threshold over the LAST 0.5 SECONDS
+            // Check if the entity moved less than the threshold over the last 0.5 seconds
             if (Vector2.Distance(_lastPosition, controller.transform.position) < _stuckThreshold)
             {
                 _stuckTimer += _positionCheckInterval;
@@ -106,7 +97,6 @@ public class EntityWanderState : BaseWanderState
                 SetNewDestination();
             }
             
-            // Reset the interval variables
             _lastPosition = controller.transform.position;
             _positionCheckTimer = _positionCheckInterval;
         }

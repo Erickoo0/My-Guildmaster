@@ -5,6 +5,20 @@ public class EntityAttackState : BaseAttackState
 {
     public override void Enter()
     {
+        // Safety locks
+        if (controller.aiLerp != null)
+        {
+            controller.aiLerp.canMove = false;
+            controller.aiLerp.destination = controller.transform.position;
+        }
+        
+        // Force Rigidbody velocity zero
+        var rb = controller.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+        
         // Face the aim direction upon starting the cast
         Vector2 aimDirection = (controller.currentTarget.position - controller.transform.position).normalized;
         controller.EntityAnimator.FaceDirection(aimDirection);

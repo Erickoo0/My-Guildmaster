@@ -178,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 4723107735738678597, guid: 4249e11a316f9064382ec51e1729f7af, type: 3}
     - target: {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: maxSpeed
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: pickNextWaypointDist

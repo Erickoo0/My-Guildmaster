@@ -8,7 +8,7 @@ public abstract class BaseNPCWanderState : State<NPCController>
     [Header("Location Settings")] 
     protected List<PointOfInterest> _poiList = new List<PointOfInterest>();
     protected PointOfInterest _selectedPOI;
-    protected bool _IsMovingToEntrance = false;
+    protected bool _IsMovingToTransit = false;
 
     [Header("Pathing Logic")]
     [SerializeField] protected bool walkInSequence = false;
@@ -27,57 +27,46 @@ public abstract class BaseNPCWanderState : State<NPCController>
     
     public override void Enter()
     {
-        // 1. Reset state flags
-        _stuckTimer = 0f;
-        _positionCheckTimer = 0f;
+        // 1.  Tell the AI to start calculating paths again
+        if (controller.aiLerp != null)
+        {
+            controller.aiLerp.canSearch = true;
+            controller.aiLerp.canMove = true;
+        }
         
-        // 2. Ask the POI Registry for the POI objects
+        // 2. Reset state flags
+        _stuckTimer = 0f;
+        _positionCheckTimer = _positionCheckInterval;
+        _lastPosition = controller.transform.position;
+        
+        // 3. Ask the POI Registry for the POI objects
         _poiList = POIRegistry.GetPOIByIDs(GetPOITargetIDs());
         
-        // 3. Set Destination
+        // 4. Set Destination
         if (_poiList.Count > 0)
             SetNewDestination();
-        
-        // 4. Tell the AI to start calculating paths again
-        controller.aiPath.canSearch = true;
-        _lastPosition = controller.transform.position;
     }
     
     public override void Update()
     {
-        // 1. Check if knocked back
+        // Safety Check
+        if (controller.aiLerp == null) return;
+        
+        // 1. Pause state logic if knocked back
         if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack) return;
-
+        
         // 2. Destination Arrival logic
-        if (!controller.aiPath.pathPending && controller.aiPath.reachedEndOfPath)
+        if (!controller.aiLerp.pathPending && controller.aiLerp.reachedEndOfPath)
         {
             OnReachedDestination();
             return;
         }
         
-        // 3. Tell AIPath to calculate the next step
-        controller.aiPath.MovementUpdate(Time.deltaTime, out Vector3 nextPos, out _);
-        
-        // 4. Calculate Direction based on the NEXT position calculated by A*
-        Vector2 moveDirection = ((Vector2)nextPos - (Vector2)controller.transform.position).normalized;
-        
-        // 4. Handle Overshooting: Check distance to the destination
-        float distanceToTarget = Vector2.Distance(controller.transform.position, controller.aiPath.destination);
-        if (distanceToTarget < controller.aiPath.endReachedDistance)
-        {
-            controller.EntityMover.SetMoveDirection(Vector2.zero);
-        }
-        else
-        {
-            controller.EntityMover.SetMoveDirection(moveDirection);
-        }
-        
-        // 5. Animation Logic
+        // 3. Apply Animation
         if (controller.EntityAnimator != null)
-            controller.EntityAnimator.SetMoveAnimation(controller.EntityMover.MoveDirection);
+            controller.EntityAnimator.SetMoveAnimation(controller.aiLerp.velocity);
         
         CheckForStuck();
-
     }
 
     protected virtual void SetNewDestination()
@@ -108,7 +97,7 @@ public abstract class BaseNPCWanderState : State<NPCController>
             
             if (transitNode != null)
             {
-                _IsMovingToEntrance = true;
+                _IsMovingToTransit = true;
                 _selectedPOI = transitNode;
             }
             else
@@ -120,13 +109,13 @@ public abstract class BaseNPCWanderState : State<NPCController>
         else
         {
             // We are in the correct room. Walk straight to the destination.
-            _IsMovingToEntrance = false;
+            _IsMovingToTransit = false;
             _selectedPOI = ultimateDestination;
         }
         
         // 4. Send the data to the A* Pathfinding
-        controller.aiPath.destination = _selectedPOI.transform.position;
-        controller.aiPath.SearchPath();
+        controller.aiLerp.destination = _selectedPOI.transform.position;
+        controller.aiLerp.SearchPath();
     }
     
     private void CheckForStuck()
@@ -170,23 +159,28 @@ public abstract class BaseNPCWanderState : State<NPCController>
             // 3. Ensure the registry found the associated GameObject
             if (teleportTarget != null)
             {
-                controller.aiPath.Teleport(teleportTarget.transform.position); // Teleport to the teleportTarget POI
+                // Teleport the entity to the teleportTarget
+                controller.aiLerp.Teleport(teleportTarget.transform.position); // Teleport to the teleportTarget POI
+                
+                // Clear lingering physics velocity to be safe
+                if (controller.rigidbody2D != null) controller.rigidbody2D.linearVelocity = Vector2.zero;
+                
                 controller.currentLocation = teleportTarget.Location;
                 controller.EntityAnimator.FaceDirection(teleportTarget.lookDirection);
             }
             else
                 Debug.LogWarning($"[{controller.gameObject.name}] Teleport failed! Could not find POI with ID: '{_selectedPOI.TeleportPOI}' in the POIRegistry.");
         } 
-        else
+        else // If not a teleporter, normal arrival
         {
             controller.currentLocation = _selectedPOI.Location;
             controller.EntityAnimator.FaceDirection(_selectedPOI.lookDirection);
         }
         
-        // Check if we just arrived at the entrance
-        if (_IsMovingToEntrance)
+        // Check if we just arrived at a transit POI, if so, skip idle, and keep moving
+        if (_IsMovingToTransit)
         {
-            _IsMovingToEntrance = false;
+            _IsMovingToTransit = false;
             
             // Cast the state and trigger the skip idle time
             if (controller.IdleState is NPCIdleState idleState)
@@ -199,12 +193,17 @@ public abstract class BaseNPCWanderState : State<NPCController>
     public override void Exit()
     {
         
-        // 6. Shut down pathfinding and halt the EntityMover
-        controller.aiPath.canSearch = false;
+        // 1. Shut down pathfinding completely
+        if (controller.aiLerp != null)
+        {
+            controller.aiLerp.canSearch = false;
+            controller.aiLerp.destination = controller.transform.position; // Force anchor to current spot
+        }
         
-        if (controller.EntityMover != null)
-            controller.EntityMover.SetMoveDirection(Vector2.zero);
+        // 2. Kill velocity on EntityMover to be safe
+        controller.EntityMover?.SetMoveDirection(Vector2.zero);
 
+        // 3. Log the state history
         stateMachine.SetPreviousState(this);
     }
 }
