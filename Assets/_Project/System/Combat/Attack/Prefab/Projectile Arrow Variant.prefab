@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 485556858776694668, guid: 386222c92002bb24e96302a909835807, type: 3}
+      propertyPath: _projectileHitFX
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 987499135808754145, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

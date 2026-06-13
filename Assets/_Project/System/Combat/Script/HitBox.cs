@@ -33,54 +33,68 @@ public abstract class HitBox : MonoBehaviour
         _destroyOnMaxHits = destroyOnMax;
     }
 
-    public void OnTriggerStay2D(Collider2D other)
+public void OnTriggerStay2D(Collider2D other)
     {
-        // Safety Check
+        // 1. Safety Checks
         if (!enableHitbox || other.isTrigger) return;
         if (((1 << other.gameObject.layer) & victimLayer) == 0) return;
-        if (other.gameObject == spellSource) return;
+        if (other.transform.root.gameObject == spellSource.transform.root.gameObject) return;
 
-        if (other.TryGetComponent<IDamagable>(out IDamagable victim))
+        // 2. Identify what we hit
+        IDamagable victim = other.GetComponentInParent<IDamagable>();
+        bool isWall = other.gameObject.layer == LayerMask.NameToLayer("Collisions"); // Adjust string if your wall layer is named differently
+
+        // If it's neither an enemy nor a wall, ignore it
+        if (victim == null && !isWall) return;
+
+        // 3. Check if we already hit this specific target
+        if (victim != null && _hitOncePerTarget && targetsHit.Contains(victim)) return;
+        
+        // 4. Calculate knockback direction
+        CalculateImpactPhysics(other, out Vector2 direction, out Vector2 impactPoint);
+        
+        // 5. Create effect payload
+        EffectPayload effectPayload = new EffectPayload(
+            spellSource,
+            other.gameObject,
+            other.transform.position,
+            direction,
+            impactPoint
+        );
+        
+        // 6. Execute all spell effects
+        bool anyEffectSucceeded = false;
+        if (onHitEffects != null && onHitEffects.Count > 0)
         {
-            // 1. Check if we already hit the target
-            if (_hitOncePerTarget && targetsHit.Contains(victim)) return;
-            
-            // 2. Calculate knockback direction (Implemented by inherited classes)
-            CalculateImpactPhysics(other, out Vector2 direction, out Vector2 impactPoint);
-            
-            // 3. Create effect payload
-            EffectPayload effectPayload = new EffectPayload(
-                spellSource,
-                other.gameObject,
-                other.transform.position,
-                direction,
-                impactPoint
-                );
-            
-            // 4. Execute all spell effects
-            bool anyEffectSucceeded = false;
-            if (onHitEffects != null && onHitEffects.Count > 0)
-                foreach (Effect effect in onHitEffects)
-                {
-                    if (effect.Execute(effectPayload))
-                        anyEffectSucceeded = true;
-                }
-
-            // 5. If any effect succeeded, add the target to the hit list
-            if (anyEffectSucceeded)
+            foreach (Effect effect in onHitEffects)
             {
-                targetsHit.Add(victim);
-                HandlePostHit(other);
-                
-                if (_maxEnemiesHitCount > 0)
-                {
-                    _maxEnemiesHitCount--;
+                if (effect.Execute(effectPayload))
+                    anyEffectSucceeded = true;
+            }
+        }
 
-                    if (_maxEnemiesHitCount <= 0)
-                    {
-                        enableHitbox = false;
-                        if (_destroyOnMaxHits) Destroy(gameObject);
-                    }
+        // 7. Handle successful hits
+        if (anyEffectSucceeded)
+        {
+            if (victim != null) targetsHit.Add(victim);
+            HandlePostHit(other);
+            
+            // Wall Impact Logic
+            if (isWall)
+            {
+                if (_destroyOnMaxHits) Destroy(gameObject); 
+                return;
+            }
+
+            // Enemy Piercing Logic
+            if (_maxEnemiesHitCount > 0)
+            {
+                _maxEnemiesHitCount--;
+
+                if (_maxEnemiesHitCount <= 0)
+                {
+                    enableHitbox = false;
+                    if (_destroyOnMaxHits) Destroy(gameObject);
                 }
             }
         }

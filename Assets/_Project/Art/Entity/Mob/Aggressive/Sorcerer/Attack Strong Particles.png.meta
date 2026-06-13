@@ -185,6 +185,42 @@ TextureImporter:
   - first:
       213: -6240868507788602446
     second: Attack Strong Particles_60
+  - first:
+      213: -3546500928866515532
+    second: Attack Strong Particles_61
+  - first:
+      213: 5833445111968439051
+    second: Attack Strong Particles_62
+  - first:
+      213: -4013601520824554060
+    second: Attack Strong Particles_63
+  - first:
+      213: 5037006486781555039
+    second: Attack Strong Particles_64
+  - first:
+      213: 5342015551109578078
+    second: Attack Strong Particles_65
+  - first:
+      213: 1645074417497802960
+    second: Attack Strong Particles_66
+  - first:
+      213: -2046766488380223529
+    second: Attack Strong Particles_67
+  - first:
+      213: -2307534764161790617
+    second: Attack Strong Particles_68
+  - first:
+      213: -3002081936838944589
+    second: Attack Strong Particles_69
+  - first:
+      213: -1321352652007845796
+    second: Attack Strong Particles_70
+  - first:
+      213: -7190264319227787026
+    second: Attack Strong Particles_71
+  - first:
+      213: -8704538283586487152
+    second: Attack Strong Particles_72
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -284,11 +320,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 150
-        width: 50
-        height: 50
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -305,12 +341,12 @@ TextureImporter:
       name: Attack Strong Particles_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 150
-        width: 50
-        height: 50
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -327,12 +363,12 @@ TextureImporter:
       name: Attack Strong Particles_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 150
-        width: 50
-        height: 50
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -349,12 +385,12 @@ TextureImporter:
       name: Attack Strong Particles_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 150
-        width: 50
-        height: 50
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -371,12 +407,12 @@ TextureImporter:
       name: Attack Strong Particles_4
       rect:
         serializedVersion: 2
-        x: 200
-        y: 150
-        width: 50
-        height: 50
+        x: 256
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -393,12 +429,12 @@ TextureImporter:
       name: Attack Strong Particles_5
       rect:
         serializedVersion: 2
-        x: 250
-        y: 150
-        width: 50
-        height: 50
+        x: 320
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -415,12 +451,12 @@ TextureImporter:
       name: Attack Strong Particles_6
       rect:
         serializedVersion: 2
-        x: 300
-        y: 150
-        width: 50
-        height: 50
+        x: 384
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -437,12 +473,12 @@ TextureImporter:
       name: Attack Strong Particles_7
       rect:
         serializedVersion: 2
-        x: 350
-        y: 150
-        width: 50
-        height: 50
+        x: 448
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -459,12 +495,12 @@ TextureImporter:
       name: Attack Strong Particles_8
       rect:
         serializedVersion: 2
-        x: 400
-        y: 150
-        width: 50
-        height: 50
+        x: 512
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -481,12 +517,12 @@ TextureImporter:
       name: Attack Strong Particles_9
       rect:
         serializedVersion: 2
-        x: 450
-        y: 150
-        width: 50
-        height: 50
+        x: 576
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -503,12 +539,12 @@ TextureImporter:
       name: Attack Strong Particles_10
       rect:
         serializedVersion: 2
-        x: 500
-        y: 150
-        width: 50
-        height: 50
+        x: 640
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -525,12 +561,12 @@ TextureImporter:
       name: Attack Strong Particles_11
       rect:
         serializedVersion: 2
-        x: 0
-        y: 100
-        width: 50
-        height: 50
+        x: 704
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -547,12 +583,12 @@ TextureImporter:
       name: Attack Strong Particles_12
       rect:
         serializedVersion: 2
-        x: 50
-        y: 100
-        width: 50
-        height: 50
+        x: 768
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -569,12 +605,12 @@ TextureImporter:
       name: Attack Strong Particles_13
       rect:
         serializedVersion: 2
-        x: 100
-        y: 100
-        width: 50
-        height: 50
+        x: 832
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -591,12 +627,12 @@ TextureImporter:
       name: Attack Strong Particles_14
       rect:
         serializedVersion: 2
-        x: 150
-        y: 100
-        width: 50
-        height: 50
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -613,12 +649,12 @@ TextureImporter:
       name: Attack Strong Particles_15
       rect:
         serializedVersion: 2
-        x: 200
-        y: 100
-        width: 50
-        height: 50
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -635,12 +671,12 @@ TextureImporter:
       name: Attack Strong Particles_16
       rect:
         serializedVersion: 2
-        x: 250
-        y: 100
-        width: 50
-        height: 50
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -657,12 +693,12 @@ TextureImporter:
       name: Attack Strong Particles_17
       rect:
         serializedVersion: 2
-        x: 300
-        y: 100
-        width: 50
-        height: 50
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -679,12 +715,12 @@ TextureImporter:
       name: Attack Strong Particles_18
       rect:
         serializedVersion: 2
-        x: 350
-        y: 100
-        width: 50
-        height: 50
+        x: 256
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -701,12 +737,12 @@ TextureImporter:
       name: Attack Strong Particles_19
       rect:
         serializedVersion: 2
-        x: 400
-        y: 100
-        width: 50
-        height: 50
+        x: 320
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -723,12 +759,12 @@ TextureImporter:
       name: Attack Strong Particles_20
       rect:
         serializedVersion: 2
-        x: 450
-        y: 100
-        width: 50
-        height: 50
+        x: 384
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -745,12 +781,12 @@ TextureImporter:
       name: Attack Strong Particles_21
       rect:
         serializedVersion: 2
-        x: 500
-        y: 100
-        width: 50
-        height: 50
+        x: 448
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -767,12 +803,12 @@ TextureImporter:
       name: Attack Strong Particles_22
       rect:
         serializedVersion: 2
-        x: 0
-        y: 50
-        width: 50
-        height: 50
+        x: 512
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -789,12 +825,12 @@ TextureImporter:
       name: Attack Strong Particles_23
       rect:
         serializedVersion: 2
-        x: 50
-        y: 50
-        width: 50
-        height: 50
+        x: 576
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -811,12 +847,12 @@ TextureImporter:
       name: Attack Strong Particles_24
       rect:
         serializedVersion: 2
-        x: 100
-        y: 50
-        width: 50
-        height: 50
+        x: 640
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -833,12 +869,12 @@ TextureImporter:
       name: Attack Strong Particles_25
       rect:
         serializedVersion: 2
-        x: 150
-        y: 50
-        width: 50
-        height: 50
+        x: 704
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -855,12 +891,12 @@ TextureImporter:
       name: Attack Strong Particles_26
       rect:
         serializedVersion: 2
-        x: 200
-        y: 50
-        width: 50
-        height: 50
+        x: 768
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -877,12 +913,12 @@ TextureImporter:
       name: Attack Strong Particles_27
       rect:
         serializedVersion: 2
-        x: 250
-        y: 50
-        width: 50
-        height: 50
+        x: 832
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -899,12 +935,12 @@ TextureImporter:
       name: Attack Strong Particles_28
       rect:
         serializedVersion: 2
-        x: 300
-        y: 50
-        width: 50
-        height: 50
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -921,12 +957,12 @@ TextureImporter:
       name: Attack Strong Particles_29
       rect:
         serializedVersion: 2
-        x: 350
-        y: 50
-        width: 50
-        height: 50
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -943,12 +979,12 @@ TextureImporter:
       name: Attack Strong Particles_30
       rect:
         serializedVersion: 2
-        x: 400
-        y: 50
-        width: 50
-        height: 50
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -965,12 +1001,12 @@ TextureImporter:
       name: Attack Strong Particles_31
       rect:
         serializedVersion: 2
-        x: 450
-        y: 50
-        width: 50
-        height: 50
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -987,12 +1023,12 @@ TextureImporter:
       name: Attack Strong Particles_32
       rect:
         serializedVersion: 2
-        x: 500
-        y: 50
-        width: 50
-        height: 50
+        x: 256
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1009,12 +1045,12 @@ TextureImporter:
       name: Attack Strong Particles_33
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 50
-        height: 50
+        x: 320
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1031,12 +1067,12 @@ TextureImporter:
       name: Attack Strong Particles_34
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 50
-        height: 50
+        x: 384
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1053,12 +1089,12 @@ TextureImporter:
       name: Attack Strong Particles_35
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 50
-        height: 50
+        x: 448
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1075,20 +1111,20 @@ TextureImporter:
       name: Attack Strong Particles_36
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 50
-        height: 50
+        x: 512
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c5017448a6d68ac48badc406b959e335
-      internalID: 632225701
+      spriteID: b392d43e57131b060800000000000000
+      internalID: 6967404480913287483
       vertices: []
       indices: 
       edges: []
@@ -1097,20 +1133,20 @@ TextureImporter:
       name: Attack Strong Particles_37
       rect:
         serializedVersion: 2
-        x: 200
-        y: 0
-        width: 50
-        height: 50
+        x: 576
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 499c6fd0cc278454a91ba719e233ace7
-      internalID: -1413601116
+      spriteID: b6cea43eb0bdddb10800000000000000
+      internalID: 2008001852981570667
       vertices: []
       indices: 
       edges: []
@@ -1119,20 +1155,20 @@ TextureImporter:
       name: Attack Strong Particles_38
       rect:
         serializedVersion: 2
-        x: 250
-        y: 0
-        width: 50
-        height: 50
+        x: 640
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e0b5f4cb5fba30346b7087ad5121e879
-      internalID: 1570227336
+      spriteID: 11519491114757f20800000000000000
+      internalID: 3419767108845245713
       vertices: []
       indices: 
       edges: []
@@ -1141,20 +1177,20 @@ TextureImporter:
       name: Attack Strong Particles_39
       rect:
         serializedVersion: 2
-        x: 300
-        y: 0
-        width: 50
-        height: 50
+        x: 704
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 81782be93f509e34fba32aaf3e33ba31
-      internalID: -1995486893
+      spriteID: 577950faac466aa60800000000000000
+      internalID: 7684940635836880757
       vertices: []
       indices: 
       edges: []
@@ -1163,20 +1199,20 @@ TextureImporter:
       name: Attack Strong Particles_40
       rect:
         serializedVersion: 2
-        x: 350
-        y: 0
-        width: 50
-        height: 50
+        x: 768
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5ba25231856572f44ab52165ebb31a4d
-      internalID: 1287593987
+      spriteID: 68a8c195e7d685ab0800000000000000
+      internalID: -5019141395276068218
       vertices: []
       indices: 
       edges: []
@@ -1185,20 +1221,20 @@ TextureImporter:
       name: Attack Strong Particles_41
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
-        width: 50
-        height: 50
+        x: 832
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5cfcf70ff3b754c4682d6d73da82487d
-      internalID: -476850163
+      spriteID: 2ea3a9dcdbbefbd10800000000000000
+      internalID: 2143691148082428642
       vertices: []
       indices: 
       edges: []
@@ -1207,20 +1243,20 @@ TextureImporter:
       name: Attack Strong Particles_42
       rect:
         serializedVersion: 2
-        x: 450
+        x: 0
         y: 0
-        width: 50
-        height: 50
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0c3680676c67f3544a34885ad82d3836
-      internalID: -93029265
+      spriteID: 3e029882e4c021e10800000000000000
+      internalID: 2166807900545687779
       vertices: []
       indices: 
       edges: []
@@ -1229,20 +1265,284 @@ TextureImporter:
       name: Attack Strong Particles_43
       rect:
         serializedVersion: 2
-        x: 500
+        x: 64
         y: 0
-        width: 50
-        height: 50
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9fe1023c550b4834c961e67a7eb954cc
-      internalID: -1610866469
+      spriteID: 37e9e7a1eec78c910800000000000000
+      internalID: 1857872208378895987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_44
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89309cde53c30b030800000000000000
+      internalID: 3508370312041923480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_45
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f6b40b2dd7c049e0800000000000000
+      internalID: -1639090511639431439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_46
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75c62e3aa9e7031a0800000000000000
+      internalID: -6831821432081453993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_47
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade5132e809eb2d90800000000000000
+      internalID: -7121342161392410918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_48
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1aaf118310b13580800000000000000
+      internalID: -8849098194989110758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_49
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c458d8afc16c0db90800000000000000
+      internalID: -7219052374909942452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_50
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ac4a9a5f0893f50800000000000000
+      internalID: 6861657299877153334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_51
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953f437ead5ce6cd0800000000000000
+      internalID: -2562893593954684071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_52
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21eeeae1b8ee6b3e0800000000000000
+      internalID: -2038179500055925230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_53
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf3753fb530918b0800000000000000
+      internalID: -5181106202853556262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_54
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0bc155e65100c400800000000000000
+      internalID: 342275044406315791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong Particles_55
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e59102f91be0640800000000000000
+      internalID: 5048167529325354526
       vertices: []
       indices: 
       edges: []
@@ -1251,7 +1551,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ebb651dedba26b947a16433ac5f255c4
+    spriteID: f3f970dfecf8fce4b80dfc298add9d89
     internalID: 0
     vertices: []
     indices: 
@@ -1261,7 +1561,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":50.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5199999809265137,"y":0.23999999463558198},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":true,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.515625,"y":0.28125},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":true,"isAlternate":false}'
     nameFileIdTable:
       Attack Strong Particles_0: 3027118085372989620
       Attack Strong Particles_1: -6876673134477660256
@@ -1293,16 +1593,28 @@ TextureImporter:
       Attack Strong Particles_33: 4246754708574682797
       Attack Strong Particles_34: 6067366637265633947
       Attack Strong Particles_35: -5296364407000512748
-      Attack Strong Particles_36: 632225701
-      Attack Strong Particles_37: -1413601116
-      Attack Strong Particles_38: 1570227336
-      Attack Strong Particles_39: -1995486893
+      Attack Strong Particles_36: 6967404480913287483
+      Attack Strong Particles_37: 2008001852981570667
+      Attack Strong Particles_38: 3419767108845245713
+      Attack Strong Particles_39: 7684940635836880757
       Attack Strong Particles_4: 2320319597795233917
-      Attack Strong Particles_40: 1287593987
-      Attack Strong Particles_41: -476850163
-      Attack Strong Particles_42: -93029265
-      Attack Strong Particles_43: -1610866469
+      Attack Strong Particles_40: -5019141395276068218
+      Attack Strong Particles_41: 2143691148082428642
+      Attack Strong Particles_42: 2166807900545687779
+      Attack Strong Particles_43: 1857872208378895987
+      Attack Strong Particles_44: 3508370312041923480
+      Attack Strong Particles_45: -1639090511639431439
+      Attack Strong Particles_46: -6831821432081453993
+      Attack Strong Particles_47: -7121342161392410918
+      Attack Strong Particles_48: -8849098194989110758
+      Attack Strong Particles_49: -7219052374909942452
       Attack Strong Particles_5: 981878170303871241
+      Attack Strong Particles_50: 6861657299877153334
+      Attack Strong Particles_51: -2562893593954684071
+      Attack Strong Particles_52: -2038179500055925230
+      Attack Strong Particles_53: -5181106202853556262
+      Attack Strong Particles_54: 342275044406315791
+      Attack Strong Particles_55: 5048167529325354526
       Attack Strong Particles_6: 5418980320179885878
       Attack Strong Particles_7: 8448297115599469081
       Attack Strong Particles_8: -7098850426442192964

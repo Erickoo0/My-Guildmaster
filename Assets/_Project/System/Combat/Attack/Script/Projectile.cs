@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Transform _projectileVisual;
-    [SerializeField] private GameObject _projectileHitFX;
     private enum MovementType {Linear, Curved}
     private MovementType _movementType;
     private bool _destroyOnCollisions;
@@ -17,20 +16,24 @@ public class Projectile : MonoBehaviour
     private float _projectileSpeed;
     private float _projectileMaxRelativeHeight;
     private AnimationCurve _projectileCurve;
+    private float _projectileScale;
 
     private float _totalDuration;
     private float _currentDuration;
     
     private HitBox _hitBox;
+    private GameObject _user;
 
     public void Setup(Vector3 projectileTargetPosition, float projectileSpeed, float projectileLifetime, AnimationCurve projectileCurve, 
-        float projectileMaxHeight, GameObject user, List<Effect> onHitEffects, int maxHits, bool hitOnce, bool destroyOnMax)
+        float projectileMaxHeight, GameObject user, List<Effect> onHitEffects, int maxHits, bool hitOnce, bool destroyOnMax, float projectileScale)
     {
         // 1. Pass the cached data
         _projectileStartPosition = transform.position;
         _projectileTargetPosition = projectileTargetPosition;
         _projectileSpeed = projectileSpeed;
         _destroyOnCollisions = destroyOnMax;
+        _projectileScale = projectileScale;
+        _user = user;
         
         // 2. Get the Hitbox and hand it a reference to this projectile
         if (TryGetComponent(out _hitBox))
@@ -136,19 +139,6 @@ public class Projectile : MonoBehaviour
             
             // 3. Destroy after a tiny delay for hitbox effect to register
             Destroy(gameObject, 0.1f);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!_destroyOnCollisions) return;
-        
-        if (_projectileHitFX != null)
-            Instantiate(_projectileHitFX, transform.position, Quaternion.identity);
-        
-        if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
-        {
-            Destroy(gameObject);
         }
     }
 }

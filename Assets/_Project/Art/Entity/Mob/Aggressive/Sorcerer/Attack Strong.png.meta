@@ -134,6 +134,42 @@ TextureImporter:
   - first:
       213: 6559553003940740000
     second: Attack Strong_43
+  - first:
+      213: 4266954155313715453
+    second: Attack Strong_44
+  - first:
+      213: 2880218483599823139
+    second: Attack Strong_45
+  - first:
+      213: -4280018637634658699
+    second: Attack Strong_46
+  - first:
+      213: -6562488464055736885
+    second: Attack Strong_47
+  - first:
+      213: -4126545109117550140
+    second: Attack Strong_48
+  - first:
+      213: -4894741420590505353
+    second: Attack Strong_49
+  - first:
+      213: -9096170655544182410
+    second: Attack Strong_50
+  - first:
+      213: 5602409232083143553
+    second: Attack Strong_51
+  - first:
+      213: -7815423741993772428
+    second: Attack Strong_52
+  - first:
+      213: 9092229236740649003
+    second: Attack Strong_53
+  - first:
+      213: 6942004726089972633
+    second: Attack Strong_54
+  - first:
+      213: -4242402197431662650
+    second: Attack Strong_55
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -233,11 +269,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 150
-        width: 50
-        height: 50
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -254,12 +290,12 @@ TextureImporter:
       name: Attack Strong_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 150
-        width: 50
-        height: 50
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -276,12 +312,12 @@ TextureImporter:
       name: Attack Strong_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 150
-        width: 50
-        height: 50
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -298,12 +334,12 @@ TextureImporter:
       name: Attack Strong_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 150
-        width: 50
-        height: 50
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -320,12 +356,12 @@ TextureImporter:
       name: Attack Strong_4
       rect:
         serializedVersion: 2
-        x: 200
-        y: 150
-        width: 50
-        height: 50
+        x: 256
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -342,12 +378,12 @@ TextureImporter:
       name: Attack Strong_5
       rect:
         serializedVersion: 2
-        x: 250
-        y: 150
-        width: 50
-        height: 50
+        x: 320
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -364,12 +400,12 @@ TextureImporter:
       name: Attack Strong_6
       rect:
         serializedVersion: 2
-        x: 300
-        y: 150
-        width: 50
-        height: 50
+        x: 384
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -386,12 +422,12 @@ TextureImporter:
       name: Attack Strong_7
       rect:
         serializedVersion: 2
-        x: 350
-        y: 150
-        width: 50
-        height: 50
+        x: 448
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -408,12 +444,12 @@ TextureImporter:
       name: Attack Strong_8
       rect:
         serializedVersion: 2
-        x: 400
-        y: 150
-        width: 50
-        height: 50
+        x: 512
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -430,12 +466,12 @@ TextureImporter:
       name: Attack Strong_9
       rect:
         serializedVersion: 2
-        x: 450
-        y: 150
-        width: 50
-        height: 50
+        x: 576
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -452,12 +488,12 @@ TextureImporter:
       name: Attack Strong_10
       rect:
         serializedVersion: 2
-        x: 500
-        y: 150
-        width: 50
-        height: 50
+        x: 640
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -474,12 +510,12 @@ TextureImporter:
       name: Attack Strong_11
       rect:
         serializedVersion: 2
-        x: 0
-        y: 100
-        width: 50
-        height: 50
+        x: 704
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -496,12 +532,12 @@ TextureImporter:
       name: Attack Strong_12
       rect:
         serializedVersion: 2
-        x: 50
-        y: 100
-        width: 50
-        height: 50
+        x: 768
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -518,12 +554,12 @@ TextureImporter:
       name: Attack Strong_13
       rect:
         serializedVersion: 2
-        x: 100
-        y: 100
-        width: 50
-        height: 50
+        x: 832
+        y: 192
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -540,12 +576,12 @@ TextureImporter:
       name: Attack Strong_14
       rect:
         serializedVersion: 2
-        x: 150
-        y: 100
-        width: 50
-        height: 50
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -562,12 +598,12 @@ TextureImporter:
       name: Attack Strong_15
       rect:
         serializedVersion: 2
-        x: 200
-        y: 100
-        width: 50
-        height: 50
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -584,12 +620,12 @@ TextureImporter:
       name: Attack Strong_16
       rect:
         serializedVersion: 2
-        x: 250
-        y: 100
-        width: 50
-        height: 50
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -606,12 +642,12 @@ TextureImporter:
       name: Attack Strong_17
       rect:
         serializedVersion: 2
-        x: 300
-        y: 100
-        width: 50
-        height: 50
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -628,12 +664,12 @@ TextureImporter:
       name: Attack Strong_18
       rect:
         serializedVersion: 2
-        x: 350
-        y: 100
-        width: 50
-        height: 50
+        x: 256
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -650,12 +686,12 @@ TextureImporter:
       name: Attack Strong_19
       rect:
         serializedVersion: 2
-        x: 400
-        y: 100
-        width: 50
-        height: 50
+        x: 320
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -672,12 +708,12 @@ TextureImporter:
       name: Attack Strong_20
       rect:
         serializedVersion: 2
-        x: 450
-        y: 100
-        width: 50
-        height: 50
+        x: 384
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -694,12 +730,12 @@ TextureImporter:
       name: Attack Strong_21
       rect:
         serializedVersion: 2
-        x: 500
-        y: 100
-        width: 50
-        height: 50
+        x: 448
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -716,12 +752,12 @@ TextureImporter:
       name: Attack Strong_22
       rect:
         serializedVersion: 2
-        x: 0
-        y: 50
-        width: 50
-        height: 50
+        x: 512
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -738,12 +774,12 @@ TextureImporter:
       name: Attack Strong_23
       rect:
         serializedVersion: 2
-        x: 50
-        y: 50
-        width: 50
-        height: 50
+        x: 576
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -760,12 +796,12 @@ TextureImporter:
       name: Attack Strong_24
       rect:
         serializedVersion: 2
-        x: 100
-        y: 50
-        width: 50
-        height: 50
+        x: 640
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -782,12 +818,12 @@ TextureImporter:
       name: Attack Strong_25
       rect:
         serializedVersion: 2
-        x: 150
-        y: 50
-        width: 50
-        height: 50
+        x: 704
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -804,12 +840,12 @@ TextureImporter:
       name: Attack Strong_26
       rect:
         serializedVersion: 2
-        x: 200
-        y: 50
-        width: 50
-        height: 50
+        x: 768
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -826,12 +862,12 @@ TextureImporter:
       name: Attack Strong_27
       rect:
         serializedVersion: 2
-        x: 250
-        y: 50
-        width: 50
-        height: 50
+        x: 832
+        y: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -848,12 +884,12 @@ TextureImporter:
       name: Attack Strong_28
       rect:
         serializedVersion: 2
-        x: 300
-        y: 50
-        width: 50
-        height: 50
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -870,12 +906,12 @@ TextureImporter:
       name: Attack Strong_29
       rect:
         serializedVersion: 2
-        x: 350
-        y: 50
-        width: 50
-        height: 50
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -892,12 +928,12 @@ TextureImporter:
       name: Attack Strong_30
       rect:
         serializedVersion: 2
-        x: 400
-        y: 50
-        width: 50
-        height: 50
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -914,12 +950,12 @@ TextureImporter:
       name: Attack Strong_31
       rect:
         serializedVersion: 2
-        x: 450
-        y: 50
-        width: 50
-        height: 50
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -936,12 +972,12 @@ TextureImporter:
       name: Attack Strong_32
       rect:
         serializedVersion: 2
-        x: 500
-        y: 50
-        width: 50
-        height: 50
+        x: 256
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -958,12 +994,12 @@ TextureImporter:
       name: Attack Strong_33
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 50
-        height: 50
+        x: 320
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -980,12 +1016,12 @@ TextureImporter:
       name: Attack Strong_34
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 50
-        height: 50
+        x: 384
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1002,12 +1038,12 @@ TextureImporter:
       name: Attack Strong_35
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 50
-        height: 50
+        x: 448
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1024,12 +1060,12 @@ TextureImporter:
       name: Attack Strong_36
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 50
-        height: 50
+        x: 512
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1046,12 +1082,12 @@ TextureImporter:
       name: Attack Strong_37
       rect:
         serializedVersion: 2
-        x: 200
-        y: 0
-        width: 50
-        height: 50
+        x: 576
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1068,12 +1104,12 @@ TextureImporter:
       name: Attack Strong_38
       rect:
         serializedVersion: 2
-        x: 250
-        y: 0
-        width: 50
-        height: 50
+        x: 640
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1090,12 +1126,12 @@ TextureImporter:
       name: Attack Strong_39
       rect:
         serializedVersion: 2
-        x: 300
-        y: 0
-        width: 50
-        height: 50
+        x: 704
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1112,12 +1148,12 @@ TextureImporter:
       name: Attack Strong_40
       rect:
         serializedVersion: 2
-        x: 350
-        y: 0
-        width: 50
-        height: 50
+        x: 768
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1134,12 +1170,12 @@ TextureImporter:
       name: Attack Strong_41
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
-        width: 50
-        height: 50
+        x: 832
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1156,12 +1192,12 @@ TextureImporter:
       name: Attack Strong_42
       rect:
         serializedVersion: 2
-        x: 450
+        x: 0
         y: 0
-        width: 50
-        height: 50
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1178,12 +1214,12 @@ TextureImporter:
       name: Attack Strong_43
       rect:
         serializedVersion: 2
-        x: 500
+        x: 64
         y: 0
-        width: 50
-        height: 50
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.52, y: 0.24}
+      pivot: {x: 0.515625, y: 0.28125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1196,11 +1232,275 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Attack Strong_44
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8d95c6234473b30800000000000000
+      internalID: 4266954155313715453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_45
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3215b76637798f720800000000000000
+      internalID: 2880218483599823139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_46
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57e1cbfb9b15a94c0800000000000000
+      internalID: -4280018637634658699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_47
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc5eb51f28b5de4a0800000000000000
+      internalID: -6562488464055736885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_48
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c14c6d26119bb6c0800000000000000
+      internalID: -4126545109117550140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_49
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 772ef468c92621cb0800000000000000
+      internalID: -4894741420590505353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_50
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 679f4fb7bf8e3c180800000000000000
+      internalID: -9096170655544182410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_51
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18b4fa48381cfbd40800000000000000
+      internalID: 5602409232083143553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_52
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a9e49b3890a8390800000000000000
+      internalID: -7815423741993772428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_53
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20f85071561e2e70800000000000000
+      internalID: 9092229236740649003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_54
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99bfcaf9484f65060800000000000000
+      internalID: 6942004726089972633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Strong_55
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.515625, y: 0.28125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c7cfbbbda5ff15c0800000000000000
+      internalID: -4242402197431662650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eafc32a04c456054c9c8696227f74660
+    spriteID: faa627c0806fe16498eab7d1168d5154
     internalID: 0
     vertices: []
     indices: 
@@ -1210,7 +1510,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":50.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5199999809265137,"y":0.23999999463558198},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.515625,"y":0.28125},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Attack Strong_0: 506119693168407321
       Attack Strong_1: 8289364927863168214
@@ -1251,7 +1551,19 @@ TextureImporter:
       Attack Strong_41: 4232212511197291623
       Attack Strong_42: -9115905536425896012
       Attack Strong_43: 6559553003940740000
+      Attack Strong_44: 4266954155313715453
+      Attack Strong_45: 2880218483599823139
+      Attack Strong_46: -4280018637634658699
+      Attack Strong_47: -6562488464055736885
+      Attack Strong_48: -4126545109117550140
+      Attack Strong_49: -4894741420590505353
       Attack Strong_5: -8339908133775099030
+      Attack Strong_50: -9096170655544182410
+      Attack Strong_51: 5602409232083143553
+      Attack Strong_52: -7815423741993772428
+      Attack Strong_53: 9092229236740649003
+      Attack Strong_54: 6942004726089972633
+      Attack Strong_55: -4242402197431662650
       Attack Strong_6: 5090181259459502744
       Attack Strong_7: -3586967060269912754
       Attack Strong_8: 5045274783950331832

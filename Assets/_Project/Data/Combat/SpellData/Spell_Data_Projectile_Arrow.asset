@@ -16,9 +16,9 @@ MonoBehaviour:
   spellName: Fire Arrow
   spellIcon: {fileID: 0}
   spellPrefab: {fileID: 0}
-  spellAnimation: 0
+  spellAnimation: 1
   baseMpCost: 0
-  baseCastTime: 0
+  baseCastTime: 1
   spellEffects:
   - rid: 3505743447765811310
   hitOncePerTarget: 1
@@ -69,6 +69,6 @@ MonoBehaviour:
       data:
         damageAmount: 10
         damageType: 0
-        knockbackForce: 20
-        knockbackDuration: 0.2
+        knockbackForce: 30
+        knockbackDuration: 0.3
         knockbackHeight: 0.75

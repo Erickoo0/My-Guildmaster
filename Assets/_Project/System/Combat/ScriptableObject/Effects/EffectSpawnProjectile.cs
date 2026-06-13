@@ -54,7 +54,8 @@ public class EffectSpawnProjectile : Effect
                 onHitEffects,
                 maxEnemiesHit,
                 hitOncePerTarget,
-                destroyOnMaxHits
+                destroyOnMaxHits,
+                projectileScale
                 );
 
             return true;

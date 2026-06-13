@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6950616651637756399, guid: 6f3cf8096e1e7a94c9ec1b9072f42f75, type: 3}
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4723107735738678597, guid: fd55e1988702c7149b6f005dcd006143, type: 3}
@@ -329,7 +329,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -502,6 +502,7 @@ MonoBehaviour:
     rid: 3505743470580727910
   AttackState:
     rid: 3505743470580727911
+  rigidBody2D: {fileID: 0}
   references:
     version: 2
     RefIds:
