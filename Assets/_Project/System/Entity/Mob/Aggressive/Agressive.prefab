@@ -292,8 +292,8 @@ GameObject:
   - component: {fileID: -1862256494693202073}
   - component: {fileID: -8014178294535799309}
   - component: {fileID: 1597489647137135588}
-  - component: {fileID: -3774512497592592261}
   - component: {fileID: -3585927010994337265}
+  - component: {fileID: 5651739851779631593}
   m_Layer: 3
   m_Name: Agressive
   m_TagString: Untagged
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobController
   entityID: 
-  aiPath: {fileID: 0}
+  aiLerp: {fileID: 0}
   <WanderRadius>k__BackingField: 5
   globalSpellDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
   <TargetableList>k__BackingField:
@@ -769,21 +769,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-3774512497592592261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531220670705793847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.FunnelModifier
-  version: 1
-  unwrap: 1
-  splitAtEveryPortal: 0
 --- !u!114 &-3585927010994337265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,3 +798,26 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   repathRateCompatibility: NaN
   canSearchCompability: 0
+--- !u!114 &5651739851779631593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b090bec917bbe4c3bbc612ef13f7c4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.RaycastModifier
+  version: 1
+  useRaycasting: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 200
+  thickRaycast: 1
+  thickRaycastRadius: 1
+  use2DPhysics: 1
+  raycastOffset: {x: 0, y: 0, z: 0}
+  useGraphRaycasting: 0
+  quality: 2

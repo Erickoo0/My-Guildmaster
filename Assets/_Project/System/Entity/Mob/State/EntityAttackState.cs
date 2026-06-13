@@ -8,6 +8,7 @@ public class EntityAttackState : BaseAttackState
         // Safety locks
         if (controller.aiLerp != null)
         {
+            controller.aiLerp.canSearch = false;
             controller.aiLerp.canMove = false;
             controller.aiLerp.destination = controller.transform.position;
         }

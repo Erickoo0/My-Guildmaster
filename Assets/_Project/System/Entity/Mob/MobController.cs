@@ -36,10 +36,13 @@ public class MobController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseWanderState WanderState;
     [SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
     [SerializeReference, SubclassSelector] public BaseActionState AttackState;
+    public Rigidbody2D rigidBody2D;
     
     protected override void Awake()
     {
         base.Awake();
+        
+        rigidBody2D = GetComponent<Rigidbody2D>();
         
         // Disable aiLerp movement by default (Controlled via states)
         aiLerp = GetComponent<AILerp>();

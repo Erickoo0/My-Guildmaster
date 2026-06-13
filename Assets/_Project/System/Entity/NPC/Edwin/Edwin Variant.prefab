@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6622028755582597782, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: entityID
       value: NPC_Edwin
@@ -18,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dormantOverrideStates.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'dormantOverrideStates.Array.data[0]'
@@ -43,6 +47,10 @@ PrefabInstance:
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'dormantOverrideStates.Array.data[5]'
       value: 3505743600646619143
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'dormantOverrideStates.Array.data[6]'
+      value: 3505743629898481740
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[3505743512665063500]'
@@ -169,6 +177,14 @@ PrefabInstance:
       value: Assembly-CSharp RequirementGameStat
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743629898481740]'
+      value: Assembly-CSharp NPCOverrideState
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743629898481741]'
+      value: Assembly-CSharp RequirementQuest
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743512665063525].questID
       value: Quest_Edwin_Tutorial01
       objectReference: {fileID: 0}
@@ -221,6 +237,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].priority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743512665063500].stateName
       value: Quest_Edwin_Tutorial01
       objectReference: {fileID: 0}
@@ -265,6 +285,10 @@ PrefabInstance:
       value: Quest_Tutorial05
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].stateName
+      value: Quest_Tutorial08
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743512665063500].arrivalFlag
       value: 0
       objectReference: {fileID: 0}
@@ -306,6 +330,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743600646619143].arrivalFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].arrivalFlag
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
@@ -421,6 +449,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3c3909bd706491747b261b910621ccf5, type: 2}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].dialogueGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d76c0c7b636957418cc2dbd8df8e2ef, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481741].requiredQuest
+      value: 
+      objectReference: {fileID: 11400000, guid: e591e002f710076468a01109d00d6a8b, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481741].requiredState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743512665063500].walkInSequence
       value: 0
       objectReference: {fileID: 0}
@@ -462,6 +502,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743600646619143].walkInSequence
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].walkInSequence
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
@@ -569,6 +613,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].setFlagOnArrival
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743589636833371].requireEqualValue
       value: 1
       objectReference: {fileID: 0}
@@ -657,6 +705,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].requirements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743512665063500].targetPOIList.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -699,6 +751,10 @@ PrefabInstance:
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743600646619143].targetPOIList.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].targetPOIList.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[3505743512665063500].requirements.Array.data[0]'
@@ -769,6 +825,10 @@ PrefabInstance:
       value: 3505743600646619144
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743629898481740].requirements.Array.data[0]'
+      value: 3505743629898481741
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[3505743512665063500].targetPOIList.Array.data[0]'
       value: POE_Dock_Loading_Point1
       objectReference: {fileID: 0}
@@ -802,6 +862,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[3505743600646619140].targetPOIList.Array.data[0]'
+      value: POI_Player_Guild_Interior_Desk_Behind
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[3505743629898481740].targetPOIList.Array.data[0]'
       value: POI_Player_Guild_Interior_Desk_Behind
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
@@ -849,6 +913,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].disableInteractionWhileMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743512665063500].speechBubbleDialogue.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -890,6 +958,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743600646619143].speechBubbleDialogue.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[3505743629898481740].speechBubbleDialogue.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}

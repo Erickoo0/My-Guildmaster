@@ -7,7 +7,18 @@ public class EntityIdleState : BaseIdleState
     
     public override void Enter()
     {
-        controller.EntityMover.SetMoveDirection(Vector2.zero); 
+        // 1. Set the entity to idle
+        controller.EntityMover?.SetMoveDirection(Vector2.zero); 
+        controller.EntityAnimator?.SetMoveAnimation(Vector2.zero);
+        controller.rigidBody2D.linearVelocity = Vector2.zero;
+        
+        // 2. Disable AILerp
+        if (controller.aiLerp != null)
+        {
+            controller.aiLerp.canSearch = false;
+            controller.aiLerp.canMove = false;
+        }
+        
         _idleTime = Random.Range(0.5f, 1.5f);
     }
 

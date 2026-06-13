@@ -70,9 +70,16 @@ public class EntityChaseState : BaseChaseState
 
     public override void Exit()
     {
-        controller.EntityMover?.SetMoveDirection(Vector2.zero);
-        
+        // 1. Shut down pathfinding search
         if (controller.aiLerp != null)
+        {
             controller.aiLerp.canSearch = false;
+            controller.aiLerp.canMove = false;
+            controller.aiLerp.destination = controller.transform.position; 
+        }
+        
+        // 2. Set movement to zero
+        controller.EntityMover?.SetMoveDirection(Vector2.zero);
+        controller.EntityAnimator?.SetMoveAnimation(Vector2.zero);
     }
 }

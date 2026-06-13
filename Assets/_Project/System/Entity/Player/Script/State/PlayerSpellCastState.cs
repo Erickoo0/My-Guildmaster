@@ -18,8 +18,11 @@ public class PlayerSpellCastState : BasePlayerSpellState
         base.Update();
         
         // Face the target while winding up
-        Vector2 aimDirection = (controller.WorldMousePosition - controller.transform.position).normalized;
-        controller.EntityAnimator.FaceDirection(aimDirection);
+        if (!hasTriggered)
+        {
+            Vector2 aimDirection = (controller.WorldMousePosition - controller.transform.position).normalized;
+            controller.EntityAnimator.FaceDirection(aimDirection);
+        }
     }
     
     public override void Exit()

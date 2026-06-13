@@ -143,7 +143,8 @@ public class Projectile : MonoBehaviour
     {
         if (!_destroyOnCollisions) return;
         
-        Instantiate(_projectileHitFX, transform.position, Quaternion.identity);
+        if (_projectileHitFX != null)
+            Instantiate(_projectileHitFX, transform.position, Quaternion.identity);
         
         if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
         {

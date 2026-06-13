@@ -937,7 +937,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 506119693168407321, guid: 47e8640b41ea7d74a9019bbe06e7a6d9, type: 3}
+  m_Sprite: {fileID: -7008412969330441016, guid: 578d6baaff5755044bf26659c2a47cb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -982,7 +982,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
   animator: {fileID: 0}
-  snapToCardinalDirections: 0
 --- !u!114 &2205485960725989470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,7 +1011,7 @@ MonoBehaviour:
   m_CategoryHash: 0.000000056498287
   m_labelHash: 4.4977835e-10
   m_SpriteKey: 0
-  m_SpriteHash: 624546810
+  m_SpriteHash: 745144890
 --- !u!114 &2821644936265731984
 MonoBehaviour:
   m_ObjectHideFlags: 0

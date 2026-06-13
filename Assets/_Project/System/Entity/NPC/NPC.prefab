@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 7406667262316240941}
   - component: {fileID: 5281906852817332908}
   - component: {fileID: -6622028755582597782}
+  - component: {fileID: -4156767277549657905}
   m_Layer: 3
   m_Name: NPC
   m_TagString: Untagged
@@ -311,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCController
   entityID: Base_NPC
-  aiPath: {fileID: 0}
+  aiLerp: {fileID: 0}
   IdleState:
     rid: 5971588601634619496
   HomeState:
@@ -323,6 +324,7 @@ MonoBehaviour:
   WorkState:
     rid: 5971588601634619512
   dormantOverrideStates: []
+  rigidbody2D: {fileID: 0}
   currentLocation: 0
   <NpcScheduleData>k__BackingField:
     HomePOIList:
@@ -339,6 +341,7 @@ MonoBehaviour:
     - POI_Haven_Hills_Front
     WorkPOIList:
     - POI_Questboard_Front
+  evaluationTimer: 0
   references:
     version: 2
     RefIds:
@@ -464,6 +467,29 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   repathRateCompatibility: NaN
   canSearchCompability: 0
+--- !u!114 &-4156767277549657905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295489641667029861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b090bec917bbe4c3bbc612ef13f7c4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.RaycastModifier
+  version: 1
+  useRaycasting: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 200
+  thickRaycast: 1
+  thickRaycastRadius: 1
+  use2DPhysics: 1
+  raycastOffset: {x: 0, y: 0, z: 0}
+  useGraphRaycasting: 0
+  quality: 2
 --- !u!1 &5377201774357574432
 GameObject:
   m_ObjectHideFlags: 0

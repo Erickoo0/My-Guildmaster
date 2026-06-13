@@ -65,13 +65,18 @@ public class EntityWanderState : BaseWanderState
 
     public override void Exit()
     {
-        // 6. Shut down pathfinding search
+        // 1. Shut down pathfinding search
         if (controller.aiLerp != null)
         {
             controller.aiLerp.canSearch = false;
-            // Tell AIPath to stop right where it is
+            controller.aiLerp.canMove = false;
             controller.aiLerp.destination = controller.transform.position; 
         }
+        
+        // 2. Set movement to zero
+        controller.rigidBody2D.linearVelocity = Vector2.zero;
+        controller.EntityMover?.SetMoveDirection(Vector2.zero);
+        controller.EntityAnimator?.SetMoveAnimation(Vector2.zero);
     }
 
     private void CheckForStuck()

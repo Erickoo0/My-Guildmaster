@@ -28,7 +28,7 @@ public class NPCController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseNPCWorkState WorkState;
     [SerializeReference, SubclassSelector] public List<BaseNPCOverrideWanderState> dormantOverrideStates = new List<BaseNPCOverrideWanderState>();
     private NPCScheduleController _scheduleController;
-    public Rigidbody2D rigidbody2D;
+    [HideInInspector] public Rigidbody2D rigidbody2D;
 
     [Header("NPC Schedule")]
     public GameLocation currentLocation;

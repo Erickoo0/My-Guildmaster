@@ -203,7 +203,10 @@ public abstract class BaseNPCWanderState : State<NPCController>
         // 2. Kill velocity on EntityMover to be safe
         controller.EntityMover?.SetMoveDirection(Vector2.zero);
 
-        // 3. Log the state history
+        // 3. Force animator to idle
+        controller.EntityAnimator?.SetMoveAnimation(Vector2.zero);
+        
+        // 4. Log the state history
         stateMachine.SetPreviousState(this);
     }
 }

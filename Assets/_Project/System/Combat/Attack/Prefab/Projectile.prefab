@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   _projectileVisual: {fileID: 636807924418001954}
-  _projectileHitFX: {fileID: 4093972447167166647, guid: ea39ff1f2c82a424ca269ec3e3d9efaa, type: 3}
+  _projectileHitFX: {fileID: 0}
 --- !u!114 &-2872043633173323930
 MonoBehaviour:
   m_ObjectHideFlags: 0
