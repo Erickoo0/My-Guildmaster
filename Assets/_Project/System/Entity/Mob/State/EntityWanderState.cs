@@ -74,7 +74,7 @@ public class EntityWanderState : BaseWanderState
         }
         
         // 2. Set movement to zero
-        controller.rigidBody2D.linearVelocity = Vector2.zero;
+        controller._rigidBody2D.linearVelocity = Vector2.zero;
         controller.EntityMover?.SetMoveDirection(Vector2.zero);
         controller.EntityAnimator?.SetMoveAnimation(Vector2.zero);
     }

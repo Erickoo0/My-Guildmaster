@@ -26,7 +26,7 @@ public class EntityChaseState : BaseChaseState
         if (controller.currentTarget == null || controller.aiLerp == null) return;
         if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack) return;
         
-        if (!controller.IsTargetInRange(controller.DetectionLostRange))
+        if (!controller.IsTargetInRange(controller.TargetLostRange))
         {
             controller.currentTarget = null;
             stateMachine.ChangeState(controller.IdleState);

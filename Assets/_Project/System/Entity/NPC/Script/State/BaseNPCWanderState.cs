@@ -163,7 +163,7 @@ public abstract class BaseNPCWanderState : State<NPCController>
                 controller.aiLerp.Teleport(teleportTarget.transform.position); // Teleport to the teleportTarget POI
                 
                 // Clear lingering physics velocity to be safe
-                if (controller.rigidbody2D != null) controller.rigidbody2D.linearVelocity = Vector2.zero;
+                if (controller._rigidbody2D != null) controller._rigidbody2D.linearVelocity = Vector2.zero;
                 
                 controller.currentLocation = teleportTarget.Location;
                 controller.EntityAnimator.FaceDirection(teleportTarget.lookDirection);

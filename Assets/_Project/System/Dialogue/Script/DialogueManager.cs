@@ -6,16 +6,19 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
     
-    // References
+    [Header("References")]
     private DialogueUI _dialogueUI;
     private DialogueOptionController _dialogueOptionController;
-    
     private Npc _currentSpeaker;
     public Npc CurrentSpeaker => _currentSpeaker;
     private DialogueGroup _currentDialogueGroup;
     private DialogueNode _currentDialogueNode;
     private int _currentLineIndex;
+    
+    [Header("Option Selection Settings")]
     private bool _isWaitingChoice = false;
+    private float _optionSelectionBuffer = 0.5f;
+    private float _optionSelectionBufferTimer;
 
     private void OnEnable() => EventBus.OnMenuClosed += HandleForcedClose;
     private void OnDisable() => EventBus.OnMenuClosed -= HandleForcedClose;
@@ -138,6 +141,9 @@ public class DialogueManager : MonoBehaviour
         if (isLastLine && hasOptions)
         {
             _isWaitingChoice = true;
+            
+            _optionSelectionBufferTimer = Time.unscaledTime + _optionSelectionBuffer;
+            
             _dialogueOptionController.CreateButtons(_currentDialogueNode.dialogueOptions, OnOptionSelected); 
             
             // Find the first button
@@ -153,6 +159,9 @@ public class DialogueManager : MonoBehaviour
     // Callback Function passed to the Buttons (activates on button click)
     private void OnOptionSelected(DialogueOption selectedOption)
     {
+        // Check if the buffer time has passed
+        if (Time.unscaledTime < _optionSelectionBufferTimer) return;
+        
         // Tell the Option Controller to delete the options
         _isWaitingChoice = false;
         _dialogueOptionController.ClearOptions();

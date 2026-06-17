@@ -21,6 +21,7 @@ MonoBehaviour:
   baseCastTime: 0
   spellEffects:
   - rid: 3505743470580727912
+  - rid: 3505743645644947557
   hitOncePerTarget: 1
   destroyOnMaxHits: 0
   baseMaxEnemiesHit: 0
@@ -35,3 +36,8 @@ MonoBehaviour:
         knockbackForce: 30
         knockbackDuration: 0.35
         knockbackHeight: 1
+    - rid: 3505743645644947557
+      type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
+      data:
+        vfxPrefab: {fileID: 8534500866809161182, guid: 7e8a72e23345b084cb9db900b436e9cc, type: 3}
+        alignToHitDirection: 1

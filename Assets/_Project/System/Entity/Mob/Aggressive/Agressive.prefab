@@ -484,11 +484,11 @@ MonoBehaviour:
   aiLerp: {fileID: 0}
   <WanderRadius>k__BackingField: 5
   globalSpellDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+  <mobType>k__BackingField: 2
   <TargetableList>k__BackingField:
   - Player
-  <mobType>k__BackingField: 2
-  <DetectionRange>k__BackingField: 6
-  <DetectionLostRange>k__BackingField: 10
+  <TargetRange>k__BackingField: 6
+  <TargetLostRange>k__BackingField: 10
   <ActionRange>k__BackingField: 5
   currentTarget: {fileID: 0}
   <ActionCooldown>k__BackingField: 0.5
@@ -502,7 +502,7 @@ MonoBehaviour:
     rid: 3505743470580727910
   AttackState:
     rid: 3505743470580727911
-  rigidBody2D: {fileID: 0}
+  _rigidBody2D: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8a700780a5b4148b87370b797bbfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityMover
-  moveSpeed: 5
+  moveSpeed: 4
 --- !u!114 &-1126634882369786296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
   containerOpenedSprite: {fileID: 0}
-  interactable: 1
+  interactable: 0
   containerContents:
   - itemDataSo: {fileID: 0}
     dropAmount: 1
@@ -790,7 +790,7 @@ MonoBehaviour:
     maximumInterval: 2
     visualizeSensitivity: 0
   canMove: 1
-  speed: 3
+  speed: 4
   orientation: 0
   enableRotation: 0
   rotationSpeed: 10

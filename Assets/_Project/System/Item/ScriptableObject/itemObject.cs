@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public class ItemObject : MonoBehaviour
@@ -108,30 +109,36 @@ public class ItemObject : MonoBehaviour
 
     private async void TryPickup(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") || _itemInstance == null) return;
-        
-        // 1. Lock out further triggers
-        _canBePickedUp = false; // Set to false since item is now picked up
-
-        // 2. Kill the current animation sequence 
-        _activeSequence.Kill();
-
-        // 3. Play the vacuum animation towards the player, pause the code here untill animation finishes.
-        await transform.DOMove(collision.transform.position, pullSpeed).SetEase(pullEase).AsyncWaitForCompletion();
-            
-        // 4. Execute pickup
-        if (_itemInstance.DataSo.ItemID != "Item_Resource_Coin")
+        try
         {
-            bool wasPickedUp = InventoryManager.Instance.AddItems(_itemInstance);
-            if (wasPickedUp)
+            if (!collision.CompareTag("Player") || _itemInstance == null) return;
+        
+            // 1. Lock out further triggers
+            _canBePickedUp = false; // Set to false since item is now picked up
+
+            // 2. Kill the current animation sequence 
+            _activeSequence.Kill();
+
+            // 3. Play the vacuum animation towards the player, pause the code here untill animation finishes.
+            await transform.DOMove(collision.transform.position, pullSpeed).SetEase(pullEase).AsyncWaitForCompletion();
+            
+            // 4. Execute pickup
+            if (_itemInstance.DataSo.ItemID == "Item_Resource_Gold")
             {
+                GoldManager.Instance.AddGold(_itemInstance.stackSize);
                 Destroy(gameObject);
             }
-        }
-        else if (_itemInstance.DataSo.ItemID == "Item_Resource_Coin")
+            else 
+            {
+                bool wasPickedUp = InventoryManager.Instance.AddItems(_itemInstance);
+                if (wasPickedUp)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        } catch (Exception e)
         {
-            GoldManager.Instance.AddGold(_itemInstance.stackSize);
-            Destroy(gameObject);
+            throw; // TODO handle exception
         }
     }
 }

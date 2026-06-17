@@ -64,6 +64,7 @@ MonoBehaviour:
         destroyOnMaxHits: 1
         onHitEffects:
         - rid: 3505743470580727937
+        - rid: 3505743645644947564
     - rid: 3505743470580727937
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -72,3 +73,8 @@ MonoBehaviour:
         knockbackForce: 20
         knockbackDuration: 0.2
         knockbackHeight: 0.75
+    - rid: 3505743645644947564
+      type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
+      data:
+        vfxPrefab: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
+        alignToHitDirection: 1

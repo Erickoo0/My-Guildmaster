@@ -4860,7 +4860,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -189326295
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -4906,6 +4906,7 @@ GameObject:
   - component: {fileID: 8582651515627719988}
   - component: {fileID: 2729788813391978784}
   - component: {fileID: -8657298478108449127}
+  - component: {fileID: 5559126517034497578}
   m_Layer: 7
   m_Name: Tree2
   m_TagString: Untagged
@@ -4975,7 +4976,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4296731722166109183, guid: 1ab72806aef763a4ab084ba1a84585b9, type: 3}
@@ -5025,7 +5026,7 @@ BoxCollider2D:
   m_Offset: {x: 0.02174735, y: 0.303873}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5147059, y: 0.112500004}
+    pivot: {x: 0.5294118, y: 0.1125}
     oldSize: {x: 4.25, y: 5}
     newSize: {x: 4.0625, y: 4.625}
     adaptiveTilingThreshold: 0.5
@@ -5087,3 +5088,18 @@ MonoBehaviour:
     - rid: 5971588750356512895
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &5559126517034497578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7893960335455333790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e461814b7ef324cabd6465989c99fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationController
+  animationData: {fileID: 11400000, guid: 921a69462fd4e0a4587a78bcc33858ca, type: 2}
+  minIdleTime: 2
+  maxIdleTime: 10

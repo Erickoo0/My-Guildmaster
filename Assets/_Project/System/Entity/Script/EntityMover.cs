@@ -104,6 +104,14 @@ public class EntityMover : MonoBehaviour
         currentOverrideState = OverrideMovementState.None;
         _rigidbody.linearVelocity = Vector2.zero;
         if (_spriteRenderer != null) _spriteRenderer.transform.localPosition = Vector2.zero;
+        
+        // Re-enable AILerp and update its internal position tracking
+        if (_aiLerp != null)
+        {
+            _aiLerp.canMove = true;
+            _aiLerp.Teleport(transform.position);
+            _aiLerp.SearchPath();
+        }
     }
 
     public void ApplyKnockback(Vector2 knockbackDirection, float knockbackForce, float knockbackDuration, float knockbackHeight, GameObject source = null)

@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 using Pathfinding;
-using Unity.VisualScripting;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
@@ -17,14 +15,17 @@ public class MobController : BaseEntityController
     [Header("Spell Settings")]
     public SpellDataDatabase globalSpellDatabase;
     
-    [Header("Mob Type & Targeting")] 
-    [field: SerializeField] public List<string> TargetableList { get; private set; }
+    [Header("Mob Type")] 
     [field: SerializeField] public MobType mobType { get; private set; }  = MobType.Aggressive;
-    [field: SerializeField] public float DetectionRange { get; private set; } = 6f;
-    [field: SerializeField] public float DetectionLostRange { get; set; } = 10f;
+    
+    [Header("Targeting Settings")]
+    [field: SerializeField] public List<string> TargetableList { get; private set; }
+    [field: SerializeField] public float TargetRange { get; private set; } = 6f;
+    [field: SerializeField] public float TargetLostRange { get; set; } = 10f;
     [field: SerializeField] public float ActionRange { get; set; } = 5f;
-    public Transform currentTarget ;
+    [HideInInspector] public Transform currentTarget ;
     private readonly Collider2D[] _targetingResults = new Collider2D[10]; // Pre-allocated array for targeting results
+    private ContactFilter2D _targetingFilter;
     
     [Header("Action Settings")] 
     [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
@@ -36,13 +37,16 @@ public class MobController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseWanderState WanderState;
     [SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
     [SerializeReference, SubclassSelector] public BaseActionState AttackState;
-    public Rigidbody2D rigidBody2D;
+    public Rigidbody2D _rigidBody2D;
     
     protected override void Awake()
     {
         base.Awake();
         
-        rigidBody2D = GetComponent<Rigidbody2D>();
+        
+        _targetingFilter = new ContactFilter2D();
+        _targetingFilter.NoFilter();
+        _rigidBody2D = GetComponent<Rigidbody2D>();
         
         // Disable aiLerp movement by default (Controlled via states)
         aiLerp = GetComponent<AILerp>();
@@ -82,7 +86,7 @@ public class MobController : BaseEntityController
         if (currentTarget != null)
         {
             // Drop target if they are out of range
-            if (!IsTargetInRange(DetectionLostRange))
+            if (!IsTargetInRange(TargetLostRange))
                 ClearTarget();
             // Transition to chase if we are not already chasing
             else if (StateMachine.CurrentState != AttackState && StateMachine.CurrentState != ChaseState)
@@ -100,7 +104,7 @@ public class MobController : BaseEntityController
         // Safety Check
         if (ChaseState == null || TargetableList == null) return;
         
-        int hitCount = Physics2D.OverlapCircleNonAlloc(transform.position, DetectionRange, _targetingResults);
+        int hitCount = Physics2D.OverlapCircle(transform.position, TargetRange, _targetingFilter, _targetingResults);
         
         // Check all collided instances if they are targetable
         for (int i = 0; i < hitCount; i++)
@@ -140,11 +144,11 @@ public class MobController : BaseEntityController
     {
         // 1. Detection Range (Aggro Zone)
         Gizmos.color = Color.yellow;
-        DrawGizmoCircle(transform.position, DetectionRange);
+        DrawGizmoCircle(transform.position, TargetRange);
 
         // 2. Detection Lost Range (Leash Zone)
         Gizmos.color = Color.red;
-        DrawGizmoCircle(transform.position, DetectionLostRange);
+        DrawGizmoCircle(transform.position, TargetLostRange);
 
         // 3. Action Range (Attack Zone)
         Gizmos.color = Color.cyan;

@@ -96,7 +96,7 @@ public class QuestManager : MonoBehaviour, ISaveable
     
     private void UpdateFlagAndStateObjectives()
     {
-        bool anyQuestUpdated = false;
+        //bool anyQuestUpdated = false;
         
         foreach (QuestActive questActive in _activeQuestDictionary.Values)
             if (!questActive.IsCompleted)
@@ -108,7 +108,7 @@ public class QuestManager : MonoBehaviour, ISaveable
                 // If the quest status changed, Send an event
                 if (completedStatusBeforeCheck != completedStatusAfterCheck)
                 {
-                    anyQuestUpdated = true;
+                    //anyQuestUpdated = true;
                 }
             }
         

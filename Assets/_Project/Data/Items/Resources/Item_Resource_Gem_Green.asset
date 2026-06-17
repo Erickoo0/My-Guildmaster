@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Item_Resource_Gem_Green
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
   <ItemID>k__BackingField: Item_Resource_Gem_Green
-  <ItemName>k__BackingField: Green Gem
-  <ItemDescription>k__BackingField: A green gem
+  <ItemName>k__BackingField: Gold
+  <ItemDescription>k__BackingField: Money
   <Category>k__BackingField: 9
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
   - {fileID: -4405597807548491620, guid: 673cf77a01ade994fa43d1c6e2817493, type: 3}
   <ItemObject>k__BackingField: {fileID: 0}
-  <ItemValue>k__BackingField: 5
-  <IsSellable>k__BackingField: 1
+  <ItemValue>k__BackingField: 1
+  <IsSellable>k__BackingField: 0
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
   <IsUsable>k__BackingField: 0

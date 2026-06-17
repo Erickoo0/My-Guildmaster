@@ -932,7 +932,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Close",
+                    "name": "Cancel",
                     "type": "Button",
                     "id": "d4e0216c-d42a-431b-b5b6-c9dc92f0a478",
                     "expectedControlType": "",
@@ -1063,12 +1063,23 @@
                 },
                 {
                     "name": "",
+                    "id": "e0a65aee-83d3-4b05-a474-87b4e99d5169",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "82627dcc-3b13-4ba9-841d-e4b746d6553e",
                     "path": "*/{Cancel}",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
-                    "action": "Close",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -10,7 +10,7 @@ public class EntityIdleState : BaseIdleState
         // 1. Set the entity to idle
         controller.EntityMover?.SetMoveDirection(Vector2.zero); 
         controller.EntityAnimator?.SetMoveAnimation(Vector2.zero);
-        controller.rigidBody2D.linearVelocity = Vector2.zero;
+        controller._rigidBody2D.linearVelocity = Vector2.zero;
         
         // 2. Disable AILerp
         if (controller.aiLerp != null)
