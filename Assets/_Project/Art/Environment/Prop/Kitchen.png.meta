@@ -108,10 +108,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 47
-        height: 69
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 71
+        height: 71
+      alignment: 9
+      pivot: {x: 0.14084508, y: 0.014084507}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,7 +133,7 @@ TextureImporter:
         width: 25
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 306f5337a0a0a154cb679ec665338135
     internalID: 0
     vertices: []
     indices: 
@@ -158,7 +158,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":71.0,"y":71.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.14084507524967194,"y":0.014084506779909134},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Kitchen_0: -7127815578132815392
       Kitchen_1: 8364323908783094963

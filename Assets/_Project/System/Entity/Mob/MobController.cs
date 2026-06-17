@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 using Pathfinding;
-using Unity.VisualScripting;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
@@ -10,20 +8,24 @@ public class MobController : BaseEntityController
 {
     
     [Header("Movement Settings")]
-    [HideInInspector] public AIPath aiPath;
+    [HideInInspector] public AILerp aiLerp;
     [field: SerializeField] public float WanderRadius { get; private set; } = 5f;
     public Vector2 SpawnPosition { get; private set; }
+
+    [Header("Spell Settings")]
+    public SpellDataDatabase globalSpellDatabase;
     
-    [Header("Attack Library")]
-    [SerializeField] private List<SpellData> attackLibrary;
-    
-    [Header("Mob Type & Targeting")] 
-    [field: SerializeField] public List<string> TargetableList { get; private set; }
+    [Header("Mob Type")] 
     [field: SerializeField] public MobType mobType { get; private set; }  = MobType.Aggressive;
-    [field: SerializeField] public float DetectionRange { get; private set; } = 6f;
-    [field: SerializeField] public float DetectionLostRange { get; set; } = 10f;
+    
+    [Header("Targeting Settings")]
+    [field: SerializeField] public List<string> TargetableList { get; private set; }
+    [field: SerializeField] public float TargetRange { get; private set; } = 6f;
+    [field: SerializeField] public float TargetLostRange { get; set; } = 10f;
     [field: SerializeField] public float ActionRange { get; set; } = 5f;
-    public Transform currentTarget ;
+    [HideInInspector] public Transform currentTarget ;
+    private readonly Collider2D[] _targetingResults = new Collider2D[10]; // Pre-allocated array for targeting results
+    private ContactFilter2D _targetingFilter;
     
     [Header("Action Settings")] 
     [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
@@ -35,18 +37,26 @@ public class MobController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseWanderState WanderState;
     [SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
     [SerializeReference, SubclassSelector] public BaseActionState AttackState;
+    public Rigidbody2D _rigidBody2D;
     
     protected override void Awake()
     {
         base.Awake();
         
-        aiPath = GetComponent<AIPath>();
-        if (aiPath != null)
+        
+        _targetingFilter = new ContactFilter2D();
+        _targetingFilter.NoFilter();
+        _rigidBody2D = GetComponent<Rigidbody2D>();
+        
+        // Disable aiLerp movement by default (Controlled via states)
+        aiLerp = GetComponent<AILerp>();
+        if (aiLerp != null)
         {
-            aiPath.canMove = false;
-            aiPath.updateRotation = false;
+            aiLerp.canMove = false;
+            aiLerp.updateRotation = false;
         }
 
+        // Setup all states
         SpawnState?.Setup(this, StateMachine);
         IdleState?.Setup(this, StateMachine);
         WanderState?.Setup(this, StateMachine);
@@ -60,9 +70,11 @@ public class MobController : BaseEntityController
     protected override void Update()
     {
         base.Update();
-        if (ChaseState == null) return;
-        if (AttackState == null) return;
         
+        // Safety Check
+        if (ChaseState == null || AttackState == null) return;
+        
+        // Begin target scan only after spawning
         if (StateMachine.CurrentState != SpawnState)
             UpdateTargeting();
     }
@@ -73,16 +85,13 @@ public class MobController : BaseEntityController
         // If we have a target, check if they ran away too far
         if (currentTarget != null)
         {
-            if (!IsTargetInRange(DetectionLostRange))
-            {
+            // Drop target if they are out of range
+            if (!IsTargetInRange(TargetLostRange))
                 ClearTarget();
-            }
-            // If target is still in range, and we arent currently chasing, enter chase state
+            // Transition to chase if we are not already chasing
             else if (StateMachine.CurrentState != AttackState && StateMachine.CurrentState != ChaseState)
-            {
                 StateMachine.ChangeState(ChaseState);
-            }
-
+            
             return;
         }
 
@@ -95,20 +104,21 @@ public class MobController : BaseEntityController
         // Safety Check
         if (ChaseState == null || TargetableList == null) return;
         
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, DetectionRange);
-
+        int hitCount = Physics2D.OverlapCircle(transform.position, TargetRange, _targetingFilter, _targetingResults);
+        
         // Check all collided instances if they are targetable
-        foreach (Collider2D hit in hits)
+        for (int i = 0; i < hitCount; i++)
         {
-            ITargetable targetInterface = hit.GetComponentInParent<ITargetable>();
-
-            if (targetInterface == null) continue;
-            if (!TargetableList.Contains((targetInterface.GetTargetID()))) continue;
+            Collider2D hit = _targetingResults[i];
             
-            // Set the target
+            // If the target is not ITargetable, skip it
+            if (!hit.TryGetComponent(out ITargetable targetInterface)) continue;
+            // If the target is not in the targetable list, skip it
+            if (!TargetableList.Contains(targetInterface.GetTargetID())) continue;
+            
             currentTarget = hit.transform;
             StateMachine.ChangeState(ChaseState);
-            return;
+            return; // Lock onto the first valid target and exit
         }
     }
     
@@ -125,36 +135,20 @@ public class MobController : BaseEntityController
     }
     
     //---- Action Methods -----
-    public bool CheckActionCooldown() 
-    {
-        return Time.time >= _lastActionTime + ActionCooldown;
-    }
+    public bool CheckActionCooldown() => Time.time >= _lastActionTime + ActionCooldown;
     
-    // A method to reset the timer (called when the action finishes)
-    public void SetActionCooldown()
-    {
-        _lastActionTime = Time.time;
-    }
-    
-    public T GetAttackData<T>(string id) where T : SpellData
-    {
-        // Search the library for a piece of data that:
-        // 1. Matches the ID string
-        // 2. Is of the type (T) we are looking for
-        return attackLibrary.OfType<T>().FirstOrDefault(data => data.spellID == id);
-    }
-    
+    public void SetActionCooldown() => _lastActionTime = Time.time;
     
     //----Debug Methods-----
     private void OnDrawGizmosSelected()
     {
         // 1. Detection Range (Aggro Zone)
         Gizmos.color = Color.yellow;
-        DrawGizmoCircle(transform.position, DetectionRange);
+        DrawGizmoCircle(transform.position, TargetRange);
 
         // 2. Detection Lost Range (Leash Zone)
         Gizmos.color = Color.red;
-        DrawGizmoCircle(transform.position, DetectionLostRange);
+        DrawGizmoCircle(transform.position, TargetLostRange);
 
         // 3. Action Range (Attack Zone)
         Gizmos.color = Color.cyan;

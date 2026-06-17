@@ -108,7 +108,7 @@ TextureImporter:
         width: 49
         height: 35
       alignment: 9
-      pivot: {x: 0.5670584, y: 0.12794876}
+      pivot: {x: 0.57142854, y: 0.14285715}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -117,6 +117,28 @@ TextureImporter:
       bones: []
       spriteID: cdc6a243af2abf600800000000000000
       internalID: 503174978882661596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wagon_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100
+        height: 100
+      alignment: 9
+      pivot: {x: 0.51, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e4f501aa4893c34caa1436227f29cfb
+      internalID: 2136680513
       vertices: []
       indices: 
       edges: []
@@ -133,9 +155,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":100.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5099999904632568,"y":0.25999999046325686},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Wagon_0: 503174978882661596
+      Wagon_1: 2136680513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

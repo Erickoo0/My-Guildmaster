@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
+  m_Name: Dialogue_Eric_Quest_Tutorial06
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
+  startingNodeID: Intro
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Whats that? Your looking for a job to earn some gold?
+    - Well, lucky for you, we do have a small problem up north of the city.
+    - A small tribe of Goblins have been causing trouble in the forest.
+    - The city guards have their hands tied with other trouble at the moment.
+    - If you could take care of the issue, the guards watch will be sure to repay
+      you.
+    dialogueOptions: []
+    nodeEvents:
+    - rid: 3505743600646619151
+    - rid: 3505743600646619149
+    - rid: 3505743600646619150
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743600646619149
+      type: {class: DialogueActionCompleteQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToComplete: {fileID: 11400000, guid: 63ab1ee7adf605348bcef0686a4f44ba, type: 2}
+    - rid: 3505743600646619150
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: 00dfbea9d2c963e4494900e5c87dbb38, type: 2}
+    - rid: 3505743600646619151
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1

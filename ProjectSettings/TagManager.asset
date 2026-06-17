@@ -48,17 +48,11 @@ TagManager:
   - name: WalkInFront
     uniqueID: 255294219
     locked: 0
-  - name: Collision
-    uniqueID: 856192533
-    locked: 0
   - name: Ysort
     uniqueID: 2266233187
     locked: 0
   - name: WalkBehind
     uniqueID: 4105641001
-    locked: 0
-  - name: Decor
-    uniqueID: 1310927701
     locked: 0
   m_RenderingLayers:
   - Default

@@ -23,7 +23,11 @@ public class SimpleAnimationController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         
         // If we don't have animation data, then don't do anything
-        if (animationData == null) return;
+        if (animationData == null)
+        {
+            enabled = false; // turn off the component
+            return;
+        }
         
         _frameDuration = 1f / animationData.fps;
         _spriteRenderer.sprite = animationData.animationFrames[0];
@@ -44,8 +48,6 @@ public class SimpleAnimationController : MonoBehaviour
 
     private void Update()
     {
-        if (animationData == null) return;
-        
         if (_isSwaying)
         {
             HandleAnimation();

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Church Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_Size.x
       value: 8.539284

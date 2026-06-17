@@ -27,9 +27,10 @@ public class InventoryTest : MonoBehaviour
         ItemDataSo randomItemDataSo = db.allItems[Random.Range(0, db.allItems.Count)];
         int randomAmount = randomItemDataSo.IsStackable ? Random.Range(1, 6) : 1;
         ItemInstance newItemInstance = new ItemInstance(randomItemDataSo, randomAmount);
+        GameObject itemPrefab = newItemInstance.DataSo.ItemObject != null ? newItemInstance.DataSo.ItemObject : InventoryManager.Instance.defaultItemObjectPrefab;
         
         // 4. Spawn and Initialize the item
-        GameObject droppedItemObj = Instantiate(newItemInstance.DataSo.ItemObject, _player.transform.position, Quaternion.identity);
+        GameObject droppedItemObj = Instantiate(itemPrefab, _player.transform.position, Quaternion.identity);
         if (droppedItemObj.TryGetComponent(out ItemObject itemObject))
         {
             itemObject.SetItemObject(newItemInstance);

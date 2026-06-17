@@ -6,15 +6,19 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
     
-    // References
+    [Header("References")]
     private DialogueUI _dialogueUI;
     private DialogueOptionController _dialogueOptionController;
-    
     private Npc _currentSpeaker;
+    public Npc CurrentSpeaker => _currentSpeaker;
     private DialogueGroup _currentDialogueGroup;
     private DialogueNode _currentDialogueNode;
     private int _currentLineIndex;
+    
+    [Header("Option Selection Settings")]
     private bool _isWaitingChoice = false;
+    private float _optionSelectionBuffer = 0.5f;
+    private float _optionSelectionBufferTimer;
 
     private void OnEnable() => EventBus.OnMenuClosed += HandleForcedClose;
     private void OnDisable() => EventBus.OnMenuClosed -= HandleForcedClose;
@@ -113,11 +117,16 @@ public class DialogueManager : MonoBehaviour
         string currentLine = _currentDialogueNode.dialogueLines[_currentLineIndex];
         _dialogueUI.UpdateUI(_currentSpeaker.DialogueName, currentLine, _currentSpeaker.DialoguePortrait);
         
-        // Check if we are on the last line & execute node event
+        // Check if we are on the last line
         bool isLastLine = _currentLineIndex == _currentDialogueNode.dialogueLines.Length - 1;
-        if (isLastLine && !string.IsNullOrEmpty(_currentDialogueNode.nodeEvent))
-            HandleDialogueEvents(_currentDialogueNode.nodeEvent, _currentDialogueNode.nodeEventParameter);
         
+        // Loop through and execute all node events 
+        if (isLastLine && _currentDialogueNode.nodeEvents != null)
+        {
+            foreach (DialogueAction nodeEvent in _currentDialogueNode.nodeEvents)
+                if (nodeEvent != null)
+                    nodeEvent.Execute();
+        }
         
         CheckForOptions();
     }
@@ -132,6 +141,9 @@ public class DialogueManager : MonoBehaviour
         if (isLastLine && hasOptions)
         {
             _isWaitingChoice = true;
+            
+            _optionSelectionBufferTimer = Time.unscaledTime + _optionSelectionBuffer;
+            
             _dialogueOptionController.CreateButtons(_currentDialogueNode.dialogueOptions, OnOptionSelected); 
             
             // Find the first button
@@ -147,15 +159,19 @@ public class DialogueManager : MonoBehaviour
     // Callback Function passed to the Buttons (activates on button click)
     private void OnOptionSelected(DialogueOption selectedOption)
     {
+        // Check if the buffer time has passed
+        if (Time.unscaledTime < _optionSelectionBufferTimer) return;
+        
         // Tell the Option Controller to delete the options
         _isWaitingChoice = false;
         _dialogueOptionController.ClearOptions();
 
-        // 1. Execute the options event if it has one
-        if (!string.IsNullOrEmpty(selectedOption.dialogueEvent))
-        {
-            HandleDialogueEvents(selectedOption.dialogueEvent, selectedOption.eventParameter);
-        }
+        // 1. Execute the options events 
+        if (selectedOption.optionEvents != null)
+            foreach (DialogueAction optionEvent in selectedOption.optionEvents)
+                if (optionEvent != null) 
+                    optionEvent.Execute();
+        
         // 2. Advance to the next node through its nodeID
         if (!string.IsNullOrEmpty(selectedOption.targetNodeID)) 
         {
@@ -175,23 +191,6 @@ public class DialogueManager : MonoBehaviour
         else // 3. Close the dialogue if there is no next node
         {
             CloseDialogue();
-        }
-    }
-
-    private void HandleDialogueEvents(string eventName, string eventParameter = null)
-    {
-        if (string.IsNullOrEmpty(eventName)) return;
-
-        // Special case for open shop
-        if (eventName == "OpenShop")
-        {
-            EventBus.RequestDialogueEvent(eventName, _currentSpeaker.ShopList);
-        }
-        else
-        {
-            // For everything else (AcceptQuest, CompleteQuest, GiveItem, etc.)
-            // Just broadcast it! Let the receiving managers figure out if they care about it.
-            EventBus.RequestDialogueEvent(eventName, eventParameter);
         }
     }
     

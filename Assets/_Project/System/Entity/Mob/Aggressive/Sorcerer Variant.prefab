@@ -82,10 +82,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -189326295
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4246754708574682797, guid: 93b9dcde0ead8a44fbcb42ea65bfe86f, type: 3}
+  m_Sprite: {fileID: 3027118085372989620, guid: 93b9dcde0ead8a44fbcb42ea65bfe86f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_CategoryHash: 0
   m_labelHash: 0
   m_SpriteKey: 0
-  m_SpriteHash: 0
+  m_SpriteHash: 841961403
 --- !u!114 &4278858145427770326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,13 +241,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: entityID
+      value: Entity_Aggressive_Sorcerer
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727911].attackID
+      value: Spell_Data_Projectile_Fireball_Large
+      objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: entityID
       value: Mob_Aggressive_Sorcerer
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: AttackState
-      value: 5971588739801284696
+      value: 3505743447765811298
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: attackLibrary.Array.size
@@ -256,10 +268,26 @@ PrefabInstance:
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'attackLibrary.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 189d42c047e7c894e9ca547a9cba13da, type: 2}
+      objectReference: {fileID: 11400000, guid: 86319db184372df41b27ad32e2760497, type: 2}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'attackLibrary.Array.data[1]'
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743447765811287]'
+      value: Assembly-CSharp BasicProjectileAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743447765811288]'
+      value: Assembly-CSharp BasicMeleeAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743447765811289]'
+      value: Assembly-CSharp BasicProjectileAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743447765811298]'
+      value: Assembly-CSharp EntityAttackState
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[5971588481192558723]'
@@ -268,6 +296,22 @@ PrefabInstance:
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[5971588739801284696]'
       value: Assembly-CSharp BasicProjectileAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811287].attackID
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811288].attackID
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811289].attackID
+      value: Spell_Data_Projectile_Fireball_1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811298].attackID
+      value: Spell_Data_Projectile_Fireball_Large
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588481192558723].attackID
@@ -282,15 +326,47 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811287]._projectileCurve.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811289]._projectileCurve.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588739801284696]._projectileCurve.m_PreInfinity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811287]._projectileCurve.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811289]._projectileCurve.m_PostInfinity
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588739801284696]._projectileCurve.m_PostInfinity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811287]._projectileCurve.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811289]._projectileCurve.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588739801284696]._projectileCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811287]._projectileCurve.m_Curve.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743447765811289]._projectileCurve.m_Curve.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}

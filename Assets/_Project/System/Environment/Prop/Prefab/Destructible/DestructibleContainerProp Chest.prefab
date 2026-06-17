@@ -72,6 +72,18 @@ PrefabInstance:
       propertyPath: containerOpenedSprite
       value: 
       objectReference: {fileID: -562807627, guid: e74a92725c934554f86a6492ea7a86ef, type: 3}
+    - target: {fileID: 3434556320021768032, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
+      propertyPath: containerContents.Array.data[0].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: b03ffa1e91083be4583af9b99eff5538, type: 2}
+    - target: {fileID: 3434556320021768032, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
+      propertyPath: containerContents.Array.data[1].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: b03ffa1e91083be4583af9b99eff5538, type: 2}
+    - target: {fileID: 3434556320021768032, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
+      propertyPath: containerContents.Array.data[2].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: b03ffa1e91083be4583af9b99eff5538, type: 2}
     - target: {fileID: 7539395234182007675, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -138,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9108772328438730045, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: id
-      value: 8da34b78-e729-45d0-8ee0-8c3ea5996d4c
+      value: f271f38c-bc66-4a09-b265-a62ca065abee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

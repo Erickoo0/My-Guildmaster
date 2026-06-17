@@ -7,7 +7,10 @@ public class NPCScheduleController : MonoBehaviour
     private int _lastCheckedHour = -1;
     public State CurrentScheduledState { get; private set; }
     
-    private void Awake() => _npcController = GetComponent<NPCController>();
+    private void Start()
+    {
+        _npcController = GetComponent<NPCController>();
+    }
 
     private void OnEnable() => EventBus.OnWorldTimeChanged += HandleTimeChanged;
     

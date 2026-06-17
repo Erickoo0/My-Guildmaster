@@ -3,14 +3,17 @@ guid: 50cc43d12b731dc488cc85dd40bc62dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5490517706564299302
-    second: Tree3_0
+      213: -3819293021117696179
+    second: Tree 3_0
   - first:
-      213: 6298380449833275366
-    second: Tree3_1
+      213: -931716240346074366
+    second: Tree 3_1
   - first:
-      213: 2824195752816409085
-    second: Tree3_2
+      213: 4717409874824729341
+    second: Tree 3_2
+  - first:
+      213: -5513000415408821739
+    second: Tree 3_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tree3_0
+      name: Tree 3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,21 +117,21 @@ TextureImporter:
         width: 64
         height: 82
       alignment: 9
-      pivot: {x: 0.477, y: 0.1266198}
+      pivot: {x: 0.453125, y: 0.12195122}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62ae1cc93cc323c40800000000000000
-      internalID: 5490517706564299302
+      spriteID: d47b6279b352ffac0800000000000000
+      internalID: -3819293021117696179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tree3_1
+      name: Tree 3_1
       rect:
         serializedVersion: 2
         x: 64
@@ -136,21 +139,21 @@ TextureImporter:
         width: 64
         height: 82
       alignment: 9
-      pivot: {x: 0.477, y: 0.1266198}
+      pivot: {x: 0.453125, y: 0.12195122}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6efc39c16a7586750800000000000000
-      internalID: 6298380449833275366
+      spriteID: 203b5be0401e113f0800000000000000
+      internalID: -931716240346074366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tree3_2
+      name: Tree 3_2
       rect:
         serializedVersion: 2
         x: 128
@@ -158,15 +161,37 @@ TextureImporter:
         width: 64
         height: 82
       alignment: 9
-      pivot: {x: 0.477, y: 0.1266198}
+      pivot: {x: 0.453125, y: 0.12195122}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df9f9cee21f813720800000000000000
-      internalID: 2824195752816409085
+      spriteID: df219d8894b977140800000000000000
+      internalID: 4717409874824729341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 3_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 82
+      alignment: 9
+      pivot: {x: 0.453125, y: 0.12195122}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51ae9f0d453ed73b0800000000000000
+      internalID: -5513000415408821739
       vertices: []
       indices: 
       edges: []
@@ -175,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 01b109e9e4385ca4c8a91452f2c24aa6
+    spriteID: 8350c2ec9852bae4bbc71602ad0b618a
     internalID: 0
     vertices: []
     indices: 
@@ -185,11 +210,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":82.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.47699999809265139,"y":0.12661980092525483},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":82.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.453125,"y":0.12195122241973877},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Tree3_0: 5490517706564299302
-      Tree3_1: 6298380449833275366
-      Tree3_2: 2824195752816409085
+      Tree 3_0: -3819293021117696179
+      Tree 3_1: -931716240346074366
+      Tree 3_2: 4717409874824729341
+      Tree 3_3: -5513000415408821739
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

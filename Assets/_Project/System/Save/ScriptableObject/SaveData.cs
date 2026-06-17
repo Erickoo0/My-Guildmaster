@@ -28,6 +28,7 @@ public class SaveData
     
     //----Quest Variables----
     public List<SavedQuest> savedQuests = new List<SavedQuest>();
+    public List<string> completedQuests = new List<string>();
 
 }
 

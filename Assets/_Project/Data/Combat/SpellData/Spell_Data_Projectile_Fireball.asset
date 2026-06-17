@@ -9,22 +9,72 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac726f3eeb3bde469dd979aeb272eac, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
   m_Name: Spell_Data_Projectile_Fireball
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileAttackData
+  m_EditorClassIdentifier: Assembly-CSharp::SpellData
   spellID: Spell_Data_Projectile_Fireball
   spellName: Fireball
   spellIcon: {fileID: 0}
-  spellPrefab: {fileID: 3301934860267052368, guid: 4af734ae41faf5c4b94b5a521cbb2fc7, type: 3}
-  baseDamage: 10
+  spellPrefab: {fileID: 0}
+  spellAnimation: 0
+  baseMpCost: 0
   baseCastTime: 0
+  spellEffects:
+  - rid: 3505743447765811284
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
-  baseMaxEnemiesHit: 1
-  spellScale: 1
-  damageType: 1
-  knockbackForce: 30
-  knockbackDuration: 0.35
-  knockbackHeight: 1
-  projectileSpeed: 12
-  projectileLifetime: 6
+  baseMaxEnemiesHit: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743447765811284
+      type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
+      data:
+        projectilePrefab: {fileID: 3301934860267052368, guid: 4af734ae41faf5c4b94b5a521cbb2fc7, type: 3}
+        projectileScale: 1
+        projectileSpeed: 12
+        projectileLifetime: 3
+        projectileHeight: 0
+        projectileCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 1
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 1
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        maxEnemiesHit: 1
+        hitOncePerTarget: 1
+        destroyOnMaxHits: 1
+        onHitEffects:
+        - rid: 3505743470580727941
+        - rid: 3505743645644947569
+    - rid: 3505743470580727941
+      type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 10
+        damageType: 1
+        knockbackForce: 20
+        knockbackDuration: 0.2
+        knockbackHeight: 0.75
+    - rid: 3505743645644947569
+      type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
+      data:
+        vfxPrefab: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
+        alignToHitDirection: 1

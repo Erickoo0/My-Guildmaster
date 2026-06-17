@@ -103,45 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bookshelves_0
+      name: BookShelf_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 25
+        width: 26
         height: 35
-      alignment: 7
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e3991312d32168200800000000000000
-      internalID: 181852888714287422
+      spriteID: acdfacd7fbaa01f43ba2a6d9c7c664cb
+      internalID: 1370177694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookshelves_1
+      name: BookShelf_1
       rect:
         serializedVersion: 2
-        x: 27
+        x: 26
         y: 0
-        width: 25
+        width: 26
         height: 35
-      alignment: 7
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bff0ab86264f480e0800000000000000
-      internalID: -2268419608786890757
+      spriteID: d5ff35fd8b5b9b8488b4b59ffcd4e7d9
+      internalID: 6847118
       vertices: []
       indices: 
       edges: []
@@ -160,10 +160,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":26.0,"y":35.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Bookshelves_0: 181852888714287422
-      Bookshelves_1: -2268419608786890757
+      BookShelf_0: 1370177694
+      BookShelf_1: 6847118
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

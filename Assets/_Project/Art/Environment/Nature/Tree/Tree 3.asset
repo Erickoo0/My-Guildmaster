@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Tree 3
   m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationData
   animationFrames:
-  - {fileID: 5490517706564299302, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
-  - {fileID: 6298380449833275366, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
-  - {fileID: 2824195752816409085, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
+  - {fileID: -3819293021117696179, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
+  - {fileID: -931716240346074366, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
+  - {fileID: 4717409874824729341, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
+  - {fileID: -5513000415408821739, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
   fps: 4

@@ -9,6 +9,8 @@ using System.Collections.Generic;
 public class InventoryManager : MonoBehaviour, ISaveable
 {
     public static InventoryManager Instance { get; private set; }
+
+    public GameObject defaultItemObjectPrefab;
     
     public event Action<int> OnSlotUpdated;
     public event Action<ItemInstance> OnItemAddedToInventory;
@@ -133,13 +135,15 @@ public class InventoryManager : MonoBehaviour, ISaveable
         // Safety Check: Make sure the slot is not already empty
         if (itemsList[index] == null) return;
         
-        // Spawn the item
-        GameObject droppedItem = Instantiate(itemsList[index].DataSo.ItemObject, spawnPosition,  Quaternion.identity );
-        // If droppedItem has compoent ItemObject, then attach it to the variable itemObject, else pass
+        // 1. Get the item prefab
+        GameObject itemPrefab = itemsList[index].DataSo.ItemObject != null ? itemsList[index].DataSo.ItemObject : defaultItemObjectPrefab;
+        
+        // 2. Spawn the item
+        GameObject droppedItem = Instantiate(itemPrefab, spawnPosition,  Quaternion.identity );
+        
+        // 3. Pass the ItemData to the Item Object
         if (droppedItem.TryGetComponent(out ItemObject itemObject))
-        {
             itemObject.SetItemObject(itemsList[index]);
-        }
         
         // Clear the slot and notify the UI
         itemsList[index] = null;

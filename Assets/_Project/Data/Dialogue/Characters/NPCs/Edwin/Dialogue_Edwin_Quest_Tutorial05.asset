@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
+  m_Name: Dialogue_Edwin_Quest_Tutorial05
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
+  startingNodeID: Intro
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Alright, are you done looking around?
+    dialogueOptions:
+    - optionName: Yes
+      targetNodeID: Yes
+      optionEvents: []
+    - optionName: No
+      targetNodeID: No
+      optionEvents: []
+    nodeEvents: []
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Yes
+    dialogueLines:
+    - 'Great! Now, before we can truly get this guild up and running, '
+    - we need a Guild Ledger to keep all our transactions and balance sheets.
+    - You can buy one from the local library run by Mai.
+    - It does cost 50 gold though.
+    - Oh! Maybe you can go to the barracks and see if someone has a task for you
+      to earn some gold!
+    dialogueOptions: []
+    nodeEvents:
+    - rid: 3505743600646619145
+    - rid: 3505743600646619147
+    - rid: 3505743600646619148
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: No
+    dialogueLines:
+    - Take your time, let me know when your finished.
+    dialogueOptions: []
+    nodeEvents: []
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743600646619145
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1
+    - rid: 3505743600646619147
+      type: {class: DialogueActionCompleteQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToComplete: {fileID: 11400000, guid: 452e73db4a11fd241bc9632d46b9f30f, type: 2}
+    - rid: 3505743600646619148
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: 63ab1ee7adf605348bcef0686a4f44ba, type: 2}

@@ -56,13 +56,14 @@ public class DungeonController : MonoBehaviour
             if (DungeonZone.Registry.TryGetValue(newLocation, out DungeonZone foundZone))
             {
                 // 3. If both are found, start the dungeon
+                Debug.Log("Found dungeon, starting now");
                 StartDungeon(foundDungeon, foundZone); 
             }
         }
         else if (_isDungeonActive) // If the new location is not a dungeon, but the player just left from a dungeon
         {
             StopAndResetDungeon();
-        }
+        } 
     }
 
     // Called when entering a dungeon

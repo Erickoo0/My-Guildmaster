@@ -9,13 +9,11 @@ public class DungeonSpawner : MonoBehaviour
 {
     [Header("References")]
     private DungeonEnemyTracker _dungeonEnemyTracker;
+    [SerializeField] private Transform aggressiveMobSpawnContainer;
     
     private Coroutine _spawnRoutine;
 
-    private void Awake()
-    {
-        _dungeonEnemyTracker = GetComponent<DungeonEnemyTracker>();
-    } 
+    private void Awake() => _dungeonEnemyTracker = GetComponent<DungeonEnemyTracker>();
     
     // Called by the DungeonController when a new round starts
     public void StartSpawning(DungeonData currentDungeon, DungeonZone dungeonZone, int currentRound, int totalToSpawn)

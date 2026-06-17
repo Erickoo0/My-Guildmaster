@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6950616651637756399, guid: 6f3cf8096e1e7a94c9ec1b9072f42f75, type: 3}
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4723107735738678597, guid: fd55e1988702c7149b6f005dcd006143, type: 3}
@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityAnimator
   animator: {fileID: 0}
-  snapToCardinalDirections: 0
 --- !u!114 &5270565936343883334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +291,9 @@ GameObject:
   - component: {fileID: 7784520383436025491}
   - component: {fileID: -1862256494693202073}
   - component: {fileID: -8014178294535799309}
-  - component: {fileID: 1216699505466028575}
   - component: {fileID: 1597489647137135588}
+  - component: {fileID: 4588073855678335071}
+  - component: {fileID: 1492280510053120551}
   m_Layer: 3
   m_Name: Passive
   m_TagString: Untagged
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8a700780a5b4148b87370b797bbfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityMover
-  moveSpeed: 5
+  moveSpeed: 4
 --- !u!114 &-3679579161091551708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,14 +494,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityController
   entityID: Passive_Mob
-  aiPath: {fileID: 0}
+  aiLerp: {fileID: 0}
   <WanderRadius>k__BackingField: 15
-  attackLibrary: []
+  globalSpellDatabase: {fileID: 0}
+  <mobType>k__BackingField: 0
   <TargetableList>k__BackingField:
   - Player
-  <mobType>k__BackingField: 0
-  <DetectionRange>k__BackingField: 6
-  <DetectionLostRange>k__BackingField: 8
+  <TargetRange>k__BackingField: 6
+  <TargetLostRange>k__BackingField: 10
   <ActionRange>k__BackingField: 5
   currentTarget: {fileID: 0}
   <ActionCooldown>k__BackingField: 2
@@ -515,6 +515,7 @@ MonoBehaviour:
     rid: -2
   AttackState:
     rid: -2
+  _rigidBody2D: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -645,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
   containerOpenedSprite: {fileID: 0}
+  interactable: 0
   containerContents:
   - itemDataSo: {fileID: 11400000, guid: 7e7d063152bbaa24b8d12b99b7a78a5d, type: 2}
     dropAmount: 1
@@ -685,48 +687,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &1216699505466028575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531220670705793847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
-  version: 5
-  radius: 0.5
-  height: 2
-  canMove: 0
-  maxSpeed: 5
-  gravity: {x: NaN, y: NaN, z: NaN}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
-  orientation: 1
-  enableRotation: 0
-  autoRepath:
-    mode: 2
-    interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
-    visualizeSensitivity: 0
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 1
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 1
 --- !u!114 &1597489647137135588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,3 +765,55 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4588073855678335071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847a14d4dc9cc43679ab34fc78e0182f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AILerp
+  version: 4
+  autoRepath:
+    mode: 2
+    interval: 0.5
+    sensitivity: 10
+    maximumInterval: 2
+    visualizeSensitivity: 0
+  canMove: 1
+  speed: 4
+  orientation: 0
+  enableRotation: 0
+  rotationSpeed: 10
+  interpolatePathSwitches: 1
+  switchPathInterpolationSpeed: 5
+  targetCompatibility: {fileID: 0}
+  repathRateCompatibility: NaN
+  canSearchCompability: 0
+--- !u!114 &1492280510053120551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b090bec917bbe4c3bbc612ef13f7c4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.RaycastModifier
+  version: 1
+  useRaycasting: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 200
+  thickRaycast: 1
+  thickRaycastRadius: 1
+  use2DPhysics: 1
+  raycastOffset: {x: 0, y: 0, z: 0}
+  useGraphRaycasting: 0
+  quality: 2

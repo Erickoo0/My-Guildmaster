@@ -106,9 +106,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 36
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.16666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d7a86dc75119ea5468fe093fd589f307
     internalID: 0
     vertices: []
     indices: 
@@ -133,7 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":36.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.1666666716337204},"pivotPixels":{"x":133.0,"y":18.0},"autoSlicingMethod":1,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Bush 3_0: -7938146255075156964
   mipmapLimitGroupName: 

@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using UnityEngine;
 
@@ -6,33 +7,32 @@ public class EntityMover : MonoBehaviour
 {
     [Header("Movement Settings")] 
     public float moveSpeed = 5f;
+    public Vector2 MoveDirection { get; private set; }
+    public enum OverrideMovementState { None, KnockedBack, Recoiling }
+    public OverrideMovementState currentOverrideState { get; private set; } = OverrideMovementState.None;
 
-    [Header("Knockback Settings")]
-    private bool _isKnockedBack = false;
-    private float _knockbackTimer;
-    private float _totalKnockbackDuration;
+    [Header("Override State Settings")]
+    private float _overrideTimer;
+    private float _totalOverrideDuration;
     private float _knockbackHeight;
-    private Vector2 _initialKnockbackVelocity;
+    private Vector2 _initialOverrideVelocity;
     
-    [Header("Recoil Settings")]
-    private bool _isRecoiling = false;
-    private float _recoilTimer;
-    private float _recoilDuration;
-    private Vector2 _initialRecoilVelocity;
-    
+    [Header("References")]
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private Vector2 _moveDirection;
     private Collider2D _collider;
     
-    public Vector2 MoveDirection => _moveDirection;
-    public bool IsKnockedBack => _isKnockedBack;
+    public bool IsKnockedBack => currentOverrideState == OverrideMovementState.KnockedBack;
+    
+    private AILerp _aiLerp; // Add this reference
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _aiLerp = GetComponent<AILerp>();
     }
 
     private void FixedUpdate()
@@ -43,34 +43,34 @@ public class EntityMover : MonoBehaviour
             return;
         }
 
-        if (_isKnockedBack)
+        switch (currentOverrideState)
         {
+        case OverrideMovementState.KnockedBack:
+            if (_aiLerp != null) _aiLerp.canMove = false;
             HandleKnockbackLoop();
-        }
-        else if (_isRecoiling) 
-        {
+            break;
+        case OverrideMovementState.Recoiling:
+            if (_aiLerp != null) _aiLerp.canMove = false;
             HandleRecoiling();
-        }
-        else
-        {
-            HandleNormalMovement();
+            break;
+        case OverrideMovementState.None: // If there is AILerp, use its own movement component
+        default: // If there is no AILerp component, use EntityMover 
+            if (_aiLerp == null) HandleNormalMovement();
+            break;
         }
     }
 
-    public void SetMoveDirection(Vector2 direction)
-    {
-        _moveDirection = direction.normalized;
-    }
+    public void SetMoveDirection(Vector2 direction) => MoveDirection = direction.normalized;
 
     private void HandleKnockbackLoop()
     {
-        _knockbackTimer -= Time.fixedDeltaTime;
+        _overrideTimer -= Time.fixedDeltaTime;
         
         // 1. Calculate progress from 0 to 1
-        float knockbackProgress = Mathf.Clamp01(1f - (_knockbackTimer / _totalKnockbackDuration));
+        float knockbackProgress = Mathf.Clamp01(1f - (_overrideTimer / _totalOverrideDuration));
         
         // 2. Horizontal Decay logic
-        _rigidbody.linearVelocity = Vector2.Lerp(_initialKnockbackVelocity, Vector2.zero, knockbackProgress);
+        _rigidbody.linearVelocity = Vector2.Lerp(_initialOverrideVelocity, Vector2.zero, knockbackProgress);
         
         // 3. Vertical Decay logic
         if (_spriteRenderer != null && _knockbackHeight > 0)
@@ -80,52 +80,52 @@ public class EntityMover : MonoBehaviour
         }
         
         // 4. Exit Logic
-        if (_knockbackTimer <= 0f)
-        {
-            _isKnockedBack = false;
-            _rigidbody.linearVelocity = Vector2.zero;
-            if (_spriteRenderer != null)
-                _spriteRenderer.transform.localPosition = Vector2.zero;
-        }
+        if (_overrideTimer <= 0f) ClearOverride();
     }
 
     private void HandleRecoiling () 
     {
-        _recoilTimer -= Time.fixedDeltaTime;
+        _overrideTimer -= Time.fixedDeltaTime;
         
         // 1. Calculate progress from 0 to 1
-        float recoilProgress = Mathf.Clamp01(1f - (_recoilTimer/_recoilDuration));
+        float recoilProgress = Mathf.Clamp01(1f - (_overrideTimer/_totalOverrideDuration));
         
         // 2. Horizontal Decay logic
-        _rigidbody.linearVelocity = Vector2.Lerp(_initialRecoilVelocity, Vector2.zero, recoilProgress);
+        _rigidbody.linearVelocity = Vector2.Lerp(_initialOverrideVelocity, Vector2.zero, recoilProgress);
         
         // 3. Exit Logic
-        if (_recoilTimer <= 0f)
-        {
-            _isRecoiling = false;
-            _rigidbody.linearVelocity = Vector2.zero;
-        }
+        if (_overrideTimer <= 0f) ClearOverride();
     }
 
-    private void HandleNormalMovement()
+    private void HandleNormalMovement() => _rigidbody.linearVelocity = MoveDirection * moveSpeed;
+
+    private void ClearOverride()
     {
-        _rigidbody.linearVelocity = _moveDirection * moveSpeed;
+        currentOverrideState = OverrideMovementState.None;
+        _rigidbody.linearVelocity = Vector2.zero;
+        if (_spriteRenderer != null) _spriteRenderer.transform.localPosition = Vector2.zero;
+        
+        // Re-enable AILerp and update its internal position tracking
+        if (_aiLerp != null)
+        {
+            _aiLerp.canMove = true;
+            _aiLerp.Teleport(transform.position);
+            _aiLerp.SearchPath();
+        }
     }
-    
 
     public void ApplyKnockback(Vector2 knockbackDirection, float knockbackForce, float knockbackDuration, float knockbackHeight, GameObject source = null)
     {
         if (!gameObject.activeInHierarchy) return;
 
-        _isKnockedBack = true;
-        _knockbackTimer = knockbackDuration;
-        _totalKnockbackDuration = knockbackDuration;
+        currentOverrideState = OverrideMovementState.KnockedBack;
+        _overrideTimer = knockbackDuration;
+        _totalOverrideDuration = knockbackDuration;
         _knockbackHeight = knockbackHeight;
-
         
         // Store the starting velocity for lerp
-        _initialKnockbackVelocity = knockbackDirection * knockbackForce;
-        _rigidbody.linearVelocity = _initialKnockbackVelocity;
+        _initialOverrideVelocity = knockbackDirection * knockbackForce;
+        _rigidbody.linearVelocity = _initialOverrideVelocity;
 
         // Temporarily ignore collision with the attacker
         if (source != null)
@@ -135,16 +135,16 @@ public class EntityMover : MonoBehaviour
 
     public void ApplyRecoil (Vector2 direction, float recoilForce = 8f, float recoilDuration = 0.1f) 
     {
-        // Dont apply recoil if entity is getting knocked back
-        if (_isKnockedBack) return;
+        // Knockback takes priority over  recoil
+        if (currentOverrideState == OverrideMovementState.KnockedBack) return;
         
-        _isRecoiling = true;
-        _recoilTimer = recoilDuration;
-        _recoilDuration = recoilDuration;
+        currentOverrideState = OverrideMovementState.Recoiling;
+        _overrideTimer = recoilDuration;
+        _totalOverrideDuration = recoilDuration;
         
         // Reverse the attack direction for recoil
-        _initialRecoilVelocity = -direction.normalized * recoilForce;
-        _rigidbody.linearVelocity = _initialRecoilVelocity;
+        _initialOverrideVelocity = -direction.normalized * recoilForce;
+        _rigidbody.linearVelocity = _initialOverrideVelocity;
     }
     
     private IEnumerator TemporaryIgnoreCollision(GameObject source, float knockbackDuration)

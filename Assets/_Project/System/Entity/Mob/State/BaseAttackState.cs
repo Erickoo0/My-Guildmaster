@@ -17,7 +17,10 @@ public abstract class BaseAttackState : BaseActionState
     public override void Setup(MobController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
-        attackData = controller?.GetAttackData<SpellData>(attackID);
+
+        if (controller.globalSpellDatabase != null)
+            attackData = controller.globalSpellDatabase.GetSpell<SpellData>(attackID);
+        
         castBar = controller.GetComponent<CastBar>();
     }
 
@@ -34,8 +37,8 @@ public abstract class BaseAttackState : BaseActionState
             return;
         }
         
-        defaultDetectionLostRange = controller.DetectionLostRange;
-        controller.DetectionLostRange = defaultDetectionLostRange * 4f;
+        defaultDetectionLostRange = controller.TargetLostRange;
+        controller.TargetLostRange = defaultDetectionLostRange * 4f;
 
         controller.EntityAnimator.OnAnimationEventRequested += HandleAnimationEvent;
         
@@ -89,7 +92,7 @@ public abstract class BaseAttackState : BaseActionState
         
         controller.EntityAnimator.animator.Update(0f);
         
-        controller.DetectionLostRange = defaultDetectionLostRange;
+        controller.TargetLostRange = defaultDetectionLostRange;
         
         if (hasTriggered)
             controller.SetActionCooldown();

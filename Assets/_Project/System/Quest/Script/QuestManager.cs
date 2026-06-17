@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour, ISaveable
@@ -6,14 +8,14 @@ public class QuestManager : MonoBehaviour, ISaveable
     public static QuestManager Instance { get; private set; }
 
     //[SerializeField] private QuestUI questUI;
-    [SerializeField] private List<QuestSo> questDatabase = new List<QuestSo>();
+    [Header("Databases")]
+    [SerializeField] private QuestDatabase questDatabase;
     
-    private List<QuestActive> _questList = new List<QuestActive>();
-    public List<QuestActive> QuestList => _questList;
-    
-    private List<string> _completedQuestList = new List<string>();
-    public List<string> CompletedQuestList => _completedQuestList;
-    
+    // 0(1) Lookup Data Structure
+    private Dictionary<string, QuestActive> _activeQuestDictionary = new Dictionary<string, QuestActive>();
+    public IReadOnlyDictionary<string, QuestActive> ActiveQuestDictionary => _activeQuestDictionary;
+    private HashSet<string> _completedQuestHashSet = new HashSet<string>();
+    public IReadOnlyCollection<string> CompletedQuestHashSet => _completedQuestHashSet;
     
     private void Awake()
     {
@@ -25,20 +27,28 @@ public class QuestManager : MonoBehaviour, ISaveable
         }
 
         Instance = this;
+
+        if (questDatabase != null) questDatabase.SetupDictionary();
     }
 
     private void OnEnable()
     {
         EventBus.OnUpdateQuestObjectiveRequested += HandleObjectiveUpdate;
         EventBus.OnEntityDeathRequested += HandleEntityDeath;
-        EventBus.OnDialogueEventRequested += HandleDialogueEvent;
+        
+        EventBus.OnGameFlagChanged += HandleFlagAndStateObjective;
+        EventBus.OnGameStatChanged += HandleFlagAndStateObjective;
+        EventBus.OnWorldTimeChanged += HandleTimeObjective;
     }
 
     private void OnDisable()
     {
         EventBus.OnUpdateQuestObjectiveRequested -= HandleObjectiveUpdate;
         EventBus.OnEntityDeathRequested -= HandleEntityDeath;
-        EventBus.OnDialogueEventRequested -= HandleDialogueEvent;
+        
+        EventBus.OnGameFlagChanged -= HandleFlagAndStateObjective;
+        EventBus.OnGameStatChanged -= HandleFlagAndStateObjective;
+        EventBus.OnWorldTimeChanged -= HandleTimeObjective;
     }
 
     private void HandleEntityDeath(GameObject entityRoot)
@@ -54,59 +64,73 @@ public class QuestManager : MonoBehaviour, ISaveable
 
     private void HandleObjectiveUpdate(string targetID, int amount)
     {
-        foreach (QuestActive questActive in _questList)
+        bool questUpdated = false;
+        
+        foreach (QuestActive questActive in _activeQuestDictionary.Values)
         {
             if (questActive.IsCompleted) continue; // Skip the quest if its already completed
             
-            // Look through every objective in the quest, and check if Event target ID matches the objective target ID
+            // Look through every objective in the quest
             for (int i = 0; i < questActive.QuestData.QuestObjectives.Count; i++)
             {
+                QuestObjectiveBase objective = questActive.QuestData.QuestObjectives[i];
                 
-                // If it does, add the amount to the objective progress
-                if (questActive.QuestData.QuestObjectives[i].TargetID == targetID)
+                // Check if the objective is count-based & has same targetID as the objective
+                if (objective.IsCountBased && objective.TargetID == targetID)
                 {
-                    questActive.AddObjectiveProgress(i, amount);
                     //questUI.UpdateQuestUI(questActive);
-                    EventBus.RequestUpdateQuest();
+                    questActive.AddObjectiveProgress(i, amount);
+                    questUpdated = true;
                 }
             }
         }
+        // Signal the event once per update batch
+        if (questUpdated) EventBus.RequestUpdateQuest();
     }
     
-    private void HandleDialogueEvent(string dialogueEvent, object questData)
+    // Triggered automatically whenever a Game Flag or Game Stat updates via the EventBus
+    private void HandleFlagAndStateObjective(FlagKeys.GameFlag flag, bool state) => UpdateFlagAndStateObjectives();
+    private void HandleFlagAndStateObjective(FlagKeys.GameStat stat, int value) => UpdateFlagAndStateObjectives();
+    // Triggered automatically whenever World Time moves forward on the EventBus
+    private void HandleTimeObjective(object sender, TimeSpan currentTime) => UpdateFlagAndStateObjectives();
+    
+    private void UpdateFlagAndStateObjectives()
     {
-        switch (dialogueEvent)
-        {
-            case "AcceptQuest":
-                AcceptQuest(dialogueEvent, questData);
-                break;
-            case "CompleteQuest":
-                CompleteQuest(dialogueEvent, questData);
-                break;
-        }
+        //bool anyQuestUpdated = false;
+        
+        foreach (QuestActive questActive in _activeQuestDictionary.Values)
+            if (!questActive.IsCompleted)
+            {
+                int completedStatusBeforeCheck = questActive.IsCompleted ? 1 : 0;
+                questActive.CheckQuestCompletion();
+                int completedStatusAfterCheck = questActive.IsCompleted ? 1 : 0;
+                
+                // If the quest status changed, Send an event
+                if (completedStatusBeforeCheck != completedStatusAfterCheck)
+                {
+                    //anyQuestUpdated = true;
+                }
+            }
+        
+        EventBus.RequestUpdateQuest();
     }
     
-    private void AcceptQuest(string dialogueEvent, object questData)
+    public void AcceptQuest(object questData)
     {
-        // 1. Filter out non-quest events
-        if (dialogueEvent != "AcceptQuest") return;
-
-        // 2. Pattern Match: Try to treat questData as a string. 
+        // 1. Pattern Match: Try to treat questData as a string. 
         // If it is a string, assign it to the variable 'questID'.
         if (questData is string questID)
         {
-            // Check if we already have this quest
-            if (_questList.Exists(q => q.QuestData.QuestID == questID)) return;
-            
-            // Check if the quest has already been completed 
-            if (_completedQuestList.Contains(questID)) return;
+            // Check if we already have or completed this quest
+            if (_activeQuestDictionary.ContainsKey(questID) || _completedQuestHashSet.Contains(questID)) return;
 
             // Look it up in the database
-            QuestSo questDataSo = GetQuestByID(questID);
-        
+            QuestSo questDataSo = questDatabase.GetQuestByID(questID);
             if (questDataSo != null)
             {
-                _questList.Add(new QuestActive(questDataSo));
+                QuestActive newQuest = new QuestActive(questDataSo);
+                _activeQuestDictionary.Add(questID, newQuest);
+                newQuest.CheckQuestCompletion();
                 //questUI.AddQuestUI(_questList[^1]); // [^1] is shorthand for 'last index'
                 
                 // Scan Inventory to immediately update item related quest progress
@@ -127,28 +151,36 @@ public class QuestManager : MonoBehaviour, ISaveable
         }
     }
     
-    private void CompleteQuest(string dialogueEvent, object questData)
+    public void CompleteQuest(object questData)
     {
-        // Safety check
-        if (dialogueEvent != "CompleteQuest") return;
-        
         // 1. Pattern Match
         if (questData is string questID)
         {
             // 3. Find the active quest in the current quest list
-            QuestActive quest = _questList.Find(q => q.QuestData.QuestID == questID);
-            
-            // 4. Make sure the quest actually exists and that the player has finished the objective
-            if (quest != null && quest.IsCompleted)
+            if (_activeQuestDictionary.TryGetValue(questID, out QuestActive quest))
             {
-                // 5. Remove the quest from the active quest list and add it to the completed quest list
-                _questList.Remove(quest);
-                _completedQuestList.Add(questID);
-                EventBus.RequestUpdateQuest();
+                if (quest.IsCompleted)
+                { 
+                    // 5. Remove the quest from the active quest list and add it to the completed quest list
+                    _activeQuestDictionary.Remove(questID);
+                    _completedQuestHashSet.Add(questID);
+                    EventBus.RequestUpdateQuest();
+                }
+                else Debug.LogWarning($"Attempted to complete quest {questID}, but it is not completed.");
             }
             
-            else Debug.LogWarning($"Attempted to turn in quest {questID}, but it is either not active or not completed.");
+            //else Debug.LogWarning($"Attempted to turn in quest {questID}, but it is either not active or not completed.");
         } 
+    }
+
+    public bool TryGetActiveQuest(string questID, out QuestActive questActive)
+    {
+        return _activeQuestDictionary.TryGetValue(questID, out questActive);
+    }
+
+    public bool CheckQuestCompletion(string questID)
+    {
+        return _completedQuestHashSet.Contains(questID);
     }
     
     //----Save Methods----
@@ -158,7 +190,7 @@ public class QuestManager : MonoBehaviour, ISaveable
         saveData.savedQuests.Clear();
 
         // Loop through all active quests
-        foreach (QuestActive questActive in _questList)
+        foreach (QuestActive questActive in _activeQuestDictionary.Values)
         {
             // Safety Check
             if (questActive == null || questActive.QuestData == null) continue;
@@ -174,40 +206,35 @@ public class QuestManager : MonoBehaviour, ISaveable
             // Add the SavedQuest to the list
             saveData.savedQuests.Add(savedQuest);
         }
+        
+        // Add the completed quest list to the save data
+        saveData.completedQuests = _completedQuestHashSet.ToList();
     }
 
     public void LoadFromSaveData(SaveData saveData)
     {
         // Reset the savedQuests list just incase
-        _questList.Clear();
+        _activeQuestDictionary.Clear();
+        _completedQuestHashSet.Clear();
 
+        // Load completed quest
+        if (saveData.completedQuests != null)
+            foreach (string completedQuestID in saveData.completedQuests)
+                _completedQuestHashSet.Add(completedQuestID);
+        
+        // Load active quests
         foreach (SavedQuest savedQuest in saveData.savedQuests)
         {
-            QuestSo questData = GetQuestByID(savedQuest.questID);
-
-            if (questData == null)
+            QuestSo questData = questDatabase.GetQuestByID(savedQuest.questID);
+            if (questData != null)
             {
-                Debug.LogWarning($"[QuestManager] Could not find quest with ID: {savedQuest.questID} in database.");
-                continue;
+                QuestActive questActive = new QuestActive(questData, savedQuest.objectiveProgress, savedQuest.isCompleted);
+                _activeQuestDictionary.Add(questActive.QuestData.QuestID, questActive);
             }
-            
-            // Create a new QuestActive object from quest database
-            QuestActive questActive = new QuestActive
-            (
-                questData, 
-                savedQuest.objectiveProgress, 
-                savedQuest.isCompleted
-            );
-            
-            // Add the QuestActive object to the active quest list
-            _questList.Add(questActive);
+            else 
+                Debug.LogWarning($"[QuestManager] Could not find quest with ID: {savedQuest.questID} in database.");
 
             EventBus.RequestUpdateQuest();
         }
-    }
-    
-    private QuestSo GetQuestByID(string questID)
-    {
-        return questDatabase.Find(q => q != null && q.QuestID == questID);
     }
 }

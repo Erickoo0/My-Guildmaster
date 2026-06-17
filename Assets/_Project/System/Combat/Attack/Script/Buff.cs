@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class Buff : MonoBehaviour
 {
+    [Header("References")]
     private GameObject _buffReceiver;
     private Health _health;
     private Mana _mana;
-    private BuffSpellData.BuffType _buffType;
-    public BuffSpellData.BuffType BuffType => _buffType;
+    private BuffType _buffType;
+    public BuffType BuffType => _buffType;
     
+    [Header("Buff Settings")]
     private float _buffDuration;
     private float _buffAmount;
     private float _buffAmountPerTick;
     private float _buffTickRate = 0.5f;
     private float _buffTickTimer;
 
-    public void Setup(GameObject buffReceiver, BuffSpellData.BuffType buffType, float buffAmount, float buffDuration)
+    public void Setup(GameObject buffReceiver, BuffType buffType, float buffAmount, float buffDuration)
     {
         _buffReceiver = buffReceiver;
         _buffType = buffType;
@@ -37,10 +39,10 @@ public class Buff : MonoBehaviour
         {
             switch (_buffType)
             {
-                case BuffSpellData.BuffType.Health:
+                case BuffType.Health:
                     _health = statProvider.EntityHealth;
                     break;
-                case BuffSpellData.BuffType.Mana:
+                case BuffType.Mana:
                     _mana = statProvider.EntityMana;
                     break;
             }
@@ -49,19 +51,19 @@ public class Buff : MonoBehaviour
         {
             switch (_buffType)
             {
-                case BuffSpellData.BuffType.Health:
+                case BuffType.Health:
                     _health = _buffReceiver.GetComponent<Health>();
                     break;
-                case BuffSpellData.BuffType.Mana:
+                case BuffType.Mana:
                     _mana = _buffReceiver.GetComponent<Mana>();
                     break;
             }
         }
         
         // Safety Warnings
-        if (_buffType == BuffSpellData.BuffType.Health && _health == null)
+        if (_buffType == BuffType.Health && _health == null)
             Debug.LogWarning($"Buff tried to heal, but {_buffReceiver.name} has no Health reference.");
-        if (_buffType == BuffSpellData.BuffType.Mana && _mana == null)
+        if (_buffType == BuffType.Mana && _mana == null)
             Debug.LogWarning($"Buff tried to restore MP, but {_buffReceiver.name} has no Mana reference.");
     }
 
@@ -78,9 +80,14 @@ public class Buff : MonoBehaviour
 
     private void ApplyTick()
     {
-        if (_health != null)
-            _health.HpHealInstant(_buffAmountPerTick);
-        else if (_mana != null)
-            _mana.MpHealInstant(_buffAmountPerTick);
+        switch (_buffType)
+        {
+            case BuffType.Health:
+                if (_health != null) _health.HpHealInstant(_buffAmountPerTick);
+                break;
+            case BuffType.Mana:
+                if (_mana != null) _mana.MpHealInstant(_buffAmountPerTick);
+                break;
+        }
     }
 }

@@ -12,6 +12,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: House1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_PreviousTrimEdge
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_ShadowShape2DProvider
+      value: 3505743492058447872
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_ShadowShape2DComponent
+      value: 
+      objectReference: {fileID: 2370967234869249657}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_ShadowMesh.m_InitialTrim
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
+      value: 2.65625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
+      value: 1.449997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
+      value: 2.168747
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302900630753478804, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+      propertyPath: 'managedReferences[3505743492058447872]'
+      value: Unity.RenderPipelines.Universal.2D.Runtime UnityEngine.Rendering.Universal.ShadowShape2DProvider_Collider2D
+      objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_Size.x
       value: 4.4558105
@@ -30,19 +66,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5020761
+      value: 0.49315068
       objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.037425846
+      value: 0.2260274
       objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 5.3125
+      value: 9.125
       objectReference: {fileID: 0}
     - target: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 6.4375
+      value: 9.125
       objectReference: {fileID: 0}
     - target: {fileID: 6606264458872427175, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -109,3 +145,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+--- !u!61 &2370967234869249657 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4486911655114145573, guid: b740fd4b93e854547a15d40bc55c7f68, type: 3}
+  m_PrefabInstance: {fileID: 2207863620255856988}
+  m_PrefabAsset: {fileID: 0}

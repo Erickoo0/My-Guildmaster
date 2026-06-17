@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6950616651637756399, guid: 6f3cf8096e1e7a94c9ec1b9072f42f75, type: 3}
@@ -110,7 +110,8 @@ GameObject:
   - component: {fileID: 7485716094007412697}
   - component: {fileID: 7406667262316240941}
   - component: {fileID: 5281906852817332908}
-  - component: {fileID: 3389466163245463746}
+  - component: {fileID: -6622028755582597782}
+  - component: {fileID: -4156767277549657905}
   m_Layer: 3
   m_Name: NPC
   m_TagString: Untagged
@@ -311,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCController
   entityID: Base_NPC
-  aiPath: {fileID: 0}
+  aiLerp: {fileID: 0}
   IdleState:
     rid: 5971588601634619496
   HomeState:
@@ -323,21 +324,24 @@ MonoBehaviour:
   WorkState:
     rid: 5971588601634619512
   dormantOverrideStates: []
+  rigidbody2D: {fileID: 0}
+  currentLocation: 0
   <NpcScheduleData>k__BackingField:
     HomePOIList:
-    - Home
+    - POI_Church_Interior_Chair1
+    - POI_Church_Interior_Chair2
     SleepPOIList:
-    - Bridge
+    - POI_Church_Interior_Altar_Front
     HobbyPOIList:
-    - Library_Checkout
-    - Grand_Tree_Front
-    - Grand_Shrine_Front
-    - Forest
+    - POI_Haven_Hills_Front
+    - POI_Grand_Tree_Front
+    - POI_Grand_Shrine_Front
+    - POI_Forest01
+    - POI_Questboard_Front
+    - POI_Haven_Hills_Front
     WorkPOIList:
-    - Tavern_Table
-    - Community_Center
-    - WorkPlace1
-    - WorkPlace2
+    - POI_Questboard_Front
+  evaluationTimer: 0
   references:
     version: 2
     RefIds:
@@ -346,16 +350,24 @@ MonoBehaviour:
       data: 
     - rid: 5971588601634619497
       type: {class: NPCHobbyState, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        stateName: 
+        walkInSequence: 0
     - rid: 5971588601634619508
       type: {class: NPCHomeState, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        stateName: 
+        walkInSequence: 0
     - rid: 5971588601634619511
       type: {class: NPCSleepState, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        stateName: 
+        walkInSequence: 0
     - rid: 5971588601634619512
       type: {class: NPCWorkState, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        stateName: 
+        walkInSequence: 0
 --- !u!114 &-4420673444012068834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8a700780a5b4148b87370b797bbfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityMover
-  moveSpeed: 5
+  moveSpeed: 4
 --- !u!114 &5281906852817332908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +438,7 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &3389466163245463746
+--- !u!114 &-6622028755582597782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -435,39 +447,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295489641667029861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Script: {fileID: 11500000, guid: 847a14d4dc9cc43679ab34fc78e0182f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
-  version: 5
-  radius: 0.5
-  height: 2
-  canMove: 0
-  maxSpeed: 1
-  gravity: {x: 0, y: 0, z: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
-  orientation: 1
-  enableRotation: 0
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AILerp
+  version: 4
   autoRepath:
     mode: 2
     interval: 0.5
     sensitivity: 10
     maximumInterval: 2
     visualizeSensitivity: 0
+  canMove: 1
+  speed: 4
+  orientation: 0
+  enableRotation: 0
+  rotationSpeed: 10
+  interpolatePathSwitches: 1
+  switchPathInterpolationSpeed: 5
   targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 1
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 1
+  repathRateCompatibility: NaN
+  canSearchCompability: 0
+--- !u!114 &-4156767277549657905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295489641667029861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b090bec917bbe4c3bbc612ef13f7c4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.RaycastModifier
+  version: 1
+  useRaycasting: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 200
+  thickRaycast: 1
+  thickRaycastRadius: 1
+  use2DPhysics: 1
+  raycastOffset: {x: 0, y: 0, z: 0}
+  useGraphRaycasting: 0
+  quality: 2
 --- !u!1 &5377201774357574432
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +573,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4723107735738678597, guid: b6e95c8ab9bc1aa43b9015542050a92c, type: 3}
@@ -599,7 +621,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityAnimator
   animator: {fileID: 0}
-  snapToCardinalDirections: 0
 --- !u!114 &7178337551593566575
 MonoBehaviour:
   m_ObjectHideFlags: 0

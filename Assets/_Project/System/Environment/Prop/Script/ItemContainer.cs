@@ -92,8 +92,13 @@ public class ItemContainer : MonoBehaviour, IInteractable, ISaveable
 
     private void SpawnItem(ItemDrop drop, float angle)
     {
+        // 1. Get the Default ItemObject prefab from InventoryManager
+        GameObject prefabToSpawn = drop.itemDataSo.ItemObject != null 
+            ? drop.itemDataSo.ItemObject 
+            : InventoryManager.Instance.defaultItemObjectPrefab;
+        
         Vector3 targetPosition = CalculateDropPosition(angle);
-        GameObject droppedItem =  Instantiate(drop.itemDataSo.ItemObject, transform.position, Quaternion.identity);
+        GameObject droppedItem =  Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
 
         if (droppedItem.TryGetComponent(out ItemObject itemObject))
         {

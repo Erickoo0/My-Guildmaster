@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92a9b4f46c14cc44a1e693c22b029d7, type: 3}
+  m_Name: Dialogue_Edwin_Quest_Tutorial03
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGroup
+  startingNodeID: Intro
+  dialogueNodes:
+  - nodeID: Intro
+    dialogueLines:
+    - Welcome back. I hope you were able to get familar with everyone.
+    - This town is great. Theres tons of unique personalities around here.
+    - 'Now that I cleaned up abit, let me show you inside. '
+    dialogueOptions: []
+    nodeEvents:
+    - rid: 3505743589636833382
+    - rid: 3505743589636833383
+    - rid: 3505743589636833385
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743589636833382
+      type: {class: DialogueActionCompleteQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToComplete: {fileID: 11400000, guid: 1b375ae69e7adf74bb444985000f4113, type: 2}
+    - rid: 3505743589636833383
+      type: {class: DialogueActionAcceptQuest, ns: , asm: Assembly-CSharp}
+      data:
+        questToAccept: {fileID: 11400000, guid: 452e73db4a11fd241bc9632d46b9f30f, type: 2}
+    - rid: 3505743589636833385
+      type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
+      data:
+        statToIncrement: 1
+        amount: 1

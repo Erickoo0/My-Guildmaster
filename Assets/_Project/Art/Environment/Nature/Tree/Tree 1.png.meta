@@ -117,7 +117,7 @@ TextureImporter:
         width: 64
         height: 75
       alignment: 9
-      pivot: {x: 0.5, y: 0.08948548}
+      pivot: {x: 0.53125, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 64
         height: 75
       alignment: 9
-      pivot: {x: 0.5, y: 0.08948548}
+      pivot: {x: 0.53125, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -161,7 +161,7 @@ TextureImporter:
         width: 64
         height: 75
       alignment: 9
-      pivot: {x: 0.5, y: 0.08948548}
+      pivot: {x: 0.53125, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -183,7 +183,7 @@ TextureImporter:
         width: 64
         height: 75
       alignment: 9
-      pivot: {x: 0.5, y: 0.08948548}
+      pivot: {x: 0.53125, y: 0.08}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e74c0dfdaa967d14eb5152ed767cc49a
+    spriteID: d038cbcc85baa92419eb686fbcfdf49e
     internalID: 0
     vertices: []
     indices: 
@@ -210,7 +210,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":75.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.08948548138141632},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":75.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.53125,"y":0.07999999821186066},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Tree 1_0: -4832618155596115187
       Tree 1_1: 8854971001033267750

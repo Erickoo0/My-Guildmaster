@@ -32,11 +32,28 @@ public class Quest : MonoBehaviour
         // Loop through all objectives and write them out
         for (int i = 0; i < quest.QuestData.QuestObjectives.Count; i++)
         {
-            QuestObjective objectiveData = quest.QuestData.QuestObjectives[i];
+            QuestObjectiveBase objectiveData = quest.QuestData.QuestObjectives[i];
             int currentProgress = quest.ObjectiveProgress[i];
-            int requiredAmount = objectiveData.RequiredAmount;
             
-            questProgress.text = $"- {objectiveData.ObjectiveTitle}: {currentProgress} / {requiredAmount}";
+            // 1. Handle Count-Based Objectives
+            if (objectiveData.IsCountBased)
+                questProgress.text += $"- {objectiveData.ObjectiveTitle}: {currentProgress} / {objectiveData.RequiredAmount}\n";
+            
+            // 2. Handle State-Based Objectives
+            else if (objectiveData is QuestObjectiveState stateObjective)
+            {
+                // 3. Check if the objective is a State-Based Objective
+                if (stateObjective.requirement is RequirementGameStat statRequirement)
+                {
+                    int liveStatValue = GameFlagManager.Instance.GetGameStat(statRequirement.requiredGameStat);
+                    questProgress.text += $"- {objectiveData.ObjectiveTitle}: {liveStatValue} / {statRequirement.requiredMinimumValue}\n";
+                } 
+                else // 4. Check if its tracking a GameFlag or something else
+                {
+                    string status = stateObjective.IsConditionMet() ? "Finished" : "InComplete";
+                    questProgress.text += $"- {objectiveData.ObjectiveTitle}: {status}\n";
+                }
+            }
         }
         
         if (quest.IsCompleted)

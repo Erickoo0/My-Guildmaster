@@ -103,12 +103,12 @@ TextureImporter:
       name: House1_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 27
-        width: 85
-        height: 103
+        x: 0
+        y: 0
+        width: 146
+        height: 146
       alignment: 9
-      pivot: {x: 0.5020761, y: 0.037425846}
+      pivot: {x: 0.49315068, y: 0.2260274}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,7 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":146.0,"y":146.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       House1_0: -5391499930902814504
   mipmapLimitGroupName: 

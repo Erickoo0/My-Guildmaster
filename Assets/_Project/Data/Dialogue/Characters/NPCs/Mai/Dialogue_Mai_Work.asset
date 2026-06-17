@@ -17,10 +17,20 @@ MonoBehaviour:
   - nodeID: Intro
     dialogueLines:
     - I hate my job.
-    - I want to go home.
-    dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    - I want to go home...
+    - 'Oh! Sorry, didnt see you there. '
+    dialogueOptions:
+    - optionName: Browse Shop
+      targetNodeID: 
+      optionEvents:
+      - rid: 3505743604711161937
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743604711161937
+      type: {class: DialogueActionOpenShop, ns: , asm: Assembly-CSharp}
+      data: 

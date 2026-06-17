@@ -5062,7 +5062,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 5
@@ -5106,7 +5106,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2872043633173323930, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: victimLayer.m_Bits
-      value: 9
+      value: 137
       objectReference: {fileID: 0}
     - target: {fileID: 987499135808754145, guid: 386222c92002bb24e96302a909835807, type: 3}
       propertyPath: m_LocalPosition.x

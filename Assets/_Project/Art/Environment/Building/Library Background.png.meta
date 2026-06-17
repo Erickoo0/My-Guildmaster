@@ -109,12 +109,12 @@ TextureImporter:
       name: Library Background_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 33
-        width: 27
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 148
+        height: 128
+      alignment: 9
+      pivot: {x: 0.4054054, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -127,55 +127,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Library Background_1
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 25
-        width: 68
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e59be144ba248d330800000000000000
-      internalID: 3735809194253531486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Library Background_2
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 25
-        width: 27
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6f18a038a4e8cbc00800000000000000
-      internalID: 917764874753966582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 05711ef63675fc1428c4e7295b3b8957
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +139,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":148.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.4054054021835327,"y":0.0859375},"pivotPixels":{"x":45.0,"y":8.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Library Background_0: 1045084630664051073
-      Library Background_1: 3735809194253531486
-      Library Background_2: 917764874753966582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

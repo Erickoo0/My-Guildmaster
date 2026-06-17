@@ -8,11 +8,12 @@ public class DialogueNode
     public string nodeID;
     public string[] dialogueLines;
     public DialogueOption[] dialogueOptions;
-    public string nodeEvent; // Future, if we want to play animations or events when the a specific dialogue node starts
-    public string nodeEventParameter;
+    [SerializeReference, SubclassSelector]
+    public DialogueAction[] nodeEvents;
     
     [Header("Selection Criteria")]
-    public List<RequirementData> requirements = new List<RequirementData>();
+    [SerializeReference, SubclassSelector]
+    public List<Requirement> requirements = new List<Requirement>();
     [Range(0, 100)] public float selectionWeight = 10f;
     [Tooltip("If true and requirements are met, this node is guaranteed to be picked.")]
     public bool isImportant = false;
@@ -25,7 +26,6 @@ public class DialogueOption
     public string optionName;
     public string targetNodeID;
     
-    [Header("Event Data")]
-    public string dialogueEvent;
-    public string eventParameter; // For quests, put the QuestID here.
+    [SerializeReference, SubclassSelector]
+    public DialogueAction[] optionEvents;
 }

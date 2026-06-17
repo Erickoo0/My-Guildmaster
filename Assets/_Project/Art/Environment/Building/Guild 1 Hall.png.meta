@@ -103,12 +103,12 @@ TextureImporter:
       name: Guild 1 Hall_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 10
-        width: 239
-        height: 158
+        x: 0
+        y: 0
+        width: 256
+        height: 200
       alignment: 9
-      pivot: {x: 0.50101334, y: 0.11067128}
+      pivot: {x: 0.50390625, y: 0.13499999}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,7 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Guild 1 Hall_0: 6610845423441128365
   mipmapLimitGroupName: 

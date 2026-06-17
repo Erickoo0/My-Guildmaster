@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4346244404228752641, guid: 1c9f975501c0af342a0355bbb8a45f6d, type: 3}
@@ -138,7 +138,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Time: 0.5
@@ -289,7 +289,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6950616651637756399, guid: 6f3cf8096e1e7a94c9ec1b9072f42f75, type: 3}
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   _projectileVisual: {fileID: 636807924418001954}
-  _projectileHitFX: {fileID: 4093972447167166647, guid: ea39ff1f2c82a424ca269ec3e3d9efaa, type: 3}
+  _projectileHitFX: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
 --- !u!114 &-2872043633173323930
 MonoBehaviour:
   m_ObjectHideFlags: 0

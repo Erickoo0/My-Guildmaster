@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
+  m_Name: Item_Object_Guild_Ledger
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
+  <ItemID>k__BackingField: Item_Object_Guild_Ledger
+  <ItemName>k__BackingField: Guild Ledger
+  <ItemDescription>k__BackingField: A book for recording transactions, balance sheets,
+    and other logistics
+  <Category>k__BackingField: 10
+  <Rarity>k__BackingField: 1
+  <ItemIcon>k__BackingField:
+  - {fileID: 2353571312451627304, guid: 4708463abe705c44a83c0833a85dd3ba, type: 3}
+  <ItemObject>k__BackingField: {fileID: 0}
+  <ItemValue>k__BackingField: 0
+  <IsSellable>k__BackingField: 0
+  <IsStackable>k__BackingField: 0
+  <MaxStackSize>k__BackingField: 99
+  <IsUsable>k__BackingField: 0
+  effects: []
+  references:
+    version: 2
+    RefIds: []

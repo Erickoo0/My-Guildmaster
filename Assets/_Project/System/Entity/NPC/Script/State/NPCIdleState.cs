@@ -6,38 +6,33 @@ public class NPCIdleState : BaseNPCIdleState
     private NPCScheduleController _scheduleController;
     
     private float _idleTime;
-    private float minIdleTime = 1f;
-    private float maxIdleTime = 3f;
+    private float minIdleTime = 10f;
+    private float maxIdleTime = 20f;
+    private bool _skipNextIdle = false;
+    public void SkipNextIdle() => _skipNextIdle = true;
     
     public override void Enter()
     {
-        _scheduleController = controller.GetComponent<NPCScheduleController>();
+        if (_scheduleController == null) _scheduleController = controller.GetComponent<NPCScheduleController>();
         
         controller.EntityMover.SetMoveDirection(Vector2.zero);
+        controller.EntityAnimator.SetMoveAnimation(Vector2.zero);
 
-        if (stateMachine.PreviousState == controller.WorkState)
+        if (_skipNextIdle)
         {
-            minIdleTime = 10f;
-            maxIdleTime = 20f;
+            _idleTime = 0f;
+            _skipNextIdle = false;
         }
         else
-        {
-            minIdleTime = 1f;
-            maxIdleTime = 3f;
-        }
-        
-        
-        _idleTime = Random.Range(minIdleTime,maxIdleTime);
+            _idleTime = Random.Range(minIdleTime,maxIdleTime);
     }
 
     public override void Update()
     {
-        // if  no target, wait for a random time, then switch to wander state
         if (_idleTime > 0) _idleTime -= Time.deltaTime;
         else
-        {
             stateMachine.ChangeState(_scheduleController.CurrentScheduledState);
-        }
+        
     }
     
     public override void PhysicsUpdate() { }

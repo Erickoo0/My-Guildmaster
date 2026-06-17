@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: entityID
-      value: Mai_NPC
+      value: NPC_Mai
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[-2]'
@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dormantOverrideStates.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'dormantOverrideStates.Array.data[0]'
-      value: 5971588844456771584
+      value: 5971589032018968656
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[5971588823152066637]'
@@ -33,6 +33,18 @@ PrefabInstance:
       value: Assembly-CSharp MaiTutorialState
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971589032018968656]'
+      value: Assembly-CSharp MaiTutorialState
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971589033871015936]'
+      value: Assembly-CSharp RequirementGameStat
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971589033871016012]'
+      value: Assembly-CSharp RequirementGameFlag
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588823152066637].priority
       value: 10
       objectReference: {fileID: 0}
@@ -41,16 +53,140 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971589032018968656].priority
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588844456771584].dialogueGroup
       value: 
       objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971589032018968656].dialogueGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: edbb4a024e3fa8c47bc50094bf023068, type: 2}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971589033871016012].requiredState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.HomePOIList.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.WorkPOIList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971589033871015936].requiredGameStat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971589033871016012].requiredGameFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.HobbyPOIList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.SleepPOIList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[0]'
+      value: POI_Mai_Home_Entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[1]'
+      value: POI_Mai_Interior_Home_Bathroom_Sink
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[2]'
+      value: POI_Mai_Interior_Home_Bedroom_Bookshelf
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[3]'
+      value: POI_Mai_Interior_Home_Bedroom_Closet
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[4]'
+      value: POI_Mai_Interior_Home_Kitchen_Sink
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[5]'
+      value: POI_Mai_Interior_Home_Kitchen_Stove
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[6]'
+      value: POI_Mai_Interior_Home_Table
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[7]'
+      value: POI_Mai_Interior_Home_Bathroom_Bath
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[8]'
+      value: POI_Mai_Interior_Home_Table
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[0]'
+      value: POI_Tavern_Entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[1]'
+      value: POI_Tavern_Interior_Counter_Behind
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[2]'
+      value: POI_Tavern_Interior_Fireplace2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[3]'
+      value: POI_Tavern_Interior_Upstairs
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[0]'
+      value: POI_Tavern_Interior_Entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[1]'
+      value: POI_Tavern_Table2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[2]'
+      value: POI_Library_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[3]'
+      value: POI_Grand_Tree_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[4]'
+      value: POI_Grand_Shrine_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[5]'
+      value: POI_Docks_Entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.SleepPOIList.Array.data[0]'
+      value: POI_Mai_Interior_Home_Bedroom_Bed
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971589033871015936].requiredMinimumValue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588823152066637].requirements.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588844456771584].requirements.Array.size
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971589032018968656].requirements.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[5971588823152066637].requirements.Array.data[0]'
@@ -58,8 +194,12 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 57995173b24fe5d4eaa86b7e58516cb4, type: 2}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[5971588844456771584].requirements.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 57995173b24fe5d4eaa86b7e58516cb4, type: 2}
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'managedReferences[5971589032018968656].requirements.Array.data[0]'
+      value: 5971589033871016012
+      objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588823152066637].speechBubbleDialogue.Array.size
       value: 1
@@ -77,6 +217,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: managedReferences[5971589032018968656].speechBubbleDialogue.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'managedReferences[5971588823152066637].speechBubbleDialogue.Array.data[0]'
       value: Come talk to me
       objectReference: {fileID: 0}
@@ -86,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588844456771584].requirements.Array.data[1].questID
-      value: 
+      value: Quest_Mai_Tutorial01
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971588844456771584].requirements.Array.data[0].requiredState
@@ -104,6 +248,14 @@ PrefabInstance:
       propertyPath: dialogueName
       value: Mai
       objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: shopList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e07ed1989f97d1f42937566338624945, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: npcDialogueData.HomeDialogueNode
       value: 
@@ -155,7 +307,7 @@ PrefabInstance:
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.GlobalDialogueNodes.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 13ced9917832adc479b525cd6b0ce28f, type: 2}
+      objectReference: {fileID: 11400000, guid: b03e8296f93f0124ea4b28be0c7e72e6, type: 2}
     - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
       value: Mai
@@ -170,11 +322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.72
+      value: 2.9081542
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.29
+      value: 1.1615968
       objectReference: {fileID: 0}
     - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_LocalPosition.z

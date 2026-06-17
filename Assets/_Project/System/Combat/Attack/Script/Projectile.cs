@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Transform _projectileVisual;
-    [SerializeField] private GameObject _projectileHitFX;
     private enum MovementType {Linear, Curved}
     private MovementType _movementType;
     private bool _destroyOnCollisions;
@@ -15,42 +15,44 @@ public class Projectile : MonoBehaviour
     
     private float _projectileSpeed;
     private float _projectileMaxRelativeHeight;
-
-    private DamageData _damageData;
-    private HitBox _hitBox;
-    
     private AnimationCurve _projectileCurve;
+    private float _projectileScale;
 
-    // Track movement progress
     private float _totalDuration;
     private float _currentDuration;
+    
+    private HitBox _hitBox;
+    private GameObject _user;
 
-    public void Setup(Vector3 projectileTargetPosition, float projectileSpeed, float projectileLifetime, AnimationCurve projectileCurve, float projectileMaxHeight, bool projectileDestroy, DamageData damageData)
+    public void Setup(Vector3 projectileTargetPosition, float projectileSpeed, float projectileLifetime, AnimationCurve projectileCurve, 
+        float projectileMaxHeight, GameObject user, List<Effect> onHitEffects, int maxHits, bool hitOnce, bool destroyOnMax, float projectileScale)
     {
-        // 1. Pass the data
+        // 1. Pass the cached data
         _projectileStartPosition = transform.position;
         _projectileTargetPosition = projectileTargetPosition;
         _projectileSpeed = projectileSpeed;
-        _damageData = damageData;
-        _destroyOnCollisions = projectileDestroy;
+        _destroyOnCollisions = destroyOnMax;
+        _projectileScale = projectileScale;
+        _user = user;
         
-        // 2. Get the Hitbox
+        // 2. Get the Hitbox and hand it a reference to this projectile
         if (TryGetComponent(out _hitBox))
-            _hitBox.Setup(_damageData);
+        {
+            _hitBox.Setup(user, onHitEffects, maxHits, hitOnce, destroyOnMax); 
+        }
         
         // 3. Pass the lifetime
         Destroy(gameObject, projectileLifetime);
         
         // 4. Calculate flat 2d travel direction
         _linearDirection = (_projectileTargetPosition - _projectileStartPosition).normalized;
-        if (_linearDirection== Vector3.zero) _linearDirection = Vector3.right;
+        if (_linearDirection == Vector3.zero) _linearDirection = Vector3.right;
         FaceTargetDirection(_linearDirection);
         
-        // 4. Set the projectile type
+        // 5. Set the projectile type
         if (projectileMaxHeight <= 0f)
         {
             _movementType = MovementType.Linear;
-            
             FaceTargetDirection(_linearDirection);
             
             // Enable hitbox immediately
@@ -137,18 +139,6 @@ public class Projectile : MonoBehaviour
             
             // 3. Destroy after a tiny delay for hitbox effect to register
             Destroy(gameObject, 0.1f);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!_destroyOnCollisions) return;
-        
-        Instantiate(_projectileHitFX, transform.position, Quaternion.identity);
-        
-        if (other.gameObject.layer == LayerMask.NameToLayer("Collisions"))
-        {
-            Destroy(gameObject);
         }
     }
 }

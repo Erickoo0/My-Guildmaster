@@ -5,16 +5,20 @@ using Pathfinding;
 [System.Serializable]
 public class NPCScheduleData
 {
+    [HierarchySelector(typeof(PointOfInterest))]
     public List<string> HomePOIList;
+    [HierarchySelector(typeof(PointOfInterest))]
     public List<string> SleepPOIList;
+    [HierarchySelector(typeof(PointOfInterest))]
     public List<string> HobbyPOIList;
+    [HierarchySelector(typeof(PointOfInterest))]
     public List<string> WorkPOIList;
 }
 
 public class NPCController : BaseEntityController
 {
     [Header("Movement Settings")]
-    [HideInInspector] public AIPath aiPath;
+    [HideInInspector] public AILerp aiLerp;
     
     [Header("References")]
     [SerializeReference, SubclassSelector] public BaseNPCIdleState IdleState;
@@ -23,32 +27,46 @@ public class NPCController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseNPCHobbyState HobbyState;
     [SerializeReference, SubclassSelector] public BaseNPCWorkState WorkState;
     [SerializeReference, SubclassSelector] public List<BaseNPCOverrideWanderState> dormantOverrideStates = new List<BaseNPCOverrideWanderState>();
-    
+    private NPCScheduleController _scheduleController;
+    [HideInInspector] public Rigidbody2D _rigidbody2D;
+
     [Header("NPC Schedule")]
+    public GameLocation currentLocation;
     [field: SerializeField] public NPCScheduleData NpcScheduleData {get; private set;}
     public State OverrideState { get; private set; }
     public bool IsOverrideState => OverrideState != null;
+
+    [Header("NPC Interaction")]
+    public bool IsInteractable { get; set; } = true;
+    
+    [Header("Evaluation timers")]
+    public float evaluationTimer = 0f;
+    private float _evaluationInterval = 0.5f;
 
     protected override void Awake()
     {
         base.Awake();
         
-        aiPath = GetComponent<AIPath>();
-        if (aiPath != null)
+        _scheduleController = GetComponent<NPCScheduleController>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        
+        aiLerp = GetComponent<AILerp>();
+        if (aiLerp != null)
         {
-            aiPath.canMove = false;
-            aiPath.updateRotation = false;
+            aiLerp.canMove = false;
+            aiLerp.updateRotation = false;
         }
         
+        // Setup all base states
         IdleState?.Setup(this, StateMachine);
         HomeState?.Setup(this, StateMachine);
         SleepState?.Setup(this, StateMachine);
         HobbyState?.Setup(this, StateMachine);
         WorkState?.Setup(this, StateMachine);
+        
+        // Setup all override states
         foreach (BaseNPCOverrideWanderState overrideState in dormantOverrideStates)
-        {
             overrideState?.Setup(this, StateMachine);
-        }
     }
     
     protected virtual void Start()
@@ -60,10 +78,15 @@ public class NPCController : BaseEntityController
     protected override void Update()
     {
         base.Update();
-        // Only evaluate if we aren't already IN an override state.
-        if (!IsOverrideState)
+        
+        // If we are currently overriding the schedule, do not evaluate schedule shifts
+        if (IsOverrideState) return;
+        
+        evaluationTimer += Time.deltaTime;
+        if (evaluationTimer >= _evaluationInterval)
         {
             EvaluateOverrideStates();
+            evaluationTimer = 0f;
         }
     }
 
@@ -84,11 +107,12 @@ public class NPCController : BaseEntityController
             }
         }
         
+        // If an override state was found, trigger it immediately
         if (highestPriorityOverride != null)
             SetOverrideState(highestPriorityOverride);
     }
 
-    public void SetOverrideState(IStateOverrider newState)
+    private void SetOverrideState(IStateOverrider newState)
     {
         OverrideState = newState as State;
         StateMachine.ChangeState(OverrideState);
@@ -101,14 +125,9 @@ public class NPCController : BaseEntityController
         OverrideState = null;
         
         // Fallback safely to whatever the schedule says they should be doing right now
-        var scheduleController = GetComponent<NPCScheduleController>();
-        if (scheduleController != null)
-        {
-            StateMachine.ChangeState(scheduleController.CurrentScheduledState);
-        }
+        if (_scheduleController != null)
+            StateMachine.ChangeState(_scheduleController.CurrentScheduledState);
         else
-        {
             StateMachine.ChangeState(IdleState);
-        }
     }
 }

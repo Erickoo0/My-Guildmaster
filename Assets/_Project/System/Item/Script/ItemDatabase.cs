@@ -1,23 +1,20 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-/// <summary>
-/// The Map: Connects ItemData.itemID to the ItemData in a Dictionary
-/// </summary>
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 [CreateAssetMenu(fileName = "ItemDatabase", menuName = "Item/Database")]
 public class ItemDatabase : ScriptableObject
 {
-    [Tooltip("Add every ItemData in the game here")]
+    [Tooltip("Auto-populated list of all items. Do not manage manually.")]
     public List<ItemDataSo> allItems;
     
     // Key: Items String ID
     // Value: Items ItemData
     private Dictionary<string, ItemDataSo> _itemDictionary;
-
-    /// <summary>
-    /// Converts ItemsLIst into an ItemsDictionary
-    /// Called from InventoryManager
-    /// </summary>
+    
     public void Initialize()
     {
         // Create a fresh dictionary
@@ -48,4 +45,30 @@ public class ItemDatabase : ScriptableObject
         // ReSharper disable once PossibleNullReferenceException
         return _itemDictionary.GetValueOrDefault(itemID);
     }
+    
+    #if UNITY_EDITOR
+    [ContextMenu("Refresh Database")]
+    public void AutoPopulateDatabase()
+    {
+        allItems.Clear();
+        
+        // Find every asset in the project of type ItemDataSo
+        string[] guids = AssetDatabase.FindAssets($"t:{nameof(ItemDataSo)}");
+        
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            ItemDataSo item = AssetDatabase.LoadAssetAtPath<ItemDataSo>(path);
+            
+            if (item != null && !allItems.Contains(item))
+            {
+                allItems.Add(item);
+            }
+        }
+
+        // Tell Unity we changed this file so it remembers to save the new list
+        EditorUtility.SetDirty(this);
+        Debug.Log($"[ItemDatabase] Successfully auto-populated {allItems.Count} items.");
+    }
+    #endif
 }

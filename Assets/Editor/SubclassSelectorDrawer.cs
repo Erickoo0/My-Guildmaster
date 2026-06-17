@@ -103,6 +103,13 @@ public class SubclassSelectorDrawer : PropertyDrawer
     // THE FIX PART 2: We must manually calculate the height of all children in the list
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
+        // SAFETY GATE: If Unity is restructuring the array mid-frame, the property type 
+        // might momentarily slip. If it's not a ManagedReference anymore, drop out instantly.
+        if (property.propertyType != SerializedPropertyType.ManagedReference)
+        {
+            return EditorGUIUtility.singleLineHeight;
+        }
+
         float height = EditorGUIUtility.singleLineHeight;
 
         if (property.isExpanded && !string.IsNullOrEmpty(property.managedReferenceFullTypename))
@@ -115,7 +122,17 @@ public class SubclassSelectorDrawer : PropertyDrawer
                 do
                 {
                     if (SerializedProperty.EqualContents(child, end)) break;
-                    height += EditorGUI.GetPropertyHeight(child, true) + EditorGUIUtility.standardVerticalSpacing;
+                
+                    // SAFETY GATE: If Unity's internal serialization stream returns a junk 
+                    // height during array deletion transitions, handle it gracefully.
+                    try
+                    {
+                        height += EditorGUI.GetPropertyHeight(child, true) + EditorGUIUtility.standardVerticalSpacing;
+                    }
+                    catch
+                    {
+                        break;
+                    }
                 }
                 while (child.NextVisible(false));
             }

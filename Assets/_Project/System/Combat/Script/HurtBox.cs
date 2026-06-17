@@ -55,9 +55,8 @@ public class HurtBox : MonoBehaviour, IDamagable
         
         // Handle Squash and Stretch
         if (TryGetComponent<SquashAndStretch>(out SquashAndStretch squishAndSquashEffect)) 
-        {
             squishAndSquashEffect.SquishAndSquash();
-        }
+        
         
         // Trigger shader effects
         if (_flashShader != null)
@@ -65,20 +64,6 @@ public class HurtBox : MonoBehaviour, IDamagable
             _flashShader.ApplyFlash();     // Start the white flash
             _flashShader.SetBlinking(true); // Start the invulnerability flicker
         }
-        
-        // Trigger hit fx
-        SpawnHitFX(data.hitDirection, data.hitImpactPoint);
-        
     }
 
-    private void SpawnHitFX(Vector2 hitDirection, Vector2 hitImpactPoint)
-    {
-        float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;
-        Quaternion fxRotation = Quaternion.Euler(0, 0, angle);
-        
-        // 3. Spawn the FX
-        if (hitFX != null) 
-            Instantiate(hitFX, hitImpactPoint, fxRotation);
-        
-    }
 }

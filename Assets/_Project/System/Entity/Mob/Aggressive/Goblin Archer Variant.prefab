@@ -52,13 +52,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: entityID
+      value: Entity_Aggressive_Goblin_Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727911].attackID
+      value: Spell_Data_Projectile_Arrow
+      objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: entityID
       value: Mob_Aggressive_Goblin_Archer
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: IdleState
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: ChaseState
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: SpawnState
+      value: 3505743470580727904
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: AttackState
-      value: 5971588739801284692
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: WanderState
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: attackLibrary.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: <ActionRange>k__BackingField
@@ -73,12 +109,44 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743470580727892]'
+      value: Assembly-CSharp EntityAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743470580727901]'
+      value: Assembly-CSharp EntityAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743470580727902]'
+      value: Assembly-CSharp EntityAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743470580727903]'
+      value: Assembly-CSharp EntitySpawnState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743470580727904]'
+      value: Assembly-CSharp EntitySpawnState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[5971588438707929172]'
       value: Assembly-CSharp GoblinArcherAttackState
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[5971588739801284692]'
       value: Assembly-CSharp BasicProjectileAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727892].attackID
+      value: Spell_Data_Projectile_Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727901].attackID
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727902].attackID
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[5971588438707929172].attackID
@@ -88,13 +156,29 @@ PrefabInstance:
       propertyPath: managedReferences[5971588739801284692].attackID
       value: Spell_Data_Projectile_Arrow
       objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727903].spawnDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727903].spawnFXPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727904].spawnDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727904].spawnFXPrefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 392546489883438871, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 4723107735738678597, guid: 4249e11a316f9064382ec51e1729f7af, type: 3}
     - target: {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: maxSpeed
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: pickNextWaypointDist
@@ -199,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 7880788856405151743, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 4b75a9d58b157c54f92a4de9d9cf46c0, type: 2}
+      objectReference: {fileID: 9100000, guid: 22a89c78899c2554a89a7a33bc5b6840, type: 2}
     - target: {fileID: 9144581462164995658, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Sprite
       value: 

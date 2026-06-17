@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 5812627671166687094}
   - component: {fileID: 5196605976559179195}
   - component: {fileID: -7798991161975468235}
-  - component: {fileID: -2803251633177595217}
+  - component: {fileID: 4423070339412397620}
   m_Layer: 7
   m_Name: Tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5894318356717075096
 Transform:
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4832618155596115187, guid: b6a56bb655cd18f4398e91950a261c9f, type: 3}
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.875, y: 4.5625}
+  m_Size: {x: 3.8125, y: 4.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -132,9 +132,9 @@ BoxCollider2D:
   m_Offset: {x: 0.039783, y: 0.48552328}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.08948548}
+    pivot: {x: 0.53125, y: 0.08}
     oldSize: {x: 4, y: 4.6875}
-    newSize: {x: 3.875, y: 4.5625}
+    newSize: {x: 3.8125, y: 4.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -176,8 +176,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0.0625, y: 1.8930435, z: 0}
-      m_Extent: {x: 1.737503, y: 2.1124954, z: 0}
+      m_Center: {x: 0.039787292, y: 0.4855194, z: 0}
+      m_Extent: {x: 0.2405014, y: 0.27760315, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0.2
     m_FlipX: 0
@@ -187,14 +187,14 @@ MonoBehaviour:
   m_PreviousTrimEdge: 0.2
   m_PreviousEdgeProcessing: 1
   m_PreviousShadowCastingSource: 2
-  m_PreviousShadowShape2DSource: {fileID: 5812627671166687094}
+  m_PreviousShadowShape2DSource: {fileID: 5196605976559179195}
   references:
     version: 2
     RefIds:
     - rid: 5971588750356512894
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
---- !u!114 &-2803251633177595217
+--- !u!114 &4423070339412397620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e461814b7ef324cabd6465989c99fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationController
-  animationData: {fileID: 11400000, guid: a8691efe36d8547458b72e47e65f69e6, type: 2}
+  animationData: {fileID: 11400000, guid: d327c320094596143b3176661c224ca6, type: 2}
   minIdleTime: 2
   maxIdleTime: 10
 --- !u!1 &8183927867046426527
@@ -225,7 +225,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5165380693226000899
 Transform:
@@ -5069,7 +5069,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -189326295
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0

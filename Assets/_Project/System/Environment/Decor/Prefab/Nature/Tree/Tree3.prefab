@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3569485181427476927
 Transform:
@@ -4860,7 +4860,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -189326295
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -4906,13 +4906,13 @@ GameObject:
   - component: {fileID: 6605508725099801630}
   - component: {fileID: 3110344450300513188}
   - component: {fileID: 4084164577867588583}
-  - component: {fileID: -8591481748582981421}
+  - component: {fileID: -979104430650336638}
   m_Layer: 7
   m_Name: Tree3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5060279245126275751
 Transform:
@@ -4976,15 +4976,15 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2028734109
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5490517706564299302, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
+  m_Sprite: {fileID: -3819293021117696179, guid: 50cc43d12b731dc488cc85dd40bc62dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4, y: 5.125}
+  m_Size: {x: 4, y: 4.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5026,9 +5026,9 @@ BoxCollider2D:
   m_Offset: {x: -0.008752584, y: 0.37508318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.477, y: 0.1266198}
+    pivot: {x: 0.453125, y: 0.12195122}
     oldSize: {x: 4, y: 5.125}
-    newSize: {x: 4, y: 5.125}
+    newSize: {x: 4, y: 4.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -5088,7 +5088,7 @@ MonoBehaviour:
     - rid: 5971588750356512896
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
---- !u!114 &-8591481748582981421
+--- !u!114 &-979104430650336638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5100,6 +5100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e461814b7ef324cabd6465989c99fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationController
-  animationData: {fileID: 11400000, guid: 2924c7efadf9ab6439eb367a45b73d22, type: 2}
+  animationData: {fileID: 11400000, guid: aea88f59cbbd5c642a991a19260dc7ea, type: 2}
   minIdleTime: 2
   maxIdleTime: 10

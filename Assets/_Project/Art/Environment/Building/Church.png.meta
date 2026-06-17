@@ -103,12 +103,12 @@ TextureImporter:
       name: Church_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 20
-        width: 168
-        height: 187
+        x: 0
+        y: 0
+        width: 208
+        height: 208
       alignment: 9
-      pivot: {x: 0.5015068, y: 0.009976331}
+      pivot: {x: 0.5048077, y: 0.100961536}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,7 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":208.0,"y":208.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.504807710647583,"y":0.10096153616905213},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Church_0: -6506036955920984320
   mipmapLimitGroupName: 

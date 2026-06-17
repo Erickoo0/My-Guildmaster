@@ -23,6 +23,7 @@ public class PlayerDashState : State<PlayerController>
         Vector2 input = controller.MovementInput;
         
         controller.EntityMover.SetMoveDirection(input);
+        controller.EntityAnimator.SetMoveAnimation(input);
         
         if (_afterImageTimer <= 0)
         {

@@ -49,7 +49,12 @@ public class Npc : MonoBehaviour, IInteractable
         EvaluateDailyDialogue(this, TimeSpan.Zero);
     }
 
-    public bool CanInteract() => true;
+    public bool CanInteract()
+    {
+        if (_npcController != null) return _npcController.IsInteractable;
+        
+        return true;
+    }
     
     public void Interact(PlayerController playerController)
     {
