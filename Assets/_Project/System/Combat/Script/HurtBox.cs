@@ -13,8 +13,6 @@ public class HurtBox : MonoBehaviour, IDamagable
     private float _invulnerabilityTimer;
 
     [Header("FX")] 
-    [SerializeField] private ParticleSystem hitFX;
-    private ParticleSystem hitFXInstance;
     private FlashShader _flashShader; 
 
     private void Awake()

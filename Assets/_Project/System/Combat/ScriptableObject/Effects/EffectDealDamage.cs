@@ -5,9 +5,9 @@ public class EffectDealDamage : Effect
 {
     public float damageAmount;
     public DamageType damageType;
-    public float knockbackForce = 20f;
+    public float knockbackForce = 10f;
     public float knockbackDuration = 0.2f;
-    public float knockbackHeight = 0.75f;
+    public float knockbackHeight = 0.1f;
 
     public override bool Execute(EffectPayload effectPayload)
     {

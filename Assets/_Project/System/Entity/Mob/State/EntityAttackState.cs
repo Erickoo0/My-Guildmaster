@@ -75,6 +75,24 @@ public class EntityAttackState : BaseAttackState
         if (attackData.spellAnimation == AnimationBool.IsAttackingStrong) 
             controller?.EntityMover.ApplyRecoil(castDirection);
         
+        // 4. Apply VFX
+        // 4. Apply VFX
+        if (attackData.spellPrefab != null)
+        {
+            Vector3 spawnPosition = controller._firePoint != null
+                ? controller._firePoint.transform.position
+                : casterPosition;
+            
+            float relativeX = controller.currentTarget.transform.position.x - spawnPosition.x;
+            
+            Quaternion spawnRotation = relativeX >= 0
+                ? Quaternion.Euler(0, 0, 0)
+                : Quaternion.Euler(0, 180, 0);
+            
+            GameObject spellVFX = Object.Instantiate(attackData.spellPrefab, spawnPosition, spawnRotation, controller.transform);
+            Object.Destroy(spellVFX, 1f);
+        }
+        
         hasTriggered = true;
     }
 }

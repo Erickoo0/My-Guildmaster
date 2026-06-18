@@ -9,6 +9,7 @@ public class PlayerController : BaseEntityController {
     [SerializeReference, SubclassSelector] public State<PlayerController> IdleState;
     [SerializeReference, SubclassSelector] public State<PlayerController> MoveState;
     [SerializeReference, SubclassSelector] public State<PlayerController> DashState;
+    [HideInInspector] public FirePoint _firePoint;
 
 
     [Header("Spell Settings")]
@@ -41,6 +42,7 @@ public class PlayerController : BaseEntityController {
     {
         base.Awake();
         _mainCam = Camera.main;
+        _firePoint = GetComponentInChildren<FirePoint>();
         
         IdleState?.Setup(this, StateMachine);
         MoveState?.Setup(this, StateMachine);

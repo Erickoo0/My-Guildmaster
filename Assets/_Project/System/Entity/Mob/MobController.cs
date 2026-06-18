@@ -37,7 +37,8 @@ public class MobController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseWanderState WanderState;
     [SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
     [SerializeReference, SubclassSelector] public BaseActionState AttackState;
-    public Rigidbody2D _rigidBody2D;
+    [HideInInspector] public Rigidbody2D _rigidBody2D;
+    [HideInInspector] public FirePoint _firePoint;
     
     protected override void Awake()
     {
@@ -47,6 +48,8 @@ public class MobController : BaseEntityController
         _targetingFilter = new ContactFilter2D();
         _targetingFilter.NoFilter();
         _rigidBody2D = GetComponent<Rigidbody2D>();
+        _firePoint = GetComponentInChildren<FirePoint>();
+
         
         // Disable aiLerp movement by default (Controlled via states)
         aiLerp = GetComponent<AILerp>();
@@ -82,27 +85,17 @@ public class MobController : BaseEntityController
     //---- Targeting Methods ----
     private void UpdateTargeting()
     {
-        // If we have a target, check if they ran away too far
-        if (currentTarget != null)
-        {
-            // Drop target if they are out of range
-            if (!IsTargetInRange(TargetLostRange))
-                ClearTarget();
-            // Transition to chase if we are not already chasing
-            else if (StateMachine.CurrentState != AttackState && StateMachine.CurrentState != ChaseState)
-                StateMachine.ChangeState(ChaseState);
-            
-            return;
-        }
-
-        // If we DON'T have a target, scan the area
-        FindTarget();
+        if (currentTarget == null)
+            FindTarget();
+        else if (currentTarget != null && !IsTargetInRange(TargetLostRange))
+            currentTarget = null;
+        
     }
 
     private void FindTarget()
     {
         // Safety Check
-        if (ChaseState == null || TargetableList == null) return;
+        if (TargetableList == null) return;
         
         int hitCount = Physics2D.OverlapCircle(transform.position, TargetRange, _targetingFilter, _targetingResults);
         
@@ -111,28 +104,15 @@ public class MobController : BaseEntityController
         {
             Collider2D hit = _targetingResults[i];
             
-            // If the target is not ITargetable, skip it
             if (!hit.TryGetComponent(out ITargetable targetInterface)) continue;
-            // If the target is not in the targetable list, skip it
             if (!TargetableList.Contains(targetInterface.GetTargetID())) continue;
             
             currentTarget = hit.transform;
-            StateMachine.ChangeState(ChaseState);
             return; // Lock onto the first valid target and exit
         }
     }
     
-    private void ClearTarget()
-    {
-        currentTarget = null;
-        StateMachine.ChangeState(IdleState);
-    }
-    
-    public bool IsTargetInRange(float range)
-    {
-        if (currentTarget == null) return false;
-        else return Vector2.Distance(transform.position, currentTarget.transform.position) <= range;
-    }
+    public bool IsTargetInRange(float range) => Vector2.Distance(transform.position, currentTarget.transform.position) <= range;
     
     //---- Action Methods -----
     public bool CheckActionCooldown() => Time.time >= _lastActionTime + ActionCooldown;

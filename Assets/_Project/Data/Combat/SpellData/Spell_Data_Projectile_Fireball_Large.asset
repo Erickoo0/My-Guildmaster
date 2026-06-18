@@ -61,9 +61,9 @@ MonoBehaviour:
       data:
         damageAmount: 20
         damageType: 1
-        knockbackForce: 20
+        knockbackForce: 10
         knockbackDuration: 0.2
-        knockbackHeight: 0.75
+        knockbackHeight: 0.1
     - rid: 3505743645644947570
       type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
       data:

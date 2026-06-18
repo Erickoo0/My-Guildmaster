@@ -69,6 +69,6 @@ MonoBehaviour:
       data:
         damageAmount: 15
         damageType: 4
-        knockbackForce: 5
+        knockbackForce: 10
         knockbackDuration: 0.1
-        knockbackHeight: 0.5
+        knockbackHeight: 0.1

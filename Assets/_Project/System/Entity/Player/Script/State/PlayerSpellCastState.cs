@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 [System.Serializable]
@@ -56,9 +57,28 @@ public class PlayerSpellCastState : BasePlayerSpellState
             foreach (Effect effect in spellData.spellEffects)
                 effect.Execute(initialCastPayload);
         
-        // 3. Apply Recoil if necessary
+        // 3. Apply Recoil & Screen shake if necessary
+        controller.GetComponent<CinemachineImpulseSource>().GenerateImpulse();  
         if (spellData.spellAnimation == AnimationBool.IsAttackingStrong) 
             controller?.EntityMover.ApplyRecoil(castDirection);
+        
+        // 4. Apply VFX
+        if (spellData.spellPrefab != null)
+        {
+            Vector3 spawnPosition = controller._firePoint != null
+                ? controller._firePoint.transform.position
+                : casterPosition;
+            
+            float relativeX = controller.WorldMousePosition.x - spawnPosition.x;
+            
+            Quaternion spawnRotation = relativeX >= 0
+                ? Quaternion.Euler(0, 0, 0)
+                : Quaternion.Euler(0, 180, 0);
+            
+            GameObject spellVFX = Object.Instantiate(spellData.spellPrefab, spawnPosition, spawnRotation, controller.transform);
+            Object.Destroy(spellVFX, 1f);
+        }
+        
         
         // 4.  Consume Mana
         controller?.mpComponent.ConsumeMp(spellData.baseMpCost);

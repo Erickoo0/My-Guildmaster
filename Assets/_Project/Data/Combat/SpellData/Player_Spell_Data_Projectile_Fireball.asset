@@ -15,7 +15,7 @@ MonoBehaviour:
   spellID: Player_Spell_Data_Projectile_Fireball
   spellName: Fireball
   spellIcon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
-  spellPrefab: {fileID: 0}
+  spellPrefab: {fileID: 1314606969793590279, guid: 6a3de7416706f4c4a9c45222d1670fae, type: 3}
   spellAnimation: 0
   baseMpCost: 0
   baseCastTime: 0.25
@@ -24,6 +24,7 @@ MonoBehaviour:
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
+  selectionWeight: 10
   references:
     version: 2
     RefIds:
@@ -70,9 +71,9 @@ MonoBehaviour:
       data:
         damageAmount: 15
         damageType: 1
-        knockbackForce: 20
+        knockbackForce: 10
         knockbackDuration: 0.2
-        knockbackHeight: 0.75
+        knockbackHeight: 0.1
     - rid: 3505743645644947564
       type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
       data:
