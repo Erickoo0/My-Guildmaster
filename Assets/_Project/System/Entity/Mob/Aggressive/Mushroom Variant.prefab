@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: entityID
       value: Entity_Aggressive_Mushroom
       objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <TargetRange>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <TargetLostRange>k__BackingField
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: entityID
       value: Mob_Aggressive_Mushroom
@@ -130,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 7108339969198208228, guid: 7708bd7e3fede86448036945e2cb8737, type: 3}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25134
+      value: -4.9587584
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.67853
+      value: -4.9669876
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -206,7 +214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9181716830030837955, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: id
-      value: e6e4f23a-35ea-465b-84b0-152bceae936f
+      value: 79b06f4f-4754-450c-8ee5-8c2eabe05e14
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1216699505466028575, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}

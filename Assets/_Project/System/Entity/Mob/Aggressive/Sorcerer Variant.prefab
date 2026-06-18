@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
-  m_CategoryHash: 0
-  m_labelHash: 0
+  m_CategoryHash: 3.4261108e-34
+  m_labelHash: 0.8034359
   m_SpriteKey: 0
   m_SpriteHash: 841961403
 --- !u!114 &4278858145427770326
@@ -244,6 +244,18 @@ PrefabInstance:
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: entityID
       value: Entity_Aggressive_Sorcerer
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <ActionRange>k__BackingField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <TargetRange>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <TargetLostRange>k__BackingField
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743470580727911].attackID
@@ -411,11 +423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.47
+      value: 2.853136
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42
+      value: -3.1133175
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -457,6 +469,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 22a89c78899c2554a89a7a33bc5b6840, type: 2}
+    - target: {fileID: 9181716830030837955, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: id
+      value: e8084b47-55cd-43ac-8673-765a4ae3ec60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

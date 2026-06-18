@@ -15,7 +15,7 @@ MonoBehaviour:
   spellID: Spell_Data_Projectile_Fireball_Large
   spellName: Large Fireball
   spellIcon: {fileID: 0}
-  spellPrefab: {fileID: 0}
+  spellPrefab: {fileID: 1314606969793590279, guid: 6a3de7416706f4c4a9c45222d1670fae, type: 3}
   spellAnimation: 1
   baseMpCost: 0
   baseCastTime: 1
@@ -24,6 +24,7 @@ MonoBehaviour:
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
+  selectionWeight: 10
   references:
     version: 2
     RefIds:

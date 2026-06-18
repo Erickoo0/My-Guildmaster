@@ -112,6 +112,14 @@ PrefabInstance:
       value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <TargetRange>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <TargetLostRange>k__BackingField
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[3505743470580727946]'
       value: Assembly-CSharp EntityAttackMeleeState
       objectReference: {fileID: 0}
@@ -285,11 +293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6129155
+      value: -1.2183175
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.74612
+      value: -5.397304
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -333,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 800d034269520c546adb89b074600ca3, type: 2}
     - target: {fileID: 9181716830030837955, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: id
-      value: 5b05c0af-92ad-4a6f-8cd2-f9f8a35dcb82
+      value: 002c9cc8-ac28-4dd0-8a42-4740761f834a
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
