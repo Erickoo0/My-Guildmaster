@@ -23,24 +23,27 @@ public class EntityChaseState : BaseChaseState
 
     public override void Update()
     {
-        if (controller.currentTarget == null || controller.aiLerp == null) return;
-        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack) return;
+        // 1. Safety check
+        if (controller.aiLerp == null) return;
         
-        if (!controller.IsTargetInRange(controller.TargetLostRange))
+        // 2. If current target is cleared
+        if (controller.currentTarget == null)
         {
-            controller.currentTarget = null;
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
+        
+        // 3. If being knocked back
+        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack) return;
         
         Vector2 currentPosition = controller.transform.position;
         Vector2 targetPosition = controller.currentTarget.position;
         float distance = Vector2.Distance(currentPosition, targetPosition);
         
-        // Simply update the destination. AIPath handles the movement physics automatically!
+        // Update the destination
         controller.aiLerp.destination = targetPosition;
 
-        // In Range
+        // 4. If in action range
         if (distance <= controller.ActionRange)
         {
             // Stop moving
@@ -50,13 +53,11 @@ public class EntityChaseState : BaseChaseState
             Vector2 faceDirection = (targetPosition - currentPosition).normalized;
             controller.EntityAnimator.FaceDirection(faceDirection); 
             
+            // Check if the action cooldown is over
             if (controller.CheckActionCooldown())
-            {
                 stateMachine.ChangeState(controller.AttackState);
-                return;
-            }
         }
-        else // Out of range
+        else // 5. If out of action range
         {
             controller.aiLerp.canMove = true;
             controller.aiLerp.destination = targetPosition;

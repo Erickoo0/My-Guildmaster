@@ -41,6 +41,7 @@ public class PlayerController : BaseEntityController {
     protected override void Awake()
     {
         base.Awake();
+        
         _mainCam = Camera.main;
         _firePoint = GetComponentInChildren<FirePoint>();
         

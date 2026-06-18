@@ -69,11 +69,9 @@ public class PlayerSpellCastState : BasePlayerSpellState
                 ? controller._firePoint.transform.position
                 : casterPosition;
             
-            float relativeX = controller.WorldMousePosition.x - spawnPosition.x;
+            float angle = Mathf.Atan2(castDirection.y, castDirection.x) * Mathf.Rad2Deg;
             
-            Quaternion spawnRotation = relativeX >= 0
-                ? Quaternion.Euler(0, 0, 0)
-                : Quaternion.Euler(0, 180, 0);
+            Quaternion spawnRotation = Quaternion.Euler(0f, 0f, angle);
             
             GameObject spellVFX = Object.Instantiate(spellData.spellPrefab, spawnPosition, spawnRotation, controller.transform);
             Object.Destroy(spellVFX, 1f);

@@ -32,7 +32,14 @@ public class EntityAttackState : BaseAttackState
     {
         base.Update();
         
-        // Face the target while winding up
+        // 1. If knocked back
+        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack)
+        {
+            stateMachine.ChangeState(controller.ChaseState);
+            return;
+        }
+        
+        // 2. Face the target while winding up
         if (controller.currentTarget != null && !hasTriggered)
         {
             Vector2 aimDirection = (controller.currentTarget.position - controller.transform.position).normalized;
@@ -75,7 +82,6 @@ public class EntityAttackState : BaseAttackState
         if (attackData.spellAnimation == AnimationBool.IsAttackingStrong) 
             controller?.EntityMover.ApplyRecoil(castDirection);
         
-        // 4. Apply VFX
         // 4. Apply VFX
         if (attackData.spellPrefab != null)
         {

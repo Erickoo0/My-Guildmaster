@@ -42,24 +42,30 @@ public class EntityWanderState : BaseWanderState
 
     public override void Update()
     {
-        // 1. Pause state logic if knocked back
-        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack) return;
+        // 1. If theres a target
+        if (controller.currentTarget != null && controller.ChaseState != null)
+        {
+            stateMachine.ChangeState(controller.ChaseState);
+            return;
+        }
         
-        // 2. Check for arrival (AIPath handles this automatically now!)
+        // 2. If being knocked back
+        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack) 
+            return;
+        
+        // 3. If arrived at destination
         if (controller.aiLerp != null && !controller.aiLerp.pathPending && controller.aiLerp.reachedEndOfPath)
         {
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
 
-        // 3. Feed the animator using AIPath's native velocity
-        // This ensures the walk animation blends down to idle perfectly as it arrives
+        // 4. Feed the animator using AIPath's native velocity
         if (controller.EntityAnimator != null && controller.aiLerp != null)
-        {
             controller.EntityAnimator.SetMoveAnimation(controller.aiLerp.velocity);
-        }
         
-        // 4. Keep your anti-stuck logic as a safety net
+        
+        // 5. Apply anti-stuck safety
         CheckForStuck();
     }
 
