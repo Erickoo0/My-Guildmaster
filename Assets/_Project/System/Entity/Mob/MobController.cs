@@ -27,6 +27,11 @@ public class MobController : BaseEntityController
     private readonly Collider2D[] _targetingResults = new Collider2D[10]; // Pre-allocated array for targeting results
     private ContactFilter2D _targetingFilter;
     
+    [Header("Alert Settings")]
+    [SerializeField] private GameObject _alertIcon;
+    private float alertedTime = 1f;
+    private float alertedTimer;
+    
     [Header("Action Settings")] 
     [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
     private float _lastActionTime;
@@ -80,6 +85,13 @@ public class MobController : BaseEntityController
         // Begin target scan only after spawning
         if (StateMachine.CurrentState != SpawnState)
             UpdateTargeting();
+        
+        // 2. Alert Countdown
+        if (alertedTimer > 0)
+            alertedTimer -= Time.deltaTime;
+        else
+            _alertIcon.SetActive(false);
+        
     }
 
     //---- Targeting Methods ----
@@ -108,11 +120,17 @@ public class MobController : BaseEntityController
             if (!TargetableList.Contains(targetInterface.GetTargetID())) continue;
             
             currentTarget = hit.transform;
+            
+            // Set the alert icon
+            alertedTimer = alertedTime;
+            _alertIcon.SetActive(true);
+            
             return; // Lock onto the first valid target and exit
         }
     }
     
-    public bool IsTargetInRange(float range) => Vector2.Distance(transform.position, currentTarget.transform.position) <= range;
+    public bool IsTargetInRange(float range) => 
+        currentTarget != null && Vector2.Distance(transform.position, currentTarget.transform.position) <= range;
     
     //---- Action Methods -----
     public bool CheckActionCooldown() => Time.time >= _lastActionTime + ActionCooldown;

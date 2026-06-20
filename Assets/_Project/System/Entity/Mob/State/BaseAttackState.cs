@@ -6,6 +6,7 @@ public abstract class BaseAttackState : BaseActionState
     [Header("Attack Meta Data")] 
     [SerializeField] protected string attackID;
     protected SpellData attackData;
+    protected Vector2 attackDirection;
     
     [Header("Cast Bar")]
     protected CastBar castBar;
@@ -18,18 +19,9 @@ public abstract class BaseAttackState : BaseActionState
     {
         base.Setup(controller, stateMachine);
 
+        // 1. Get the attack data
         if (controller.globalSpellDatabase != null)
             attackData = controller.globalSpellDatabase.GetSpell<SpellData>(attackID);
-        
-        castBar = controller.GetComponent<CastBar>();
-    }
-
-    public override void Enter()
-    {
-        hasTriggered = false;
-        isCasting = false;
-
-        // Safety Check
         if (attackData == null)
         {
             Debug.LogWarning($"AttackData is null for {controller.gameObject.name}");
@@ -37,19 +29,45 @@ public abstract class BaseAttackState : BaseActionState
             return;
         }
         
-        defaultDetectionLostRange = controller.TargetLostRange;
-        controller.TargetLostRange = defaultDetectionLostRange * 4f;
+        // 2. Get the cast bar
+        castBar = controller.GetComponent<CastBar>();
+    }
 
+    public override void Enter()
+    {
         controller.EntityAnimator.OnAnimationEventRequested += HandleAnimationEvent;
         
-        controller.EntityMover.SetMoveDirection(Vector2.zero);
+        hasTriggered = false;
+        isCasting = false;
+        
+        // 1. Change to EntityMover
+        if (controller.aiLerp != null)
+        {
+            controller.aiLerp.canSearch = false;
+            controller.aiLerp.canMove = false;
+            controller.aiLerp.destination = controller.transform.position;
+        }
+        
+        // Force Rigidbody velocity zero
+        if (controller._rigidBody2D != null)
+            controller._rigidBody2D.linearVelocity = Vector2.zero;
+        
+        // 2. Save default ranges
+        defaultDetectionLostRange = controller.TargetLostRange;
+        controller.TargetLostRange = defaultDetectionLostRange * 4f;
+        
+        // 3. Force look direction update
+        TryUpdateAttackDirection();
+        controller.EntityAnimator.FaceDirection(attackDirection);
+        
+        // 4. Start the animation
         controller.EntityAnimator.StartSpellAnimation(attackData.AnimationTag);
         controller.EntityAnimator.animator.Update(0f); // Force transition
         
-        // Use the helper method to cleanly grab the timing
+        // 5. Use the helper method to cleanly grab the timing
         float eventTime = GetAnimationEventTime();
         
-        // --- Data-Driven Cast Logic ---
+        // 6. Casting logic
         if (attackData.baseCastTime > 0)
         {
             isCasting = true;
@@ -67,33 +85,57 @@ public abstract class BaseAttackState : BaseActionState
 
     public override void Update()
     {
-        
+        // 1. Disable cast bar after attack has triggered
         if (hasTriggered && isCasting)
         {
             isCasting = false;
             castBar?.StopCast();
         }
         
+        // 2. Transition to Idle as soon as animation gets set to false via animationEnd event
         if (!controller.EntityAnimator.animator.GetBool(attackData.AnimationTag))
             stateMachine.ChangeState(controller.IdleState);
+        
+        // 3. Change to Chase State if knocked back
+        if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack)
+        {
+            stateMachine.ChangeState(controller.ChaseState);
+            return;
+        }
+        
+        // 4. Face the target while winding up
+        if (!hasTriggered)
+            TryUpdateAttackDirection();
+        controller.EntityAnimator.FaceDirection(attackDirection);
         
     }
     
     public override void Exit()
     {
+        // 1. Disable castbar
         isCasting = false;
         castBar?.StopCast();
 
+        // 2. Unsubscribe
         controller.EntityAnimator.OnAnimationEventRequested -= HandleAnimationEvent;
         
+        // 3. Reset animation
         controller.EntityAnimator.animator.speed = 1f;
         controller.EntityAnimator.animator.SetBool(attackData.AnimationTag, false);
         controller.EntityAnimator.RequestAnimationCancel();
-        
         controller.EntityAnimator.animator.Update(0f);
         
+        // 4. Face direction 
+        if (TryUpdateAttackDirection())
+        {
+            controller.EntityAnimator.FaceDirection(attackDirection);
+            controller.EntityAnimator.animator.Update(0f);
+        }
+        
+        // 5. Restore default range
         controller.TargetLostRange = defaultDetectionLostRange;
         
+        // 6. Set cooldown
         if (hasTriggered)
             controller.SetActionCooldown();
     }
@@ -122,5 +164,18 @@ public abstract class BaseAttackState : BaseActionState
         
         // Default to full clip length if there is no event
         return clip.length; 
+    }
+
+    protected bool TryUpdateAttackDirection()
+    {
+        if (controller.currentTarget == null)
+        {
+            Debug.Log("BaseAttackState: Target has become null");
+            return false;
+        }
+        
+        attackDirection = ((Vector2)controller.currentTarget.position - (Vector2)controller.transform.position).normalized;
+        
+        return true;
     }
 }

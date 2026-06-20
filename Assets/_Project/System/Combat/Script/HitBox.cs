@@ -6,7 +6,17 @@ public abstract class HitBox : MonoBehaviour
 {
     [Header("Base Settings")] 
     public LayerMask victimLayer; // Layer to check for collisions
-    public bool enableHitbox = true;
+    private bool _enableHitbox = false;
+    public bool enableHitbox
+    {
+        get => _enableHitbox;
+        set
+        {
+            _enableHitbox = value;
+            if (entityCollider != null)
+                entityCollider.enabled = value;
+        }
+    }
     
     [HideInInspector] public Collider2D entityCollider;
     
@@ -33,72 +43,73 @@ public abstract class HitBox : MonoBehaviour
         _destroyOnMaxHits = destroyOnMax;
     }
 
-public void OnTriggerStay2D(Collider2D other)
-    {
-        // 1. Safety Checks
-        if (!enableHitbox || other.isTrigger) return;
-        if (((1 << other.gameObject.layer) & victimLayer) == 0) return;
-        if (other.transform.root.gameObject == spellSource.transform.root.gameObject) return;
-
-        // 2. Identify what we hit
-        IDamagable victim = other.GetComponentInParent<IDamagable>();
-        bool isWall = other.gameObject.layer == LayerMask.NameToLayer("Collisions"); // Adjust string if your wall layer is named differently
-
-        // If it's neither an enemy nor a wall, ignore it
-        if (victim == null && !isWall) return;
-
-        // 3. Check if we already hit this specific target
-        if (victim != null && _hitOncePerTarget && targetsHit.Contains(victim)) return;
-        
-        // 4. Calculate knockback direction
-        CalculateImpactPhysics(other, out Vector2 direction, out Vector2 impactPoint);
-        
-        // 5. Create effect payload
-        EffectPayload effectPayload = new EffectPayload(
-            spellSource,
-            other.gameObject,
-            other.transform.position,
-            direction,
-            impactPoint
-        );
-        
-        // 6. Execute all spell effects
-        bool anyEffectSucceeded = false;
-        if (onHitEffects != null && onHitEffects.Count > 0)
+    public void OnTriggerEnter2D(Collider2D other) => OnTriggerStay2D(other);
+    public void OnTriggerStay2D(Collider2D other)
         {
-            foreach (Effect effect in onHitEffects)
-            {
-                if (effect.Execute(effectPayload))
-                    anyEffectSucceeded = true;
-            }
-        }
+            // 1. Safety Checks
+            if (!enableHitbox || other.isTrigger) return;
+            if (((1 << other.gameObject.layer) & victimLayer) == 0) return;
+            if (other.transform.root.gameObject == spellSource.transform.root.gameObject) return;
 
-        // 7. Handle successful hits
-        if (anyEffectSucceeded)
-        {
-            if (victim != null) targetsHit.Add(victim);
-            HandlePostHit(other);
+            // 2. Identify what we hit
+            IDamagable victim = other.GetComponentInParent<IDamagable>();
+            bool isWall = other.gameObject.layer == LayerMask.NameToLayer("Collisions"); // Adjust string if your wall layer is named differently
+
+            // If it's neither an enemy nor a wall, ignore it
+            if (victim == null && !isWall) return;
+
+            // 3. Check if we already hit this specific target
+            if (victim != null && _hitOncePerTarget && targetsHit.Contains(victim)) return;
             
-            // Wall Impact Logic
-            if (isWall)
+            // 4. Calculate knockback direction
+            CalculateImpactPhysics(other, out Vector2 direction, out Vector2 impactPoint);
+            
+            // 5. Create effect payload
+            EffectPayload effectPayload = new EffectPayload(
+                spellSource,
+                other.gameObject,
+                other.transform.position,
+                direction,
+                impactPoint
+            );
+            
+            // 6. Execute all spell effects
+            bool anyEffectSucceeded = false;
+            if (onHitEffects != null && onHitEffects.Count > 0)
             {
-                if (_destroyOnMaxHits) Destroy(gameObject); 
-                return;
+                foreach (Effect effect in onHitEffects)
+                {
+                    if (effect.Execute(effectPayload))
+                        anyEffectSucceeded = true;
+                }
             }
 
-            // Enemy Piercing Logic
-            if (_maxEnemiesHitCount > 0)
+            // 7. Handle successful hits
+            if (anyEffectSucceeded)
             {
-                _maxEnemiesHitCount--;
-
-                if (_maxEnemiesHitCount <= 0)
+                if (victim != null) targetsHit.Add(victim);
+                HandlePostHit(other);
+                
+                // Wall Impact Logic
+                if (isWall)
                 {
-                    enableHitbox = false;
-                    if (_destroyOnMaxHits) Destroy(gameObject);
+                    if (_destroyOnMaxHits) Destroy(gameObject); 
+                    return;
+                }
+
+                // Enemy Piercing Logic
+                if (_maxEnemiesHitCount > 0)
+                {
+                    _maxEnemiesHitCount--;
+
+                    if (_maxEnemiesHitCount <= 0)
+                    {
+                        enableHitbox = false;
+                        if (_destroyOnMaxHits) Destroy(gameObject);
+                    }
                 }
             }
         }
-    }
     
     // All children must implement this method
     protected abstract void CalculateImpactPhysics(Collider2D other, out Vector2 knockbackDirection, out Vector2 impactPoint);

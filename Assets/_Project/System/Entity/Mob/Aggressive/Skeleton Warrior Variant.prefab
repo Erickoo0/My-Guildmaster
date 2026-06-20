@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5041361315177456624}
   - component: {fileID: 8001324711926840024}
-  - component: {fileID: 2864035070521332273}
+  - component: {fileID: 5974232520554156274}
   m_Layer: 3
   m_Name: Hitbox
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 271823608376821909}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.39, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,10 +48,9 @@ MonoBehaviour:
   victimLayer:
     serializedVersion: 2
     m_Bits: 64
-  enableHitbox: 1
   entityCollider: {fileID: 0}
---- !u!70 &2864035070521332273
-CapsuleCollider2D:
+--- !u!61 &5974232520554156274
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -84,9 +83,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.69970095, y: 0.53645533}
-  m_Size: {x: 1.5359974, y: 2.459391}
-  m_Direction: 0
+  m_Offset: {x: -0.77024364, y: -0.04817629}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.6073036, y: 2.42865}
+  m_EdgeRadius: 0
 --- !u!1001 &1188665081184898439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: <ActionRange>k__BackingField
-      value: 1.3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: <TargetRange>k__BackingField
@@ -132,8 +140,24 @@ PrefabInstance:
       value: Spell_Data_Melee_Swing
       objectReference: {fileID: 0}
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727946].lungSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727946].lungeDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727946].lungeSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743470580727946].activeDuration
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743470580727946].lungeStoppingDistance
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -3679579161091551708, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: entityID
@@ -293,11 +317,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2183175
+      value: -11.32381
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.397304
+      value: 6.34142
       objectReference: {fileID: 0}
     - target: {fileID: 6005183180620732811, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -341,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 800d034269520c546adb89b074600ca3, type: 2}
     - target: {fileID: 9181716830030837955, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: id
-      value: 002c9cc8-ac28-4dd0-8a42-4740761f834a
+      value: 946250e6-c427-4074-b69f-3f9ef3995b80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

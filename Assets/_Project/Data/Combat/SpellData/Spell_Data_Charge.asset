@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
-  m_Name: Spell_Data_Melee_Swing
+  m_Name: Spell_Data_Charge
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
-  spellID: Spell_Data_Melee_Swing
+  spellID: Spell_Data_Charge
   spellName: Swing
   spellIcon: {fileID: 0}
   spellPrefab: {fileID: 0}
@@ -21,7 +21,6 @@ MonoBehaviour:
   baseCastTime: 0
   spellEffects:
   - rid: 3505743470580727912
-  - rid: 3505743789539721524
   hitOncePerTarget: 1
   destroyOnMaxHits: 0
   baseMaxEnemiesHit: 0
@@ -37,8 +36,3 @@ MonoBehaviour:
         knockbackForce: 10
         knockbackDuration: 0.1
         knockbackHeight: 0.5
-    - rid: 3505743789539721524
-      type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
-      data:
-        vfxPrefab: {fileID: 6289158240952251028, guid: 1e6ff3a442e4310438bb75fb972d3d60, type: 3}
-        alignToHitDirection: 0

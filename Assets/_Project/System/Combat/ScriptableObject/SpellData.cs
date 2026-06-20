@@ -22,7 +22,6 @@ public class SpellData : ScriptableObject
     public bool hitOncePerTarget = true;
     public bool destroyOnMaxHits = true;
     public int baseMaxEnemiesHit;
-    public float selectionWeight = 10f;
     
     protected virtual void OnValidate()
     {

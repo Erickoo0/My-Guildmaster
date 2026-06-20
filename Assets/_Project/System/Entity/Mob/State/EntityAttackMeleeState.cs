@@ -6,44 +6,93 @@ public class EntityAttackMeleeState : BaseAttackState
 	[Header("Melee Settings")]
 	[SerializeField] private float activeDuration = 0.2f;
 
+	[Header("Attack Movement Settings")]
+	[SerializeField] private float lungeSpeed = 12.0f;
+	[SerializeField] private float lungeDelay = 0.1f;
+	[SerializeField] private float lungeStoppingDistance = 1.5f;
+	
+	private float _currentLungeDelay;
+	private bool _hasLunged = false;
+	private bool _reachedTarget = false;
+	
+	private Collider2D _entityCollider;
+	private LayerMask _originalExcludeLayers; 
 	private HitBox _meleeHitbox;
 	private float _deactivateTimer;
-	private bool _isHitBoxActive;
 
 	public override void Setup(MobController controller, StateMachine stateMachine)
 	{
 		base.Setup(controller, stateMachine);
 
 		_meleeHitbox = controller.GetComponentInChildren<HitBox>(true);
+		if (_meleeHitbox == null)
+		{
+			Debug.LogError("No HitBox found on " + controller.gameObject.name);
+			stateMachine.ChangeState(controller.IdleState);
+			return;
+		}	
+		_meleeHitbox.enableHitbox = false;
+		
+		_entityCollider = controller.GetComponent<Collider2D>();
 
-		if (_meleeHitbox == null) Debug.LogError("No HitBox found on " + controller.gameObject.name);
-		else _meleeHitbox.enableHitbox = false;
+		if (_entityCollider == null)
+		{
+			Debug.LogError("No Collider2D found on " + controller.gameObject.name + "");
+			stateMachine.ChangeState(controller.IdleState);
+			return;
+		}
 	}
-	
+
 	public override void Enter()
 	{
 		base.Enter();
 		
-		_isHitBoxActive = true;
+		// Reset state variables
+		_currentLungeDelay = lungeDelay;
+		_hasLunged = false;
+		_reachedTarget = false;
 	}
-
+	
 	public override void Update()
 	{
 		base.Update();
+		// Safety Check
+		if (stateMachine.CurrentState != this) return;
 		
-		// Face the target while winding up (stops tracking once we swing)
-		if (controller.currentTarget != null && !hasTriggered)
+		// 1. Lunge Initialization
+		if (!_hasLunged)
 		{
-			Vector2 aimDirection = (controller.currentTarget.transform.position - controller.transform.position).normalized;
-			controller.EntityAnimator.FaceDirection(aimDirection);
+			_currentLungeDelay -= Time.deltaTime;
+			if (_currentLungeDelay <= 0)
+			{
+				controller.EntityMover.StartMeleeLunge(attackDirection, lungeSpeed);
+				_hasLunged = true;
+				
+				// Ignore collisions during lunge
+				_originalExcludeLayers = _entityCollider.excludeLayers;
+				_entityCollider.excludeLayers |= _meleeHitbox.victimLayer;
+			}
+		}
+		// 2. Handle Lunge Movement & Stopping Logic
+		else if (!hasTriggered && !_reachedTarget && controller.currentTarget != null)
+		{
+			float distanceToTarget = Vector2.Distance(controller.transform.position, controller.currentTarget.position);
+			
+			if (distanceToTarget <= lungeStoppingDistance)
+			{
+				controller.EntityMover.StopMeleeLunge();
+				_reachedTarget = true;
+			} 
+			else
+			{
+				controller.EntityMover.SetMoveDirection(attackDirection);
+			}
 		}
 		
-		// Turn the hitbox off once the active duration expires
-		if (_isHitBoxActive && Time.time >= _deactivateTimer)
-		{
-			if (_meleeHitbox != null) _meleeHitbox.enableHitbox = false;
-			_isHitBoxActive = false;
-		}
+		// 3. Turn the hitbox off once the active duration expires
+		if (_meleeHitbox.enableHitbox && Time.time >= _deactivateTimer)
+			_meleeHitbox.enableHitbox = false;
+		
 	}
 
 	protected override void HandleAnimationEvent()
@@ -51,20 +100,27 @@ public class EntityAttackMeleeState : BaseAttackState
 		if (hasTriggered) return;
 		hasTriggered = true;
 
-		if (_meleeHitbox != null && attackData != null)
-		{
-			_meleeHitbox.Setup(controller.gameObject, attackData.spellEffects, 999, true, false);
-			_meleeHitbox.enableHitbox = true;
-			
-			_isHitBoxActive = true;
-			_deactivateTimer = Time.time + activeDuration;
-		}
+		// 1. Position the Hitbox
+		float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
+		_meleeHitbox.transform.rotation = Quaternion.Euler(0, 0, angle);
+		
+		// 2. Pass the Data and turn on the hitbox
+		_meleeHitbox.Setup(controller.gameObject, attackData.spellEffects, 999, true, false);
+		_meleeHitbox.enableHitbox = true;
+		
+		// 3. Stop the lunge
+		controller.EntityMover.StopMeleeLunge();	
+		
+		_deactivateTimer = Time.time + activeDuration;
 	}
 
 	public override void Exit()
 	{
-		if (_meleeHitbox != null) _meleeHitbox.enableHitbox = false;
-		_isHitBoxActive = false;
+		_hasLunged = false;
+		
+		controller.EntityMover.StopMeleeLunge();
+		_meleeHitbox.enableHitbox = false;
+		_entityCollider.excludeLayers = _originalExcludeLayers;
 		
 		base.Exit();
 	}

@@ -15,32 +15,40 @@ public class EntityAttackChargeState : BaseAttackState
     [Header("Timers & Tracking")]
     private float _chargeTimer;
     private Vector2 _chargeDirection;
-    private float _originalSpeed;
     private bool _isCharging;
     private float _afterImageTimer;
     private float _afterImageInterval = 0.04f;
 
-    public override void Enter()
+    public override void Setup(MobController controller, StateMachine stateMachine)
     {
-        base.Enter();
+        base.Setup(controller, stateMachine);
         
-        _isCharging = true;
-        _originalSpeed = controller.EntityMover.moveSpeed;
-        
-        // Face the target
-        if (controller.currentTarget != null)
+        _chargeHitbox = controller.GetComponentInChildren<HitBox>(true);
+        if (_chargeHitbox == null)
         {
-            Vector2 aimDirection = (controller.currentTarget.position - controller.transform.position).normalized;
-            controller.EntityAnimator.FaceDirection(aimDirection);
+            Debug.LogError("No HitBox found on " + controller.gameObject.name);
+            stateMachine.ChangeState(controller.IdleState);
+            return;
         }
+        _chargeHitbox.enableHitbox = false;
         
+        _entityCollider = controller.GetComponent<Collider2D>();
         _spriteRenderer = controller.gameObject.GetComponentInChildren<SpriteRenderer>(true);
+
+        if (_entityCollider == null || _spriteRenderer == null)
+        {
+            Debug.LogError("No Collider2D or SpriteRenderer found on " + controller.gameObject.name + "");
+            stateMachine.ChangeState(controller.IdleState);
+            return;
+        }
     }
+    
 
     public override void Update()
     {
         base.Update();
 
+        // Charge Phase Logic
         if (_isCharging)
         {
             _chargeTimer -= Time.deltaTime;
@@ -55,19 +63,8 @@ public class EntityAttackChargeState : BaseAttackState
             
             // End the charge phase when the timer is over
             if (_chargeTimer <= 0)
-            {
-                StopCharge();
-            }
+                stateMachine.ChangeState(controller.IdleState);
         }
-    }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-        
-        // Lock in movement direction during the dash
-        if (_isCharging)
-            controller.EntityMover.SetMoveDirection(_chargeDirection);    
     }
 
     protected override void HandleAnimationEvent()
@@ -76,55 +73,47 @@ public class EntityAttackChargeState : BaseAttackState
         if (hasTriggered) return;
         hasTriggered = true;
         
+        float chargeSpeed = controller.EntityMover.moveSpeed * chargeSpeedMultiplier;
+        
+        // 1. Freeze the Animator so it doesnt trigger animationEnd event and ending the attack before the timer
+        if (controller.EntityAnimator != null)
+            controller.EntityAnimator.animator.speed = 0f;
+        
         // 1. Calculate Charge Vector and Timing
-        if (controller.currentTarget != null)
-        {
-            Vector2 direction = controller.currentTarget.position - controller.transform.position;
-            _chargeDirection = direction.normalized;
-            
-            float totalDistance = direction.magnitude + overshootDistance;
-            float totalChargeSpeed = _originalSpeed * chargeSpeedMultiplier;
-            _chargeTimer = totalDistance / totalChargeSpeed;
-        } 
+        TryUpdateAttackDirection();
+        Vector2 chargeDirection = attackDirection;
+        
+        float distanceToTarget = Vector2.Distance(controller.transform.position, controller.currentTarget.position);
+        float totalDistance = distanceToTarget + overshootDistance;
+        _chargeTimer = totalDistance/chargeSpeed;
+        
         
         // 2. Ignore collisions with victims during dash to avoid getting stuck
-        if (_entityCollider != null && _chargeHitbox != null)
-        {
-            _originalExcludeLayers = _entityCollider.excludeLayers;
-            _entityCollider.excludeLayers |= _chargeHitbox.victimLayer;
-        }
+        _originalExcludeLayers = _entityCollider.excludeLayers;
+        _entityCollider.excludeLayers |= _chargeHitbox.victimLayer;
         
-        // 3. Apply speed and turn on hitbox
-        controller.EntityMover.moveSpeed = _originalSpeed * chargeSpeedMultiplier;
-        if (_chargeHitbox != null && attackData != null)
-        {
-            _chargeHitbox.Setup(controller.gameObject, attackData.spellEffects, 999, true, false);
-            _chargeHitbox.enableHitbox = true;
-        }
+        
+        // 3. Pass the data and Turn on the hitbox
+        _chargeHitbox.Setup(controller.gameObject, attackData.spellEffects, 999, true, false);
+        _chargeHitbox.enableHitbox = true;
+        
+        // 4. Tell EntityMover to take over movement and pause AILerp
+        controller.EntityMover.StartCharge(chargeDirection, chargeSpeed);
 
         _isCharging = true;
         _afterImageTimer = 0f;
     }
     
-    private void StopCharge()
-    {
-        if (!_isCharging) return;
-        _isCharging = false;
-        
-        // Reset speed, stop moving, and turn off hitbox
-        controller.EntityMover.moveSpeed = _originalSpeed;
-        controller.EntityMover.SetMoveDirection(Vector2.zero);
 
-        if (_chargeHitbox != null) _chargeHitbox.enableHitbox = false;
-
-        // Restore collision layers
-        if (_entityCollider != null)
-            _entityCollider.excludeLayers = _originalExcludeLayers;
-    }
     
     public override void Exit()
     {
-        StopCharge(); // Safety net in case mob gets stunned/killed mid-charge
+        _isCharging = false;
+
+        controller.EntityMover.StopCharge();
+        _chargeHitbox.enableHitbox = false;
+        _entityCollider.excludeLayers = _originalExcludeLayers;
+        
         base.Exit();
     }
     

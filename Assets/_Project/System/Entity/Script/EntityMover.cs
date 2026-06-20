@@ -8,7 +8,7 @@ public class EntityMover : MonoBehaviour
     [Header("Movement Settings")] 
     public float moveSpeed = 5f;
     public Vector2 MoveDirection { get; private set; }
-    public enum OverrideMovementState { None, KnockedBack, Recoiling }
+    public enum OverrideMovementState { None, KnockedBack, Recoiling, Melee, Charging }
     public OverrideMovementState currentOverrideState { get; private set; } = OverrideMovementState.None;
 
     [Header("Override State Settings")]
@@ -16,6 +16,7 @@ public class EntityMover : MonoBehaviour
     private float _totalOverrideDuration;
     private float _knockbackHeight;
     private Vector2 _initialOverrideVelocity;
+    private float _baseSpeed;
     
     [Header("References")]
     private SpriteRenderer _spriteRenderer;
@@ -52,6 +53,11 @@ public class EntityMover : MonoBehaviour
         case OverrideMovementState.Recoiling:
             if (_aiLerp != null) _aiLerp.canMove = false;
             HandleRecoiling();
+            break;
+        case OverrideMovementState.Melee:
+        case OverrideMovementState.Charging:
+            if (_aiLerp != null) _aiLerp.canMove = false;
+            _rigidbody.linearVelocity = MoveDirection * moveSpeed;
             break;
         case OverrideMovementState.None: // If there is AILerp, use its own movement component
         default: // If there is no AILerp component, use EntityMover 
@@ -99,25 +105,43 @@ public class EntityMover : MonoBehaviour
 
     private void HandleNormalMovement() => _rigidbody.linearVelocity = MoveDirection * moveSpeed;
 
+    private void SetupMovementOverride(Vector2 direction, float speed, OverrideMovementState targetState)
+    {
+        if (currentOverrideState == OverrideMovementState.None)
+            _baseSpeed = moveSpeed;
+        
+        currentOverrideState = targetState;
+        MoveDirection = direction.normalized;
+        moveSpeed = speed;
+    }
+    
     private void ClearOverride()
     {
         currentOverrideState = OverrideMovementState.None;
         _rigidbody.linearVelocity = Vector2.zero;
         if (_spriteRenderer != null) _spriteRenderer.transform.localPosition = Vector2.zero;
         
+        moveSpeed = _baseSpeed;
+        
         // Re-enable AILerp and update its internal position tracking
         if (_aiLerp != null)
         {
+            _aiLerp.destination = transform.position; // Update the destination to the current position
             _aiLerp.canMove = true;
             _aiLerp.Teleport(transform.position);
             _aiLerp.SearchPath();
         }
     }
 
+    //----Public APIs for external scripts to call
+    
     public void ApplyKnockback(Vector2 knockbackDirection, float knockbackForce, float knockbackDuration, float knockbackHeight, GameObject source = null)
     {
         if (!gameObject.activeInHierarchy) return;
 
+        if (currentOverrideState == OverrideMovementState.None)
+            _baseSpeed = moveSpeed;
+        
         currentOverrideState = OverrideMovementState.KnockedBack;
         _overrideTimer = knockbackDuration;
         _totalOverrideDuration = knockbackDuration;
@@ -138,6 +162,9 @@ public class EntityMover : MonoBehaviour
         // Knockback takes priority over  recoil
         if (currentOverrideState == OverrideMovementState.KnockedBack) return;
         
+        if (currentOverrideState == OverrideMovementState.None)
+            _baseSpeed = moveSpeed;
+        
         currentOverrideState = OverrideMovementState.Recoiling;
         _overrideTimer = recoilDuration;
         _totalOverrideDuration = recoilDuration;
@@ -156,4 +183,9 @@ public class EntityMover : MonoBehaviour
             Physics2D.IgnoreCollision(_collider, sourceCol, false);
         }
     }
+
+    public void StartCharge(Vector2 direction, float chargeSpeed) => SetupMovementOverride(direction, chargeSpeed, OverrideMovementState.Charging);
+    public void StopCharge() { if (currentOverrideState == OverrideMovementState.Charging) ClearOverride(); }
+    public void StartMeleeLunge(Vector2 direction, float lungeSpeed) => SetupMovementOverride(direction, lungeSpeed, OverrideMovementState.Melee);
+    public void StopMeleeLunge() { if (currentOverrideState == OverrideMovementState.Melee) ClearOverride(); }
 }
