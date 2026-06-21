@@ -38,7 +38,7 @@ public class EntityChaseState : BaseChaseState
         
         Vector2 currentPosition = controller.transform.position;
         Vector2 targetPosition = controller.currentTarget.position;
-        float distance = Vector2.Distance(currentPosition, targetPosition);
+        float distanceToTarget = Vector2.Distance(currentPosition, targetPosition);
         
         // Update the destination
         controller.aiLerp.destination = targetPosition;
@@ -61,8 +61,16 @@ public class EntityChaseState : BaseChaseState
             if (controller.CheckActionCooldown())
                 stateMachine.ChangeState(selectedAttack);
         }
-        else // 5. If there is no valid attacks (likely out of range). Keep chasing
+        else // 5. If there is no valid attacks (likely out of range). Keep chasing OR kitting
         {
+            // Kite Logic
+            if (controller.KiteState != null && controller.KiteState.CheckShouldKite(distanceToTarget))
+            {
+                stateMachine.ChangeState(controller.KiteState);
+                return;
+            }
+            
+            // Chase Logic
             controller.aiLerp.canMove = true;
             controller.aiLerp.destination = targetPosition;
             

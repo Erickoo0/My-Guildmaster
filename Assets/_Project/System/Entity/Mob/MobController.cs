@@ -40,6 +40,7 @@ public class MobController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseIdleState IdleState;
     [SerializeReference, SubclassSelector] public BaseWanderState WanderState;
     [SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
+    [SerializeReference, SubclassSelector] public BaseKiteState KiteState;
     [SerializeReference, SubclassSelector] public List<BaseAttackState> AttackStates = new List<BaseAttackState>();
     [HideInInspector] public Rigidbody2D _rigidBody2D;
     [HideInInspector] public FirePoint _firePoint;
@@ -68,6 +69,7 @@ public class MobController : BaseEntityController
         IdleState?.Setup(this, StateMachine);
         WanderState?.Setup(this, StateMachine);
         ChaseState?.Setup(this, StateMachine);
+        KiteState?.Setup(this, StateMachine);
         foreach (BaseAttackState attackState in AttackStates)
             attackState?.Setup(this, StateMachine);
         
