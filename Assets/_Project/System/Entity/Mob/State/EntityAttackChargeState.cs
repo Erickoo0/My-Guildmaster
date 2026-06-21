@@ -4,8 +4,8 @@ using UnityEngine;
 public class EntityAttackChargeState : BaseAttackState
 {
     [Header("Charge Settings")]
-    [SerializeField] private float chargeSpeedMultiplier = 2.5f;
-    [SerializeField] private float overshootDistance = 1.0f;
+    [SerializeField] private float chargeSpeedMultiplier = 5.0f;
+    [SerializeField] private float overshootDistance = 4.0f;
 
     private HitBox _chargeHitbox;
     private SpriteRenderer _spriteRenderer;

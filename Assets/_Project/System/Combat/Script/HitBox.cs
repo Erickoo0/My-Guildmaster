@@ -27,15 +27,17 @@ public abstract class HitBox : MonoBehaviour
     protected GameObject spellSource;
     protected List<Effect> onHitEffects;
 
-    private readonly HashSet<IDamagable> targetsHit = new HashSet<IDamagable>();
+    protected HashSet<IDamagable> targetsHit;
     
     protected virtual void Awake() => entityCollider = GetComponent<Collider2D>();
 
-    public virtual void Setup(GameObject user, [CanBeNull] List<Effect> effects, int maxHits, bool hitOnce, bool destroyOnMax)
+    public virtual void Setup(GameObject user, [CanBeNull] List<Effect> effects, int maxHits, bool hitOnce, bool destroyOnMax, HashSet<IDamagable> inheritedTargets = null)
     {
         spellSource = user;
         onHitEffects = effects;
-        targetsHit.Clear();
+        
+        // If memory of previous hits is passed down, use it. Otherwise, create a new HashSet
+        targetsHit = inheritedTargets ?? new HashSet<IDamagable>();       
         
         // Read the data from the DamageData
         _maxEnemiesHitCount = maxHits;
@@ -70,7 +72,8 @@ public abstract class HitBox : MonoBehaviour
                 other.gameObject,
                 other.transform.position,
                 direction,
-                impactPoint
+                impactPoint,
+                targetsHit
             );
             
             // 6. Execute all spell effects
