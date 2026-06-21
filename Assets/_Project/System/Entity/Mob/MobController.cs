@@ -41,7 +41,7 @@ public class MobController : BaseEntityController
     [SerializeReference, SubclassSelector] public BaseIdleState IdleState;
     [SerializeReference, SubclassSelector] public BaseWanderState WanderState;
     [SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
-    [SerializeReference, SubclassSelector] public BaseActionState AttackState;
+    [SerializeReference, SubclassSelector] public List<BaseAttackState> AttackStates = new List<BaseAttackState>();
     [HideInInspector] public Rigidbody2D _rigidBody2D;
     [HideInInspector] public FirePoint _firePoint;
     
@@ -69,7 +69,8 @@ public class MobController : BaseEntityController
         IdleState?.Setup(this, StateMachine);
         WanderState?.Setup(this, StateMachine);
         ChaseState?.Setup(this, StateMachine);
-        AttackState?.Setup(this, StateMachine);
+        foreach (BaseAttackState attackState in AttackStates)
+            attackState?.Setup(this, StateMachine);
         
         SpawnPosition = transform.position;
         StateMachine.SetupState(SpawnState);
@@ -80,7 +81,7 @@ public class MobController : BaseEntityController
         base.Update();
         
         // Safety Check
-        if (ChaseState == null || AttackState == null) return;
+        if (ChaseState == null || AttackStates == null) return;
         
         // Begin target scan only after spawning
         if (StateMachine.CurrentState != SpawnState)
@@ -136,6 +137,42 @@ public class MobController : BaseEntityController
     public bool CheckActionCooldown() => Time.time >= _lastActionTime + ActionCooldown;
     
     public void SetActionCooldown() => _lastActionTime = Time.time;
+
+    public BaseAttackState GetRandomAttackState()
+        {
+            if (AttackStates == null || AttackStates.Count == 0) return null;
+
+            float totalWeight = 0f;
+            List<BaseAttackState> validStates = new List<BaseAttackState>();
+
+            // 1. Gather all valid states and calculate total weight
+            foreach (var state in AttackStates)
+            {
+                if (state != null && state.SelectionWeight > 0)
+                {
+                    validStates.Add(state);
+                    totalWeight += state.SelectionWeight;
+                }
+            }
+
+            if (validStates.Count == 0) return null;
+
+            // 2. Roll a random number
+            float randomVal = Random.Range(0f, totalWeight);
+            float currentWeight = 0f;
+
+            // 3. Find the winning state
+            foreach (var state in validStates)
+            {
+                currentWeight += state.SelectionWeight;
+                if (randomVal <= currentWeight)
+                {
+                    return state;
+                }
+            }
+
+            return null; // Fallback safety
+        }
     
     //----Debug Methods-----
     private void OnDrawGizmosSelected()

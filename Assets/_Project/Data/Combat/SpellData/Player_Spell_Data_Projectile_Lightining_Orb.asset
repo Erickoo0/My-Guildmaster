@@ -18,12 +18,14 @@ MonoBehaviour:
   spellPrefab: {fileID: 0}
   spellAnimation: 0
   baseMpCost: 0
-  baseCastTime: 0
+  baseCastTime: 1
+  displayCastBar: 1
   spellEffects:
   - rid: 3505743470580727883
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
+  selectionWeight: 10
   references:
     version: 2
     RefIds:

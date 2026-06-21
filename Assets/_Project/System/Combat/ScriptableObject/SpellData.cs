@@ -15,6 +15,7 @@ public class SpellData : ScriptableObject
     [Header("Base Stats")] 
     public float baseMpCost = 0; // Not needed for enemies
     public float baseCastTime;
+    public bool displayCastBar = true;
 
     [Header("Behavior Settings")] 
     [SerializeReference, SubclassSelector] public List<Effect> spellEffects = new List<Effect>();
@@ -22,15 +23,18 @@ public class SpellData : ScriptableObject
     public bool hitOncePerTarget = true;
     public bool destroyOnMaxHits = true;
     public int baseMaxEnemiesHit;
+
+    [Header("Selection Settings")]
+    public float selectionWeight = 10f;
     
     protected virtual void OnValidate()
     {
         if (spellID != name)
         {
             spellID = name;
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(this);
-#endif
+        #endif
         }
     }
 }

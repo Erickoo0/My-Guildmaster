@@ -12,18 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
   m_Name: Player_Spell_Data_Terrain_Ice_Wall
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
-  spellID: Player_Spell_Data_Terrain_Icewall
+  spellID: Player_Spell_Data_Terrain_Ice_Wall
   spellName: Ice Wall
   spellIcon: {fileID: 5234705123545024623, guid: b94d4d42ec62cf14bbc44c3a8e247d71, type: 3}
   spellPrefab: {fileID: 0}
   spellAnimation: 0
   baseMpCost: 0
   baseCastTime: 0
+  displayCastBar: 0
   spellEffects:
   - rid: 3505743447765811312
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
+  selectionWeight: 10
   references:
     version: 2
     RefIds:

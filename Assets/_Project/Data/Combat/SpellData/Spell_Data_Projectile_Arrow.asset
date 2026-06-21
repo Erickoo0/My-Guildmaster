@@ -16,14 +16,16 @@ MonoBehaviour:
   spellName: Fire Arrow
   spellIcon: {fileID: 0}
   spellPrefab: {fileID: 0}
-  spellAnimation: 1
+  spellAnimation: 0
   baseMpCost: 0
   baseCastTime: 1
+  displayCastBar: 0
   spellEffects:
   - rid: 3505743447765811310
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
+  selectionWeight: 10
   references:
     version: 2
     RefIds:

@@ -18,7 +18,8 @@ MonoBehaviour:
   spellPrefab: {fileID: 1314606969793590279, guid: 6a3de7416706f4c4a9c45222d1670fae, type: 3}
   spellAnimation: 0
   baseMpCost: 0
-  baseCastTime: 0.25
+  baseCastTime: 1
+  displayCastBar: 0
   spellEffects:
   - rid: 3505743447765811278
   hitOncePerTarget: 1

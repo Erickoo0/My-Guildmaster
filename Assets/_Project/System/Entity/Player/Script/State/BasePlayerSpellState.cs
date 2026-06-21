@@ -51,7 +51,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         float eventTime = GetAnimationEventTime();
         
         // Cast Logic
-        if (spellData.baseCastTime > 0.5)
+        if (spellData.displayCastBar)
         {
             isCasting = true;
             

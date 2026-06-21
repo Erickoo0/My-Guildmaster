@@ -7,6 +7,7 @@ public abstract class BaseAttackState : BaseActionState
     [SerializeField] protected string attackID;
     protected SpellData attackData;
     protected Vector2 attackDirection;
+    public float SelectionWeight => attackData != null ? attackData.selectionWeight : 0f;
     
     [Header("Cast Bar")]
     protected CastBar castBar;
@@ -68,7 +69,7 @@ public abstract class BaseAttackState : BaseActionState
         float eventTime = GetAnimationEventTime();
         
         // 6. Casting logic
-        if (attackData.baseCastTime > 0)
+        if (attackData.displayCastBar)
         {
             isCasting = true;
             

@@ -55,7 +55,12 @@ public class EntityChaseState : BaseChaseState
             
             // Check if the action cooldown is over
             if (controller.CheckActionCooldown())
-                stateMachine.ChangeState(controller.AttackState);
+            {
+                BaseAttackState selectedAttack = controller.GetRandomAttackState();
+                if (selectedAttack!= null)
+                    stateMachine.ChangeState(selectedAttack);
+            }
+                
         }
         else // 5. If out of action range
         {

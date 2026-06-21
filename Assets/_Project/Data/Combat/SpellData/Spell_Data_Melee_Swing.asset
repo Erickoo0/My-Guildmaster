@@ -19,6 +19,7 @@ MonoBehaviour:
   spellAnimation: 0
   baseMpCost: 0
   baseCastTime: 0
+  displayCastBar: 0
   spellEffects:
   - rid: 3505743470580727912
   - rid: 3505743789539721524
