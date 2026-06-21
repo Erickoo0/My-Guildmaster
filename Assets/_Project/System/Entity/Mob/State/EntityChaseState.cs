@@ -43,26 +43,25 @@ public class EntityChaseState : BaseChaseState
         // Update the destination
         controller.aiLerp.destination = targetPosition;
 
-        // 4. If in action range
-        if (distance <= controller.ActionRange)
+        // 4. Check if any attacks have requirements met
+        BaseAttackState selectedAttack = controller.GetRandomAttackState();
+        
+        // 5. Execute attack
+        if (selectedAttack != null)
         {
             // Stop moving
             controller.aiLerp.canMove = false;
             controller.aiLerp.destination = currentPosition; // Clear destination target to stop moving smoothly
             
+            // Face the target
             Vector2 faceDirection = (targetPosition - currentPosition).normalized;
             controller.EntityAnimator.FaceDirection(faceDirection); 
             
             // Check if the action cooldown is over
             if (controller.CheckActionCooldown())
-            {
-                BaseAttackState selectedAttack = controller.GetRandomAttackState();
-                if (selectedAttack!= null)
-                    stateMachine.ChangeState(selectedAttack);
-            }
-                
+                stateMachine.ChangeState(selectedAttack);
         }
-        else // 5. If out of action range
+        else // 5. If there is no valid attacks (likely out of range). Keep chasing
         {
             controller.aiLerp.canMove = true;
             controller.aiLerp.destination = targetPosition;

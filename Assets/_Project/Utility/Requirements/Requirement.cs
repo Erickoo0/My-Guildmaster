@@ -4,5 +4,5 @@ using UnityEngine;
 [Serializable]
 public abstract class Requirement
 {
-    public abstract bool IsMet();
+    public abstract bool IsMet(GameObject context = null);
 }

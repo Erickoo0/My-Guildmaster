@@ -22,7 +22,6 @@ public class MobController : BaseEntityController
     [field: SerializeField] public List<string> TargetableList { get; private set; }
     [field: SerializeField] public float TargetRange { get; private set; } = 6f;
     [field: SerializeField] public float TargetLostRange { get; set; } = 10f;
-    [field: SerializeField] public float ActionRange { get; set; } = 5f;
     [HideInInspector] public Transform currentTarget ;
     private readonly Collider2D[] _targetingResults = new Collider2D[10]; // Pre-allocated array for targeting results
     private ContactFilter2D _targetingFilter;
@@ -146,12 +145,16 @@ public class MobController : BaseEntityController
             List<BaseAttackState> validStates = new List<BaseAttackState>();
 
             // 1. Gather all valid states and calculate total weight
-            foreach (var state in AttackStates)
+            foreach (BaseAttackState attackState in AttackStates)
             {
-                if (state != null && state.SelectionWeight > 0)
+                if (attackState != null && attackState.SelectionWeight > 0)
                 {
-                    validStates.Add(state);
-                    totalWeight += state.SelectionWeight;
+                    // Check if the attackStates requirements are met
+                    if (attackState.CheckRequirementsMet(this.gameObject))
+                    {
+                        validStates.Add(attackState);
+                        totalWeight += attackState.SelectionWeight; 
+                    }
                 }
             }
 
@@ -177,19 +180,16 @@ public class MobController : BaseEntityController
     //----Debug Methods-----
     private void OnDrawGizmosSelected()
     {
-        // 1. Detection Range (Aggro Zone)
+        // 1. Target Range 
         Gizmos.color = Color.yellow;
         DrawGizmoCircle(transform.position, TargetRange);
 
-        // 2. Detection Lost Range (Leash Zone)
+        // 2. Target Lost Range
         Gizmos.color = Color.red;
         DrawGizmoCircle(transform.position, TargetLostRange);
-
-        // 3. Action Range (Attack Zone)
-        Gizmos.color = Color.cyan;
-        DrawGizmoCircle(transform.position, ActionRange);
+        
     
-        // 4. Wander Radius (Spawn Zone)
+        // 4. Wander Radius
         // We check if SpawnPosition is zero to avoid drawing at world center before Start()
         if (SpawnPosition != Vector2.zero)
         {

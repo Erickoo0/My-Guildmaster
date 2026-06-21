@@ -179,4 +179,6 @@ public abstract class BaseAttackState : BaseActionState
         
         return true;
     }
+
+    public bool CheckRequirementsMet(GameObject context) => attackData.CheckRequirementsMet(context);
 }

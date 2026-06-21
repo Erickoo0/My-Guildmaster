@@ -19,6 +19,7 @@ public class SpellData : ScriptableObject
 
     [Header("Behavior Settings")] 
     [SerializeReference, SubclassSelector] public List<Effect> spellEffects = new List<Effect>();
+    [SerializeReference, SubclassSelector] public List<Requirement> spellRequirements = new List<Requirement>();
     // Default Behavior (Projectiles control their own via EffectSpawnProjectile)
     public bool hitOncePerTarget = true;
     public bool destroyOnMaxHits = true;
@@ -26,6 +27,22 @@ public class SpellData : ScriptableObject
 
     [Header("Selection Settings")]
     public float selectionWeight = 10f;
+
+    public bool CheckRequirementsMet(GameObject context)
+    {
+        // 1. No requirements means always true
+        if (spellRequirements == null || spellRequirements.Count == 0) return true;
+        
+        // 2. Iterate through each requirement and check if met
+        foreach (Requirement requirement in spellRequirements)
+            if (!requirement.IsMet(context)) 
+                return false;
+
+        // If no requirement returns false, then return true
+        return true;
+
+    }
+    
     
     protected virtual void OnValidate()
     {

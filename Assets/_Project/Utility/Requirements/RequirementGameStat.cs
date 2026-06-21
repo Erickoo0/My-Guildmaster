@@ -9,7 +9,7 @@ public class RequirementGameStat : Requirement
 
     public bool requireEqualValue = false;
 
-    public override bool IsMet()
+    public override bool IsMet(GameObject context = null)
     {
         int currentValue = GameFlagManager.Instance.GetGameStat(requiredGameStat);
         

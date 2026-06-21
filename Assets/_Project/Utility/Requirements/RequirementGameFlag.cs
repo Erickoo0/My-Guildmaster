@@ -7,7 +7,7 @@ public class RequirementGameFlag : Requirement
 
     public bool requiredState = true;
 
-    public override bool IsMet()
+    public override bool IsMet(GameObject context = null)
     {
         // Get the current state of the required game flag from the manager
         bool currentState = GameFlagManager.Instance.GetGameFlag(requiredGameFlag);

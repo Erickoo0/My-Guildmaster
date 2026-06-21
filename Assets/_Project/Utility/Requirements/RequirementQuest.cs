@@ -8,7 +8,7 @@ public class RequirementQuest : Requirement
     public QuestSo requiredQuest;
     public QuestStateCondition requiredState = QuestStateCondition.ReadyForTurnIn;
 
-    public override bool IsMet()
+    public override bool IsMet(GameObject context = null)
     {
         // Safety Check
         if (QuestManager.Instance == null) 
