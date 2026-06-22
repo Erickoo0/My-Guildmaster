@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 6990653571150878097}
   - component: {fileID: 5819134255891694365}
   - component: {fileID: -5434272593035035782}
+  - component: {fileID: 3766992231868733106}
   - component: {fileID: -6041577575005612142}
   - component: {fileID: -1126634882369786296}
   - component: {fileID: 6447096566392552272}
@@ -573,18 +574,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobController
   entityID: 
+  _rigidBody2D: {fileID: 0}
+  _spellController: {fileID: 0}
   aiLerp: {fileID: 0}
   <WanderRadius>k__BackingField: 5
-  globalSpellDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
   <mobType>k__BackingField: 2
   <TargetableList>k__BackingField:
   - Player
   <TargetRange>k__BackingField: 6
   <TargetLostRange>k__BackingField: 10
-  <ActionRange>k__BackingField: 5
   currentTarget: {fileID: 0}
   _alertIcon: {fileID: 2691060918574736944}
-  <ActionCooldown>k__BackingField: 0.5
   SpawnState:
     rid: 3505743470580727907
   IdleState:
@@ -593,13 +593,13 @@ MonoBehaviour:
     rid: 3505743470580727909
   ChaseState:
     rid: 3505743470580727910
-  AttackState:
-    rid: 3505743470580727911
-  _rigidBody2D: {fileID: 0}
-  _firePoint: {fileID: 0}
+  KiteState:
+    rid: -2
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 3505743470580727907
       type: {class: EntitySpawnState, ns: , asm: Assembly-CSharp}
       data:
@@ -614,10 +614,26 @@ MonoBehaviour:
     - rid: 3505743470580727910
       type: {class: EntityChaseState, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 3505743470580727911
-      type: {class: EntityAttackState, ns: , asm: Assembly-CSharp}
-      data:
-        attackID: 
+--- !u!114 &3766992231868733106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a89079566738364fb20a30e9b007115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntitySpellController
+  globalSpellDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+  firePoint: {fileID: 0}
+  castBar: {fileID: 0}
+  <ActionCooldown>k__BackingField: 0.5
+  attackStates: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &-6041577575005612142
 MonoBehaviour:
   m_ObjectHideFlags: 0

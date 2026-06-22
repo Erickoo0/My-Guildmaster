@@ -35,8 +35,8 @@ public class EntityAttackState : BaseAttackState
         // 4. Apply VFX
         if (attackData.spellPrefab != null)
         {
-            Vector3 spawnPosition = controller._firePoint != null
-                ? controller._firePoint.transform.position
+            Vector3 spawnPosition = controller._spellController.firePoint != null
+                ? controller._spellController.firePoint.transform.position
                 : casterPosition;
             
             float relativeX = targetPosition.x - spawnPosition.x;

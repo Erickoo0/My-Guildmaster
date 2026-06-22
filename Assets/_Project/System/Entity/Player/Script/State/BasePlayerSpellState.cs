@@ -20,12 +20,12 @@ public abstract class BasePlayerSpellState : State<PlayerController>
     {
         base.Setup(controller, stateMachine);
         
-        if (controller.globalSpellDatabase != null)
-            spellData = controller.globalSpellDatabase.GetSpell<SpellData>(spellID);
+        if (controller.spellController != null && controller.spellController.globalSpellDatabase != null)
+            spellData = controller.spellController.globalSpellDatabase.GetSpell<SpellData>(spellID);
         else
-            Debug.LogError("PlayerController.globalSpellDatabase is null");
+            Debug.LogError("PlayerController.spellController.globalSpellDatabase is null");
         
-        castBar = controller?.GetComponent<CastBar>();
+        castBar = controller.spellController?.castBar;
     }
 
     public override void Enter()
@@ -74,7 +74,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         // 1. Check if the spell keybind is still being held
         if (!hasTriggered && isCasting)
         {
-            if (!controller.IsSpellKeyHeld(CurrentSlotIndex))
+            if (!controller.spellController.IsSpellKeyHeld(CurrentSlotIndex))
             {
                 castBar?.StopCast();
                 stateMachine.ChangeState(controller.IdleState);
@@ -104,7 +104,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         controller.EntityAnimator.animator.SetBool(spellData.AnimationTag, false);
         
         if (hasTriggered)
-            controller.SetActionCooldown();
+            controller.spellController.SetActionCooldown();
     }
     
     public override void PhysicsUpdate() { }

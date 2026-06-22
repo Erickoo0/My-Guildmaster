@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class EffectSpawnExplosion : Effect
 {
     [Header("Explosion Settings")]

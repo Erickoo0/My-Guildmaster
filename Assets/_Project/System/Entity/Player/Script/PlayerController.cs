@@ -6,22 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerController : BaseEntityController {
     [Header("References")]
     [HideInInspector] public Mana mpComponent;
+    [HideInInspector] public PlayerSpellController spellController;
+    
+    [Header("States")]
     [SerializeReference, SubclassSelector] public State<PlayerController> IdleState;
     [SerializeReference, SubclassSelector] public State<PlayerController> MoveState;
     [SerializeReference, SubclassSelector] public State<PlayerController> DashState;
-    [HideInInspector] public FirePoint _firePoint;
-
-
-    [Header("Spell Settings")]
-    public SpellDataDatabase globalSpellDatabase;
-    [Tooltip("Slot 0: M1, Slot 1: Q, Slot 2: E, Slot 3: R, Slot 4: F")]
-    [SerializeReference, SubclassSelector] public List<BasePlayerSpellState> SpellSlots = new List<BasePlayerSpellState>();
-    private bool[] _spellKeyHeld = new bool[5];
     
-    [Header("Action Settings")]
-    [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
-    private float _lastActionTime;
-
     [Header("Movement Settings")]
     public float defaultDashTime = 10f;
     
@@ -42,17 +33,14 @@ public class PlayerController : BaseEntityController {
     {
         base.Awake();
         
+        // Cache references
+        spellController = GetComponent<PlayerSpellController>();
         _mainCam = Camera.main;
-        _firePoint = GetComponentInChildren<FirePoint>();
         
+        // Setup states
         IdleState?.Setup(this, StateMachine);
         MoveState?.Setup(this, StateMachine);
         DashState?.Setup(this, StateMachine);
-
-        foreach (State<PlayerController> spell in SpellSlots)
-        {
-            spell?.Setup(this, StateMachine);
-        }
     }
 
     protected virtual void Start()
@@ -102,47 +90,12 @@ public class PlayerController : BaseEntityController {
     {
         _rawMousePosition = context.ReadValue<Vector2>();
     }
-
-    public void TryTriggerAbility(int slotIndex, InputAction.CallbackContext context)
-    {
-        // 1. Safety Check
-        if (SpellSlots == null || slotIndex < 0 || slotIndex >= SpellSlots.Count || SpellSlots[slotIndex] == null)
-            return;
-        
-        // 2. Track key input state 
-        if (context.started || context.performed)
-            _spellKeyHeld[slotIndex] = true;
-        else if (context.canceled)
-            _spellKeyHeld[slotIndex] = false;
-        
-        // 3. Only proceed with the actual cast on the 'performed' phase
-        if (!context.performed)
-            return;
-        
-        BasePlayerSpellState intendedSpell = SpellSlots[slotIndex];
-
-        // 4. State & Cooldown validation
-        if (!CheckActionCooldown() || StateMachine.CurrentState == DashState)
-            return;
-        
-        // 5. Prevent interrupting an ongoing spell with another spell
-        if (SpellSlots.Contains(StateMachine.CurrentState))
-            return;
-        
-        // 6. Mana validation 
-        if (mpComponent == null || !mpComponent.HasEnoughMp(intendedSpell.MpCost))
-            return;
-        
-        // 7. Assign slot index and change state
-        intendedSpell.CurrentSlotIndex = slotIndex;
-        StateMachine.ChangeState(intendedSpell);
-    }
     
-    public void OnAttackM1(InputAction.CallbackContext context) => TryTriggerAbility(0, context);
-    public void OnAttackQ(InputAction.CallbackContext context)  => TryTriggerAbility(1, context);
-    public void OnAttackE(InputAction.CallbackContext context)  => TryTriggerAbility(2, context);
-    public void OnAttackR(InputAction.CallbackContext context)  => TryTriggerAbility(3, context);
-    public void OnAttackF(InputAction.CallbackContext context)  => TryTriggerAbility(4, context);
+    public void OnAttackM1(InputAction.CallbackContext context) => spellController.TryTriggerSpell(0, context);
+    public void OnAttackQ(InputAction.CallbackContext context)  => spellController.TryTriggerSpell(1, context);
+    public void OnAttackE(InputAction.CallbackContext context)  => spellController.TryTriggerSpell(2, context);
+    public void OnAttackR(InputAction.CallbackContext context)  => spellController.TryTriggerSpell(3, context);
+    public void OnAttackF(InputAction.CallbackContext context)  => spellController.TryTriggerSpell(4, context);
     
     // ---- Helper Methods ----
     public void SetCanMove(bool canMove)
@@ -160,23 +113,5 @@ public class PlayerController : BaseEntityController {
         {
             MovementInput = _rawInput;
         }
-    }
-    
-    //---- Action Methods -----
-    public bool CheckActionCooldown() 
-    {
-        return Time.time >= _lastActionTime + ActionCooldown;
-    }
-    
-    // A method to reset the timer (called when the action finishes)
-    public void SetActionCooldown()
-    {
-        _lastActionTime = Time.time;
-    }
-
-    public bool IsSpellKeyHeld(int slotIndex)
-    {
-        if (slotIndex < 0 || slotIndex >= _spellKeyHeld.Length) return false;
-        return _spellKeyHeld[slotIndex];
     }
 }

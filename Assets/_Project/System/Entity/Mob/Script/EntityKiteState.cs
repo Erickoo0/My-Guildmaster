@@ -41,10 +41,10 @@ public class EntityKiteState : BaseKiteState
         // 2. Check if far enough
         if (distanceToTarget >= preferredDistance)
         {
-            BaseAttackState selectedAttack = controller.GetRandomAttackState();
+            BaseAttackState selectedAttack = controller._spellController.GetRandomAttackState();
 
             // If attack is valid and cooldown is over, change to attack state
-            if (selectedAttack != null && controller.CheckActionCooldown())
+            if (selectedAttack != null && controller._spellController.CheckActionCooldown())
                 stateMachine.ChangeState(selectedAttack);
             else // Otherwise, change to chase state (which will just hold position until cooldown is over)
                 stateMachine.ChangeState(controller.ChaseState);

@@ -242,6 +242,34 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: attackStates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'attackStates.Array.data[0]'
+      value: 3505743856969973859
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743856969973859]'
+      value: Assembly-CSharp EntityAttackChargeState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973859].attackID
+      value: Spell_Data_Charge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973859].overshootDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973859].chargeSpeedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4059931002005490084, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Controller
       value: 

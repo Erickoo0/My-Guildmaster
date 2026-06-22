@@ -7,13 +7,14 @@ public enum MobType { Passive, Neutral, Aggressive }
 public class MobController : BaseEntityController
 {
     
+    [Header("References")]
+    [HideInInspector] public Rigidbody2D _rigidBody2D;
+    [HideInInspector] public EntitySpellController _spellController;
+    
     [Header("Movement Settings")]
     [HideInInspector] public AILerp aiLerp;
     [field: SerializeField] public float WanderRadius { get; private set; } = 5f;
     public Vector2 SpawnPosition { get; private set; }
-
-    [Header("Spell Settings")]
-    public SpellDataDatabase globalSpellDatabase;
     
     [Header("Mob Type")] 
     [field: SerializeField] public MobType mobType { get; private set; }  = MobType.Aggressive;
@@ -31,19 +32,12 @@ public class MobController : BaseEntityController
     private float alertedTime = 1f;
     private float alertedTimer;
     
-    [Header("Action Settings")] 
-    [field: SerializeField] public float ActionCooldown  { get; private set; } = 1f;
-    private float _lastActionTime;
-    
-    [Header("References")]
+    [Header("States")]
     [SerializeReference, SubclassSelector] public BaseSpawnState SpawnState;
     [SerializeReference, SubclassSelector] public BaseIdleState IdleState;
     [SerializeReference, SubclassSelector] public BaseWanderState WanderState;
     [SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
     [SerializeReference, SubclassSelector] public BaseKiteState KiteState;
-    [SerializeReference, SubclassSelector] public List<BaseAttackState> AttackStates = new List<BaseAttackState>();
-    [HideInInspector] public Rigidbody2D _rigidBody2D;
-    [HideInInspector] public FirePoint _firePoint;
     
     protected override void Awake()
     {
@@ -53,8 +47,7 @@ public class MobController : BaseEntityController
         _targetingFilter = new ContactFilter2D();
         _targetingFilter.NoFilter();
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        _firePoint = GetComponentInChildren<FirePoint>();
-
+        _spellController = GetComponent<EntitySpellController>();
         
         // Disable aiLerp movement by default (Controlled via states)
         aiLerp = GetComponent<AILerp>();
@@ -70,8 +63,6 @@ public class MobController : BaseEntityController
         WanderState?.Setup(this, StateMachine);
         ChaseState?.Setup(this, StateMachine);
         KiteState?.Setup(this, StateMachine);
-        foreach (BaseAttackState attackState in AttackStates)
-            attackState?.Setup(this, StateMachine);
         
         SpawnPosition = transform.position;
         StateMachine.SetupState(SpawnState);
@@ -82,7 +73,7 @@ public class MobController : BaseEntityController
         base.Update();
         
         // Safety Check
-        if (ChaseState == null || AttackStates == null) return;
+        if (ChaseState == null) return;
         
         // Begin target scan only after spawning
         if (StateMachine.CurrentState != SpawnState)
@@ -91,7 +82,7 @@ public class MobController : BaseEntityController
         // 2. Alert Countdown
         if (alertedTimer > 0)
             alertedTimer -= Time.deltaTime;
-        else
+        else if (_alertIcon != null)
             _alertIcon.SetActive(false);
         
     }
@@ -133,51 +124,6 @@ public class MobController : BaseEntityController
     
     public bool IsTargetInRange(float range) => 
         currentTarget != null && Vector2.Distance(transform.position, currentTarget.transform.position) <= range;
-    
-    //---- Action Methods -----
-    public bool CheckActionCooldown() => Time.time >= _lastActionTime + ActionCooldown;
-    
-    public void SetActionCooldown() => _lastActionTime = Time.time;
-
-    public BaseAttackState GetRandomAttackState()
-        {
-            if (AttackStates == null || AttackStates.Count == 0) return null;
-
-            float totalWeight = 0f;
-            List<BaseAttackState> validStates = new List<BaseAttackState>();
-
-            // 1. Gather all valid states and calculate total weight
-            foreach (BaseAttackState attackState in AttackStates)
-            {
-                if (attackState != null && attackState.SelectionWeight > 0)
-                {
-                    // Check if the attackStates requirements are met
-                    if (attackState.CheckRequirementsMet(this.gameObject))
-                    {
-                        validStates.Add(attackState);
-                        totalWeight += attackState.SelectionWeight; 
-                    }
-                }
-            }
-
-            if (validStates.Count == 0) return null;
-
-            // 2. Roll a random number
-            float randomVal = Random.Range(0f, totalWeight);
-            float currentWeight = 0f;
-
-            // 3. Find the winning state
-            foreach (var state in validStates)
-            {
-                currentWeight += state.SelectionWeight;
-                if (randomVal <= currentWeight)
-                {
-                    return state;
-                }
-            }
-
-            return null; // Fallback safety
-        }
     
     //----Debug Methods-----
     private void OnDrawGizmosSelected()

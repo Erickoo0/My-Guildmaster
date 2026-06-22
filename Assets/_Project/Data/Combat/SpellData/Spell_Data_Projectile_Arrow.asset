@@ -16,12 +16,14 @@ MonoBehaviour:
   spellName: Fire Arrow
   spellIcon: {fileID: 0}
   spellPrefab: {fileID: 0}
-  spellAnimation: 0
+  spellAnimation: 1
   baseMpCost: 0
   baseCastTime: 1
   displayCastBar: 0
   spellEffects:
   - rid: 3505743447765811310
+  spellRequirements:
+  - rid: 3505743823759474765
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
@@ -74,3 +76,8 @@ MonoBehaviour:
         knockbackForce: 10
         knockbackDuration: 0.2
         knockbackHeight: 0.1
+    - rid: 3505743823759474765
+      type: {class: RequirementTargetRange, ns: , asm: Assembly-CSharp}
+      data:
+        minimumRange: 5
+        maximumRange: 8

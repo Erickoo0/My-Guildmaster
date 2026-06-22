@@ -65,8 +65,8 @@ public class PlayerSpellCastState : BasePlayerSpellState
         // 4. Apply VFX
         if (spellData.spellPrefab != null)
         {
-            Vector3 spawnPosition = controller._firePoint != null
-                ? controller._firePoint.transform.position
+            Vector3 spawnPosition = controller.spellController.firePoint != null
+                ? controller.spellController.firePoint.transform.position
                 : casterPosition;
             
             float angle = Mathf.Atan2(castDirection.y, castDirection.x) * Mathf.Rad2Deg;

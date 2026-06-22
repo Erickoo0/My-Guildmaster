@@ -23,6 +23,8 @@ MonoBehaviour:
   spellEffects:
   - rid: 3505743470580727912
   - rid: 3505743789539721524
+  spellRequirements:
+  - rid: 3505743823759474794
   hitOncePerTarget: 1
   destroyOnMaxHits: 0
   baseMaxEnemiesHit: 0
@@ -43,3 +45,8 @@ MonoBehaviour:
       data:
         vfxPrefab: {fileID: 6289158240952251028, guid: 1e6ff3a442e4310438bb75fb972d3d60, type: 3}
         alignToHitDirection: 0
+    - rid: 3505743823759474794
+      type: {class: RequirementTargetRange, ns: , asm: Assembly-CSharp}
+      data:
+        minimumRange: 0
+        maximumRange: 2.5

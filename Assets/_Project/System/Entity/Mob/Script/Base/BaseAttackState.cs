@@ -21,8 +21,8 @@ public abstract class BaseAttackState : BaseActionState
         base.Setup(controller, stateMachine);
 
         // 1. Get the attack data
-        if (controller.globalSpellDatabase != null)
-            attackData = controller.globalSpellDatabase.GetSpell<SpellData>(attackID);
+        if (controller._spellController.globalSpellDatabase != null)
+            attackData = controller._spellController.globalSpellDatabase.GetSpell<SpellData>(attackID);
         if (attackData == null)
         {
             Debug.LogWarning($"AttackData is null for {controller.gameObject.name}");
@@ -138,7 +138,7 @@ public abstract class BaseAttackState : BaseActionState
         
         // 6. Set cooldown
         if (hasTriggered)
-            controller.SetActionCooldown();
+            controller._spellController.SetActionCooldown();
     }
     
     public override void PhysicsUpdate() { }

@@ -457,6 +457,38 @@ PrefabInstance:
       propertyPath: m_CategoryHash
       value: 9.932601e-39
       objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: attackStates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'attackStates.Array.data[0]'
+      value: 3505743856969973861
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'attackStates.Array.data[1]'
+      value: 3505743856969973862
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743856969973861]'
+      value: Assembly-CSharp EntityAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743856969973862]'
+      value: Assembly-CSharp EntityAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973861].attackID
+      value: Spell_Data_Projectile_Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973862].attackID
+      value: Spell_Data_Projectile_Fireball_Large
+      objectReference: {fileID: 0}
     - target: {fileID: 4385708376921955726, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_SpriteLibraryAsset
       value: 

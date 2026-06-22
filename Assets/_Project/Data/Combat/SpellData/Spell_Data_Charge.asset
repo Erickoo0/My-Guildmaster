@@ -22,6 +22,8 @@ MonoBehaviour:
   displayCastBar: 0
   spellEffects:
   - rid: 3505743470580727912
+  spellRequirements:
+  - rid: 3505743823759474795
   hitOncePerTarget: 1
   destroyOnMaxHits: 0
   baseMaxEnemiesHit: 0
@@ -37,3 +39,8 @@ MonoBehaviour:
         knockbackForce: 10
         knockbackDuration: 0.1
         knockbackHeight: 0.5
+    - rid: 3505743823759474795
+      type: {class: RequirementTargetRange, ns: , asm: Assembly-CSharp}
+      data:
+        minimumRange: 0
+        maximumRange: 4

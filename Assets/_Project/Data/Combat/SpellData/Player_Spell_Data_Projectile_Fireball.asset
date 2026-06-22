@@ -22,6 +22,7 @@ MonoBehaviour:
   displayCastBar: 0
   spellEffects:
   - rid: 3505743447765811278
+  spellRequirements: []
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
@@ -67,6 +68,7 @@ MonoBehaviour:
         onHitEffects:
         - rid: 3505743470580727937
         - rid: 3505743645644947564
+        - rid: 3505743823759474799
     - rid: 3505743470580727937
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -80,3 +82,19 @@ MonoBehaviour:
       data:
         vfxPrefab: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
         alignToHitDirection: 1
+    - rid: 3505743823759474799
+      type: {class: EffectSpawnExplosion, ns: , asm: Assembly-CSharp}
+      data:
+        explosionPrefab: {fileID: 2457082569599181644, guid: d62eda4c0f232044cbbef2a562fd03bf, type: 3}
+        explosionLifetime: 0.5
+        explosionScale: 1
+        explosionEffects:
+        - rid: 3505743823759474800
+    - rid: 3505743823759474800
+      type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 1
+        damageType: 0
+        knockbackForce: 10
+        knockbackDuration: 0.2
+        knockbackHeight: 0.1

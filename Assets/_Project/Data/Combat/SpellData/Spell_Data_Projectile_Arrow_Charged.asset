@@ -19,11 +19,15 @@ MonoBehaviour:
   spellAnimation: 1
   baseMpCost: 0
   baseCastTime: 2
+  displayCastBar: 1
   spellEffects:
   - rid: 3505743447765811310
+  spellRequirements:
+  - rid: 3505743823759474764
   hitOncePerTarget: 1
   destroyOnMaxHits: 1
   baseMaxEnemiesHit: 0
+  selectionWeight: 10
   references:
     version: 2
     RefIds:
@@ -72,3 +76,8 @@ MonoBehaviour:
         knockbackForce: 10
         knockbackDuration: 0.2
         knockbackHeight: 0.1
+    - rid: 3505743823759474764
+      type: {class: RequirementTargetRange, ns: , asm: Assembly-CSharp}
+      data:
+        minimumRange: 8
+        maximumRange: 12

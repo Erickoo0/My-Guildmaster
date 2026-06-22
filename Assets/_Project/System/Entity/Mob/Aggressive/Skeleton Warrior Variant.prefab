@@ -347,6 +347,42 @@ PrefabInstance:
       propertyPath: m_CategoryHash
       value: 9.932601e-39
       objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: attackStates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'attackStates.Array.data[0]'
+      value: 3505743856969973860
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743856969973860]'
+      value: Assembly-CSharp EntityAttackMeleeState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973860].attackID
+      value: Spell_Data_Melee_Swing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973860].lungeDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973860].lungeSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973860].activeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973860].lungeStoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4385708376921955726, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_SpriteLibraryAsset
       value: 

@@ -256,6 +256,38 @@ PrefabInstance:
       propertyPath: pickNextWaypointDist
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: attackStates.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'attackStates.Array.data[0]'
+      value: 3505743856969973857
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'attackStates.Array.data[1]'
+      value: 3505743856969973858
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743856969973857]'
+      value: Assembly-CSharp EntityAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743856969973858]'
+      value: Assembly-CSharp EntityAttackState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973857].attackID
+      value: Spell_Data_Projectile_Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766992231868733106, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743856969973858].attackID
+      value: Spell_Data_Projectile_Arrow_Charged
+      objectReference: {fileID: 0}
     - target: {fileID: 4059931002005490084, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Controller
       value: 

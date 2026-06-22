@@ -17,7 +17,7 @@ public class SpellBarManager : MonoBehaviour
 
     private void Start()
     {
-        if (_playerController == null || _playerController.SpellSlots == null) return;
+        if (_playerController == null || _playerController.spellController.SpellSlots == null) return;
         
         // Slot 1: Q
         UpdateSpellSlotUI(1, spellBarQIcon, spellBarQText, "Q");
@@ -35,10 +35,10 @@ public class SpellBarManager : MonoBehaviour
     private void UpdateSpellSlotUI(int slotIndex, Image slotImage, TextMeshProUGUI slotKeybindText, string keyName)
     {
         // 1. Ensure index exists within spell slots list
-        if (_playerController.SpellSlots.Count > slotIndex && _playerController.SpellSlots[slotIndex] != null)
+        if (_playerController.spellController.SpellSlots.Count > slotIndex && _playerController.spellController.SpellSlots[slotIndex] != null)
         {
             // 2. Ensure spell data exists
-            var spell = _playerController.SpellSlots[slotIndex];
+            var spell = _playerController.spellController.SpellSlots[slotIndex];
             var spellData = spell.GetSpellData();
             
             // 3. Update UI
