@@ -37,4 +37,12 @@ public class EffectHpHeal : Effect
         
         return false;
     }
+
+    public override Effect Clone()
+    {
+        return new EffectHpHeal
+        {
+            baseHpHeal = baseHpHeal
+        };
+    }
 }

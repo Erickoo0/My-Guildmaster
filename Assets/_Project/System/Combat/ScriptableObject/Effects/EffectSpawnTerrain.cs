@@ -23,4 +23,14 @@ public class EffectSpawnTerrain : Effect
         
         return false;
     }
+    
+    public override Effect Clone()
+    {
+        return new EffectSpawnTerrain
+        {
+            terrainPrefab = terrainPrefab,
+            terrainDuration = terrainDuration,
+            terrainHpMax = terrainHpMax
+        };
+    }
 }

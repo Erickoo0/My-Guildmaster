@@ -37,4 +37,15 @@ public class EffectApplyBuff : Effect
         Debug.Log("Buff prefab does not have Buff component!");
         return false;
     }
+
+    public override Effect Clone()
+    {
+        return new EffectApplyBuff
+        {
+            buffPrefab = buffPrefab,
+            buffType = buffType,
+            amount = amount,
+            duration = duration
+        };
+    }
 }

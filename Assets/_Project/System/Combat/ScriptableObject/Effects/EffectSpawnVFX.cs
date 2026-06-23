@@ -32,4 +32,13 @@ public class EffectSpawnVFX : Effect
 
         return true; // Effect successfully fired
     }
+    
+    public override Effect Clone()
+    {
+        return new EffectSpawnVFX
+        {
+            vfxPrefab = vfxPrefab,
+            alignToHitDirection = alignToHitDirection
+        };
+    }
 }

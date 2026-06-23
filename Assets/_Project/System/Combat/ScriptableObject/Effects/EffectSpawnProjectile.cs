@@ -63,5 +63,27 @@ public class EffectSpawnProjectile : Effect
 
         return false;
     }
-    
+
+    public override Effect Clone()
+    {
+        // Clone the nested On Hit Effects list
+        List<Effect> clonedOnHitEffects = new List<Effect>();
+        if (onHitEffects != null)
+            foreach (Effect effect in onHitEffects)
+                if (effect != null) clonedOnHitEffects.Add(effect.Clone());
+
+        return new EffectSpawnProjectile
+        {
+            projectilePrefab = projectilePrefab,
+            projectileScale = projectileScale,
+            projectileSpeed = projectileSpeed,
+            projectileLifetime = projectileLifetime,
+            projectileHeight = projectileHeight,
+            projectileCurve = projectileCurve != null ? new AnimationCurve(this.projectileCurve.keys) : null,
+            maxEnemiesHit = maxEnemiesHit,
+            hitOncePerTarget = hitOncePerTarget,
+            destroyOnMaxHits = destroyOnMaxHits,
+            onHitEffects = clonedOnHitEffects
+        };
+    }
 }

@@ -41,4 +41,21 @@ public class EffectSpawnExplosion : Effect
         
         return false;
     }
+
+    public override Effect Clone()
+    {
+        List<Effect> clonedExplosionEffects = new List<Effect>();
+        if (explosionEffects != null)
+            foreach (Effect effect in explosionEffects)
+                if (effect != null)
+                    clonedExplosionEffects.Add(effect.Clone());
+
+        return new EffectSpawnExplosion
+        {
+            explosionPrefab = explosionPrefab,
+            explosionLifetime = explosionLifetime,
+            explosionScale = explosionScale,
+            explosionEffects = clonedExplosionEffects
+        };
+    }
 }

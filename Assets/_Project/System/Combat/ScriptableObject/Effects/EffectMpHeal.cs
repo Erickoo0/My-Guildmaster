@@ -37,4 +37,12 @@ public class EffectMpHeal : Effect
 
         return false;
     }
+    
+    public override Effect Clone()
+    {
+        return new EffectMpHeal
+        {
+            baseMpHeal = baseMpHeal
+        };
+    }
 }

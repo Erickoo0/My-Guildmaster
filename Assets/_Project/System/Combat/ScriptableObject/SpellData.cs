@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
+/// <summary>
+/// Base Level 1 Spell Data Blueprint.
+/// </summary>
 [CreateAssetMenu(fileName = "Spell_Data_", menuName = "SpellData/BaseSpellData")]
 public class SpellData : ScriptableObject
 {
@@ -42,6 +46,37 @@ public class SpellData : ScriptableObject
         return true;
 
     }
+
+    /// <summary>
+    /// Create a fresh SpellDataInstance from this blueprint.
+    /// With copied stats and effects ready for modification.
+    /// </summary>
+    public SpellDataInstance CreateSpellDataInstance()
+    {
+        // 1. Build the base stats dictionary of the spell
+        Dictionary<SpellStat, float> baseStats = new Dictionary<SpellStat, float>
+        {
+            {SpellStat.MpCost, baseMpCost},
+            {SpellStat.CastTime, baseCastTime},
+            {SpellStat.MaxEnemiesHit, baseMaxEnemiesHit},
+            {SpellStat.HitOncePerTarget, hitOncePerTarget ? 1f : 0f},
+            {SpellStat.DestroyOnMaxHits, destroyOnMaxHits ? 1f : 0f},
+            {SpellStat.DisplayCastBar, displayCastBar ? 1f : 0f}
+        };
+        
+        // 2. Clone the effects list
+        List<Effect> clonedEffects = new List<Effect>();
+        if (spellEffects != null)
+            foreach (Effect effect in spellEffects)
+                if (effect != null)
+                    clonedEffects.Add(effect.Clone());
+        
+        // 3. Construct and return the SpellDataInstance
+        return new SpellDataInstance(this, baseStats, clonedEffects);
+            
+    }
+    
+    
     
     
     protected virtual void OnValidate()

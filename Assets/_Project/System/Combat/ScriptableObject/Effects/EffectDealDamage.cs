@@ -32,4 +32,16 @@ public class EffectDealDamage : Effect
         
         return false;
     }
+
+    public override Effect Clone()
+    {
+        return new EffectDealDamage
+        {
+            damageAmount = damageAmount,
+            damageType = damageType,
+            knockbackForce = knockbackForce,
+            knockbackDuration = knockbackDuration,
+            knockbackHeight = knockbackHeight
+        };
+    }
 }
