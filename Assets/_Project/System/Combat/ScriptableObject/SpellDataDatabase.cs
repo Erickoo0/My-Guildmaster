@@ -25,7 +25,7 @@ public class SpellDataDatabase : ScriptableObject
                 continue;
             }
 
-            // Pairs spellID to spellData, returns warning if spellID is a duplicate
+            // Pairs spellID to spellDataSource, returns warning if spellID is a duplicate
             if (!_spellDictionary.TryAdd(spell.spellID, spell))
             {
                 Debug.LogWarning($"[SpellDatabase] Duplicate Spell ID found: {spell.spellID}. IDs must be unique!");

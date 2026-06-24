@@ -39,7 +39,7 @@ public class SpellBarManager : MonoBehaviour
         {
             // 2. Ensure spell data exists
             var spell = _playerController.spellController.SpellSlots[slotIndex];
-            var spellData = spell.GetSpellData();
+            var spellData = spell.GetSpellDataSource();
             
             // 3. Update UI
             if (spellData != null && spellData.spellIcon != null)

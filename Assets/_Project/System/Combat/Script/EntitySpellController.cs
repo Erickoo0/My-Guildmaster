@@ -9,7 +9,7 @@ public class EntitySpellController : BaseSpellController
     [Header("References")]
     private MobController _mobController;
 
-    private void Start()
+    protected override void Start()
     {
         base.Start();
         // Cache references

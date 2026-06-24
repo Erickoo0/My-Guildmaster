@@ -94,7 +94,7 @@ public class EntityAttackChargeState : BaseAttackState
         
         
         // 3. Pass the data and Turn on the hitbox
-        _chargeHitbox.Setup(controller.gameObject, attackData.spellEffects, 999, true, false);
+        _chargeHitbox.Setup(controller.gameObject, attackDataInstance.Effects, 999, true, false);
         _chargeHitbox.enableHitbox = true;
         
         // 4. Tell EntityMover to take over movement and pause AILerp

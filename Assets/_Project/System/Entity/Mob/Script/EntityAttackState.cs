@@ -24,16 +24,16 @@ public class EntityAttackState : BaseAttackState
             );
         
         // 2. Execute all spell effects
-        if (attackData.spellEffects != null && attackData.spellEffects.Count > 0)
-            foreach (Effect effect in attackData.spellEffects)
+        if (attackDataInstance.Effects != null && attackDataInstance.Effects.Count > 0)
+            foreach (Effect effect in attackDataInstance.Effects)
                 effect.Execute(initialCastPayload);
         
         // 3. Apply Recoil if necessary
-        if (attackData.spellAnimation == AnimationBool.IsAttackingStrong) 
+        if (attackDataInstance.SpellAnimation == AnimationBool.IsAttackingStrong) 
             controller.EntityMover.ApplyRecoil(castDirection);
         
         // 4. Apply VFX
-        if (attackData.spellPrefab != null)
+        if (attackDataInstance.SpellPrefab != null)
         {
             Vector3 spawnPosition = controller._spellController.firePoint != null
                 ? controller._spellController.firePoint.transform.position
@@ -45,7 +45,7 @@ public class EntityAttackState : BaseAttackState
                 ? Quaternion.Euler(0, 0, 0)
                 : Quaternion.Euler(0, 180, 0);
             
-            GameObject spellVFX = Object.Instantiate(attackData.spellPrefab, spawnPosition, spawnRotation, controller.transform);
+            GameObject spellVFX = Object.Instantiate(attackDataInstance.SpellPrefab, spawnPosition, spawnRotation, controller.transform);
             Object.Destroy(spellVFX, 1f);
         }
         

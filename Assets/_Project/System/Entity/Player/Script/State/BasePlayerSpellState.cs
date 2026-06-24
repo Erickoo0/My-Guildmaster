@@ -5,10 +5,13 @@ public abstract class BasePlayerSpellState : State<PlayerController>
 {
     [Header("Spell Meta Data")]
     [SerializeField] protected string spellID;
-    protected SpellData spellData;
+    protected SpellData spellDataSource;
+    protected SpellDataInstance spellDataInstance;
     [HideInInspector] public int CurrentSlotIndex = -1;
-    public float MpCost => spellData != null ? spellData.baseMpCost : 0f;
-    public SpellData GetSpellData() => spellData;
+    
+    public float MpCost => spellDataInstance != null ? spellDataInstance.MpCost : 0f;
+    public SpellData GetSpellDataSource() => spellDataSource;
+    public SpellDataInstance GetSpellDataInstance() => spellDataInstance;
     
     [Header("Cast Bar")]
     protected CastBar castBar;
@@ -21,7 +24,11 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         base.Setup(controller, stateMachine);
         
         if (controller.spellController != null && controller.spellController.globalSpellDatabase != null)
-            spellData = controller.spellController.globalSpellDatabase.GetSpell<SpellData>(spellID);
+        {
+            spellDataSource = controller.spellController.globalSpellDatabase.GetSpell<SpellData>(spellID);
+            if (spellDataSource != null)
+                spellDataInstance = spellDataSource.CreateSpellDataInstance();
+        }
         else
             Debug.LogError("PlayerController.spellController.globalSpellDatabase is null");
         
@@ -34,9 +41,9 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         isCasting = false;
         
         // Safety check
-        if (spellData == null || CurrentSlotIndex == -1)
+        if (spellDataSource == null || CurrentSlotIndex == -1)
         {
-            Debug.LogWarning($"spellData or CurrentSlotIndex is null for {controller.gameObject.name}");
+            Debug.LogWarning($"spellInstance or CurrentSlotIndex is null for {controller.gameObject.name}");
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
@@ -44,20 +51,19 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         controller.EntityAnimator.OnAnimationEventRequested += HandleAnimationEvent;
         
         controller.EntityMover.SetMoveDirection(Vector2.zero);
-        controller.EntityAnimator.StartSpellAnimation(spellData.AnimationTag);
+        controller.EntityAnimator.StartSpellAnimation(spellDataInstance.AnimationTag);
         controller.EntityAnimator.animator.Update(0f); // Force transition
         
         // Get the exact time the event fires, rather than just clip length
         float eventTime = GetAnimationEventTime();
         
         // Cast Logic
-        if (spellData.displayCastBar)
+        if (spellDataInstance.DisplayCastBar)
         {
             isCasting = true;
+            castBar?.BeginCast(spellDataInstance.CastTime, spellDataInstance.SpellName);
             
-            castBar?.BeginCast(spellData.baseCastTime, spellData.spellName);
-            
-            float castSpeedMultiplier = eventTime / spellData.baseCastTime;
+            float castSpeedMultiplier = eventTime / spellDataInstance.CastTime;
             controller.EntityAnimator.animator.speed = castSpeedMultiplier;
         }
         else
@@ -69,7 +75,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
     public override void Update()
     {
         // Safety check
-        if (spellData == null || CurrentSlotIndex == -1) return;
+        if (spellDataInstance == null || CurrentSlotIndex == -1) return;
         
         // 1. Check if the spell keybind is still being held
         if (!hasTriggered && isCasting)
@@ -89,7 +95,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
             castBar?.StopCast();
         }
         
-        if (!controller.EntityAnimator.animator.GetBool(spellData.AnimationTag))
+        if (!controller.EntityAnimator.animator.GetBool(spellDataInstance.AnimationTag))
             stateMachine.ChangeState(controller.IdleState);
     }
 
@@ -101,7 +107,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         controller.EntityAnimator.OnAnimationEventRequested -= HandleAnimationEvent;
         
         controller.EntityAnimator.animator.speed = 1f;
-        controller.EntityAnimator.animator.SetBool(spellData.AnimationTag, false);
+        controller.EntityAnimator.animator.SetBool(spellDataInstance.AnimationTag, false);
         
         if (hasTriggered)
             controller.spellController.SetActionCooldown();

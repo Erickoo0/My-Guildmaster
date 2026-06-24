@@ -19,6 +19,6 @@ public class EffectPayload
         TargetPosition = targetPosition;
         HitDirection = hitDirection;
         HitImpactPoint = hitImpactPoint;
-        HitTargets = HitTargets;
+        HitTargets = hitTargets;
     }
 }

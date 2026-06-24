@@ -53,17 +53,17 @@ public class PlayerSpellCastState : BasePlayerSpellState
             );
         
         // 2. Execute all spell effects
-        if (spellData.spellEffects != null && spellData.spellEffects.Count > 0)
-            foreach (Effect effect in spellData.spellEffects)
+        if (spellDataInstance.Effects != null && spellDataInstance.Effects.Count > 0)
+            foreach (Effect effect in spellDataInstance.Effects)
                 effect.Execute(initialCastPayload);
         
         // 3. Apply Recoil & Screen shake if necessary
         controller.GetComponent<CinemachineImpulseSource>().GenerateImpulse();  
-        if (spellData.spellAnimation == AnimationBool.IsAttackingStrong) 
+        if (spellDataSource.spellAnimation == AnimationBool.IsAttackingStrong) 
             controller?.EntityMover.ApplyRecoil(castDirection);
         
         // 4. Apply VFX
-        if (spellData.spellPrefab != null)
+        if (spellDataInstance.SpellPrefab != null)
         {
             Vector3 spawnPosition = controller.spellController.firePoint != null
                 ? controller.spellController.firePoint.transform.position
@@ -73,13 +73,13 @@ public class PlayerSpellCastState : BasePlayerSpellState
             
             Quaternion spawnRotation = Quaternion.Euler(0f, 0f, angle);
             
-            GameObject spellVFX = Object.Instantiate(spellData.spellPrefab, spawnPosition, spawnRotation, controller.transform);
+            GameObject spellVFX = Object.Instantiate(spellDataInstance.SpellPrefab, spawnPosition, spawnRotation, controller.transform);
             Object.Destroy(spellVFX, 1f);
         }
         
         
         // 4.  Consume Mana
-        controller?.mpComponent.ConsumeMp(spellData.baseMpCost);
+        controller?.mpComponent.ConsumeMp(spellDataInstance.MpCost);
       
         hasTriggered = true;
     }

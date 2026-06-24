@@ -105,7 +105,7 @@ public class EntityAttackMeleeState : BaseAttackState
 		_meleeHitbox.transform.rotation = Quaternion.Euler(0, 0, angle);
 		
 		// 2. Pass the Data and turn on the hitbox
-		_meleeHitbox.Setup(controller.gameObject, attackData.spellEffects, 999, true, false);
+		_meleeHitbox.Setup(controller.gameObject, attackDataInstance.Effects, 999, true, false);
 		_meleeHitbox.enableHitbox = true;
 		
 		// 3. Stop the lunge

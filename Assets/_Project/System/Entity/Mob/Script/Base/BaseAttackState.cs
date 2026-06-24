@@ -5,9 +5,10 @@ public abstract class BaseAttackState : BaseActionState
 {
     [Header("Attack Meta Data")] 
     [SerializeField] protected string attackID;
-    protected SpellData attackData;
+    protected SpellData attackDataSource;
+    protected SpellDataInstance attackDataInstance;
     protected Vector2 attackDirection;
-    public float SelectionWeight => attackData != null ? attackData.selectionWeight : 0f;
+    public float SelectionWeight => attackDataSource != null ? attackDataSource.selectionWeight : 0f;
     
     [Header("Cast Bar")]
     protected CastBar castBar;
@@ -22,8 +23,13 @@ public abstract class BaseAttackState : BaseActionState
 
         // 1. Get the attack data
         if (controller._spellController.globalSpellDatabase != null)
-            attackData = controller._spellController.globalSpellDatabase.GetSpell<SpellData>(attackID);
-        if (attackData == null)
+        {
+            attackDataSource = controller._spellController.globalSpellDatabase.GetSpell<SpellData>(attackID);
+            if (attackDataSource != null)
+                attackDataInstance = attackDataSource.CreateSpellDataInstance();
+        }
+        
+        if (attackDataSource == null)
         {
             Debug.LogWarning($"AttackData is null for {controller.gameObject.name}");
             stateMachine.ChangeState(controller.IdleState);
@@ -62,20 +68,20 @@ public abstract class BaseAttackState : BaseActionState
         controller.EntityAnimator.FaceDirection(attackDirection);
         
         // 4. Start the animation
-        controller.EntityAnimator.StartSpellAnimation(attackData.AnimationTag);
+        controller.EntityAnimator.StartSpellAnimation(attackDataInstance.AnimationTag);
         controller.EntityAnimator.animator.Update(0f); // Force transition
         
         // 5. Use the helper method to cleanly grab the timing
         float eventTime = GetAnimationEventTime();
         
         // 6. Casting logic
-        if (attackData.displayCastBar)
+        if (attackDataInstance.DisplayCastBar)
         {
             isCasting = true;
             
-            castBar?.BeginCast(attackData.baseCastTime, attackID);
+            castBar?.BeginCast(attackDataInstance.CastTime, attackID);
             
-            float castSpeedMultiplier = eventTime / attackData.baseCastTime;
+            float castSpeedMultiplier = eventTime / attackDataInstance.CastTime;
             controller.EntityAnimator.animator.speed = castSpeedMultiplier;
         }
         else
@@ -94,7 +100,7 @@ public abstract class BaseAttackState : BaseActionState
         }
         
         // 2. Transition to Idle as soon as animation gets set to false via animationEnd event
-        if (!controller.EntityAnimator.animator.GetBool(attackData.AnimationTag))
+        if (!controller.EntityAnimator.animator.GetBool(attackDataInstance.AnimationTag))
             stateMachine.ChangeState(controller.IdleState);
         
         // 3. Change to Chase State if knocked back
@@ -122,7 +128,7 @@ public abstract class BaseAttackState : BaseActionState
         
         // 3. Reset animation
         controller.EntityAnimator.animator.speed = 1f;
-        controller.EntityAnimator.animator.SetBool(attackData.AnimationTag, false);
+        controller.EntityAnimator.animator.SetBool(attackDataInstance.AnimationTag, false);
         controller.EntityAnimator.RequestAnimationCancel();
         controller.EntityAnimator.animator.Update(0f);
         
@@ -180,5 +186,5 @@ public abstract class BaseAttackState : BaseActionState
         return true;
     }
 
-    public bool CheckRequirementsMet(GameObject context) => attackData.CheckRequirementsMet(context);
+    public bool CheckRequirementsMet(GameObject context) => attackDataInstance != null && attackDataInstance.CheckRequirementsMet(context);
 }

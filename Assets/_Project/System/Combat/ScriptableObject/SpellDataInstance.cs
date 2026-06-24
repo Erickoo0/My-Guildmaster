@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class SpellDataInstance
 {
     [Header("References")]
-    public SpellData SourceSpellData { get; private set; }
+    public SpellData SpellDataSource { get; private set; }
 
     [Header("SpellData Stats")]
     ///<summary> Dictionary of all stats that can be modified at runtime. </summary>
@@ -24,21 +24,21 @@ public class SpellDataInstance
     public bool DisplayCastBar => GetStat(SpellStat.DisplayCastBar) > 0.5f;
     
     //Pass through to immutable source data
-    public string SpellID => SourceSpellData.spellID;
-    public string SpellName => SourceSpellData.spellName;
-    public Sprite SpellIcon => SourceSpellData.spellIcon;
-    public GameObject SpellPrefab => SourceSpellData.spellPrefab;
-    public int AnimationTag => SourceSpellData.AnimationTag;
-    public AnimationBool SpellAnimation => SourceSpellData.spellAnimation;
-    public List<Requirement> SpellRequirements => SourceSpellData.spellRequirements;
-    public float SelectionWeight => SourceSpellData.selectionWeight;
+    public string SpellID => SpellDataSource.spellID;
+    public string SpellName => SpellDataSource.spellName;
+    public Sprite SpellIcon => SpellDataSource.spellIcon;
+    public GameObject SpellPrefab => SpellDataSource.spellPrefab;
+    public int AnimationTag => SpellDataSource.AnimationTag;
+    public AnimationBool SpellAnimation => SpellDataSource.spellAnimation;
+    public List<Requirement> SpellRequirements => SpellDataSource.spellRequirements;
+    public float SelectionWeight => SpellDataSource.selectionWeight;
     
-    public bool CheckRequirementsMet(GameObject context) => SourceSpellData.CheckRequirementsMet(context);
+    public bool CheckRequirementsMet(GameObject context) => SpellDataSource.CheckRequirementsMet(context);
     
     // Constructor
-    public SpellDataInstance(SpellData sourceSpellData, Dictionary<SpellStat, float> baseStats, List<Effect> clonedEffects)
+    public SpellDataInstance(SpellData spellDataSource, Dictionary<SpellStat, float> baseStats, List<Effect> clonedEffects)
     {
-        SourceSpellData = sourceSpellData;
+        SpellDataSource = spellDataSource;
         _stats = baseStats;
         Effects = clonedEffects; 
     }
