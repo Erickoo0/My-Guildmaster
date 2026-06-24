@@ -138,7 +138,8 @@ public class ItemObject : MonoBehaviour
             }
         } catch (Exception e)
         {
-            throw; // TODO handle exception
+            Debug.LogError($"Failed to pick up item: {e.Message}");
+            throw;
         }
     }
 }

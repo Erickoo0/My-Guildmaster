@@ -44,8 +44,7 @@ public class MobController : BaseEntityController
         base.Awake();
         
         
-        _targetingFilter = new ContactFilter2D();
-        _targetingFilter.NoFilter();
+        _targetingFilter = ContactFilter2D.noFilter;
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _spellController = GetComponent<EntitySpellController>();
         

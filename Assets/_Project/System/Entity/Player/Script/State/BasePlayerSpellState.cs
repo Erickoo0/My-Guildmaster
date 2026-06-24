@@ -19,6 +19,9 @@ public abstract class BasePlayerSpellState : State<PlayerController>
     
     protected bool hasTriggered = false;
 
+    [Header("Spell Modification Testing")]
+    [SerializeField] private ModifierSpellCollection debugModifierCollection;
+
     public override void Setup(PlayerController controller, StateMachine stateMachine)
     {
         base.Setup(controller, stateMachine);
@@ -27,7 +30,13 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         {
             spellDataSource = controller.spellController.globalSpellDatabase.GetSpell<SpellData>(spellID);
             if (spellDataSource != null)
+            {
                 spellDataInstance = spellDataSource.CreateSpellDataInstance();
+                
+                // Testing
+                if (debugModifierCollection != null)
+                    debugModifierCollection.ApplyAllModifiers(spellDataInstance);
+            }
         }
         else
             Debug.LogError("PlayerController.spellController.globalSpellDatabase is null");
@@ -58,17 +67,12 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         float eventTime = GetAnimationEventTime();
         
         // Cast Logic
+        float castSpeedMultiplier = eventTime / spellDataInstance.CastTime;
+        controller.EntityAnimator.animator.speed = castSpeedMultiplier;
         if (spellDataInstance.DisplayCastBar)
         {
             isCasting = true;
             castBar?.BeginCast(spellDataInstance.CastTime, spellDataInstance.SpellName);
-            
-            float castSpeedMultiplier = eventTime / spellDataInstance.CastTime;
-            controller.EntityAnimator.animator.speed = castSpeedMultiplier;
-        }
-        else
-        {
-            controller.EntityAnimator.animator.speed = 1f;
         }
     }
 
