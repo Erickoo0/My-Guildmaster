@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8c15aa35d0a5e438ade31b2ec0b233, type: 3}
   m_Name: Spell_ModifierCollection_
   m_EditorClassIdentifier: Assembly-CSharp::ModifierSpellCollection
-  modifiers: []
+  modifiers:
+  - {fileID: 11400000, guid: cea2f9894d0bc4f49a2c996859cbb0f3, type: 2}
+  - {fileID: 11400000, guid: 226b8860eedb3f14d939d80efdb9e020, type: 2}
+  - {fileID: 11400000, guid: d650f025b62251c4389043d59b121542, type: 2}

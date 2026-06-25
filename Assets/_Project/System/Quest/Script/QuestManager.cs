@@ -186,8 +186,8 @@ public class QuestManager : MonoBehaviour, ISaveable
     //----Save Methods----
     public void PopulateSaveData(SaveData saveData)
     {
-        // Reset the savedQuests list
-        saveData.savedQuests.Clear();
+        // Reset the _questsSaved list
+        saveData._questsSaved.Clear();
 
         // Loop through all active quests
         foreach (QuestActive questActive in _activeQuestDictionary.Values)
@@ -204,26 +204,26 @@ public class QuestManager : MonoBehaviour, ISaveable
             };
             
             // Add the SavedQuest to the list
-            saveData.savedQuests.Add(savedQuest);
+            saveData._questsSaved.Add(savedQuest);
         }
         
         // Add the completed quest list to the save data
-        saveData.completedQuests = _completedQuestHashSet.ToList();
+        saveData._questsCompleted = _completedQuestHashSet.ToList();
     }
 
     public void LoadFromSaveData(SaveData saveData)
     {
-        // Reset the savedQuests list just incase
+        // Reset the _questsSaved list just incase
         _activeQuestDictionary.Clear();
         _completedQuestHashSet.Clear();
 
         // Load completed quest
-        if (saveData.completedQuests != null)
-            foreach (string completedQuestID in saveData.completedQuests)
+        if (saveData._questsCompleted != null)
+            foreach (string completedQuestID in saveData._questsCompleted)
                 _completedQuestHashSet.Add(completedQuestID);
         
         // Load active quests
-        foreach (SavedQuest savedQuest in saveData.savedQuests)
+        foreach (SavedQuest savedQuest in saveData._questsSaved)
         {
             QuestSo questData = questDatabase.GetQuestByID(savedQuest.questID);
             if (questData != null)

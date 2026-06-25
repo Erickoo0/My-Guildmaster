@@ -172,7 +172,7 @@ public class DialogueManager : MonoBehaviour
                 if (optionEvent != null) 
                     optionEvent.Execute();
         
-        // 2. Advance to the next node through its nodeID
+        // 2. Advance to the next node through its _skillNodeID
         if (!string.IsNullOrEmpty(selectedOption.targetNodeID)) 
         {
             DialogueNode nextNode = _currentDialogueGroup.GetNodeByID(selectedOption.targetNodeID);

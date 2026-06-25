@@ -179,7 +179,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
         }
         
         // Send the SavedSLots list to SaveData
-        saveData.savedSlotList = savedSlots;
+        saveData._slotListSaved = savedSlots;
     }
     
     public void LoadFromSaveData(SaveData saveData)
@@ -188,7 +188,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
         InitializeInventory(); 
 
         // Rebuild instances from the data inside the "box"
-        foreach (SavedSlot savedSlot in saveData.savedSlotList)
+        foreach (SavedSlot savedSlot in saveData._slotListSaved)
         {
             // Safety check: ensure index is within bounds
             if (savedSlot.index < 0 || savedSlot.index >= itemsList.Length) continue;

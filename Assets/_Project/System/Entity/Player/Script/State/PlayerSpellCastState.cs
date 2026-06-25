@@ -59,7 +59,7 @@ public class PlayerSpellCastState : BasePlayerSpellState
         
         // 3. Apply Recoil & Screen shake if necessary
         controller.GetComponent<CinemachineImpulseSource>().GenerateImpulse();  
-        if (spellDataSource.spellAnimation == AnimationBool.IsAttackingStrong) 
+        if (spellDataInstance.SpellAnimation == AnimationBool.IsAttackingStrong) 
             controller?.EntityMover.ApplyRecoil(castDirection);
         
         // 4. Apply VFX

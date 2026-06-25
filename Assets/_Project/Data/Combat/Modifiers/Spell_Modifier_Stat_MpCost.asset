@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Spell_Modifier_Stat_MpCost
   m_EditorClassIdentifier: Assembly-CSharp::ModifierSpellStat
   modifierID: Spell_Modifier_Stat_
-  modifierName: 
+  modifierName: Mp Cost Modifier
   modifierDescription: 
   spellStat: 0
-  operation: 0
-  value: 0
+  operation: 1
+  value: 10

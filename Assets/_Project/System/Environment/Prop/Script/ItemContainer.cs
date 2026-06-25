@@ -125,17 +125,17 @@ public class ItemContainer : MonoBehaviour, IInteractable, ISaveable
     {
         if (IsOpened)
         {
-            // Check if the openedChests save data already contains this chest id
-            if (!saveData.openedChests.Contains(GetID()))
+            // Check if the _chestsOpened save data already contains this chest id
+            if (!saveData._chestsOpened.Contains(GetID()))
             {
-                saveData.openedChests.Add(GetID());
+                saveData._chestsOpened.Add(GetID());
             }
         }
     }
 
     public void LoadFromSaveData(SaveData saveData)
     {
-        if (saveData.openedChests.Contains(GetID()))
+        if (saveData._chestsOpened.Contains(GetID()))
         {
             IsOpened = true;
             UpdateVisuals();

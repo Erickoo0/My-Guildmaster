@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Spell_Modifier_Stat_CastTime
   m_EditorClassIdentifier: Assembly-CSharp::ModifierSpellStat
   modifierID: Spell_Modifier_Stat_Damage
-  modifierName: 
+  modifierName: Cast Time Modifier
   modifierDescription: 
   spellStat: 1
-  operation: 0
-  value: 0
+  operation: 2
+  value: 0.1

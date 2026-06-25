@@ -18,21 +18,21 @@ public class PlayerStatsPersistance : MonoBehaviour, ISaveable
 
     public void PopulateSaveData(SaveData saveData)
     {
-        saveData.playerPosition = transform.position;
-        saveData.currentHealth = _healthComponent.HpCurrent;
-        saveData.maxHealth = _healthComponent.HpMax;
-        saveData.currentMana = _manaComponent.MpCurrent;
-        saveData.maxMana = _manaComponent.mpMax;
-        saveData.currentLevel = _levelComponent.LvlCurrent;
-        saveData.currentExperience = _levelComponent.ExpCurrent;
+        saveData._playerPosition = transform.position;
+        saveData._hpCurrent = _healthComponent.HpCurrent;
+        saveData._hpMax = _healthComponent.HpMax;
+        saveData._mpCurrent = _manaComponent.MpCurrent;
+        saveData._mpMax = _manaComponent.mpMax;
+        saveData._lvlCurrent = _levelComponent.LvlCurrent;
+        saveData._expCurrent = _levelComponent.ExpCurrent;
     }
     
     public void LoadFromSaveData(SaveData saveData)
     {
-        _player.transform.position = saveData.playerPosition;
-        _healthComponent.HpCurrent = saveData.currentHealth;
-        _manaComponent.MpCurrent = saveData.currentMana;
-        _levelComponent.LvlCurrent = saveData.currentLevel;
-        _levelComponent.ExpCurrent = saveData.currentExperience;
+        _player.transform.position = saveData._playerPosition;
+        _healthComponent.HpCurrent = saveData._hpCurrent;
+        _manaComponent.MpCurrent = saveData._mpCurrent;
+        _levelComponent.LvlCurrent = saveData._lvlCurrent;
+        _levelComponent.ExpCurrent = saveData._expCurrent;
     }
 }

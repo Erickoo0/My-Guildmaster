@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df70f10c72984b4abc688660353d01f, type: 3}
   m_Name: Spell_Modifier_Behavior_SpawnProjectile
   m_EditorClassIdentifier: Assembly-CSharp::ModifierSpellBehavior
-  modifierID: 
-  modifierName: 
+  modifierID: Spell_Modifier_Behavior_SpawnProjectile
+  modifierName: Spawn Projectile Modifier
   modifierDescription: 
   operation: 0
-  effects: []
+  effects:
+  - rid: 3505743894818586704
   insertIndex: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743894818586704
+      type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
+      data:
+        baseHpHeal: 30
