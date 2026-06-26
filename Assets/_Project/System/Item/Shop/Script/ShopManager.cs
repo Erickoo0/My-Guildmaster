@@ -25,7 +25,7 @@ public class ShopManager : MonoBehaviour
     
     public void SetupShop(object data)
     {
-        // Cast the object back to an array damageType
+        // Cast the object back to an array Type
         ItemDataSo[] shopList = data as ItemDataSo[];
         
         // Safety Check

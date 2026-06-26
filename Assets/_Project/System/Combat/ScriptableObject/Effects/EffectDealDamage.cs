@@ -3,11 +3,11 @@ using UnityEngine;
 [System.Serializable]
 public class EffectDealDamage : Effect
 {
-    public float damageAmount;
-    public DamageType damageType;
-    public float knockbackForce = 10f;
-    public float knockbackDuration = 0.2f;
-    public float knockbackHeight = 0.1f;
+    public float Amount;
+    public DamageType Type;
+    public float KnockbackForce = 10f;
+    public float KnockbackDuration = 0.2f;
+    public float KnockbackHeight = 0.1f;
 
     public override bool Execute(EffectPayload effectPayload)
     {
@@ -16,13 +16,13 @@ public class EffectDealDamage : Effect
         if (effectPayload.Target.TryGetComponent(out IDamagable target))
         {
             DamageData data = new DamageData(
-                damageAmount,
+                Amount,
                 effectPayload.HitDirection,   // Passed from Hitbox physics
                 effectPayload.HitImpactPoint, // Passed from Hitbox physics
-                knockbackForce,
-                knockbackDuration,
-                knockbackHeight,
-                damageType,
+                KnockbackForce,
+                KnockbackDuration,
+                KnockbackHeight,
+                Type,
                 effectPayload.User
                 ); 
             
@@ -37,11 +37,11 @@ public class EffectDealDamage : Effect
     {
         return new EffectDealDamage
         {
-            damageAmount = damageAmount,
-            damageType = damageType,
-            knockbackForce = knockbackForce,
-            knockbackDuration = knockbackDuration,
-            knockbackHeight = knockbackHeight
+            Amount = Amount,
+            Type = Type,
+            KnockbackForce = KnockbackForce,
+            KnockbackDuration = KnockbackDuration,
+            KnockbackHeight = KnockbackHeight
         };
     }
 }

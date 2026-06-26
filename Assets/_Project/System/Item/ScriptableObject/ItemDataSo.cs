@@ -29,7 +29,7 @@ public class ItemDataSo : ScriptableObject
     [field: SerializeField] public bool IsStackable { get; private set; } = true;
     [field: SerializeField] public int MaxStackSize { get; private set; } = 99;
 
-    [field: Header("Usage & Effects")] 
+    [field: Header("Usage & EffectsList")] 
     [field: SerializeField] public bool IsUsable { get; private set; }
     [SerializeReference, SubclassSelector] public List<Effect> effects = new List<Effect>();
 

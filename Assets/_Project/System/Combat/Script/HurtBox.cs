@@ -6,10 +6,10 @@ public class HurtBox : MonoBehaviour, IDamagable
 {
     [Header("References)")]
     [Tooltip("If null, will look for a Health component on the same GameObject")]
-    [SerializeField] private Health health;
+    [SerializeField] private Health _health;
     
     [Header("Invulnerability")]
-    [SerializeField] private float invulnerabilityDuration = 0.5f;
+    [SerializeField] private float _invulnerabilityDuration = 0.5f;
     private float _invulnerabilityTimer;
 
     [Header("FX")] 
@@ -17,7 +17,7 @@ public class HurtBox : MonoBehaviour, IDamagable
 
     private void Awake()
     {
-        if (health == null) health = GetComponent<Health>();
+        if (_health == null) _health = GetComponent<Health>();
         _flashShader = GetComponentInChildren<FlashShader>();
     }
 
@@ -36,18 +36,18 @@ public class HurtBox : MonoBehaviour, IDamagable
         }
     }
 
-    public void TakeDamage(DamageData data)
+    public void TakeDamage(DamageData damageData)
     {
         // Ignore hits if we are already invulnerable
         if (_invulnerabilityTimer > 0) return;
         
-        health.HpCurrent -= data.damageAmount;
-        _invulnerabilityTimer = invulnerabilityDuration;
+        _health.HpCurrent -= damageData.Amount;
+        _invulnerabilityTimer = _invulnerabilityDuration;
         
         // Handle knockback and impulse...
         if (TryGetComponent<EntityMover>(out EntityMover entityMover))
         {
-            entityMover.ApplyKnockback(data.hitDirection, data.knockbackForce, data.knockbackDuration, data.knockbackHeight, data.source);
+            entityMover.ApplyKnockback(damageData.Direction, damageData.KnockbackForce, damageData.KnockbackDuration, damageData.KnockbackHeight, damageData.Source);
             GetComponent<CinemachineImpulseSource>().GenerateImpulse();  
         }
         

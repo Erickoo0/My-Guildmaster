@@ -4,20 +4,20 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "Spell_ModifierCollection_", menuName = "Spell Modifiers/Modifier Collection")]
 public class ModifierSpellCollection : ScriptableObject
 {
-	[SerializeField] private List<ModifierBaseSpell> modifiers = new List<ModifierBaseSpell>();
+	[SerializeField] private List<ModifierSkillBase> modifiers = new List<ModifierSkillBase>();
 	
-	public IReadOnlyList<ModifierBaseSpell> Modifiers => modifiers;
+	public IReadOnlyList<ModifierSkillBase> Modifiers => modifiers;
 
-	public void ApplyAllModifiers(SpellDataInstance spellDataInstance)
+	public void ApplyAllModifiers(SkillDataInstance skillDataInstance)
 	{
-		if (spellDataInstance == null)
+		if (skillDataInstance == null)
 		{
 			Debug.LogWarning($"{name}: Cannot apply modifiers because spellInstance is null.");
 			return;
 		}
 		
-		foreach (ModifierBaseSpell modifier in modifiers)
+		foreach (ModifierSkillBase modifier in modifiers)
 			if (modifier != null)
-				modifier.ApplyModifier(spellDataInstance);
+				modifier.ApplyModifier(skillDataInstance);
 	}
 }

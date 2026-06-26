@@ -2,22 +2,24 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-public class PlayerSpellController : BaseSpellController
+public class SpellControllerPlayer : SpellControllerBase
 {
-    [Header("Player Spell Loadout")]
+    [Header("SpellControllerPlayer Spell Loadout")]
     [Tooltip("Slot 0: M1, Slot 1: Q, Slot 2: E, Slot 3: R, Slot 4: F")]
-    [SerializeReference, SubclassSelector] public List<BasePlayerSpellState> SpellSlots = new List<BasePlayerSpellState>(5);
-    private bool[] _spellKeyHeld = new bool[5];
+    [SerializeReference, SubclassSelector] private List<BasePlayerSpellState> _spellSlots = new List<BasePlayerSpellState>(5);
+    private readonly bool[] _spellKeyHeld = new bool[5];
     
     [Header("References")]
     private PlayerController _playerController;
+    
+    public IReadOnlyList<BasePlayerSpellState> SpellSlots => _spellSlots;
 
     protected override void Start()
     {
         base.Start();
         _playerController = GetComponent<PlayerController>();
         
-        // Setup spell states
+        // Setup skill states
         foreach (BasePlayerSpellState spellState in SpellSlots)
             spellState?.Setup(_playerController, _playerController.StateMachine);
     }

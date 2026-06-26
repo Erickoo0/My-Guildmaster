@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
             FaceTargetDirection(_linearDirection);
             
             // Enable hitbox immediately
-            if (_hitBox != null) _hitBox.enableHitbox = true;
+            if (_hitBox != null) _hitBox.EnableHitBox = true;
         } 
         else if (projectileMaxHeight > 0f)
         {
@@ -67,9 +67,9 @@ public class Projectile : MonoBehaviour
             _currentDuration = 0f;
             
             // Disable hitbox during movement
-            if (_hitBox != null) _hitBox.enableHitbox = false;
+            if (_hitBox != null) _hitBox.EnableHitBox = false;
             
-            // calculate duration
+            // calculate Duration
             float distance = Vector3.Distance(_projectileStartPosition, _projectileTargetPosition);
             _totalDuration = distance > 0 ? (distance / projectileSpeed) : 0f;
             
@@ -132,7 +132,7 @@ public class Projectile : MonoBehaviour
         if (_movementType == MovementType.Curved)
         {
             // 1. Activate the hitbox
-            if (_hitBox != null) _hitBox.enableHitbox = true;
+            if (_hitBox != null) _hitBox.EnableHitBox = true;
             
             // 2. Hide the visual immediately
             if (_projectileVisual != null) _projectileVisual.gameObject.SetActive(false);

@@ -12,15 +12,15 @@ public class SkillTreeLedgerTester : MonoBehaviour
 
 	private void Start()
 	{
-		if (skillTree == null || skillTree.SpellData == null)
+		if (skillTree == null || skillTree.SkillData == null)
 		{
-			Debug.LogWarning($"{name}: Skill tree or bound SpellData is missing.");
+			Debug.LogWarning($"{name}: Skill tree or bound SkillData is missing.");
 			return;
 		}
 
-		ledger = new SkillTreeLedger(skillTree.SpellData.spellID);
+		ledger = new SkillTreeLedger(skillTree.SkillData.ID);
 
-		Debug.Log($"Created ledger for spell: {ledger.SpellDataID}");
+		Debug.Log($"Created ledger for skill: {ledger.SpellDataID}");
 	}
 
 	[ContextMenu("Try Allocate Test Node")]

@@ -7,7 +7,7 @@ public abstract class Effect
     
     /// <summary>
     /// Clone the effects so that modifiers can mutate or extend the effects
-    /// within the SpellDataInstance without affecting the original
+    /// within the SkillDataInstance without affecting the original
     /// </summary>
     public abstract Effect Clone();
 }

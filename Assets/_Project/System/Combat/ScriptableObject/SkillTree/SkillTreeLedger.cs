@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// Runtime/Save-state allocation ledger for one specific skill tree.
-/// Stores which spell it belongs to,
+/// Stores which skill it belongs to,
 /// which SkillNodes have been allocated skill points, and how many points.
 /// </summary>
 [System.Serializable]

@@ -30,7 +30,7 @@ public class EntityAttackChargeState : BaseAttackState
             stateMachine.ChangeState(controller.IdleState);
             return;
         }
-        _chargeHitbox.enableHitbox = false;
+        _chargeHitbox.EnableHitBox = false;
         
         _entityCollider = controller.GetComponent<Collider2D>();
         _spriteRenderer = controller.gameObject.GetComponentInChildren<SpriteRenderer>(true);
@@ -90,12 +90,12 @@ public class EntityAttackChargeState : BaseAttackState
         
         // 2. Ignore collisions with victims during dash to avoid getting stuck
         _originalExcludeLayers = _entityCollider.excludeLayers;
-        _entityCollider.excludeLayers |= _chargeHitbox.victimLayer;
+        _entityCollider.excludeLayers |= _chargeHitbox.VictimLayer;
         
         
         // 3. Pass the data and Turn on the hitbox
-        _chargeHitbox.Setup(controller.gameObject, attackDataInstance.Effects, 999, true, false);
-        _chargeHitbox.enableHitbox = true;
+        _chargeHitbox.Setup(controller.gameObject, attackDataInstance.EffectsList, 999, true, false);
+        _chargeHitbox.EnableHitBox = true;
         
         // 4. Tell EntityMover to take over movement and pause AILerp
         controller.EntityMover.StartCharge(chargeDirection, chargeSpeed);
@@ -111,7 +111,7 @@ public class EntityAttackChargeState : BaseAttackState
         _isCharging = false;
 
         controller.EntityMover.StopCharge();
-        _chargeHitbox.enableHitbox = false;
+        _chargeHitbox.EnableHitBox = false;
         _entityCollider.excludeLayers = _originalExcludeLayers;
         
         base.Exit();

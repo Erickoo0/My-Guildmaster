@@ -9,7 +9,7 @@ public class MobController : BaseEntityController
     
     [Header("References")]
     [HideInInspector] public Rigidbody2D _rigidBody2D;
-    [HideInInspector] public EntitySpellController _spellController;
+    [HideInInspector] public SpellControllerEntity _spellController;
     
     [Header("Movement Settings")]
     [HideInInspector] public AILerp aiLerp;
@@ -46,7 +46,7 @@ public class MobController : BaseEntityController
         
         _targetingFilter = ContactFilter2D.noFilter;
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        _spellController = GetComponent<EntitySpellController>();
+        _spellController = GetComponent<SpellControllerEntity>();
         
         // Disable aiLerp movement by default (Controlled via states)
         aiLerp = GetComponent<AILerp>();

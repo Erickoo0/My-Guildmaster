@@ -1,16 +1,16 @@
 using UnityEngine;
 
 /// <summary>
-/// Runtime owner and save bridge for PlayerSkillTreeLedger.
-/// This MonoBehavior exists solely to bridge the gap between the Player's SkillTreeLedger and the SaveManager.'
+/// Runtime owner and save bridge for SkillTreeLedgerContainer.
+/// This MonoBehavior exists solely to bridge the gap between the SpellControllerPlayer's SkillTreeLedger and the SaveManager.'
 /// </summary>
 public class SkillTreeLedgerManager : MonoBehaviour, ISaveable
 {
     public static SkillTreeLedgerManager Instance { get; private set; }
     
-    [SerializeField] private PlayerSkillTreeLedger _playerSkillTreeLedger = new PlayerSkillTreeLedger();
+    [SerializeField] private SkillTreeLedgerContainer _skillTreeLedgerContainer = new SkillTreeLedgerContainer();
     
-    public PlayerSkillTreeLedger PlayerSkillTreeLedger => _playerSkillTreeLedger;
+    public SkillTreeLedgerContainer SkillTreeLedgerContainer => _skillTreeLedgerContainer;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class SkillTreeLedgerManager : MonoBehaviour, ISaveable
         Instance = this;
     }
 
-    public void PopulateSaveData(SaveData saveData) => saveData._playerSkillTreeLedger = _playerSkillTreeLedger;
+    public void PopulateSaveData(SaveData saveData) => saveData.SkillTreeLedgerContainer = _skillTreeLedgerContainer;
 
-    public void LoadFromSaveData(SaveData saveData) => _playerSkillTreeLedger = saveData._playerSkillTreeLedger ?? new PlayerSkillTreeLedger();
+    public void LoadFromSaveData(SaveData saveData) => _skillTreeLedgerContainer = saveData.SkillTreeLedgerContainer ?? new SkillTreeLedgerContainer();
 }

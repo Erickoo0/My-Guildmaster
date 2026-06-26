@@ -5,25 +5,25 @@ public enum DamageType { Physical, Fire, Water, Earth, Lightning, Holy, Shadow }
 [System.Serializable]
 public struct DamageData
 {
-	public float damageAmount;
-	public Vector2 hitDirection;
-	public Vector2 hitImpactPoint;
-	public float knockbackForce;
-	public float knockbackDuration;
-	public float knockbackHeight;
-	public DamageType damageType;
-	public GameObject source;
+	public float Amount;
+	public Vector2 Direction;
+	public Vector2 ImpactPoint;
+	public float KnockbackForce;
+	public float KnockbackDuration;
+	public float KnockbackHeight;
+	public DamageType Type;
+	public GameObject Source;
     
 	public DamageData(float amount, Vector2 direction, Vector2 impactPoint, float force, 
-		float duration, float height, DamageType dmgType, GameObject from)
+		float duration, float height, DamageType type, GameObject source)
 	{
-		damageAmount = amount;
-		hitDirection = direction;
-		hitImpactPoint = impactPoint;
-		knockbackForce = force;
-		knockbackDuration = duration;
-		knockbackHeight = height;
-		damageType = dmgType;
-		source = from;
+		Amount = amount;
+		Direction = direction;
+		ImpactPoint = impactPoint;
+		KnockbackForce = force;
+		KnockbackDuration = duration;
+		KnockbackHeight = height;
+		Type = type;
+		Source = source;
 	}
 }

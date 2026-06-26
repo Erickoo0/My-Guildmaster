@@ -16,7 +16,7 @@ public class FloatingText : MonoBehaviour
     {
         _pool = pool;
         
-        //Check if amount is positive or negative
+        //Check if Amount is positive or negative
         if (amount >= 0)
         {
             text = "+" + amount;

@@ -5,10 +5,10 @@ public abstract class BaseAttackState : BaseActionState
 {
     [Header("Attack Meta Data")] 
     [SerializeField] protected string attackID;
-    protected SpellData attackDataSource;
-    protected SpellDataInstance attackDataInstance;
+    protected SkillData attackDataSource;
+    protected SkillDataInstance attackDataInstance;
     protected Vector2 attackDirection;
-    public float SelectionWeight => attackDataSource != null ? attackDataSource.selectionWeight : 0f;
+    public float SelectionWeight => attackDataSource != null ? attackDataSource.SelectionWeight : 0f;
     
     [Header("Cast Bar")]
     protected CastBar castBar;
@@ -22,9 +22,9 @@ public abstract class BaseAttackState : BaseActionState
         base.Setup(controller, stateMachine);
 
         // 1. Get the attack data
-        if (controller._spellController.globalSpellDatabase != null)
+        if (controller._spellController.GlobalSkillDatabase != null)
         {
-            attackDataSource = controller._spellController.globalSpellDatabase.GetSpell<SpellData>(attackID);
+            attackDataSource = controller._spellController.GlobalSkillDatabase.GetSkillDataByID<SkillData>(attackID);
             if (attackDataSource != null)
                 attackDataInstance = attackDataSource.CreateSpellDataInstance();
         }
@@ -186,5 +186,5 @@ public abstract class BaseAttackState : BaseActionState
         return true;
     }
 
-    public bool CheckRequirementsMet(GameObject context) => attackDataInstance != null && attackDataInstance.CheckRequirementsMet(context);
+    public bool CheckRequirementsMet(GameObject context) => attackDataInstance != null && attackDataInstance.AreRequirementsMet(context);
 }

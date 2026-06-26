@@ -103,7 +103,7 @@ public class EntityWanderState : BaseWanderState
             
             if (_stuckTimer > _stuckTimerMax)
             {
-                Debug.Log("Entity stuck! Resetting path.");
+                Debug.Log("SpellControllerEntity stuck! Resetting path.");
                 _stuckTimer = 0;
                 SetNewDestination();
             }

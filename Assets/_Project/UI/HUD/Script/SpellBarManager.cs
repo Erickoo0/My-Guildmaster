@@ -34,26 +34,26 @@ public class SpellBarManager : MonoBehaviour
 
     private void UpdateSpellSlotUI(int slotIndex, Image slotImage, TextMeshProUGUI slotKeybindText, string keyName)
     {
-        // 1. Ensure index exists within spell slots list
+        // 1. Ensure index exists within skill slots list
         if (_playerController.spellController.SpellSlots.Count > slotIndex && _playerController.spellController.SpellSlots[slotIndex] != null)
         {
-            // 2. Ensure spell data exists
+            // 2. Ensure skill data exists
             var spell = _playerController.spellController.SpellSlots[slotIndex];
             var spellData = spell.GetSpellDataSource();
             
             // 3. Update UI
-            if (spellData != null && spellData.spellIcon != null)
+            if (spellData != null && spellData.Icon != null)
             {
-                slotImage.sprite = spellData.spellIcon;
+                slotImage.sprite = spellData.Icon;
                 slotKeybindText.text = keyName;
                 slotImage.enabled = true;
             } 
-            else // Turn off the slot if there's no spell data'
+            else // Turn off the slot if there's no skill data'
             {
                 slotImage.enabled = false;
                 slotKeybindText.text = "";
             }
-        } else // Turn off the slot if there's no spell data'
+        } else // Turn off the slot if there's no skill data'
         {
             slotImage.enabled = false;
             slotKeybindText.text = "";

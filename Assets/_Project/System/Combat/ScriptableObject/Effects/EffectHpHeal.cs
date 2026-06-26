@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class EffectHpHeal : Effect
 {
-    public float baseHpHeal;
+    public float HpHealBase;
 
     public override bool Execute(EffectPayload payload)
     {
@@ -16,7 +16,7 @@ public class EffectHpHeal : Effect
             if (health == null) return false;
             
             // Calculate final value
-            float totalHeal = baseHpHeal;
+            float totalHeal = HpHealBase;
             
             // Healing Logic
             if (totalHeal > 0)
@@ -42,7 +42,7 @@ public class EffectHpHeal : Effect
     {
         return new EffectHpHeal
         {
-            baseHpHeal = baseHpHeal
+            HpHealBase = HpHealBase
         };
     }
 }

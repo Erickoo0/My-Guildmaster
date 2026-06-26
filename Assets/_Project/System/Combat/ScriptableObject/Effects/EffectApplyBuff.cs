@@ -5,10 +5,10 @@ public enum BuffType { Health, Mana }
 [System.Serializable]
 public class EffectApplyBuff : Effect
 { 
-    public GameObject buffPrefab;
-    public BuffType buffType;
-    public float amount;
-    public float duration;
+    public GameObject Prefab;
+    public BuffType Type;
+    public float Amount;
+    public float Duration;
 
     public override bool Execute(EffectPayload payload)
     {
@@ -19,7 +19,7 @@ public class EffectApplyBuff : Effect
         Buff[] activeBuffs = buffTarget.GetComponentsInChildren<Buff>();
         foreach (Buff buff in activeBuffs)
         {
-            if (buff.BuffType == buffType)
+            if (buff.Type == Type)
             {
                 Debug.Log("Buff already exists!");
                 return false;
@@ -27,10 +27,10 @@ public class EffectApplyBuff : Effect
         }
         
         // 3. Create the buff prefab and Set it up
-        GameObject buffInstance = Object.Instantiate(buffPrefab, buffTarget.transform);
+        GameObject buffInstance = Object.Instantiate(Prefab, buffTarget.transform);
         if (buffInstance.TryGetComponent(out Buff buffComponent))
         {
-            buffComponent.Setup(buffTarget, buffType, amount, duration);
+            buffComponent.Setup(buffTarget, Type, Amount, Duration);
             return true;
         }
 
@@ -42,10 +42,10 @@ public class EffectApplyBuff : Effect
     {
         return new EffectApplyBuff
         {
-            buffPrefab = buffPrefab,
-            buffType = buffType,
-            amount = amount,
-            duration = duration
+            Prefab = Prefab,
+            Type = Type,
+            Amount = Amount,
+            Duration = Duration
         };
     }
 }

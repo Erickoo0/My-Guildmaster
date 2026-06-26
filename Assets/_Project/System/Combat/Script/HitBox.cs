@@ -5,14 +5,14 @@ using UnityEngine;
 public abstract class HitBox : MonoBehaviour
 {
     [Header("Base Settings")] 
-    public LayerMask victimLayer; // Layer to check for collisions
-    private bool _enableHitbox = false;
-    public bool enableHitbox
+    public LayerMask VictimLayer; // Layer to check for collisions
+    private bool _enableHitBox = false;
+    public bool EnableHitBox
     {
-        get => _enableHitbox;
+        get => _enableHitBox;
         set
         {
-            _enableHitbox = value;
+            _enableHitBox = value;
             if (entityCollider != null)
                 entityCollider.enabled = value;
         }
@@ -24,10 +24,10 @@ public abstract class HitBox : MonoBehaviour
     private bool _hitOncePerTarget;
     private bool _destroyOnMaxHits;
 
-    protected GameObject spellSource;
-    protected List<Effect> onHitEffects;
+    private GameObject spellSource;
+    private List<Effect> onHitEffects;
 
-    protected HashSet<IDamagable> targetsHit;
+    private HashSet<IDamagable> targetsHit;
     
     protected virtual void Awake() => entityCollider = GetComponent<Collider2D>();
 
@@ -49,8 +49,8 @@ public abstract class HitBox : MonoBehaviour
     public void OnTriggerStay2D(Collider2D other)
         {
             // 1. Safety Checks
-            if (!enableHitbox || other.isTrigger) return;
-            if (((1 << other.gameObject.layer) & victimLayer) == 0) return;
+            if (!EnableHitBox || other.isTrigger) return;
+            if (((1 << other.gameObject.layer) & VictimLayer) == 0) return;
             if (other.transform.root.gameObject == spellSource.transform.root.gameObject) return;
 
             // 2. Identify what we hit
@@ -76,7 +76,7 @@ public abstract class HitBox : MonoBehaviour
                 targetsHit
             );
             
-            // 6. Execute all spell effects
+            // 6. Execute all skill effects
             bool anyEffectSucceeded = false;
             if (onHitEffects != null && onHitEffects.Count > 0)
             {
@@ -107,7 +107,7 @@ public abstract class HitBox : MonoBehaviour
 
                     if (_maxEnemiesHitCount <= 0)
                     {
-                        enableHitbox = false;
+                        EnableHitBox = false;
                         if (_destroyOnMaxHits) Destroy(gameObject);
                     }
                 }

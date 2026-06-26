@@ -1,38 +1,38 @@
 using UnityEngine;
 
 /// <summary>
-/// Modifys top-level stats of a SpellDataInstance. (E.g. MpCost, CastTime, MaxEnemiesHit, DisplayCastBar)
+/// Modifys top-level stats of a SkillDataInstance. (E.g. MpCost, CastTime, MaxEnemiesHit, DisplayCastBar)
 /// </summary>
 [CreateAssetMenu(fileName = "Spell_Modifier_Stat_", menuName = "Spell Modifiers/Stat Modifier")]
-public class ModifierSpellStat : ModifierBaseSpell
+public class ModifierSkillStat : ModifierSkillBase
 {
     [Header("Stat Modification")]
-    [SerializeField] private SpellStat spellStat;
+    [SerializeField] private SkillStat _skillStat;
     [SerializeField] private StatModificationOperation operation;
     [SerializeField] private float value;
 
-    public SpellStat SpellStat => spellStat;
+    public SkillStat SkillStat => _skillStat;
     public StatModificationOperation Operation => operation;
     public float Value => value;
 
-    public override void ApplyModifier(SpellDataInstance spellDataInstance)
+    public override void ApplyModifier(SkillDataInstance skillDataInstance)
     {
-        if (spellDataInstance == null)
+        if (skillDataInstance == null)
         {
-            Debug.LogWarning($"{name}: Cannot apply stat modifier because spellDataInstance is null.");
+            Debug.LogWarning($"{name}: Cannot apply stat modifier because SkillDataInstance is null.");
             return;
         }
 
         switch (operation)
         {
             case StatModificationOperation.Set:
-                spellDataInstance.SetStat(spellStat, value);
+                skillDataInstance.SetStat(_skillStat, value);
                 break;
             case StatModificationOperation.Add:
-                spellDataInstance.AddToStat(spellStat, value);
+                skillDataInstance.AddToStat(_skillStat, value);
                 break;
             case StatModificationOperation.Multiply:
-                spellDataInstance.MultiplyStat(spellStat, value);
+                skillDataInstance.MultiplyStat(_skillStat, value);
                 break;
             default:
                 Debug.LogWarning($"{name}: Invalid StatModificationOperation.");

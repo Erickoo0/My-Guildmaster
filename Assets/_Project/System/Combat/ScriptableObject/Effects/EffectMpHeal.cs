@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class EffectMpHeal : Effect
 {
-    public float baseMpHeal;
+    public float MpHealBase;
 
     public override bool Execute(EffectPayload payload)
     {
@@ -16,7 +16,7 @@ public class EffectMpHeal : Effect
             if (mana == null) return false;
 
             // Calculate final value
-            float totalHeal = baseMpHeal;
+            float totalHeal = MpHealBase;
             
             if (totalHeal > 0)
             {
@@ -42,7 +42,7 @@ public class EffectMpHeal : Effect
     {
         return new EffectMpHeal
         {
-            baseMpHeal = baseMpHeal
+            MpHealBase = MpHealBase
         };
     }
 }

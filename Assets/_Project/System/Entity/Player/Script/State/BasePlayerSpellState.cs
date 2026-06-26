@@ -5,13 +5,13 @@ public abstract class BasePlayerSpellState : State<PlayerController>
 {
     [Header("Spell Meta Data")]
     [SerializeField] protected string spellID;
-    protected SpellData spellDataSource;
-    protected SpellDataInstance spellDataInstance;
+    protected SkillData SkillDataSource;
+    protected SkillDataInstance SkillDataInstance;
     [HideInInspector] public int CurrentSlotIndex = -1;
     
-    public float MpCost => spellDataInstance != null ? spellDataInstance.MpCost : 0f;
-    public SpellData GetSpellDataSource() => spellDataSource;
-    public SpellDataInstance GetSpellDataInstance() => spellDataInstance;
+    public float MpCost => SkillDataInstance != null ? SkillDataInstance.MpCost : 0f;
+    public SkillData GetSpellDataSource() => SkillDataSource;
+    public SkillDataInstance GetSpellDataInstance() => SkillDataInstance;
     
     [Header("Cast Bar")]
     protected CastBar castBar;
@@ -26,22 +26,22 @@ public abstract class BasePlayerSpellState : State<PlayerController>
     {
         base.Setup(controller, stateMachine);
         
-        if (controller.spellController != null && controller.spellController.globalSpellDatabase != null)
+        if (controller.spellController != null && controller.spellController.GlobalSkillDatabase != null)
         {
-            spellDataSource = controller.spellController.globalSpellDatabase.GetSpell<SpellData>(spellID);
-            if (spellDataSource != null)
+            SkillDataSource = controller.spellController.GlobalSkillDatabase.GetSkillDataByID<SkillData>(spellID);
+            if (SkillDataSource != null)
             {
-                spellDataInstance = spellDataSource.CreateSpellDataInstance();
+                SkillDataInstance = SkillDataSource.CreateSpellDataInstance();
                 
                 // Testing
                 if (debugModifierCollection != null)
-                    debugModifierCollection.ApplyAllModifiers(spellDataInstance);
+                    debugModifierCollection.ApplyAllModifiers(SkillDataInstance);
             }
         }
         else
-            Debug.LogError("PlayerController.spellController.globalSpellDatabase is null");
+            Debug.LogError("PlayerController.spellController.GlobalSkillDatabase is null");
         
-        castBar = controller.spellController?.castBar;
+        castBar = controller.spellController?.CastBar;
     }
 
     public override void Enter()
@@ -50,7 +50,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         isCasting = false;
         
         // Safety check
-        if (spellDataSource == null || CurrentSlotIndex == -1)
+        if (SkillDataSource == null || CurrentSlotIndex == -1)
         {
             Debug.LogWarning($"spellInstance or CurrentSlotIndex is null for {controller.gameObject.name}");
             stateMachine.ChangeState(controller.IdleState);
@@ -60,28 +60,28 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         controller.EntityAnimator.OnAnimationEventRequested += HandleAnimationEvent;
         
         controller.EntityMover.SetMoveDirection(Vector2.zero);
-        controller.EntityAnimator.StartSpellAnimation(spellDataInstance.AnimationTag);
+        controller.EntityAnimator.StartSpellAnimation(SkillDataInstance.AnimationTag);
         controller.EntityAnimator.animator.Update(0f); // Force transition
         
         // Get the exact time the event fires, rather than just clip length
         float eventTime = GetAnimationEventTime();
         
         // Cast Logic
-        float castSpeedMultiplier = eventTime / spellDataInstance.CastTime;
+        float castSpeedMultiplier = eventTime / SkillDataInstance.CastTime;
         controller.EntityAnimator.animator.speed = castSpeedMultiplier;
-        if (spellDataInstance.DisplayCastBar)
+        if (SkillDataInstance.DisplayCastBar)
         {
             isCasting = true;
-            castBar?.BeginCast(spellDataInstance.CastTime, spellDataInstance.SpellName);
+            castBar?.BeginCast(SkillDataInstance.CastTime, SkillDataInstance.Name);
         }
     }
 
     public override void Update()
     {
         // Safety check
-        if (spellDataInstance == null || CurrentSlotIndex == -1) return;
+        if (SkillDataInstance == null || CurrentSlotIndex == -1) return;
         
-        // 1. Check if the spell keybind is still being held
+        // 1. Check if the skill keybind is still being held
         if (!hasTriggered && isCasting)
         {
             if (!controller.spellController.IsSpellKeyHeld(CurrentSlotIndex))
@@ -92,14 +92,14 @@ public abstract class BasePlayerSpellState : State<PlayerController>
             }
         }
         
-        // 2. Stop the cast bar when the spell executes
+        // 2. Stop the cast bar when the skill executes
         if (hasTriggered && isCasting)
         {
             isCasting = false;
             castBar?.StopCast();
         }
         
-        if (!controller.EntityAnimator.animator.GetBool(spellDataInstance.AnimationTag))
+        if (!controller.EntityAnimator.animator.GetBool(SkillDataInstance.AnimationTag))
             stateMachine.ChangeState(controller.IdleState);
     }
 
@@ -111,7 +111,7 @@ public abstract class BasePlayerSpellState : State<PlayerController>
         controller.EntityAnimator.OnAnimationEventRequested -= HandleAnimationEvent;
         
         controller.EntityAnimator.animator.speed = 1f;
-        controller.EntityAnimator.animator.SetBool(spellDataInstance.AnimationTag, false);
+        controller.EntityAnimator.animator.SetBool(SkillDataInstance.AnimationTag, false);
         
         if (hasTriggered)
             controller.spellController.SetActionCooldown();

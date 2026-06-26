@@ -7,31 +7,31 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SaveData
 {
-    //----Player Variables----
-    public Vector3 _playerPosition;
-    public float _hpMax;
-    public float _hpCurrent;
-    public float _mpMax;
-    public float _mpCurrent;
-    public int _lvlCurrent;
-    public int _expCurrent;
-    public int _goldCurrent;
+    //----SpellControllerPlayer Variables----
+    public Vector3 PlayerPosition;
+    public float HpMax;
+    public float HpCurrent;
+    public float MpMax;
+    public float MpCurrent;
+    public int LvlCurrent;
+    public int ExpCurrent;
+    public int GoldCurrent;
     
     //----Skill Tree Variables----
-    public PlayerSkillTreeLedger _playerSkillTreeLedger = new PlayerSkillTreeLedger();
+    public SkillTreeLedgerContainer SkillTreeLedgerContainer = new SkillTreeLedgerContainer();
     
     //----Location Variables----
     public string _locationCurrent;
     
     //----Inventory Vairables----
-    public List<SavedSlot> _slotListSaved = new List<SavedSlot>();
+    public List<SavedSlot> SavedSlotList = new List<SavedSlot>();
     
     //----Environment Variables----
-    public List<string> _chestsOpened = new List<string>();
+    public List<string> ChestsOpenedList = new List<string>();
     
     //----Quest Variables----
-    public List<SavedQuest> _questsSaved = new List<SavedQuest>();
-    public List<string> _questsCompleted = new List<string>();
+    public List<SavedQuest> SavedQuestsList = new List<SavedQuest>();
+    public List<string> CompletedQuestsList = new List<string>();
 
 }
 

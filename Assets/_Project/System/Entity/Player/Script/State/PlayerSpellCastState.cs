@@ -52,34 +52,34 @@ public class PlayerSpellCastState : BasePlayerSpellState
             hitImpactPoint: casterPosition
             );
         
-        // 2. Execute all spell effects
-        if (spellDataInstance.Effects != null && spellDataInstance.Effects.Count > 0)
-            foreach (Effect effect in spellDataInstance.Effects)
+        // 2. Execute all skill effects
+        if (SkillDataInstance.EffectsList != null && SkillDataInstance.EffectsList.Count > 0)
+            foreach (Effect effect in SkillDataInstance.EffectsList)
                 effect.Execute(initialCastPayload);
         
         // 3. Apply Recoil & Screen shake if necessary
         controller.GetComponent<CinemachineImpulseSource>().GenerateImpulse();  
-        if (spellDataInstance.SpellAnimation == AnimationBool.IsAttackingStrong) 
+        if (SkillDataInstance.Animation == AnimationBool.IsAttackingStrong) 
             controller?.EntityMover.ApplyRecoil(castDirection);
         
         // 4. Apply VFX
-        if (spellDataInstance.SpellPrefab != null)
+        if (SkillDataInstance.Prefab != null)
         {
-            Vector3 spawnPosition = controller.spellController.firePoint != null
-                ? controller.spellController.firePoint.transform.position
+            Vector3 spawnPosition = controller.spellController.FirePoint != null
+                ? controller.spellController.FirePoint.transform.position
                 : casterPosition;
             
             float angle = Mathf.Atan2(castDirection.y, castDirection.x) * Mathf.Rad2Deg;
             
             Quaternion spawnRotation = Quaternion.Euler(0f, 0f, angle);
             
-            GameObject spellVFX = Object.Instantiate(spellDataInstance.SpellPrefab, spawnPosition, spawnRotation, controller.transform);
+            GameObject spellVFX = Object.Instantiate(SkillDataInstance.Prefab, spawnPosition, spawnRotation, controller.transform);
             Object.Destroy(spellVFX, 1f);
         }
         
         
         // 4.  Consume Mana
-        controller?.mpComponent.ConsumeMp(spellDataInstance.MpCost);
+        controller?.mpComponent.ConsumeMp(SkillDataInstance.MpCost);
       
         hasTriggered = true;
     }

@@ -74,7 +74,7 @@ public class ItemObject : MonoBehaviour
         // Final position is either the provided target, or its current position if spawned directly
         Vector3 finalPosition = dropTarget ?? transform.position;
         
-        // 1. Fly to dropTarget if it has been provided by a source
+        // 1. Fly to dropTarget if it has been provided by a Source
         if (dropTarget.HasValue)
         {
             // Adds DOJump animation to the spawnSequence
@@ -87,7 +87,7 @@ public class ItemObject : MonoBehaviour
         // 3. Bounce Logic
         for (int i = 0; i < bounceCount; i++)
         {
-            // Decrease the height and duration each bounce
+            // Decrease the height and Duration each bounce
             float currentBounceHeight = bounceHeight * (1f - (i * 0.4f));
             float currentDuration = bounceDuration * (1f - (i * 0.2f));
         
@@ -111,7 +111,7 @@ public class ItemObject : MonoBehaviour
     {
         try
         {
-            if (!collision.CompareTag("Player") || _itemInstance == null) return;
+            if (!collision.CompareTag("SpellControllerPlayer") || _itemInstance == null) return;
         
             // 1. Lock out further triggers
             _canBePickedUp = false; // Set to false since item is now picked up

@@ -31,7 +31,7 @@ public class EntityAttackMeleeState : BaseAttackState
 			stateMachine.ChangeState(controller.IdleState);
 			return;
 		}	
-		_meleeHitbox.enableHitbox = false;
+		_meleeHitbox.EnableHitBox = false;
 		
 		_entityCollider = controller.GetComponent<Collider2D>();
 
@@ -70,7 +70,7 @@ public class EntityAttackMeleeState : BaseAttackState
 				
 				// Ignore collisions during lunge
 				_originalExcludeLayers = _entityCollider.excludeLayers;
-				_entityCollider.excludeLayers |= _meleeHitbox.victimLayer;
+				_entityCollider.excludeLayers |= _meleeHitbox.VictimLayer;
 			}
 		}
 		// 2. Handle Lunge Movement & Stopping Logic
@@ -89,9 +89,9 @@ public class EntityAttackMeleeState : BaseAttackState
 			}
 		}
 		
-		// 3. Turn the hitbox off once the active duration expires
-		if (_meleeHitbox.enableHitbox && Time.time >= _deactivateTimer)
-			_meleeHitbox.enableHitbox = false;
+		// 3. Turn the hitbox off once the active Duration expires
+		if (_meleeHitbox.EnableHitBox && Time.time >= _deactivateTimer)
+			_meleeHitbox.EnableHitBox = false;
 		
 	}
 
@@ -105,8 +105,8 @@ public class EntityAttackMeleeState : BaseAttackState
 		_meleeHitbox.transform.rotation = Quaternion.Euler(0, 0, angle);
 		
 		// 2. Pass the Data and turn on the hitbox
-		_meleeHitbox.Setup(controller.gameObject, attackDataInstance.Effects, 999, true, false);
-		_meleeHitbox.enableHitbox = true;
+		_meleeHitbox.Setup(controller.gameObject, attackDataInstance.EffectsList, 999, true, false);
+		_meleeHitbox.EnableHitBox = true;
 		
 		// 3. Stop the lunge
 		controller.EntityMover.StopMeleeLunge();	
@@ -119,7 +119,7 @@ public class EntityAttackMeleeState : BaseAttackState
 		_hasLunged = false;
 		
 		controller.EntityMover.StopMeleeLunge();
-		_meleeHitbox.enableHitbox = false;
+		_meleeHitbox.EnableHitBox = false;
 		_entityCollider.excludeLayers = _originalExcludeLayers;
 		
 		base.Exit();

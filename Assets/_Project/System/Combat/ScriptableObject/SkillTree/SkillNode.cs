@@ -26,7 +26,7 @@ public class SkillNode
 
     [Header("Modifiers")]
     [Tooltip("Modifiers applied once for each allocated point in this node.")]
-    [SerializeField] private List<ModifierBaseSpell> _modifiers = new List<ModifierBaseSpell>();
+    [SerializeField] private List<ModifierSkillBase> _modifiers = new List<ModifierSkillBase>();
 
     public string ID => _id;
     public string DisplayName => _displayName;
@@ -35,7 +35,7 @@ public class SkillNode
     public Vector2 UIPosition => _uiPosition;
     public int SkillPointsMax => _skillPointsMax;
     public IReadOnlyList<SkillNodePrerequisite> Prerequisites => _prerequisites;
-    public IReadOnlyList<ModifierBaseSpell> Modifiers => _modifiers;
+    public IReadOnlyList<ModifierSkillBase> Modifiers => _modifiers;
     
     public bool CheckPrerequisitesMet(SkillTreeLedger ledger)
     {

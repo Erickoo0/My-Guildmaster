@@ -5,57 +5,57 @@ using System.Collections.Generic;
 public class EffectSpawnProjectile : Effect
 {
     [Header("Projectile Prefab")]
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private float projectileScale = 1f;
+    [SerializeField] private GameObject _prefab;
+    [SerializeField] private float _scale = 1f;
     
     [Header("Flight Physics")]
-    [SerializeField] private float projectileSpeed = 12f;
-    [SerializeField] private float projectileLifetime = 3f;
-    [SerializeField] private float projectileHeight = 0f;
-    [SerializeField] private AnimationCurve projectileCurve;
+    [SerializeField] private float _speed = 12f;
+    [SerializeField] private float _lifeTime = 3f;
+    [SerializeField] private float _projectileHeight = 0f;
+    [SerializeField] private AnimationCurve _projectileCurve;
 
     [Header("Hitbox Settings")]
-    [SerializeField] private int maxEnemiesHit = 1;
-    [SerializeField] private bool hitOncePerTarget = true;
-    [SerializeField] private bool destroyOnMaxHits = true;
+    [SerializeField] private int _maxEnemiesHit = 1;
+    [SerializeField] private bool _hitOncePerTarget = true;
+    [SerializeField] private bool _destroyOnMaxHits = true;
     
-    [Header("Impact Effects")]
-    [SerializeReference, SubclassSelector] public List<Effect> onHitEffects = new List<Effect>();
+    [Header("Impact EffectList List")]
+    [SerializeReference, SubclassSelector] public List<Effect> EffectsList = new List<Effect>();
 
     public override bool Execute(EffectPayload effectPayload)
     {
-        if (projectilePrefab == null) return false;
+        if (_prefab == null) return false;
         
         // 1. Find the user's firepoint component if they have one
         FirePoint firepoint = effectPayload.User.GetComponentInChildren<FirePoint>();
         Vector3 spawnPosition = firepoint != null ? firepoint.transform.position : effectPayload.User.transform.position;
         
         // 2. Spawn the projectile
-        GameObject projectileInstance = Object.Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+        GameObject projectileInstance = Object.Instantiate(_prefab, spawnPosition, Quaternion.identity);
         
         // 3. Apply scale
-        if (projectileScale != 1f) projectileInstance.transform.localScale *= projectileScale;
+        if (_scale != 1f) projectileInstance.transform.localScale *= _scale;
         
         // 3. Pass the data to the projectile
         if (projectileInstance.TryGetComponent(out Projectile projectileComponent))
         {
             // Set up default straight line curve if null
-            if (projectileCurve == null || projectileCurve.length == 0)
-                projectileCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+            if (_projectileCurve == null || _projectileCurve.length == 0)
+                _projectileCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
             
             // Setup the projectile with physics data and on hit effects list
             projectileComponent.Setup(
                 effectPayload.TargetPosition, 
-                projectileSpeed, 
-                projectileLifetime, 
-                projectileCurve, 
-                projectileHeight, 
+                _speed, 
+                _lifeTime, 
+                _projectileCurve, 
+                _projectileHeight, 
                 effectPayload.User, 
-                onHitEffects,
-                maxEnemiesHit,
-                hitOncePerTarget,
-                destroyOnMaxHits,
-                projectileScale
+                EffectsList,
+                _maxEnemiesHit,
+                _hitOncePerTarget,
+                _destroyOnMaxHits,
+                _scale
                 );
 
             return true;
@@ -66,24 +66,24 @@ public class EffectSpawnProjectile : Effect
 
     public override Effect Clone()
     {
-        // Clone the nested On Hit Effects list
+        // Clone the nested On Hit EffectsList list
         List<Effect> clonedOnHitEffects = new List<Effect>();
-        if (onHitEffects != null)
-            foreach (Effect effect in onHitEffects)
+        if (EffectsList != null)
+            foreach (Effect effect in EffectsList)
                 if (effect != null) clonedOnHitEffects.Add(effect.Clone());
 
         return new EffectSpawnProjectile
         {
-            projectilePrefab = projectilePrefab,
-            projectileScale = projectileScale,
-            projectileSpeed = projectileSpeed,
-            projectileLifetime = projectileLifetime,
-            projectileHeight = projectileHeight,
-            projectileCurve = projectileCurve != null ? new AnimationCurve(this.projectileCurve.keys) : null,
-            maxEnemiesHit = maxEnemiesHit,
-            hitOncePerTarget = hitOncePerTarget,
-            destroyOnMaxHits = destroyOnMaxHits,
-            onHitEffects = clonedOnHitEffects
+            _prefab = _prefab,
+            _scale = _scale,
+            _speed = _speed,
+            _lifeTime = _lifeTime,
+            _projectileHeight = _projectileHeight,
+            _projectileCurve = _projectileCurve != null ? new AnimationCurve(this._projectileCurve.keys) : null,
+            _maxEnemiesHit = _maxEnemiesHit,
+            _hitOncePerTarget = _hitOncePerTarget,
+            _destroyOnMaxHits = _destroyOnMaxHits,
+            EffectsList = clonedOnHitEffects
         };
     }
 }

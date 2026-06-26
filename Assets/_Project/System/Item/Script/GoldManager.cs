@@ -35,11 +35,11 @@ public class GoldManager : MonoBehaviour, ISaveable
 
    public void PopulateSaveData(SaveData saveData)
    {
-      saveData._goldCurrent = playerGold;
+      saveData.GoldCurrent = playerGold;
    }
 
    public void LoadFromSaveData(SaveData saveData)
    {
-      playerGold = saveData._goldCurrent;
+      playerGold = saveData.GoldCurrent;
    }
 }

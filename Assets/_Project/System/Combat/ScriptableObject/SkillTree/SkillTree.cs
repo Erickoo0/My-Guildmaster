@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// Blueprint for a single Skill's Skill Tree.
-/// Binds a SpellData to a SkillTreeLedger.
+/// Binds a SkillData to a SkillTreeLedger.
 /// Validates allocation/refund rules by comparing static node rules
 /// against a runtime SkillTreeLedger.
 /// </summary>
@@ -11,13 +11,13 @@ using UnityEngine;
 public class SkillTree : ScriptableObject
 {
     [Header("Spell Binding")]
-    [Tooltip("The base spell this skill tree modifies.")]
-    [SerializeField] private SpellData _spellData;
+    [Tooltip("The base skill this skill tree modifies.")]
+    [SerializeField] private SkillData _skillData;
 
     [Header("Skill Nodes")]
     [SerializeField] private List<SkillNode> _skillNodes = new List<SkillNode>();
 
-    public SpellData SpellData => _spellData;
+    public SkillData SkillData => _skillData;
     public IReadOnlyList<SkillNode> SkillNodes => _skillNodes;
     
     public SkillNode GetSkillNodeByID(string skillNodeID)

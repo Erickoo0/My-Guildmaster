@@ -100,7 +100,7 @@ public class MouseManager : MonoBehaviour
             ghostStack.text = _sourceSlot.itemInstance.stackSize.ToString();
             ghostPanel.transform.position = _currentMousePosition;
             
-            // Hide item from source slot to "pick it up"
+            // Hide item from Source slot to "pick it up"
             ToggleGhost(true);
         }
         

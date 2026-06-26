@@ -67,7 +67,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
                 // If whole new stack fits in current slot
                 if (item.stackSize <= spaceLeft)
                 {
-                    int amountAdded = item.stackSize; // Cache the amount added for quest update
+                    int amountAdded = item.stackSize; // Cache the Amount added for quest update
                     
                     itemsList[i].stackSize += item.stackSize;
                     OnSlotUpdated?.Invoke(i);
@@ -179,7 +179,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
         }
         
         // Send the SavedSLots list to SaveData
-        saveData._slotListSaved = savedSlots;
+        saveData.SavedSlotList = savedSlots;
     }
     
     public void LoadFromSaveData(SaveData saveData)
@@ -188,7 +188,7 @@ public class InventoryManager : MonoBehaviour, ISaveable
         InitializeInventory(); 
 
         // Rebuild instances from the data inside the "box"
-        foreach (SavedSlot savedSlot in saveData._slotListSaved)
+        foreach (SavedSlot savedSlot in saveData.SavedSlotList)
         {
             // Safety check: ensure index is within bounds
             if (savedSlot.index < 0 || savedSlot.index >= itemsList.Length) continue;

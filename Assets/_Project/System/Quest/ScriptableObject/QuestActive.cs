@@ -11,7 +11,7 @@ public class QuestActive
     public QuestActive(QuestSo questData)
     {
         QuestData = questData;
-        // Initialize the objective progress array with the required amount for each objective
+        // Initialize the objective progress array with the required Amount for each objective
         ObjectiveProgress = new int[QuestData.QuestObjectives.Count];
         IsCompleted = false;
     }
@@ -24,7 +24,7 @@ public class QuestActive
 
         if (objectiveProgress != null)
         {
-            // Set the objective progress to the loaded progress, but not more than the required amount
+            // Set the objective progress to the loaded progress, but not more than the required Amount
             int count = Mathf.Min(objectiveProgress.Length, ObjectiveProgress.Length);
             for (int i = 0; i < count; i++)
                 ObjectiveProgress[i] = objectiveProgress[i];

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : BaseEntityController {
     [Header("References")]
     [HideInInspector] public Mana mpComponent;
-    [HideInInspector] public PlayerSpellController spellController;
+    [HideInInspector] public SpellControllerPlayer spellController;
     
     [Header("States")]
     [SerializeReference, SubclassSelector] public State<PlayerController> IdleState;
@@ -34,7 +34,7 @@ public class PlayerController : BaseEntityController {
         base.Awake();
         
         // Cache references
-        spellController = GetComponent<PlayerSpellController>();
+        spellController = GetComponent<SpellControllerPlayer>();
         _mainCam = Camera.main;
         
         // Setup states
