@@ -43,7 +43,7 @@ public class InventoryUI : MonoBehaviour
         selectionFrame.gameObject.SetActive(true);
 
         // Get the inventory portrait
-        GameObject player = GameObject.FindGameObjectWithTag("SpellControllerPlayer");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         var visualComponent = player.transform.Find("Visual");
         _playerSprite = visualComponent.GetComponent<SpriteRenderer>();
     }

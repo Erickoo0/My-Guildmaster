@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc3f20af4bcac643be6304813a301e3, type: 3}
+  m_Name: SkillDataDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::SpellDataDatabase
+  _skillList:
+  - {fileID: 11400000, guid: 4be3dea787a533d4cb46e3363d8e6d4f, type: 2}
+  - {fileID: 11400000, guid: 48f8304c40a2aea49957b32c76b887cc, type: 2}
+  - {fileID: 11400000, guid: ac257d9a8642a9643879488437cf68be, type: 2}
+  - {fileID: 11400000, guid: 45745fc34a47171458bb3a8498c8b2ff, type: 2}
+  - {fileID: 11400000, guid: 3cac572330617894ca0af062d62e02e4, type: 2}
+  - {fileID: 11400000, guid: 80f0c816db2aa4948b00b5735b98c2fc, type: 2}
+  - {fileID: 11400000, guid: eca3cf33a9855dd44846d27acfa33bab, type: 2}
+  - {fileID: 11400000, guid: 3ae452862e0e6234180795a619ff46e7, type: 2}
+  - {fileID: 11400000, guid: 90cbdd73aa80ce241a3fe6c6ddfe5804, type: 2}
+  - {fileID: 11400000, guid: 2bf23606e827b22409ece1d734f6b1d5, type: 2}
+  - {fileID: 11400000, guid: 86319db184372df41b27ad32e2760497, type: 2}

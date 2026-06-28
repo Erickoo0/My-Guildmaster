@@ -10,7 +10,7 @@ public class PlayerStatsPersistance : MonoBehaviour, ISaveable
     private void Awake()
     {
         // Find the player game object
-        _player = GameObject.FindGameObjectWithTag("SpellControllerPlayer");
+        _player = GameObject.FindGameObjectWithTag("Player");
         _healthComponent = GetComponent<Health>();
         _manaComponent = GetComponent<Mana>();
         _levelComponent = GetComponent<Level>();

@@ -17,7 +17,7 @@ public class PlayerMoveState : State<PlayerController>
         controller.EntityAnimator.SetMoveAnimation(input);
         
         // Check for dash input
-        if (controller.dashInput == true)
+        if (controller.DashInput == true)
         {
             stateMachine.ChangeState(controller.DashState);
         }

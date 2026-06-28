@@ -53,7 +53,7 @@ public class QuestManager : MonoBehaviour, ISaveable
 
     private void HandleEntityDeath(GameObject entityRoot)
     {
-        if (entityRoot.TryGetComponent(out BaseEntityController entityController))
+        if (entityRoot.TryGetComponent(out EntityControllerBase entityController))
         {
             string targetID = entityController.GetTargetID();
 

@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
+  m_Name: Player_Skill_Data_Projectile_Lightning_Orb
+  m_EditorClassIdentifier: Assembly-CSharp::SpellData
+  ID: Player_Skill_Data_Projectile_Lightning_Orb
+  Name: Lightning Orb
+  Icon: {fileID: -1487120408008746009, guid: 4f853357d0039bf44866b9a04c452ed2, type: 3}
+  Prefab: {fileID: 0}
+  Animation: 1
+  MpCostBase: 5
+  CastTimeBase: 1
+  CastBarDisplay: 1
+  EffectsList:
+  - rid: 3505743946400399483
+  RequirementsList: []
+  HitOncePerTarget: 1
+  DestroyOnMaxHits: 1
+  MaxEnemiesHitBase: 0
+  SelectionWeight: 10
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743946400399483
+      type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
+      data:
+        _prefab: {fileID: 8396159159101520813, guid: cf1d54f605aba5d4abe4cc8a56ed626d, type: 3}
+        _scale: 1
+        _speed: 3
+        _lifeTime: 3
+        _projectileHeight: 0
+        _projectileCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _maxEnemiesHit: 20
+        _hitOncePerTarget: 0
+        _destroyOnMaxHits: 0
+        EffectsList:
+        - rid: 3505743946400399484
+    - rid: 3505743946400399484
+      type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        Amount: 10
+        Type: 0
+        KnockbackForce: 10
+        KnockbackDuration: 0.2
+        KnockbackHeight: 0.1

@@ -81,10 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
-  victimLayer:
+  VictimLayer:
     serializedVersion: 2
     m_Bits: 64
-  enableHitbox: 1
   entityCollider: {fileID: 0}
-  hitOncePerTarget: 1
-  disableAfterFirstHit: 0

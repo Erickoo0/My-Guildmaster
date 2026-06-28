@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// A node in the SpellSkillTree.
+/// Static Blueprint for a node in the SkillTree.
 /// Contains Node MetaData, _prerequisites, and modifiers.
 /// </summary>
 [System.Serializable]

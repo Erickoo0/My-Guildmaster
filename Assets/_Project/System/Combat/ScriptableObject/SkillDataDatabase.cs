@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 
-[CreateAssetMenu(fileName = "SkillDataDatabase", menuName = "Skills/Database", order = 1)]
+[CreateAssetMenu(fileName = "SkillDataDatabase", menuName = "Skills/SkillData Database", order = 1)]
 public class SkillDataDatabase : ScriptableObject
 {
+    [Header("Skill Data")]
     [SerializeField] private List<SkillData> _skillList;
-    
     private Dictionary<string, SkillData> _skillDictionary;
 
-    private void SetupSkillDataDictionary()
+    private void BuildDictionary()
     {
         if (_skillDictionary != null) return;
 
@@ -21,21 +21,20 @@ public class SkillDataDatabase : ScriptableObject
         {
             if (spell == null)
             {
-                Debug.LogWarning("[SpellDatabase] SkillData is null!");
+                Debug.LogWarning($"{name}: SkillData is null!");
                 continue;
             }
 
             // Pairs ID to SkillDataSource, returns warning if ID is a duplicate
             if (!_skillDictionary.TryAdd(spell.ID, spell))
-            {
                 Debug.LogWarning($"[SpellDatabase] Duplicate Spell ID found: {spell.ID}. IDs must be unique!");
-            }
+            
         }
     }
 
     public T GetSkillDataByID<T>(string skillID) where T : SkillData
     {
-        SetupSkillDataDictionary(); // Ensure dictionary is built
+        BuildDictionary(); // Ensure dictionary is built
 
         if (_skillDictionary.TryGetValue(skillID, out SkillData skillData) && skillData is T typedData)
             return typedData;

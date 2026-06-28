@@ -94,7 +94,7 @@ public class UIManager : MonoBehaviour
             PauseManager.SetPause(false);
         
             // THIS MUST BE THE ABSOLUTE LAST LINE TO PREVENT UNITY THREAD ABORTS
-            PlayerInputManager.Instance.PlayerInput.SwitchCurrentActionMap("SpellControllerPlayer");
+            PlayerInputManager.Instance.PlayerInput.SwitchCurrentActionMap("Player");
         }
     }
 }

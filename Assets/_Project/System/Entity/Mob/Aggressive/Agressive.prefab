@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 6990653571150878097}
   - component: {fileID: 5819134255891694365}
   - component: {fileID: -5434272593035035782}
-  - component: {fileID: 3766992231868733106}
+  - component: {fileID: 5275855554606090140}
   - component: {fileID: -6041577575005612142}
   - component: {fileID: -1126634882369786296}
   - component: {fileID: 6447096566392552272}
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MobController
   entityID: 
   _rigidBody2D: {fileID: 0}
-  _spellController: {fileID: 0}
+  SkillController: {fileID: 0}
   aiLerp: {fileID: 0}
   <WanderRadius>k__BackingField: 5
   <mobType>k__BackingField: 2
@@ -614,7 +614,7 @@ MonoBehaviour:
     - rid: 3505743470580727910
       type: {class: EntityChaseState, ns: , asm: Assembly-CSharp}
       data: 
---- !u!114 &3766992231868733106
+--- !u!114 &5275855554606090140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -625,12 +625,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a89079566738364fb20a30e9b007115, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EntitySpellController
-  globalSpellDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
-  firePoint: {fileID: 0}
-  castBar: {fileID: 0}
-  <ActionCooldown>k__BackingField: 0.5
-  attackStates: []
+  m_EditorClassIdentifier: Assembly-CSharp::SkillControllerEntity
+  _globalSkillDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+  <ActionCooldown>k__BackingField: 0.25
+  _skillStatesList: []
   references:
     version: 2
     RefIds: []
@@ -671,8 +669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d0bacc308dc0443abfddf1b3c8e0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBox
-  health: {fileID: 0}
-  invulnerabilityDuration: 0.5
+  _health: {fileID: 0}
+  _invulnerabilityDuration: 0.5
 --- !u!114 &-1747576445313389302
 MonoBehaviour:
   m_ObjectHideFlags: 0

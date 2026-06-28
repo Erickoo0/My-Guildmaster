@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6210045812344111470}
   - component: {fileID: 4191078372319099848}
   - component: {fileID: 7544059108170068389}
-  - component: {fileID: -1091192098976726130}
+  - component: {fileID: 2772113321618529999}
   - component: {fileID: 57928706709689994}
   - component: {fileID: 7615038489875169566}
   - component: {fileID: 7323555187441379932}
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   entityID: 
   mpComponent: {fileID: 0}
-  spellController: {fileID: 0}
+  SkillController: {fileID: 0}
   IdleState:
     rid: 3505743470580727914
   MoveState:
@@ -204,7 +204,7 @@ MonoBehaviour:
     - rid: 3505743470580727916
       type: {class: PlayerDashState, ns: , asm: Assembly-CSharp}
       data: 
---- !u!114 &-1091192098976726130
+--- !u!114 &2772113321618529999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,45 +215,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fa59b2b028cf2c41818b89807a44a12, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpellController
-  globalSpellDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
-  firePoint: {fileID: 0}
-  castBar: {fileID: 0}
-  <ActionCooldown>k__BackingField: 0
-  SpellSlots:
-  - rid: 3505743856969973836
-  - rid: 3505743856969973837
-  - rid: 3505743856969973838
-  - rid: 3505743856969973839
-  - rid: 3505743856969973840
+  m_EditorClassIdentifier: Assembly-CSharp::SkillControllerPlayer
+  _globalSkillDatabase: {fileID: 0}
+  <ActionCooldown>k__BackingField: 0.5
+  _spellSlots: []
   references:
     version: 2
-    RefIds:
-    - rid: 3505743856969973836
-      type: {class: PlayerSpellCastState, ns: , asm: Assembly-CSharp}
-      data:
-        spellID: Player_Spell_Data_Projectile_Fireball
-        CurrentSlotIndex: -1
-    - rid: 3505743856969973837
-      type: {class: PlayerSpellCastState, ns: , asm: Assembly-CSharp}
-      data:
-        spellID: Player_Spell_Data_Projectile_Fireball_Large
-        CurrentSlotIndex: -1
-    - rid: 3505743856969973838
-      type: {class: PlayerSpellCastState, ns: , asm: Assembly-CSharp}
-      data:
-        spellID: Player_Spell_Data_Projectile_Lightning_Orb
-        CurrentSlotIndex: -1
-    - rid: 3505743856969973839
-      type: {class: PlayerSpellCastState, ns: , asm: Assembly-CSharp}
-      data:
-        spellID: Player_Spell_Data_Terrain_Ice_Wall
-        CurrentSlotIndex: -1
-    - rid: 3505743856969973840
-      type: {class: PlayerSpellCastState, ns: , asm: Assembly-CSharp}
-      data:
-        spellID: Player_Spell_Data_Buff_Heal
-        CurrentSlotIndex: -1
+    RefIds: []
 --- !u!114 &57928706709689994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,8 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d0bacc308dc0443abfddf1b3c8e0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBox
-  health: {fileID: 0}
-  invulnerabilityDuration: 0.5
+  _health: {fileID: 0}
+  _invulnerabilityDuration: 0.5
 --- !u!114 &4180744918560574220
 MonoBehaviour:
   m_ObjectHideFlags: 0

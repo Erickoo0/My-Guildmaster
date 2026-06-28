@@ -11,7 +11,7 @@ public class PlayerDashState : State<PlayerController>
     
     public override void Enter()
     {
-        _dashTime = controller.defaultDashTime;
+        _dashTime = controller.DefaultDashTime;
         _defaultMoveSpeed = controller.EntityMover.moveSpeed;
         controller.EntityMover.moveSpeed *= 5f;
         
@@ -46,7 +46,7 @@ public class PlayerDashState : State<PlayerController>
     public override void Exit()
     {
         controller.EntityMover.moveSpeed = _defaultMoveSpeed;
-        controller.dashInput = false; // Reset the bool
+        controller.DashInput = false; // Reset the bool
     }
     
     private void SpawnAfterImage()

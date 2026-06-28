@@ -23,7 +23,7 @@ public class Teleporter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // 1. Validation checks
-        if (!other.CompareTag("SpellControllerPlayer") || _teleportCooldownTimer > 0 || other.isTrigger) return;
+        if (!other.CompareTag("Player") || _teleportCooldownTimer > 0 || other.isTrigger) return;
         
         if (targetDestinationTeleporter == null)
         {

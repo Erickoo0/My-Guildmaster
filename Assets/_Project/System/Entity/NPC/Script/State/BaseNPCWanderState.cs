@@ -137,7 +137,7 @@ public abstract class BaseNPCWanderState : State<NPCController>
             
             if (_stuckTimer > _stuckTimerMax)
             {
-                Debug.Log("SpellControllerEntity stuck! Resetting path.");
+                Debug.Log("SkillControllerEntity stuck! Resetting path.");
                 _stuckTimer = 0;
                 SetNewDestination();
             }

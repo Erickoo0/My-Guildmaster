@@ -16,7 +16,7 @@ public abstract class State
 }
 
 [System.Serializable]
-public abstract class State<T> : State where T : BaseEntityController
+public abstract class State<T> : State where T : EntityControllerBase
 {
     // Specialized Reference holds the controller (PlayerController / MobController)
     protected T controller;

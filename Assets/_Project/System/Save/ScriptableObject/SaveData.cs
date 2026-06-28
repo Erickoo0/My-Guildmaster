@@ -7,7 +7,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SaveData
 {
-    //----SpellControllerPlayer Variables----
+    //----SkillControllerPlayer Variables----
     public Vector3 PlayerPosition;
     public float HpMax;
     public float HpCurrent;
@@ -18,7 +18,7 @@ public class SaveData
     public int GoldCurrent;
     
     //----Skill Tree Variables----
-    public SkillTreeLedgerContainer SkillTreeLedgerContainer = new SkillTreeLedgerContainer();
+    public List<SkillTreeLedger> SkillTreeLedgers;
     
     //----Location Variables----
     public string _locationCurrent;

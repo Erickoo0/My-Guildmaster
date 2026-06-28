@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
+  m_Name: Skill_Data_Projectile_Fireball
+  m_EditorClassIdentifier: Assembly-CSharp::SpellData
+  ID: Skill_Data_Projectile_Fireball
+  Name: Fireball
+  Icon: {fileID: 0}
+  Prefab: {fileID: 0}
+  Animation: 0
+  MpCostBase: 0
+  CastTimeBase: 1
+  CastBarDisplay: 0
+  EffectsList:
+  - rid: 3505743958813966416
+  RequirementsList:
+  - rid: 3505743958813966439
+  HitOncePerTarget: 1
+  DestroyOnMaxHits: 1
+  MaxEnemiesHitBase: 0
+  SelectionWeight: 10
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743958813966416
+      type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
+      data:
+        _prefab: {fileID: 3301934860267052368, guid: 4af734ae41faf5c4b94b5a521cbb2fc7, type: 3}
+        _scale: 1
+        _speed: 12
+        _lifeTime: 3
+        _projectileHeight: 0
+        _projectileCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _maxEnemiesHit: 1
+        _hitOncePerTarget: 1
+        _destroyOnMaxHits: 1
+        EffectsList:
+        - rid: 3505743958813966417
+        - rid: 3505743958813966418
+        - rid: 3505743958813966420
+    - rid: 3505743958813966417
+      type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        Amount: 15
+        Type: 1
+        KnockbackForce: 10
+        KnockbackDuration: 0.2
+        KnockbackHeight: 0.1
+    - rid: 3505743958813966418
+      type: {class: EffectSpawnExplosion, ns: , asm: Assembly-CSharp}
+      data:
+        _prefab: {fileID: 2457082569599181644, guid: d62eda4c0f232044cbbef2a562fd03bf, type: 3}
+        _lifeTime: 0.5
+        _scale: 1
+        EffectsList:
+        - rid: 3505743958813966419
+    - rid: 3505743958813966419
+      type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        Amount: 5
+        Type: 1
+        KnockbackForce: 10
+        KnockbackDuration: 0.2
+        KnockbackHeight: 0.1
+    - rid: 3505743958813966420
+      type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
+      data:
+        Prefab: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
+        AlignToHitDirection: 1
+        AttachToUser: 0
+    - rid: 3505743958813966439
+      type: {class: RequirementTargetRange, ns: , asm: Assembly-CSharp}
+      data:
+        minimumRange: 4
+        maximumRange: 8

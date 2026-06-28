@@ -1,9 +1,9 @@
 using UnityEngine;
 
 /// <summary>
-/// Defubes one dependency requirement for a SkillNode.
+/// Static Blueprint for one dependency requirement for a SkillNode.
 /// This class is stored in the SkillNode's _prerequisites list.
-/// Evalulates against a SkillTreeLedger.'
+/// Evaluates against a SkillTreeLedger.'
 /// </summary>
 [System.Serializable]
 public class SkillNodePrerequisite

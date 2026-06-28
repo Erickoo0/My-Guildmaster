@@ -6,15 +6,17 @@ public class EffectSpawnVFX : Effect
     [Header("VFX")]
     public GameObject Prefab;
     public bool AlignToHitDirection = true;
+    public bool AttachToUser = true;
 
     public override bool Execute(EffectPayload effectPayload)
     {
         if (Prefab == null) return false;
-
-        Vector2 spawnPosition = effectPayload.TargetPosition;
+        
+        Vector2 spawnPosition = AttachToUser ? effectPayload.User.transform.position : effectPayload.TargetPosition;
+        Transform vfxParent = AttachToUser ? effectPayload.User.transform : null;
         
         // Spawn the VFX
-        GameObject vfxInstance = Object.Instantiate(Prefab, spawnPosition, Quaternion.identity);
+        GameObject vfxInstance = Object.Instantiate(Prefab, spawnPosition, Quaternion.identity, vfxParent);
         Object.Destroy(vfxInstance, 1.0f);
         
         if (AlignToHitDirection && effectPayload.HitDirection != Vector2.zero)
@@ -38,7 +40,8 @@ public class EffectSpawnVFX : Effect
         return new EffectSpawnVFX
         {
             Prefab = Prefab,
-            AlignToHitDirection = AlignToHitDirection
+            AlignToHitDirection = AlignToHitDirection,
+            AttachToUser = AttachToUser
         };
     }
 }

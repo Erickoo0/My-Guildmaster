@@ -15,7 +15,7 @@ public class NPCScheduleData
     public List<string> WorkPOIList;
 }
 
-public class NPCController : BaseEntityController
+public class NPCController : EntityControllerBase
 {
     [Header("Movement Settings")]
     [HideInInspector] public AILerp aiLerp;

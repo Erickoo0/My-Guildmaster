@@ -3,10 +3,10 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : BaseEntityController {
+public class PlayerController : EntityControllerBase {
     [Header("References")]
-    [HideInInspector] public Mana mpComponent;
-    [HideInInspector] public SpellControllerPlayer spellController;
+    [HideInInspector] public Mana MpComponent;
+    [HideInInspector] public SkillControllerPlayer SkillController;
     
     [Header("States")]
     [SerializeReference, SubclassSelector] public State<PlayerController> IdleState;
@@ -14,7 +14,7 @@ public class PlayerController : BaseEntityController {
     [SerializeReference, SubclassSelector] public State<PlayerController> DashState;
     
     [Header("Movement Settings")]
-    public float defaultDashTime = 10f;
+    public float DefaultDashTime = 10f;
     
     private bool _canMove = true;
     private Vector2 _rawInput;
@@ -24,7 +24,7 @@ public class PlayerController : BaseEntityController {
     // Public Data for States to Read
     public Vector2 MovementInput { get; private set; }
     public Vector3 WorldMousePosition { get; private set; }
-    [HideInInspector] public bool dashInput;
+    [HideInInspector] public bool DashInput;
 
     private void OnEnable() => EventBus.OnPlayerMovementToggleRequested += SetCanMove;
     private void OnDisable() => EventBus.OnPlayerMovementToggleRequested -= SetCanMove;
@@ -34,7 +34,7 @@ public class PlayerController : BaseEntityController {
         base.Awake();
         
         // Cache references
-        spellController = GetComponent<SpellControllerPlayer>();
+        SkillController = GetComponent<SkillControllerPlayer>();
         _mainCam = Camera.main;
         
         // Setup states
@@ -48,7 +48,7 @@ public class PlayerController : BaseEntityController {
         // Default to the idle state
         StateMachine.SetupState(IdleState);
         
-        mpComponent = PlayerStatsManager.Instance.ManaComponent; // Avoid race condition
+        MpComponent = PlayerStatsManager.Instance.ManaComponent; // Avoid race condition
     }
 
     protected override void Update()
@@ -83,7 +83,7 @@ public class PlayerController : BaseEntityController {
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (context.performed) dashInput = true;
+        if (context.performed) DashInput = true;
     }
     
     public void OnPoint(InputAction.CallbackContext context)
@@ -91,11 +91,11 @@ public class PlayerController : BaseEntityController {
         _rawMousePosition = context.ReadValue<Vector2>();
     }
     
-    public void OnAttackM1(InputAction.CallbackContext context) => spellController.TryTriggerSpell(0, context);
-    public void OnAttackQ(InputAction.CallbackContext context)  => spellController.TryTriggerSpell(1, context);
-    public void OnAttackE(InputAction.CallbackContext context)  => spellController.TryTriggerSpell(2, context);
-    public void OnAttackR(InputAction.CallbackContext context)  => spellController.TryTriggerSpell(3, context);
-    public void OnAttackF(InputAction.CallbackContext context)  => spellController.TryTriggerSpell(4, context);
+    public void OnAttackM1(InputAction.CallbackContext context) => SkillController.TryTriggerSpell(0, context);
+    public void OnAttackQ(InputAction.CallbackContext context)  => SkillController.TryTriggerSpell(1, context);
+    public void OnAttackE(InputAction.CallbackContext context)  => SkillController.TryTriggerSpell(2, context);
+    public void OnAttackR(InputAction.CallbackContext context)  => SkillController.TryTriggerSpell(3, context);
+    public void OnAttackF(InputAction.CallbackContext context)  => SkillController.TryTriggerSpell(4, context);
     
     // ---- Helper Methods ----
     public void SetCanMove(bool canMove)
@@ -107,7 +107,7 @@ public class PlayerController : BaseEntityController {
         {
             MovementInput = Vector2.zero;
             EntityMover.SetMoveDirection(Vector2.zero);
-            dashInput = false;
+            DashInput = false;
         }
         else
         {

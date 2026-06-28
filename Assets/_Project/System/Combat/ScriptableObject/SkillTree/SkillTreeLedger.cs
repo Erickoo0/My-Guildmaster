@@ -2,28 +2,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Runtime/Save-state allocation ledger for one specific skill tree.
-/// Stores which skill it belongs to,
-/// which SkillNodes have been allocated skill points, and how many points.
+/// Runtime/Save Class. Holds a list of SkillNodeAllocations,
+/// which are records of allocated SkillPoints for a SkillNode.
+/// Links SkillNodeAllocations to the SkillNode.ID in the SkillTree.
 /// </summary>
 [System.Serializable]
 public class SkillTreeLedger
 {
-    [SerializeField] private string _spellDataID;
+    [SerializeField] private string _skillDataID;
     [SerializeField] private List<SkillNodeAllocation> _allocations;
 
-    public string SpellDataID => _spellDataID;
+    public string SkillDataID => _skillDataID;
     public IReadOnlyList<SkillNodeAllocation> Allocations => _allocations;
 
     // Constructor
-    public SkillTreeLedger(string spellDataID)
+    public SkillTreeLedger(string skillDataID)
     {
-        _spellDataID = spellDataID;
+        _skillDataID = skillDataID;
         _allocations = new List<SkillNodeAllocation>();
     }
 
     /// <summary>
-    /// Returns the number of skill points allocated to a SkillNode.
+    /// Returns the number of SkillPoints allocated to a SkillNode.
     /// Missing allocation entries are treated as 0 points.
     /// </summary>
     public int GetAllocatedSkillPoints(string skillNodeID)
@@ -33,7 +33,7 @@ public class SkillTreeLedger
     }
 
     /// <summary>
-    /// Sets the number of skill points allocated to a SkillNode.
+    /// Sets the number of SkillPoints allocated to a SkillNode.
     /// A value of 0 or less removes the allocation entry entirely, keeping
     /// the serialized list compact and preventing saved SkillTreeLedgers from
     /// filling with 0 point records.
@@ -132,8 +132,7 @@ public class SkillTreeLedger
 }
 
 /// <summary>
-/// Serializable record for one allocated SkillNode.
-/// Links to the SkillNode.ID in the SkillTree.
+/// Runtime/Save Class. Holds a record of allocated SkillPoints for a SkillNode.
 /// </summary>
 [System.Serializable]
 public class SkillNodeAllocation

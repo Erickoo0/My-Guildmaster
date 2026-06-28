@@ -4,12 +4,12 @@ using Pathfinding;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
-public class MobController : BaseEntityController
+public class MobController : EntityControllerBase
 {
     
     [Header("References")]
     [HideInInspector] public Rigidbody2D _rigidBody2D;
-    [HideInInspector] public SpellControllerEntity _spellController;
+    [HideInInspector] public SkillControllerEntity SkillController;
     
     [Header("Movement Settings")]
     [HideInInspector] public AILerp aiLerp;
@@ -46,7 +46,7 @@ public class MobController : BaseEntityController
         
         _targetingFilter = ContactFilter2D.noFilter;
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        _spellController = GetComponent<SpellControllerEntity>();
+        SkillController = GetComponent<SkillControllerEntity>();
         
         // Disable aiLerp movement by default (Controlled via states)
         aiLerp = GetComponent<AILerp>();

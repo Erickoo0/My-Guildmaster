@@ -49,18 +49,13 @@ public static class EventBus
     public static void RequestQuestProgressCompleted(string questID) => OnQuestProgressCompleted?.Invoke(questID);
     
     //--------------------------Combat Events-------------------------
-    // Signals when a floating text gets requested
     public static event Action<int, Vector3> OnFloatingTextRequested;
-    // Any script can call this method to request a floating number
-    public static void RequestFloatingText(int amount, Vector3 position)
-    {
-        OnFloatingTextRequested?.Invoke(amount, position);
-    }
+    public static void RequestFloatingText(int amount, Vector3 position) => OnFloatingTextRequested?.Invoke(amount, position);
 
     public static event Action<GameObject> OnEntityDeathRequested;
-
-    public static void RequestEntityDeathUpdate(GameObject entity)
-    {
-        OnEntityDeathRequested?.Invoke(entity);
-    }
+    public static void RequestEntityDeathUpdate(GameObject entity) => OnEntityDeathRequested?.Invoke(entity);
+    
+    //-------------------------Skill Tree Events-------------------------
+    public static event Action<string> OnSkillTreeLedgerChanged;
+    public static void RequestSkillTreeLedgerChanged(string skillDataID) => OnSkillTreeLedgerChanged?.Invoke(skillDataID);
 }

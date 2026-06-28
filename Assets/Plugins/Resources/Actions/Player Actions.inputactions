@@ -106,6 +106,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Skill Menu",
+                    "type": "Button",
+                    "id": "99ce349c-a8e2-4f41-aa14-1ede1e1e601f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Hotbar",
                     "type": "PassThrough",
                     "id": "568776de-6778-4398-817d-ddfba50005a0",
@@ -699,7 +708,7 @@
                 {
                     "name": "",
                     "id": "add9e40a-1793-4807-876c-9ba48696c51d",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -915,6 +924,17 @@
                     "action": "AttackRMB",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea197cc3-38be-4ac5-af5c-b4a2fdebeace",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1043,6 +1063,15 @@
                     "name": "Quest Menu",
                     "type": "Button",
                     "id": "de3ef5c8-9eba-4e57-92ea-c26cd7ef1de1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill Menu",
+                    "type": "Button",
+                    "id": "2fe6f0e1-9c45-4967-97e0-8f9400fb6d0e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1240,7 +1269,7 @@
                 {
                     "name": "",
                     "id": "e14476fe-1c48-45b1-8aa1-910d0f58b2bf",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1267,6 +1296,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Quest Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c163c870-5d87-43c0-8e2e-6b11a268f1a9",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

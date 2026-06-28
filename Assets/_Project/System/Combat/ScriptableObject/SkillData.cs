@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 
 /// <summary>
-/// Base Level 1 Spell Data Blueprint.
+/// Static Blueprint for a base level 1 skill.
 /// </summary>
 [CreateAssetMenu(fileName = "Skill_Data_", menuName = "Skills/Skill Data")]
 public class SkillData : ScriptableObject
@@ -50,7 +50,7 @@ public class SkillData : ScriptableObject
     /// Create a fresh SkillDataInstance from this blueprint.
     /// With copied stats and effects ready for modification.
     /// </summary>
-    public SkillDataInstance CreateSpellDataInstance()
+    public SkillDataInstance CreateSkillDataInstance()
     {
         // 1. Build the base stats dictionary of the skill
         Dictionary<SkillStat, float> statsBase = new Dictionary<SkillStat, float>

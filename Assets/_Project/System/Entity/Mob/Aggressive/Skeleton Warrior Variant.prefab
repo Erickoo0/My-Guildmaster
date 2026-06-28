@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
-  victimLayer:
+  VictimLayer:
     serializedVersion: 2
     m_Bits: 64
   entityCollider: {fileID: 0}
@@ -387,6 +387,66 @@ PrefabInstance:
       propertyPath: m_SpriteLibraryAsset
       value: 
       objectReference: {fileID: 7108339969198208228, guid: 759de2d668751664090d0dcd305fc491, type: 3}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[-2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: _skillStatesList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: '_skillStatesList.Array.data[0]'
+      value: 3505743958813966434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743958813966426]'
+      value: Assembly-CSharp EntityAttackMeleeState
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743958813966434]'
+      value: Assembly-CSharp EntitySkillStateMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966426]._id
+      value: Skill_Data_Melee_Swing
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966434]._id
+      value: Skill_Data_Melee_Swing
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966426].lungeDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966426].lungeSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966434]._lungeDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966434]._lungeSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966426].activeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966434]._activeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966426].lungeStoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743958813966434]._lungeStoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5742111724304672418, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Size.y
       value: 1.0104183

@@ -425,7 +425,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   _projectileVisual: {fileID: 636807924418001954}
-  _projectileHitFX: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
 --- !u!114 &-2872043633173323930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,8 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
-  victimLayer:
+  VictimLayer:
     serializedVersion: 2
-    m_Bits: 193
-  enableHitbox: 1
+    m_Bits: 192
   entityCollider: {fileID: 0}

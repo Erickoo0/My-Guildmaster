@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Blueprint for a single Skill's Skill Tree.
-/// Binds a SkillData to a SkillTreeLedger.
-/// Validates allocation/refund rules by comparing static node rules
-/// against a runtime SkillTreeLedger.
+/// Static Blueprint for a Skill's Skill Tree.
+/// Holds a list of SkillNodes.
 /// </summary>
 [CreateAssetMenu(fileName = "Skill_Tree_", menuName = "Skills/Skill Tree")]
 public class SkillTree : ScriptableObject
@@ -20,6 +18,9 @@ public class SkillTree : ScriptableObject
     public SkillData SkillData => _skillData;
     public IReadOnlyList<SkillNode> SkillNodes => _skillNodes;
     
+    /// <summary>
+    /// Searches the SkillTree for a SkillNode with the given ID.
+    /// </summary>
     public SkillNode GetSkillNodeByID(string skillNodeID)
     {
         // 1. If unable to find the ID, return null
@@ -40,10 +41,10 @@ public class SkillTree : ScriptableObject
     public bool ContainsNode(string skillNodeID) => GetSkillNodeByID(skillNodeID) != null;
 
     /// <summary>
-    /// Convenience wrapper for checking if the prerequisites for the given node are met.
-    /// Returns true if all prerequisites are met, false otherwise.
+    /// Checks if the prerequisites for the given SkillNode are met
+    /// by comparing the SkillNode's prerequisites with the SkillTreeLedger's allocated points.
     /// </summary>
-    public bool CheckPrerequisitesMet(string skillNodeID, SkillTreeLedger skillTreeLedger)
+    public bool ArePrerequisitesMet(string skillNodeID, SkillTreeLedger skillTreeLedger)
     {
         SkillNode skillNode = GetSkillNodeByID(skillNodeID);
         if (skillNode == null)
@@ -53,10 +54,10 @@ public class SkillTree : ScriptableObject
     }
 
     /// <summary>
-    /// Checks if the given node can be allocated an additional point.
+    /// Checks if the given SkillNode can be allocated an additional SkillPoint.
     /// This method only checks rules. TryAllocatePoint performs the actual allocation.
     /// </summary>
-    public bool CheckSkillPointAllocation(string skillNodeID, SkillTreeLedger skillTreeLedger)
+    public bool CanAllocateSkillPoint(string skillNodeID, SkillTreeLedger skillTreeLedger)
     {
         // 1. Check if the ledger exists
         if (skillTreeLedger == null)
@@ -80,20 +81,21 @@ public class SkillTree : ScriptableObject
         return true;
     }
 
-    public bool TrySkillPointAllocation(string skillNodeID, SkillTreeLedger skillTreeLedger)
+    public bool TryAllocateSkillPoint(string skillNodeID, SkillTreeLedger skillTreeLedger)
     {
-        if (!CheckSkillPointAllocation(skillNodeID, skillTreeLedger))
+        if (!CanAllocateSkillPoint(skillNodeID, skillTreeLedger))
             return false;
 
         skillTreeLedger.AddSkillPoint(skillNodeID);
+        EventBus.RequestSkillTreeLedgerChanged(skillTreeLedger.SkillDataID);
         return true;
     }
 
     /// <summary>
-    /// Checks if the given node can be refunded an additional point.
-    /// Blocks refunds if another node in the tree depends on this node.
+    /// Checks if the given SkillNode can be refunded an additional SkillPoint.
+    /// Blocks refunds if another SkillNode in the tree depends on this node.
     /// </summary>
-    public bool CheckSkillPointRefund(string skillNodeID, SkillTreeLedger skillTreeLedger)
+    public bool CanRefundSkillPoint(string skillNodeID, SkillTreeLedger skillTreeLedger)
     {
         // Safety Check
         if (skillTreeLedger == null)
@@ -128,12 +130,13 @@ public class SkillTree : ScriptableObject
         return true;
     }
 
-    public bool TrySkillPointRefund(string skillNodeID, SkillTreeLedger skillTreeLedger)
+    public bool TryRefundSkillPoint(string skillNodeID, SkillTreeLedger skillTreeLedger)
     {
-        if (!CheckSkillPointRefund(skillNodeID, skillTreeLedger))
+        if (!CanRefundSkillPoint(skillNodeID, skillTreeLedger))
             return false;
 
         skillTreeLedger.RemoveSkillPoint(skillNodeID);
+        EventBus.RequestSkillTreeLedgerChanged(skillTreeLedger.SkillDataID);
         return true;
     }
 

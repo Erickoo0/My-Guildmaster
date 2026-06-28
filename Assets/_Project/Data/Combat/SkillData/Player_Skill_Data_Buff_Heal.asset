@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0c193929928e549b119170587c163c, type: 3}
+  m_Name: Player_Skill_Data_Buff_Heal
+  m_EditorClassIdentifier: Assembly-CSharp::SpellData
+  ID: Player_Skill_Data_Buff_Heal
+  Name: Heal
+  Icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+  Prefab: {fileID: 6139296669300658502, guid: 75bbde1e2d2aaa547a410fdb4f7422b4, type: 3}
+  Animation: 0
+  MpCostBase: 5
+  CastTimeBase: 1
+  CastBarDisplay: 1
+  EffectsList:
+  - rid: 3505743946400399446
+  RequirementsList: []
+  HitOncePerTarget: 1
+  DestroyOnMaxHits: 1
+  MaxEnemiesHitBase: 0
+  SelectionWeight: 10
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743946400399446
+      type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
+      data:
+        HpHealBase: 20

@@ -12,7 +12,7 @@ public class InventoryTest : MonoBehaviour
     private void OnEnable() => addItemHotkey.Enable();
     private void OnDisable() => addItemHotkey.Disable();
     
-    private void Start() => _player = GameObject.FindGameObjectWithTag("SpellControllerPlayer");
+    private void Start() => _player = GameObject.FindGameObjectWithTag("Player");
     
     void Update()
     {

@@ -6,7 +6,7 @@ public class PlayerStatsManager : MonoBehaviour
 {
     public static PlayerStatsManager Instance { get; private set; }
 
-    [Header("SpellControllerPlayer Stats")]
+    [Header("SkillControllerPlayer Stats")]
     private GameObject _player;
     private Health _healthComponent;
     private Mana _manaComponent;
@@ -36,7 +36,7 @@ public class PlayerStatsManager : MonoBehaviour
         Instance = this;
 
         // Get the components
-        _player = GameObject.FindGameObjectWithTag("SpellControllerPlayer");
+        _player = GameObject.FindGameObjectWithTag("Player");
         _healthComponent = GetComponent<Health>();
         _manaComponent = GetComponent<Mana>();
         _levelComponent = GetComponent<Level>();

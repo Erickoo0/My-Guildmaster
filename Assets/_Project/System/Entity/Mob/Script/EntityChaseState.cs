@@ -44,7 +44,7 @@ public class EntityChaseState : BaseChaseState
         controller.aiLerp.destination = targetPosition;
 
         // 4. Check if any attacks have requirements met
-        BaseAttackState selectedAttack = controller._spellController.GetRandomAttackState();
+        SkillStateBase selectedAttack = controller.SkillController.GetRandomSkillState();
         
         // 5. Execute attack
         if (selectedAttack != null)
@@ -58,7 +58,7 @@ public class EntityChaseState : BaseChaseState
             controller.EntityAnimator.FaceDirection(faceDirection); 
             
             // Check if the action cooldown is over
-            if (controller._spellController.CheckActionCooldown())
+            if (controller.SkillController.CheckActionCooldown())
                 stateMachine.ChangeState(selectedAttack);
         }
         else // 5. If there is no valid attacks (likely out of range). Keep chasing OR kitting

@@ -30,7 +30,7 @@ public class MapTransitioner : MonoBehaviour
         {
             return;
         }
-        if (collision.gameObject.CompareTag("SpellControllerPlayer") && _confiner != null && targetMapBoundry != null)
+        if (collision.gameObject.CompareTag("SkillControllerPlayer") && _confiner != null && targetMapBoundry != null)
         {
             _confiner.BoundingShape2D = targetMapBoundry;
             _confiner.InvalidateBoundingShapeCache();
