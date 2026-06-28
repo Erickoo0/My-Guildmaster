@@ -14,35 +14,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellSkillTree
   _skillData: {fileID: 11400000, guid: 48f8304c40a2aea49957b32c76b887cc, type: 2}
   _skillNodes:
-  - _id: MpCost_Increase_1
-    _displayName: Mp Cost Increase 1
-    _icon: {fileID: 5234705123545024623, guid: b94d4d42ec62cf14bbc44c3a8e247d71, type: 3}
+  - _id: SkillNode_MpCost_Increase
+    _displayName: Increase Mp Cost
+    _icon: {fileID: 0}
     _description: 
-    _uiPosition: {x: -3, y: 0}
+    _uiPosition: {x: -1, y: 0}
     _skillPointsMax: 3
     _prerequisites: []
     _modifiers:
-    - {fileID: 11400000, guid: cea2f9894d0bc4f49a2c996859cbb0f3, type: 2}
-    - {fileID: 11400000, guid: d650f025b62251c4389043d59b121542, type: 2}
-  - _id: MpCost_Increase_2
-    _displayName: Mp Cost Increase 2
-    _icon: {fileID: -1487120408008746009, guid: 4f853357d0039bf44866b9a04c452ed2, type: 3}
+    - rid: 3505743987855065166
+  - _id: SkillNode_Dmg_increase
+    _displayName: Increase Damage
+    _icon: {fileID: 0}
     _description: 
     _uiPosition: {x: 0, y: 0}
     _skillPointsMax: 3
-    _prerequisites:
-    - _requiredSkillNodeID: MpCost_Increase_1
-      _requiredSkillPoints: 3
+    _prerequisites: []
     _modifiers:
-    - {fileID: 11400000, guid: cea2f9894d0bc4f49a2c996859cbb0f3, type: 2}
-  - _id: MpCost_Increase_3
-    _displayName: Mp Cost Increase 3
-    _icon: {fileID: -1487120408008746009, guid: 4f853357d0039bf44866b9a04c452ed2, type: 3}
+    - rid: 3505743987855065178
+  - _id: SkillNode_Heal_Append
+    _displayName: Add Healing
+    _icon: {fileID: 0}
     _description: 
-    _uiPosition: {x: 3, y: 0}
+    _uiPosition: {x: 1, y: 0}
     _skillPointsMax: 3
-    _prerequisites:
-    - _requiredSkillNodeID: MpCost_Increase_2
-      _requiredSkillPoints: 3
+    _prerequisites: []
     _modifiers:
-    - {fileID: 11400000, guid: cea2f9894d0bc4f49a2c996859cbb0f3, type: 2}
+    - rid: 3505743987855065169
+  references:
+    version: 2
+    RefIds:
+    - rid: 3505743987855065166
+      type: {class: ModifierSkillStat, ns: , asm: Assembly-CSharp}
+      data:
+        _skillStat: 0
+        _operation: 1
+        _value: 5
+    - rid: 3505743987855065169
+      type: {class: ModifierSkillBehavior, ns: , asm: Assembly-CSharp}
+      data:
+        _operation: 0
+        _effectsList:
+        - rid: 3505743987855065170
+        _insertIndex: 0
+        _stackOnExisting: 0
+    - rid: 3505743987855065170
+      type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
+      data:
+        HpHealBase: 5
+    - rid: 3505743987855065178
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectDealDamage
+        _effectParameter: Amount
+        _operation: 1
+        _value: 5

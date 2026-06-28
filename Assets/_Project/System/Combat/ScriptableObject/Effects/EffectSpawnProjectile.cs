@@ -21,7 +21,9 @@ public class EffectSpawnProjectile : Effect
     
     [Header("Impact EffectList List")]
     [SerializeReference, SubclassSelector] public List<Effect> EffectsList = new List<Effect>();
-
+    
+    public override List<Effect> GetNestedEffects() => EffectsList;
+    
     public override bool Execute(EffectPayload effectPayload)
     {
         if (_prefab == null) return false;

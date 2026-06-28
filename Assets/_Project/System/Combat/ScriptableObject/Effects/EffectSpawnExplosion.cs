@@ -12,6 +12,8 @@ public class EffectSpawnExplosion : Effect
     [Header("Explosion Impact Settings")]
     [SerializeReference, SubclassSelector] public List<Effect> EffectsList = new List<Effect>();
 
+    public override List<Effect> GetNestedEffects() => EffectsList;
+    
     public override bool Execute(EffectPayload effectPayload)
     {
         if (_prefab == null) return false;

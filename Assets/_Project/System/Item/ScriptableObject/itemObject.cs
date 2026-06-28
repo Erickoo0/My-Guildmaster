@@ -111,7 +111,7 @@ public class ItemObject : MonoBehaviour
     {
         try
         {
-            if (!collision.CompareTag("SkillControllerPlayer") || _itemInstance == null) return;
+            if (!collision.CompareTag("Player") || _itemInstance == null) return;
         
             // 1. Lock out further triggers
             _canBePickedUp = false; // Set to false since item is now picked up

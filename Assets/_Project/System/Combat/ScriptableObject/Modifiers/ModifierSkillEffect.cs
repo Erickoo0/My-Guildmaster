@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 /// <summary>
@@ -40,8 +41,9 @@ public class ModifierSkillEffect : ModifierSkillBase
         // If the cache failed to find the type or field, we can't proceed.
         if (_cachedTargetType == null || _cachedTargetField == null) return;
         
-        // 2. Find the actual effect object sitting inside the SkillDataInstance
-        Effect targetEffect = FindFirstEffectOfType(skillDataInstance, _cachedTargetType);
+        // 2. Find the actual EffectsList across SkillDataInstance and its nested effects
+        // Searches the SkillDataInstance level, then the nested effects.
+        Effect targetEffect = FindEffectRecurive(skillDataInstance.EffectsList, _cachedTargetType);
         if (targetEffect == null)
         {
             Debug.LogWarning($"ModifierSkillEffect: Skill does not have an effect of type '{_effectTypeID}'.");
@@ -98,14 +100,26 @@ public class ModifierSkillEffect : ModifierSkillBase
 
     //---- Helper Methods ----
 
-    private static Effect FindFirstEffectOfType(SkillDataInstance skillDataInstance, Type targetType)
+    private static Effect FindEffectRecurive(List<Effect> effectsList, Type targetType)
     {
-        foreach (Effect effect in skillDataInstance.EffectsList)
+        if (effectsList == null)
+            return null;
+        
+        foreach (Effect effect in effectsList)
         {
-            // GetType() gets the runtime type of the effect instance to compare against our blueprint
-            if (effect != null && effect.GetType() == targetType)
+            if (effect == null) continue;
+            
+            // 1. If match is found at the SkillDataInstance level, return it
+            if (effect.GetType() == targetType)
                 return effect;
+            
+            // 2. If match is found at the nested effects level, return it
+            Effect nestedEffect = FindEffectRecurive(effect.GetNestedEffects(), targetType);
+            if (nestedEffect != null)
+                return nestedEffect;
+            
         }
+        
         return null;
     }
 

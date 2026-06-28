@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
   m_Name: Item_Food_Poison_Berry
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Poison_Berry
+  <ItemID>k__BackingField: Item_Food_Poison_Berry
   <ItemName>k__BackingField: Poison Berry
   <ItemDescription>k__BackingField: 
   <Category>k__BackingField: 6
@@ -26,11 +26,15 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 99
   <IsUsable>k__BackingField: 1
   effects:
-  - rid: 3505743419375091803
+  - rid: 3505743987855065182
   references:
     version: 2
     RefIds:
-    - rid: 3505743419375091803
-      type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
+    - rid: 3505743987855065182
+      type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        baseHpHeal: -20
+        Amount: 5
+        Type: 0
+        KnockbackForce: 10
+        KnockbackDuration: 0.2
+        KnockbackHeight: 0.1
