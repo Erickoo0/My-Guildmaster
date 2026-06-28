@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98791d8f1cef3174b8776ef41faabb01, type: 3}
   m_Name: SkillTreeDatabase
   m_EditorClassIdentifier: Assembly-CSharp::SkillTreeDatabase
-  _skillTreesList: []
+  _skillTreesList:
+  - {fileID: 11400000, guid: bc897fbc9e335b64290543b04817d819, type: 2}

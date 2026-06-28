@@ -301,6 +301,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: _skillDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: _skillTreeDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: a229d623b3d09f745844274270226db7, type: 2}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: _globalSkillDatabase
       value: 
       objectReference: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
@@ -310,11 +318,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: _skillStatesList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: '_skillStatesList.Array.data[0]'
       value: 3505743946400399514
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: '_skillStatesList.Array.data[1]'
+      value: 3505743987855065174
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: <ActionCooldown>k__BackingField
@@ -333,6 +345,10 @@ PrefabInstance:
       value: Assembly-CSharp EntitySkillState
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[3505743987855065174]'
+      value: Assembly-CSharp EntitySkillState
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399511]._id
       value: 
       objectReference: {fileID: 0}
@@ -343,6 +359,14 @@ PrefabInstance:
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399514]._id
       value: Skill_Data_Projectile_Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743946400399514]._skillID
+      value: Skill_Data_Projectile_Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743987855065174]._skillID
+      value: Skill_Data_Projectile_Arrow_Charged
       objectReference: {fileID: 0}
     - target: {fileID: 5742111724304672418, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Size.y

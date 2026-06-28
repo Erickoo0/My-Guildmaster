@@ -279,6 +279,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7108339969198208228, guid: 7708bd7e3fede86448036945e2cb8737, type: 3}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: _skillDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: _skillTreeDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: a229d623b3d09f745844274270226db7, type: 2}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[-2]'
       value: 
       objectReference: {fileID: 0}
@@ -304,6 +312,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399507]._id
+      value: Skill_Data_Charge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743946400399507]._skillID
       value: Skill_Data_Charge
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}

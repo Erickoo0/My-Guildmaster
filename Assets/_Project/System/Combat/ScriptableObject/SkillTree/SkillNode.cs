@@ -26,7 +26,7 @@ public class SkillNode
 
     [Header("Modifiers")]
     [Tooltip("Modifiers applied once for each allocated point in this node.")]
-    [SerializeField] private List<ModifierSkillBase> _modifiers = new List<ModifierSkillBase>();
+    [SerializeReference, SubclassSelector] private List<ModifierSkillBase> _modifiers = new List<ModifierSkillBase>();
 
     public string ID => _id;
     public string DisplayName => _displayName;

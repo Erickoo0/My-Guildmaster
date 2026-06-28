@@ -12,17 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df70f10c72984b4abc688660353d01f, type: 3}
   m_Name: Spell_Modifier_Behavior_SpawnProjectile
   m_EditorClassIdentifier: Assembly-CSharp::ModifierSpellBehavior
-  modifierID: Spell_Modifier_Behavior_SpawnProjectile
-  modifierName: Spawn Projectile Modifier
-  modifierDescription: 
-  operation: 0
-  effects:
-  - rid: 3505743894818586704
-  insertIndex: 0
+  _id: Spell_Modifier_Behavior_SpawnProjectile
+  _name: 
+  _description: 
+  _operation: 0
+  _effectList:
+  - rid: 3505743982790705241
+  _insertIndex: 0
   references:
     version: 2
     RefIds:
-    - rid: 3505743894818586704
-      type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
+    - rid: 3505743982790705241
+      type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
       data:
-        baseHpHeal: 30
+        _prefab: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
+        _scale: 1
+        _speed: 5
+        _lifeTime: 3
+        _projectileHeight: 0
+        _projectileCurve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _maxEnemiesHit: 1
+        _hitOncePerTarget: 1
+        _destroyOnMaxHits: 1
+        EffectsList: []

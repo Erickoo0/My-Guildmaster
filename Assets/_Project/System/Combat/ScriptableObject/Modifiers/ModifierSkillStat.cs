@@ -1,41 +1,37 @@
 using UnityEngine;
 
 /// <summary>
-/// Modifys top-level stats of a SkillDataInstance. (E.g. MpCost, CastTime, MaxEnemiesHit, DisplayCastBar)
+/// Modifies top-level stats of a SkillDataInstance. (E.g. MpCost, CastTime, MaxEnemiesHit, DisplayCastBar)
 /// </summary>
-[CreateAssetMenu(fileName = "Spell_Modifier_Stat_", menuName = "Spell Modifiers/Stat Modifier")]
+[System.Serializable]
 public class ModifierSkillStat : ModifierSkillBase
 {
     [Header("Stat Modification")]
     [SerializeField] private SkillStat _skillStat;
-    [SerializeField] private StatModificationOperation operation;
-    [SerializeField] private float value;
-
-    public SkillStat SkillStat => _skillStat;
-    public StatModificationOperation Operation => operation;
-    public float Value => value;
+    [SerializeField] private StatModificationOperation _operation;
+    [SerializeField] private float _value;
 
     public override void ApplyModifier(SkillDataInstance skillDataInstance)
     {
         if (skillDataInstance == null)
         {
-            Debug.LogWarning($"{name}: Cannot apply stat modifier because SkillDataInstance is null.");
+            Debug.LogWarning($"ModifierSkillStat: Stat modification failed. SkillDataInstance is null.");
             return;
         }
 
-        switch (operation)
+        switch (_operation)
         {
             case StatModificationOperation.Set:
-                skillDataInstance.SetStat(_skillStat, value);
+                skillDataInstance.SetStat(_skillStat, _value);
                 break;
             case StatModificationOperation.Add:
-                skillDataInstance.AddToStat(_skillStat, value);
+                skillDataInstance.AddToStat(_skillStat, _value);
                 break;
             case StatModificationOperation.Multiply:
-                skillDataInstance.MultiplyStat(_skillStat, value);
+                skillDataInstance.MultiplyStat(_skillStat, _value);
                 break;
             default:
-                Debug.LogWarning($"{name}: Invalid StatModificationOperation.");
+                Debug.LogWarning($"ModifierSkillStat: Invalid StatModificationOperation.");
                 break;
         }
     }

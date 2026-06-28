@@ -23,6 +23,7 @@ MonoBehaviour:
     _prerequisites: []
     _modifiers:
     - {fileID: 11400000, guid: cea2f9894d0bc4f49a2c996859cbb0f3, type: 2}
+    - {fileID: 11400000, guid: d650f025b62251c4389043d59b121542, type: 2}
   - _id: MpCost_Increase_2
     _displayName: Mp Cost Increase 2
     _icon: {fileID: -1487120408008746009, guid: 4f853357d0039bf44866b9a04c452ed2, type: 3}
