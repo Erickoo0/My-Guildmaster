@@ -3,11 +3,11 @@ using UnityEngine;
 [System.Serializable]
 public class EffectDealDamage : Effect
 {
-    public float Amount;
-    public DamageType Type;
-    public float KnockbackForce = 10f;
-    public float KnockbackDuration = 0.2f;
-    public float KnockbackHeight = 0.1f;
+    [field: SerializeField] public float Amount { get; private set; }
+    [field: SerializeField] public DamageType Type { get; private set; }
+    [field: SerializeField] public float KnockbackForce { get; private set; } = 10f;
+    [field: SerializeField] public float KnockbackDuration { get; private set; } = 0.2f;
+    [field: SerializeField] public float KnockbackHeight { get; private set; } = 0.1f;
 
     public override bool Execute(EffectPayload effectPayload)
     {

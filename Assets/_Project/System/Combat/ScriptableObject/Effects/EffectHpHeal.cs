@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class EffectHpHeal : Effect
 {
-    public float HpHealBase;
+    [field: SerializeField] public float HpHealBase { get; private set; }
 
     public override bool Execute(EffectPayload payload)
     {

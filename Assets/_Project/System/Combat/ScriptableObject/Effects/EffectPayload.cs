@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class EffectPayload
 {
-    public GameObject User;
-    public GameObject Target;
-    public Vector3 TargetPosition;
+    [field: SerializeField] public GameObject User { get; private set; }
+    [field: SerializeField] public GameObject Target { get; private set; }
+    [field: SerializeField] public Vector3 TargetPosition { get; private set; }
 
-    public Vector2 HitDirection;
-    public Vector2 HitImpactPoint;
+    [field: SerializeField] public Vector2 HitDirection { get; private set; }
+    [field: SerializeField] public Vector2 HitImpactPoint { get; private set; }
 
     public HashSet<IDamagable> HitTargets;
     

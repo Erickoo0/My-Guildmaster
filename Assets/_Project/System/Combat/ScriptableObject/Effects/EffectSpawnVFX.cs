@@ -4,9 +4,9 @@ using UnityEngine;
 public class EffectSpawnVFX : Effect
 {
     [Header("VFX")]
-    public GameObject Prefab;
-    public bool AlignToHitDirection = true;
-    public bool AttachToUser = true;
+    [field: SerializeField] public GameObject Prefab { get; private set; }
+    [field: SerializeField] public bool AlignToHitDirection { get; private set; } = true;
+    [field: SerializeField] public bool AttachToUser { get; private set; } = true;
 
     public override bool Execute(EffectPayload effectPayload)
     {

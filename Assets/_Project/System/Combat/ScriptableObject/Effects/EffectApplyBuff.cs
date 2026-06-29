@@ -5,10 +5,10 @@ public enum BuffType { Health, Mana }
 [System.Serializable]
 public class EffectApplyBuff : Effect
 { 
-    public GameObject Prefab;
-    public BuffType Type;
-    public float Amount;
-    public float Duration;
+    [field: SerializeField] public GameObject Prefab { get; private set; }
+    [field: SerializeField] public BuffType Type { get; private set; }
+    [field: SerializeField] public float Amount { get; private set; }
+    [field: SerializeField] public float Duration { get; private set; }
 
     public override bool Execute(EffectPayload payload)
     {

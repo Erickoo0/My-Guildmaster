@@ -3,9 +3,9 @@ using UnityEngine;
 [System.Serializable]
 public class EffectSpawnTerrain : Effect
 {
-    public GameObject Prefab;
-    public float Duration = 5f;
-    public float HpMax = 50f;
+    [field: SerializeField] public GameObject Prefab { get; private set; }
+    [field: SerializeField] public float Duration { get; private set; } = 5f;
+    [field: SerializeField] public float HpMax { get; private set; } = 50f;
 
     public override bool Execute(EffectPayload payload)
     {

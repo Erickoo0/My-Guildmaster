@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class EffectSpawnExplosion : Effect
 {
     [Header("Explosion Settings")]
-    [SerializeField] private GameObject _prefab;
-    [SerializeField] private float _lifeTime = 0.5f;
-    [SerializeField] private float _scale = 1f;
+    [field: SerializeField] public GameObject Prefab { get; private set; }
+    [field: SerializeField] public float LifeTime { get; private set; } = 0.5f;
+    [field: SerializeField] public float Scale { get; private set; } = 1f;
     
     [Header("Explosion Impact Settings")]
     [SerializeReference, SubclassSelector] public List<Effect> EffectsList = new List<Effect>();
@@ -16,14 +16,14 @@ public class EffectSpawnExplosion : Effect
     
     public override bool Execute(EffectPayload effectPayload)
     {
-        if (_prefab == null) return false;
+        if (Prefab == null) return false;
         
         // 1. Determine spawn location
         Vector3 spawnPosition = effectPayload.HitImpactPoint != Vector2.zero ? (Vector3)effectPayload.HitImpactPoint : effectPayload.TargetPosition;
         
         // 2. Spawn the explosion
-        GameObject explosionInstance = Object.Instantiate(_prefab, spawnPosition, Quaternion.identity);
-        Object.Destroy(explosionInstance, _lifeTime);
+        GameObject explosionInstance = Object.Instantiate(Prefab, spawnPosition, Quaternion.identity);
+        Object.Destroy(explosionInstance, LifeTime);
         
         // 3. Pass the data
         if (explosionInstance.TryGetComponent(out HitBoxAOE hitBox))
@@ -54,9 +54,9 @@ public class EffectSpawnExplosion : Effect
 
         return new EffectSpawnExplosion
         {
-            _prefab = _prefab,
-            _lifeTime = _lifeTime,
-            _scale = _scale,
+            Prefab = Prefab,
+            LifeTime = LifeTime,
+            Scale = Scale,
             EffectsList = clonedExplosionEffects
         };
     }

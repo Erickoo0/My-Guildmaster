@@ -57,7 +57,9 @@ MonoBehaviour:
         _effectsList:
         - rid: 3505743987855065170
         _insertIndex: 0
-        _stackOnExisting: 0
+        _stackOnExisting: 1
+        _stackParameter: HpHealBase
+        _stackValue: 5
     - rid: 3505743987855065170
       type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
       data:
