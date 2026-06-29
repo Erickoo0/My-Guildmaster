@@ -18,7 +18,7 @@ public class ModifierSkillBehavior : ModifierSkillBase
 
     [Header("Stack Behavior")]
     [SerializeField] private bool _stackOnExisting = false;
-    [SerializeField] private string _stackParameter;
+    [SerializeField, EffectFieldSelector("_effectTypeFromList")] private string _stackParameter;
     [SerializeField] private float _stackValue;
     
     // Tracks how many times this modifier has been applied during a single compile pass.

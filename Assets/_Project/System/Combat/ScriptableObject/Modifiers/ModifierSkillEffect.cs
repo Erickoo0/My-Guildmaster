@@ -12,10 +12,10 @@ public class ModifierSkillEffect : ModifierSkillBase
 {
     [Header("Effect Modification")]
     [Tooltip("The ID/Name of the effect class (e.g., 'BurnEffect').")]
-    [SerializeField] private string _effectTypeID;
+    [SerializeField, EffectTypeSelector] private string _effectTypeID;
     
     [Tooltip("The variable name inside that effect to modify (e.g., '_damageAmount').")]
-    [SerializeField] private string _effectParameter;
+    [SerializeField, EffectFieldSelector("_effectTypeID")] private string _effectParameter;
     
     [SerializeField] private StatModificationOperation _operation;
     [SerializeField] private float _value;
