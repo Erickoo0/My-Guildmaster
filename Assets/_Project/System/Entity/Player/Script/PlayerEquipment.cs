@@ -1,104 +1,125 @@
 using UnityEngine;
-
 public class PlayerEquipment : MonoBehaviour
 {
-    public static PlayerEquipment Instance { get; private set; }
-    
-    [Header("Equipment Settings")]
-    [SerializeField] private Transform parentTransform;
-    
-    private GameObject _currentActiveItem;
-    private int _currentActiveSlotIndex = 0;
-    
-    private void Start()
-    {
-        // Listens for when the player switches their selection
-        InventoryManager.Instance.OnActiveSlotIndexChanged += SetActiveSlotIndex;
-        // Listens for when data inside any slot changes (Add, Drop, Swap)
-        InventoryManager.Instance.OnSlotUpdated += SetSlotData;
-    }
 
-    public void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            Debug.unityLogger.Log("Multiple PlayerEquipment detected. Disabling script.");
-            return;
-        }
+	[Header("Equipment Settings")]
+	[SerializeField] private Transform parentTransform;
 
-        Instance = this;
-    }
-    
-    private void OnDestroy()
-    {
-        if (InventoryManager.Instance != null)
-        {
-            InventoryManager.Instance.OnActiveSlotIndexChanged -= SetActiveSlotIndex;
-            InventoryManager.Instance.OnSlotUpdated -= SetSlotData;
-        }
-        
-    }
-    
-    private void SetActiveSlotIndex(int index)
-    {
-        parentTransform.gameObject.SetActive(true);
-        _currentActiveSlotIndex = index;
-        // Find the Item Data from slot index
-        ItemInstance itemInSlot = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
-        // Set the active item to the one from slot index
-        SetActiveItem(itemInSlot);
-    }
+	private GameObject _currentActiveItem;
+	private int _currentActiveSlotIndex = 0;
+	public static PlayerEquipment Instance { get; private set; }
 
-    private void SetSlotData(int index)
-    {
-        // Only update if the slot modified matches active slot
-        if (index == _currentActiveSlotIndex)
-        {
-            ItemInstance itemInSlot = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
-            SetActiveItem(itemInSlot);
-        }
-    }
+	public void Awake()
+	{
+		if (Instance != null && Instance != this)
+		{
+			Destroy(gameObject);
+			Debug.unityLogger.Log("Multiple PlayerEquipment detected. Disabling script.");
+			return;
+		}
 
-    private void SetActiveItem(ItemInstance itemInSlot)
-    {
-        // Destroy the old active item if it exists
-        if (_currentActiveItem != null) Destroy(_currentActiveItem);
-        
-        // Safety Check: If slot is empty or null
-        if (itemInSlot == null || itemInSlot.DataSo == null || itemInSlot.DataSo.ItemObject == null) return;
-        
-        // Spawn the Item Object
-        _currentActiveItem = Instantiate(itemInSlot.DataSo.ItemObject, parentTransform);
-        
-        // Reset position
-        _currentActiveItem.transform.localPosition = Vector3.zero;
-        _currentActiveItem.transform.localRotation = Quaternion.identity;
-        
-        // Initialize the active items sprite and data
-        if (_currentActiveItem.TryGetComponent(out ItemObject itemObjectScript))
-        {
-            itemObjectScript.SetItemObject(itemInSlot, null, false);
-        }
-    }
+		Instance = this;
+	}
 
-    public void TryUseActiveItem()
-    {
-        if (_currentActiveSlotIndex < 0) return;
+	private void Start()
+	{
+		// Listens for when the player switches their selection
+		InventoryManager.Instance.OnActiveSlotIndexChanged += SetActiveSlotIndex;
+		// Listens for when data inside any slot changes (Add, Drop, Swap)
+		InventoryManager.Instance.OnSlotUpdated += SetSlotData;
+	}
 
-        ItemInstance activeItem = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
-        
-        if (activeItem == null || activeItem.DataSo == null) return;
+	private void OnDestroy()
+	{
+		if (InventoryManager.Instance != null)
+		{
+			InventoryManager.Instance.OnActiveSlotIndexChanged -= SetActiveSlotIndex;
+			InventoryManager.Instance.OnSlotUpdated -= SetSlotData;
+		}
 
-        if (activeItem.DataSo.IsUsable == true)
-        {
-            bool wasUsed = activeItem.DataSo.Use(activeItem, gameObject);
-            if (wasUsed)
-            {
-                InventoryManager.Instance.RemoveItems(_currentActiveSlotIndex);
-                Debug.Log("Item Used");
-            }
-            return;
-        }
-    }
+	}
+
+	private void SetActiveSlotIndex(int index)
+	{
+		parentTransform.gameObject.SetActive(true);
+		_currentActiveSlotIndex = index;
+		// Find the Item Data from slot index
+		ItemInstance itemInSlot = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
+		// Set the active item to the one from slot index
+		SetActiveItem(itemInSlot);
+	}
+
+	private void SetSlotData(int index)
+	{
+		// Only update if the slot modified matches active slot
+		if (index == _currentActiveSlotIndex)
+		{
+			ItemInstance itemInSlot = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
+			SetActiveItem(itemInSlot);
+		}
+	}
+
+	private void SetActiveItem(ItemInstance itemInSlot)
+	{
+		// Destroy the old active item if it exists
+		if (_currentActiveItem != null) Destroy(_currentActiveItem);
+
+		// Safety Check: If slot is empty or null
+		if (itemInSlot == null || itemInSlot.DataSo == null || itemInSlot.DataSo.ItemObject == null) return;
+
+		// Spawn the Item Object
+		_currentActiveItem = Instantiate(itemInSlot.DataSo.ItemObject, parentTransform);
+
+		// Reset position
+		_currentActiveItem.transform.localPosition = Vector3.zero;
+		_currentActiveItem.transform.localRotation = Quaternion.identity;
+
+		// Initialize the active items sprite and data
+		if (_currentActiveItem.TryGetComponent(out ItemObject itemObjectScript))
+		{
+			itemObjectScript.SetItemObject(itemInSlot, null, false);
+		}
+	}
+
+	public void TryUseActiveItem()
+	{
+		Debug.Log("Trying to use item2");
+
+		if (_currentActiveSlotIndex < 0)
+		{
+			Debug.LogWarning($"TryUseActiveItem: slot index is negative ({_currentActiveSlotIndex})");
+			return;
+		}
+
+		ItemInstance activeItem = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
+		Debug.Log($"TryUseActiveItem: slot={_currentActiveSlotIndex}, item={(activeItem == null ? "NULL" : activeItem.DataSo?.ItemName ?? "DataSo NULL")}");
+
+		if (activeItem == null)
+		{
+			Debug.LogWarning($"TryUseActiveItem: itemsList[{_currentActiveSlotIndex}] is null");
+			return;
+		}
+
+		if (activeItem.DataSo == null)
+		{
+			Debug.LogWarning($"TryUseActiveItem: itemsList[{_currentActiveSlotIndex}].DataSo is null");
+			return;
+		}
+
+		Debug.Log($"TryUseActiveItem: IsUsable={activeItem.DataSo.IsUsable}, effects count={activeItem.DataSo.effects?.Count ?? 0}");
+
+		if (activeItem.DataSo.IsUsable)
+		{
+			bool wasUsed = activeItem.DataSo.Use(activeItem, gameObject);
+			Debug.Log($"Item used: {wasUsed}");
+			if (wasUsed)
+			{
+				InventoryManager.Instance.RemoveItems(_currentActiveSlotIndex);
+				Debug.Log("Item Used");
+			}
+		} else
+		{
+			Debug.LogWarning($"TryUseActiveItem: item {activeItem.DataSo.ItemName} is not usable");
+		}
+	}
 }

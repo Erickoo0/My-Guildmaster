@@ -6,29 +6,32 @@ public abstract class HitBox : MonoBehaviour
 	[Header("Base Settings")]
 	public LayerMask VictimLayer; // Layer to check for collisions
 
-	[HideInInspector] public Collider2D entityCollider;
+	[HideInInspector] public Collider2D EntityCollider;
+
 	private bool _destroyOnMaxHits;
+	private List<Effect> _effectsList;
 	private bool _enableHitBox = false;
+
+	private float _hitImpact;
 	private bool _hitOncePerTarget;
-
 	private int _maxEnemiesHitCount;
-	private List<Effect> onHitEffects;
 
-	private GameObject spellSource;
+	private GameObject _user;
 
 	private HashSet<IDamagable> targetsHit;
+
 	public bool EnableHitBox
 	{
 		get => _enableHitBox;
 		set
 		{
 			_enableHitBox = value;
-			if (entityCollider != null)
-				entityCollider.enabled = value;
+			if (EntityCollider != null)
+				EntityCollider.enabled = value;
 		}
 	}
 
-	protected virtual void Awake() => entityCollider = GetComponent<Collider2D>();
+	protected virtual void Awake() => EntityCollider = GetComponent<Collider2D>();
 
 	public void OnTriggerEnter2D(Collider2D other) => OnTriggerStay2D(other);
 	public void OnTriggerStay2D(Collider2D other)
@@ -36,7 +39,7 @@ public abstract class HitBox : MonoBehaviour
 		// 1. Safety Checks
 		if (!EnableHitBox || other.isTrigger) return;
 		if (((1 << other.gameObject.layer) & VictimLayer) == 0) return;
-		if (other.transform.root.gameObject == spellSource.transform.root.gameObject) return;
+		if (other.transform.root.gameObject == _user.transform.root.gameObject) return;
 
 		// 2. Identify what we hit
 		IDamagable victim = other.GetComponentInParent<IDamagable>();
@@ -53,7 +56,7 @@ public abstract class HitBox : MonoBehaviour
 
 		// 5. Create effect payload
 		EffectPayload effectPayload = new EffectPayload(
-			spellSource,
+			_user,
 			other.gameObject,
 			other.transform.position,
 			direction,
@@ -63,20 +66,20 @@ public abstract class HitBox : MonoBehaviour
 
 		// 6. Execute all skill effects
 		bool anyEffectSucceeded = false;
-		if (onHitEffects != null && onHitEffects.Count > 0)
-		{
-			foreach (Effect effect in onHitEffects)
-			{
+		if (_effectsList != null && _effectsList.Count > 0)
+			foreach (Effect effect in _effectsList)
 				if (effect.Execute(effectPayload))
 					anyEffectSucceeded = true;
-			}
-		}
 
 		// 7. Handle successful hits
 		if (anyEffectSucceeded)
 		{
 			if (victim != null) targetsHit.Add(victim);
 			HandlePostHit(other);
+
+			// Hit Impact Feedback (hit pause + screen shake)
+			if (_hitImpact > 0f)
+				EventBus.RequestHitImpact(_hitImpact, impactPoint);
 
 			// Wall Impact Logic
 			if (isWall)
@@ -99,10 +102,10 @@ public abstract class HitBox : MonoBehaviour
 		}
 	}
 
-	public virtual void Setup(GameObject user, [CanBeNull] List<Effect> effects, int maxHits, bool hitOnce, bool destroyOnMax, HashSet<IDamagable> inheritedTargets = null)
+	public virtual void Setup(GameObject user, [CanBeNull] List<Effect> effects, int maxHits, bool hitOnce, bool destroyOnMax, HashSet<IDamagable> inheritedTargets = null, float hitImpact = 0f)
 	{
-		spellSource = user;
-		onHitEffects = effects;
+		_user = user;
+		_effectsList = effects;
 
 		// If memory of previous hits is passed down, use it. Otherwise, create a new HashSet
 		targetsHit = inheritedTargets ?? new HashSet<IDamagable>();
@@ -111,6 +114,7 @@ public abstract class HitBox : MonoBehaviour
 		_maxEnemiesHitCount = maxHits;
 		_hitOncePerTarget = hitOnce;
 		_destroyOnMaxHits = destroyOnMax;
+		_hitImpact = hitImpact;
 	}
 
 	// All children must implement this method

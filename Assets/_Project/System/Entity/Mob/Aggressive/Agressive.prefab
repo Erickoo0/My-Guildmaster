@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 1597489647137135588}
   - component: {fileID: -3585927010994337265}
   - component: {fileID: 5651739851779631593}
+  - component: {fileID: -3059821900964260431}
   m_Layer: 3
   m_Name: Agressive
   m_TagString: Untagged
@@ -626,7 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a89079566738364fb20a30e9b007115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillControllerEntity
-  _globalSkillDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+  _skillDatabase: {fileID: 0}
+  _skillTreeDatabase: {fileID: 0}
   <ActionCooldown>k__BackingField: 0.25
   _skillStatesList: []
   references:
@@ -929,3 +931,17 @@ MonoBehaviour:
   raycastOffset: {x: 0, y: 0, z: 0}
   useGraphRaycasting: 0
   quality: 2
+--- !u!114 &-3059821900964260431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531220670705793847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b452c037a7d465d48a6879a82343e1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityStats
+  MoveSpeedMultiplier: 1
+  DamageMultiplier: 1

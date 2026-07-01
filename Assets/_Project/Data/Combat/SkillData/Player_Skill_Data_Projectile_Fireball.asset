@@ -20,12 +20,10 @@ MonoBehaviour:
   MpCostBase: 0
   CastTimeBase: 0.5
   CastBarDisplay: 0
+  HitImpactBase: 1
   EffectsList:
   - rid: 3505744017709858924
   RequirementsList: []
-  HitOncePerTarget: 1
-  DestroyOnMaxHits: 1
-  MaxEnemiesHitBase: 0
   SelectionWeight: 10
   references:
     version: 2
@@ -44,6 +42,8 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
+        <ProjectileCount>k__BackingField: 1
+        <SpreadAngle>k__BackingField: 0
         <MaxEnemiesHit>k__BackingField: 1
         <HitOncePerTarget>k__BackingField: 1
         <DestroyOnMaxHits>k__BackingField: 1

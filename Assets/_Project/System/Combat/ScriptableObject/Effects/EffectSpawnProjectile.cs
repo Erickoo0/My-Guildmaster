@@ -92,7 +92,8 @@ public class EffectSpawnProjectile : Effect
 					MaxEnemiesHit,
 					HitOncePerTarget,
 					DestroyOnMaxHits,
-					Scale
+					Scale,
+					effectPayload.HitImpact
 					);
 
 				anySpawned = true;

@@ -20,13 +20,11 @@ MonoBehaviour:
   MpCostBase: 0
   CastTimeBase: 0
   CastBarDisplay: 0
+  HitImpactBase: 1
   EffectsList:
   - rid: 3505743946400399504
   RequirementsList:
   - rid: 3505743958813966442
-  HitOncePerTarget: 1
-  DestroyOnMaxHits: 0
-  MaxEnemiesHitBase: 0
   SelectionWeight: 10
   references:
     version: 2
@@ -34,7 +32,7 @@ MonoBehaviour:
     - rid: 3505743946400399504
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        <Amount>k__BackingField: 0
+        <Amount>k__BackingField: 15
         <Type>k__BackingField: 0
         <KnockbackForce>k__BackingField: 10
         <KnockbackDuration>k__BackingField: 0.2

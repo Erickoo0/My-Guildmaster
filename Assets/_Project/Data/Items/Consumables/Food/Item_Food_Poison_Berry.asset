@@ -33,8 +33,8 @@ MonoBehaviour:
     - rid: 3505743987855065182
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        Amount: 5
-        Type: 0
-        KnockbackForce: 10
-        KnockbackDuration: 0.2
-        KnockbackHeight: 0.1
+        <Amount>k__BackingField: 5
+        <Type>k__BackingField: 0
+        <KnockbackForce>k__BackingField: 10
+        <KnockbackDuration>k__BackingField: 0.2
+        <KnockbackHeight>k__BackingField: 0.1

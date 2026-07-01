@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
   m_Name: Item_Food_Fish
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Fish
+  <ItemID>k__BackingField: Item_Food_Fish
   <ItemName>k__BackingField: Fish
   <ItemDescription>k__BackingField: A blue fish
   <Category>k__BackingField: 6
@@ -33,4 +33,4 @@ MonoBehaviour:
     - rid: 3505743470580727952
       type: {class: EffectMpHeal, ns: , asm: Assembly-CSharp}
       data:
-        baseMpHeal: 20
+        <MpHealBase>k__BackingField: 5

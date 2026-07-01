@@ -2,18 +2,22 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Projectile : MonoBehaviour
 {
+	[Header("References")]
 	[SerializeField] private Transform _projectileVisual;
+
+
 	private float _currentDuration;
 	private bool _destroyOnCollisions;
 	private List<Effect> _effectsList;
 
 	private HitBox _hitBox;
+
+	[Header("Projectile Settings")]
 	private Vector3 _linearDirection;
 	private MovementType _movementType;
 	private AnimationCurve _projectileCurve;
 	private float _projectileMaxRelativeHeight;
 	private float _projectileScale;
-
 	private float _projectileSpeed;
 
 	private Vector3 _projectileStartPosition;
@@ -35,7 +39,8 @@ public class Projectile : MonoBehaviour
 
 	public void Setup(
 		Vector3 projectileTargetPosition, float projectileSpeed, float projectileLifetime, AnimationCurve projectileCurve,
-		float projectileMaxHeight, GameObject user, List<Effect> onHitEffects, int maxHits, bool hitOnce, bool destroyOnMax, float projectileScale
+		float projectileMaxHeight, GameObject user, List<Effect> onHitEffects, int maxHits, bool hitOnce, bool destroyOnMax, float projectileScale,
+		float hitImpact = 0f
 	)
 	{
 		// 1. Pass the cached data
@@ -49,7 +54,7 @@ public class Projectile : MonoBehaviour
 
 		// 2. Get the Hitbox and hand it a reference to this projectile
 		if (TryGetComponent(out _hitBox))
-			_hitBox.Setup(user, onHitEffects, maxHits, hitOnce, destroyOnMax);
+			_hitBox.Setup(user, onHitEffects, maxHits, hitOnce, destroyOnMax, hitImpact: hitImpact);
 
 		// 3. Pass the lifetime and activate method on time expiration
 		Invoke(nameof(OnExpire), projectileLifetime);

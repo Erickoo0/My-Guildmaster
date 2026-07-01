@@ -48,7 +48,7 @@ MonoBehaviour:
   VictimLayer:
     serializedVersion: 2
     m_Bits: 64
-  entityCollider: {fileID: 0}
+  EntityCollider: {fileID: 0}
 --- !u!70 &3497179891603638761
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399507].overshootDistance
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399505].chargeSpeedMultiplier
@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399507].chargeSpeedMultiplier
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5742111724304672418, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Size.x

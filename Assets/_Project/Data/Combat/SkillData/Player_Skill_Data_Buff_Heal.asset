@@ -20,17 +20,26 @@ MonoBehaviour:
   MpCostBase: 5
   CastTimeBase: 1
   CastBarDisplay: 1
+  HitImpactBase: 1
   EffectsList:
-  - rid: 3505743946400399446
+  - rid: 6453299859867041867
+  - rid: 6453299859867041880
   RequirementsList: []
-  HitOncePerTarget: 1
-  DestroyOnMaxHits: 1
-  MaxEnemiesHitBase: 0
   SelectionWeight: 10
   references:
     version: 2
     RefIds:
-    - rid: 3505743946400399446
-      type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
+    - rid: 6453299859867041867
+      type: {class: EffectApplyBuff, ns: , asm: Assembly-CSharp}
       data:
-        <HpHealBase>k__BackingField: 0
+        <Prefab>k__BackingField: {fileID: 6139296669300658502, guid: 75bbde1e2d2aaa547a410fdb4f7422b4, type: 3}
+        <Type>k__BackingField: 0
+        <Amount>k__BackingField: 20
+        <Duration>k__BackingField: 5
+    - rid: 6453299859867041880
+      type: {class: EffectApplyBuff, ns: , asm: Assembly-CSharp}
+      data:
+        <Prefab>k__BackingField: {fileID: 2418589715008656553, guid: 495574a6c697f43489aef8f51853c9ee, type: 3}
+        <Type>k__BackingField: 4
+        <Amount>k__BackingField: 2
+        <Duration>k__BackingField: 5

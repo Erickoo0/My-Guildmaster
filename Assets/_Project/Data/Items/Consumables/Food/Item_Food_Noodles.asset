@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
   m_Name: Item_Food_Noodles
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Noodles
+  <ItemID>k__BackingField: Item_Food_Noodles
   <ItemName>k__BackingField: Noodles
   <ItemDescription>k__BackingField: A delicious bowl of hot noodles
   <Category>k__BackingField: 6
@@ -33,4 +33,4 @@ MonoBehaviour:
     - rid: 3505743419375091792
       type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
       data:
-        baseHpHeal: 20
+        <HpHealBase>k__BackingField: 5

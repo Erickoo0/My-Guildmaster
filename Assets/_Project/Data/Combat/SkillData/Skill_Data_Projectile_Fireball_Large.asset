@@ -20,14 +20,12 @@ MonoBehaviour:
   MpCostBase: 0
   CastTimeBase: 1.5
   CastBarDisplay: 1
+  HitImpactBase: 1.5
   EffectsList:
   - rid: 3505743958813966421
   - rid: 3505744017709858900
   RequirementsList:
   - rid: 3505743958813966441
-  HitOncePerTarget: 1
-  DestroyOnMaxHits: 1
-  MaxEnemiesHitBase: 0
   SelectionWeight: 10
   references:
     version: 2
@@ -46,6 +44,8 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
+        <ProjectileCount>k__BackingField: 1
+        <SpreadAngle>k__BackingField: 0
         <MaxEnemiesHit>k__BackingField: 1
         <HitOncePerTarget>k__BackingField: 1
         <DestroyOnMaxHits>k__BackingField: 1
@@ -56,15 +56,15 @@ MonoBehaviour:
     - rid: 3505743958813966422
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        <Amount>k__BackingField: 0
-        <Type>k__BackingField: 0
+        <Amount>k__BackingField: 30
+        <Type>k__BackingField: 1
         <KnockbackForce>k__BackingField: 10
         <KnockbackDuration>k__BackingField: 0.2
         <KnockbackHeight>k__BackingField: 0.1
     - rid: 3505743958813966423
       type: {class: EffectSpawnExplosion, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
+        <Prefab>k__BackingField: {fileID: 5301261483198143526, guid: 19bec867ff7db684b8b50d42cf357b4c, type: 3}
         <LifeTime>k__BackingField: 0.5
         <Scale>k__BackingField: 1
         EffectsList:
@@ -72,14 +72,14 @@ MonoBehaviour:
     - rid: 3505743958813966424
       type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
+        <Prefab>k__BackingField: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
         <AlignToHitDirection>k__BackingField: 1
-        <AttachToUser>k__BackingField: 1
+        <AttachToUser>k__BackingField: 0
     - rid: 3505743958813966425
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        <Amount>k__BackingField: 0
-        <Type>k__BackingField: 0
+        <Amount>k__BackingField: 10
+        <Type>k__BackingField: 1
         <KnockbackForce>k__BackingField: 10
         <KnockbackDuration>k__BackingField: 0.2
         <KnockbackHeight>k__BackingField: 0.1
@@ -91,6 +91,6 @@ MonoBehaviour:
     - rid: 3505744017709858900
       type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
+        <Prefab>k__BackingField: {fileID: 1314606969793590279, guid: 6a3de7416706f4c4a9c45222d1670fae, type: 3}
         <AlignToHitDirection>k__BackingField: 1
         <AttachToUser>k__BackingField: 1

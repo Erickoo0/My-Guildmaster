@@ -45,7 +45,7 @@ MonoBehaviour:
     _displayName: Triple Shot
     _icon: {fileID: 0}
     _description: 
-    _uiPosition: {x: 1, y: 1}
+    _uiPosition: {x: 1, y: -2}
     _skillPointsMax: 1
     _prerequisites: []
     _modifiers:

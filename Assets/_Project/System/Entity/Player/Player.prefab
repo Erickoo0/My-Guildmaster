@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 8699790358396658814}
   - component: {fileID: 7003383617787622826}
   - component: {fileID: 6517013411715919887}
+  - component: {fileID: 8110627914618884104}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -109,7 +110,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.030591697, y: 0.3259184}
+  m_Offset: {x: 0.006152004, y: 0.40412474}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.07310557}
@@ -119,7 +120,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6736898, y: 0.6518368}
+  m_Size: {x: 0.72256917, y: 0.8082495}
   m_EdgeRadius: 0
 --- !u!58 &6210045812344111470
 CircleCollider2D:
@@ -181,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa9210734d44da48c05b78f06ef819f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  entityID: 
-  mpComponent: {fileID: 0}
+  entityID: Player
+  MpComponent: {fileID: 0}
   SkillController: {fileID: 0}
   IdleState:
     rid: 3505743470580727914
@@ -190,8 +191,8 @@ MonoBehaviour:
     rid: 3505743470580727915
   DashState:
     rid: 3505743470580727916
-  defaultDashTime: 10
-  dashInput: 0
+  DefaultDashTime: 10
+  DashInput: 0
   references:
     version: 2
     RefIds:
@@ -216,12 +217,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa59b2b028cf2c41818b89807a44a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillControllerPlayer
-  _globalSkillDatabase: {fileID: 0}
-  <ActionCooldown>k__BackingField: 0.5
-  _spellSlots: []
+  _skillDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+  _skillTreeDatabase: {fileID: 11400000, guid: a229d623b3d09f745844274270226db7, type: 2}
+  <ActionCooldown>k__BackingField: 0
+  _spellSlots:
+  - rid: 3505743946400399468
+  - rid: 3505743946400399486
+  - rid: 3505743946400399487
+  - rid: 3505743946400399488
+  - rid: 3505743946400399489
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3505743946400399468
+      type: {class: PlayerSkillStateCast, ns: , asm: Assembly-CSharp}
+      data:
+        _skillID: Player_Skill_Data_Projectile_Fireball
+        CurrentSlotIndex: -1
+    - rid: 3505743946400399486
+      type: {class: PlayerSkillStateCast, ns: , asm: Assembly-CSharp}
+      data:
+        _skillID: Player_Skill_Data_Projectile_Fireball_Large
+        CurrentSlotIndex: -1
+    - rid: 3505743946400399487
+      type: {class: PlayerSkillStateCast, ns: , asm: Assembly-CSharp}
+      data:
+        _skillID: Player_Skill_Data_Projectile_Lightning_Orb
+        CurrentSlotIndex: -1
+    - rid: 3505743946400399488
+      type: {class: PlayerSkillStateCast, ns: , asm: Assembly-CSharp}
+      data:
+        _skillID: Player_Skill_Data_Terrain_Ice_Wall
+        CurrentSlotIndex: -1
+    - rid: 3505743946400399489
+      type: {class: PlayerSkillStateCast, ns: , asm: Assembly-CSharp}
+      data:
+        _skillID: Player_Skill_Data_Buff_Heal
+        CurrentSlotIndex: -1
 --- !u!114 &57928706709689994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +464,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a25c08ef8672af4b921650fa303b28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatProvider
+--- !u!114 &8110627914618884104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346490504361816045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403d52a85ce4d9f4eb53fa40f5afb21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitPauseController
+  _pauseScale: 0.05
+  _impulseSource: {fileID: 4180744918560574220}
 --- !u!1 &3015245112915638696
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +685,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5421560177085553461, guid: dd1863b93beaed240bd62ef38fdf966a, type: 3}
+  m_Sprite: {fileID: 3027118085372989620, guid: dd1863b93beaed240bd62ef38fdf966a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -923,7 +969,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 264952730666609933, guid: 47e8640b41ea7d74a9019bbe06e7a6d9, type: 3}
+  m_Sprite: {fileID: -7008412969330441016, guid: 578d6baaff5755044bf26659c2a47cb1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
