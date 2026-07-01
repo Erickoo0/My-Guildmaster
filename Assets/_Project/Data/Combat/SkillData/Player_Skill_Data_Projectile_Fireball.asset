@@ -21,8 +21,7 @@ MonoBehaviour:
   CastTimeBase: 0.5
   CastBarDisplay: 0
   EffectsList:
-  - rid: 3505743946400399456
-  - rid: 3505743946400399473
+  - rid: 3505744017709858924
   RequirementsList: []
   HitOncePerTarget: 1
   DestroyOnMaxHits: 1
@@ -31,60 +30,30 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 3505743946400399456
+    - rid: 3505744017709858924
       type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
       data:
-        _prefab: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
-        _scale: 1
-        _speed: 12
-        _lifeTime: 3
-        _projectileHeight: 0
-        _projectileCurve:
+        <Prefab>k__BackingField: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
+        <Scale>k__BackingField: 1
+        <Speed>k__BackingField: 12
+        <Duration>k__BackingField: 3
+        <ProjectileHeight>k__BackingField: 0
+        <ProjectileCurve>k__BackingField:
           serializedVersion: 2
           m_Curve: []
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        _maxEnemiesHit: 1
-        _hitOncePerTarget: 1
-        _destroyOnMaxHits: 1
+        <MaxEnemiesHit>k__BackingField: 1
+        <HitOncePerTarget>k__BackingField: 1
+        <DestroyOnMaxHits>k__BackingField: 1
         EffectsList:
-        - rid: 3505743946400399457
-        - rid: 3505743946400399474
-        - rid: 3505743946400399480
-    - rid: 3505743946400399457
+        - rid: 3505744017709858925
+    - rid: 3505744017709858925
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        Amount: 25
-        Type: 1
-        KnockbackForce: 10
-        KnockbackDuration: 0.2
-        KnockbackHeight: 0.1
-    - rid: 3505743946400399473
-      type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
-      data:
-        Prefab: {fileID: 1314606969793590279, guid: 6a3de7416706f4c4a9c45222d1670fae, type: 3}
-        AlignToHitDirection: 1
-        AttachToUser: 1
-    - rid: 3505743946400399474
-      type: {class: EffectSpawnExplosion, ns: , asm: Assembly-CSharp}
-      data:
-        _prefab: {fileID: 2457082569599181644, guid: d62eda4c0f232044cbbef2a562fd03bf, type: 3}
-        _lifeTime: 0.5
-        _scale: 1
-        EffectsList:
-        - rid: 3505743946400399481
-    - rid: 3505743946400399480
-      type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
-      data:
-        Prefab: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
-        AlignToHitDirection: 1
-        AttachToUser: 0
-    - rid: 3505743946400399481
-      type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
-      data:
-        Amount: 5
-        Type: 1
-        KnockbackForce: 10
-        KnockbackDuration: 0.2
-        KnockbackHeight: 0.1
+        <Amount>k__BackingField: 15
+        <Type>k__BackingField: 1
+        <KnockbackForce>k__BackingField: 10
+        <KnockbackDuration>k__BackingField: 0.2
+        <KnockbackHeight>k__BackingField: 0.1

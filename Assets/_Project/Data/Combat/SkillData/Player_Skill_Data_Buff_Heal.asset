@@ -33,4 +33,4 @@ MonoBehaviour:
     - rid: 3505743946400399446
       type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
       data:
-        HpHealBase: 20
+        <HpHealBase>k__BackingField: 0

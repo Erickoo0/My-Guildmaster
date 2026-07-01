@@ -31,7 +31,7 @@ MonoBehaviour:
     _skillPointsMax: 3
     _prerequisites: []
     _modifiers:
-    - rid: 3505743987855065178
+    - rid: 3505744017709858931
   - _id: SkillNode_Heal_Append
     _displayName: Add Healing
     _icon: {fileID: 0}
@@ -41,6 +41,16 @@ MonoBehaviour:
     _prerequisites: []
     _modifiers:
     - rid: 3505743987855065169
+  - _id: SkillNode_Projectile_Increase
+    _displayName: Triple Shot
+    _icon: {fileID: 0}
+    _description: 
+    _uiPosition: {x: 1, y: 1}
+    _skillPointsMax: 1
+    _prerequisites: []
+    _modifiers:
+    - rid: 3505744040974614528
+    - rid: 3505744040974614604
   references:
     version: 2
     RefIds:
@@ -63,11 +73,25 @@ MonoBehaviour:
     - rid: 3505743987855065170
       type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
       data:
-        HpHealBase: 5
-    - rid: 3505743987855065178
+        <HpHealBase>k__BackingField: 0
+    - rid: 3505744017709858931
       type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
       data:
         _effectTypeID: EffectDealDamage
-        _effectParameter: Amount
+        _effectParameter: <Amount>k__BackingField
         _operation: 1
         _value: 5
+    - rid: 3505744040974614528
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <ProjectileCount>k__BackingField
+        _operation: 0
+        _value: 3
+    - rid: 3505744040974614604
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <SpreadAngle>k__BackingField
+        _operation: 0
+        _value: 30

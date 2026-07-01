@@ -34,30 +34,30 @@ MonoBehaviour:
     - rid: 3505743958813966413
       type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
       data:
-        _prefab: {fileID: 3407802505861899660, guid: 0db544e496dadf34982b3eaa0f05aef2, type: 3}
-        _scale: 1
-        _speed: 20
-        _lifeTime: 3
-        _projectileHeight: 0
-        _projectileCurve:
+        <Prefab>k__BackingField: {fileID: 0}
+        <Scale>k__BackingField: 1
+        <Speed>k__BackingField: 12
+        <Duration>k__BackingField: 3
+        <ProjectileHeight>k__BackingField: 0
+        <ProjectileCurve>k__BackingField:
           serializedVersion: 2
           m_Curve: []
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        _maxEnemiesHit: 5
-        _hitOncePerTarget: 1
-        _destroyOnMaxHits: 1
+        <MaxEnemiesHit>k__BackingField: 1
+        <HitOncePerTarget>k__BackingField: 1
+        <DestroyOnMaxHits>k__BackingField: 1
         EffectsList:
         - rid: 3505743958813966415
     - rid: 3505743958813966415
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        Amount: 30
-        Type: 0
-        KnockbackForce: 10
-        KnockbackDuration: 0.2
-        KnockbackHeight: 0.1
+        <Amount>k__BackingField: 0
+        <Type>k__BackingField: 0
+        <KnockbackForce>k__BackingField: 10
+        <KnockbackDuration>k__BackingField: 0.2
+        <KnockbackHeight>k__BackingField: 0.1
     - rid: 3505743958813966438
       type: {class: RequirementTargetRange, ns: , asm: Assembly-CSharp}
       data:

@@ -35,17 +35,17 @@ MonoBehaviour:
     - rid: 3505743958813966411
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        Amount: 15
-        Type: 0
-        KnockbackForce: 10
-        KnockbackDuration: 0.2
-        KnockbackHeight: 0.1
+        <Amount>k__BackingField: 0
+        <Type>k__BackingField: 0
+        <KnockbackForce>k__BackingField: 10
+        <KnockbackDuration>k__BackingField: 0.2
+        <KnockbackHeight>k__BackingField: 0.1
     - rid: 3505743958813966412
       type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
       data:
-        Prefab: {fileID: 6289158240952251028, guid: 1e6ff3a442e4310438bb75fb972d3d60, type: 3}
-        AlignToHitDirection: 1
-        AttachToUser: 0
+        <Prefab>k__BackingField: {fileID: 0}
+        <AlignToHitDirection>k__BackingField: 1
+        <AttachToUser>k__BackingField: 1
     - rid: 3505743958813966436
       type: {class: RequirementTargetRange, ns: , asm: Assembly-CSharp}
       data:
