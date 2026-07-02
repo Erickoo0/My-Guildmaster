@@ -106,7 +106,7 @@ public class PlayerStatsManager : MonoBehaviour
 	private void UpdateStatsMenu()
 	{
 		playerHpText.text = ($"HP: {_healthComponent.HpCurrent}/{_healthComponent.HpMax}");
-		playerMpText.text = ($"MP: {_manaComponent.MpCurrent}/{_manaComponent.mpMax}");
+		playerMpText.text = ($"MP: {_manaComponent.MpCurrent}/{_manaComponent.MpMax}");
 		playerLvlText.text = ($"Lvl: {_levelComponent.LvlCurrent}");
 		playerExpText.text = ($"Exp: {_levelComponent.ExpCurrent}/{_levelComponent.ExpToNextLvl}");
 	}

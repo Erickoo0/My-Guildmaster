@@ -126,7 +126,7 @@ public class ModifierSkillEffect : ModifierSkillBase
 	private static Type ResolveType(string typeName)
 	{
 		// AppDomain.CurrentDomain.GetAssemblies() gets every block of compiled code in Unity.
-		// This is a very slow operation, which is why caching is so important.
+		// This is a very slow Operation, which is why caching is so important.
 		foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
 		{
 			Type t = assembly.GetType(typeName);

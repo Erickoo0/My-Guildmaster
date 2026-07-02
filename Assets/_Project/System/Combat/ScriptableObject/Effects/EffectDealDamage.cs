@@ -8,6 +8,7 @@ public class EffectDealDamage : Effect
 	[field: SerializeField] public float KnockbackForce { get; private set; } = 10f;
 	[field: SerializeField] public float KnockbackDuration { get; private set; } = 0.2f;
 	[field: SerializeField] public float KnockbackHeight { get; private set; } = 0.1f;
+	[field: SerializeField] public bool BonusHit { get; private set; } = false;
 
 	public override bool Execute(EffectPayload effectPayload)
 	{
@@ -24,7 +25,8 @@ public class EffectDealDamage : Effect
 				KnockbackDuration,
 				KnockbackHeight,
 				Type,
-				effectPayload.User
+				effectPayload.User,
+				BonusHit
 				);
 
 			target.TakeDamage(data);
@@ -42,7 +44,8 @@ public class EffectDealDamage : Effect
 			Type = Type,
 			KnockbackForce = KnockbackForce,
 			KnockbackDuration = KnockbackDuration,
-			KnockbackHeight = KnockbackHeight
+			KnockbackHeight = KnockbackHeight,
+			BonusHit = BonusHit
 		};
 	}
 }
