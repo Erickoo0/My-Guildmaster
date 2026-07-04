@@ -93,7 +93,9 @@ public class EffectSpawnProjectile : Effect
 					HitOncePerTarget,
 					DestroyOnMaxHits,
 					Scale,
-					effectPayload.HitImpact
+					effectPayload.HitImpact,
+					effectPayload.SkillDataInstance,
+					effectPayload.SkillDamageBase
 					);
 
 				anySpawned = true;

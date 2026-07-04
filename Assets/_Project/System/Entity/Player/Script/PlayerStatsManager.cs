@@ -4,9 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerStatsManager : MonoBehaviour
 {
 
-	[Header("UI References")]
-	[SerializeField]
-	private GameObject playerStatsPanel;
+	[Header("References")]
+	[SerializeField] private GameObject playerStatsPanel;
 	[SerializeField] private TextMeshProUGUI playerHpText;
 	[SerializeField] private TextMeshProUGUI playerMpText;
 	[SerializeField] private TextMeshProUGUI playerArmorText;
@@ -16,8 +15,6 @@ public class PlayerStatsManager : MonoBehaviour
 	private Health _healthComponent;
 	private Level _levelComponent;
 	private Mana _manaComponent;
-
-	[Header("SkillControllerPlayer Stats")]
 	private GameObject _player;
 	public static PlayerStatsManager Instance { get; private set; }
 
@@ -85,6 +82,7 @@ public class PlayerStatsManager : MonoBehaviour
 
 		if (_healthComponent != null) _healthComponent.RecalculateMaxHp(currentLevel);
 		if (_manaComponent != null) _manaComponent.RecalculateMaxMp(currentLevel);
+		if (_entityStatsComponent != null) _entityStatsComponent.RecalculateStats(currentLevel);
 	}
 
 	private void HandleEntityDeath(GameObject entity)

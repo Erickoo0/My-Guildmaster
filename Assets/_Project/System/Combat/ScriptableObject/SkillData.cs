@@ -15,11 +15,14 @@ public class SkillData : ScriptableObject
 	public AnimationBool Animation;
 
 	[Header("Base Stats")]
+	public float DamageBase;
+	public DamageScalingStat DamageScalingStat = DamageScalingStat.AttackPower;
+	public float DamageScalingRatio;
 	public float MpCostBase = 0; // Not needed for enemies
 	public float CastTimeBase;
-	public bool CastBarDisplay = true;
 
 	[Header("Game Feel Settings")]
+	public bool CastBarDisplay = true;
 	public float HitImpactBase = 1f;
 
 	[Header("Behavior Settings")]
@@ -67,6 +70,12 @@ public class SkillData : ScriptableObject
 		// 1. Build the base stats dictionary of the skill
 		Dictionary<SkillStat, float> statsBase = new Dictionary<SkillStat, float>
 		{
+			{
+				SkillStat.DamageBase, DamageBase
+			},
+			{
+				SkillStat.DamageScalingRatio, DamageScalingRatio
+			},
 			{
 				SkillStat.MpCost, MpCostBase
 			},

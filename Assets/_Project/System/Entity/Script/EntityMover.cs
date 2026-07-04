@@ -60,8 +60,9 @@ public class EntityMover : MonoBehaviour
 			_rigidbody.linearVelocity = MoveDirection*GetEffectiveMoveSpeed();
 			break;
 		case OverrideMovementState.None: // If there is AILerp, use its own movement component
-		default:                         // If there is no AILerp component, use EntityMover 
-			if (_aiLerp == null) HandleNormalMovement();
+		default:
+			if (_aiLerp == null) HandleNormalMovement(); // If there is no AILerp component, use EntityMover 
+			else _aiLerp.speed = GetEffectiveMoveSpeed();
 			break;
 		}
 	}

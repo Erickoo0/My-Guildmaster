@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 public abstract class HitBox : MonoBehaviour
 {
+	[Header("References")]
+	[HideInInspector] public Collider2D EntityCollider;
+
 	[Header("Base Settings")]
 	public LayerMask VictimLayer; // Layer to check for collisions
 
-	[HideInInspector] public Collider2D EntityCollider;
-
+	[Header("Behavior Settings")]
 	private bool _destroyOnMaxHits;
 	private List<Effect> _effectsList;
-	private bool _enableHitBox = false;
 
+	private bool _enableHitBox = false;
 	private float _hitImpact;
 	private bool _hitOncePerTarget;
 	private int _maxEnemiesHitCount;
+	private float _skillDamageBase;               // Carried from the cast os hit effects can use skill scaling
+	private SkillDataInstance _skillDataInstance; // Carried from the cast os hit effects can use skill scaling
 
+	private HashSet<IDamagable> _targetsHitList;
 	private GameObject _user;
-
-	private HashSet<IDamagable> targetsHit;
 
 	public bool EnableHitBox
 	{
@@ -34,6 +37,7 @@ public abstract class HitBox : MonoBehaviour
 	protected virtual void Awake() => EntityCollider = GetComponent<Collider2D>();
 
 	public void OnTriggerEnter2D(Collider2D other) => OnTriggerStay2D(other);
+
 	public void OnTriggerStay2D(Collider2D other)
 	{
 		// 1. Safety Checks
@@ -49,7 +53,7 @@ public abstract class HitBox : MonoBehaviour
 		if (victim == null && !isWall) return;
 
 		// 3. Check if we already hit this specific target
-		if (victim != null && _hitOncePerTarget && targetsHit.Contains(victim)) return;
+		if (victim != null && _hitOncePerTarget && _targetsHitList.Contains(victim)) return;
 
 		// 4. Calculate knockback direction
 		CalculateImpactPhysics(other, out Vector2 direction, out Vector2 impactPoint);
@@ -61,8 +65,12 @@ public abstract class HitBox : MonoBehaviour
 			other.transform.position,
 			direction,
 			impactPoint,
-			targetsHit
+			_targetsHitList
 			);
+
+		// Forward the skill context so projectile effects can scale correctly
+		effectPayload.SkillDataInstance = _skillDataInstance;
+		effectPayload.SkillDamageBase = _skillDamageBase;
 
 		// 6. Execute all skill effects
 		bool anyEffectSucceeded = false;
@@ -74,7 +82,7 @@ public abstract class HitBox : MonoBehaviour
 		// 7. Handle successful hits
 		if (anyEffectSucceeded)
 		{
-			if (victim != null) targetsHit.Add(victim);
+			if (victim != null) _targetsHitList.Add(victim);
 			HandlePostHit(other);
 
 			// Hit Impact Feedback (hit pause + screen shake)
@@ -102,13 +110,19 @@ public abstract class HitBox : MonoBehaviour
 		}
 	}
 
-	public virtual void Setup(GameObject user, [CanBeNull] List<Effect> effects, int maxHits, bool hitOnce, bool destroyOnMax, HashSet<IDamagable> inheritedTargets = null, float hitImpact = 0f)
+	public virtual void Setup(
+		GameObject user, [CanBeNull] List<Effect> effects, int maxHits, bool hitOnce,
+		bool destroyOnMax, HashSet<IDamagable> inheritedTargets = null, float hitImpact = 0f,
+		SkillDataInstance skillDataInstance = null, float skillDamageBase = 0f
+	)
 	{
 		_user = user;
 		_effectsList = effects;
+		_skillDataInstance = skillDataInstance;
+		_skillDamageBase = skillDamageBase;
 
 		// If memory of previous hits is passed down, use it. Otherwise, create a new HashSet
-		targetsHit = inheritedTargets ?? new HashSet<IDamagable>();
+		_targetsHitList = inheritedTargets ?? new HashSet<IDamagable>();
 
 		// Read the data from the DamageData
 		_maxEnemiesHitCount = maxHits;

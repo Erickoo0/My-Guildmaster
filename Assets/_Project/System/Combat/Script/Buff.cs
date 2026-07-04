@@ -2,12 +2,13 @@ using System.Reflection;
 using UnityEngine;
 public class Buff : MonoBehaviour
 {
-	private readonly float _tickRate = 0.5f;
-	private float _amount;
-	private float _amountPerTick;
 
 	[Header("Buff Settings")]
+	private readonly float _tickRate = 1f;
+	private float _amount;
+	private float _amountPerTick;
 	private float _duration;
+	private float _durationTimer;
 	private FieldInfo _fieldInfo;
 
 	// Reflection target — cached once in HandleBuffType for EntityStats-based buffs
@@ -24,6 +25,14 @@ public class Buff : MonoBehaviour
 
 	private void Update()
 	{
+		// Handle duration
+		_durationTimer -= Time.deltaTime;
+		if (_durationTimer <= 0)
+		{
+			Destroy(gameObject);
+			return;
+		}
+
 		// Per-tick buffs
 		if (!_isInstant)
 		{
@@ -36,10 +45,7 @@ public class Buff : MonoBehaviour
 		}
 	}
 
-	private void OnDestroy()
-	{
-		RevertInstant();
-	}
+	private void OnDestroy() => RevertInstant();
 
 	public void Setup(GameObject receiver, BuffType type, float amount, float duration)
 	{
@@ -47,17 +53,43 @@ public class Buff : MonoBehaviour
 		Type = type;
 		_duration = duration;
 		_amount = amount;
+		_durationTimer = duration;
 
 		// Calculate total ticks and Amount per tick
 		int totalTicks = Mathf.CeilToInt(_duration/_tickRate);
 		_amountPerTick = _amount/totalTicks;
 
-		Destroy(gameObject, _duration);
-
 		HandleBuffType();
 
 		if (_isInstant)
 			ApplyInstant();
+	}
+
+	/// <summary>
+	/// Refreshes the buff with new duration, and overwrites old amount if new amount is more potent
+	/// </summary>
+	public void Refresh(float newAmount, float newDuration)
+	{
+		// 1. Refresh the duration
+		_durationTimer = newDuration;
+
+		// 2. Overwrite old amount if new amount is more potent
+		if (newAmount > _amount)
+		{
+			if (_isInstant)
+			{
+				RevertInstant();     // Take away the old stats
+				_amount = newAmount; // Apply the new amount
+				ApplyInstant();      // Apply the new stats
+			} else
+			{
+				_amount = newAmount;
+
+				// 3. Recalculate ticks
+				int totalTicks = Mathf.CeilToInt(_durationTimer/_tickRate);
+				_amountPerTick = _amount/totalTicks;
+			}
+		}
 	}
 
 	private void HandleBuffType()

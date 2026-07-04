@@ -41,7 +41,14 @@ public class HurtBox : MonoBehaviour, IDamagable
 		if (_invulnerabilityTimer > 0 && !damageData.BonusHit) return;
 
 		// 2. Apply damage
-		_health.HpCurrent -= damageData.Amount;
+		float finalDamage = DamageCalculator.CalculateFinalDamage(
+			damageData.Amount,
+			damageData.Type,
+			damageData.Source,
+			gameObject
+			);
+
+		_health.HpCurrent -= finalDamage;
 
 		// 3. Only start invulnerability from non-bonus hits
 		if (!damageData.BonusHit)

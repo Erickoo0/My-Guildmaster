@@ -74,9 +74,9 @@ public class EntitySkillStateMelee : SkillStateBase
 			}
 		}
 		// 2. Handle Lunge Movement & Stopping Logic
-		else if (!HasTriggered && !_reachedTarget && controller.currentTarget != null)
+		else if (!HasTriggered && !_reachedTarget && controller.CurrentTarget != null)
 		{
-			float distanceToTarget = Vector2.Distance(controller.transform.position, controller.currentTarget.position);
+			float distanceToTarget = Vector2.Distance(controller.transform.position, controller.CurrentTarget.position);
 
 			if (distanceToTarget <= _lungeStoppingDistance)
 			{

@@ -577,14 +577,14 @@ MonoBehaviour:
   entityID: 
   _rigidBody2D: {fileID: 0}
   SkillController: {fileID: 0}
-  aiLerp: {fileID: 0}
+  AILerp: {fileID: 0}
   <WanderRadius>k__BackingField: 5
   <mobType>k__BackingField: 2
   <TargetableList>k__BackingField:
   - Player
   <TargetRange>k__BackingField: 6
   <TargetLostRange>k__BackingField: 10
-  currentTarget: {fileID: 0}
+  CurrentTarget: {fileID: 0}
   _alertIcon: {fileID: 2691060918574736944}
   SpawnState:
     rid: 3505743470580727907
@@ -945,3 +945,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntityStats
   MoveSpeedMultiplier: 1
   DamageMultiplier: 1
+  DamageTakenMultiplier: 1
+  Defense: 0
+  AttackPower: 10
+  AttackPowerFire: 0
+  AttackPowerWater: 0
+  AttackPowerEarth: 0
+  AttackPowerLightning: 0
+  AttackPowerHoly: 0
+  AttackPowerDark: 0
+  DefenseBase: 0
+  DefensePerLvl: 1
+  AttackPowerBase: 10
+  AttackPowerPerLvl: 2
+  AttackPowerFireBase: 0
+  AttackPowerFirePerLvl: 0
+  AttackPowerWaterBase: 0
+  AttackPowerWaterPerLvl: 0
+  AttackPowerEarthBase: 0
+  AttackPowerEarthPerLvl: 0
+  AttackPowerLightningBase: 0
+  AttackPowerLightningPerLvl: 0
+  AttackPowerAirBase: 0
+  AttackPowerAirPerLvl: 0
+  AttackPowerHolyBase: 0
+  AttackPowerHolyPerLvl: 0
+  AttackPowerDarkBase: 0
+  AttackPowerDarkPerLvl: 0

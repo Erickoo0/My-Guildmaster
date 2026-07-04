@@ -23,8 +23,8 @@ public class EffectApplyBuff : Effect
 		{
 			if (buff.Type == Type)
 			{
-				Debug.Log("Buff already exists!");
-				return false;
+				buff.Refresh(Amount, Duration);
+				return true;
 			}
 		}
 

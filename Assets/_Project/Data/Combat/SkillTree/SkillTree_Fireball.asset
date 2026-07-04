@@ -45,12 +45,21 @@ MonoBehaviour:
     _displayName: Triple Shot
     _icon: {fileID: 0}
     _description: 
-    _uiPosition: {x: 1, y: -2}
+    _uiPosition: {x: 1, y: -3}
     _skillPointsMax: 1
     _prerequisites: []
     _modifiers:
     - rid: 3505744040974614528
     - rid: 3505744040974614604
+  - _id: SkillNode_Projectile_Pierce
+    _displayName: Pierce
+    _icon: {fileID: 0}
+    _description: 
+    _uiPosition: {x: 0, y: -3}
+    _skillPointsMax: 1
+    _prerequisites: []
+    _modifiers:
+    - rid: 6453299874921185355
   references:
     version: 2
     RefIds:
@@ -95,3 +104,10 @@ MonoBehaviour:
         _effectParameter: <SpreadAngle>k__BackingField
         _operation: 0
         _value: 30
+    - rid: 6453299874921185355
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <MaxEnemiesHit>k__BackingField
+        _operation: 1
+        _value: 1

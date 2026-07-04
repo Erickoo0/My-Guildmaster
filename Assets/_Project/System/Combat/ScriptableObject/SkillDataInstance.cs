@@ -6,7 +6,6 @@ using UnityEngine;
 /// </summary>
 public class SkillDataInstance
 {
-
 	[Header("SkillData Stats")]
 	// Dictionary of all stats that can be modified at runtime.
 	private readonly Dictionary<SkillStat, float> _skillStateDictionary;
@@ -18,11 +17,14 @@ public class SkillDataInstance
 		_skillStateDictionary = skillStatDictionary;
 		EffectsList = clonedEffectsList;
 	}
+
 	[Header("References")]
 	private SkillData SkillDataSource { get; set; }
 	public List<Effect> EffectsList { get; private set; }
 
 	[Header("Accessors")]
+	public float DamageBase => GetStat(SkillStat.DamageBase);
+	public float DamageScalingRatio => GetStat(SkillStat.DamageScalingRatio);
 	public float MpCost => GetStat(SkillStat.MpCost);
 	public float CastTime => GetStat(SkillStat.CastTime);
 	public bool DisplayCastBar => GetStat(SkillStat.DisplayCastBar) > 0.5f;
@@ -32,6 +34,7 @@ public class SkillDataInstance
 	public string ID => SkillDataSource.ID;
 	public string Name => SkillDataSource.Name;
 	public Sprite Icon => SkillDataSource.Icon;
+	public DamageScalingStat DamageScalingStat => SkillDataSource.DamageScalingStat;
 	public GameObject Prefab => SkillDataSource.Prefab;
 	public int AnimationTag => SkillDataSource.AnimationTag;
 	public AnimationBool Animation => SkillDataSource.Animation;
@@ -72,6 +75,8 @@ public class SkillDataInstance
 public enum SkillStat
 {
 	[Header("Core Stats")]
+	DamageBase,
+	DamageScalingRatio,
 	MpCost,
 	CastTime,
 
@@ -82,5 +87,5 @@ public enum SkillStat
 	DisplayCastBar, // Treated as bool: > 0.5f = true
 
 	[Header("Game Feel")]
-	HitImpact,
+	HitImpact
 }

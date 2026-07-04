@@ -18,28 +18,30 @@ public class ModifierSkillEffect : ModifierSkillBase
 	private string _effectParameter;
 
 	[SerializeField] private StatModificationOperation _operation;
+	[Tooltip("For bool fields: value >= 1 is true, < 1 is false.")]
 	[SerializeField] private float _value;
 	private FieldInfo _cachedTargetField = null;
 
 	// --- CACHE VARIABLES ---
-	// We save these here so we don't have to do the slow Reflection search every time.
 	private Type _cachedTargetType = null;
 	private bool _hasAttemptedCache = false;
 
 	public override void ApplyModifier(SkillDataInstance skillDataInstance)
 	{
-		// Standard safety checks
+		// Safety Check
 		if (skillDataInstance?.EffectsList == null) return;
 		if (string.IsNullOrWhiteSpace(_effectTypeID) || string.IsNullOrWhiteSpace(_effectParameter)) return;
 
 		// 1. Try to cache the Reflection data if we haven't already
 		if (!_hasAttemptedCache || _cachedTargetType == null || _cachedTargetField == null)
-		{
 			InitializeReflectionCache();
-		}
 
-		// If the cache failed to find the type or field, we can't proceed.
-		if (_cachedTargetType == null || _cachedTargetField == null) return;
+		// If the cache failed to find the type or field, return
+		if (_cachedTargetType == null || _cachedTargetField == null)
+		{
+			Debug.LogWarning($"ModifierSkillEffect: Failed to cache Reflection data for '{_effectTypeID}'.");
+			return;
+		}
 
 		// 2. Find the actual EffectsList across SkillDataInstance and its nested effects
 		// Searches the SkillDataInstance level, then the nested effects.
@@ -50,21 +52,40 @@ public class ModifierSkillEffect : ModifierSkillBase
 			return;
 		}
 
-		// 3. Get the current value from the target object
-		// GetValue() requires an 'object' to pull the data from. We give it our targetEffect.
-		float currentValue = (float)_cachedTargetField.GetValue(targetEffect);
+		// 3. Get the current value and inject the modified one based on field type
+		object currentValue = _cachedTargetField.GetValue(targetEffect);
 
-		// 4. Calculate the new value
-		float newValue = _operation switch
+		// 4. Modify the value based on the operation and field type
+		if (_cachedTargetField.FieldType == typeof(float))
 		{
-			StatModificationOperation.Set => _value,
-			StatModificationOperation.Add => currentValue + _value,
-			StatModificationOperation.Multiply => currentValue*_value,
-			_ => currentValue
-		};
-
-		// 5. Inject the new value back into the target object
-		_cachedTargetField.SetValue(targetEffect, newValue);
+			float current = (float)currentValue;
+			float newValue = _operation switch
+			{
+				StatModificationOperation.Set => _value,
+				StatModificationOperation.Add => current + _value,
+				StatModificationOperation.Multiply => current*_value,
+				_ => current
+			};
+			_cachedTargetField.SetValue(targetEffect, newValue);
+		} else if (_cachedTargetField.FieldType == typeof(int))
+		{
+			int current = (int)currentValue;
+			int newValue = _operation switch
+			{
+				StatModificationOperation.Set => Mathf.RoundToInt(_value),
+				StatModificationOperation.Add => current + Mathf.RoundToInt(_value),
+				StatModificationOperation.Multiply => Mathf.RoundToInt(current*_value),
+				_ => current
+			};
+			_cachedTargetField.SetValue(targetEffect, newValue);
+		} else if (_cachedTargetField.FieldType == typeof(bool))
+		{
+			// Only Set is meaningful for bools
+			bool newValue = _operation == StatModificationOperation.Set
+				? _value >= 1f
+				: (bool)currentValue;
+			_cachedTargetField.SetValue(targetEffect, newValue);
+		}
 	}
 
 	/// <summary>
@@ -90,11 +111,13 @@ public class ModifierSkillEffect : ModifierSkillBase
 			return;
 		}
 
-		// Ensure the variable is actually a float, otherwise our math will crash.
-		if (_cachedTargetField.FieldType != typeof(float))
+		// Ensure the variable is one of the supported types
+		if (_cachedTargetField.FieldType != typeof(float) &&
+			_cachedTargetField.FieldType != typeof(int) &&
+			_cachedTargetField.FieldType != typeof(bool))
 		{
-			Debug.LogError($"ModifierSkillEffect: Variable '{_effectParameter}' is not a float. Only floats are supported.");
-			_cachedTargetField = null; // Clear it so we don't try to use it
+			Debug.LogError($"ModifierSkillEffect: Variable '{_effectParameter}' is not a float, int, or bool.");
+			_cachedTargetField = null;
 		}
 	}
 

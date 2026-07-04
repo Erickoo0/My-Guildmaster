@@ -2,62 +2,67 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Projectile : MonoBehaviour
 {
+
 	[Header("References")]
 	[SerializeField] private Transform _projectileVisual;
 
-
+	[Header("Timers")]
 	private float _currentDuration;
+
+	[Header("Behavior Settings")]
 	private bool _destroyOnCollisions;
+	// Passed from EffectSpawnProjectile
 	private List<Effect> _effectsList;
-
 	private HitBox _hitBox;
-
-	[Header("Projectile Settings")]
 	private Vector3 _linearDirection;
+
+	[Header("Trajectory Settings")]
 	private MovementType _movementType;
 	private AnimationCurve _projectileCurve;
 	private float _projectileMaxRelativeHeight;
 	private float _projectileScale;
 	private float _projectileSpeed;
-
 	private Vector3 _projectileStartPosition;
 	private Vector3 _projectileTargetPosition;
-
+	private float _skillDamageBase;
+	private SkillDataInstance _skillDataInstance;
 	private float _totalDuration;
 	private GameObject _user;
+
 
 	private void Update()
 	{
 		if (_movementType == MovementType.Linear)
-		{
 			UpdateLinearMovement();
-		} else if (_movementType == MovementType.Curved)
-		{
+		else if (_movementType == MovementType.Curved)
 			UpdateCurvedMovement();
-		}
+
 	}
 
 	public void Setup(
-		Vector3 projectileTargetPosition, float projectileSpeed, float projectileLifetime, AnimationCurve projectileCurve,
+		Vector3 projectileTargetPosition, float projectileSpeed, float projectileDuration, AnimationCurve projectileCurve,
 		float projectileMaxHeight, GameObject user, List<Effect> onHitEffects, int maxHits, bool hitOnce, bool destroyOnMax, float projectileScale,
-		float hitImpact = 0f
+		float hitImpact = 0f, SkillDataInstance skillDataInstance = null, float skillDamageBase = 0f
 	)
 	{
 		// 1. Pass the cached data
+		_user = user;
+		_effectsList = onHitEffects;
+		_skillDataInstance = skillDataInstance;
+		_skillDamageBase = skillDamageBase;
 		_projectileStartPosition = transform.position;
 		_projectileTargetPosition = projectileTargetPosition;
 		_projectileSpeed = projectileSpeed;
 		_destroyOnCollisions = destroyOnMax;
 		_projectileScale = projectileScale;
-		_user = user;
-		_effectsList = onHitEffects;
 
-		// 2. Get the Hitbox and hand it a reference to this projectile
+		// 2. Get the Hitbox and pass it the data
 		if (TryGetComponent(out _hitBox))
-			_hitBox.Setup(user, onHitEffects, maxHits, hitOnce, destroyOnMax, hitImpact: hitImpact);
+			_hitBox.Setup(user, onHitEffects, maxHits, hitOnce, destroyOnMax, hitImpact: hitImpact,
+				skillDataInstance: _skillDataInstance, skillDamageBase: _skillDamageBase);
 
-		// 3. Pass the lifetime and activate method on time expiration
-		Invoke(nameof(OnExpire), projectileLifetime);
+		// 3. Pass the duration and activate method on duration expiration
+		Invoke(nameof(OnExpire), projectileDuration);
 
 		// 4. Calculate flat 2d travel direction
 		_linearDirection = (_projectileTargetPosition - _projectileStartPosition).normalized;
@@ -131,9 +136,7 @@ public class Projectile : MonoBehaviour
 	private void OnTargetReached()
 	{
 		if (_movementType == MovementType.Curved)
-		{
 			OnExpire();
-		}
 	}
 
 	private void OnExpire()
@@ -153,6 +156,9 @@ public class Projectile : MonoBehaviour
 			hitImpactPoint: transform.position,      // Same as position for expire
 			hitTargets: null                         // Fresh set — no memory chain
 			);
+
+		expirePayload.SkillDataInstance = _skillDataInstance;
+		expirePayload.SkillDamageBase = _skillDamageBase;
 
 		// 4. Execute all effects
 		if (_effectsList != null)

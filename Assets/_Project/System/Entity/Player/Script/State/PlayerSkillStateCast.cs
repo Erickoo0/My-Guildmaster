@@ -20,7 +20,7 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 		base.Update();
 
 		// Face the target while winding up
-		if (!hasTriggered)
+		if (!HasTriggered)
 		{
 			Vector2 aimDirection = (controller.WorldMousePosition - controller.transform.position).normalized;
 			controller.EntityAnimator.FaceDirection(aimDirection);
@@ -38,7 +38,7 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 
 	protected override void HandleAnimationEvent()
 	{
-		if (hasTriggered) return;
+		if (HasTriggered) return;
 		if (controller == null) return;
 
 		Vector3 casterPosition = controller.transform.position;
@@ -54,17 +54,21 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 			);
 		initialCastPayload.HitImpact = SkillDataInstance.HitImpact;
 
-		// 2. Execute all skill effects
+		// 2. Compute the skill's base damage once per cast and pass it with the entire effect chain
+		initialCastPayload.SkillDataInstance = SkillDataInstance;
+		initialCastPayload.SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.GetComponent<IStatProvider>());
+
+		// 3. Execute all skill effects
 		if (SkillDataInstance.EffectsList != null && SkillDataInstance.EffectsList.Count > 0)
 			foreach (Effect effect in SkillDataInstance.EffectsList)
 				effect.Execute(initialCastPayload);
 
-		// 3. Apply Recoil & Screen shake if necessary
+		// 4. Apply Recoil & Screen shake if necessary
 		controller.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
 		if (SkillDataInstance.Animation == AnimationBool.IsAttackingStrong)
 			controller?.EntityMover.ApplyRecoil(castDirection);
 
-		// 4. Apply VFX
+		// 5. Apply VFX
 		if (SkillDataInstance.Prefab != null)
 		{
 			Vector3 spawnPosition = controller.SkillController.FirePoint != null
@@ -80,9 +84,9 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 		}
 
 
-		// 4.  Consume Mana
+		// 6. Consume Mana
 		controller?.MpComponent.ConsumeMp(SkillDataInstance.MpCost);
 
-		hasTriggered = true;
+		HasTriggered = true;
 	}
 }

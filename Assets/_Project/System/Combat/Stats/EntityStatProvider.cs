@@ -14,20 +14,11 @@ public class EntityStatProvider : MonoBehaviour, IStatProvider
 		_entityStats = GetComponent<EntityStats>();
 	}
 
-	private void Start()
-	{
-		SyncStatsToLevel();
-	}
+	private void Start() => SyncStatsToLevel();
 
-	private void OnEnable()
-	{
-		if (_level != null) _level.OnLevelUpdated += SyncStatsToLevel;
-	}
+	private void OnEnable() => _level.OnLevelUpdated += SyncStatsToLevel;
 
-	private void OnDisable()
-	{
-		if (_level != null) _level.OnLevelUpdated -= SyncStatsToLevel;
-	}
+	private void OnDisable() => _level.OnLevelUpdated -= SyncStatsToLevel;
 
 	public Health EntityHealth => _health;
 	public Mana EntityMana => _mana;
@@ -36,9 +27,16 @@ public class EntityStatProvider : MonoBehaviour, IStatProvider
 
 	private void SyncStatsToLevel()
 	{
-		if (_level == null) return;
+		if (_level == null)
+			return;
 
-		if (_health != null) _health.RecalculateMaxHp(_level.LvlCurrent);
-		if (_mana != null) _mana.RecalculateMaxMp(_level.LvlCurrent);
+		if (_health != null)
+			_health.RecalculateMaxHp(_level.LvlCurrent);
+
+		if (_mana != null)
+			_mana.RecalculateMaxMp(_level.LvlCurrent);
+
+		if (_entityStats != null)
+			_entityStats.RecalculateStats(_level.LvlCurrent);
 	}
 }
