@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 [Serializable]
@@ -23,24 +24,21 @@ public class EntitySkillState : SkillStateBase
 			HitDirection = SkillDirection,
 			HitImpactPoint = casterPosition,
 			HitImpact = SkillDataInstance.HitImpact,
+			HitTargets = new HashSet<IDamagable>(),
 			SkillDataInstance = SkillDataInstance,
-			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.GetComponent<IStatProvider>())
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, StatProvider)
 		};
 
-		// 2. Compute the skill's base damage once per cast and pass it with the entire effect chain
-		initialCastPayload.SkillDataInstance = SkillDataInstance;
-		initialCastPayload.SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.GetComponent<IStatProvider>());
-
-		// 3. Execute all skill effects
+		// 2. Execute all skill effects
 		if (SkillDataInstance.EffectsList != null && SkillDataInstance.EffectsList.Count > 0)
 			foreach (Effect effect in SkillDataInstance.EffectsList)
 				effect.Execute(initialCastPayload);
 
-		// 4. Apply Recoil if necessary
+		// 3. Apply Recoil if necessary
 		if (SkillDataInstance.Animation == AnimationBool.IsAttackingStrong)
 			controller.EntityMover.ApplyRecoil(castDirection);
 
-		// 5. Apply VFX
+		// 4. Apply VFX
 		if (SkillDataInstance.Prefab != null)
 		{
 			Vector3 spawnPosition = controller.SkillController.FirePoint != null

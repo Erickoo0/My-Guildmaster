@@ -4,11 +4,10 @@ using UnityEngine;
 public class EntitySkillStateCharge : SkillStateBase
 {
 	[Header("Charge Settings")]
-	[SerializeField] private float chargeSpeedMultiplier = 5.0f;
-	[SerializeField] private float overshootDistance = 4.0f;
+	[SerializeField] private float _chargeSpeedMultiplier = 5.0f;
+	[SerializeField] private float _overshootDistance = 4.0f;
 	private float _afterImageInterval = 0.04f;
 	private float _afterImageTimer;
-	private Vector2 _chargeDirection;
 
 	private HitBox _chargeHitbox;
 
@@ -73,31 +72,47 @@ public class EntitySkillStateCharge : SkillStateBase
 		if (HasTriggered) return;
 		HasTriggered = true;
 
-		float chargeSpeed = controller.EntityMover.moveSpeed*chargeSpeedMultiplier;
+		float chargeSpeed = controller.EntityMover.moveSpeed*_chargeSpeedMultiplier;
 
 		// 1. Freeze the Animator so it doesnt trigger animationEnd event and ending the attack before the timer
 		if (controller.EntityAnimator != null)
 			controller.EntityAnimator.animator.speed = 0f;
 
-		// 1. Calculate Charge Vector and Timing
+		// 2. Calculate Charge Vector and Timing
 		TryUpdateAttackDirection();
 		Vector2 chargeDirection = SkillDirection;
 
 		float distanceToTarget = Vector2.Distance(controller.transform.position, controller.CurrentTarget.position);
-		float totalDistance = distanceToTarget + overshootDistance;
+		float totalDistance = distanceToTarget + _overshootDistance;
 		_chargeTimer = totalDistance/chargeSpeed;
 
 
-		// 2. Ignore collisions with victims during dash to avoid getting stuck
+		// 3. Ignore collisions with victims during dash to avoid getting stuck
 		_originalExcludeLayers = _entityCollider.excludeLayers;
 		_entityCollider.excludeLayers |= _chargeHitbox.VictimLayer;
 
 
-		// 3. Pass the data and Turn on the hitbox
-		_chargeHitbox.Setup(controller.gameObject, SkillDataInstance.EffectsList, 999, true, false);
+		// 4. Bundle the data and pass it to the hitbox
+		CombatContext combatContext = new CombatContext
+		{
+			User = controller.gameObject,
+			EffectsList = SkillDataInstance.EffectsList,
+			SkillDataInstance = SkillDataInstance,
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, StatProvider) // Assuming parent state tracks pre-computed base damage
+		};
+
+		HitBoxSettings hitBoxSettings = new HitBoxSettings
+		{
+			MaxEnemiesHit = 999, // Dash typically hits anyone in the path
+			HitOncePerTarget = true,
+			DestroyOnMaxHits = false,
+			HitImpact = SkillDataInstance.HitImpact
+		};
+
+		_chargeHitbox.Setup(combatContext, hitBoxSettings);
 		_chargeHitbox.EnableHitBox = true;
 
-		// 4. Tell EntityMover to take over movement and pause AILerp
+		// 5. Tell EntityMover to take over movement and pause AILerp
 		controller.EntityMover.StartCharge(chargeDirection, chargeSpeed);
 
 		_isCharging = true;

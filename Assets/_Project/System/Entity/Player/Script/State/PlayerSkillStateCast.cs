@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -54,21 +55,22 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 			HitDirection = AimDirection,
 			HitImpactPoint = casterPosition,
 			HitImpact = SkillDataInstance.HitImpact,
+			HitTargets = new HashSet<IDamagable>(),
 			SkillDataInstance = SkillDataInstance,
-			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.GetComponent<IStatProvider>())
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, StatProvider)
 		};
 
-		// 3. Execute all skill effects
+		// 2. Execute all skill effects
 		if (SkillDataInstance.EffectsList != null && SkillDataInstance.EffectsList.Count > 0)
 			foreach (Effect effect in SkillDataInstance.EffectsList)
 				effect.Execute(initialCastPayload);
 
-		// 4. Apply Recoil & Screen shake if necessary
+		// 3. Apply Recoil & Screen shake if necessary
 		controller.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
 		if (SkillDataInstance.Animation == AnimationBool.IsAttackingStrong)
 			controller?.EntityMover.ApplyRecoil(castDirection);
 
-		// 5. Apply VFX
+		// 4. Apply VFX
 		if (SkillDataInstance.Prefab != null)
 		{
 			Vector3 spawnPosition = controller.SkillController.FirePoint != null

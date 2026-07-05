@@ -14,6 +14,7 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 	protected bool IsCasting;
 	protected SkillData SkillDataSource;
 	protected SkillTree SkillTree;
+	protected IStatProvider StatProvider;
 	public SkillDataInstance SkillDataInstance { get; private set; }
 
 	public float MpCost => SkillDataInstance != null ? SkillDataInstance.MpCost : 0f;
@@ -22,6 +23,7 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 	{
 		base.Setup(controller, stateMachine);
 
+		StatProvider = controller.GetComponent<IStatProvider>();
 		EventBus.OnSkillTreeLedgerChanged += HandleSkillTreeLedgerChanged;
 
 		CastBar = controller.SkillController?.CastBar;

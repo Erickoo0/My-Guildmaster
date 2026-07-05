@@ -7,7 +7,7 @@ public class EffectSpawnExplosion : Effect
 {
 	[Header("Explosion Settings")]
 	[field: SerializeField] public GameObject Prefab { get; private set; }
-	[field: SerializeField] public float LifeTime { get; private set; } = 0.5f;
+	[field: SerializeField] public float Duration { get; private set; } = 0.5f;
 	[field: SerializeField] public float Scale { get; private set; } = 1f;
 
 	[Header("Explosion Impact Settings")]
@@ -19,26 +19,37 @@ public class EffectSpawnExplosion : Effect
 	{
 		if (Prefab == null) return false;
 
-		// 1. Determine spawn location
-		Vector3 spawnPosition = effectPayload.HitImpactPoint != Vector2.zero ? (Vector3)effectPayload.HitImpactPoint : effectPayload.TargetPosition;
+		// 1. Determine spawn location based on the payload's impact context
+		Vector3 spawnPosition = effectPayload.HitImpactPoint != Vector2.zero
+			? (Vector3)effectPayload.HitImpactPoint
+			: effectPayload.TargetPosition;
 
 		// 2. Spawn the explosion
 		GameObject explosionInstance = Object.Instantiate(Prefab, spawnPosition, Quaternion.identity);
-		Object.Destroy(explosionInstance, LifeTime);
+		explosionInstance.transform.localScale *= Scale;
+		Object.Destroy(explosionInstance, Duration);
 
-		// 3. Pass the data
+		// 3. Bundle and Pass the data
 		if (explosionInstance.TryGetComponent(out HitBoxAOE hitBox))
 		{
-			hitBox.Setup(
-				user: effectPayload.User,
-				effects: EffectsList,
-				maxHits: 999,
-				hitOnce: true,
-				destroyOnMax: false,
-				inheritedTargets: effectPayload.HitTargets, // Pass the memory chain!
-				hitImpact: effectPayload.HitImpact
-				);
+			CombatContext combatContext = new CombatContext
+			{
+				User = effectPayload.User,
+				EffectsList = EffectsList,
+				SkillDataInstance = effectPayload.SkillDataInstance,
+				SkillDamageBase = effectPayload.SkillDamageBase
+			};
 
+			HitBoxSettings hitBoxSettings = new HitBoxSettings
+			{
+				MaxEnemiesHit = 999, // AOEs typically hit everything in radius
+				HitOncePerTarget = true,
+				DestroyOnMaxHits = false, // Lifetime handles destruction, not hit count
+				HitImpact = effectPayload.HitImpact,
+				InheritedTargetsList = effectPayload.HitTargets // Pass the memory chain!
+			};
+
+			hitBox.Setup(combatContext, hitBoxSettings);
 			hitBox.EnableHitBox = true;
 			return true;
 		}
@@ -57,7 +68,7 @@ public class EffectSpawnExplosion : Effect
 		return new EffectSpawnExplosion
 		{
 			Prefab = Prefab,
-			LifeTime = LifeTime,
+			Duration = Duration,
 			Scale = Scale,
 			EffectsList = clonedExplosionEffects
 		};

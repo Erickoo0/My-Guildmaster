@@ -103,8 +103,24 @@ public class EntitySkillStateMelee : SkillStateBase
 		float angle = Mathf.Atan2(SkillDirection.y, SkillDirection.x)*Mathf.Rad2Deg;
 		_meleeHitbox.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-		// 2. Pass the Data and turn on the hitbox
-		_meleeHitbox.Setup(controller.gameObject, SkillDataInstance.EffectsList, 999, true, false, hitImpact: SkillDataInstance.HitImpact);
+		// 2. Bundle the data and pass it to the hitbox
+		CombatContext combatContext = new CombatContext
+		{
+			User = controller.gameObject,
+			EffectsList = SkillDataInstance.EffectsList,
+			SkillDataInstance = SkillDataInstance,
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, StatProvider) // Assuming parent state tracks pre-computed base damage
+		};
+
+		HitBoxSettings hitBoxSettings = new HitBoxSettings
+		{
+			MaxEnemiesHit = 999, // Dash typically hits anyone in the path
+			HitOncePerTarget = true,
+			DestroyOnMaxHits = false,
+			HitImpact = SkillDataInstance.HitImpact
+		};
+
+		_meleeHitbox.Setup(combatContext, hitBoxSettings);
 		_meleeHitbox.EnableHitBox = true;
 
 		// 3. Stop the lunge

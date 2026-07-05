@@ -16,6 +16,7 @@ public abstract class SkillStateBase : BaseActionState
 	protected SkillData SkillDataSource;
 	protected Vector2 SkillDirection;
 	protected SkillTree SkillTree;
+	protected IStatProvider StatProvider;
 	public float SelectionWeight => SkillDataSource != null ? SkillDataSource.SelectionWeight : 0f;
 
 	public override void Setup(MobController controller, StateMachine stateMachine)
@@ -23,6 +24,8 @@ public abstract class SkillStateBase : BaseActionState
 		base.Setup(controller, stateMachine);
 
 		EventBus.OnSkillTreeLedgerChanged += HandleSkillTreeLedgerChanged;
+		StatProvider = controller.GetComponent<IStatProvider>();
+		CastBar = controller.GetComponent<CastBar>();
 
 		// 1. Get the skill data
 		if (controller.SkillController.SkillDatabase != null)
@@ -46,9 +49,6 @@ public abstract class SkillStateBase : BaseActionState
 			stateMachine.ChangeState(controller.IdleState);
 			return;
 		}
-
-		// 2. Get the cast bar
-		CastBar = controller.GetComponent<CastBar>();
 	}
 
 	public void OnDestroy() => EventBus.OnSkillTreeLedgerChanged -= HandleSkillTreeLedgerChanged;
