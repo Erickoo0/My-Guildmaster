@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
 public abstract class HitBox : MonoBehaviour
@@ -7,21 +6,10 @@ public abstract class HitBox : MonoBehaviour
 	[HideInInspector] public Collider2D EntityCollider;
 
 	[Header("Base Settings")]
-	public LayerMask VictimLayer; // Layer to check for collisions
-
-	[Header("Behavior Settings")]
-	private bool _destroyOnMaxHits;
-	private List<Effect> _effectsList;
-
+	public LayerMask VictimLayer;
+	private CombatContext _combatContext;
 	private bool _enableHitBox = false;
-	private float _hitImpact;
-	private bool _hitOncePerTarget;
-	private int _maxEnemiesHitCount;
-	private float _skillDamageBase;               // Carried from the cast os hit effects can use skill scaling
-	private SkillDataInstance _skillDataInstance; // Carried from the cast os hit effects can use skill scaling
-
-	private HashSet<IDamagable> _targetsHitList;
-	private GameObject _user;
+	private HitBoxSettings _hitBoxSettings;
 
 	public bool EnableHitBox
 	{
@@ -40,99 +28,81 @@ public abstract class HitBox : MonoBehaviour
 
 	public void OnTriggerStay2D(Collider2D other)
 	{
-		// 1. Safety Checks
+		// Safety Checks
 		if (!EnableHitBox || other.isTrigger) return;
 		if (((1 << other.gameObject.layer) & VictimLayer) == 0) return;
-		if (other.transform.root.gameObject == _user.transform.root.gameObject) return;
+		if (other.transform.root.gameObject == _combatContext.User.transform.root.gameObject) return;
 
-		// 2. Identify what we hit
+		// Check if the target is a valid victim or a wall
 		IDamagable victim = other.GetComponentInParent<IDamagable>();
-		bool isWall = other.gameObject.layer == LayerMask.NameToLayer("Collisions"); // Adjust string if your wall layer is named differently
+		bool isWall = other.gameObject.layer == LayerMask.NameToLayer("Collisions");
 
-		// If it's neither an enemy nor a wall, ignore it
 		if (victim == null && !isWall) return;
+		if (victim != null && _hitBoxSettings.HitOncePerTarget && _hitBoxSettings.InheritedTargetsList.Contains(victim)) return;
 
-		// 3. Check if we already hit this specific target
-		if (victim != null && _hitOncePerTarget && _targetsHitList.Contains(victim)) return;
-
-		// 4. Calculate knockback direction
 		CalculateImpactPhysics(other, out Vector2 direction, out Vector2 impactPoint);
 
-		// 5. Create effect payload
-		EffectPayload effectPayload = new EffectPayload(
-			_user,
-			other.gameObject,
-			other.transform.position,
-			direction,
-			impactPoint,
-			_targetsHitList
-			);
+		// 1. Construct the Payload
+		EffectPayload effectPayload = new EffectPayload(_combatContext.User)
+		{
+			Target = other.gameObject,
+			TargetPosition = other.transform.position,
+			HitDirection = direction,
+			HitImpactPoint = impactPoint,
+			HitTargets = _hitBoxSettings.InheritedTargetsList,
+			SkillDataInstance = _combatContext.SkillDataInstance,
+			SkillDamageBase = _combatContext.SkillDamageBase
+		};
 
-		// Forward the skill context so projectile effects can scale correctly
-		effectPayload.SkillDataInstance = _skillDataInstance;
-		effectPayload.SkillDamageBase = _skillDamageBase;
-
-		// 6. Execute all skill effects
+		// 2. Execute all skill effects
 		bool anyEffectSucceeded = false;
-		if (_effectsList != null && _effectsList.Count > 0)
-			foreach (Effect effect in _effectsList)
+		if (_combatContext.EffectsList?.Count > 0)
+		{
+			foreach (Effect effect in _combatContext.EffectsList)
+			{
 				if (effect.Execute(effectPayload))
 					anyEffectSucceeded = true;
+			}
+		}
 
-		// 7. Handle successful hits
+		// 3. Handle successful hits
 		if (anyEffectSucceeded)
 		{
-			if (victim != null) _targetsHitList.Add(victim);
+			if (victim != null) _hitBoxSettings.InheritedTargetsList.Add(victim);
 			HandlePostHit(other);
 
-			// Hit Impact Feedback (hit pause + screen shake)
-			if (_hitImpact > 0f)
-				EventBus.RequestHitImpact(_hitImpact, impactPoint);
+			if (_hitBoxSettings.HitImpact > 0f)
+				EventBus.RequestHitImpact(_hitBoxSettings.HitImpact, impactPoint);
 
-			// Wall Impact Logic
 			if (isWall)
 			{
-				if (_destroyOnMaxHits) Destroy(gameObject);
+				if (_hitBoxSettings.DestroyOnMaxHits)
+					Destroy(gameObject);
 				return;
 			}
 
-			// Enemy Piercing Logic
-			if (_maxEnemiesHitCount > 0)
+			if (_hitBoxSettings.MaxEnemiesHit > 0)
 			{
-				_maxEnemiesHitCount--;
-
-				if (_maxEnemiesHitCount <= 0)
+				_hitBoxSettings.MaxEnemiesHit--;
+				if (_hitBoxSettings.MaxEnemiesHit <= 0)
 				{
 					EnableHitBox = false;
-					if (_destroyOnMaxHits) Destroy(gameObject);
+					if (_hitBoxSettings.DestroyOnMaxHits)
+						Destroy(gameObject);
 				}
 			}
 		}
 	}
 
-	public virtual void Setup(
-		GameObject user, [CanBeNull] List<Effect> effects, int maxHits, bool hitOnce,
-		bool destroyOnMax, HashSet<IDamagable> inheritedTargets = null, float hitImpact = 0f,
-		SkillDataInstance skillDataInstance = null, float skillDamageBase = 0f
-	)
+	public virtual void Setup(CombatContext combatContext, HitBoxSettings hitBoxSettings)
 	{
-		_user = user;
-		_effectsList = effects;
-		_skillDataInstance = skillDataInstance;
-		_skillDamageBase = skillDamageBase;
+		_combatContext = combatContext;
+		_hitBoxSettings = hitBoxSettings;
 
-		// If memory of previous hits is passed down, use it. Otherwise, create a new HashSet
-		_targetsHitList = inheritedTargets ?? new HashSet<IDamagable>();
-
-		// Read the data from the DamageData
-		_maxEnemiesHitCount = maxHits;
-		_hitOncePerTarget = hitOnce;
-		_destroyOnMaxHits = destroyOnMax;
-		_hitImpact = hitImpact;
+		// Ensure inherited targets is never null
+		_hitBoxSettings.InheritedTargetsList ??= new HashSet<IDamagable>();
 	}
 
-	// All children must implement this method
 	protected abstract void CalculateImpactPhysics(Collider2D other, out Vector2 knockbackDirection, out Vector2 impactPoint);
-	// All children can implement this method
 	protected virtual void HandlePostHit(Collider2D other) {}
 }

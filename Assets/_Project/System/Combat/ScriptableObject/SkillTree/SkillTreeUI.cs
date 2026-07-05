@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
-
 /// <summary>
 /// Orchestrates the Skill Tree UI panel.
 /// Spawns SkillNodeUI instances for every node in a SkillTree, draws
@@ -11,163 +9,165 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class SkillTreeUI : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameObject _skillTreePanel;
-    [SerializeField] private SkillTree _skillTree;
-    [SerializeField] private RectTransform _skillNodeContainer;
-    [SerializeField] private GameObject _skillNodeUIPrefab;
-    [SerializeField] private TextMeshProUGUI _skillNameText;
-    [SerializeField] private TextMeshProUGUI _totalSkillPointsText;
+	[Header("References")]
+	[SerializeField] private GameObject _skillTreePanel;
+	[SerializeField] private SkillTree _skillTree;
+	[SerializeField] private RectTransform _skillNodeContainer;
+	[SerializeField] private GameObject _skillNodeUIPrefab;
+	[SerializeField] private TextMeshProUGUI _skillNameText;
+	[SerializeField] private TextMeshProUGUI _totalSkillPointsText;
 
-    [Header("Connection Lines")]
-    [Tooltip("Prefab with a UI Image used as a line segment between nodes.")]
-    [SerializeField] private RectTransform _connectionLinePrefab;
+	[Header("Connection Lines")]
+	[Tooltip("Prefab with a UI Image used as a line segment between nodes.")]
+	[SerializeField] private RectTransform _connectionLinePrefab;
 
-    [Header("Layout")]
-    [Tooltip("Multiplier applied to SkillNode.UIPosition to convert design units to pixels.")]
-    [SerializeField] private float _positionScale = 100f;
+	[Header("Layout")]
+	[Tooltip("Multiplier applied to SkillNode.UIPosition to convert design units to pixels.")]
+	[SerializeField] private float _positionScale = 100f;
+	private readonly List<RectTransform> _connectionLinesList = new List<RectTransform>();
+	private readonly Dictionary<string, Vector2> _nodePositions = new Dictionary<string, Vector2>();
 
-    private SkillTreeLedger _skillTreeLedger;
+	private readonly List<SkillNodeUI> _skillNodesUIList = new List<SkillNodeUI>();
 
-    private readonly List<SkillNodeUI> _skillNodesUIList = new List<SkillNodeUI>();
-    private readonly List<RectTransform> _connectionLinesList = new List<RectTransform>();
-    private readonly Dictionary<string, Vector2> _nodePositions = new Dictionary<string, Vector2>();
+	private SkillTreeLedger _skillTreeLedger;
 
-    private void OnEnable()
-    {
-        if (_skillTree == null)
-        {
-            Debug.LogWarning($"{name}: No SkillTree assigned in the Inspector.");
-            return;
-        }
+	private void OnEnable()
+	{
+		if (_skillTree == null)
+		{
+			Debug.LogWarning($"{name}: No SkillTree assigned in the Inspector.");
+			return;
+		}
 
-        _skillTreeLedger = SkillTreeCompiler.Instance.GetOrCreateSkillTreeLedger(_skillTree);
-        Rebuild();
-    }
+		_skillTreeLedger = SkillTreeCompiler.GetOrCreateSkillTreeLedger(_skillTree);
+		Rebuild();
+	}
 
-    private void OnDisable() => ClearAll();
+	private void OnDisable() => ClearAll();
 
-    public void ToggleMenu(InputAction.CallbackContext context)
-    {
-        if (!context.performed) return;
+	public void ToggleMenu(InputAction.CallbackContext context)
+	{
+		if (!context.performed) return;
 
-        if (!_skillTreePanel.activeSelf)
-            EventBus.RequestOpenMenu(_skillTreePanel);
-        else
-            EventBus.RequestCloseMenu(_skillTreePanel);
-    }
+		if (!_skillTreePanel.activeSelf)
+			EventBus.RequestOpenMenu(_skillTreePanel);
+		else
+			EventBus.RequestCloseMenu(_skillTreePanel);
+	}
 
-    private void Rebuild()
-    {
-        ClearAll();
+	private void Rebuild()
+	{
+		ClearAll();
 
-        if (_skillTree == null || _skillTreeLedger == null)
-        {
-            Debug.LogWarning($"{name}: Cannot build SkillTreeUI — SkillTree or Ledger is null.");
-            return;
-        }
+		if (_skillTree == null || _skillTreeLedger == null)
+		{
+			Debug.LogWarning($"{name}: Cannot build SkillTreeUI — SkillTree or Ledger is null.");
+			return;
+		}
 
-        if (_skillNameText != null)
-            _skillNameText.text = _skillTree.SkillData != null ? _skillTree.SkillData.Name : _skillTree.name;
+		if (_skillNameText != null)
+			_skillNameText.text = _skillTree.SkillData != null ? _skillTree.SkillData.Name : _skillTree.name;
 
-        // 1. Spawn a SkillNodeUI for every node in the tree
-        foreach (SkillNode node in _skillTree.SkillNodes)
-        {
-            if (node == null) continue;
-            SpawnSkillNodeUI(node);
-        }
+		// 1. Spawn a SkillNodeUI for every node in the tree
+		foreach (SkillNode node in _skillTree.SkillNodes)
+		{
+			if (node == null) continue;
+			SpawnSkillNodeUI(node);
+		}
 
-        // 2. Draw connections between prerequisite nodes
-        DrawAllConnections();
+		// 2. Draw connections between prerequisite nodes
+		DrawAllConnections();
 
-        // 3. Initial visual refresh
-        RefreshAllNodes();
-    }
+		// 3. Initial visual refresh
+		RefreshAllNodes();
+	}
 
-    private void SpawnSkillNodeUI(SkillNode node)
-    {
-        if (_skillNodeUIPrefab == null)
-        {
-            Debug.LogWarning($"{name}: SkillNodeUI prefab is not assigned.");
-            return;
-        }
+	private void SpawnSkillNodeUI(SkillNode node)
+	{
+		if (_skillNodeUIPrefab == null)
+		{
+			Debug.LogWarning($"{name}: SkillNodeUI prefab is not assigned.");
+			return;
+		}
 
-        GameObject go = Instantiate(_skillNodeUIPrefab, _skillNodeContainer);
-        RectTransform rt = go.GetComponent<RectTransform>();
+		GameObject go = Instantiate(_skillNodeUIPrefab, _skillNodeContainer);
+		RectTransform rt = go.GetComponent<RectTransform>();
 
-        Vector2 nodePos = node.UIPosition * _positionScale;
-        rt.anchoredPosition = nodePos;
-        
-        _nodePositions[node.ID] = nodePos;
+		Vector2 nodePos = node.UIPosition*_positionScale;
+		rt.anchoredPosition = nodePos;
 
-        SkillNodeUI nodeUI = go.GetComponent<SkillNodeUI>();
-        if (nodeUI == null)
-        {
-            Debug.LogWarning($"{name}: Spawned prefab is missing a SkillNodeUI component.");
-            return;
-        }
+		_nodePositions[node.ID] = nodePos;
 
-        nodeUI.Setup(node, _skillTree, _skillTreeLedger, RefreshAllNodes);
-        _skillNodesUIList.Add(nodeUI);
-    }
+		SkillNodeUI nodeUI = go.GetComponent<SkillNodeUI>();
+		if (nodeUI == null)
+		{
+			Debug.LogWarning($"{name}: Spawned prefab is missing a SkillNodeUI component.");
+			return;
+		}
 
-    private void DrawAllConnections()
-    {
-        if (_connectionLinePrefab == null) return;
+		nodeUI.Setup(node, _skillTree, _skillTreeLedger, RefreshAllNodes);
+		_skillNodesUIList.Add(nodeUI);
+	}
 
-        foreach (SkillNode node in _skillTree.SkillNodes)
-        {
-            if (node == null || node.Prerequisites == null) continue;
+	private void DrawAllConnections()
+	{
+		if (_connectionLinePrefab == null) return;
 
-            foreach (SkillNodePrerequisite prereq in node.Prerequisites)
-            {
-                if (prereq == null) continue;
+		foreach (SkillNode node in _skillTree.SkillNodes)
+		{
+			if (node == null || node.Prerequisites == null) continue;
 
-                if (!_nodePositions.TryGetValue(node.ID, out Vector2 toPos)) continue;
-                if (!_nodePositions.TryGetValue(prereq.RequiredSkillNodeID, out Vector2 fromPos)) continue;
+			foreach (SkillNodePrerequisite prereq in node.Prerequisites)
+			{
+				if (prereq == null) continue;
 
-                DrawConnection(fromPos, toPos);
-            }
-        }
-    }
+				if (!_nodePositions.TryGetValue(node.ID, out Vector2 toPos)) continue;
+				if (!_nodePositions.TryGetValue(prereq.RequiredSkillNodeID, out Vector2 fromPos)) continue;
 
-    private void DrawConnection(Vector2 fromPos, Vector2 toPos)
-    {
-        RectTransform line = Instantiate(_connectionLinePrefab, _skillNodeContainer);
-        line.SetAsFirstSibling(); // render behind nodes
-        
-        Vector2 delta = toPos - fromPos;
-        line.sizeDelta        = new Vector2(delta.magnitude, line.sizeDelta.y);
-        line.anchoredPosition = fromPos;
-        line.localRotation    = Quaternion.Euler(0f, 0f, Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg);
+				DrawConnection(fromPos, toPos);
+			}
+		}
+	}
 
-        _connectionLinesList.Add(line);
-    }
+	private void DrawConnection(Vector2 fromPos, Vector2 toPos)
+	{
+		RectTransform line = Instantiate(_connectionLinePrefab, _skillNodeContainer);
+		line.SetAsFirstSibling(); // render behind nodes
 
-    private void RefreshAllNodes()
-    {
-        foreach (SkillNodeUI nodeUI in _skillNodesUIList)
-            nodeUI.RefreshUI();
+		Vector2 delta = toPos - fromPos;
+		line.sizeDelta = new Vector2(delta.magnitude, line.sizeDelta.y);
+		line.anchoredPosition = fromPos;
+		line.localRotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(delta.y, delta.x)*Mathf.Rad2Deg);
 
-        UpdateSkillPointsText();
-    }
+		_connectionLinesList.Add(line);
+	}
 
-    private void UpdateSkillPointsText()
-    {
-        if (_totalSkillPointsText == null || _skillTreeLedger == null) return;
-        _totalSkillPointsText.text = $"Points Spent: {_skillTreeLedger.GetTotalAllocatedSkillPoints()}";
-    }
+	private void RefreshAllNodes()
+	{
+		foreach (SkillNodeUI nodeUI in _skillNodesUIList)
+			nodeUI.RefreshUI();
 
-    private void ClearAll()
-    {
-        foreach (SkillNodeUI nodeUI in _skillNodesUIList)
-            if (nodeUI != null) Destroy(nodeUI.gameObject);
+		UpdateSkillPointsText();
+	}
 
-        foreach (RectTransform line in _connectionLinesList)
-            if (line != null) Destroy(line.gameObject);
+	private void UpdateSkillPointsText()
+	{
+		if (_totalSkillPointsText == null || _skillTreeLedger == null) return;
+		_totalSkillPointsText.text = $"Points Spent: {_skillTreeLedger.GetTotalAllocatedSkillPoints()}";
+	}
 
-        _skillNodesUIList.Clear();
-        _connectionLinesList.Clear();
-        _nodePositions.Clear();
-    }
+	private void ClearAll()
+	{
+		foreach (SkillNodeUI nodeUI in _skillNodesUIList)
+			if (nodeUI != null)
+				Destroy(nodeUI.gameObject);
+
+		foreach (RectTransform line in _connectionLinesList)
+			if (line != null)
+				Destroy(line.gameObject);
+
+		_skillNodesUIList.Clear();
+		_connectionLinesList.Clear();
+		_nodePositions.Clear();
+	}
 }

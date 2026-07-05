@@ -15,14 +15,17 @@ public class EntitySkillState : SkillStateBase
 
 		Vector3 targetPosition = controller.CurrentTarget != null ? controller.CurrentTarget.position : casterPosition + (Vector3)castDirection;
 
-		// 1. Create a primary payload describing the INITIAL CAST event
-		EffectPayload initialCastPayload = new EffectPayload(
-			user: controller.gameObject,
-			target: controller.gameObject,  // Default target is caster for instant self-effects
-			targetPosition: targetPosition, // Target position is where the mouse is pointing
-			hitDirection: castDirection,
-			hitImpactPoint: casterPosition
-			);
+		// 1. Construct payload and compute SkillDamageBase
+		EffectPayload initialCastPayload = new EffectPayload(controller.gameObject)
+		{
+			Target = controller.gameObject,
+			TargetPosition = targetPosition,
+			HitDirection = SkillDirection,
+			HitImpactPoint = casterPosition,
+			HitImpact = SkillDataInstance.HitImpact,
+			SkillDataInstance = SkillDataInstance,
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.GetComponent<IStatProvider>())
+		};
 
 		// 2. Compute the skill's base damage once per cast and pass it with the entire effect chain
 		initialCastPayload.SkillDataInstance = SkillDataInstance;

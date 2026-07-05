@@ -213,8 +213,8 @@ public abstract class SkillStateBase : BaseActionState
 
 		// 1. Recompile the SkilLDataInstance with the SkillTree's modifiers if it exists,
 		// otherwise, just create a new instance from the SkillDataSource
-		SkillDataInstance = SkillTree != null && SkillTreeCompiler.Instance != null
-			? SkillTreeCompiler.Instance.CompileSkillDataInstance(SkillTree)
+		SkillDataInstance = SkillTree != null
+			? SkillTreeCompiler.CompileSkillDataInstance(SkillTree)
 			: SkillDataSource.CreateSkillDataInstance();
 	}
 }

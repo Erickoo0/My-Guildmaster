@@ -101,7 +101,7 @@ MonoBehaviour:
     - rid: 6453299907441197138
       type: {class: EffectApplyAilment, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 7454389767859551073, guid: 0601de0d4fa19e247ae4a4c6d62fdfa3, type: 3}
-        <Type>k__BackingField: 0
-        <Potency>k__BackingField: 5
+        <Prefab>k__BackingField: {fileID: 6304575125692120520, guid: b6652bf6b70ede8478fe0f1b26301b12, type: 3}
+        <Type>k__BackingField: 2
+        <Potency>k__BackingField: 0.25
         <Duration>k__BackingField: 5

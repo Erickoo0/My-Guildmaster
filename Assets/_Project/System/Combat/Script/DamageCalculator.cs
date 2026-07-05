@@ -44,8 +44,9 @@ public static class DamageCalculator
 	}
 
 	/// <summary>
-	/// Computes the skill's base damage for this cast.
+	/// Computes the skill's scaled damage for this CAST. (Multi Hit skills will only need to call this method once at the start)
 	/// Base skill damage + (scaling stat * scaling ratio)
+	/// Called from SkillCastState
 	/// </summary>
 	public static float ComputeBaseSkillDamage(SkillDataInstance skillDataInstance, IStatProvider statProvider)
 	{
@@ -61,7 +62,7 @@ public static class DamageCalculator
 	}
 
 	/// <summary>
-	/// Applies the user's damage multiplier to the damage.
+	/// Applies the user's damage multiplier stat to the scaled damage.
 	/// </summary>
 	public static float ApplyDamageMultiplier(float damage, IStatProvider userStatProvider)
 	{

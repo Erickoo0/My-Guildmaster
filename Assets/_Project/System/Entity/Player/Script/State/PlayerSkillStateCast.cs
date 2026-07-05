@@ -5,6 +5,8 @@ using Object = UnityEngine.Object;
 [Serializable]
 public class PlayerSkillStateCast : PlayerSkillStateBase
 {
+	private Vector2 AimDirection => (controller.WorldMousePosition - controller.transform.position).normalized;
+
 	public override void Enter()
 	{
 		// Face the aim direction upon starting the cast
@@ -44,19 +46,17 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 		Vector3 casterPosition = controller.transform.position;
 		Vector2 castDirection = (controller.WorldMousePosition - casterPosition).normalized;
 
-		// 1. Create a primary payload describing the INITIAL CAST event
-		EffectPayload initialCastPayload = new EffectPayload(
-			user: controller.gameObject,
-			target: controller.gameObject,                 // Default target is caster for instant self-effects
-			targetPosition: controller.WorldMousePosition, // Target position is where the mouse is pointing
-			hitDirection: castDirection,
-			hitImpactPoint: casterPosition
-			);
-		initialCastPayload.HitImpact = SkillDataInstance.HitImpact;
-
-		// 2. Compute the skill's base damage once per cast and pass it with the entire effect chain
-		initialCastPayload.SkillDataInstance = SkillDataInstance;
-		initialCastPayload.SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.GetComponent<IStatProvider>());
+		// 1. Construct payload and compute SkillDamageBase
+		EffectPayload initialCastPayload = new EffectPayload(controller.gameObject)
+		{
+			Target = controller.gameObject,
+			TargetPosition = controller.WorldMousePosition,
+			HitDirection = AimDirection,
+			HitImpactPoint = casterPosition,
+			HitImpact = SkillDataInstance.HitImpact,
+			SkillDataInstance = SkillDataInstance,
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.GetComponent<IStatProvider>())
+		};
 
 		// 3. Execute all skill effects
 		if (SkillDataInstance.EffectsList != null && SkillDataInstance.EffectsList.Count > 0)

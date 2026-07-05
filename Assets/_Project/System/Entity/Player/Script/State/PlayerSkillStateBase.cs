@@ -12,13 +12,11 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 
 	protected bool HasTriggered = false;
 	protected bool IsCasting;
-	protected SkillDataInstance SkillDataInstance;
 	protected SkillData SkillDataSource;
 	protected SkillTree SkillTree;
+	public SkillDataInstance SkillDataInstance { get; private set; }
 
 	public float MpCost => SkillDataInstance != null ? SkillDataInstance.MpCost : 0f;
-	public SkillData GetSpellDataSource() => SkillDataSource;
-	public SkillDataInstance GetSpellDataInstance() => SkillDataInstance;
 
 	public override void Setup(PlayerController controller, StateMachine stateMachine)
 	{
@@ -26,24 +24,24 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 
 		EventBus.OnSkillTreeLedgerChanged += HandleSkillTreeLedgerChanged;
 
+		CastBar = controller.SkillController?.CastBar;
+
 		if (controller.SkillController != null && controller.SkillController.SkillDatabase != null)
 		{
-			// 1. Find the SkilLData
+			// 1. Find the SkilLData from database
 			SkillDataSource = controller.SkillController.SkillDatabase.GetSkillDataByID<SkillData>(_skillID);
 			if (SkillDataSource != null)
 			{
-				// 2. Find the SkillTree for this skill
+				// 2. Find the SkillTree for this SkillData
 				SkillTree = controller.SkillController.SkillTreeDatabase != null
 					? controller.SkillController.SkillTreeDatabase.GetSkillTreeByID(_skillID)
 					: null;
 
-				// 3. Compile SkilLDataInstance with SkillTree
+				// 3. Compile SkilLDataInstance with SkillTree and SkillDataSource
 				RefreshSkillDataInstance();
 			}
 		} else
-			Debug.LogError("PlayerController.SkillController.SkillDatabase is null");
-
-		CastBar = controller.SkillController?.CastBar;
+			Debug.LogError("PlayerSkillCastState: PlayerController.SkillController.SkillDatabase is null");
 	}
 
 	public override void Enter()
@@ -161,8 +159,8 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 
 		// 1. Recompile the SkilLDataInstance with the SkillTree's modifiers if it exists,
 		// otherwise, just create a new instance from the SkillDataSource
-		SkillDataInstance = SkillTree != null && SkillTreeCompiler.Instance != null
-			? SkillTreeCompiler.Instance.CompileSkillDataInstance(SkillTree)
+		SkillDataInstance = SkillTree != null
+			? SkillTreeCompiler.CompileSkillDataInstance(SkillTree)
 			: SkillDataSource.CreateSkillDataInstance();
 	}
 }

@@ -30,15 +30,15 @@ public class ItemDataSo : ScriptableObject
 	[field: SerializeField] public bool IsStackable { get; private set; } = true;
 	[field: SerializeField] public int MaxStackSize { get; private set; } = 99;
 
-	[field: Header("Usage & EffectsList")]
+	[field: Header("Usage & Effects")]
 	[field: SerializeField] public bool IsUsable { get; private set; }
 	[SerializeReference, SubclassSelector] public List<Effect> effects = new List<Effect>();
+
 	public bool IsAnimated => ItemIcon != null && ItemIcon.Length > 1;
 
 #if UNITY_EDITOR
 	private void OnValidate()
 	{
-		// Automatically sync ID with File Name
 		string path = AssetDatabase.GetAssetPath(this);
 		if (!string.IsNullOrEmpty(path))
 		{
@@ -46,12 +46,10 @@ public class ItemDataSo : ScriptableObject
 			if (ItemID != fileName)
 			{
 				ItemID = fileName;
-				// Mark as dirty to ensure the change is saved
 				EditorUtility.SetDirty(this);
 			}
 		}
 
-		// Logic safety: Ensure stack size is at least 1 if stackable
 		if (IsStackable && MaxStackSize < 1)
 		{
 			MaxStackSize = 1;
@@ -61,19 +59,19 @@ public class ItemDataSo : ScriptableObject
 
 	public bool Use(ItemInstance itemInstance, GameObject user, GameObject target = null, Vector3 targetPosition = default)
 	{
-		// If there is no usable effects, do nothing
 		if (!IsUsable || effects == null || effects.Count == 0) return false;
 
+		// 1. Construct the Payload 
+		EffectPayload effectPayload = new EffectPayload(user)
+		{
+			Target = target != null ? target : user,
+			TargetPosition = targetPosition
+		};
+
+		// 2. Execute Effects
 		bool anyEffectSucceeded = false;
-
-		// 1. Construct the effectPayload
-		GameObject itemTarget = target != null ? target : user;
-		EffectPayload effectPayload = new EffectPayload(user, target, targetPosition);
-
-		// 2. Loop through every effect attached to this item
 		foreach (Effect effect in effects)
 		{
-			// If any effect succeeds, return true
 			if (effect.Execute(effectPayload))
 				anyEffectSucceeded = true;
 		}

@@ -78,26 +78,36 @@ public class EffectSpawnProjectile : Effect
 			// 7. Apply scale
 			if (Scale != 1f) projectileInstance.transform.localScale *= Scale;
 
-			// 8. Pass the data to the projectile
+			// 8. Bundle and pass the data to the projectile
 			if (projectileInstance.TryGetComponent(out Projectile projectileComponent))
 			{
-				projectileComponent.Setup(
-					rotatedTargetPosition,
-					Speed,
-					Duration,
-					ProjectileCurve,
-					ProjectileHeight,
-					effectPayload.User,
-					EffectsList,
-					MaxEnemiesHit,
-					HitOncePerTarget,
-					DestroyOnMaxHits,
-					Scale,
-					effectPayload.HitImpact,
-					effectPayload.SkillDataInstance,
-					effectPayload.SkillDamageBase
-					);
+				CombatContext combatContext = new CombatContext
+				{
+					User = effectPayload.User,
+					EffectsList = EffectsList,
+					SkillDataInstance = effectPayload.SkillDataInstance,
+					SkillDamageBase = effectPayload.SkillDamageBase
+				};
 
+				HitBoxSettings hitBoxSettings = new HitBoxSettings
+				{
+					MaxEnemiesHit = MaxEnemiesHit,
+					HitOncePerTarget = HitOncePerTarget,
+					DestroyOnMaxHits = DestroyOnMaxHits,
+					HitImpact = effectPayload.HitImpact
+				};
+
+				ProjectileFlightData projectileFlightData = new ProjectileFlightData
+				{
+					TargetPosition = rotatedTargetPosition,
+					Speed = Speed,
+					Duration = Duration,
+					MaxHeight = ProjectileHeight,
+					Curve = ProjectileCurve,
+					Scale = Scale
+				};
+
+				projectileComponent.Setup(combatContext, hitBoxSettings, projectileFlightData);
 				anySpawned = true;
 			}
 		}

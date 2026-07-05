@@ -28,17 +28,18 @@ public class EffectDealDamage : Effect
 				? effectPayload.SkillDamageBase*SkillDamageMultiplier
 				: Amount;
 
-			DamageData data = new DamageData(
-				rawDamage,
-				effectPayload.HitDirection,   // Passed from Hitbox physics
-				effectPayload.HitImpactPoint, // Passed from Hitbox physics
-				KnockbackForce,
-				KnockbackDuration,
-				KnockbackHeight,
-				Type,
-				effectPayload.User,
-				BonusHit
-				);
+			DamageData data = new DamageData
+			{
+				Amount = rawDamage,
+				Direction = effectPayload.HitDirection,
+				ImpactPoint = effectPayload.HitImpactPoint,
+				KnockbackForce = KnockbackForce,
+				KnockbackDuration = KnockbackDuration,
+				KnockbackHeight = KnockbackHeight,
+				Type = Type,
+				Source = effectPayload.User,
+				IsBonusHit = BonusHit
+			};
 
 			target.TakeDamage(data);
 			return true;
