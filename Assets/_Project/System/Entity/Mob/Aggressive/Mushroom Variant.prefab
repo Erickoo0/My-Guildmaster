@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
+  EntityCollider: {fileID: 0}
   VictimLayer:
     serializedVersion: 2
     m_Bits: 64
-  EntityCollider: {fileID: 0}
 --- !u!70 &3497179891603638761
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -327,11 +327,19 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743946400399507]._overshootDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399505].chargeSpeedMultiplier
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399507].chargeSpeedMultiplier
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[3505743946400399507]._chargeSpeedMultiplier
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5742111724304672418, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}

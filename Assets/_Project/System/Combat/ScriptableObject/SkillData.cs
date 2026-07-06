@@ -15,9 +15,9 @@ public class SkillData : ScriptableObject
 	public AnimationBool Animation;
 
 	[Header("Base Stats")]
-	public float DamageBase;
+	public float DamageBase = 0f;
 	public DamageScalingStat DamageScalingStat = DamageScalingStat.AttackPower;
-	public float DamageScalingRatio;
+	public float DamageScalingRatio = 1f;
 	public float MpCostBase = 0; // Not needed for enemies
 	public float CastTimeBase;
 

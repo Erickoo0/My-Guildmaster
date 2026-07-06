@@ -14,100 +14,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellSkillTree
   _skillData: {fileID: 11400000, guid: 48f8304c40a2aea49957b32c76b887cc, type: 2}
   _skillNodes:
-  - _id: SkillNode_MpCost_Increase
-    _displayName: Increase Mp Cost
-    _icon: {fileID: 0}
-    _description: 
-    _uiPosition: {x: -1, y: 0}
+  - _id: SN_Fireball_Dmg
+    _displayName: Increased Damage
+    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _description: Increases dmg by 5
+    _uiPosition: {x: -2, y: 210}
     _skillPointsMax: 3
     _prerequisites: []
     _modifiers:
-    - rid: 3505743987855065166
-  - _id: SkillNode_Dmg_increase
-    _displayName: Increase Damage
-    _icon: {fileID: 0}
-    _description: 
-    _uiPosition: {x: 0, y: 0}
-    _skillPointsMax: 3
-    _prerequisites: []
-    _modifiers:
-    - rid: 3505744017709858931
-  - _id: SkillNode_Heal_Append
-    _displayName: Add Healing
-    _icon: {fileID: 0}
-    _description: 
-    _uiPosition: {x: 1, y: 0}
-    _skillPointsMax: 3
-    _prerequisites: []
-    _modifiers:
-    - rid: 3505743987855065169
-  - _id: SkillNode_Projectile_Increase
-    _displayName: Triple Shot
-    _icon: {fileID: 0}
-    _description: 
-    _uiPosition: {x: 1, y: -3}
+    - rid: 6453299939246080080
+  - _id: SN_Fireball_CastTime
+    _displayName: Decrease Cast Time
+    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _description: Decreases the cast time by 10%
+    _uiPosition: {x: -184, y: -0}
     _skillPointsMax: 1
-    _prerequisites: []
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_Dmg
+      _requiredSkillPoints: 3
     _modifiers:
-    - rid: 3505744040974614528
-    - rid: 3505744040974614604
-  - _id: SkillNode_Projectile_Pierce
-    _displayName: Pierce
-    _icon: {fileID: 0}
-    _description: 
-    _uiPosition: {x: 0, y: -3}
-    _skillPointsMax: 1
-    _prerequisites: []
+    - rid: 6453299939246080084
+  - _id: SN_Fireball_AOE
+    _displayName: Increase AOE
+    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _description: Increases AOE by 50%
+    _uiPosition: {x: 4, y: 4}
+    _skillPointsMax: 2
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_Dmg
+      _requiredSkillPoints: 3
     _modifiers:
-    - rid: 6453299874921185355
+    - rid: 6453299939246080085
+  - _id: SN_Fireball_Pierce
+    _displayName: Piercing Fire
+    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _description: Pierce 1 additional target.
+    _uiPosition: {x: 186, y: 4}
+    _skillPointsMax: 2
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_Dmg
+      _requiredSkillPoints: 3
+    _modifiers:
+    - rid: 6453299939246080086
+  - _id: SN_Fireball_DoubleFire
+    _displayName: Double Fire
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Fire an additional fireball immediately after the first.
+    _uiPosition: {x: -188, y: -184}
+    _skillPointsMax: 2
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_CastTime
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299965050224640
   references:
     version: 2
     RefIds:
-    - rid: 3505743987855065166
+    - rid: 6453299939246080080
       type: {class: ModifierSkillStat, ns: , asm: Assembly-CSharp}
       data:
         _skillStat: 0
         _operation: 1
         _value: 5
-    - rid: 3505743987855065169
-      type: {class: ModifierSkillBehavior, ns: , asm: Assembly-CSharp}
+    - rid: 6453299939246080084
+      type: {class: ModifierSkillStat, ns: , asm: Assembly-CSharp}
       data:
-        _operation: 0
-        _effectsList:
-        - rid: 3505743987855065170
-        _insertIndex: 0
-        _stackOnExisting: 1
-        _stackParameter: HpHealBase
-        _stackValue: 5
-    - rid: 3505743987855065170
-      type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
-      data:
-        <HpHealBase>k__BackingField: 0
-    - rid: 3505744017709858931
-      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
-      data:
-        _effectTypeID: EffectDealDamage
-        _effectParameter: <Amount>k__BackingField
+        _skillStat: 3
         _operation: 1
-        _value: 5
-    - rid: 3505744040974614528
+        _value: -0.15
+    - rid: 6453299939246080085
       type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
       data:
         _effectTypeID: EffectSpawnProjectile
-        _effectParameter: <ProjectileCount>k__BackingField
-        _operation: 0
-        _value: 3
-    - rid: 3505744040974614604
+        _effectParameter: <Scale>k__BackingField
+        _operation: 1
+        _value: 0.5
+    - rid: 6453299939246080086
+      type: {class: ModifierSkillStat, ns: , asm: Assembly-CSharp}
+      data:
+        _skillStat: 4
+        _operation: 1
+        _value: 1
+    - rid: 6453299965050224640
       type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
       data:
         _effectTypeID: EffectSpawnProjectile
-        _effectParameter: <SpreadAngle>k__BackingField
-        _operation: 0
-        _value: 30
-    - rid: 6453299874921185355
-      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
-      data:
-        _effectTypeID: EffectSpawnProjectile
-        _effectParameter: <MaxEnemiesHit>k__BackingField
+        _effectParameter: <BarrageCount>k__BackingField
         _operation: 1
         _value: 1

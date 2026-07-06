@@ -17,6 +17,9 @@ MonoBehaviour:
   Icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
   Prefab: {fileID: 0}
   Animation: 1
+  DamageBase: 30
+  DamageScalingStat: 0
+  DamageScalingRatio: 1
   MpCostBase: 5
   CastTimeBase: 1
   CastBarDisplay: 1
@@ -32,14 +35,41 @@ MonoBehaviour:
     - rid: 3505743946400399475
       type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
-        <Scale>k__BackingField: 1
-        <Speed>k__BackingField: 12
+        <Prefab>k__BackingField: {fileID: 1827363438600421609, guid: cdc1c8edc8e9e0143b1c50c7fc9beafc, type: 3}
+        <Scale>k__BackingField: 3
+        <Speed>k__BackingField: 15
         <Duration>k__BackingField: 3
         <ProjectileHeight>k__BackingField: 0
         <ProjectileCurve>k__BackingField:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 1.9941952
+            outSlope: 1.9941952
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.10002862
+            value: 1.1994766
+            inSlope: 0.0014417171
+            outSlope: 0.0014417171
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.20018753
+            value: 1.000029
+            inSlope: -1.9913118
+            outSlope: -1.9913118
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
@@ -49,42 +79,36 @@ MonoBehaviour:
         <HitOncePerTarget>k__BackingField: 1
         <DestroyOnMaxHits>k__BackingField: 1
         EffectsList:
-        - rid: 3505743946400399477
         - rid: 3505743946400399478
         - rid: 3505743946400399479
     - rid: 3505743946400399476
       type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
+        <Prefab>k__BackingField: {fileID: 1314606969793590279, guid: 6a3de7416706f4c4a9c45222d1670fae, type: 3}
         <AlignToHitDirection>k__BackingField: 1
         <AttachToUser>k__BackingField: 1
-    - rid: 3505743946400399477
-      type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
-      data:
-        <Amount>k__BackingField: 0
-        <Type>k__BackingField: 0
-        <KnockbackForce>k__BackingField: 10
-        <KnockbackDuration>k__BackingField: 0.2
-        <KnockbackHeight>k__BackingField: 0.1
     - rid: 3505743946400399478
       type: {class: EffectSpawnExplosion, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
-        <LifeTime>k__BackingField: 0.5
+        <Prefab>k__BackingField: {fileID: 2457082569599181644, guid: d62eda4c0f232044cbbef2a562fd03bf, type: 3}
+        <Duration>k__BackingField: 0.5
         <Scale>k__BackingField: 1
         EffectsList:
         - rid: 3505743946400399482
     - rid: 3505743946400399479
       type: {class: EffectSpawnVFX, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
+        <Prefab>k__BackingField: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
         <AlignToHitDirection>k__BackingField: 1
-        <AttachToUser>k__BackingField: 1
+        <AttachToUser>k__BackingField: 0
     - rid: 3505743946400399482
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
         <Amount>k__BackingField: 0
         <Type>k__BackingField: 0
+        <BonusHit>k__BackingField: 0
+        <UseSkillBaseDamage>k__BackingField: 1
+        <SkillDamageMultiplier>k__BackingField: 1
         <KnockbackForce>k__BackingField: 10
         <KnockbackDuration>k__BackingField: 0.2
         <KnockbackHeight>k__BackingField: 0.1

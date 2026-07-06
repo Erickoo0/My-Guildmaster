@@ -38,7 +38,7 @@ public class EffectDealDamage : Effect
 				KnockbackHeight = KnockbackHeight,
 				Type = Type,
 				Source = effectPayload.User,
-				IsBonusHit = BonusHit
+				IsBonusHit = BonusHit || effectPayload.IsBonusHit
 			};
 
 			target.TakeDamage(data);

@@ -51,7 +51,8 @@ public abstract class HitBox : MonoBehaviour
 			HitImpactPoint = impactPoint,
 			HitTargets = _hitBoxSettings.InheritedTargetsList,
 			SkillDataInstance = _combatContext.SkillDataInstance,
-			SkillDamageBase = _combatContext.SkillDamageBase
+			SkillDamageBase = _combatContext.SkillDamageBase,
+			IsBonusHit = _combatContext.IsBonusHit
 		};
 
 		// 2. Execute all skill effects

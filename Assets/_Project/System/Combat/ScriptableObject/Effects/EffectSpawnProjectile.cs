@@ -21,6 +21,12 @@ public class EffectSpawnProjectile : Effect
 	[Tooltip("Total arc spread in degrees. Projectiles are evenly distributed across this arc, centered on the aim direction.")]
 	[field: SerializeField] public float SpreadAngle { get; private set; } = 0f;
 
+	[Header("Barrage Settings")]
+	[Tooltip("How many volleys to shoot in a row.")]
+	[field: SerializeField] public int BarrageCount { get; private set; } = 1;
+	[Tooltip("Time in seconds between each volley in the barrage.")]
+	[field: SerializeField] public float BarrageDelay { get; private set; } = 0.2f;
+
 	[Header("Hitbox Settings")]
 	[field: SerializeField] public int MaxEnemiesHit { get; private set; } = 1;
 	[field: SerializeField] public bool HitOncePerTarget { get; private set; } = true;
@@ -28,6 +34,9 @@ public class EffectSpawnProjectile : Effect
 
 	[Header("Impact EffectList List")]
 	[SerializeReference, SubclassSelector] public List<Effect> EffectsList = new List<Effect>();
+	private EntityControllerBase _entityController;
+
+	private FirePoint _firepoint;
 
 	public override List<Effect> GetNestedEffects() => EffectsList;
 
@@ -35,84 +44,23 @@ public class EffectSpawnProjectile : Effect
 	{
 		if (Prefab == null) return false;
 
-		// 1. Find the user's firepoint component if they have one
-		FirePoint firepoint = effectPayload.User.GetComponentInChildren<FirePoint>();
-		Vector3 spawnPosition = firepoint != null ? firepoint.transform.position : effectPayload.User.transform.position;
-
-		// 2. Set up default straight line curve if null (once, before spawning)
+		// 1. Set up default straight line curve if null (once, before spawning)
 		if (ProjectileCurve == null || ProjectileCurve.length == 0)
 			ProjectileCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-		// 3. Calculate base aim direction and angle from the payload's target position
-		int count = Mathf.Max(1, Mathf.RoundToInt(ProjectileCount));
-		Vector3 baseDirection = (effectPayload.TargetPosition - spawnPosition).normalized;
-		if (baseDirection == Vector3.zero) baseDirection = Vector3.right;
-		float baseAngle = Mathf.Atan2(baseDirection.y, baseDirection.x)*Mathf.Rad2Deg;
+		// 2. Cache the components
+		_entityController = effectPayload.User.GetComponent<EntityControllerBase>();
+		_firepoint = effectPayload.User.GetComponentInChildren<FirePoint>();
 
-		// 4. Preserve the original travel distance for all projectiles in the spread
-		float distance = Vector3.Distance(spawnPosition, effectPayload.TargetPosition);
-		if (distance < 1f) distance = 100f;
-
-		// 5. Spawn projectiles in an arc pattern
-		bool anySpawned = false;
-		for (int i = 0; i < count; i++)
+		// 2. If its a barrage, call a repeating sequence, passing in the Action to repeat
+		if (BarrageCount > 1)
 		{
-			// Evenly distribute projectiles across the spread arc, centered on the aim direction.
-			// For count=1 the offset is 0 (straight shot). For count=3, spread=30: offsets are -15, 0, +15.
-			float offsetAngle = count == 1
-				? 0f
-				: ((float)i/(count - 1) - 0.5f)*SpreadAngle;
-
-			// Compute the rotated direction and a far target position along it
-			float projectileAngleDeg = baseAngle + offsetAngle;
-			Vector3 projectileDirection = new Vector3(
-				Mathf.Cos(projectileAngleDeg*Mathf.Deg2Rad),
-				Mathf.Sin(projectileAngleDeg*Mathf.Deg2Rad),
-				0f
-				).normalized;
-			Vector3 rotatedTargetPosition = spawnPosition + projectileDirection*distance;
-
-			// 6. Spawn the projectile
-			GameObject projectileInstance = Object.Instantiate(Prefab, spawnPosition, Quaternion.identity);
-
-			// 7. Apply scale
-			if (Scale != 1f) projectileInstance.transform.localScale *= Scale;
-
-			// 8. Bundle and pass the data to the projectile
-			if (projectileInstance.TryGetComponent(out Projectile projectileComponent))
-			{
-				CombatContext combatContext = new CombatContext
-				{
-					User = effectPayload.User,
-					EffectsList = EffectsList,
-					SkillDataInstance = effectPayload.SkillDataInstance,
-					SkillDamageBase = effectPayload.SkillDamageBase
-				};
-
-				HitBoxSettings hitBoxSettings = new HitBoxSettings
-				{
-					MaxEnemiesHit = MaxEnemiesHit,
-					HitOncePerTarget = HitOncePerTarget,
-					DestroyOnMaxHits = DestroyOnMaxHits,
-					HitImpact = effectPayload.HitImpact
-				};
-
-				ProjectileFlightData projectileFlightData = new ProjectileFlightData
-				{
-					TargetPosition = rotatedTargetPosition,
-					Speed = Speed,
-					Duration = Duration,
-					MaxHeight = ProjectileHeight,
-					Curve = ProjectileCurve,
-					Scale = Scale
-				};
-
-				projectileComponent.Setup(combatContext, hitBoxSettings, projectileFlightData);
-				anySpawned = true;
-			}
+			_entityController.StartCoroutine(RunEffectSequence(BarrageCount, BarrageDelay, (index) => SpawnVolley(effectPayload, index > 0)));
+			return true;
 		}
 
-		return anySpawned;
+		// 3. If its not a barrage, simply execute projectile spawn once.
+		return SpawnVolley(effectPayload, false);
 	}
 
 	public override Effect Clone()
@@ -139,5 +87,85 @@ public class EffectSpawnProjectile : Effect
 			SpreadAngle = SpreadAngle,
 			EffectsList = clonedOnHitEffects
 		};
+	}
+
+	/// <summary>
+	/// Handles the actual math and spawning of a single volley/spread.
+	/// Recalculates position every time so moving entities update their fire points mid-barrage.
+	/// </summary>
+	private bool SpawnVolley(EffectPayload effectPayload, bool isBonusHit)
+	{
+		// 1. Set the spawn position
+		Vector3 spawnPosition = _firepoint != null ? _firepoint.transform.position : effectPayload.User.transform.position;
+
+		// 2. Calculate aim direction 
+		Vector3 baseDirection = (effectPayload.TargetPosition - spawnPosition).normalized;
+		if (baseDirection == Vector3.zero) baseDirection = Vector3.right;
+		float baseAngle = Mathf.Atan2(baseDirection.y, baseDirection.x)*Mathf.Rad2Deg;
+
+		// 3. Calculate travel distance
+		float distance = Vector3.Distance(spawnPosition, effectPayload.TargetPosition);
+		if (distance < 1f) distance = 100f;
+
+		// 4. Spawn projectile logic
+		bool anySpawned = false;
+		int projectileCount = Mathf.Max(1, Mathf.RoundToInt(ProjectileCount));
+
+		// 5. Loop through projectile count
+		for (int i = 0; i < projectileCount; i++)
+		{
+			// 6. Adjust the angle for each looped projectile
+			float offsetAngle = projectileCount == 1
+				? 0f
+				: ((float)i/(projectileCount - 1) - 0.5f)*SpreadAngle;
+
+			float projectileAngleDeg = baseAngle + offsetAngle;
+			Vector3 projectileDirection = new Vector3(
+				Mathf.Cos(projectileAngleDeg*Mathf.Deg2Rad),
+				Mathf.Sin(projectileAngleDeg*Mathf.Deg2Rad),
+				0f
+				).normalized;
+			Vector3 rotatedTargetPosition = spawnPosition + projectileDirection*distance;
+
+			// 7. Spawn the projectile and apply scale
+			GameObject projectileInstance = Object.Instantiate(Prefab, spawnPosition, Quaternion.identity);
+			projectileInstance.transform.localScale *= Scale;
+
+			// 8. Bundle the data and pass it to the projectile
+			if (projectileInstance.TryGetComponent(out Projectile projectileComponent))
+			{
+				CombatContext combatContext = new CombatContext
+				{
+					User = effectPayload.User,
+					EffectsList = EffectsList,
+					SkillDataInstance = effectPayload.SkillDataInstance,
+					SkillDamageBase = effectPayload.SkillDamageBase,
+					IsBonusHit = isBonusHit
+				};
+
+				HitBoxSettings hitBoxSettings = new HitBoxSettings
+				{
+					MaxEnemiesHit = MaxEnemiesHit,
+					HitOncePerTarget = HitOncePerTarget,
+					DestroyOnMaxHits = DestroyOnMaxHits,
+					HitImpact = effectPayload.HitImpact
+				};
+
+				ProjectileFlightData projectileFlightData = new ProjectileFlightData
+				{
+					TargetPosition = rotatedTargetPosition,
+					Speed = Speed,
+					Duration = Duration,
+					MaxHeight = ProjectileHeight,
+					Curve = ProjectileCurve,
+					Scale = Scale
+				};
+
+				projectileComponent.Setup(combatContext, hitBoxSettings, projectileFlightData);
+				anySpawned = true;
+			}
+		}
+
+		return anySpawned;
 	}
 }

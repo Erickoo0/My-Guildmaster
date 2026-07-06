@@ -17,10 +17,13 @@ MonoBehaviour:
   Icon: {fileID: 0}
   Prefab: {fileID: 0}
   Animation: 0
+  DamageBase: 25
+  DamageScalingStat: 0
+  DamageScalingRatio: 1
   MpCostBase: 0
   CastTimeBase: 1.5
   CastBarDisplay: 1
-  HitImpactBase: 1.5
+  HitImpactBase: 0.75
   EffectsList:
   - rid: 3505743958813966421
   - rid: 3505744017709858900
@@ -33,14 +36,23 @@ MonoBehaviour:
     - rid: 3505743958813966421
       type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
+        <Prefab>k__BackingField: {fileID: 3301934860267052368, guid: 4af734ae41faf5c4b94b5a521cbb2fc7, type: 3}
         <Scale>k__BackingField: 1
         <Speed>k__BackingField: 12
         <Duration>k__BackingField: 3
         <ProjectileHeight>k__BackingField: 0
         <ProjectileCurve>k__BackingField:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
@@ -56,8 +68,11 @@ MonoBehaviour:
     - rid: 3505743958813966422
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        <Amount>k__BackingField: 30
+        <Amount>k__BackingField: 0
         <Type>k__BackingField: 1
+        <BonusHit>k__BackingField: 0
+        <UseSkillBaseDamage>k__BackingField: 1
+        <SkillDamageMultiplier>k__BackingField: 1
         <KnockbackForce>k__BackingField: 10
         <KnockbackDuration>k__BackingField: 0.2
         <KnockbackHeight>k__BackingField: 0.1
@@ -65,7 +80,7 @@ MonoBehaviour:
       type: {class: EffectSpawnExplosion, ns: , asm: Assembly-CSharp}
       data:
         <Prefab>k__BackingField: {fileID: 5301261483198143526, guid: 19bec867ff7db684b8b50d42cf357b4c, type: 3}
-        <LifeTime>k__BackingField: 0.5
+        <Duration>k__BackingField: 0.5
         <Scale>k__BackingField: 1
         EffectsList:
         - rid: 3505743958813966425
@@ -80,6 +95,9 @@ MonoBehaviour:
       data:
         <Amount>k__BackingField: 10
         <Type>k__BackingField: 1
+        <BonusHit>k__BackingField: 0
+        <UseSkillBaseDamage>k__BackingField: 1
+        <SkillDamageMultiplier>k__BackingField: 1
         <KnockbackForce>k__BackingField: 10
         <KnockbackDuration>k__BackingField: 0.2
         <KnockbackHeight>k__BackingField: 0.1

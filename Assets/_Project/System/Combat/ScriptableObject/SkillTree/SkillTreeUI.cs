@@ -22,8 +22,7 @@ public class SkillTreeUI : MonoBehaviour
 	[SerializeField] private RectTransform _connectionLinePrefab;
 
 	[Header("Layout")]
-	[Tooltip("Multiplier applied to SkillNode.UIPosition to convert design units to pixels.")]
-	[SerializeField] private float _positionScale = 100f;
+	[SerializeField] private float _positionScale = 1f;
 	private readonly List<RectTransform> _connectionLinesList = new List<RectTransform>();
 	private readonly Dictionary<string, Vector2> _nodePositions = new Dictionary<string, Vector2>();
 

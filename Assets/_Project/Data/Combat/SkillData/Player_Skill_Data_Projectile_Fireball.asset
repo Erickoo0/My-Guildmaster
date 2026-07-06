@@ -55,7 +55,6 @@ MonoBehaviour:
         - rid: 3505744017709858925
         - rid: 6453299874921185358
         - rid: 6453299874921185360
-        - rid: 6453299907441197138
     - rid: 3505744017709858925
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -77,7 +76,7 @@ MonoBehaviour:
       type: {class: EffectSpawnExplosion, ns: , asm: Assembly-CSharp}
       data:
         <Prefab>k__BackingField: {fileID: 2457082569599181644, guid: d62eda4c0f232044cbbef2a562fd03bf, type: 3}
-        <LifeTime>k__BackingField: 0.5
+        <Duration>k__BackingField: 0.5
         <Scale>k__BackingField: 1
         EffectsList:
         - rid: 6453299874921185359
@@ -98,10 +97,3 @@ MonoBehaviour:
         <Prefab>k__BackingField: {fileID: 3698822710426326111, guid: bfd57117074e2f942905245069369993, type: 3}
         <AlignToHitDirection>k__BackingField: 1
         <AttachToUser>k__BackingField: 0
-    - rid: 6453299907441197138
-      type: {class: EffectApplyAilment, ns: , asm: Assembly-CSharp}
-      data:
-        <Prefab>k__BackingField: {fileID: 6304575125692120520, guid: b6652bf6b70ede8478fe0f1b26301b12, type: 3}
-        <Type>k__BackingField: 2
-        <Potency>k__BackingField: 0.25
-        <Duration>k__BackingField: 5

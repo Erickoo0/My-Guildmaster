@@ -17,10 +17,13 @@ MonoBehaviour:
   Icon: {fileID: 0}
   Prefab: {fileID: 0}
   Animation: 0
+  DamageBase: 15
+  DamageScalingStat: 0
+  DamageScalingRatio: 1
   MpCostBase: 0
   CastTimeBase: 0
   CastBarDisplay: 0
-  HitImpactBase: 1
+  HitImpactBase: 0.5
   EffectsList:
   - rid: 3505743946400399504
   RequirementsList:
@@ -32,8 +35,11 @@ MonoBehaviour:
     - rid: 3505743946400399504
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
-        <Amount>k__BackingField: 15
+        <Amount>k__BackingField: 0
         <Type>k__BackingField: 0
+        <BonusHit>k__BackingField: 0
+        <UseSkillBaseDamage>k__BackingField: 1
+        <SkillDamageMultiplier>k__BackingField: 1
         <KnockbackForce>k__BackingField: 10
         <KnockbackDuration>k__BackingField: 0.2
         <KnockbackHeight>k__BackingField: 0.1

@@ -16,6 +16,7 @@ public struct EffectPayload
 	public Vector2 HitImpactPoint;
 	public float HitImpact;
 	public HashSet<IDamagable> HitTargets;
+	public bool IsBonusHit;
 
 	[Header("Skill Data")]
 	public SkillDataInstance SkillDataInstance;
@@ -37,6 +38,7 @@ public struct CombatContext
 	public SkillDataInstance SkillDataInstance;
 	public float SkillDamageBase;
 	public List<Effect> EffectsList;
+	public bool IsBonusHit;
 }
 
 /// <summary>

@@ -17,15 +17,16 @@ MonoBehaviour:
   Icon: {fileID: -1487120408008746009, guid: 4f853357d0039bf44866b9a04c452ed2, type: 3}
   Prefab: {fileID: 0}
   Animation: 1
+  DamageBase: 10
+  DamageScalingStat: 0
+  DamageScalingRatio: 1
   MpCostBase: 5
   CastTimeBase: 1
   CastBarDisplay: 1
+  HitImpactBase: 1
   EffectsList:
   - rid: 3505743946400399483
   RequirementsList: []
-  HitOncePerTarget: 1
-  DestroyOnMaxHits: 1
-  MaxEnemiesHitBase: 0
   SelectionWeight: 10
   references:
     version: 2
@@ -33,10 +34,10 @@ MonoBehaviour:
     - rid: 3505743946400399483
       type: {class: EffectSpawnProjectile, ns: , asm: Assembly-CSharp}
       data:
-        <Prefab>k__BackingField: {fileID: 0}
+        <Prefab>k__BackingField: {fileID: 8396159159101520813, guid: cf1d54f605aba5d4abe4cc8a56ed626d, type: 3}
         <Scale>k__BackingField: 1
-        <Speed>k__BackingField: 12
-        <Duration>k__BackingField: 3
+        <Speed>k__BackingField: 5
+        <Duration>k__BackingField: 5
         <ProjectileHeight>k__BackingField: 0
         <ProjectileCurve>k__BackingField:
           serializedVersion: 2
@@ -44,6 +45,8 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
+        <ProjectileCount>k__BackingField: 1
+        <SpreadAngle>k__BackingField: 0
         <MaxEnemiesHit>k__BackingField: 1
         <HitOncePerTarget>k__BackingField: 1
         <DestroyOnMaxHits>k__BackingField: 1
@@ -53,7 +56,10 @@ MonoBehaviour:
       type: {class: EffectDealDamage, ns: , asm: Assembly-CSharp}
       data:
         <Amount>k__BackingField: 0
-        <Type>k__BackingField: 0
+        <Type>k__BackingField: 4
+        <BonusHit>k__BackingField: 0
+        <UseSkillBaseDamage>k__BackingField: 1
+        <SkillDamageMultiplier>k__BackingField: 1
         <KnockbackForce>k__BackingField: 10
         <KnockbackDuration>k__BackingField: 0.2
         <KnockbackHeight>k__BackingField: 0.1
