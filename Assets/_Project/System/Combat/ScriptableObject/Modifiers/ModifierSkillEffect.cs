@@ -20,6 +20,10 @@ public class ModifierSkillEffect : ModifierSkillBase
 	[SerializeField] private StatModificationOperation _operation;
 	[Tooltip("For bool fields: value >= 1 is true, < 1 is false.")]
 	[SerializeField] private float _value;
+
+	[Header("Complex Object Modifications")]
+	[Tooltip("Only used if the target field is an AnimationCurve.")]
+	[SerializeField] private AnimationCurve _curveValue;
 	private FieldInfo _cachedTargetField = null;
 
 	// --- CACHE VARIABLES ---
@@ -85,6 +89,18 @@ public class ModifierSkillEffect : ModifierSkillBase
 				? _value >= 1f
 				: (bool)currentValue;
 			_cachedTargetField.SetValue(targetEffect, newValue);
+		} else if (_cachedTargetField.FieldType.IsEnum)
+		{
+			// Cast the float value to the Enum's underlying integer value
+			int intValue = Mathf.RoundToInt(_value);
+			_cachedTargetField.SetValue(targetEffect, Enum.ToObject(_cachedTargetField.FieldType, intValue));
+		} else if (_cachedTargetField.FieldType == typeof(AnimationCurve))
+		{
+			if (_operation == StatModificationOperation.Set && _curveValue != null)
+			{
+				// Assign a new instance of the curve so we don't accidentally link reference data
+				_cachedTargetField.SetValue(targetEffect, new AnimationCurve(_curveValue.keys));
+			}
 		}
 	}
 
@@ -111,12 +127,14 @@ public class ModifierSkillEffect : ModifierSkillBase
 			return;
 		}
 
-		// Ensure the variable is one of the supported types
+// Ensure the variable is one of the supported types
 		if (_cachedTargetField.FieldType != typeof(float) &&
 			_cachedTargetField.FieldType != typeof(int) &&
-			_cachedTargetField.FieldType != typeof(bool))
+			_cachedTargetField.FieldType != typeof(bool) &&
+			!_cachedTargetField.FieldType.IsEnum &&
+			_cachedTargetField.FieldType != typeof(AnimationCurve))
 		{
-			Debug.LogError($"ModifierSkillEffect: Variable '{_effectParameter}' is not a float, int, or bool.");
+			Debug.LogError($"ModifierSkillEffect: Variable '{_effectParameter}' is not a supported type (float, int, bool, Enum, AnimationCurve).");
 			_cachedTargetField = null;
 		}
 	}

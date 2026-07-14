@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using Object = UnityEngine.Object;
+
 [CustomPropertyDrawer(typeof(EffectFieldSelectorAttribute))]
 public class EffectFieldSelectorDrawer : PropertyDrawer
 {
@@ -26,20 +27,26 @@ public class EffectFieldSelectorDrawer : PropertyDrawer
 		string typeName = typeNameProp?.stringValue ?? "";
 		Type targetType = string.IsNullOrEmpty(typeName) ? null : ResolveType(typeName);
 
-		// Gather float, int, and bool fields from the resolved type
+		// Gather valid fields from the resolved type
 		List<string> candidateFields = new List<string>();
 		if (targetType != null)
 		{
 			const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 			Type t = targetType;
+
 			while (t != null && t != typeof(object))
 			{
 				foreach (FieldInfo f in t.GetFields(flags))
 				{
-					if ((f.FieldType == typeof(float) ||
+					// Check if the field is a supported type (float, int, bool, Enum, or AnimationCurve)
+					bool isSupportedType =
+						f.FieldType == typeof(float) ||
 						f.FieldType == typeof(int) ||
-						f.FieldType == typeof(bool)) &&
-						!candidateFields.Contains(f.Name))
+						f.FieldType == typeof(bool) ||
+						f.FieldType.IsEnum ||
+						f.FieldType == typeof(AnimationCurve);
+
+					if (isSupportedType && !candidateFields.Contains(f.Name))
 					{
 						candidateFields.Add(f.Name);
 					}

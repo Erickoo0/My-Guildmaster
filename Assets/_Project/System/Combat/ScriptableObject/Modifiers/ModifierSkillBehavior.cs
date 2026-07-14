@@ -2,10 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+public enum BehaviorOperation
+{
+	Append,
+	Prepend,
+	InsertAtIndex,
+	ReplaceAll,
+	Clear
+}
+
 /// <summary>
-/// Modifies the top-level EffectsList of a SkillDataInstance.
+/// Modifies the top-level EffectsList of a SkillDataInstance, or targets a nested list.
 /// Used to append, prepend, insert, replace, or clear effects.
-/// Optionally, also uses ModifierSkillEffect to modify existing effects.
 /// </summary>
 [Serializable]
 public class ModifierSkillBehavior : ModifierSkillBase
@@ -21,9 +29,10 @@ public class ModifierSkillBehavior : ModifierSkillBase
 	private string _stackParameter;
 	[SerializeField] private float _stackValue;
 
-	// Tracks how many times this modifier has been applied during a single compile pass.
-	// Reset to 0 before each compile by SkillTreeCompiler.
-	//[NonSerialized] private int _applyCount = 0;
+	[Header("Targeting")]
+	[Tooltip("If true, targets a nested effect list (like On-Hit effects) instead of the root skill cast.")]
+	[SerializeField] private bool _targetNestedEffect = false;
+	[SerializeField, EffectTypeSelector] private string _targetEffectTypeID;
 
 	// Reflection cache
 	[NonSerialized] private FieldInfo _cachedStackField = null;
@@ -38,14 +47,35 @@ public class ModifierSkillBehavior : ModifierSkillBase
 			return;
 		}
 
-		// 1. Check if the target effect already exists in the current compilation instance
+		// Default target is the root EffectsList
+		List<Effect> targetList = skillDataInstance.EffectsList;
+
+		// 1. If targeting a nested effect, find it and swap our target list pointer
+		if (_targetNestedEffect && !string.IsNullOrWhiteSpace(_targetEffectTypeID))
+		{
+			Type parentType = ResolveType(_targetEffectTypeID);
+			if (parentType != null)
+			{
+				Effect parentEffect = FindEffectRecursive(skillDataInstance.EffectsList, parentType);
+				if (parentEffect != null && parentEffect.GetNestedEffects() != null)
+				{
+					targetList = parentEffect.GetNestedEffects();
+				} else
+				{
+					Debug.LogWarning($"ModifierSkillBehavior: Could not find nested list for {_targetEffectTypeID}");
+					return; // Abort if we couldn't find the target node
+				}
+			}
+		}
+
+		// 2. Check if the target effect already exists in the *targeted* list
 		bool effectAlreadyExists = false;
 		Type targetType = null;
 
 		if (_stackOnExisting && _effectsList != null && _effectsList.Count > 0)
 		{
 			targetType = _effectsList[0].GetType();
-			foreach (Effect effect in skillDataInstance.EffectsList)
+			foreach (Effect effect in targetList)
 			{
 				if (effect != null && effect.GetType() == targetType)
 				{
@@ -55,80 +85,64 @@ public class ModifierSkillBehavior : ModifierSkillBase
 			}
 		}
 
-		// 2. Route to the correct logic
+		// 3. Route to the correct logic
 		if (effectAlreadyExists)
-			StackExistingEffect(skillDataInstance);
+			StackExistingEffect(targetList);
 		else
-			ApplyOperation(skillDataInstance);
-
-		Debug.Log($"[Modifier Trace] Target Type: {targetType?.Name}. Stack Checkbox: {_stackOnExisting}. Effect Already Exists? {effectAlreadyExists}. Current Top-Level Effects: {skillDataInstance.EffectsList.Count}");
-
-		if (effectAlreadyExists)
-		{
-			Debug.Log("[Modifier Trace] Routing to STACK.");
-		} else
-		{
-			Debug.Log("[Modifier Trace] Routing to APPEND.");
-		}
+			ApplyOperation(targetList);
 	}
 
-	private void ApplyOperation(SkillDataInstance skillDataInstance)
+	private void ApplyOperation(List<Effect> targetList)
 	{
 		switch (_operation)
 		{
 		case BehaviorOperation.Append:
-			skillDataInstance.EffectsList.AddRange(ClonedEffects());
+			targetList.AddRange(ClonedEffects());
 			break;
-
 		case BehaviorOperation.Prepend:
-			skillDataInstance.EffectsList.InsertRange(0, ClonedEffects());
+			targetList.InsertRange(0, ClonedEffects());
 			break;
-
 		case BehaviorOperation.InsertAtIndex:
-			int index = Mathf.Clamp(_insertIndex, 0, skillDataInstance.EffectsList.Count);
-			skillDataInstance.EffectsList.InsertRange(index, ClonedEffects());
+			int index = Mathf.Clamp(_insertIndex, 0, targetList.Count);
+			targetList.InsertRange(index, ClonedEffects());
 			break;
-
 		case BehaviorOperation.ReplaceAll:
-			skillDataInstance.EffectsList.Clear();
-			skillDataInstance.EffectsList.AddRange(ClonedEffects());
+			targetList.Clear();
+			targetList.AddRange(ClonedEffects());
 			break;
-
 		case BehaviorOperation.Clear:
-			skillDataInstance.EffectsList.Clear();
+			targetList.Clear();
 			break;
-
 		default:
 			Debug.LogWarning($"ModifierSkillBehavior: Unhandled Operation: {_operation}");
 			break;
 		}
 	}
 
-	private void StackExistingEffect(SkillDataInstance skillDataInstance)
+	private void StackExistingEffect(List<Effect> targetList)
 	{
 		// Safety Check
 		if (string.IsNullOrWhiteSpace(_stackParameter) || _effectsList == null || _effectsList.Count == 0) return;
 
-		// 1. Resolve the type of the first effect in our list
 		Type targetType = _effectsList[0].GetType();
 		if (targetType == null) return;
 
-		// 2. Find the first existing effect instance in the compiled EffectsList
 		Effect existingEffect = null;
-		foreach (Effect effect in skillDataInstance.EffectsList)
+		foreach (Effect effect in targetList)
+		{
 			if (effect != null && effect.GetType() == targetType)
 			{
 				existingEffect = effect;
 				break;
 			}
+		}
 
 		if (existingEffect == null)
 		{
-			Debug.LogWarning($"ModifierSkillBehavior: Stack mode could not find existing '{targetType.Name}' in EffectsList.");
+			Debug.LogWarning($"ModifierSkillBehavior: Stack mode could not find existing '{targetType.Name}'.");
 			return;
 		}
 
-		// Cache the Field Info once initially
 		if (!_hasAttemptedStackCache)
 		{
 			_hasAttemptedStackCache = true;
@@ -136,18 +150,17 @@ public class ModifierSkillBehavior : ModifierSkillBase
 
 			if (_cachedStackField == null)
 			{
-				Debug.LogWarning($"ModifierSkillBehavior: Stack mode could not find field '{_stackParameter}' in '{targetType.Name}'.");
+				Debug.LogWarning($"ModifierSkillBehavior: Stack mode could not find field '{_stackParameter}'.");
 				return;
 			} else if (_cachedStackField.FieldType != typeof(float))
 			{
-				Debug.LogWarning($"ModifierSkillBehavior: Stack field: {_stackParameter} on {targetType.Name} is not of type float.");
+				Debug.LogWarning($"ModifierSkillBehavior: Stack field is not of type float.");
 				_cachedStackField = null;
 			}
 		}
 
 		if (_cachedStackField == null) return;
 
-		// 
 		float currentValue = (float)_cachedStackField.GetValue(existingEffect);
 		_cachedStackField.SetValue(existingEffect, currentValue + _stackValue);
 	}
@@ -155,16 +168,13 @@ public class ModifierSkillBehavior : ModifierSkillBase
 	private List<Effect> ClonedEffects()
 	{
 		List<Effect> effectsListCloned = new List<Effect>();
-
-		if (_effectsList == null)
-			return effectsListCloned;
+		if (_effectsList == null) return effectsListCloned;
 
 		foreach (Effect effect in _effectsList)
 		{
 			if (effect != null)
 				effectsListCloned.Add(effect.Clone());
 		}
-
 		return effectsListCloned;
 	}
 
@@ -179,14 +189,28 @@ public class ModifierSkillBehavior : ModifierSkillBase
 		}
 		return null;
 	}
-}
 
+	// ---- NEW HELPER METHODS ----
+	private static Type ResolveType(string typeName)
+	{
+		Type t = Assembly.GetExecutingAssembly().GetType(typeName);
+		if (t != null) return t;
+		return Type.GetType(typeName);
+	}
 
-public enum BehaviorOperation
-{
-	Append,
-	Prepend,
-	InsertAtIndex,
-	ReplaceAll,
-	Clear
+	private static Effect FindEffectRecursive(List<Effect> effectsList, Type targetType)
+	{
+		if (effectsList == null) return null;
+
+		foreach (Effect effect in effectsList)
+		{
+			if (effect == null) continue;
+
+			if (effect.GetType() == targetType) return effect;
+
+			Effect nestedEffect = FindEffectRecursive(effect.GetNestedEffects(), targetType);
+			if (nestedEffect != null) return nestedEffect;
+		}
+		return null;
+	}
 }

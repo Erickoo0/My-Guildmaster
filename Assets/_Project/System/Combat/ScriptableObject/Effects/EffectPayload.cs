@@ -82,4 +82,5 @@ public struct DamageData
 	public DamageType Type;
 	public GameObject Source;
 	public bool IsBonusHit;
+	public float InvulnerableTimer;
 }

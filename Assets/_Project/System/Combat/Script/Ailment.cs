@@ -56,6 +56,15 @@ public class Ailment : MonoBehaviour
 		}
 	}
 
+	public void StackPotency(float addedPotency, float duration)
+	{
+		_duration += (duration*0.25f);
+
+		RevertInstantEffects();
+		Potency += addedPotency;
+		ApplyInstantEffects();
+	}
+
 	private void ApplyInstantEffects()
 	{
 		switch (Type)

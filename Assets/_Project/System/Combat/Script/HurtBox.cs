@@ -7,9 +7,6 @@ public class HurtBox : MonoBehaviour, IDamagable
 	[Tooltip("If null, will look for a Health component on the same GameObject")]
 	[SerializeField] private Health _health;
 
-	[Header("Invulnerability")]
-	[SerializeField] private float _invulnerabilityDuration = 0.5f;
-
 	[Header("FX")]
 	private FlashShader _flashShader;
 	private float _invulnerabilityTimer;
@@ -53,7 +50,7 @@ public class HurtBox : MonoBehaviour, IDamagable
 		// 3. Only start invulnerability from non-bonus hits
 		if (!damageData.IsBonusHit)
 		{
-			_invulnerabilityTimer = _invulnerabilityDuration;
+			_invulnerabilityTimer = damageData.InvulnerableTimer;
 
 			// Trigger shader effects
 			if (_flashShader != null)

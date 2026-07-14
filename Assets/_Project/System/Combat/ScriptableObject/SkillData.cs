@@ -23,7 +23,6 @@ public class SkillData : ScriptableObject
 
 	[Header("Game Feel Settings")]
 	public bool CastBarDisplay = true;
-	public float HitImpactBase = 1f;
 
 	[Header("Behavior Settings")]
 	[SerializeReference, SubclassSelector] public List<Effect> EffectsList = new List<Effect>();
@@ -84,9 +83,6 @@ public class SkillData : ScriptableObject
 			},
 			{
 				SkillStat.DisplayCastBar, CastBarDisplay ? 1f : 0f
-			},
-			{
-				SkillStat.HitImpact, HitImpactBase
 			}
 		};
 

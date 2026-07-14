@@ -18,7 +18,7 @@ MonoBehaviour:
     _displayName: Increased Damage
     _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
     _description: Increases dmg by 5
-    _uiPosition: {x: -2, y: 210}
+    _uiPosition: {x: -6, y: 342}
     _skillPointsMax: 3
     _prerequisites: []
     _modifiers:
@@ -27,7 +27,7 @@ MonoBehaviour:
     _displayName: Decrease Cast Time
     _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
     _description: Decreases the cast time by 10%
-    _uiPosition: {x: -184, y: -0}
+    _uiPosition: {x: -272, y: 194}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_Dmg
@@ -38,7 +38,7 @@ MonoBehaviour:
     _displayName: Increase AOE
     _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
     _description: Increases AOE by 50%
-    _uiPosition: {x: 4, y: 4}
+    _uiPosition: {x: -6, y: 202}
     _skillPointsMax: 2
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_Dmg
@@ -49,24 +49,139 @@ MonoBehaviour:
     _displayName: Piercing Fire
     _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
     _description: Pierce 1 additional target.
-    _uiPosition: {x: 186, y: 4}
+    _uiPosition: {x: 210, y: 204}
     _skillPointsMax: 2
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_Dmg
       _requiredSkillPoints: 3
     _modifiers:
-    - rid: 6453299939246080086
+    - rid: 6453300032072056931
   - _id: SN_Fireball_DoubleFire
     _displayName: Double Fire
     _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
     _description: Fire an additional fireball immediately after the first.
-    _uiPosition: {x: -188, y: -184}
-    _skillPointsMax: 2
+    _uiPosition: {x: -274, y: 32}
+    _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_CastTime
       _requiredSkillPoints: 1
     _modifiers:
     - rid: 6453299965050224640
+  - _id: SN_Fireball_TripleFire
+    _displayName: Triple Fire
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Fire an additional fireball.
+    _uiPosition: {x: -266, y: -136}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_DoubleFire
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299965050224640
+  - _id: SN_Fireball_BurningGround
+    _displayName: Burning Ground
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Leaves a burning ground on impact.
+    _uiPosition: {x: -6, y: 30}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_AOE
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890177
+  - _id: SN_Fireball_BurnAilment
+    _displayName: Burn Ailment
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Sets targets ablaze on impact.
+    _uiPosition: {x: -8, y: -140}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_BurningGround
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890179
+  - _id: SN_Fireball_StackingBurn
+    _displayName: Stacking Burn
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Burn gets stronger on each hit.
+    _uiPosition: {x: -144, y: -302}
+    _skillPointsMax: 3
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_TripleFire
+      _requiredSkillPoints: 1
+    - _requiredSkillNodeID: SN_Fireball_BurnAilment
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453300032072056835
+  - _id: SN_Fireball_MagmaOrb
+    _displayName: Magma Orb
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Turn fireball into a magma orb that causes a large explosion.
+    _uiPosition: {x: -8, y: -302}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_BurnAilment
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453300032072056915
+    - rid: 6453300032072056918
+    - rid: 6453300032072056925
+  - _id: SN_Fireball_TripleSpread
+    _displayName: Triple Spread
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Fire 3 projectiles in an arc.
+    _uiPosition: {x: 210, y: 28}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_Pierce
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890256
+    - rid: 6453299986963890257
+  - _id: SN_Fireball_ProjectileSpeed
+    _displayName: Projectile Speed
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Increase projectile speed by 25%
+    _uiPosition: {x: 348, y: -58}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_TripleSpread
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453300032072056928
+  - _id: SN_Fireball_FrostBall
+    _displayName: Frost Ball
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Change Fireball into a Frost Ball.
+    _uiPosition: {x: 214, y: -134}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_BurningGround
+      _requiredSkillPoints: 1
+    - _requiredSkillNodeID: SN_Fireball_TripleSpread
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453300032072056832
+  - _id: SN_Fireball_ShatterExplosion
+    _displayName: Shatter Explosion
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Chilled enemies shatter with ice, damaging around them.
+    _uiPosition: {x: 216, y: -300}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_FrostBall
+      _requiredSkillPoints: 1
+    _modifiers: []
+  - _id: SN_Fireball_Bounce
+    _displayName: Bounce
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Frost ball bounces to the nearest enemy up to 3 times.
+    _uiPosition: {x: 344, y: -222}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_Fireball_FrostBall
+      _requiredSkillPoints: 1
+    _modifiers: []
   references:
     version: 2
     RefIds:
@@ -88,13 +203,13 @@ MonoBehaviour:
         _effectTypeID: EffectSpawnProjectile
         _effectParameter: <Scale>k__BackingField
         _operation: 1
-        _value: 0.5
-    - rid: 6453299939246080086
-      type: {class: ModifierSkillStat, ns: , asm: Assembly-CSharp}
-      data:
-        _skillStat: 4
-        _operation: 1
-        _value: 1
+        _value: 0.25
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
     - rid: 6453299965050224640
       type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -102,3 +217,186 @@ MonoBehaviour:
         _effectParameter: <BarrageCount>k__BackingField
         _operation: 1
         _value: 1
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453299986963890177
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnExplosion
+        _effectParameter: <Scale>k__BackingField
+        _operation: 1
+        _value: 0.5
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453299986963890179
+      type: {class: ModifierSkillBehavior, ns: , asm: Assembly-CSharp}
+      data:
+        _operation: 0
+        _effectsList:
+        - rid: 6453299986963890180
+        _insertIndex: 0
+        _stackOnExisting: 0
+        _stackParameter: 
+        _stackValue: 0
+        _targetNestedEffect: 1
+        _targetEffectTypeID: EffectSpawnProjectile
+    - rid: 6453299986963890180
+      type: {class: EffectApplyAilment, ns: , asm: Assembly-CSharp}
+      data:
+        <Prefab>k__BackingField: {fileID: 7454389767859551073, guid: 0601de0d4fa19e247ae4a4c6d62fdfa3, type: 3}
+        <Type>k__BackingField: 0
+        <Potency>k__BackingField: 1
+        <PotencyStack>k__BackingField: 0
+        <Duration>k__BackingField: 5
+    - rid: 6453299986963890256
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <ProjectileCount>k__BackingField
+        _operation: 0
+        _value: 3
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453299986963890257
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <SpreadAngle>k__BackingField
+        _operation: 0
+        _value: 30
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300032072056832
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectDealDamage
+        _effectParameter: <Type>k__BackingField
+        _operation: 0
+        _value: 0
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300032072056835
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectApplyAilment
+        _effectParameter: <PotencyStack>k__BackingField
+        _operation: 1
+        _value: 1
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300032072056915
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <ProjectileCurve>k__BackingField
+        _operation: 0
+        _value: 0
+        _curveValue:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0.0014656186
+            inSlope: 1.9953171
+            outSlope: 1.9953171
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 0.4995472
+            value: 0.99822074
+            inSlope: 0.006356299
+            outSlope: 0.006356299
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1.0006454
+            value: 0.0047412645
+            inSlope: -1.9826045
+            outSlope: -1.9826045
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300032072056918
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <ProjectileHeight>k__BackingField
+        _operation: 0
+        _value: 0.2
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300032072056925
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnExplosion
+        _effectParameter: <Scale>k__BackingField
+        _operation: 0
+        _value: 4
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300032072056928
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <Speed>k__BackingField
+        _operation: 2
+        _value: 1.25
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300032072056931
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <MaxEnemiesHit>k__BackingField
+        _operation: 1
+        _value: 1
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4

@@ -16,6 +16,7 @@ public class SkillDataInstance
 		SkillDataSource = skillDataSource;
 		_skillStateDictionary = skillStatDictionary;
 		EffectsList = clonedEffectsList;
+		Animation = SkillDataSource.Animation;
 	}
 
 	[Header("References")]
@@ -36,8 +37,8 @@ public class SkillDataInstance
 	public Sprite Icon => SkillDataSource.Icon;
 	public DamageScalingStat DamageScalingStat => SkillDataSource.DamageScalingStat;
 	public GameObject Prefab => SkillDataSource.Prefab;
-	public int AnimationTag => SkillDataSource.AnimationTag;
-	public AnimationBool Animation => SkillDataSource.Animation;
+	public int AnimationTag => Animator.StringToHash(Animation.ToString());
+	public AnimationBool Animation { get; set; }
 	public List<Requirement> RequirementsList => SkillDataSource.RequirementsList;
 	public float SelectionWeight => SkillDataSource.SelectionWeight;
 

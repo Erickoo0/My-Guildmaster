@@ -1,0 +1,301 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ad3611a9ab5cb409f5ded13e19d1d7, type: 3}
+  m_Name: SkillTree_LightningOrb
+  m_EditorClassIdentifier: Assembly-CSharp::SpellSkillTree
+  _skillData: {fileID: 11400000, guid: 45745fc34a47171458bb3a8498c8b2ff, type: 2}
+  _skillNodes:
+  - _id: SN_LightningOrb_Dmg
+    _displayName: Increased Damage
+    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _description: Increases dmg by 5
+    _uiPosition: {x: -6, y: 342}
+    _skillPointsMax: 3
+    _prerequisites: []
+    _modifiers:
+    - rid: 6453299939246080080
+  - _id: SN_LightningOrb_CastTime
+    _displayName: Decrease Cast Time
+    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _description: Decreases the cast time by 10%
+    _uiPosition: {x: -268, y: 194}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_Dmg
+      _requiredSkillPoints: 3
+    _modifiers:
+    - rid: 6453299939246080084
+  - _id: SN_LightningOrb_Intervals
+    _displayName: Increased Tick Rate
+    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _description: Decreaes interval between tick time
+    _uiPosition: {x: -10, y: 182}
+    _skillPointsMax: 2
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_Dmg
+      _requiredSkillPoints: 3
+    _modifiers:
+    - rid: 6453300123908440064
+  - _id: SN_LightningOrb_Slow
+    _displayName: Slow Affliction
+    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _description: Slows enemies by 20%
+    _uiPosition: {x: 270, y: 190}
+    _skillPointsMax: 2
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_Dmg
+      _requiredSkillPoints: 3
+    _modifiers:
+    - rid: 6453299939246080085
+  - _id: SN_LightningOrb_InstantCast
+    _displayName: Instant Cast
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Turn Lightning Orb into an Instant Cast
+    _uiPosition: {x: -272, y: 14}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_CastTime
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453300123908440065
+  - _id: SN_LightningOrb_LightningChain
+    _displayName: Lightning Chain
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Lightning chains to nearby enemies
+    _uiPosition: {x: -358, y: -186}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_InstantCast
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299965050224640
+  - _id: SN_LightningOrb_ZeroCooldown
+    _displayName: Zero Cooldown
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Reduce cooldown to 0 and increase projectilie speed by 100%
+    _uiPosition: {x: -364, y: -308}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_LightningChain
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890177
+  - _id: SN_LightningOrb_ShockAilment
+    _displayName: Shock Ailment
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Apply shock ailment to enemies on hit.
+    _uiPosition: {x: -2, y: -12}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_Intervals
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890179
+  - _id: SN_LightningOrb_LightningBeam
+    _displayName: Lightning Beam
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Lightning orb becomes an infinite channel Lightning Beam
+    _uiPosition: {x: -114, y: -184}
+    _skillPointsMax: 3
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_ShockAilment
+      _requiredSkillPoints: 1
+    - _requiredSkillNodeID: SN_LightningOrb_InstantCast
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890181
+  - _id: SN_LightningOrb_SuperShock
+    _displayName: Ultra Shock
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Magnify shock magnitude
+    _uiPosition: {x: -112, y: -324}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_LightningBeam
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890256
+  - _id: SN_LightningOrb_GravityPull
+    _displayName: Gravity Pull
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Slowly pull enemies into the center
+    _uiPosition: {x: 270, y: 28}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_Slow
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890256
+    - rid: 6453299986963890257
+  - _id: SN_LightningOrb_ThunderStorm
+    _displayName: Thunder Storm
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Periodically strike with thunder
+    _uiPosition: {x: 268, y: -112}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_GravityPull
+      _requiredSkillPoints: 1
+    _modifiers:
+    - rid: 6453299986963890256
+  - _id: SN_LightningOrb_ThunderStorm_Expansion
+    _displayName: Thunder Storm Expansion
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Increasing scale over time.
+    _uiPosition: {x: 266, y: -304}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_ThunderStorm
+      _requiredSkillPoints: 1
+    _modifiers: []
+  - _id: SN_LightningOrb_IncreasedDuration
+    _displayName: Increased Duration
+    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _description: Increase duration of the thunder storm
+    _uiPosition: {x: 446, y: -120}
+    _skillPointsMax: 1
+    _prerequisites:
+    - _requiredSkillNodeID: SN_LightningOrb_ThunderStorm
+      _requiredSkillPoints: 1
+    _modifiers: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6453299939246080080
+      type: {class: ModifierSkillStat, ns: , asm: Assembly-CSharp}
+      data:
+        _skillStat: 0
+        _operation: 1
+        _value: 5
+    - rid: 6453299939246080084
+      type: {class: ModifierSkillStat, ns: , asm: Assembly-CSharp}
+      data:
+        _skillStat: 3
+        _operation: 1
+        _value: -0.15
+    - rid: 6453299939246080085
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <Scale>k__BackingField
+        _operation: 1
+        _value: 0.5
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453299965050224640
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <BarrageCount>k__BackingField
+        _operation: 1
+        _value: 1
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453299986963890177
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnExplosion
+        _effectParameter: <Scale>k__BackingField
+        _operation: 1
+        _value: 0.5
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453299986963890179
+      type: {class: ModifierSkillBehavior, ns: , asm: Assembly-CSharp}
+      data:
+        _operation: 0
+        _effectsList:
+        - rid: 6453299986963890180
+        _insertIndex: 0
+        _stackOnExisting: 0
+        _stackParameter: 
+        _stackValue: 0
+        _targetNestedEffect: 1
+        _targetEffectTypeID: EffectSpawnProjectile
+    - rid: 6453299986963890180
+      type: {class: EffectApplyAilment, ns: , asm: Assembly-CSharp}
+      data:
+        <Prefab>k__BackingField: {fileID: 7454389767859551073, guid: 0601de0d4fa19e247ae4a4c6d62fdfa3, type: 3}
+        <Type>k__BackingField: 3
+        <Potency>k__BackingField: 1
+        <PotencyStack>k__BackingField: 0
+        <Duration>k__BackingField: 5
+    - rid: 6453299986963890181
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectApplyAilment
+        _effectParameter: <Potency>k__BackingField
+        _operation: 1
+        _value: 1
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453299986963890256
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectDealDamage
+        _effectParameter: <Speed>k__BackingField
+        _operation: 2
+        _value: 1.25
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453299986963890257
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <SpreadAngle>k__BackingField
+        _operation: 0
+        _value: 30
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300123908440064
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: 
+        _operation: 0
+        _value: 0
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300123908440065
+      type: {class: ModifierSkillStat, ns: , asm: Assembly-CSharp}
+      data:
+        _skillStat: 3
+        _operation: 0
+        _value: 0

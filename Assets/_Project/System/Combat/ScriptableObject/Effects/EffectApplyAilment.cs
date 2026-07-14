@@ -14,10 +14,12 @@ public class EffectApplyAilment : Effect
 
 	[Tooltip("For Burn: Damage per tick. For Chill/Shock: The multiplier. For Freeze: Unused.")]
 	[field: SerializeField] public float Potency { get; private set; }
+	[field: SerializeField] public float PotencyStack { get; private set; } = 0f;
 	[field: SerializeField] public float Duration { get; private set; }
 
 	public override bool Execute(EffectPayload effectPayload)
 	{
+		Debug.Log("Applying Ailment");
 		// 1. Get ailment target
 		GameObject target = effectPayload.Target != null ? effectPayload.Target : effectPayload.User;
 
@@ -27,8 +29,11 @@ public class EffectApplyAilment : Effect
 		{
 			if (ailment.Type == Type)
 			{
-				// 3. Refresh existing ailment
-				ailment.RefreshAilment(Potency, Duration);
+				if (PotencyStack > 0f)
+					ailment.StackPotency(PotencyStack, Duration);
+				else
+					ailment.RefreshAilment(Potency, Duration);
+
 				return true;
 			}
 		}
@@ -54,6 +59,7 @@ public class EffectApplyAilment : Effect
 			Type = Type,
 			Potency = Potency,
 			Duration = Duration,
+			PotencyStack = PotencyStack
 		};
 	}
 }

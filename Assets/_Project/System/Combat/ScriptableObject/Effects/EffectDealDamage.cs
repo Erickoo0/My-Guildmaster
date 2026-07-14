@@ -6,6 +6,7 @@ public class EffectDealDamage : Effect
 	[Header("Damage Settings")]
 	[field: SerializeField] public float Amount { get; private set; }
 	[field: SerializeField] public DamageType Type { get; private set; }
+	[field: SerializeField] public float InvulnerableTimer { get; private set; } = 0.5f;
 	[field: SerializeField] public bool BonusHit { get; private set; } = false;
 	[Tooltip("If true, uses the skill's pre-computed BaseSkillDamage instead of Amount.")]
 	[field: SerializeField] public bool UseSkillBaseDamage { get; private set; } = true;
@@ -38,7 +39,8 @@ public class EffectDealDamage : Effect
 				KnockbackHeight = KnockbackHeight,
 				Type = Type,
 				Source = effectPayload.User,
-				IsBonusHit = BonusHit || effectPayload.IsBonusHit
+				IsBonusHit = BonusHit || effectPayload.IsBonusHit,
+				InvulnerableTimer = InvulnerableTimer
 			};
 
 			target.TakeDamage(data);
