@@ -3,10 +3,10 @@ using UnityEditor;
 using UnityEngine;
 public class SkillTreeWindow : EditorWindow
 {
-	private readonly Vector2 CANVAS_SIZE = new Vector2(1365f, 862f);
-	private readonly float GRID_SNAP = 2f;
+	private readonly Vector2 CANVAS_SIZE = new Vector2(1300f, 585f);
+	private readonly float GRID_SNAP = 10f;
 	// --- UI DIMENSION SETTINGS ---
-	private readonly Vector2 NODE_SIZE = new Vector2(74f, 74f);
+	private readonly Vector2 NODE_SIZE = new Vector2(60f, 60f);
 	// -----------------------------
 
 	private SkillTree _currentTree;

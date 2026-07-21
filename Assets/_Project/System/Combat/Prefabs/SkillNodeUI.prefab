@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 73.75, y: 73.75}
+  m_SizeDelta: {x: 83, y: 83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3381968649863798222
 CanvasRenderer:
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+  m_Sprite: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 8289993443196315202}
   - component: {fileID: 8491175057721396007}
   - component: {fileID: 4943330240399897453}
+  - component: {fileID: 2902611959463400667}
   m_Layer: 5
   m_Name: SkillNodeUI
   m_TagString: Untagged
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6362004797582167764, guid: e97a0cbbc9bd1df4c8c13676d3721f31, type: 3}
+  m_Sprite: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -354,10 +355,23 @@ MonoBehaviour:
   _background: {fileID: 4857939440143184455}
   _rankText: {fileID: 3383883871409033786}
   _nameText: {fileID: 1655441379866661139}
-  _colorLocked: {r: 0.3, g: 0.3, b: 0.3, a: 1}
-  _colorAvailable: {r: 0.8, g: 0.8, b: 0.2, a: 1}
-  _colorAllocated: {r: 0.2, g: 0.7, b: 0.2, a: 1}
-  _colorMaxed: {r: 0.2, g: 0.4, b: 1, a: 1}
+  _colorLocked: {r: 0.45, g: 0.45, b: 0.45, a: 0.4}
+  _colorAvailable: {r: 0.85, g: 0.8, b: 0.4, a: 0.6862745}
+  _colorAllocated: {r: 0.5319509, g: 0.7728398, b: 0.8113208, a: 0.78431374}
+  _colorMaxed: {r: 0.45, g: 0.7490196, b: 0.5019608, a: 0.78431374}
+--- !u!114 &2902611959463400667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134403733325042244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
+  m_ShowMaskGraphic: 1
 --- !u!1 &6353796316671657202
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8784314}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.2509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

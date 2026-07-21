@@ -16,18 +16,18 @@ MonoBehaviour:
   _skillNodes:
   - _id: SN_Fireball_Dmg
     _displayName: Increased Damage
-    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Increases dmg by 5
-    _uiPosition: {x: -6, y: 342}
+    _uiPosition: {x: -0, y: 240}
     _skillPointsMax: 3
     _prerequisites: []
     _modifiers:
     - rid: 6453299939246080080
   - _id: SN_Fireball_CastTime
     _displayName: Decrease Cast Time
-    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Decreases the cast time by 10%
-    _uiPosition: {x: -272, y: 194}
+    _uiPosition: {x: -270, y: 130}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_Dmg
@@ -36,9 +36,9 @@ MonoBehaviour:
     - rid: 6453299939246080084
   - _id: SN_Fireball_AOE
     _displayName: Increase AOE
-    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Increases AOE by 50%
-    _uiPosition: {x: -6, y: 202}
+    _uiPosition: {x: -0, y: 130}
     _skillPointsMax: 2
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_Dmg
@@ -47,9 +47,9 @@ MonoBehaviour:
     - rid: 6453299939246080085
   - _id: SN_Fireball_Pierce
     _displayName: Piercing Fire
-    _icon: {fileID: -8942691883058215469, guid: e869a360552e2f0459871ed7123de78f, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Pierce 1 additional target.
-    _uiPosition: {x: 210, y: 204}
+    _uiPosition: {x: 260, y: 130}
     _skillPointsMax: 2
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_Dmg
@@ -58,9 +58,9 @@ MonoBehaviour:
     - rid: 6453300032072056931
   - _id: SN_Fireball_DoubleFire
     _displayName: Double Fire
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Fire an additional fireball immediately after the first.
-    _uiPosition: {x: -274, y: 32}
+    _uiPosition: {x: -270, y: 30}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_CastTime
@@ -69,9 +69,9 @@ MonoBehaviour:
     - rid: 6453299965050224640
   - _id: SN_Fireball_TripleFire
     _displayName: Triple Fire
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Fire an additional fireball.
-    _uiPosition: {x: -266, y: -136}
+    _uiPosition: {x: -270, y: -100}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_DoubleFire
@@ -80,9 +80,9 @@ MonoBehaviour:
     - rid: 6453299965050224640
   - _id: SN_Fireball_BurningGround
     _displayName: Burning Ground
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Leaves a burning ground on impact.
-    _uiPosition: {x: -6, y: 30}
+    _uiPosition: {x: 0, y: 30}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_AOE
@@ -91,9 +91,9 @@ MonoBehaviour:
     - rid: 6453299986963890177
   - _id: SN_Fireball_BurnAilment
     _displayName: Burn Ailment
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Sets targets ablaze on impact.
-    _uiPosition: {x: -8, y: -140}
+    _uiPosition: {x: 0, y: -100}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_BurningGround
@@ -102,9 +102,9 @@ MonoBehaviour:
     - rid: 6453299986963890179
   - _id: SN_Fireball_StackingBurn
     _displayName: Stacking Burn
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Burn gets stronger on each hit.
-    _uiPosition: {x: -144, y: -302}
+    _uiPosition: {x: -140, y: -230}
     _skillPointsMax: 3
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_TripleFire
@@ -115,9 +115,9 @@ MonoBehaviour:
     - rid: 6453300032072056835
   - _id: SN_Fireball_MagmaOrb
     _displayName: Magma Orb
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Turn fireball into a magma orb that causes a large explosion.
-    _uiPosition: {x: -8, y: -302}
+    _uiPosition: {x: 0, y: -230}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_BurnAilment
@@ -126,11 +126,12 @@ MonoBehaviour:
     - rid: 6453300032072056915
     - rid: 6453300032072056918
     - rid: 6453300032072056925
+    - rid: 6453300165785157712
   - _id: SN_Fireball_TripleSpread
     _displayName: Triple Spread
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Fire 3 projectiles in an arc.
-    _uiPosition: {x: 210, y: 28}
+    _uiPosition: {x: 260, y: 30}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_Pierce
@@ -140,9 +141,9 @@ MonoBehaviour:
     - rid: 6453299986963890257
   - _id: SN_Fireball_ProjectileSpeed
     _displayName: Projectile Speed
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Increase projectile speed by 25%
-    _uiPosition: {x: 348, y: -58}
+    _uiPosition: {x: 390, y: -20}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_TripleSpread
@@ -151,9 +152,9 @@ MonoBehaviour:
     - rid: 6453300032072056928
   - _id: SN_Fireball_FrostBall
     _displayName: Frost Ball
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Change Fireball into a Frost Ball.
-    _uiPosition: {x: 214, y: -134}
+    _uiPosition: {x: 140, y: -100}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_BurningGround
@@ -164,9 +165,9 @@ MonoBehaviour:
     - rid: 6453300032072056832
   - _id: SN_Fireball_ShatterExplosion
     _displayName: Shatter Explosion
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Chilled enemies shatter with ice, damaging around them.
-    _uiPosition: {x: 216, y: -300}
+    _uiPosition: {x: 140, y: -230}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_FrostBall
@@ -174,9 +175,9 @@ MonoBehaviour:
     _modifiers: []
   - _id: SN_Fireball_Bounce
     _displayName: Bounce
-    _icon: {fileID: -3630887211740964052, guid: 573e33be66ff50945a0b1ad21419dbb0, type: 3}
+    _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Frost ball bounces to the nearest enemy up to 3 times.
-    _uiPosition: {x: 344, y: -222}
+    _uiPosition: {x: 250, y: -170}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_Fireball_FrostBall
@@ -394,6 +395,19 @@ MonoBehaviour:
         _effectParameter: <MaxEnemiesHit>k__BackingField
         _operation: 1
         _value: 1
+        _curveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+    - rid: 6453300165785157712
+      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _effectTypeID: EffectSpawnProjectile
+        _effectParameter: <Scale>k__BackingField
+        _operation: 2
+        _value: 3
         _curveValue:
           serializedVersion: 2
           m_Curve: []

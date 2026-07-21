@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillTreeDatabase
   _skillTreesList:
   - {fileID: 11400000, guid: bc897fbc9e335b64290543b04817d819, type: 2}
+  - {fileID: 11400000, guid: ae0f758e504dd9042bd731ab8405c76d, type: 2}

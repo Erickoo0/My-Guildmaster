@@ -8,7 +8,6 @@ using UnityEngine.UI;
 /// </summary>
 public class SkillNodeUI : MonoBehaviour
 {
-
 	public enum NodeState { Locked, Available, Allocated, Maxed }
 
 	[Header("References")]
@@ -19,16 +18,23 @@ public class SkillNodeUI : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _nameText;
 
 	[Header("State Colors")]
-	[SerializeField] private Color _colorLocked = new Color(0.3f, 0.3f, 0.3f, 1f);
-	[SerializeField] private Color _colorAvailable = new Color(0.8f, 0.8f, 0.2f, 1f);
-	[SerializeField] private Color _colorAllocated = new Color(0.2f, 0.7f, 0.2f, 1f);
-	[SerializeField] private Color _colorMaxed = new Color(0.2f, 0.4f, 1.0f, 1f);
+	// Soft transparent grey (40% opacity)
+	[SerializeField] private Color _colorLocked = new Color(0.45f, 0.45f, 0.45f, 0.4f);
+
+	// Muted soft gold (60% opacity)
+	[SerializeField] private Color _colorAvailable = new Color(0.85f, 0.8f, 0.4f, 0.6f);
+
+	// Soft sage green (75% opacity)
+	[SerializeField] private Color _colorAllocated = new Color(0.45f, 0.75f, 0.5f, 0.75f);
+
+	// Dusty pastel blue (85% opacity)
+	[SerializeField] private Color _colorMaxed = new Color(0.45f, 0.65f, 0.85f, 0.85f);
+
 	private Action _onSkillNodeChanged;
 
 	private SkillNode _skillNode;
 	private SkillTree _skillTree;
 	private SkillTreeLedger _skillTreeLedger;
-
 
 	public void Setup(SkillNode skillNode, SkillTree skillTree, SkillTreeLedger skillTreeLedger, Action onSkillNodeChanged)
 	{
@@ -101,7 +107,8 @@ public class SkillNodeUI : MonoBehaviour
 			break;
 		case NodeState.Locked:
 			_background.color = _colorLocked;
-			_icon.color = new Color(1f, 1f, 1f, 0.35f);
+			// Soften the icon slightly for locked nodes as well
+			_icon.color = new Color(1f, 1f, 1f, 0.4f);
 			break;
 		}
 	}

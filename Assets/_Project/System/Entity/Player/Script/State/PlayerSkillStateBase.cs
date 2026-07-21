@@ -18,6 +18,7 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 	public SkillDataInstance SkillDataInstance { get; private set; }
 
 	public float MpCost => SkillDataInstance != null ? SkillDataInstance.MpCost : 0f;
+	public SkillTree SkillTreeInstance => SkillTree;
 
 	public override void Setup(PlayerController controller, StateMachine stateMachine)
 	{
