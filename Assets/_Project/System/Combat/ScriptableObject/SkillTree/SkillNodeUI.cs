@@ -18,16 +18,9 @@ public class SkillNodeUI : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _nameText;
 
 	[Header("State Colors")]
-	// Soft transparent grey (40% opacity)
 	[SerializeField] private Color _colorLocked = new Color(0.45f, 0.45f, 0.45f, 0.4f);
-
-	// Muted soft gold (60% opacity)
 	[SerializeField] private Color _colorAvailable = new Color(0.85f, 0.8f, 0.4f, 0.6f);
-
-	// Soft sage green (75% opacity)
 	[SerializeField] private Color _colorAllocated = new Color(0.45f, 0.75f, 0.5f, 0.75f);
-
-	// Dusty pastel blue (85% opacity)
 	[SerializeField] private Color _colorMaxed = new Color(0.45f, 0.65f, 0.85f, 0.85f);
 
 	private Action _onSkillNodeChanged;
@@ -35,6 +28,21 @@ public class SkillNodeUI : MonoBehaviour
 	private SkillNode _skillNode;
 	private SkillTree _skillTree;
 	private SkillTreeLedger _skillTreeLedger;
+
+	public bool HasTooltipData => _skillNode != null;
+	public string TooltipTitle => _skillNode != null ? _skillNode.DisplayName : "Unknown SkillNode";
+	public string TooltipDescription
+	{
+		get
+		{
+			if (_skillNode == null)
+				return "";
+
+			string baseDescription = _skillNode.Description;
+			int allocatedPoints = _skillTreeLedger.GetAllocatedSkillPoints(_skillNode.ID);
+			return $"{baseDescription}\n\n<color=#a0a0a0>Rank: {allocatedPoints} / {_skillNode.SkillPointsMax}</color>";
+		}
+	}
 
 	public void Setup(SkillNode skillNode, SkillTree skillTree, SkillTreeLedger skillTreeLedger, Action onSkillNodeChanged)
 	{

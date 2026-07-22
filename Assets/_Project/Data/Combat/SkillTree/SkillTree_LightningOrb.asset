@@ -18,7 +18,7 @@ MonoBehaviour:
     _displayName: Increased Damage
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Increases dmg by 2
-    _uiPosition: {x: -6, y: 342}
+    _uiPosition: {x: -0, y: 230}
     _skillPointsMax: 3
     _prerequisites: []
     _modifiers:
@@ -27,7 +27,7 @@ MonoBehaviour:
     _displayName: Decrease Cast Time
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Decreases the cast time by 15%
-    _uiPosition: {x: -268, y: 194}
+    _uiPosition: {x: -270, y: 120}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_Dmg
@@ -38,7 +38,7 @@ MonoBehaviour:
     _displayName: Increased Tick Rate
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Decreaes interval between damage ticks by 0.1 sec
-    _uiPosition: {x: -10, y: 182}
+    _uiPosition: {x: 0, y: 120}
     _skillPointsMax: 2
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_Dmg
@@ -49,7 +49,7 @@ MonoBehaviour:
     _displayName: Slow Affliction
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Slows enemies by 20%
-    _uiPosition: {x: 270, y: 190}
+    _uiPosition: {x: 240, y: 120}
     _skillPointsMax: 2
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_Dmg
@@ -60,7 +60,7 @@ MonoBehaviour:
     _displayName: Instant Cast
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Turn Lightning Orb into an Instant Cast
-    _uiPosition: {x: -272, y: 14}
+    _uiPosition: {x: -270, y: -0}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_CastTime
@@ -71,7 +71,7 @@ MonoBehaviour:
     _displayName: Lightning Chain
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Lightning chains to nearby enemies
-    _uiPosition: {x: -358, y: -186}
+    _uiPosition: {x: -390, y: -110}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_InstantCast
@@ -82,7 +82,7 @@ MonoBehaviour:
     _displayName: Zero Cooldown
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Reduce cooldown to 0 and increase projectilie speed by 100%
-    _uiPosition: {x: -364, y: -308}
+    _uiPosition: {x: -390, y: -230}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_LightningChain
@@ -93,7 +93,7 @@ MonoBehaviour:
     _displayName: Shock Ailment
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Apply shock ailment to enemies on hit.
-    _uiPosition: {x: -2, y: -12}
+    _uiPosition: {x: -0, y: -0}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_Intervals
@@ -104,7 +104,7 @@ MonoBehaviour:
     _displayName: Lightning Beam
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Lightning orb becomes an infinite channel Lightning Beam
-    _uiPosition: {x: -114, y: -184}
+    _uiPosition: {x: -130, y: -110}
     _skillPointsMax: 3
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_ShockAilment
@@ -117,7 +117,7 @@ MonoBehaviour:
     _displayName: Ultra Shock
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Magnify shock magnitude
-    _uiPosition: {x: -112, y: -324}
+    _uiPosition: {x: -130, y: -230}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_LightningBeam
@@ -128,7 +128,7 @@ MonoBehaviour:
     _displayName: Gravity Pull
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Slowly pull enemies into the center
-    _uiPosition: {x: 270, y: 28}
+    _uiPosition: {x: 240, y: -0}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_Slow
@@ -140,7 +140,7 @@ MonoBehaviour:
     _displayName: Thunder Storm
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Periodically strike with thunder
-    _uiPosition: {x: 268, y: -112}
+    _uiPosition: {x: 240, y: -110}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_GravityPull
@@ -151,7 +151,7 @@ MonoBehaviour:
     _displayName: Thunder Storm Expansion
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Increasing scale over time.
-    _uiPosition: {x: 266, y: -304}
+    _uiPosition: {x: 240, y: -230}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_ThunderStorm
@@ -161,7 +161,7 @@ MonoBehaviour:
     _displayName: Increased Duration
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
     _description: Increase duration of the thunder storm
-    _uiPosition: {x: 446, y: -120}
+    _uiPosition: {x: 380, y: -170}
     _skillPointsMax: 1
     _prerequisites:
     - _requiredSkillNodeID: SN_LightningOrb_ThunderStorm
