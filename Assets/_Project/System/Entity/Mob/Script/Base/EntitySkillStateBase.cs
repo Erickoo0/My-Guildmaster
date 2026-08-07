@@ -1,54 +1,43 @@
 using System;
 using UnityEngine;
 [Serializable]
-public abstract class SkillStateBase : BaseActionState
+public abstract class EntitySkillStateBase : EntityActionStateBase
 {
 	[Header("Attack Meta Data")]
 	[SerializeField] protected string _skillID;
 
-	[Header("Cast Bar")]
-	protected CastBar CastBar;
 	protected float DefaultDetectionLostRange;
-
 	protected bool HasTriggered = false;
 	protected bool IsCasting;
-	protected SkillDataInstance SkillDataInstance;
+
+	[Header("References")]
 	protected SkillData SkillDataSource;
 	protected Vector2 SkillDirection;
-	protected SkillTree SkillTree;
-	protected IStatProvider StatProvider;
+	protected SkillTree SkillTree; // Usually unused for entities
+	public SkillDataInstance SkillDataInstance { get; private set; }
 	public float SelectionWeight => SkillDataSource != null ? SkillDataSource.SelectionWeight : 0f;
 
-	public override void Setup(MobController controller, StateMachine stateMachine)
+	public override void Setup(ControllerEntity controllerEntity, StateMachine stateMachine)
 	{
-		base.Setup(controller, stateMachine);
+		base.Setup(controllerEntity, stateMachine);
 
 		EventBus.OnSkillTreeLedgerChanged += HandleSkillTreeLedgerChanged;
-		StatProvider = controller.GetComponent<IStatProvider>();
-		CastBar = controller.GetComponent<CastBar>();
 
 		// 1. Get the skill data
-		if (controller.SkillController.SkillDatabase != null)
+		if (controllerEntity.SkillController?.SkillDatabase != null)
 		{
-			SkillDataSource = controller.SkillController.SkillDatabase.GetSkillDataByID<SkillData>(_skillID);
+			SkillDataSource = controllerEntity.SkillController.SkillDatabase.GetSkillDataByID<SkillData>(_skillID);
 			if (SkillDataSource != null)
 			{
 				// 2. Find the SkillTree for this skill (Most likely null for non-players)
-				SkillTree skillTree = controller.SkillController.SkillTreeDatabase != null
-					? controller.SkillController.SkillTreeDatabase.GetSkillTreeByID(_skillID)
+				SkillTree skillTree = controllerEntity.SkillController.SkillTreeDatabase != null
+					? controllerEntity.SkillController.SkillTreeDatabase.GetSkillTreeByID(_skillID)
 					: null;
 
 				// 3. Compile SkilLDataInstance with SkillTree
 				RefreshSkillDataInstance();
-			}
-		}
-
-		if (SkillDataSource == null)
-		{
-			Debug.LogWarning($"AttackData is null for {controller.gameObject.name}");
-			stateMachine.ChangeState(controller.IdleState);
-			return;
-		}
+			} else Debug.LogError($"PlayerSkillStateBase: SkillDatabase is missing SkillID {_skillID}");
+		} else Debug.LogError("PlayerSkillStateBase: SkillController or SkillDatabase is null");
 	}
 
 	public void OnDestroy() => EventBus.OnSkillTreeLedgerChanged -= HandleSkillTreeLedgerChanged;
@@ -59,6 +48,14 @@ public abstract class SkillStateBase : BaseActionState
 
 		HasTriggered = false;
 		IsCasting = false;
+
+		// Safety check
+		if (SkillDataSource == null)
+		{
+			Debug.LogWarning($"EntitySkillStateBase: SkillDataSource is null for {controller.gameObject.name}");
+			stateMachine.ChangeState(controller.IdleState);
+			return;
+		}
 
 		// 1. Change to EntityMover
 		if (controller.AILerp != null)
@@ -81,6 +78,7 @@ public abstract class SkillStateBase : BaseActionState
 		controller.EntityAnimator.FaceDirection(SkillDirection);
 
 		// 4. Start the animation
+		controller.EntityMover.SetMoveDirection(Vector2.zero);
 		controller.EntityAnimator.StartSpellAnimation(SkillDataInstance.AnimationTag);
 		controller.EntityAnimator.animator.Update(0f); // Force transition
 
@@ -88,17 +86,12 @@ public abstract class SkillStateBase : BaseActionState
 		float eventTime = GetAnimationEventTime();
 
 		// 6. Casting logic
+		float castSpeedMultiplier = eventTime/SkillDataInstance.CastTime;
+		controller.EntityAnimator.animator.speed = castSpeedMultiplier;
 		if (SkillDataInstance.DisplayCastBar)
 		{
 			IsCasting = true;
-
-			CastBar?.BeginCast(SkillDataInstance.CastTime, _skillID);
-
-			float castSpeedMultiplier = eventTime/SkillDataInstance.CastTime;
-			controller.EntityAnimator.animator.speed = castSpeedMultiplier;
-		} else
-		{
-			controller.EntityAnimator.animator.speed = 1f;
+			controller.SkillController.CastBar?.BeginCast(SkillDataInstance.CastTime, SkillDataInstance.Name);
 		}
 	}
 
@@ -108,7 +101,7 @@ public abstract class SkillStateBase : BaseActionState
 		if (HasTriggered && IsCasting)
 		{
 			IsCasting = false;
-			CastBar?.StopCast();
+			controller.SkillController.CastBar?.StopCast();
 		}
 
 		// 2. Transition to Idle as soon as animation gets set to false via animationEnd event
@@ -116,7 +109,7 @@ public abstract class SkillStateBase : BaseActionState
 			stateMachine.ChangeState(controller.IdleState);
 
 		// 3. Change to Chase State if knocked back
-		if (controller.EntityMover != null && controller.EntityMover.IsKnockedBack)
+		if (controller.EntityMover.IsKnockedBack)
 		{
 			stateMachine.ChangeState(controller.ChaseState);
 			return;
@@ -135,7 +128,7 @@ public abstract class SkillStateBase : BaseActionState
 
 		// 1. Disable cast bar
 		IsCasting = false;
-		CastBar?.StopCast();
+		controller.SkillController.CastBar?.StopCast();
 
 		// 2. Reset animation
 		controller.EntityAnimator.animator.speed = 1f;
@@ -155,7 +148,7 @@ public abstract class SkillStateBase : BaseActionState
 
 		// 5. Set cooldown
 		if (HasTriggered)
-			controller.SkillController.SetActionCooldown();
+			controller.SkillController.TriggerSkillCooldown(_skillID);
 	}
 
 	public override void PhysicsUpdate() {}
@@ -188,7 +181,7 @@ public abstract class SkillStateBase : BaseActionState
 	{
 		if (controller.CurrentTarget == null)
 		{
-			Debug.Log("SkillStateBase: Target has become null");
+			Debug.Log("EntitySkillStateBase: Target has become null");
 			return false;
 		}
 

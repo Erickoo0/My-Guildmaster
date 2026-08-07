@@ -2,7 +2,7 @@ using Pathfinding;
 using System;
 using UnityEngine;
 [Serializable]
-public class EntityKiteState : BaseKiteState
+public class EntityKiteState : EntityKiteStateBase
 {
 	private Vector3 _currentKiteDestination;
 
@@ -41,10 +41,10 @@ public class EntityKiteState : BaseKiteState
 		// 2. Check if far enough
 		if (distanceToTarget >= preferredDistance)
 		{
-			SkillStateBase selectedAttack = controller.SkillController.GetRandomSkillState();
+			EntitySkillStateBase selectedAttack = controller.SkillController.GetRandomSkillState();
 
 			// If attack is valid and cooldown is over, change to attack state
-			if (selectedAttack != null && controller.SkillController.CheckActionCooldown())
+			if (selectedAttack != null)
 				stateMachine.ChangeState(selectedAttack);
 			else // Otherwise, change to chase state (which will just hold position until cooldown is over)
 				stateMachine.ChangeState(controller.ChaseState);

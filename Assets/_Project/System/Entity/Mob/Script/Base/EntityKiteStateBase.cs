@@ -1,7 +1,7 @@
+using System;
 using UnityEngine;
-
-[System.Serializable]
-public abstract class BaseKiteState : BaseActionState
+[Serializable]
+public abstract class EntityKiteStateBase : EntityActionStateBase
 {
 	[SerializeField] protected float kittingThreshold = 3f;
 	[SerializeField] protected float preferredDistance = 5f;
@@ -9,6 +9,6 @@ public abstract class BaseKiteState : BaseActionState
 	[SerializeField] protected float kiteDistance = 5f;
 
 	protected float _recheckTimer;
-	
+
 	public bool CheckShouldKite(float currentDistance) => currentDistance < kittingThreshold;
 }

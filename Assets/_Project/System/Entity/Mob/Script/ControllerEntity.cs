@@ -4,12 +4,12 @@ using UnityEngine;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
-public class MobController : EntityControllerBase
+public class ControllerEntity : ControllerBase
 {
 
 	[Header("References")]
-	[HideInInspector] public Rigidbody2D _rigidBody2D;
 	[HideInInspector] public SkillControllerEntity SkillController;
+	[HideInInspector] public Rigidbody2D _rigidBody2D;
 
 	[Header("Movement Settings")]
 	[HideInInspector] public AILerp AILerp;
@@ -28,15 +28,16 @@ public class MobController : EntityControllerBase
 	[SerializeField] private GameObject _alertIcon;
 
 	[Header("States")]
-	[SerializeReference, SubclassSelector] public BaseSpawnState SpawnState;
-	[SerializeReference, SubclassSelector] public BaseIdleState IdleState;
-	[SerializeReference, SubclassSelector] public BaseWanderState WanderState;
-	[SerializeReference, SubclassSelector] public BaseChaseState ChaseState;
-	[SerializeReference, SubclassSelector] public BaseKiteState KiteState;
+	[SerializeReference, SubclassSelector] public EntitySpawnStateBase SpawnState;
+	[SerializeReference, SubclassSelector] public EntityIdleStateBase IdleState;
+	[SerializeReference, SubclassSelector] public EntityWanderStateBase WanderState;
+	[SerializeReference, SubclassSelector] public EntityChaseStateBase ChaseState;
+	[SerializeReference, SubclassSelector] public EntityKiteStateBase KiteState;
 	private readonly float _alertedTime = 1f;
 	private readonly Collider2D[] _targetingResults = new Collider2D[10]; // Pre-allocated array for targeting results
 	private float _alertedTimer;
 	private ContactFilter2D _targetingFilter;
+	public IStatProvider StatProvider { get; private set; }
 	public Vector2 SpawnPosition { get; private set; }
 
 	protected override void Awake()

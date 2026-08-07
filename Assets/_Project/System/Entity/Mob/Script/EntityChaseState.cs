@@ -1,9 +1,8 @@
 ﻿using System;
 using UnityEngine;
 [Serializable]
-public class EntityChaseState : BaseChaseState
+public class EntityChaseState : EntityChaseStateBase
 {
-
 	public override void Enter()
 	{
 		// Tell the AI t o start calculating paths again
@@ -43,7 +42,7 @@ public class EntityChaseState : BaseChaseState
 		controller.AILerp.destination = targetPosition;
 
 		// 4. Check if any attacks have requirements met
-		SkillStateBase selectedAttack = controller.SkillController.GetRandomSkillState();
+		EntitySkillStateBase selectedAttack = controller.SkillController.GetRandomSkillState();
 
 		// 5. Execute attack
 		if (selectedAttack != null)
@@ -56,9 +55,8 @@ public class EntityChaseState : BaseChaseState
 			Vector2 faceDirection = (targetPosition - currentPosition).normalized;
 			controller.EntityAnimator.FaceDirection(faceDirection);
 
-			// Check if the action cooldown is over
-			if (controller.SkillController.CheckActionCooldown())
-				stateMachine.ChangeState(selectedAttack);
+			// Execute the attack
+			stateMachine.ChangeState(selectedAttack);
 		} else // 5. If there is no valid attacks (likely out of range). Keep chasing OR kitting
 		{
 			// Kite Logic

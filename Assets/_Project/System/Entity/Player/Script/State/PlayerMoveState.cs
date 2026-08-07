@@ -1,31 +1,31 @@
-﻿using UnityEngine;
-
-[System.Serializable]
-public class PlayerMoveState : State<PlayerController>
+﻿using System;
+using UnityEngine;
+[Serializable]
+public class PlayerMoveState : State<ControllerPlayer>
 {
-    public override void Update()
-    {
-        Vector2 input = controller.MovementInput;
+	public override void Update()
+	{
+		Vector2 input = controller.MovementInput;
 
-        if (input == Vector2.zero)
-        {
-            stateMachine.ChangeState(controller.IdleState);
-            return;
-        }
-        
-        controller.EntityMover.SetMoveDirection(input);
-        controller.EntityAnimator.SetMoveAnimation(input);
-        
-        // Check for dash input
-        if (controller.DashInput == true)
-        {
-            stateMachine.ChangeState(controller.DashState);
-        }
-    }
-    
-    // Empty Methods
-    public override void Enter() { }
-    public override void PhysicsUpdate() { }
-    public override void HandleInput() { }
-    public override void Exit() { }
+		if (input == Vector2.zero)
+		{
+			stateMachine.ChangeState(controller.IdleState);
+			return;
+		}
+
+		controller.EntityMover.SetMoveDirection(input);
+		controller.EntityAnimator.SetMoveAnimation(input);
+
+		// Check for dash input
+		if (controller.DashInput == true)
+		{
+			stateMachine.ChangeState(controller.DashState);
+		}
+	}
+
+	// Empty Methods
+	public override void Enter() {}
+	public override void PhysicsUpdate() {}
+	public override void HandleInput() {}
+	public override void Exit() {}
 }

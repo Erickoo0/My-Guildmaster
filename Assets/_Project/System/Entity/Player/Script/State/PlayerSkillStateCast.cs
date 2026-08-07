@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
-using Unity.Cinemachine;
 using UnityEngine;
 using Object = UnityEngine.Object;
 [Serializable]
 public class PlayerSkillStateCast : PlayerSkillStateBase
 {
+	// Cache the aim direction formula so we don't have to rewrite it everywhere
 	private Vector2 AimDirection => (controller.WorldMousePosition - controller.transform.position).normalized;
 
 	public override void Enter()
 	{
 		// Face the aim direction upon starting the cast
-		Vector2 aimDirection = (controller.WorldMousePosition - controller.transform.position).normalized;
-		controller.EntityAnimator.FaceDirection(aimDirection);
+		controller.EntityAnimator.FaceDirection(AimDirection);
 		controller.EntityAnimator.animator.Update(0f);
 
 		base.Enter();
@@ -24,18 +23,14 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 
 		// Face the target while winding up
 		if (!HasTriggered)
-		{
-			Vector2 aimDirection = (controller.WorldMousePosition - controller.transform.position).normalized;
-			controller.EntityAnimator.FaceDirection(aimDirection);
-		}
+			controller.EntityAnimator.FaceDirection(AimDirection);
 	}
 
 	public override void Exit()
 	{
 		base.Exit();
 
-		Vector2 aimDirection = (controller.WorldMousePosition - controller.transform.position).normalized;
-		controller.EntityAnimator.FaceDirection(aimDirection);
+		controller.EntityAnimator.FaceDirection(AimDirection);
 		controller.EntityAnimator.animator.Update(0f);
 	}
 
@@ -45,7 +40,7 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 		if (controller == null) return;
 
 		Vector3 casterPosition = controller.transform.position;
-		Vector2 castDirection = (controller.WorldMousePosition - casterPosition).normalized;
+		Vector2 castDirection = AimDirection;
 
 		// 1. Construct payload and compute SkillDamageBase
 		EffectPayload initialCastPayload = new EffectPayload(controller.gameObject)
@@ -57,7 +52,7 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 			HitImpact = SkillDataInstance.HitImpact,
 			HitTargets = new HashSet<IDamagable>(),
 			SkillDataInstance = SkillDataInstance,
-			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, StatProvider)
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.StatProvider)
 		};
 
 		// 2. Execute all skill effects
@@ -66,7 +61,7 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 				effect.Execute(initialCastPayload);
 
 		// 3. Apply Recoil & Screen shake if necessary
-		controller.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
+		controller.CinemachineImpulseSource.GenerateImpulse();
 		if (SkillDataInstance.Animation == AnimationBool.IsAttackingStrong)
 			controller?.EntityMover.ApplyRecoil(castDirection);
 

@@ -12,7 +12,7 @@ public class RequirementTargetRange : Requirement
 		if (context == null) return false;
 
 		// 1. Check if the context is a mob
-		if (!context.TryGetComponent(out MobController mob)) return false;
+		if (!context.TryGetComponent(out ControllerEntity mob)) return false;
 
 		// 2. Check Target Validation
 		if (mob.CurrentTarget == null) return false;

@@ -1,70 +1,74 @@
-using UnityEngine;
 using System.Collections.Generic;
-
+using UnityEngine;
 public class SkillControllerEntity : SkillControllerBase
 {
-    [Header("SkillControllerEntity Spell Loadout")]
-    [SerializeReference, SubclassSelector] private List<SkillStateBase> _skillStatesList = new List<SkillStateBase>();
+	[Header("SkillControllerEntity Skill Loadout")]
+	[SerializeReference, SubclassSelector] private List<EntitySkillStateBase> _skillStatesList = new List<EntitySkillStateBase>();
 
-    [Header("References")]
-    private MobController _mobController;
+	[Header("References")]
+	private ControllerEntity _controllerEntity;
 
-    public IReadOnlyList<SkillStateBase> SkillStatesList => _skillStatesList;
+	public IReadOnlyList<EntitySkillStateBase> SkillStatesList => _skillStatesList;
 
-    protected override void Start()
-    {
-        base.Start();
-        // Cache references
-        _mobController = GetComponent<MobController>();
-        
-        // Setup attack states
-        foreach (SkillStateBase attackState in SkillStatesList)
-            attackState.Setup(_mobController, _mobController.StateMachine);
-    }
-    
-    private void OnDestroy()
-    {
-        foreach (SkillStateBase spellState in _skillStatesList)
-            spellState?.OnDestroy();
-    }
+	protected override void Awake()
+	{
+		base.Awake();
 
-    public SkillStateBase GetRandomSkillState()
-    {
-        if (SkillStatesList == null || SkillStatesList.Count == 0) return null;
+		// Cache references
+		_controllerEntity = GetComponent<ControllerEntity>();
 
-        float totalWeight = 0;
-        List<SkillStateBase> validStates = new List<SkillStateBase>();
-        
-        // 1. Gather all valid states and calculate total weight
-        foreach (SkillStateBase attackState in SkillStatesList)
-        {
-            if (attackState != null && attackState.SelectionWeight > 0)
-            {
-                // Check if the SkillStatesList requirements are met
-                if (attackState.CheckRequirementsMet(this.gameObject))
-                {
-                    validStates.Add(attackState);
-                    totalWeight += attackState.SelectionWeight; 
-                }
-            }
-        }
+		// Setup attack states
+		foreach (EntitySkillStateBase skillState in SkillStatesList)
+			skillState.Setup(_controllerEntity, _controllerEntity.StateMachine);
+	}
 
-        if (validStates.Count == 0) return null;
-        
-        // 2. Roll a random number
-        float randomVal = Random.Range(0f, totalWeight);
-        float currentWeight = 0f;
+	private void OnDestroy()
+	{
+		// Execute the OnDestroy method of each spell state
+		foreach (EntitySkillStateBase spellState in _skillStatesList)
+			spellState?.OnDestroy();
+	}
 
-        // 3. Find the winning state
-        foreach (var state in validStates)
-        {
-            currentWeight += state.SelectionWeight;
-            if (randomVal <= currentWeight)
-            {
-                return state;
-            }
-        }
+	public EntitySkillStateBase GetRandomSkillState()
+	{
+		// Safety Check
+		if (SkillStatesList == null || SkillStatesList.Count == 0) return null;
 
-        return null; // Fallback safety
-    }
+		float totalWeight = 0;
+		List<EntitySkillStateBase> validStates = new List<EntitySkillStateBase>();
+
+		// 1. Gather all valid states and calculate total weight
+		foreach (EntitySkillStateBase skillState in SkillStatesList)
+		{
+			if (skillState != null && skillState.SelectionWeight > 0)
+			{
+				// Check if the skill is on cooldown
+				if (IsSkillOnCooldown(skillState.SkillDataInstance.ID, skillState.SkillDataInstance.Cooldown))
+					continue;
+
+				// Check if the SkillStatesList requirements are met
+				if (skillState.CheckRequirementsMet(this.gameObject))
+				{
+					validStates.Add(skillState);
+					totalWeight += skillState.SelectionWeight;
+				}
+			}
+		}
+
+		if (validStates.Count == 0) return null;
+
+		// 2. Roll a random number
+		float randomVal = Random.Range(0f, totalWeight);
+		float currentWeight = 0f;
+
+		// 3. Find the winning state
+		foreach (var state in validStates)
+		{
+			currentWeight += state.SelectionWeight;
+			if (randomVal <= currentWeight)
+				return state;
+		}
+
+		return null; // Fallback safety
+	}
 }

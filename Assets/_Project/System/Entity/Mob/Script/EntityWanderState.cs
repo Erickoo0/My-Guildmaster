@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 [Serializable]
-public class EntityWanderState : BaseWanderState
+public class EntityWanderState : EntityWanderStateBase
 {
 	private readonly float _positionCheckInterval = 0.5f;
 	private readonly float _stuckThreshold = 0.1f;

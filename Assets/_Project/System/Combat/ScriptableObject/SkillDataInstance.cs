@@ -26,6 +26,7 @@ public class SkillDataInstance
 	[Header("Accessors")]
 	public float DamageBase => GetStat(SkillStat.DamageBase);
 	public float DamageScalingRatio => GetStat(SkillStat.DamageScalingRatio);
+	public float Cooldown => GetStat(SkillStat.Cooldown);
 	public float MpCost => GetStat(SkillStat.MpCost);
 	public float CastTime => GetStat(SkillStat.CastTime);
 	public bool DisplayCastBar => GetStat(SkillStat.DisplayCastBar) > 0.5f;
@@ -78,6 +79,7 @@ public enum SkillStat
 	[Header("Core Stats")]
 	DamageBase,
 	DamageScalingRatio,
+	Cooldown,
 	MpCost,
 	CastTime,
 
@@ -88,5 +90,5 @@ public enum SkillStat
 	DisplayCastBar, // Treated as bool: > 0.5f = true
 
 	[Header("Game Feel")]
-	HitImpact
+	HitImpact //Unused
 }

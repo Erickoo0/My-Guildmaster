@@ -12,6 +12,26 @@ PrefabInstance:
       propertyPath: WanderState
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: -1862256494693202073, guid: c7195a1a26a7d9e44bed9c4bd687faf5, type: 3}
+      propertyPath: containerContents.Array.data[0].itemDataSo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1862256494693202073, guid: c7195a1a26a7d9e44bed9c4bd687faf5, type: 3}
+      propertyPath: containerContents.Array.data[1].itemDataSo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1862256494693202073, guid: c7195a1a26a7d9e44bed9c4bd687faf5, type: 3}
+      propertyPath: containerContents.Array.data[2].itemDataSo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1862256494693202073, guid: c7195a1a26a7d9e44bed9c4bd687faf5, type: 3}
+      propertyPath: containerContents.Array.data[3].itemDataSo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1862256494693202073, guid: c7195a1a26a7d9e44bed9c4bd687faf5, type: 3}
+      propertyPath: containerContents.Array.data[4].itemDataSo
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: -1747576445313389302, guid: c7195a1a26a7d9e44bed9c4bd687faf5, type: 3}
       propertyPath: hpMax
       value: 2000000
@@ -66,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9181716830030837955, guid: c7195a1a26a7d9e44bed9c4bd687faf5, type: 3}
       propertyPath: id
-      value: d804f7a7-2486-4c63-940a-abd4e767f1ff
+      value: 95adc414-4f81-4a53-b319-121894082eb2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

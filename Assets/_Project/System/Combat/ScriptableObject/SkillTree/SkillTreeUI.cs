@@ -16,6 +16,7 @@ public class SkillTreeUI : MonoBehaviour
 	[SerializeField] private GameObject _skillNodeUIPrefab;
 	[SerializeField] private TextMeshProUGUI _skillNameText;
 	[SerializeField] private TextMeshProUGUI _totalSkillPointsText;
+	[SerializeField] private Image _skillIcon;
 
 	[Header("Loadout Navigation")]
 	[Tooltip("Reference to the player skill controller to read active slots.")]
@@ -85,16 +86,16 @@ public class SkillTreeUI : MonoBehaviour
 	/// </summary>
 	private void CycleSkillSlot(int direction)
 	{
-		if (_playerSkillController == null || _playerSkillController.SpellSlots.Count == 0) return;
+		if (_playerSkillController == null || _playerSkillController.SkillSlots.Count == 0) return;
 
-		int maxSlots = _playerSkillController.SpellSlots.Count;
+		int maxSlots = _playerSkillController.SkillSlots.Count;
 
 		// Iterate through slots to find the next valid one
 		for (int i = 1; i <= maxSlots; i++)
 		{
 			// Calculate wrapping index based on direction
 			int checkIndex = (_currentSlotIndex + (i*direction) + maxSlots)%maxSlots;
-			var checkSpell = _playerSkillController.SpellSlots[checkIndex];
+			var checkSpell = _playerSkillController.SkillSlots[checkIndex];
 
 			// Only stop if the slot contains a spell AND that spell has a tree blueprint
 			if (checkSpell != null && checkSpell.SkillTreeInstance != null)
@@ -108,11 +109,11 @@ public class SkillTreeUI : MonoBehaviour
 
 	private int GetFirstValidSlotIndex()
 	{
-		if (_playerSkillController == null || _playerSkillController.SpellSlots == null) return 0;
+		if (_playerSkillController == null || _playerSkillController.SkillSlots == null) return 0;
 
-		for (int i = 0; i < _playerSkillController.SpellSlots.Count; i++)
+		for (int i = 0; i < _playerSkillController.SkillSlots.Count; i++)
 		{
-			var spell = _playerSkillController.SpellSlots[i];
+			var spell = _playerSkillController.SkillSlots[i];
 			if (spell != null && spell.SkillTreeInstance != null) return i;
 		}
 		return 0;
@@ -131,26 +132,29 @@ public class SkillTreeUI : MonoBehaviour
 		ClearAllUI();
 
 		// 1. Safety Checks
-		if (_playerSkillController == null || _playerSkillController.SpellSlots.Count <= slotIndex) return;
+		if (_playerSkillController == null || _playerSkillController.SkillSlots.Count <= slotIndex) return;
 
-		PlayerSkillStateBase activeSkillState = _playerSkillController.SpellSlots[slotIndex];
+		PlayerSkillStateBase PlayerSkillStateActive = _playerSkillController.SkillSlots[slotIndex];
 
 		// 2. Validate Skill & Tree existence
-		if (activeSkillState == null || activeSkillState.SkillTreeInstance == null)
+		if (PlayerSkillStateActive == null || PlayerSkillStateActive.SkillTreeInstance == null)
 		{
 			_currentSkillTree = null;
 			_skillTreeLedger = null;
 			if (_skillNameText != null)
-				_skillNameText.text = activeSkillState == null ? "Empty Slot" : $"{activeSkillState.SkillDataInstance?.Name ?? "Unknown"} (No Tree)";
+				_skillNameText.text = PlayerSkillStateActive == null ? "Empty Slot" : $"{PlayerSkillStateActive.SkillDataInstance?.Name ?? "Unknown"} (No Tree)";
 			return;
 		}
 
 		// 3. Cache valid tree & ledger data
-		_currentSkillTree = activeSkillState.SkillTreeInstance;
+		_currentSkillTree = PlayerSkillStateActive.SkillTreeInstance;
 		_skillTreeLedger = SkillTreeCompiler.GetOrCreateSkillTreeLedger(_currentSkillTree);
 
 		if (_skillNameText != null)
 			_skillNameText.text = _currentSkillTree.SkillData != null ? _currentSkillTree.SkillData.Name : _currentSkillTree.name;
+
+		if (_skillIcon != null)
+			_skillIcon.sprite = _currentSkillTree.SkillData != null ? _currentSkillTree.SkillData.Icon : null;
 
 		// 4. Build Nodes
 		foreach (SkillNode node in _currentSkillTree.SkillNodes)

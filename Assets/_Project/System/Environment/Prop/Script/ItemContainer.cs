@@ -1,148 +1,149 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
-
+using UnityEngine;
+using Random = UnityEngine.Random;
 [RequireComponent(typeof(UniqueIdentifier))]
 public class ItemContainer : MonoBehaviour, IInteractable, ISaveable
 {
-    [Header("References")] 
-    [SerializeField] private Sprite containerOpenedSprite;
-    private SpriteRenderer _spriteRenderer;
-    private Health _health;
-    
-    [Header("Interaction Settings")]
-    [SerializeField] private bool interactable = true;
-    
-    [Header("Drop Settings")]
-    [SerializeField] private List<ItemDrop> containerContents = new List<ItemDrop>();
-    [SerializeField] private float spreadRadius = 1.5f;
-    
-    [Header("Save Data")] 
-    public bool IsOpened { get; private set; }
-    private UniqueIdentifier _uniqueID;
-    private string GetID() => _uniqueID.ID;
-    
-    [System.Serializable]
-    public struct ItemDrop
-    {
-        public ItemDataSo itemDataSo;
-        public int dropAmount;
-    }
-    
-    public void Awake()
-    {
-        _uniqueID = GetComponent<UniqueIdentifier>();
-        _health = GetComponent<Health>();
-        _spriteRenderer =  GetComponent<SpriteRenderer>();
-    }
+	[Header("References")]
+	[SerializeField] private Sprite containerOpenedSprite;
 
-    private void OnEnable()
-    {
+	[Header("Interaction Settings")]
+	[SerializeField] private bool interactable = true;
 
-        if (_health != null)
-            _health.OnDeath += OpenContainer;
-    }
-    
-    private void OnDisable()
-    {
-        if (_health != null) 
-            _health.OnDeath -= OpenContainer;
-    }
+	[Header("Drop Settings")]
+	[SerializeField] private List<ItemDrop> containerContents = new List<ItemDrop>();
+	[SerializeField] private float spreadRadius = 1.5f;
+	private Health _health;
+	private SpriteRenderer _spriteRenderer;
+	private UniqueIdentifier _uniqueID;
 
-    //----IInteractable Methods-----
-    public bool CanInteract() => interactable && !IsOpened;
+	[Header("Save Data")]
+	public bool IsOpened { get; private set; }
 
-    public void Interact(PlayerController playerController = null)
-    {
-        if (CanInteract())
-            OpenContainer();
-    }
-    
-    //----Container Methods-----
-    public void OpenContainer()
-    {
-        if (IsOpened) return;
+	public void Awake()
+	{
+		_uniqueID = GetComponent<UniqueIdentifier>();
+		_health = GetComponent<Health>();
+		_spriteRenderer = GetComponent<SpriteRenderer>();
+	}
 
-        UpdateVisuals();
-        DropItems();
-    }
+	private void OnEnable()
+	{
 
-    private void UpdateVisuals()
-    {
-        IsOpened = true;
-        if (_spriteRenderer != null && containerOpenedSprite != null)
-            _spriteRenderer.sprite = containerOpenedSprite;
-    }
+		if (_health != null)
+			_health.OnDeath += OpenContainer;
+	}
 
-    private void DropItems()
-    {
-        // Filter out null data and add valid data to list
-        var validDrops = containerContents.Where(d => d.itemDataSo != null).ToList();
-        if (validDrops.Count <= 0) return;
-        
-        float angleStep = 360f / validDrops.Count;
-        float currentAngle = Random.Range(0f, 360f);
+	private void OnDisable()
+	{
+		if (_health != null)
+			_health.OnDeath -= OpenContainer;
+	}
 
-        foreach (ItemDrop drop in validDrops)
-        {
-            SpawnItem(drop, currentAngle);
-            currentAngle += angleStep;
-        }
-    }
+	//----IInteractable Methods-----
+	public bool CanInteract() => interactable && !IsOpened;
 
-    private void SpawnItem(ItemDrop drop, float angle)
-    {
-        // 1. Get the Default ItemObject prefab from InventoryManager
-        GameObject prefabToSpawn = drop.itemDataSo.ItemObject != null 
-            ? drop.itemDataSo.ItemObject 
-            : InventoryManager.Instance.defaultItemObjectPrefab;
-        
-        Vector3 targetPosition = CalculateDropPosition(angle);
-        GameObject droppedItem =  Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+	public void Interact(ControllerPlayer controllerPlayer = null)
+	{
+		if (CanInteract())
+			OpenContainer();
+	}
 
-        if (droppedItem.TryGetComponent(out ItemObject itemObject))
-        {
-            var instance = new ItemInstance(drop.itemDataSo, drop.dropAmount);
-            itemObject.SetItemObject(instance, targetPosition);
-        }
-    }
+	//----Save Methods-----
+	public void PopulateSaveData(SaveData saveData)
+	{
+		if (IsOpened)
+		{
+			// Check if the ChestsOpenedList save data already contains this chest id
+			if (!saveData.ChestsOpenedList.Contains(GetID()))
+			{
+				saveData.ChestsOpenedList.Add(GetID());
+			}
+		}
+	}
 
-    public Vector3 CalculateDropPosition(float angleDegrees)
-    {
-        // 1. Convert angle from degrees to radian
-        float angleRad = angleDegrees * Mathf.Deg2Rad;
-        // 2. Get the normalized x and y direction
-        Vector2 direction = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));    
-        // 3. Pick a random distance to keep the spread feeling organic
-        float distance = UnityEngine.Random.Range(0.5f, spreadRadius);
-        
-        // 4. Return the final position
-        // Offset Y slightly to look better in 2D top-down perspective
-        return transform.position + new Vector3(direction.x * distance, (direction.y * distance) - 0.5f, 0);    }
-    
-    //----Save Methods-----
-    public void PopulateSaveData(SaveData saveData)
-    {
-        if (IsOpened)
-        {
-            // Check if the ChestsOpenedList save data already contains this chest id
-            if (!saveData.ChestsOpenedList.Contains(GetID()))
-            {
-                saveData.ChestsOpenedList.Add(GetID());
-            }
-        }
-    }
+	public void LoadFromSaveData(SaveData saveData)
+	{
+		if (saveData.ChestsOpenedList.Contains(GetID()))
+		{
+			IsOpened = true;
+			UpdateVisuals();
+		} else
+		{
+			IsOpened = false;
+		}
+	}
+	private string GetID() => _uniqueID.ID;
 
-    public void LoadFromSaveData(SaveData saveData)
-    {
-        if (saveData.ChestsOpenedList.Contains(GetID()))
-        {
-            IsOpened = true;
-            UpdateVisuals();
-        }
-        else
-        {
-            IsOpened = false;
-        }
-    }
+	//----Container Methods-----
+	public void OpenContainer()
+	{
+		if (IsOpened) return;
+
+		UpdateVisuals();
+		DropItems();
+	}
+
+	private void UpdateVisuals()
+	{
+		IsOpened = true;
+		if (_spriteRenderer != null && containerOpenedSprite != null)
+			_spriteRenderer.sprite = containerOpenedSprite;
+	}
+
+	private void DropItems()
+	{
+		// Filter out null data and add valid data to list
+		var validDrops = containerContents.Where(d => d.itemDataSo != null).ToList();
+		if (validDrops.Count <= 0) return;
+
+		float angleStep = 360f/validDrops.Count;
+		float currentAngle = Random.Range(0f, 360f);
+
+		foreach (ItemDrop drop in validDrops)
+		{
+			SpawnItem(drop, currentAngle);
+			currentAngle += angleStep;
+		}
+	}
+
+	private void SpawnItem(ItemDrop drop, float angle)
+	{
+		// 1. Get the Default ItemObject prefab from InventoryManager
+		GameObject prefabToSpawn = drop.itemDataSo.ItemObject != null
+			? drop.itemDataSo.ItemObject
+			: InventoryManager.Instance.defaultItemObjectPrefab;
+
+		Vector3 targetPosition = CalculateDropPosition(angle);
+		GameObject droppedItem = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+
+		if (droppedItem.TryGetComponent(out ItemObject itemObject))
+		{
+			var instance = new ItemInstance(drop.itemDataSo, drop.dropAmount);
+			itemObject.SetItemObject(instance, targetPosition);
+		}
+	}
+
+	public Vector3 CalculateDropPosition(float angleDegrees)
+	{
+		// 1. Convert angle from degrees to radian
+		float angleRad = angleDegrees*Mathf.Deg2Rad;
+		// 2. Get the normalized x and y direction
+		Vector2 direction = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+		// 3. Pick a random distance to keep the spread feeling organic
+		float distance = Random.Range(0.5f, spreadRadius);
+
+		// 4. Return the final position
+		// Offset Y slightly to look better in 2D top-down perspective
+		return transform.position + new Vector3(direction.x*distance, (direction.y*distance) - 0.5f, 0);
+	}
+
+	[Serializable]
+	public struct ItemDrop
+	{
+		public ItemDataSo itemDataSo;
+		public int dropAmount;
+	}
 }

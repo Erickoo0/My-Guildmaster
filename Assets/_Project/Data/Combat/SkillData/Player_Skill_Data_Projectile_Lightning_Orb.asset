@@ -23,7 +23,6 @@ MonoBehaviour:
   MpCostBase: 5
   CastTimeBase: 1
   CastBarDisplay: 1
-  HitImpactBase: 1
   EffectsList:
   - rid: 3505743946400399483
   RequirementsList: []
@@ -47,9 +46,11 @@ MonoBehaviour:
           m_RotationOrder: 4
         <ProjectileCount>k__BackingField: 1
         <SpreadAngle>k__BackingField: 0
-        <MaxEnemiesHit>k__BackingField: 1
-        <HitOncePerTarget>k__BackingField: 1
-        <DestroyOnMaxHits>k__BackingField: 1
+        <BarrageCount>k__BackingField: 1
+        <BarrageDelay>k__BackingField: 0.2
+        <MaxEnemiesHit>k__BackingField: 99
+        <HitOncePerTarget>k__BackingField: 0
+        <DestroyOnMaxHits>k__BackingField: 0
         EffectsList:
         - rid: 3505743946400399484
     - rid: 3505743946400399484
@@ -57,6 +58,7 @@ MonoBehaviour:
       data:
         <Amount>k__BackingField: 0
         <Type>k__BackingField: 4
+        <InvulnerableTimer>k__BackingField: 0.5
         <BonusHit>k__BackingField: 0
         <UseSkillBaseDamage>k__BackingField: 1
         <SkillDamageMultiplier>k__BackingField: 1

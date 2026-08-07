@@ -1,37 +1,32 @@
 using System;
 using UnityEngine;
 [Serializable]
-public abstract class PlayerSkillStateBase : State<PlayerController>
+public abstract class PlayerSkillStateBase : State<ControllerPlayer>
 {
 	[Header("Spell Meta Data")]
 	[SerializeField] protected string _skillID;
 	[HideInInspector] public int CurrentSlotIndex = -1;
 
-	[Header("Cast Bar")]
-	protected CastBar CastBar;
-
 	protected bool HasTriggered = false;
 	protected bool IsCasting;
+
+	[Header("References")]
 	protected SkillData SkillDataSource;
 	protected SkillTree SkillTree;
-	protected IStatProvider StatProvider;
 	public SkillDataInstance SkillDataInstance { get; private set; }
 
 	public float MpCost => SkillDataInstance != null ? SkillDataInstance.MpCost : 0f;
 	public SkillTree SkillTreeInstance => SkillTree;
 
-	public override void Setup(PlayerController controller, StateMachine stateMachine)
+	public override void Setup(ControllerPlayer controller, StateMachine stateMachine)
 	{
 		base.Setup(controller, stateMachine);
 
-		StatProvider = controller.GetComponent<IStatProvider>();
 		EventBus.OnSkillTreeLedgerChanged += HandleSkillTreeLedgerChanged;
 
-		CastBar = controller.SkillController?.CastBar;
-
-		if (controller.SkillController != null && controller.SkillController.SkillDatabase != null)
+		if (controller.SkillController?.SkillDatabase != null)
 		{
-			// 1. Find the SkilLData from database
+			// 1. Find the SkilLData with matching ID from database
 			SkillDataSource = controller.SkillController.SkillDatabase.GetSkillDataByID<SkillData>(_skillID);
 			if (SkillDataSource != null)
 			{
@@ -42,21 +37,23 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 
 				// 3. Compile SkilLDataInstance with SkillTree and SkillDataSource
 				RefreshSkillDataInstance();
-			}
-		} else
-			Debug.LogError("PlayerSkillCastState: PlayerController.SkillController.SkillDatabase is null");
+			} else Debug.LogError($"PlayerSkillStateBase: SkillDatabase is missing SkillID {_skillID}");
+		} else Debug.LogError("PlayerSkillStateBase: SkillController or SkillDatabase is null");
 	}
+
+	public void OnDestroy() => EventBus.OnSkillTreeLedgerChanged -= HandleSkillTreeLedgerChanged;
 
 	public override void Enter()
 	{
 		controller.EntityAnimator.OnAnimationEventRequested += HandleAnimationEvent;
+
 		HasTriggered = false;
 		IsCasting = false;
 
 		// Safety check
 		if (SkillDataSource == null || CurrentSlotIndex == -1)
 		{
-			Debug.LogWarning($"spellInstance or CurrentSlotIndex is null for {controller.gameObject.name}");
+			Debug.LogWarning($"PlayerSkillStateBase: SkillDataSource or CurrentSlotIndex is null for {controller.gameObject.name}");
 			stateMachine.ChangeState(controller.IdleState);
 			return;
 		}
@@ -74,11 +71,9 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 		if (SkillDataInstance.DisplayCastBar)
 		{
 			IsCasting = true;
-			CastBar?.BeginCast(SkillDataInstance.CastTime, SkillDataInstance.Name);
+			controller.SkillController.CastBar?.BeginCast(SkillDataInstance.CastTime, SkillDataInstance.Name);
 		}
 	}
-
-	public void OnDestroy() => EventBus.OnSkillTreeLedgerChanged -= HandleSkillTreeLedgerChanged;
 
 	public override void Update()
 	{
@@ -88,9 +83,9 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 		// 1. Check if the skill keybind is still being held
 		if (!HasTriggered && IsCasting)
 		{
-			if (!controller.SkillController.IsSpellKeyHeld(CurrentSlotIndex))
+			if (!controller.SkillController.IsSkillKeyHeld(CurrentSlotIndex))
 			{
-				CastBar?.StopCast();
+				controller.SkillController.CastBar?.StopCast();
 				stateMachine.ChangeState(controller.IdleState);
 				return;
 			}
@@ -100,7 +95,7 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 		if (HasTriggered && IsCasting)
 		{
 			IsCasting = false;
-			CastBar?.StopCast();
+			controller.SkillController.CastBar?.StopCast();
 		}
 
 		if (!controller.EntityAnimator.animator.GetBool(SkillDataInstance.AnimationTag))
@@ -111,14 +106,17 @@ public abstract class PlayerSkillStateBase : State<PlayerController>
 	{
 		controller.EntityAnimator.OnAnimationEventRequested -= HandleAnimationEvent;
 
+		// 1. Disable cast bar
 		IsCasting = false;
-		CastBar?.StopCast();
+		controller.SkillController.CastBar?.StopCast();
 
+		// 2. Reset animation
 		controller.EntityAnimator.animator.speed = 1f;
 		controller.EntityAnimator.animator.SetBool(SkillDataInstance.AnimationTag, false);
 
+		// 3. Set cooldown
 		if (HasTriggered)
-			controller.SkillController.SetActionCooldown();
+			controller.SkillController.TriggerSkillCooldown(SkillDataInstance.ID);
 	}
 
 	public override void PhysicsUpdate() {}

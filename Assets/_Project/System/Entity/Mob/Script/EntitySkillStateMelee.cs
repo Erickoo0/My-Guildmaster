@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 [Serializable]
-public class EntitySkillStateMelee : SkillStateBase
+public class EntitySkillStateMelee : EntitySkillStateBase
 {
 	[Header("Melee Settings")]
 	[SerializeField] private float _activeDuration = 0.2f;
@@ -20,7 +20,7 @@ public class EntitySkillStateMelee : SkillStateBase
 	private LayerMask _originalExcludeLayers;
 	private bool _reachedTarget = false;
 
-	public override void Setup(MobController controller, StateMachine stateMachine)
+	public override void Setup(ControllerEntity controller, StateMachine stateMachine)
 	{
 		base.Setup(controller, stateMachine);
 
@@ -109,7 +109,7 @@ public class EntitySkillStateMelee : SkillStateBase
 			User = controller.gameObject,
 			EffectsList = SkillDataInstance.EffectsList,
 			SkillDataInstance = SkillDataInstance,
-			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, StatProvider) // Assuming parent state tracks pre-computed base damage
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.StatProvider) // Assuming parent state tracks pre-computed base damage
 		};
 
 		HitBoxSettings hitBoxSettings = new HitBoxSettings

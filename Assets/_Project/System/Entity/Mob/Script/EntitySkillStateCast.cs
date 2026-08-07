@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 [Serializable]
-public class EntitySkillState : SkillStateBase
+public class EntitySkillStateCast : EntitySkillStateBase
 {
 	protected override void HandleAnimationEvent()
 	{
@@ -26,7 +26,7 @@ public class EntitySkillState : SkillStateBase
 			HitImpact = SkillDataInstance.HitImpact,
 			HitTargets = new HashSet<IDamagable>(),
 			SkillDataInstance = SkillDataInstance,
-			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, StatProvider)
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.StatProvider)
 		};
 
 		// 2. Execute all skill effects

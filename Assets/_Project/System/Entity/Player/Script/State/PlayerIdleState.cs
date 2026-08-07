@@ -1,24 +1,24 @@
-﻿using UnityEngine;
-
-[System.Serializable]
-public class PlayerIdleState : State<PlayerController>
+﻿using System;
+using UnityEngine;
+[Serializable]
+public class PlayerIdleState : State<ControllerPlayer>
 {
-    public override void Enter() { controller.EntityMover.SetMoveDirection(Vector2.zero); }
+	public override void Enter() { controller.EntityMover.SetMoveDirection(Vector2.zero); }
 
-    public override void Update()
-    {
-        Vector2 input = controller.MovementInput;
+	public override void Update()
+	{
+		Vector2 input = controller.MovementInput;
 
-        if (input != Vector2.zero)
-            stateMachine.ChangeState(controller.MoveState);
-        else
-        {
-            controller.EntityMover.SetMoveDirection(Vector2.zero);
-            controller.EntityAnimator.SetMoveAnimation(Vector2.zero);
-        }
-    }
-    
-    public override void PhysicsUpdate() { }
-    public override void HandleInput() { }
-    public override void Exit() { }
+		if (input != Vector2.zero)
+			stateMachine.ChangeState(controller.MoveState);
+		else
+		{
+			controller.EntityMover.SetMoveDirection(Vector2.zero);
+			controller.EntityAnimator.SetMoveAnimation(Vector2.zero);
+		}
+	}
+
+	public override void PhysicsUpdate() {}
+	public override void HandleInput() {}
+	public override void Exit() {}
 }

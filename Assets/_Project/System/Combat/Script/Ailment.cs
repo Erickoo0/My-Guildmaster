@@ -4,7 +4,7 @@ public class Ailment : MonoBehaviour
 
 	[Header("Tick Settings")]
 	private readonly float _tickRate = 1f;
-	private EntityControllerBase _controller;
+	private ControllerBase _controller;
 	private float _duration;
 	private EffectPayload _effectPayload; // For damage ailments
 
@@ -38,7 +38,7 @@ public class Ailment : MonoBehaviour
 		_target = target;
 		_effectPayload = effectPayload;
 		_statProvider = _target?.GetComponent<IStatProvider>();
-		_controller = _target?.GetComponent<EntityControllerBase>();
+		_controller = _target?.GetComponent<ControllerBase>();
 
 		ApplyInstantEffects();
 	}
@@ -80,6 +80,10 @@ public class Ailment : MonoBehaviour
 			if (_statProvider != null)
 				_statProvider.EntityStats.DamageTakenMultiplier *= Potency;
 			break;
+		case AilmentType.Slow:
+			if (_statProvider != null)
+				_statProvider.EntityStats.MoveSpeedMultiplier *= Potency;
+			break;
 		}
 	}
 
@@ -97,6 +101,10 @@ public class Ailment : MonoBehaviour
 		case AilmentType.Shock:
 			if (_statProvider != null)
 				_statProvider.EntityStats.DamageTakenMultiplier /= Potency;
+			break;
+		case AilmentType.Slow:
+			if (_statProvider != null)
+				_statProvider.EntityStats.MoveSpeedMultiplier /= Potency;
 			break;
 		}
 	}

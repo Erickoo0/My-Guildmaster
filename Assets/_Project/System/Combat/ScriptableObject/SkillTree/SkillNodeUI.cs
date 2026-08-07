@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
-/// View + Controller for a single SkillNode button in the SKillTreeUI
+/// View + ControllerEntity for a single SkillNode button in the SKillTreeUI
 /// Displays SkillNode state and routes click events to the SkillTree blueprint.
 /// </summary>
 public class SkillNodeUI : MonoBehaviour

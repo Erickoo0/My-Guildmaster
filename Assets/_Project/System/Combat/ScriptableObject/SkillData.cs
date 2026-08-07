@@ -18,6 +18,7 @@ public class SkillData : ScriptableObject
 	public float DamageBase = 0f;
 	public DamageScalingStat DamageScalingStat = DamageScalingStat.AttackPower;
 	public float DamageScalingRatio = 1f;
+	public float CooldownBase = 5f;
 	public float MpCostBase = 0; // Not needed for enemies
 	public float CastTimeBase;
 
@@ -74,6 +75,9 @@ public class SkillData : ScriptableObject
 			},
 			{
 				SkillStat.DamageScalingRatio, DamageScalingRatio
+			},
+			{
+				SkillStat.Cooldown, CooldownBase
 			},
 			{
 				SkillStat.MpCost, MpCostBase

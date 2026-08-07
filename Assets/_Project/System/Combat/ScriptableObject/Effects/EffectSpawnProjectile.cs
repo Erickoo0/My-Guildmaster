@@ -34,7 +34,7 @@ public class EffectSpawnProjectile : Effect
 
 	[Header("Impact EffectList List")]
 	[SerializeReference, SubclassSelector] public List<Effect> EffectsList = new List<Effect>();
-	private EntityControllerBase _entityController;
+	private ControllerBase _controller;
 
 	private FirePoint _firepoint;
 
@@ -49,13 +49,13 @@ public class EffectSpawnProjectile : Effect
 			ProjectileCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
 		// 2. Cache the components
-		_entityController = effectPayload.User.GetComponent<EntityControllerBase>();
+		_controller = effectPayload.User.GetComponent<ControllerBase>();
 		_firepoint = effectPayload.User.GetComponentInChildren<FirePoint>();
 
 		// 2. If its a barrage, call a repeating sequence, passing in the Action to repeat
 		if (BarrageCount > 1)
 		{
-			_entityController.StartCoroutine(RunEffectSequence(BarrageCount, BarrageDelay, (index) => SpawnVolley(effectPayload, index > 0)));
+			_controller.StartCoroutine(RunEffectSequence(BarrageCount, BarrageDelay, (index) => SpawnVolley(effectPayload, index > 0)));
 			return true;
 		}
 

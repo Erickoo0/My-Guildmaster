@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 [Serializable]
-public class EntitySkillStateCharge : SkillStateBase
+public class EntitySkillStateCharge : EntitySkillStateBase
 {
 	[Header("Charge Settings")]
 	[SerializeField] private float _chargeSpeedMultiplier = 5.0f;
@@ -18,7 +18,7 @@ public class EntitySkillStateCharge : SkillStateBase
 	private LayerMask _originalExcludeLayers;
 	private SpriteRenderer _spriteRenderer;
 
-	public override void Setup(MobController controller, StateMachine stateMachine)
+	public override void Setup(ControllerEntity controller, StateMachine stateMachine)
 	{
 		base.Setup(controller, stateMachine);
 
@@ -98,7 +98,7 @@ public class EntitySkillStateCharge : SkillStateBase
 			User = controller.gameObject,
 			EffectsList = SkillDataInstance.EffectsList,
 			SkillDataInstance = SkillDataInstance,
-			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, StatProvider) // Assuming parent state tracks pre-computed base damage
+			SkillDamageBase = DamageCalculator.ComputeBaseSkillDamage(SkillDataInstance, controller.StatProvider) // Assuming parent state tracks pre-computed base damage
 		};
 
 		HitBoxSettings hitBoxSettings = new HitBoxSettings

@@ -2,7 +2,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 [Serializable]
-public class EntityIdleState : BaseIdleState
+public class EntityIdleState : EntityIdleStateBase
 {
 	private float _idleTime;
 

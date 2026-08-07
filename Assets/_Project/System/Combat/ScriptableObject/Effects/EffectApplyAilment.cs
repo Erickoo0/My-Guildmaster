@@ -3,7 +3,7 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 public enum AilmentType
 {
-	Burn, Freeze, Chill, Shock
+	Burn, Freeze, Chill, Shock, Slow
 }
 
 [Serializable]
@@ -12,7 +12,7 @@ public class EffectApplyAilment : Effect
 	[field: SerializeField] public GameObject Prefab { get; private set; }
 	[field: SerializeField] public AilmentType Type { get; private set; }
 
-	[Tooltip("For Burn: Damage per tick. For Chill/Shock: The multiplier. For Freeze: Unused.")]
+	[Tooltip("For Burn: Damage per tick. For Chill/Shock/Slow: The multiplier. For Freeze: Unused.")]
 	[field: SerializeField] public float Potency { get; private set; }
 	[field: SerializeField] public float PotencyStack { get; private set; } = 0f;
 	[field: SerializeField] public float Duration { get; private set; }

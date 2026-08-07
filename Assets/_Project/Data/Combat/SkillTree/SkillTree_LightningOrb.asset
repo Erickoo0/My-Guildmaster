@@ -55,7 +55,7 @@ MonoBehaviour:
     - _requiredSkillNodeID: SN_LightningOrb_Dmg
       _requiredSkillPoints: 3
     _modifiers:
-    - rid: 6453299939246080085
+    - rid: 6453300370893176923
   - _id: SN_LightningOrb_InstantCast
     _displayName: Instant Cast
     _icon: {fileID: 2726462300684628938, guid: bc663d75dba05cd4eb5f81d4512584ff, type: 3}
@@ -182,19 +182,6 @@ MonoBehaviour:
         _skillStat: 3
         _operation: 2
         _value: 0.85
-    - rid: 6453299939246080085
-      type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
-      data:
-        _effectTypeID: EffectSpawnProjectile
-        _effectParameter: <Scale>k__BackingField
-        _operation: 1
-        _value: 0.5
-        _curveValue:
-          serializedVersion: 2
-          m_Curve: []
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
     - rid: 6453299965050224640
       type: {class: ModifierSkillEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -292,10 +279,30 @@ MonoBehaviour:
         _effectTypeID: EffectDealDamage
         _effectParameter: <InvulnerableTimer>k__BackingField
         _operation: 1
-        _value: -0.1
+        _value: -0.2
         _curveValue:
           serializedVersion: 2
           m_Curve: []
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
+    - rid: 6453300370893176923
+      type: {class: ModifierSkillBehavior, ns: , asm: Assembly-CSharp}
+      data:
+        _operation: 0
+        _effectsList:
+        - rid: 6453300370893176924
+        _insertIndex: 0
+        _stackOnExisting: 0
+        _stackParameter: 
+        _stackValue: 0
+        _targetNestedEffect: 1
+        _targetEffectTypeID: EffectSpawnProjectile
+    - rid: 6453300370893176924
+      type: {class: EffectApplyAilment, ns: , asm: Assembly-CSharp}
+      data:
+        <Prefab>k__BackingField: {fileID: 7156590065571999962, guid: fd288cfae9a888c4bbd73ad933f7b54a, type: 3}
+        <Type>k__BackingField: 4
+        <Potency>k__BackingField: 0.2
+        <PotencyStack>k__BackingField: 0
+        <Duration>k__BackingField: 5
