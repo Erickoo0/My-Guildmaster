@@ -16,9 +16,15 @@ public class EntityStatProvider : MonoBehaviour, IStatProvider
 
 	private void Start() => SyncStatsToLevel();
 
-	private void OnEnable() => _level.OnLevelUpdated += SyncStatsToLevel;
+	private void OnEnable()
+	{
+		if (_level != null) _level.OnLevelUpdated += SyncStatsToLevel;
+	}
 
-	private void OnDisable() => _level.OnLevelUpdated -= SyncStatsToLevel;
+	private void OnDisable()
+	{
+		if (_level != null) _level.OnLevelUpdated -= SyncStatsToLevel;
+	}
 
 	public Health EntityHealth => _health;
 	public Mana EntityMana => _mana;

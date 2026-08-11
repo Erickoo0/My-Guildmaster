@@ -35,18 +35,20 @@ public class SkillData : ScriptableObject
 
 
 
-
+	#if UNITY_EDITOR
 	protected void OnValidate()
 	{
 		if (ID != name)
 		{
 			ID = name;
-        #if UNITY_EDITOR
 			EditorUtility.SetDirty(this);
-        #endif
 		}
 	}
+	 #endif
 
+	/// <summary>
+	/// Check if all requirements are met for this skill.
+	/// </summary>
 	public bool AreRequirementsMet(GameObject context)
 	{
 		// 1. No requirements means always true

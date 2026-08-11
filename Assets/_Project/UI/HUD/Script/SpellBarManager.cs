@@ -1,61 +1,97 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class SpellBarManager : MonoBehaviour
 {
-	[Header("References")]
-	[SerializeField] private Image spellBarQIcon;
-	[SerializeField] private Image spellBarQCooldown;
-	[SerializeField] private TextMeshProUGUI spellBarQText;
-	[SerializeField] private Image spellBarEIcon;
-	[SerializeField] private Image spellBarECooldown;
-	[SerializeField] private TextMeshProUGUI spellBarEText;
-	[SerializeField] private Image spellBarRIcon;
-	[SerializeField] private Image spellBarRCooldown;
-	[SerializeField] private TextMeshProUGUI spellBarRText;
-	[SerializeField] private Image spellBarFIcon;
-	[SerializeField] private Image spellBarFCooldown;
-	[SerializeField] private TextMeshProUGUI spellBarFText;
+	[Header("Player Reference")]
 	[SerializeField] private ControllerPlayer _controllerPlayer;
+
+	[Header("Q Slot")]
+	[SerializeField] private Image _qIcon;
+	[SerializeField] private TextMeshProUGUI _qText;
+	[SerializeField] private Image _qCooldown;
+	[SerializeField] private TextMeshProUGUI _qCooldownText;
+
+	[Header("E Slot")]
+	[SerializeField] private Image _eIcon;
+	[SerializeField] private TextMeshProUGUI _eText;
+	[SerializeField] private Image _eCooldown;
+	[SerializeField] private TextMeshProUGUI _eCooldownText;
+
+	[Header("R Slot")]
+	[SerializeField] private Image _rIcon;
+	[SerializeField] private TextMeshProUGUI _rText;
+	[SerializeField] private Image _rCooldown;
+	[SerializeField] private TextMeshProUGUI _rCooldownText;
+
+	[Header("F Slot")]
+	[SerializeField] private Image _fIcon;
+	[SerializeField] private TextMeshProUGUI _fText;
+	[SerializeField] private Image _fCooldown;
+	[SerializeField] private TextMeshProUGUI _fCooldownText;
 
 	private readonly List<TrackedSkillUI> _activeSkillSlots = new List<TrackedSkillUI>();
 
-	private void Start()
+	private IEnumerator Start()
 	{
-		if (_controllerPlayer == null || _controllerPlayer.SkillController.SkillSlots == null) return;
 
-		// Slot 1: Q
-		RegisterSkillSlot(1, spellBarQIcon, spellBarQText, spellBarQCooldown, "Q");
+		// Wait 1 frame to guarantee SkillControllerPlayer has finished its Start() method
+		yield return null;
+
+		if (_controllerPlayer == null || _controllerPlayer.SkillController.SkillSlots == null) yield break;
+
+// Slot 1: Q
+		RegisterSkillSlot(1, _qIcon, _qText, _qCooldown, _qCooldownText, "Q");
 
 		// Slot 2: E
-		RegisterSkillSlot(2, spellBarEIcon, spellBarEText, spellBarECooldown, "E");
+		RegisterSkillSlot(2, _eIcon, _eText, _eCooldown, _eCooldownText, "E");
 
 		// Slot 3: R
-		RegisterSkillSlot(3, spellBarRIcon, spellBarRText, spellBarRCooldown, "R");
+		RegisterSkillSlot(3, _rIcon, _rText, _rCooldown, _rCooldownText, "R");
 
 		// Slot 4: F
-		RegisterSkillSlot(4, spellBarFIcon, spellBarFText, spellBarFCooldown, "RMB");
+		RegisterSkillSlot(4, _fIcon, _fText, _fCooldown, _fCooldownText, "RMB");
 	}
 
 	private void Update()
 	{
 		if (_activeSkillSlots.Count == 0 || _controllerPlayer == null) return;
 
+		// Loop through all active skill slots and update their cooldowns
 		foreach (TrackedSkillUI skillUI in _activeSkillSlots)
 		{
+			// Safety Check
 			if (skillUI.PlayerSkillState?.SkillDataInstance == null || skillUI.CooldownImage == null) continue;
 
 			string skillID = skillUI.PlayerSkillState.SkillDataInstance.ID;
 			float cooldown = skillUI.PlayerSkillState.SkillDataInstance.Cooldown;
 
+			// Update cooldown swipe
 			float cooldownPercent = _controllerPlayer.SkillController.GetRemainingCooldownRatio(skillID, cooldown);
-
 			skillUI.CooldownImage.fillAmount = cooldownPercent;
+
+			// Update cooldown text
+			if (skillUI.CooldownText != null)
+			{
+				float remainingCooldown = _controllerPlayer.SkillController.GetRemainingCooldownTime(skillID, cooldown);
+
+				if (remainingCooldown > 0)
+				{
+					// CeilToInt ensures that 0.1 sec still shows as 1 sec
+					skillUI.CooldownText.text = Mathf.CeilToInt(remainingCooldown).ToString();
+					skillUI.CooldownText.enabled = true;
+				} else
+				{
+					skillUI.CooldownText.enabled = false;
+				}
+			}
+
 		}
 	}
 
-	private void RegisterSkillSlot(int slotIndex, Image slotImage, TextMeshProUGUI slotKeybindText, Image cooldownImage, string keyName)
+	private void RegisterSkillSlot(int slotIndex, Image slotImage, TextMeshProUGUI slotKeybindText, Image cooldownImage, TextMeshProUGUI cooldownText, string keyName)
 	{
 		// 1. Ensure index exists within skill slots list
 		if (_controllerPlayer.SkillController.SkillSlots.Count > slotIndex && _controllerPlayer.SkillController.SkillSlots[slotIndex] != null)
@@ -76,11 +112,18 @@ public class SpellBarManager : MonoBehaviour
 					cooldownImage.enabled = true;
 				}
 
+				if (cooldownText != null)
+				{
+					cooldownText.text = "";
+					cooldownText.enabled = false;
+				}
+
 				// Add to our tracking list so Update() knows to animate it
 				_activeSkillSlots.Add(new TrackedSkillUI
 				{
 					PlayerSkillState = spell,
-					CooldownImage = cooldownImage
+					CooldownImage = cooldownImage,
+					CooldownText = cooldownText
 				});
 
 				return; // Successfully registered, exit early
@@ -96,6 +139,7 @@ public class SpellBarManager : MonoBehaviour
 	private class TrackedSkillUI
 	{
 		public Image CooldownImage;
+		public TextMeshProUGUI CooldownText;
 		public PlayerSkillStateBase PlayerSkillState;
 	}
 }

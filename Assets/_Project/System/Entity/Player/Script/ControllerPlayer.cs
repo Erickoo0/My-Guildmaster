@@ -37,6 +37,7 @@ public class ControllerPlayer : ControllerBase
 		SkillController = GetComponent<SkillControllerPlayer>();
 		StatProvider = GetComponent<IStatProvider>();
 		_mainCam = Camera.main;
+		CinemachineImpulseSource = GetComponent<CinemachineImpulseSource>();
 
 		// Setup states
 		IdleState?.Setup(this, StateMachine);

@@ -49,4 +49,18 @@ public abstract class SkillControllerBase : MonoBehaviour
 
 		return Mathf.Clamp01(remaining/cooldownDuration);
 	}
+
+	public float GetRemainingCooldownTime(string skilLID, float cooldownDuration)
+	{
+		// If skill is not on cd, simply return 0
+		if (!_skillCooldowns.TryGetValue(skilLID, out float lastCastTime))
+			return 0f;
+
+		// Subtract the time passed from the cooldown duration to get the remaining cooldown time
+		float timePassed = Time.time - lastCastTime;
+		float remainingCooldown = cooldownDuration - timePassed;
+
+		// Ensure the remaining cooldown time is not negative
+		return Mathf.Max(0f, remainingCooldown);
+	}
 }

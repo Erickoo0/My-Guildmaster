@@ -53,12 +53,13 @@ public class SkillControllerPlayer : SkillControllerBase
 		PlayerSkillStateBase intendedPlayerSkill = SkillSlots[skillKeyIndex];
 		if (intendedPlayerSkill.SkillDataInstance == null) return;
 
-		// 3. Check localized cooldown of intended skill
-		if (IsSkillOnCooldown(intendedPlayerSkill.SkillDataInstance.ID, intendedPlayerSkill.SkillDataInstance.Cooldown))
+		// 4. Check current player state 
+		if (_controllerPlayer.StateMachine.CurrentState == _controllerPlayer.DashState ||
+			_controllerPlayer.StateMachine.CurrentState is PlayerSkillStateBase)
 			return;
 
-		// 4. Check current player state 
-		if (_controllerPlayer.StateMachine.CurrentState == _controllerPlayer.DashState)
+		// 3. Check localized cooldown of intended skill
+		if (IsSkillOnCooldown(intendedPlayerSkill.SkillDataInstance.ID, intendedPlayerSkill.SkillDataInstance.Cooldown))
 			return;
 
 		// 5. Check mana
