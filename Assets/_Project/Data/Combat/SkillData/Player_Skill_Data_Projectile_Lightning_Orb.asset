@@ -20,7 +20,7 @@ MonoBehaviour:
   DamageBase: 10
   DamageScalingStat: 0
   DamageScalingRatio: 1
-  CooldownBase: 5000
+  CooldownBase: 5
   MpCostBase: 5
   CastTimeBase: 1
   CastBarDisplay: 1

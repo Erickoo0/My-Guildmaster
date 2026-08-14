@@ -20,10 +20,10 @@ MonoBehaviour:
   DamageBase: 15
   DamageScalingStat: 0
   DamageScalingRatio: 1
+  CooldownBase: 0
   MpCostBase: 0
   CastTimeBase: 0.5
   CastBarDisplay: 0
-  HitImpactBase: 1
   EffectsList:
   - rid: 3505744017709858924
   - rid: 6453299874921185357
@@ -61,6 +61,7 @@ MonoBehaviour:
       data:
         <Amount>k__BackingField: 0
         <Type>k__BackingField: 1
+        <InvulnerableTimer>k__BackingField: 0.5
         <BonusHit>k__BackingField: 0
         <UseSkillBaseDamage>k__BackingField: 1
         <SkillDamageMultiplier>k__BackingField: 1
@@ -87,6 +88,7 @@ MonoBehaviour:
       data:
         <Amount>k__BackingField: 5
         <Type>k__BackingField: 1
+        <InvulnerableTimer>k__BackingField: 0.5
         <BonusHit>k__BackingField: 0
         <UseSkillBaseDamage>k__BackingField: 1
         <SkillDamageMultiplier>k__BackingField: 1

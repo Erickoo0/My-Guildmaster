@@ -11,14 +11,20 @@ GameObject:
   - component: {fileID: 5894318356717075096}
   - component: {fileID: 5812627671166687094}
   - component: {fileID: 5196605976559179195}
+  - component: {fileID: 2338522791111286243}
   - component: {fileID: -7798991161975468235}
   - component: {fileID: 4423070339412397620}
-  m_Layer: 7
+  - component: {fileID: 7516665164035248835}
+  - component: {fileID: 1956583473450682520}
+  - component: {fileID: -1977421728148663022}
+  - component: {fileID: 1091628250634902094}
+  - component: {fileID: 3798661233241310042}
+  m_Layer: 3
   m_Name: Tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5894318356717075096
 Transform:
@@ -141,6 +147,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.88101196, y: 0.95520175}
   m_EdgeRadius: 0
+--- !u!50 &2338522791111286243
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817347120294430095}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &-7798991161975468235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +242,91 @@ MonoBehaviour:
   animationData: {fileID: 11400000, guid: d327c320094596143b3176661c224ca6, type: 2}
   minIdleTime: 2
   maxIdleTime: 10
+--- !u!114 &7516665164035248835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817347120294430095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b738caa94a6360641b76c8902eb4eb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  hpBase: 100
+  hpPerLvl: 10
+  HpMax: 0
+  entityRoot: {fileID: 0}
+  destroyOnDeath: 1
+--- !u!114 &1956583473450682520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817347120294430095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3333051ddc97cda4e88901963c23d257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthUI
+  healthBarPrefab: {fileID: 0}
+  offset: {x: 0, y: 2, z: 0}
+  hpComponent: {fileID: 0}
+  progressBarRef: {fileID: 0}
+  hpText: {fileID: 0}
+  showText: 0
+--- !u!114 &-1977421728148663022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817347120294430095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d0bacc308dc0443abfddf1b3c8e0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HurtBox
+  _health: {fileID: 0}
+--- !u!114 &1091628250634902094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817347120294430095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf83ac40b649302438b58a83cb9cb65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UniqueIdentifier
+  id: f039a1fc-2da8-42c9-9668-a615f9baf7cd
+--- !u!114 &3798661233241310042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817347120294430095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73248bb41aed5034386e27eb7f437214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
+  containerOpenedSprite: {fileID: 0}
+  interactable: 0
+  containerContents:
+  - itemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    dropAmount: 1
+  spreadRadius: 1.5
 --- !u!1 &8183927867046426527
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,12 +338,12 @@ GameObject:
   - component: {fileID: 5165380693226000899}
   - component: {fileID: 7901089186239961316}
   - component: {fileID: 8350230944019225400}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Leafs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5165380693226000899
 Transform:

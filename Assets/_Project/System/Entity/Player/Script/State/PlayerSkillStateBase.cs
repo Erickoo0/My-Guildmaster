@@ -113,10 +113,6 @@ public abstract class PlayerSkillStateBase : State<ControllerPlayer>
 		// 2. Reset animation
 		controller.EntityAnimator.animator.speed = 1f;
 		controller.EntityAnimator.animator.SetBool(SkillDataInstance.AnimationTag, false);
-
-		// 3. Set cooldown
-		if (HasTriggered)
-			controller.SkillController.TriggerSkillCooldown(SkillDataInstance.ID);
 	}
 
 	public override void PhysicsUpdate() {}
