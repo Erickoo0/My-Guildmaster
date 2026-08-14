@@ -99,11 +99,16 @@ public class ItemContainer : MonoBehaviour, IInteractable, ISaveable
 		var validDrops = containerContents.Where(d => d.itemDataSo != null).ToList();
 		if (validDrops.Count <= 0) return;
 
+		// 1. Calculate the angle step for even distribution
 		float angleStep = 360f/validDrops.Count;
 		float currentAngle = Random.Range(0f, 360f);
 
 		foreach (ItemDrop drop in validDrops)
 		{
+			// 2. Add random offset of up to 40%
+			float angleOffset = Random.Range(-angleStep*0.4f, angleStep*0.4f);
+			float finalAngle = currentAngle + angleOffset;
+
 			SpawnItem(drop, currentAngle);
 			currentAngle += angleStep;
 		}
@@ -130,10 +135,14 @@ public class ItemContainer : MonoBehaviour, IInteractable, ISaveable
 	{
 		// 1. Convert angle from degrees to radian
 		float angleRad = angleDegrees*Mathf.Deg2Rad;
+
 		// 2. Get the normalized x and y direction
 		Vector2 direction = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
-		// 3. Pick a random distance to keep the spread feeling organic
-		float distance = Random.Range(0.5f, spreadRadius);
+
+		// 3. Pick a distance using Square Root distribution. 
+		// This prevents items from artificially clumping in the center of the circle.
+		float randomValue = Mathf.Sqrt(Random.value);
+		float distance = Mathf.Lerp(0.5f, spreadRadius, randomValue);
 
 		// 4. Return the final position
 		// Offset Y slightly to look better in 2D top-down perspective
