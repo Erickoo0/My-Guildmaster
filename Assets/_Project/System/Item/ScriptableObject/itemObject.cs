@@ -2,6 +2,11 @@ using DG.Tweening;
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+
+/// <summary>
+/// Item Object that can be spawned, picked up, and destroyed
+/// Holds physics data about an item.
+/// </summary>
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public class ItemObject : MonoBehaviour
 {

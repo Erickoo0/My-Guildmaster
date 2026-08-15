@@ -9,6 +9,9 @@ public enum ItemCategory { Tool, Weapon, Armor, Ring, Amulet, Potion, Food, Seed
 
 public enum ItemRarity { Common, Uncommon, Rare, Epic, Mythic }
 
+/// <summary>
+/// Blueprint data for an item
+/// </summary>
 [CreateAssetMenu(fileName = "New Item", menuName = "Item/Item")]
 public class ItemDataSo : ScriptableObject
 {
@@ -29,6 +32,9 @@ public class ItemDataSo : ScriptableObject
 	[field: SerializeField] public bool IsSellable { get; private set; } = true;
 	[field: SerializeField] public bool IsStackable { get; private set; } = true;
 	[field: SerializeField] public int MaxStackSize { get; private set; } = 99;
+
+	[field: Header("Properties")]
+	[SerializeReference, SubclassSelector] public List<ItemPropertyBase> ItemProperties = new List<ItemPropertyBase>();
 
 	[field: Header("Usage & Effects")]
 	[field: SerializeField] public bool IsUsable { get; private set; }
@@ -57,6 +63,9 @@ public class ItemDataSo : ScriptableObject
 	}
 #endif
 
+	/// <summary>
+	/// Attempt to execute all effects associated with this item
+	/// </summary>
 	public bool Use(ItemInstance itemInstance, GameObject user, GameObject target = null, Vector3 targetPosition = default)
 	{
 		if (!IsUsable || effects == null || effects.Count == 0) return false;
@@ -77,5 +86,25 @@ public class ItemDataSo : ScriptableObject
 		}
 
 		return anyEffectSucceeded;
+	}
+
+	/// <summary>
+	/// Checks if an item has a specific property.
+	/// </summary>
+	public bool TryGetProperty<T>(out T property) where T : ItemPropertyBase
+	{
+		// 1. Loop through all properties
+		foreach (ItemPropertyBase prop in ItemProperties)
+		{
+			// 2. If the property is of the correct type, return it
+			if (prop is T match)
+			{
+				property = match;
+				return true;
+			}
+		}
+
+		property = null;
+		return false;
 	}
 }

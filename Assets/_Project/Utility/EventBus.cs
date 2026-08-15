@@ -61,4 +61,8 @@ public static class EventBus
 	//-------------------------Hit Impact Events-------------------------
 	public static event Action<float, Vector3> OnHitImpactRequested;
 	public static void RequestHitImpact(float hitImpact, Vector3 position) => OnHitImpactRequested?.Invoke(hitImpact, position);
+
+//-------------------------Worker/Sustenance Events-------------------------
+	public static event Action<int> OnTotalSustenanceChanged;
+	public static void RequestTotalSustenanceChanged(int newTotal) => OnTotalSustenanceChanged?.Invoke(newTotal);
 }
