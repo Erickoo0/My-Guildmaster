@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public enum ItemCategory { Tool, Weapon, Armor, Ring, Amulet, Potion, Food, Seed, Decor, Resource, Quest }
+public enum ItemCategory { Tool, Weapon, Armor, Ring, Amulet, Potion, Food, Seed, Decor, Prop, Resource, Quest }
 
 public enum ItemRarity { Common, Uncommon, Rare, Epic, Mythic }
 

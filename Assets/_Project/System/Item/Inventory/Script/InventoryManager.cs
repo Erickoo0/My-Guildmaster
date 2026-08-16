@@ -1,215 +1,220 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
-
+using UnityEngine;
 /// <summary>
 /// Manages the global player inventory using a Singleton pattern. 
 /// Handles item storage, addition, and swapping, while notifying listeners of slot changes via events.
 /// </summary>
 public class InventoryManager : MonoBehaviour, ISaveable
 {
-    public static InventoryManager Instance { get; private set; }
 
-    public GameObject defaultItemObjectPrefab;
-    
-    public event Action<int> OnSlotUpdated;
-    public event Action<ItemInstance> OnItemAddedToInventory;
-    public event Action<int> OnActiveSlotIndexChanged;
-    
-    [Header("Item Database")] 
-    public ItemDatabase itemDatabase; // Drag our database here
+	public GameObject defaultItemObjectPrefab;
 
-    [Header("Inventory Settings")]
-    [SerializeField] private int inventorySize = 20;
-    
-    // An empty array of items 
-    public ItemInstance[] itemsList;
+	[Header("Item Database")]
+	public ItemDatabase itemDatabase; // Drag our database here
 
-    private void Awake()
-    {
-        // Singleton Pattern: Safety measure to prevent new additional InventoryManagers from being created
-        if (Instance != null && Instance != this)
-        {
-            Debug.unityLogger.Log("Multiple InventoryManagers detected. Disabling script.");
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this; // Assign This ID to variable
-        
-        if (itemDatabase != null) itemDatabase.Initialize();
+	[Header("Inventory Settings")]
+	[SerializeField] private int inventorySize = 20;
 
-        InitializeInventory();
-    }
-    
-    private void InitializeInventory()
-    {
-        itemsList = new ItemInstance[inventorySize];
-        
-        // Initial active slot index 
-        OnActiveSlotIndexChanged?.Invoke(0);
-    }
-    
-    public bool AddItems(ItemInstance item)
-    {
-        // Try to stack first if the item is stackable
-        if (item.DataSo.IsStackable == true)
-        { 
-            for (int i = 0; i < itemsList.Length; i++)
-            {
-                // Skip empty slots and slots with different items
-                if (itemsList[i] == null || itemsList[i].DataSo != item.DataSo) continue;
-                
-                int spaceLeft = itemsList[i].DataSo.MaxStackSize - itemsList[i].stackSize;
-                
-                // Skip full slots
-                if (spaceLeft <= 0) continue;
+	// An empty array of items 
+	public ItemInstance[] itemsList;
+	public static InventoryManager Instance { get; private set; }
 
-                // If whole new stack fits in current slot
-                if (item.stackSize <= spaceLeft)
-                {
-                    int amountAdded = item.stackSize; // Cache the Amount added for quest update
-                    
-                    itemsList[i].stackSize += item.stackSize;
-                    OnSlotUpdated?.Invoke(i);
-                    OnItemAddedToInventory?.Invoke(item);
-                    
-                    EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, amountAdded);
-                    return true;
-                }
-                // If partial new stack fits in current slow
-                else
-                {
-                    itemsList[i].stackSize = itemsList[i].DataSo.MaxStackSize;
-                    item.stackSize -= spaceLeft;
-                    OnSlotUpdated?.Invoke(i);
-                    
-                    EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, spaceLeft);
-                    // Do not return true yet, code continues to find open slot for remainder
-                }
-            }
-        }
-        
-        // If not stackable / No free stack available
-        for (int i = 0; i < itemsList.Length; i++)
-        {
-            if (itemsList[i] == null)
-            {
-                itemsList[i] = item; // Adds the item
-                OnSlotUpdated?.Invoke(i);
-                OnItemAddedToInventory?.Invoke(item);
-                
-                EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, item.stackSize);
-                return true;
-            }
-        }
+	private void Awake()
+	{
+		// Singleton Pattern: Safety measure to prevent new additional InventoryManagers from being created
+		if (Instance != null && Instance != this)
+		{
+			Debug.unityLogger.Log("Multiple InventoryManagers detected. Disabling script.");
+			Destroy(gameObject);
+			return;
+		}
+		Instance = this; // Assign This ID to variable
 
-        Debug.unityLogger.Log("Iventory is full");
-        return false; // If inventory is full
-    }
+		if (itemDatabase != null) itemDatabase.Initialize();
 
-    public void RemoveItems(int index)
-    {
-        if (index < 0 || index >= itemsList.Length) return;
-        ItemInstance item = itemsList[index];
-        item.stackSize--;
-        if (item.stackSize <= 0) itemsList[index] = null;
-        
-        OnSlotUpdated?.Invoke(index);
-    }
-    
-    public void SwapItems(int indexA, int indexB)
-    {
-        // Check if indexes are out of range of itemsList array
-        if (indexA < 0 || indexA >= itemsList.Length || indexB < 0 || indexB >= itemsList.Length) return;
+		InitializeInventory();
+	}
 
-        // Swaps item from A and B using modern C# deconstruction
-        (itemsList[indexA], itemsList[indexB]) = (itemsList[indexB], itemsList[indexA]);
+	//---- Load & Save Data Logic----
+	public void PopulateSaveData(SaveData saveData)
+	{
+		// Create a list of SavedSlots
+		List<SavedSlot> savedSlots = new List<SavedSlot>();
 
-        // Trigger event for BOTH slots involved in the swap
-        OnSlotUpdated?.Invoke(indexA);
-        OnSlotUpdated?.Invoke(indexB);
-    }
+		// Loops through inventory and adds any non-empty slots into the savedSlots array
+		for (int i = 0; i < itemsList.Length; i++)
+		{
+			if (itemsList[i] != null && itemsList[i].DataSo != null)
+			{
+				// Create SavedSlots passing slot index #, itemID, and stackSize
+				savedSlots.Add(new SavedSlot
+				{
+					index = i,
+					itemID = itemsList[i].DataSo.ItemID,
+					itemStackSize = itemsList[i].stackSize
+				});
+			}
+		}
 
-    public void DropItems(int index, Vector3 spawnPosition)
-    {
-        // Safety Check: Make sure the slot is not already empty
-        if (itemsList[index] == null) return;
-        
-        // 1. Get the item prefab
-        GameObject itemPrefab = itemsList[index].DataSo.ItemObject != null ? itemsList[index].DataSo.ItemObject : defaultItemObjectPrefab;
-        
-        // 2. Spawn the item
-        GameObject droppedItem = Instantiate(itemPrefab, spawnPosition,  Quaternion.identity );
-        
-        // 3. Pass the ItemData to the Item Object
-        if (droppedItem.TryGetComponent(out ItemObject itemObject))
-            itemObject.SetItemObject(itemsList[index]);
-        
-        // Clear the slot and notify the UI
-        itemsList[index] = null;
-        OnSlotUpdated?.Invoke(index);
-    }
-    
-    public void ChangeActiveSlot(int index)
-    {
-        ItemInstance selectedItem = itemsList[index];
-        
-        OnActiveSlotIndexChanged?.Invoke(index);
-    }
-    
-    //---- Load & Save Data Logic----
-    public void PopulateSaveData(SaveData saveData)
-    {
-        // Create a list of SavedSlots
-        List<SavedSlot> savedSlots = new List<SavedSlot>();
-        
-        // Loops through inventory and adds any non-empty slots into the savedSlots array
-        for (int i = 0; i < itemsList.Length; i++)
-        {
-            if (itemsList[i] != null && itemsList[i].DataSo != null)
-            {
-                // Create SavedSlots passing slot index #, itemID, and stackSize
-                savedSlots.Add(new SavedSlot
-                {
-                    index = i,
-                    itemID = itemsList[i].DataSo.ItemID,
-                    itemStackSize = itemsList[i].stackSize
-                });
-            }
-        }
-        
-        // Send the SavedSLots list to SaveData
-        saveData.SavedSlotList = savedSlots;
-    }
-    
-    public void LoadFromSaveData(SaveData saveData)
-    {
-        // Clear current inventory
-        InitializeInventory(); 
+		// Send the SavedSLots list to SaveData
+		saveData.SavedSlotList = savedSlots;
+	}
 
-        // Rebuild instances from the data inside the "box"
-        foreach (SavedSlot savedSlot in saveData.SavedSlotList)
-        {
-            // Safety check: ensure index is within bounds
-            if (savedSlot.index < 0 || savedSlot.index >= itemsList.Length) continue;
-        
-            // Convert the itemIDs from savedSlot into ItemData
-            ItemDataSo itemDataSo = itemDatabase.GetItem(savedSlot.itemID);
-        
-            if (itemDataSo == null)
-            {
-                Debug.LogWarning($"[Inventory] Could not find item with ID: {savedSlot.itemID} in database.");
-                continue;
-            }
-            
-            // Use the ItemData to add ItemInstances to the itemsList
-            itemsList[savedSlot.index] = new ItemInstance(itemDataSo, savedSlot.itemStackSize);
-        }
+	public void LoadFromSaveData(SaveData saveData)
+	{
+		// Clear current inventory
+		InitializeInventory();
 
-        // 3. Notify the UI to refresh ALL slots
-        for (int i = 0; i < itemsList.Length; i++)
-        {
-            OnSlotUpdated?.Invoke(i);
-        }
-    }
+		// Rebuild instances from the data inside the "box"
+		foreach (SavedSlot savedSlot in saveData.SavedSlotList)
+		{
+			// Safety check: ensure index is within bounds
+			if (savedSlot.index < 0 || savedSlot.index >= itemsList.Length) continue;
+
+			// Convert the itemIDs from savedSlot into ItemData
+			ItemDataSo itemDataSo = itemDatabase.GetItem(savedSlot.itemID);
+
+			if (itemDataSo == null)
+			{
+				Debug.LogWarning($"[Inventory] Could not find item with ID: {savedSlot.itemID} in database.");
+				continue;
+			}
+
+			// Use the ItemData to add ItemInstances to the itemsList
+			itemsList[savedSlot.index] = new ItemInstance(itemDataSo, savedSlot.itemStackSize);
+		}
+
+		// 3. Notify the UI to refresh ALL slots
+		for (int i = 0; i < itemsList.Length; i++)
+		{
+			OnSlotUpdated?.Invoke(i);
+		}
+	}
+
+	public event Action<int> OnSlotUpdated;
+	public event Action<ItemInstance> OnItemAddedToInventory;
+	public event Action<int> OnActiveSlotIndexChanged;
+
+	private void InitializeInventory()
+	{
+		itemsList = new ItemInstance[inventorySize];
+
+		// Initial active slot index 
+		OnActiveSlotIndexChanged?.Invoke(0);
+	}
+
+	public bool AddItems(ItemInstance item)
+	{
+		// Try to stack first if the item is stackable
+		if (item.DataSo.IsStackable == true)
+		{
+			for (int i = 0; i < itemsList.Length; i++)
+			{
+				// Skip empty slots and slots with different items
+				if (itemsList[i] == null || itemsList[i].DataSo != item.DataSo) continue;
+
+				int spaceLeft = itemsList[i].DataSo.MaxStackSize - itemsList[i].stackSize;
+
+				// Skip full slots
+				if (spaceLeft <= 0) continue;
+
+				// If whole new stack fits in current slot
+				if (item.stackSize <= spaceLeft)
+				{
+					int amountAdded = item.stackSize; // Cache the Amount added for quest update
+
+					itemsList[i].stackSize += item.stackSize;
+					OnSlotUpdated?.Invoke(i);
+					OnItemAddedToInventory?.Invoke(item);
+
+					EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, amountAdded);
+					return true;
+				}
+				// If partial new stack fits in current slow
+				else
+				{
+					itemsList[i].stackSize = itemsList[i].DataSo.MaxStackSize;
+					item.stackSize -= spaceLeft;
+					OnSlotUpdated?.Invoke(i);
+
+					EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, spaceLeft);
+					// Do not return true yet, code continues to find open slot for remainder
+				}
+			}
+		}
+
+		// If not stackable / No free stack available
+		for (int i = 0; i < itemsList.Length; i++)
+		{
+			if (itemsList[i] == null)
+			{
+				itemsList[i] = item; // Adds the item
+				OnSlotUpdated?.Invoke(i);
+				OnItemAddedToInventory?.Invoke(item);
+
+				EventBus.RequestUpdateQuestObjective(item.DataSo.ItemID, item.stackSize);
+				return true;
+			}
+		}
+
+		Debug.unityLogger.Log("Iventory is full");
+		return false; // If inventory is full
+	}
+
+	public void RemoveItems(int index)
+	{
+		if (index < 0 || index >= itemsList.Length) return;
+		ItemInstance item = itemsList[index];
+		item.stackSize--;
+		if (item.stackSize <= 0) itemsList[index] = null;
+
+		OnSlotUpdated?.Invoke(index);
+	}
+
+	public void SwapItems(int indexA, int indexB)
+	{
+		// Check if indexes are out of range of itemsList array
+		if (indexA < 0 || indexA >= itemsList.Length || indexB < 0 || indexB >= itemsList.Length) return;
+
+		// Swaps item from A and B using modern C# deconstruction
+		(itemsList[indexA], itemsList[indexB]) = (itemsList[indexB], itemsList[indexA]);
+
+		// Trigger event for BOTH slots involved in the swap
+		OnSlotUpdated?.Invoke(indexA);
+		OnSlotUpdated?.Invoke(indexB);
+	}
+
+	public void DropItems(int index, Vector3 spawnPosition)
+	{
+		// Safety Check: Make sure the slot is not already empty
+		if (itemsList[index] == null) return;
+
+		// 1. Get the item prefab
+		GameObject itemPrefab = itemsList[index].DataSo.ItemObject != null ? itemsList[index].DataSo.ItemObject : defaultItemObjectPrefab;
+
+		// 2. Spawn the item
+		GameObject droppedItem = Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
+
+		// 3. Pass the ItemData to the Item Object
+		if (droppedItem.TryGetComponent(out ItemObject itemObject))
+			itemObject.SetItemObject(itemsList[index]);
+
+		// Clear the slot and notify the UI
+		itemsList[index] = null;
+		OnSlotUpdated?.Invoke(index);
+	}
+
+	public void ChangeActiveSlot(int index)
+	{
+		ItemInstance selectedItem = itemsList[index];
+
+		OnActiveSlotIndexChanged?.Invoke(index);
+	}
+
+	/// <summary>
+	/// Force refresh a specific slot in the UI.
+	/// Useful for when external scripts modify the inventory directly.
+	/// </summary>
+	public void ForceRefreshSlot(int index) => OnSlotUpdated?.Invoke(index);
 }

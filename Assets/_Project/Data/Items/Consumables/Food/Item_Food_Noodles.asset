@@ -24,6 +24,8 @@ MonoBehaviour:
   <IsSellable>k__BackingField: 1
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
+  ItemProperties:
+  - rid: 5430880807968309330
   <IsUsable>k__BackingField: 1
   effects:
   - rid: 3505743419375091792
@@ -34,3 +36,7 @@ MonoBehaviour:
       type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
       data:
         <HpHealBase>k__BackingField: 5
+    - rid: 5430880807968309330
+      type: {class: ItemPropertyFood, ns: , asm: Assembly-CSharp}
+      data:
+        <SustenanceValue>k__BackingField: 10

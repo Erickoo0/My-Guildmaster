@@ -24,7 +24,8 @@ MonoBehaviour:
   <ItemValue>k__BackingField: 0
   <IsSellable>k__BackingField: 0
   <IsStackable>k__BackingField: 0
-  <MaxStackSize>k__BackingField: 99
+  <MaxStackSize>k__BackingField: 1
+  ItemProperties: []
   <IsUsable>k__BackingField: 0
   effects: []
   references:

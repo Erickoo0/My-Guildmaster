@@ -65,4 +65,11 @@ public static class EventBus
 //-------------------------Worker/Sustenance Events-------------------------
 	public static event Action<int> OnTotalSustenanceChanged;
 	public static void RequestTotalSustenanceChanged(int newTotal) => OnTotalSustenanceChanged?.Invoke(newTotal);
+
+//-------------------------Crafting Events-------------------------
+	public static event Action<ItemDataSo> OnCraftItemRequested;
+	public static void RequestCraftItem(ItemDataSo itemToCraft) => OnCraftItemRequested?.Invoke(itemToCraft);
+
+	public static event Action<ItemDataSo> OnRecipeUnlocked;
+	public static void RequestRecipeUnlocked(ItemDataSo unlockedItem) => OnRecipeUnlocked?.Invoke(unlockedItem);
 }
