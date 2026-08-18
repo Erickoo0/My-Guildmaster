@@ -53,7 +53,7 @@ public class CraftingManager : MonoBehaviour
 		Debug.Log($"CraftingManager: Crafted {itemToCraft.ItemName}!");
 	}
 
-	private bool HasResources(ItemPropertyCraftingRecipe recipe)
+	public bool HasResources(ItemPropertyCraftingRecipe recipe)
 	{
 		foreach (ItemPropertyCraftingRecipe.ResourceRequirement requiredResource in recipe.RequiredResourcesList)
 		{
