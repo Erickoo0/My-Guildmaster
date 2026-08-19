@@ -4,14 +4,15 @@ using UnityEngine.UI;
 public class ItemRecipeUI : MonoBehaviour
 {
 	[Header("References")]
-	[SerializeField] private Image icon;
+	[SerializeField] private Image itemIcon;
 	[SerializeField] private TextMeshProUGUI itemName;
-	//[SerializeField] private TextMeshProUGUI description;
-	[SerializeField] private TextMeshProUGUI requiredResources;
 	[SerializeField] private Button craftButton;
 
 	private ItemDataSo _recipeData;
 	private ItemPropertyCraftingRecipe _recipeProperty;
+
+	public string TooltipTitle { get; set; }
+	public string TooltipDescription { get; set; }
 
 	public void Setup(ItemDataSo recipeData)
 	{
@@ -21,17 +22,10 @@ public class ItemRecipeUI : MonoBehaviour
 		if (recipeData.TryGetProperty<ItemPropertyCraftingRecipe>(out _recipeProperty))
 		{
 			// 2. Set the visuals
-			icon.sprite = recipeData.ItemIcon[0]; // Just use the first frame for now
+			itemIcon.sprite = recipeData.ItemIcon[0]; // Just use the first frame for now
 			itemName.text = recipeData.ItemName;
-			//description.text = recipeData.ItemDescription;
 
-			// 3. Build the required resources text
-			string requirementText = "";
-			foreach (ItemPropertyCraftingRecipe.ResourceRequirement requirement in _recipeProperty.RequiredResourcesList)
-				requirementText += ($"{requirement.Amount} x {requirement.ItemDataSo.ItemName}\n");
-			requiredResources.text = requirementText;
-
-			// 4. Hook the button click
+			// 3. Hook the button click
 			craftButton.onClick.RemoveAllListeners();
 			craftButton.onClick.AddListener(OnCraftButtonClicked);
 		}
@@ -49,8 +43,26 @@ public class ItemRecipeUI : MonoBehaviour
 		// 2. Turn the button off if we dont have enough resources
 		craftButton.interactable = canCraft;
 
-		// 3. Make the text red if we don't have enough resources
-		requiredResources.color = canCraft ? Color.white : Color.red;
+		// 3. Build the description
+		TooltipTitle = _recipeData.ItemName;
+		string resourceText = _recipeData.ItemDescription + "\n\n<b>Required Materials:</b>\n";
+
+		// 4. Loop through the required resources and count how many we have in our inventory
+		foreach (ItemPropertyCraftingRecipe.ResourceRequirement requirement in _recipeProperty.RequiredResourcesList)
+		{
+			int totalFound = 0;
+			foreach (ItemInstance item in InventoryManager.Instance.itemsList)
+				if (item != null && item.DataSo == requirement.ItemDataSo)
+					totalFound += item.stackSize;
+
+			// 5. Change resource color based on if we have enough
+			string colorTag = totalFound >= requirement.Amount ? "<color=#ffffff>" : "<color=#ff4444>";
+
+			// 6. Format the required resource
+			resourceText += $"{colorTag}{requirement.Amount} x {requirement.ItemDataSo.ItemName} ({totalFound}/{requirement.Amount})</color>\n";
+		}
+
+		TooltipDescription = resourceText;
 	}
 
 	private void OnCraftButtonClicked() => EventBus.RequestCraftItem(_recipeData);
