@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
-  m_Name: Item_Object_Chest
+  m_Name: Item_Object_Chest_Iron
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Object_Chest
-  <ItemName>k__BackingField: Chest
-  <ItemDescription>k__BackingField: Holds items
+  <ItemID>k__BackingField: Item_Object_Chest_Iron
+  <ItemName>k__BackingField: Iron Chest
+  <ItemDescription>k__BackingField: Holds double the amount of items as a normal
+    chest
   <Category>k__BackingField: 9
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
@@ -26,7 +27,6 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 1
   ItemProperties:
   - rid: 5430880820317126732
-  - rid: 5430880921329074254
   <IsUsable>k__BackingField: 0
   effects: []
   references:
@@ -36,13 +36,8 @@ MonoBehaviour:
       type: {class: ItemPropertyCraftingRecipe, ns: , asm: Assembly-CSharp}
       data:
         <RequiredResourcesList>k__BackingField:
-        - ItemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
-          Amount: 5
+        - ItemDataSo: {fileID: 11400000, guid: 81b1e4aafc8c58044a8f30e19d81b653, type: 2}
+          Amount: 1
+        - ItemDataSo: {fileID: 11400000, guid: fd72d135c72352e40b88c194a3bfa746, type: 2}
+          Amount: 2
         <CraftingTime>k__BackingField: 5
-    - rid: 5430880921329074254
-      type: {class: ItemPropertyPlaceable, ns: , asm: Assembly-CSharp}
-      data:
-        <PlaceablePrefab>k__BackingField: {fileID: 2526534163712246818, guid: 4eaa7343dd8fe6042bb2d925791dea65, type: 3}
-        <SnapToGrid>k__BackingField: 1
-        <AutoCalculateSize>k__BackingField: 1
-        <ManualGridSize>k__BackingField: {x: 1, y: 1}

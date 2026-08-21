@@ -8,6 +8,8 @@ public static class EventBus
 	//-----------------------Dialogue Events--------------------------
 	//Signals when a dialogue option is selected that has an action
 	public static Action<string, object> OnDialogueEventRequested;
+
+
 	//-----------------------Time Events--------------------------
 	public static event EventHandler<TimeSpan> OnWorldTimeChanged;
 	public static void RequestUpdateWorldTime(object sender, TimeSpan time) => OnWorldTimeChanged?.Invoke(sender, time);

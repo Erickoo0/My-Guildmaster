@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 3287775817628734664, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8213334933265063372, guid: e74a92725c934554f86a6492ea7a86ef, type: 3}
+      objectReference: {fileID: 8213334933265063372, guid: 5cfe85d9c8f16754387a0ae136c8d384, type: 3}
     - target: {fileID: 3287775817628734664, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 3434556320021768032, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: containerOpenedSprite
       value: 
-      objectReference: {fileID: -562807627, guid: e74a92725c934554f86a6492ea7a86ef, type: 3}
+      objectReference: {fileID: -562807627, guid: 5cfe85d9c8f16754387a0ae136c8d384, type: 3}
     - target: {fileID: 3434556320021768032, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: containerContents.Array.data[0].itemDataSo
       value: 

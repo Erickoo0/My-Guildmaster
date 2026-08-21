@@ -10,39 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
-  m_Name: Item_Object_Chest
+  m_Name: Item_Object_ResearchTable
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Object_Chest
-  <ItemName>k__BackingField: Chest
-  <ItemDescription>k__BackingField: Holds items
+  <ItemID>k__BackingField: Item_Object_ResearchTable
+  <ItemName>k__BackingField: Research Table
+  <ItemDescription>k__BackingField: A table for researching many different things
   <Category>k__BackingField: 9
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
-  - {fileID: 8213334933265063372, guid: 5cfe85d9c8f16754387a0ae136c8d384, type: 3}
+  - {fileID: 6758382566903366226, guid: 77acd075d006dcf46adff795295c5534, type: 3}
   <ItemObject>k__BackingField: {fileID: 0}
-  <ItemValue>k__BackingField: 10
+  <ItemValue>k__BackingField: 15
   <IsSellable>k__BackingField: 1
   <IsStackable>k__BackingField: 0
-  <MaxStackSize>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
   ItemProperties:
-  - rid: 5430880820317126732
-  - rid: 5430880921329074254
+  - rid: 5430880911132983372
   <IsUsable>k__BackingField: 0
   effects: []
   references:
     version: 2
     RefIds:
-    - rid: 5430880820317126732
+    - rid: 5430880911132983372
       type: {class: ItemPropertyCraftingRecipe, ns: , asm: Assembly-CSharp}
       data:
         <RequiredResourcesList>k__BackingField:
         - ItemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
-          Amount: 5
+          Amount: 20
+        - ItemDataSo: {fileID: 11400000, guid: d5dd849ca2352534da9a7572563dfdc5, type: 2}
+          Amount: 20
+        - ItemDataSo: {fileID: 11400000, guid: fd72d135c72352e40b88c194a3bfa746, type: 2}
+          Amount: 2
         <CraftingTime>k__BackingField: 5
-    - rid: 5430880921329074254
-      type: {class: ItemPropertyPlaceable, ns: , asm: Assembly-CSharp}
-      data:
-        <PlaceablePrefab>k__BackingField: {fileID: 2526534163712246818, guid: 4eaa7343dd8fe6042bb2d925791dea65, type: 3}
-        <SnapToGrid>k__BackingField: 1
-        <AutoCalculateSize>k__BackingField: 1
-        <ManualGridSize>k__BackingField: {x: 1, y: 1}
