@@ -53,15 +53,18 @@ public class PlacementManager : MonoBehaviour
 			placementPosition = SnapToGrid(placementPosition);
 
 		// 3. Move ghost to position
-		_ghostRenderer.transform.position = placementPosition;
-		_cellHighlightRenderer.transform.position = placementPosition;
+		// The item's bottom rests on the bottom line of the cell (-0.5f units down)
+		Vector3 objectPosition = placementPosition + new Vector3(0f, -0.5f, 0f);
+		Vector2Int calculatedSize = placeableProperty.GetGridSize(_activeItem.DataSo.ItemIcon[0]);
+		Vector3 centerBoxPosition = objectPosition + new Vector3(0f, calculatedSize.y*0.5f, 0f);
+		_ghostRenderer.transform.position = objectPosition;
+		_cellHighlightRenderer.transform.position = centerBoxPosition;
 
 		// 4. Determine if placement is valid 
 		bool isCorrectLocation = LocationManager.Instance.CurrentLocation == GameLocation.Player_Guild;
 		bool isNotHoveringUI = !EventSystem.current.IsPointerOverGameObject();
 
 		// 5. Check if anything physical is blocking the tile
-		Vector2Int calculatedSize = placeableProperty.GetGridSize(_activeItem.DataSo.ItemIcon[0]);
 		Vector2 physicsBoxSize = new Vector2(calculatedSize.x - 0.1f, calculatedSize.y - 0.1f);
 		Collider2D obstacle = Physics2D.OverlapBox(placementPosition, physicsBoxSize, 0f, _obstacleLayers);
 		bool isSpaceClear = obstacle == null;

@@ -20,13 +20,14 @@ public class ItemPropertyPlaceable : ItemPropertyBase
 	{
 		if (AutoCalculateSize && itemSprite != null)
 		{
-			// Gets the exact width and height in Unity world units based on your sprite's PPU
-			int autoWidth = Mathf.Max(1, Mathf.RoundToInt(itemSprite.bounds.size.x));
-			int autoHeight = Mathf.Max(1, Mathf.RoundToInt(itemSprite.bounds.size.y));
+			// Use CeilToInt so a 1.2 unit sprite safely rounds up to 2 grid cells
+			int autoWidth = Mathf.Max(1, Mathf.CeilToInt(itemSprite.bounds.size.x));
+			int autoHeight = Mathf.Max(1, Mathf.CeilToInt(itemSprite.bounds.size.y));
 
 			return new Vector2Int(autoWidth, autoHeight);
 		}
 
-		return ManualGridSize;
+		// Enforce a strict minimum of 1x1 if the user forgets and leaves Manual Size at 0x0
+		return new Vector2Int(Mathf.Max(1, ManualGridSize.x), Mathf.Max(1, ManualGridSize.y));
 	}
 }
