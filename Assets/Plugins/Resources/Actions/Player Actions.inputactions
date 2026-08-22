@@ -194,6 +194,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Drop Items",
+                    "type": "Button",
+                    "id": "43f5a0cc-3316-4ef2-8bcb-d7637230181c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -953,6 +962,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Crafting Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35c18bba-4b57-4f7f-b18a-686f551997a3",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drop Items",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

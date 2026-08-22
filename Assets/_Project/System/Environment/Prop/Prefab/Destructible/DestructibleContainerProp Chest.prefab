@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2200214729168138336, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.67124
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2200214729168138336, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.08325
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2200214729168138336, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65,6 +65,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8213334933265063372, guid: 5cfe85d9c8f16754387a0ae136c8d384, type: 3}
     - target: {fileID: 3287775817628734664, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287775817628734664, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -89,20 +93,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287430235680257324, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
+      propertyPath: m_PreviousTrimEdge
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287430235680257324, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: -0.003112793
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287430235680257324, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: 0.24088287
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287430235680257324, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 0.44091797
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8287430235680257324, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 0.24092865
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8636486429000994975, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_Size.x

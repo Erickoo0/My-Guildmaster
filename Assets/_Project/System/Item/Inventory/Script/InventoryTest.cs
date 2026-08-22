@@ -1,41 +1,38 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class InventoryTest : MonoBehaviour
 {
-    [Header("Input Settings")]
-    [Tooltip("Bind the key or button you want to use to spawn items.")]
-    public InputAction addItemHotkey;
-    
-    private GameObject _player;
+	[Header("Test Items")]
+	[SerializeField] private List<ItemDataSo> _testItemsList = new List<ItemDataSo>();
 
-    private void OnEnable() => addItemHotkey.Enable();
-    private void OnDisable() => addItemHotkey.Disable();
-    
-    private void Start() => _player = GameObject.FindGameObjectWithTag("Player");
-    
-    void Update()
-    {
-        // 1. Wait for hotkey press
-        if (!addItemHotkey.WasPressedThisFrame()) return;
-        
-        // 2. Grab the database directly Inventory Manager
-        ItemDatabase db = InventoryManager.Instance.itemDatabase;
-        if (db == null || db.allItems.Count == 0) return;
+	private GameObject _player;
 
-        // 3. Pick a random item and create the data
-        ItemDataSo randomItemDataSo = db.allItems[Random.Range(0, db.allItems.Count)];
-        int randomAmount = randomItemDataSo.IsStackable ? Random.Range(1, 6) : 1;
-        ItemInstance newItemInstance = new ItemInstance(randomItemDataSo, randomAmount);
-        GameObject itemPrefab = newItemInstance.DataSo.ItemObject != null ? newItemInstance.DataSo.ItemObject : InventoryManager.Instance.defaultItemObjectPrefab;
-        
-        // 4. Spawn and Initialize the item
-        GameObject droppedItemObj = Instantiate(itemPrefab, _player.transform.position, Quaternion.identity);
-        if (droppedItemObj.TryGetComponent(out ItemObject itemObject))
-        {
-            itemObject.SetItemObject(newItemInstance);
-            Debug.unityLogger.Log($"Spawned {randomAmount}x {randomItemDataSo.ItemName} in the world!");
-        }
+	private void Start() => _player = GameObject.FindGameObjectWithTag("Player");
 
-    }
+	public void SpawnTestItem(InputAction.CallbackContext ContextMenu)
+	{
+		// Safety Checks
+		if (!ContextMenu.performed)
+			return;
+
+		if (_testItemsList == null || _testItemsList.Count == 0 || _player == null)
+			return;
+
+		// 1. Pick a random item from the list
+		ItemDataSo selectedItem = _testItemsList[Random.Range(0, _testItemsList.Count)];
+
+		// 2. Create the data
+		ItemInstance newItemInstance = new ItemInstance(selectedItem, 1);
+
+		// 3. Get the prefab
+		GameObject newItemPrefab = selectedItem.ItemObject != null ? selectedItem.ItemObject : InventoryManager.Instance.defaultItemObjectPrefab;
+
+		// 4. Spawn the item
+		GameObject newItemObject = Instantiate(newItemPrefab, _player.transform.position, Quaternion.identity);
+		if (newItemObject.TryGetComponent(out ItemObject itemObject))
+			itemObject.SetItemObject(newItemInstance);
+
+
+	}
 }

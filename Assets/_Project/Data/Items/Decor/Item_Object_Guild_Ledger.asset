@@ -16,7 +16,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: Guild Ledger
   <ItemDescription>k__BackingField: A book for recording transactions, balance sheets,
     and other logistics
-  <Category>k__BackingField: 10
+  <Category>k__BackingField: 8
   <Rarity>k__BackingField: 1
   <ItemIcon>k__BackingField:
   - {fileID: 2353571312451627304, guid: 4708463abe705c44a83c0833a85dd3ba, type: 3}

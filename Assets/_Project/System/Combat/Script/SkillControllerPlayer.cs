@@ -44,6 +44,10 @@ public class SkillControllerPlayer : SkillControllerBase
 		// Safety Check
 		if (SkillSlots == null || skillKeyIndex < 0 || skillKeyIndex >= SkillSlots.Count || SkillSlots[skillKeyIndex] == null) return;
 
+		// Check if in prop place mode
+		if (PlacementManager.Instance.IsPlacementMode)
+			return;
+
 		// 1. Track key input state 
 		if (context.started || context.performed) _skillKeyHeld[skillKeyIndex] = true;
 		else if (context.canceled) _skillKeyHeld[skillKeyIndex] = false;

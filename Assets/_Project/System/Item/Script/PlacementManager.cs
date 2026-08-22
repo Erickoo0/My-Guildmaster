@@ -11,14 +11,20 @@ public class PlacementManager : MonoBehaviour
 	[SerializeField] private Grid _worldGrid;
 	[SerializeField] private SpriteRenderer _ghostRenderer;
 	[SerializeField] private SpriteRenderer _cellHighlightRenderer;
+	[SerializeField] private Transform _propContainer;
 
+	[Header("Rules")]
 	[SerializeField] private LayerMask _obstacleLayers;
 
 	private ItemInstance _activeItem;
 	private int _activeSlotIndex;
+	private Vector2Int _currentCellSize;
 	private Camera _mainCamera;
 	public static PlacementManager Instance { get; private set; }
 
+	// Checks if the currently active item is placeable 
+	// Used for external input validation.
+	public bool IsPlacementMode => _activeItem != null && _activeItem.DataSo.TryGetProperty<ItemPropertyPlaceable>(out ItemPropertyPlaceable placeableProperty);
 
 	private void Awake()
 	{
@@ -42,42 +48,33 @@ public class PlacementManager : MonoBehaviour
 		if (!_ghostRenderer.enabled)
 			return;
 
-		// 1. EXTRACT PROPERTY FIRST (This fixes the compiler error!)
+		// 1. Check for property
 		if (!_activeItem.DataSo.TryGetProperty<ItemPropertyPlaceable>(out ItemPropertyPlaceable placeableProperty))
 			return;
 
-		// 2. Get the snapped world position
+		// 2. Calculate positions
 		Vector3 placementPosition = GetMouseWorldPosition();
-
 		if (placeableProperty.SnapToGrid)
 			placementPosition = SnapToGrid(placementPosition);
 
-		// 3. Move ghost to position
-		// The item's bottom rests on the bottom line of the cell (-0.5f units down)
 		Vector3 objectPosition = placementPosition + new Vector3(0f, -0.5f, 0f);
-		Vector2Int calculatedSize = placeableProperty.GetGridSize(_activeItem.DataSo.ItemIcon[0]);
-		Vector3 centerBoxPosition = objectPosition + new Vector3(0f, calculatedSize.y*0.5f, 0f);
+		Vector3 centerBoxPosition = objectPosition + new Vector3(0f, _currentCellSize.y*0.5f, 0f);
+
+		// 3. Move visuals
 		_ghostRenderer.transform.position = objectPosition;
 		_cellHighlightRenderer.transform.position = centerBoxPosition;
 
-		// 4. Determine if placement is valid 
-		bool isCorrectLocation = LocationManager.Instance.CurrentLocation == GameLocation.Player_Guild;
-		bool isNotHoveringUI = !EventSystem.current.IsPointerOverGameObject();
+		// 4. Check if placement is valid 
+		bool isValid = IsPlacementValid(centerBoxPosition);
 
-		// 5. Check if anything physical is blocking the tile
-		Vector2 physicsBoxSize = new Vector2(calculatedSize.x - 0.1f, calculatedSize.y - 0.1f);
-		Collider2D obstacle = Physics2D.OverlapBox(placementPosition, physicsBoxSize, 0f, _obstacleLayers);
-		bool isSpaceClear = obstacle == null;
 
-		bool isValid = isCorrectLocation && isNotHoveringUI && isSpaceClear;
-
-		// 6. Tint the ghost based on validity
+		// 5. Tint the ghost based on validity
 		_ghostRenderer.color = isValid ? new Color(1f, 1f, 1f, 0.7f) : new Color(1f, 1f, 1f, 0.3f);
 		_cellHighlightRenderer.color = isValid ? new Color(0f, 1f, 0f, 0.4f) : new Color(1f, 0f, 0f, 0.4f);
 
-		// 7. Detect click to place item
+		// 6. Detect click to place item
 		if (isValid && Mouse.current.leftButton.wasPressedThisFrame)
-			PlaceItem(placeableProperty, placementPosition);
+			PlaceItem(placeableProperty, objectPosition);
 	}
 
 	private void OnDestroy()
@@ -108,15 +105,33 @@ public class PlacementManager : MonoBehaviour
 		{
 			_ghostRenderer.sprite = _activeItem.DataSo.ItemIcon[0];
 			_ghostRenderer.enabled = true;
+			_currentCellSize = placeableProperty.GetGridSize(_activeItem.DataSo.ItemIcon[0]);
 
 			if (placeableProperty.SnapToGrid)
 			{
 				_cellHighlightRenderer.enabled = true;
-				Vector2Int calculatedSize = placeableProperty.GetGridSize(_activeItem.DataSo.ItemIcon[0]);
-				_cellHighlightRenderer.transform.localScale = new Vector3(calculatedSize.x, calculatedSize.y, 1f);
+				_cellHighlightRenderer.transform.localScale = new Vector3(_currentCellSize.x, _currentCellSize.y, 1f);
 			}
-
 		}
+	}
+
+	private bool IsPlacementValid(Vector3 placementPosition)
+	{
+		if (LocationManager.Instance.CurrentLocation != GameLocation.Player_Guild)
+			return false;
+
+		if (EventSystem.current.IsPointerOverGameObject())
+			return false;
+
+		// Calculate collision box
+		Vector2 collisionBoxSize = new Vector2(_currentCellSize.x - 0.1f, _currentCellSize.y - 0.1f);
+		// Safety net to ensure the physics box never becomes 0 or negative
+		collisionBoxSize.x = Mathf.Max(0.1f, collisionBoxSize.x);
+		collisionBoxSize.y = Mathf.Max(0.1f, collisionBoxSize.y);
+
+		Collider2D obstacle = Physics2D.OverlapBox(placementPosition, collisionBoxSize, 0f, _obstacleLayers);
+
+		return obstacle == null;
 	}
 
 	private Vector3 GetMouseWorldPosition()
