@@ -4905,8 +4905,13 @@ GameObject:
   - component: {fileID: 5060279245126275751}
   - component: {fileID: 6605508725099801630}
   - component: {fileID: 3110344450300513188}
+  - component: {fileID: -381780865708630060}
   - component: {fileID: 4084164577867588583}
   - component: {fileID: -979104430650336638}
+  - component: {fileID: -1887655213433392115}
+  - component: {fileID: 1046750427623836470}
+  - component: {fileID: -2613125532901979132}
+  - component: {fileID: 6932392842538900986}
   m_Layer: 3
   m_Name: Tree3
   m_TagString: Untagged
@@ -5035,6 +5040,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7061486, y: 0.7502664}
   m_EdgeRadius: 0
+--- !u!50 &-381780865708630060
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990019722237308294}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &4084164577867588583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5103,3 +5135,68 @@ MonoBehaviour:
   animationData: {fileID: 11400000, guid: aea88f59cbbd5c642a991a19260dc7ea, type: 2}
   minIdleTime: 2
   maxIdleTime: 10
+--- !u!114 &-1887655213433392115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990019722237308294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b738caa94a6360641b76c8902eb4eb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  hpBase: 100
+  hpPerLvl: 10
+  HpMax: 0
+  entityRoot: {fileID: 0}
+  destroyOnDeath: 1
+--- !u!114 &1046750427623836470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990019722237308294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d0bacc308dc0443abfddf1b3c8e0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HurtBox
+  _health: {fileID: 0}
+--- !u!114 &-2613125532901979132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990019722237308294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf83ac40b649302438b58a83cb9cb65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UniqueIdentifier
+  id: e83667ed-e0ae-48af-9d51-a0d71ed6b6de
+--- !u!114 &6932392842538900986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990019722237308294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73248bb41aed5034386e27eb7f437214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
+  containerOpenedSprite: {fileID: 0}
+  interactable: 0
+  containerContents:
+  - itemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    dropAmount: 1
+  - itemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    dropAmount: 1
+  spreadRadius: 0.5

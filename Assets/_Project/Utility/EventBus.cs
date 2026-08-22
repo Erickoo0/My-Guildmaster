@@ -8,6 +8,8 @@ public static class EventBus
 	//-----------------------Dialogue Events--------------------------
 	//Signals when a dialogue option is selected that has an action
 	public static Action<string, object> OnDialogueEventRequested;
+
+
 	//-----------------------Time Events--------------------------
 	public static event EventHandler<TimeSpan> OnWorldTimeChanged;
 	public static void RequestUpdateWorldTime(object sender, TimeSpan time) => OnWorldTimeChanged?.Invoke(sender, time);
@@ -61,4 +63,15 @@ public static class EventBus
 	//-------------------------Hit Impact Events-------------------------
 	public static event Action<float, Vector3> OnHitImpactRequested;
 	public static void RequestHitImpact(float hitImpact, Vector3 position) => OnHitImpactRequested?.Invoke(hitImpact, position);
+
+//-------------------------Worker/Sustenance Events-------------------------
+	public static event Action<int> OnTotalSustenanceChanged;
+	public static void RequestTotalSustenanceChanged(int newTotal) => OnTotalSustenanceChanged?.Invoke(newTotal);
+
+//-------------------------Crafting Events-------------------------
+	public static event Action<ItemDataSo> OnCraftItemRequested;
+	public static void RequestCraftItem(ItemDataSo itemToCraft) => OnCraftItemRequested?.Invoke(itemToCraft);
+
+	public static event Action<ItemDataSo> OnRecipeUnlocked;
+	public static void RequestRecipeUnlocked(ItemDataSo unlockedItem) => OnRecipeUnlocked?.Invoke(unlockedItem);
 }

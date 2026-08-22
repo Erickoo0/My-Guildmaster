@@ -115,6 +115,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Crafting Menu",
+                    "type": "Button",
+                    "id": "d8ce9900-4ed1-46ba-969e-a5b5c74f6f89",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Hotbar",
                     "type": "PassThrough",
                     "id": "568776de-6778-4398-817d-ddfba50005a0",
@@ -181,6 +190,15 @@
                     "name": "AttackRMB",
                     "type": "Button",
                     "id": "e7d72189-587a-40b6-a78d-615ff027482d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Drop Items",
+                    "type": "Button",
+                    "id": "43f5a0cc-3316-4ef2-8bcb-d7637230181c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -935,6 +953,28 @@
                     "action": "Skill Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b47979b1-4cde-413b-bb90-cf1141acc5ab",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crafting Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35c18bba-4b57-4f7f-b18a-686f551997a3",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drop Items",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1072,6 +1112,15 @@
                     "name": "Skill Menu",
                     "type": "Button",
                     "id": "2fe6f0e1-9c45-4967-97e0-8f9400fb6d0e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Crafting Menu",
+                    "type": "Button",
+                    "id": "56394921-49f9-45de-bfd9-9e5c19bcab5e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1307,6 +1356,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Skill Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0aabc9f-bbc6-40e1-904c-a8c933baf7e9",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crafting Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

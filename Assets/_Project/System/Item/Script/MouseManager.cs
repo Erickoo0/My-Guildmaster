@@ -23,17 +23,19 @@ public class MouseManager : MonoBehaviour
 	[SerializeField] private TMP_Text tooltipName;
 	[SerializeField] private TMP_Text tooltipDescription;
 	[SerializeField] private Vector2 tooltipOffset = new Vector2(100f, 50f);
+	[SerializeField] private Vector2 recipeTooltipOffset = new Vector2(400f, -200f);
 	private readonly List<RaycastResult> _raycastResults = new List<RaycastResult>();
 	private Vector2 _currentMousePosition;
 
 	// Raycast Variables
 	private PointerEventData _eventData;
+	private ItemRecipeUI _hoveredRecipe;
+
+	// Cached References
 	private SkillNodeUI _hoveredSkillNode;
-
-	// Cached Hover States
 	private IStorageSlot _hoveredSlot;
-
 	private IStorageSlot _sourceSlot;
+
 	public static MouseManager Instance { get; private set; }
 
 	private void Awake()
@@ -77,6 +79,7 @@ public class MouseManager : MonoBehaviour
 		// Reset cached hover states
 		_hoveredSlot = null;
 		_hoveredSkillNode = null;
+		_hoveredRecipe = null;
 
 		_eventData.position = _currentMousePosition;
 		_raycastResults.Clear();
@@ -93,8 +96,11 @@ public class MouseManager : MonoBehaviour
 			if (_hoveredSkillNode == null)
 				_hoveredSkillNode = result.gameObject.GetComponentInParent<SkillNodeUI>();
 
+			if (_hoveredRecipe == null)
+				_hoveredRecipe = result.gameObject.GetComponentInParent<ItemRecipeUI>();
+
 			// If we found a valid target, stop checking
-			if (_hoveredSlot != null || _hoveredSkillNode != null)
+			if (_hoveredSlot != null || _hoveredSkillNode != null || _hoveredRecipe != null)
 				break;
 		}
 	}
@@ -111,18 +117,22 @@ public class MouseManager : MonoBehaviour
 		// 1. If hovering an Inventory Slot
 		if (_hoveredSlot != null && _hoveredSlot.itemInstance != null && _hoveredSlot.itemInstance.DataSo != null)
 		{
-			string title = _hoveredSlot.itemInstance.DataSo.ItemName;
-			string description = _hoveredSlot.itemInstance.DataSo.ItemDescription;
-			DisplayTooltip(title, description);
+			DisplayTooltip(_hoveredSlot.itemInstance.DataSo.ItemName, _hoveredSlot.itemInstance.DataSo.ItemDescription);
 			return;
 		}
 
 		// 2. If hovering a Skill Node
 		if (_hoveredSkillNode != null)
 		{
-			string title = _hoveredSkillNode.TooltipTitle;
-			string description = _hoveredSkillNode.TooltipDescription;
-			DisplayTooltip(title, description);
+			DisplayTooltip(_hoveredSkillNode.TooltipTitle, _hoveredSkillNode.TooltipDescription);
+			return;
+		}
+
+		// 3. If hovering an Item Recipe
+		if (_hoveredRecipe != null)
+		{
+			Vector2 recipePosition = (Vector2)_hoveredRecipe.transform.position + recipeTooltipOffset;
+			DisplayTooltip(_hoveredRecipe.TooltipTitle, _hoveredRecipe.TooltipDescription, recipePosition);
 			return;
 		}
 
@@ -132,11 +142,20 @@ public class MouseManager : MonoBehaviour
 	/// <summary>
 	/// Reusable helper to format and position the tooltip panel
 	/// </summary>
-	private void DisplayTooltip(string title, string description)
+	private void DisplayTooltip(string title, string description, Vector2? overridePosition = null)
 	{
 		tooltipName.text = title;
 		tooltipDescription.text = description;
-		tooltipPanel.transform.position = _currentMousePosition + tooltipOffset;
+
+		// Check for position override
+		if (overridePosition.HasValue)
+		{
+			tooltipPanel.transform.position = overridePosition.Value;
+		} else
+		{
+			tooltipPanel.transform.position = _currentMousePosition + tooltipOffset;
+		}
+
 		tooltipPanel.transform.SetAsLastSibling();
 		ToggleTooltip(true);
 	}

@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock 6 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5294869944664958889, guid: 9a81d0c07e6678d43ac1cfa86c84794b, type: 3}
+      propertyPath: id
+      value: 1d20b18f-ad1b-4fcb-835a-4fcd7f903e12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
