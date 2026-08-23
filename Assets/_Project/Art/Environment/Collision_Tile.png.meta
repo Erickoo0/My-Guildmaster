@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1c1369c274406a44b955842050c641e3
+guid: f96e006240fb41644a49e56ed01ef067
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1575340156208075740
-    second: Spellharbor_0
+      213: -2463536511051625661
+    second: Collision_Tile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spellharbor_0
+      name: Collision_Tile_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2016
-        height: 2016
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42c2fc47974432ae0800000000000000
-      internalID: -1575340156208075740
+      spriteID: 34b00977892cfcdd0800000000000000
+      internalID: -2463536511051625661
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0e54d7a193c23a5469c297dcb885af4a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Spellharbor_0: -1575340156208075740
+      Collision_Tile_0: -2463536511051625661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
