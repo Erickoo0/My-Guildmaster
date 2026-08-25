@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 4102015536192348817}
     - target: {fileID: 2351277226227970697, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_ShadowMesh.m_InitialTrim
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2351277226227970697, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_PreviousShadowCastingSource
@@ -114,11 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -317
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -45.87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_LocalPosition.z
