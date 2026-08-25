@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1977421728148663022}
   - component: {fileID: 1091628250634902094}
   - component: {fileID: 3798661233241310042}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf83ac40b649302438b58a83cb9cb65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UniqueIdentifier
-  id: 8e270f47-e0f2-49af-9e15-8e1ce10176b0
+  id: 8438c8d6-6e6b-4f4f-9064-1e644b8be96a
 --- !u!114 &3798661233241310042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 5165380693226000899}
   - component: {fileID: 7901089186239961316}
   - component: {fileID: 8350230944019225400}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Leafs
   m_TagString: Untagged
   m_Icon: {fileID: 0}

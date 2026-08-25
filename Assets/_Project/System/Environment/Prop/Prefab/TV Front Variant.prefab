@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3804619002451456342, guid: 718db56f8b3ebe84a8e13d0b9e2aa789, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.58899
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3804619002451456342, guid: 718db56f8b3ebe84a8e13d0b9e2aa789, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.82495
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3804619002451456342, guid: 718db56f8b3ebe84a8e13d0b9e2aa789, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57,6 +57,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6433073847699403802, guid: 718db56f8b3ebe84a8e13d0b9e2aa789, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
+      value: -0.032958984
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433073847699403802, guid: 718db56f8b3ebe84a8e13d0b9e2aa789, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
       value: 0.83706665
       objectReference: {fileID: 0}
@@ -86,11 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746099593724940713, guid: 718db56f8b3ebe84a8e13d0b9e2aa789, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.49833223
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6746099593724940713, guid: 718db56f8b3ebe84a8e13d0b9e2aa789, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.04728
+      value: 0.054054055
       objectReference: {fileID: 0}
     - target: {fileID: 6746099593724940713, guid: 718db56f8b3ebe84a8e13d0b9e2aa789, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
