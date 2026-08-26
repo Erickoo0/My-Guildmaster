@@ -6,7 +6,7 @@ public class PlayerInteractionDetecter : MonoBehaviour
 {
 	[SerializeField] private GameObject interactIcon;
 
-	private List<IInteractable> _interactablesInRange = new List<IInteractable>();
+	private readonly Dictionary<IInteractable, int> _interactablesInRange = new Dictionary<IInteractable, int>();
 	private IInteractable _interactableTarget;
 
 	private void Update()
@@ -18,30 +18,39 @@ public class PlayerInteractionDetecter : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.TryGetComponent(out IInteractable interactable))
-		{
-			if (!_interactablesInRange.Contains(interactable))
-			{
-				_interactablesInRange.Add(interactable);
-			}
-		}
+		if (!TryGetInteractable(other, out IInteractable interactable)) return;
+
+		if (_interactablesInRange.TryGetValue(interactable, out int overlapCount))
+			_interactablesInRange[interactable] = overlapCount + 1;
+		else
+			_interactablesInRange.Add(interactable, 1);
 	}
 
 	private void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.TryGetComponent(out IInteractable interactable))
-		{
+		if (!TryGetInteractable(other, out IInteractable interactable)) return;
+
+		if (!_interactablesInRange.TryGetValue(interactable, out int overlapCount)) return;
+
+		overlapCount--;
+		if (overlapCount <= 0)
 			_interactablesInRange.Remove(interactable);
-		}
+		else
+			_interactablesInRange[interactable] = overlapCount;
 	}
 
 	private void UpdateTarget()
 	{
-		// 1. Clean the list of objects that are null
-		_interactablesInRange.RemoveAll(i => i == null || ((MonoBehaviour)i) == null);
+		// 1. Clean references that are no longer valid
+		var invalidInteractables = _interactablesInRange.Keys
+			.Where(i => i == null || ((MonoBehaviour)i) == null)
+			.ToList();
+
+		foreach (IInteractable invalidInteractable in invalidInteractables)
+			_interactablesInRange.Remove(invalidInteractable);
 
 		// 2. Filter a temporary list of things we can currently interact with
-		var validInteractables = _interactablesInRange.Where(i => i.CanInteract()).ToList();
+		var validInteractables = _interactablesInRange.Keys.Where(i => i.CanInteract()).ToList();
 
 		if (validInteractables.Count == 0)
 		{
@@ -52,10 +61,32 @@ public class PlayerInteractionDetecter : MonoBehaviour
 
 		// 2. Set the target to the closest target
 		_interactableTarget = validInteractables
-			.OrderBy(i => Vector2.Distance(transform.position, ((MonoBehaviour)i).transform.position))
+			.OrderBy(i => Vector2.Distance(transform.position, GetInteractablePosition(i)))
 			.FirstOrDefault();
 
 		interactIcon.SetActive(true);
+	}
+
+	private static bool TryGetInteractable(Collider2D other, out IInteractable interactable)
+	{
+		if (other.TryGetComponent(out interactable)) return true;
+
+		interactable = other.GetComponentInParent<IInteractable>();
+		if (interactable != null) return true;
+
+		interactable = other.GetComponentInChildren<IInteractable>();
+		return interactable != null;
+	}
+
+	private static Vector2 GetInteractablePosition(IInteractable interactable)
+	{
+		if (interactable is IInteractionPointProvider interactionPointProvider)
+			return interactionPointProvider.GetInteractionPoint();
+
+		if (interactable is MonoBehaviour interactableBehaviour)
+			return interactableBehaviour.transform.position;
+
+		return Vector2.zero;
 	}
 
 	public void OnInteract(InputAction.CallbackContext context)
