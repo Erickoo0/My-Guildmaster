@@ -80,4 +80,4 @@
 - **Unclear areas to verify when task-specific:**
   - Extent of implemented guild-building/room-expansion gameplay flow.
   - Full production use of all plugin folders (especially `Demigiant` and `NavMeshPlus`) beyond project presence.
-  - Final authority boundaries between docs and runtime code when they differ (code should be treated as current behavior).
+  - Final authority boundaries between docs and runtime code when they differ (ode represents current implementation; documentation represents intended architecture and accumulated project knowledge. When they conflict, the discrepancy should be investigated rather than automatically assuming either is correct.).
