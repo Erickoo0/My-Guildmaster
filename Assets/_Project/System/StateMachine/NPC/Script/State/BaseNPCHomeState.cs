@@ -1,0 +1,2 @@
+public class BaseNPCHomeState : BaseNPCWanderState
+{}
