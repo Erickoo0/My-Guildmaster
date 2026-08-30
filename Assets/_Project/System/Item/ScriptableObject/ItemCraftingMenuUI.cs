@@ -13,7 +13,7 @@ public class ItemCraftingMenuUI : MonoBehaviour
 	private void Start()
 	{
 		EventBus.OnRecipeUnlocked += SpawnItemRecipeSlot;
-		InventoryManager.Instance.OnSlotUpdated += RefreshAllSlots; // To turn the craft button on/off
+		ItemStoragePlayer.Instance.OnSlotUpdated += RefreshAllSlots; // To turn the craft button on/off
 
 		// 1. Spawn all initial unlocked recipe slots
 		foreach (ItemDataSo recipe in RecipeManager.Instance.UnlockedRecipesList)
@@ -23,7 +23,7 @@ public class ItemCraftingMenuUI : MonoBehaviour
 	private void OnDestroy()
 	{
 		EventBus.OnRecipeUnlocked -= SpawnItemRecipeSlot;
-		InventoryManager.Instance.OnSlotUpdated -= RefreshAllSlots;
+		ItemStoragePlayer.Instance.OnSlotUpdated -= RefreshAllSlots;
 	}
 
 	/// <summary>

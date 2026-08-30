@@ -39,6 +39,10 @@ public static class EventBus
 	public static event Action<bool> OnPlayerMovementToggleRequested;
 	public static void RequestPlayerMovementToggle(bool canMove) => OnPlayerMovementToggleRequested?.Invoke(canMove);
 
+	public static event Action<IItemStorage> OnStorageOpenRequested;
+	public static void RequestOpenStorage(IItemStorage storage) => OnStorageOpenRequested?.Invoke(storage);
+
+
 	//--------------------------Quest Events-------------------------
 	public static event Action<string, int> OnUpdateQuestObjectiveRequested;
 	public static void RequestUpdateQuestObjective(string targetID, int number) => OnUpdateQuestObjectiveRequested?.Invoke(targetID, number);

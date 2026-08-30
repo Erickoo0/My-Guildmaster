@@ -1,4 +1,8 @@
 using UnityEngine;
+/// <summary>
+/// Manages the visual representation and mechanical execution of the player's active item.
+/// Spawns the physical item prefab in the game world and handle the use function.
+/// </summary>
 public class PlayerEquipment : MonoBehaviour
 {
 
@@ -23,18 +27,16 @@ public class PlayerEquipment : MonoBehaviour
 
 	private void Start()
 	{
-		// Listens for when the player switches their selection
-		InventoryManager.Instance.OnActiveSlotIndexChanged += SetActiveSlotIndex;
-		// Listens for when data inside any slot changes (Add, Drop, Swap)
-		InventoryManager.Instance.OnSlotUpdated += SetSlotData;
+		ItemStoragePlayer.Instance.OnActiveSlotIndexChanged += SetActiveSlotIndex;
+		ItemStoragePlayer.Instance.OnSlotUpdated += SetSlotData;
 	}
 
 	private void OnDestroy()
 	{
-		if (InventoryManager.Instance != null)
+		if (ItemStoragePlayer.Instance != null)
 		{
-			InventoryManager.Instance.OnActiveSlotIndexChanged -= SetActiveSlotIndex;
-			InventoryManager.Instance.OnSlotUpdated -= SetSlotData;
+			ItemStoragePlayer.Instance.OnActiveSlotIndexChanged -= SetActiveSlotIndex;
+			ItemStoragePlayer.Instance.OnSlotUpdated -= SetSlotData;
 		}
 
 	}
@@ -44,9 +46,9 @@ public class PlayerEquipment : MonoBehaviour
 		parentTransform.gameObject.SetActive(true);
 		_currentActiveSlotIndex = index;
 		// Find the Item Data from slot index
-		ItemInstance itemInSlot = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
+		ItemInstance item = ItemStoragePlayer.Instance.GetItem(_currentActiveSlotIndex);
 		// Set the active item to the one from slot index
-		SetActiveItem(itemInSlot);
+		SetActiveItem(item);
 	}
 
 	private void SetSlotData(int index)
@@ -54,8 +56,8 @@ public class PlayerEquipment : MonoBehaviour
 		// Only update if the slot modified matches active slot
 		if (index == _currentActiveSlotIndex)
 		{
-			ItemInstance itemInSlot = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
-			SetActiveItem(itemInSlot);
+			ItemInstance item = ItemStoragePlayer.Instance.GetItem(_currentActiveSlotIndex);
+			SetActiveItem(item);
 		}
 	}
 
@@ -74,7 +76,7 @@ public class PlayerEquipment : MonoBehaviour
 		_currentActiveItem.transform.localPosition = Vector3.zero;
 		_currentActiveItem.transform.localRotation = Quaternion.identity;
 
-		// Initialize the active items sprite and data
+		// Setup the active items sprite and data
 		if (_currentActiveItem.TryGetComponent(out ItemObject itemObjectScript))
 		{
 			itemObjectScript.SetItemObject(itemInSlot, null, false);
@@ -83,40 +85,26 @@ public class PlayerEquipment : MonoBehaviour
 
 	public void TryUseActiveItem()
 	{
-		Debug.Log("Trying to use item2");
-
 		if (_currentActiveSlotIndex < 0)
+			return;
+
+		// 1. Set the active item to the one from slot index
+		ItemInstance activeItem = ItemStoragePlayer.Instance.GetItem(_currentActiveSlotIndex);
+
+		if (activeItem == null || activeItem.DataSo == null)
 		{
-			Debug.LogWarning($"TryUseActiveItem: slot index is negative ({_currentActiveSlotIndex})");
+			Debug.LogWarning($"TryUseActiveItem: Slot {_currentActiveSlotIndex} is empty or missing DataSo.");
 			return;
 		}
 
-		ItemInstance activeItem = InventoryManager.Instance.itemsList[_currentActiveSlotIndex];
-		Debug.Log($"TryUseActiveItem: slot={_currentActiveSlotIndex}, item={(activeItem == null ? "NULL" : activeItem.DataSo?.ItemName ?? "DataSo NULL")}");
-
-		if (activeItem == null)
-		{
-			Debug.LogWarning($"TryUseActiveItem: itemsList[{_currentActiveSlotIndex}] is null");
-			return;
-		}
-
-		if (activeItem.DataSo == null)
-		{
-			Debug.LogWarning($"TryUseActiveItem: itemsList[{_currentActiveSlotIndex}].DataSo is null");
-			return;
-		}
-
-		Debug.Log($"TryUseActiveItem: IsUsable={activeItem.DataSo.IsUsable}, effects count={activeItem.DataSo.effects?.Count ?? 0}");
-
+		// 2. Check if the item is usable
 		if (activeItem.DataSo.IsUsable)
 		{
+			// 3. Execute the use function of the item and remove it from inventory
 			bool wasUsed = activeItem.DataSo.Use(activeItem, gameObject);
 			Debug.Log($"Item used: {wasUsed}");
 			if (wasUsed)
-			{
-				InventoryManager.Instance.RemoveItems(_currentActiveSlotIndex);
-				Debug.Log("Item Used");
-			}
+				ItemStoragePlayer.Instance.RemoveItems(_currentActiveSlotIndex);
 		} else
 		{
 			Debug.LogWarning($"TryUseActiveItem: item {activeItem.DataSo.ItemName} is not usable");

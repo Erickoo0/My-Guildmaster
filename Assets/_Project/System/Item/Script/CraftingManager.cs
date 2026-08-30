@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+/// <summary>
+/// Handles crafting of items.
+/// </summary>
 public class CraftingManager : MonoBehaviour
 {
-
-	[Header("testing")]
-	[SerializeField] private ItemDataSo testItemToCraft;
 	public static CraftingManager Instance { get; private set; }
 
 	private void Awake()
@@ -17,17 +16,7 @@ public class CraftingManager : MonoBehaviour
 		Instance = this;
 	}
 
-	private void Start() => EventBus.OnCraftItemRequested += HandleCraftItemRequest;
-
-	private void Update()
-	{
-		// FIX: Using the New Input System to check if the 'N' key was pressed this frame
-		if (Keyboard.current != null && Keyboard.current.nKey.wasPressedThisFrame && testItemToCraft != null)
-		{
-			Debug.Log($"CraftingManager: Attempting to craft {testItemToCraft.ItemName} via hotkey...");
-			EventBus.RequestCraftItem(testItemToCraft);
-		}
-	}
+	private void OnEnable() => EventBus.OnCraftItemRequested += HandleCraftItemRequest;
 
 	private void OnDestroy() => EventBus.OnCraftItemRequested -= HandleCraftItemRequest;
 
@@ -55,13 +44,16 @@ public class CraftingManager : MonoBehaviour
 
 	public bool HasResources(ItemPropertyCraftingRecipe recipe)
 	{
+		// Loop through all required resources
 		foreach (ItemPropertyCraftingRecipe.ResourceRequirement requiredResource in recipe.RequiredResourcesList)
 		{
 			int totalFound = 0;
 
 			// Loop through player inventory to search for matching ItemDataSo 
-			foreach (ItemInstance item in InventoryManager.Instance.itemsList)
+			for (int i = 0; i < ItemStoragePlayer.Instance.StorageCapacity; i++)
 			{
+				ItemInstance item = ItemStoragePlayer.Instance.GetItem(i);
+
 				if (item != null && item.DataSo == requiredResource.ItemDataSo)
 					totalFound += item.stackSize;
 			}
@@ -77,14 +69,15 @@ public class CraftingManager : MonoBehaviour
 
 	private void ConsumeResources(ItemPropertyCraftingRecipe recipe)
 	{
+		// Loop through all required resources
 		foreach (ItemPropertyCraftingRecipe.ResourceRequirement requiredResource in recipe.RequiredResourcesList)
 		{
 			int amountLeftToConsume = requiredResource.Amount;
 
 			// 1. Loop through player inventory to search for matching ItemDataSo 
-			for (int i = 0; i < InventoryManager.Instance.itemsList.Length; i++)
+			for (int i = 0; i < ItemStoragePlayer.Instance.StorageCapacity; i++)
 			{
-				ItemInstance item = InventoryManager.Instance.itemsList[i];
+				ItemInstance item = ItemStoragePlayer.Instance.GetItem(i);
 
 				// 2. Skip non matching items
 				if (item == null || item.DataSo != requiredResource.ItemDataSo) continue;
@@ -95,16 +88,14 @@ public class CraftingManager : MonoBehaviour
 					item.stackSize -= amountLeftToConsume;
 					amountLeftToConsume = 0;
 
-					InventoryManager.Instance.itemsList[i] = item; // Update the inventory. Need a better way to notify of inventory update later
-					InventoryManager.Instance.ForceRefreshSlot(i);
+					ItemStoragePlayer.Instance.SetItem(i, item);
 					break;
 				}
 				// 4. If slot has exactly what we need, or not enough, drain the slot completely
 				else
 				{
 					amountLeftToConsume -= item.stackSize;
-					InventoryManager.Instance.itemsList[i] = null; // Clear the slot
-					InventoryManager.Instance.ForceRefreshSlot(i);
+					ItemStoragePlayer.Instance.SetItem(i, null); // Clear the slot
 				}
 
 				// 5. If we have consumed enough, break out of the loop, otherwise continue to the next item
@@ -120,7 +111,7 @@ public class CraftingManager : MonoBehaviour
 		ItemInstance craftedItem = new ItemInstance(itemToCraft, 1);
 
 		// 2. Try to add it to the inventory
-		bool wasAdded = InventoryManager.Instance.AddItems(craftedItem);
+		bool wasAdded = ItemStoragePlayer.Instance.AddItems(craftedItem);
 
 		// 3. If adding to inventory failed
 		if (!wasAdded)
@@ -132,7 +123,7 @@ public class CraftingManager : MonoBehaviour
 			Vector3 dropPosition = player != null ? player.transform.position : Vector3.zero;
 
 			// 5. Spawn the item
-			GameObject itemToSpawn = itemToCraft.ItemObject != null ? itemToCraft.ItemObject : InventoryManager.Instance.defaultItemObjectPrefab;
+			GameObject itemToSpawn = itemToCraft.ItemObject != null ? itemToCraft.ItemObject : ItemStoragePlayer.Instance.DefaultItemObjectPrefab;
 			GameObject droppedItem = Instantiate(itemToSpawn, dropPosition, Quaternion.identity);
 
 			// 6. Set the itemData

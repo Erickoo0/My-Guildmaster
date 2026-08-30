@@ -4,6 +4,10 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Represents an NPC in the world. Handles routing the correct
+/// dialogue and speech bubble based on the current state and daily schedule
+/// </summary>
 public class Npc : MonoBehaviour, IInteractable
 {
 
@@ -35,6 +39,7 @@ public class Npc : MonoBehaviour, IInteractable
 	private void Start()
 	{
 		_npcController = GetComponent<NPCController>();
+
 		// Evaluate the daily dialogue immediately for the first time
 		EvaluateDailyDialogue(this, TimeSpan.Zero);
 	}
@@ -51,14 +56,17 @@ public class Npc : MonoBehaviour, IInteractable
 
 	public bool CanInteract()
 	{
-		if (_npcController != null) return _npcController.IsInteractable;
+		if (_npcController != null)
+			return _npcController.IsInteractable;
 
 		return true;
 	}
 
 	public void Interact(ControllerPlayer controllerPlayer)
 	{
-		if (!CanInteract()) return;
+		if (!CanInteract())
+			return;
+
 		DialogueManager.Instance.StartDialogue(this, controllerPlayer);
 	}
 
@@ -71,8 +79,10 @@ public class Npc : MonoBehaviour, IInteractable
 		_dailyHobbyGroup = SelectGroup(npcDialogueData.HobbyDialogueNode);
 		_dailyWorkGroup = SelectGroup(npcDialogueData.WorkDialogueNode);
 	}
-
-	// Returns a DialogueGroup from the given DialogueGroup array
+	/// <summary>
+	/// Checks requirements and selects a single valid DialogueGroup from an array of options.
+	/// Prioritizes 'important' nodes, then selects among remaining valid options using weighted probabilities.
+	/// </summary>
 	private DialogueGroup SelectGroup(DialogueGroup[] nodeGroup)
 	{
 		// Safety Check
@@ -117,6 +127,9 @@ public class Npc : MonoBehaviour, IInteractable
 		return validGroups[0];
 	}
 
+	/// <summary>
+	/// Determines the appropriate dialogue group to load right now based on the NPC's active state or schedule.
+	/// </summary>
 	private DialogueGroup GetDialogueForCurrentState()
 	{
 		// 1. Check for global override DialogueGroups (ex: quest turn in)
@@ -143,6 +156,9 @@ public class Npc : MonoBehaviour, IInteractable
 
 	}
 
+	/// <summary>
+	/// Retrieves passive speech bubble strings appropriate for the NPC's current schedule state.
+	/// </summary>
 	private string[] GetSpeechBubbleForCurrentState()
 	{
 		// 1. Get the Schedule ControllerEntity
@@ -160,6 +176,9 @@ public class Npc : MonoBehaviour, IInteractable
 	}
 }
 
+/// <summary>
+/// A serialized container for an NPC's dialogue trees, categorized by different daily states or global overrides.
+/// </summary>
 [Serializable]
 public class NPCDialogueData
 {
@@ -174,6 +193,9 @@ public class NPCDialogueData
 	public DialogueGroup[] WorkDialogueNode;
 }
 
+/// <summary>
+/// A serialized container for arrays of passive speech bubble text, categorized by the NPC's daily schedule states.
+/// </summary>
 [Serializable]
 public class NPCSpeechBubbleData
 {

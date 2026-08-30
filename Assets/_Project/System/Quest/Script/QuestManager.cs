@@ -187,13 +187,8 @@ public class QuestManager : MonoBehaviour, ISaveable
 				//questUI.AddQuestUI(_questList[^1]); // [^1] is shorthand for 'last index'
 
 				// Scan Inventory to immediately update item related quest progress
-				foreach (ItemInstance item in InventoryManager.Instance.itemsList)
-				{
-					if (item != null && item.DataSo != null)
-					{
-						HandleObjectiveUpdate(item.DataSo.ItemID, item.stackSize);
-					}
-				}
+				for (int i = 0; i < ItemStoragePlayer.Instance.StorageCapacity; i++)
+					HandleObjectiveUpdate(ItemStoragePlayer.Instance.GetItem(i)?.DataSo.ItemID, ItemStoragePlayer.Instance.GetItem(i)?.stackSize ?? 0);
 
 				EventBus.RequestUpdateQuest();
 			} else

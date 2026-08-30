@@ -20,12 +20,12 @@ public class WorkerManager : MonoBehaviour
 
 	private void Start()
 	{
-		InventoryManager.Instance.OnSlotUpdated += HandleInventoryChanged;
+		ItemStoragePlayer.Instance.OnSlotUpdated += HandleInventoryChanged;
 
 		RecalculateSustenance();
 	}
 
-	private void OnDestroy() => InventoryManager.Instance.OnSlotUpdated -= HandleInventoryChanged;
+	private void OnDestroy() => ItemStoragePlayer.Instance.OnSlotUpdated -= HandleInventoryChanged;
 
 	private void HandleInventoryChanged(int slotIndex) => RecalculateSustenance();
 
@@ -33,21 +33,23 @@ public class WorkerManager : MonoBehaviour
 	{
 		int newSustenance = 0;
 
-		foreach (ItemInstance item in InventoryManager.Instance.itemsList)
+		for (int i = 0; i < ItemStoragePlayer.Instance.StorageCapacity; i++)
 		{
+			ItemInstance item = ItemStoragePlayer.Instance.GetItem(i);
+
 			if (item == null || item.DataSo == null)
 				continue;
 
 			// Check for any items with a food property
 			if (item.DataSo.TryGetProperty(out ItemPropertyFood foodProperty))
 				newSustenance += foodProperty.SustenanceValue*item.stackSize;
+		}
 
-			// If value has changed, broadcast it
-			if (newSustenance != CurrentSustenance)
-			{
-				CurrentSustenance = newSustenance;
-				EventBus.RequestTotalSustenanceChanged(CurrentSustenance);
-			}
+		// If value has changed, broadcast it
+		if (newSustenance != CurrentSustenance)
+		{
+			CurrentSustenance = newSustenance;
+			EventBus.RequestTotalSustenanceChanged(CurrentSustenance);
 		}
 	}
 }

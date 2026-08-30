@@ -40,7 +40,7 @@ public class PlacementManager : MonoBehaviour
 		_cellHighlightRenderer.enabled = false;
 	}
 
-	private void Start() => InventoryManager.Instance.OnActiveSlotIndexChanged += UpdateActiveItem;
+	private void Start() => ItemStoragePlayer.Instance.OnActiveSlotIndexChanged += UpdateActiveItem;
 
 	private void Update()
 	{
@@ -79,13 +79,13 @@ public class PlacementManager : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		if (InventoryManager.Instance != null)
-			InventoryManager.Instance.OnActiveSlotIndexChanged -= UpdateActiveItem;
+		if (ItemStoragePlayer.Instance != null)
+			ItemStoragePlayer.Instance.OnActiveSlotIndexChanged -= UpdateActiveItem;
 	}
 
 	private void UpdateActiveItem(int slotIndex)
 	{
-		_activeItem = InventoryManager.Instance.itemsList[slotIndex];
+		_activeItem = ItemStoragePlayer.Instance.GetItem(slotIndex);
 		_activeSlotIndex = slotIndex;
 		UpdateGhostVisuals();
 	}
@@ -156,10 +156,10 @@ public class PlacementManager : MonoBehaviour
 		Instantiate(placeableProperty.PlaceablePrefab, position, Quaternion.identity);
 
 		// Consume the item from the inventory
-		InventoryManager.Instance.RemoveItems(_activeSlotIndex);
+		ItemStoragePlayer.Instance.RemoveItems(_activeSlotIndex);
 
 		// Reevaluate the active item
-		_activeItem = InventoryManager.Instance.itemsList[_activeSlotIndex];
+		_activeItem = ItemStoragePlayer.Instance.GetItem(_activeSlotIndex);
 		UpdateGhostVisuals();
 	}
 }

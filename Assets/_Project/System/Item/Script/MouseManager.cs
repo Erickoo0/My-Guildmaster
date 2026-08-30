@@ -33,8 +33,8 @@ public class MouseManager : MonoBehaviour
 
 	// Cached References
 	private SkillNodeUI _hoveredSkillNode;
-	private IStorageSlot _hoveredSlot;
-	private IStorageSlot _sourceSlot;
+	private IItemSlotUI _hoveredSlotUI;
+	private IItemSlotUI _sourceSlotUI;
 
 	public static MouseManager Instance { get; private set; }
 
@@ -77,7 +77,7 @@ public class MouseManager : MonoBehaviour
 	private void ScanForMouseTargets()
 	{
 		// Reset cached hover states
-		_hoveredSlot = null;
+		_hoveredSlotUI = null;
 		_hoveredSkillNode = null;
 		_hoveredRecipe = null;
 
@@ -90,8 +90,8 @@ public class MouseManager : MonoBehaviour
 		// Loop through all raycast results
 		foreach (var result in _raycastResults)
 		{
-			if (_hoveredSlot == null)
-				_hoveredSlot = result.gameObject.GetComponentInParent<IStorageSlot>();
+			if (_hoveredSlotUI == null)
+				_hoveredSlotUI = result.gameObject.GetComponentInParent<IItemSlotUI>();
 
 			if (_hoveredSkillNode == null)
 				_hoveredSkillNode = result.gameObject.GetComponentInParent<SkillNodeUI>();
@@ -100,7 +100,7 @@ public class MouseManager : MonoBehaviour
 				_hoveredRecipe = result.gameObject.GetComponentInParent<ItemRecipeUI>();
 
 			// If we found a valid target, stop checking
-			if (_hoveredSlot != null || _hoveredSkillNode != null || _hoveredRecipe != null)
+			if (_hoveredSlotUI != null || _hoveredSkillNode != null || _hoveredRecipe != null)
 				break;
 		}
 	}
@@ -108,16 +108,16 @@ public class MouseManager : MonoBehaviour
 	private void HandleTooltip()
 	{
 		// Hide the tooltip if currently dragging an item
-		if (_sourceSlot != null)
+		if (_sourceSlotUI != null)
 		{
 			ToggleTooltip(false);
 			return;
 		}
 
 		// 1. If hovering an Inventory Slot
-		if (_hoveredSlot != null && _hoveredSlot.itemInstance != null && _hoveredSlot.itemInstance.DataSo != null)
+		if (_hoveredSlotUI != null && _hoveredSlotUI.itemInstance != null && _hoveredSlotUI.itemInstance.DataSo != null)
 		{
-			DisplayTooltip(_hoveredSlot.itemInstance.DataSo.ItemName, _hoveredSlot.itemInstance.DataSo.ItemDescription);
+			DisplayTooltip(_hoveredSlotUI.itemInstance.DataSo.ItemName, _hoveredSlotUI.itemInstance.DataSo.ItemDescription);
 			return;
 		}
 
@@ -162,13 +162,13 @@ public class MouseManager : MonoBehaviour
 
 	private void StartDrag()
 	{
-		_sourceSlot = _hoveredSlot;
+		_sourceSlotUI = _hoveredSlotUI;
 
-		if (_sourceSlot != null && _sourceSlot.itemInstance != null)
+		if (_sourceSlotUI != null && _sourceSlotUI.itemInstance != null)
 		{
 			// Set the text
-			ghostName.text = _sourceSlot.itemInstance.DataSo.ItemName;
-			ghostStack.text = _sourceSlot.itemInstance.stackSize.ToString();
+			ghostName.text = _sourceSlotUI.itemInstance.DataSo.ItemName;
+			ghostStack.text = _sourceSlotUI.itemInstance.stackSize.ToString();
 			ghostPanel.transform.position = _currentMousePosition;
 
 			// Hide item from Source slot to "pick it up"
@@ -181,35 +181,50 @@ public class MouseManager : MonoBehaviour
 	private void WhileDragging()
 	{
 		ghostPanel.transform.position = _currentMousePosition;
-		if (_sourceSlot == null || _sourceSlot.itemInstance.DataSo.ItemIcon == null) return;
+		if (_sourceSlotUI == null || _sourceSlotUI.itemInstance.DataSo.ItemIcon == null) return;
 
-		ghostPanel.GetComponent<Image>().sprite = GlobalHelper.GetAnimatedSprite(_sourceSlot.itemInstance.DataSo);
+		ghostPanel.GetComponent<Image>().sprite = GlobalHelper.GetAnimatedSprite(_sourceSlotUI.itemInstance.DataSo);
 	}
 
 	private void EndDrag()
 	{
-		if (_sourceSlot == null) return;
+		if (_sourceSlotUI == null) return;
 
 		//Find the target slot
-		IStorageSlot targetSlot = _hoveredSlot;
+		IItemSlotUI targetSlotUI = _hoveredSlotUI;
 
 		// Swap Items Logic
-		if (targetSlot != null && targetSlot != _sourceSlot)
-			InventoryManager.Instance.SwapItems(_sourceSlot.Index, targetSlot.Index);
+		if (targetSlotUI != null && targetSlotUI != _sourceSlotUI)
+		{
+			// 1. Handle same-storage swap.
+			if (_sourceSlotUI.ItemStorage == targetSlotUI.ItemStorage)
+			{
+				_sourceSlotUI.ItemStorage.SwapItems(_sourceSlotUI.SlotIndex, targetSlotUI.SlotIndex);
+			}
+			// 2. Handle cross-storage transfer.
+			else
+			{
+				ItemInstance sourceItem = _sourceSlotUI.ItemStorage.GetItem(_sourceSlotUI.SlotIndex);
+				ItemInstance targetItem = targetSlotUI.ItemStorage.GetItem(targetSlotUI.SlotIndex);
+
+				_sourceSlotUI.ItemStorage.SetItem(_sourceSlotUI.SlotIndex, targetItem);
+				targetSlotUI.ItemStorage.SetItem(targetSlotUI.SlotIndex, sourceItem);
+			}
+		}
 
 
 		// Drop Items Logic
-		if (targetSlot == null)
+		if (targetSlotUI == null && _sourceSlotUI.ItemStorage.CanDropToWorld)
 		{
 			// Converts mouse coordinates into 2D world coordinates
 			Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(_currentMousePosition);
 			mouseWorldPosition.z = 0;
-			InventoryManager.Instance.DropItems(_sourceSlot.Index, mouseWorldPosition);
+			_sourceSlotUI.ItemStorage.DropItems(_sourceSlotUI.SlotIndex, mouseWorldPosition);
 		}
 
 		// Clean up
 		ToggleGhost(false);
-		_sourceSlot = null;
+		_sourceSlotUI = null;
 
 	}
 
@@ -220,8 +235,8 @@ public class MouseManager : MonoBehaviour
 		ghostName.enabled = toggle;
 		ghostStack.enabled = toggle;
 
-		if (_sourceSlot != null)
-			_sourceSlot.SetDraggingState(toggle); // Tell the slot to hide its UI
+		if (_sourceSlotUI != null)
+			_sourceSlotUI.SetDraggingState(toggle); // Tell the slot to hide its UI
 
 	}
 

@@ -152,7 +152,7 @@ public class ItemObject : MonoBehaviour
 				Destroy(gameObject);
 			} else
 			{
-				bool wasPickedUp = InventoryManager.Instance.AddItems(_itemInstance);
+				bool wasPickedUp = ItemStoragePlayer.Instance.AddItems(_itemInstance);
 				if (wasPickedUp)
 				{
 					Destroy(gameObject);

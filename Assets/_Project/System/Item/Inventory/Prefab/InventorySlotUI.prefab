@@ -453,7 +453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0bb759c7964ae44ba72141e2efc721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlotUI
-  slotScriptIndex: 0
-  itemIconDisplay: {fileID: 174074170466327514}
-  itemNameText: {fileID: 6475849343237150044}
-  itemStackText: {fileID: 2630526910992943543}
+  _itemIcon: {fileID: 174074170466327514}
+  _itemName: {fileID: 6475849343237150044}
+  _itemStack: {fileID: 2630526910992943543}

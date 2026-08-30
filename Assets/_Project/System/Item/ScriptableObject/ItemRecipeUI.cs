@@ -51,9 +51,9 @@ public class ItemRecipeUI : MonoBehaviour
 		foreach (ItemPropertyCraftingRecipe.ResourceRequirement requirement in _recipeProperty.RequiredResourcesList)
 		{
 			int totalFound = 0;
-			foreach (ItemInstance item in InventoryManager.Instance.itemsList)
-				if (item != null && item.DataSo == requirement.ItemDataSo)
-					totalFound += item.stackSize;
+
+			for (int i = 0; i < ItemStoragePlayer.Instance.StorageCapacity; i++)
+				totalFound += ItemStoragePlayer.Instance.GetItem(i)?.stackSize ?? 0;
 
 			// 5. Change resource color based on if we have enough
 			string colorTag = totalFound >= requirement.Amount ? "<color=#ffffff>" : "<color=#ff4444>";
