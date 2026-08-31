@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8770331227153645690
+--- !u!1001 &8441754163764854026
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_Name
-      value: Rock 1 Variant
+      value: Resource_Base
       objectReference: {fileID: 0}
     - target: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_Layer
@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7714553535268852933, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.98605
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7714553535268852933, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.42707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7714553535268852933, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72,40 +72,39 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.18783
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5873180863118631351, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -133354340289314775}
+      addedObject: {fileID: 5948444616788019953}
     - targetCorrespondingSourceObject: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5139856742497184403}
+      addedObject: {fileID: 1270653633705540766}
     - targetCorrespondingSourceObject: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6082130458635632763}
+      addedObject: {fileID: 6868681088483723159}
     - targetCorrespondingSourceObject: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3503005091839984013}
+      addedObject: {fileID: 7025651447484995430}
     - targetCorrespondingSourceObject: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -7657061882197342234}
+      addedObject: {fileID: 6321852162523637459}
   m_SourcePrefab: {fileID: 100100000, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
---- !u!1 &2393302862308079579 stripped
+--- !u!1 &3289847791386282667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
-  m_PrefabInstance: {fileID: 8770331227153645690}
+  m_PrefabInstance: {fileID: 8441754163764854026}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &-133354340289314775
+--- !u!50 &5948444616788019953
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2393302862308079579}
+  m_GameObject: {fileID: 3289847791386282667}
   m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -125,13 +124,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-5139856742497184403
+--- !u!114 &1270653633705540766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2393302862308079579}
+  m_GameObject: {fileID: 3289847791386282667}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b738caa94a6360641b76c8902eb4eb18, type: 3}
@@ -142,51 +141,46 @@ MonoBehaviour:
   HpMax: 0
   entityRoot: {fileID: 0}
   destroyOnDeath: 1
---- !u!114 &6082130458635632763
+--- !u!114 &6868681088483723159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2393302862308079579}
+  m_GameObject: {fileID: 3289847791386282667}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1d0bacc308dc0443abfddf1b3c8e0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBox
   _health: {fileID: 0}
---- !u!114 &-3503005091839984013
+--- !u!114 &7025651447484995430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2393302862308079579}
+  m_GameObject: {fileID: 3289847791386282667}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf83ac40b649302438b58a83cb9cb65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UniqueIdentifier
-  id: 43e73a34-a948-4dd3-9640-6cc846f75d38
---- !u!114 &-7657061882197342234
+  id: b5d8cc16-4e2a-4f58-982a-dd93988e15e8
+--- !u!114 &6321852162523637459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2393302862308079579}
+  m_GameObject: {fileID: 3289847791386282667}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73248bb41aed5034386e27eb7f437214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
-  containerOpenedSprite: {fileID: 0}
-  interactable: 0
-  containerContents:
-  - itemDataSo: {fileID: 11400000, guid: d5dd849ca2352534da9a7572563dfdc5, type: 2}
-    dropAmount: 1
-  - itemDataSo: {fileID: 11400000, guid: d5dd849ca2352534da9a7572563dfdc5, type: 2}
-    dropAmount: 1
-  - itemDataSo: {fileID: 11400000, guid: d5dd849ca2352534da9a7572563dfdc5, type: 2}
-    dropAmount: 1
-  spreadRadius: 0.5
+  _containerOpenedSprite: {fileID: 0}
+  _interactable: 0
+  _defaultItemsList: []
+  _storageSize: 10
+  _spreadRadius: 1.5

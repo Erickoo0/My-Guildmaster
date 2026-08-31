@@ -7,7 +7,9 @@ using UnityEngine.Events;
 public class InteractableProp : MonoBehaviour, IInteractable, IInteractionPointProvider
 {
 	[SerializeField] private bool isInteractable = true;
+	[Tooltip("Optional. If null, will use the object's transform position.")]
 	[SerializeField] private Transform interactionPoint;
+	[Tooltip("The method to call when the object is interacted with.")]
 	[SerializeField] private UnityEvent onInteract;
 
 	public bool CanInteract() => isInteractable;

@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 /// Represents an NPC in the world. Handles routing the correct
 /// dialogue and speech bubble based on the current state and daily schedule
 /// </summary>
-public class Npc : MonoBehaviour, IInteractable
+public class Npc : MonoBehaviour, IInteractable, ISpeaker, IShopKeeper
 {
 
 	[Header("Dialogue Data")]
@@ -28,12 +28,6 @@ public class Npc : MonoBehaviour, IInteractable
 	private DialogueGroup _dailyWorkGroup;
 	[Header("References")]
 	private NPCController _npcController;
-
-	public ItemDataSo[] ShopList => shopList;
-	public string DialogueName => dialogueName;
-	public Sprite DialoguePortrait => dialoguePortrait;
-
-	public DialogueGroup CurrentDialogueGroup => GetDialogueForCurrentState();
 	public string[] CurrentSpeechBubble => GetSpeechBubbleForCurrentState();
 
 	private void Start()
@@ -69,6 +63,12 @@ public class Npc : MonoBehaviour, IInteractable
 
 		DialogueManager.Instance.StartDialogue(this, controllerPlayer);
 	}
+
+	public ItemDataSo[] ShopList => shopList;
+	public string DialogueName => dialogueName;
+	public Sprite DialoguePortrait => dialoguePortrait;
+
+	public DialogueGroup CurrentDialogueGroup => GetDialogueForCurrentState();
 
 	private void EvaluateDailyDialogue(object sender, TimeSpan time)
 	{

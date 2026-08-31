@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 75414184111891067, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_Name
-      value: DestructibleContainerProp Chest
+      value: Prop_Destructible_Container_Chest
       objectReference: {fileID: 0}
     - target: {fileID: 75414184111891067, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: m_Layer
@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9108772328438730045, guid: d31f036bbc7b8e34f9f70f87076fec39, type: 3}
       propertyPath: id
-      value: a9ee5326-66f3-407b-9cf8-e692968cb435
+      value: d150d728-b850-482d-b145-b6a8ef9f0c2a
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
