@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+/// <summary>
+/// Handles displaying the crafting system ui
+/// </summary>
 public class ItemCraftingMenuUI : MonoBehaviour
 {
 	[Header("References")]

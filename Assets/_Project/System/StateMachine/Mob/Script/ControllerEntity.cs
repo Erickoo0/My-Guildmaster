@@ -4,6 +4,10 @@ using UnityEngine;
 
 public enum MobType { Passive, Neutral, Aggressive }
 
+/// <summary>
+/// API for handling Entity AI transitions, targeting, and states.
+/// Centralized script for cached reference of other components.
+/// </summary>
 public class ControllerEntity : ControllerBase
 {
 

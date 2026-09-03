@@ -11,18 +11,22 @@ PrefabInstance:
     - target: {fileID: 1339781902117142415, guid: acf41bba5c08dbd40842cd56f7deb3e0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4273644229069522723, guid: 3c3521e2ad569f343967b92502fde302, type: 3}
+      objectReference: {fileID: -4273644229069522723, guid: 6544ff2c9c4226e45837ac8dedf04663, type: 3}
+    - target: {fileID: 1339781902117142415, guid: acf41bba5c08dbd40842cd56f7deb3e0, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6255547784664837733, guid: acf41bba5c08dbd40842cd56f7deb3e0, type: 3}
       propertyPath: animationData
       value: 
       objectReference: {fileID: 11400000, guid: 96f4a1942be8027408b425d7259329a2, type: 2}
     - target: {fileID: 6361532164157925119, guid: acf41bba5c08dbd40842cd56f7deb3e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.98605
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6361532164157925119, guid: acf41bba5c08dbd40842cd56f7deb3e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.42707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6361532164157925119, guid: acf41bba5c08dbd40842cd56f7deb3e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7766435361940293019, guid: acf41bba5c08dbd40842cd56f7deb3e0, type: 3}
       propertyPath: m_Name
-      value: Flower 3 Variant
+      value: Decor_Flower_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

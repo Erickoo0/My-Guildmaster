@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 /// <summary>
-/// Updates HUD elements for the WorkerManager and Worker menu.
+/// Handles UI elements for the Worker System and Worker Menu
 /// </summary>
 public class WorkerUI : MonoBehaviour
 {

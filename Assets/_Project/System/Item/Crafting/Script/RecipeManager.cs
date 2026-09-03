@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// Handles unlocking ItemRecipes
+/// </summary>
 public class RecipeManager : MonoBehaviour
 {
 

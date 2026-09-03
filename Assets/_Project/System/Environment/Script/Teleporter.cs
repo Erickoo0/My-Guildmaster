@@ -3,6 +3,9 @@ using UnityEngine;
 
 public enum TeleportFacing { Up, Down, Left, Right }
 
+/// <summary>
+/// Handles moving player between teleporters
+/// </summary>
 public class Teleporter : MonoBehaviour
 {
 	[Header("Teleporter Settings")]

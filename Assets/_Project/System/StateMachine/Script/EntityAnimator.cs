@@ -1,5 +1,8 @@
 using System;
 using UnityEngine;
+/// <summary>
+/// API for handling Entity Animations and broadcasting Animation events for other systems to listen to
+/// </summary>
 [RequireComponent(typeof(Animator))]
 public class EntityAnimator : MonoBehaviour, IFaceable
 {

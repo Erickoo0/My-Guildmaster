@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.13636364
+      value: 0.14285715
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -62,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.125
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.375
+      value: 1.3125
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Name
-      value: Bar Chair Variant
+      value: Prop_BarChair
       objectReference: {fileID: 0}
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Size.y
@@ -123,7 +123,7 @@ PrefabInstance:
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7359750752802016338, guid: 7517cffd47a58224cab7ddc0c9750ce4, type: 3}
+      objectReference: {fileID: -7359750752802016338, guid: 58e0e54c85686a6469c0c871aeb483f6, type: 3}
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

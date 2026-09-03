@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.84555
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.39787
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205569930908425709, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Name
-      value: Bush 1 Variant
+      value: Decor_Bush_1
       objectReference: {fileID: 0}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Size.x
@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3956231219045124126, guid: 7e8b2336b7e9bc947bc74c38b222c312, type: 3}
+      objectReference: {fileID: -3956231219045124126, guid: 862a5c943d0be6f498f5146f3720c244, type: 3}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

@@ -1,5 +1,8 @@
 using System;
 using UnityEngine;
+/// <summary>
+/// A runtime instance of a QuestSo
+/// </summary>
 [Serializable]
 public class QuestActive
 {
@@ -59,7 +62,7 @@ public class QuestActive
 		if (completedCount >= QuestData.QuestObjectives.Count)
 		{
 			IsCompleted = true;
-			Debug.Log($"Quest {QuestData.QuestName}: Completed!");
+			Debug.Log($"QuestUI {QuestData.QuestName}: Completed!");
 		}
 	}
 

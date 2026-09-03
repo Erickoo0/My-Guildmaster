@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 0d23c46d4f0b74d4eb099626da10db85, type: 2}
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.98605
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.42707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54,20 +54,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205569930908425709, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Name
-      value: Flower 1 Variant
+      value: Decor_Flower_1
       objectReference: {fileID: 0}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Size.x
-      value: 0.875
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Size.y
-      value: 0.9375
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 674351573900472722, guid: f0d21865247fcf240b234464e0469795, type: 3}
+      objectReference: {fileID: 674351573900472722, guid: 1bb5515afa71f674f9bf97692000003d, type: 3}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

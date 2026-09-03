@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+/// <summary>
+/// Controls prop lighting based on WorldTime and Interaction
+/// </summary>
 public class LightProp : MonoBehaviour
 {
 	[SerializeField] private int turnOffHour = 6;

@@ -1,6 +1,10 @@
 using Pathfinding;
 using System.Collections;
 using UnityEngine;
+/// <summary>
+/// API for handling Entity Movement.
+/// Takes input / called from PlayerInput or Entity AI
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class EntityMover : MonoBehaviour
 {

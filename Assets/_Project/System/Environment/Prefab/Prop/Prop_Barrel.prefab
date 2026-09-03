@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.52380955
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Name
-      value: Barrel Variant
+      value: Prop_Barrel
       objectReference: {fileID: 0}
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Size.x
@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1380203805528671675, guid: 331e80549a3800749a2fda9b42a67f05, type: 3}
+      objectReference: {fileID: 1380203805528671675, guid: 8c3e0b5c015f47a4a9d5eb189e29b5ca, type: 3}
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

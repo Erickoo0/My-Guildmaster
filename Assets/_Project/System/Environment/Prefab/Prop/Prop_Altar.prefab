@@ -86,27 +86,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.50666666
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.12820514
+      value: 0.06451613
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 4.6875
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 2.4375
+      value: 1.9375
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4.6875
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.4375
+      value: 1.9375
       objectReference: {fileID: 0}
     - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
@@ -154,20 +154,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Name
-      value: Altar  Variant
+      value: Prop_Altar
       objectReference: {fileID: 0}
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Size.x
-      value: 4.6875
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Size.y
-      value: 2.4375
+      value: 1.9375
       objectReference: {fileID: 0}
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8527002166660407860, guid: 37c2c0a4013615846965d73b159d85b6, type: 3}
+      objectReference: {fileID: -8527002166660407860, guid: 9fc158bed482be449a861aa68de63148, type: 3}
     - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

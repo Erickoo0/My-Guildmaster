@@ -103,9 +103,9 @@ TextureImporter:
       name: Counter Sideview_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 27
+        width: 19
         height: 54
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eecb9074bb8ad2845be86ee33470736d
+    spriteID: 99f272bfab91940429e610546f88a616
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +133,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":27.0,"y":54.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.48148149251937868,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       Counter Sideview_0: 7987370929080766159
   mipmapLimitGroupName: 

@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 91086112515299917, guid: 8abcd41d04c1cb244b50c9a84bbaa280, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 91086112515299917, guid: 8abcd41d04c1cb244b50c9a84bbaa280, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.79
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 91086112515299917, guid: 8abcd41d04c1cb244b50c9a84bbaa280, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50,12 +50,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3660514221920303401, guid: 8abcd41d04c1cb244b50c9a84bbaa280, type: 3}
       propertyPath: m_Name
-      value: Grass 2 Variant
+      value: Decor_Grass_2
       objectReference: {fileID: 0}
     - target: {fileID: 5448499102366597949, guid: 8abcd41d04c1cb244b50c9a84bbaa280, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7638217276388808536, guid: fe16f08728bd8b74bad692566da7b142, type: 3}
+      objectReference: {fileID: 7638217276388808536, guid: eacc7987eb44e6d4bb73cd230becaad2, type: 3}
+    - target: {fileID: 5448499102366597949, guid: 8abcd41d04c1cb244b50c9a84bbaa280, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

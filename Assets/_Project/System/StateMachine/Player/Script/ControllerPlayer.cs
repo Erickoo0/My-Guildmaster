@@ -1,6 +1,10 @@
 ﻿using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+/// <summary>
+/// API for handling player input and states.
+/// Centralized script for cached reference of other components.
+/// </summary>
 public class ControllerPlayer : ControllerBase
 {
 

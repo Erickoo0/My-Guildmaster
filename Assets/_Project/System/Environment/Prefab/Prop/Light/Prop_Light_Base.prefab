@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &824195700215526948
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2351277226227970697, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_PreviousTrimEdge
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.4615385
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628203806090008378, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.43912
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.49023
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560551816185460677, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_Name
+      value: Prop_Light_Base Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 9120274773078298782, guid: df168da508f18d447b4a7db94454c668, type: 3}
+    - target: {fileID: 9080155588698329965, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1539248677043837022}
+  m_SourcePrefab: {fileID: 100100000, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+--- !u!1 &6474059273042580474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
+  m_PrefabInstance: {fileID: 824195700215526948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1539248677043837022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6474059273042580474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.648
+  m_Color: {r: 0.8018868, g: 0.49056515, b: 0.25342646, a: 1}
+  m_Intensity: 3
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 000000000518e9550b7b370f63f91387291cb7f4
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 4
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}

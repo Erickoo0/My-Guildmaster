@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.Pool;
+/// <summary>
+/// Handles the object pool and instaniation of AfterImages
+/// </summary>
 public class AfterImageManager : MonoBehaviour
 {
 

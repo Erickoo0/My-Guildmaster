@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+/// <summary>
+/// Manager for syncing other components and other scripts to the Action Map
+/// </summary>
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerInputManager : MonoBehaviour
 {

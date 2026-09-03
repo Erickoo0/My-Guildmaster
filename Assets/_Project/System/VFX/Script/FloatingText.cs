@@ -2,6 +2,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
+/// <summary>
+/// Displays a float for a set duration, slowly fading and moving up
+/// </summary>
 public class FloatingText : MonoBehaviour
 {
 	[SerializeField] private TMP_Text textMesh; // Reference to the Text game object

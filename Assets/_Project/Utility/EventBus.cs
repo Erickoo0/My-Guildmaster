@@ -43,7 +43,7 @@ public static class EventBus
 	public static void RequestOpenStorage(IItemStorage storage) => OnStorageOpenRequested?.Invoke(storage);
 
 
-	//--------------------------Quest Events-------------------------
+	//--------------------------QuestUI Events-------------------------
 	public static event Action<string, int> OnUpdateQuestObjectiveRequested;
 	public static void RequestUpdateQuestObjective(string targetID, int number) => OnUpdateQuestObjectiveRequested?.Invoke(targetID, number);
 

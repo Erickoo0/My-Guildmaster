@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.29702
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3129
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2302219852562661001, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50,20 +50,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205569930908425709, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Name
-      value: Grass Bush Variant
+      value: Decor_Grass_Bush
       objectReference: {fileID: 0}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Size.x
-      value: 1.875
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Size.y
-      value: 1.375
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -603751036884185621, guid: bf9d6df998adc764fbc26ddf4d149f7a, type: 3}
+      objectReference: {fileID: -603751036884185621, guid: 90866fd7bfcb33948b3f36a4925fc3c4, type: 3}
     - target: {fileID: 6137367824264587257, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

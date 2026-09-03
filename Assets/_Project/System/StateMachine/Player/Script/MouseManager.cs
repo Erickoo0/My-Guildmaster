@@ -6,10 +6,9 @@ using UnityEngine.InputSystem;
 using Image = UnityEngine.UI.Image;
 
 /// <summary>
-/// <summary>
 /// A centralized manager that handles drag-and-drop logic and unified tooltips
 /// for Inventory Slots and Skill Nodes.
-/// </summary>/// </summary>
+/// </summary>
 public class MouseManager : MonoBehaviour
 {
 

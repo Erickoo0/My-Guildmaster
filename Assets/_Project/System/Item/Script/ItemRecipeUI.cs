@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+/// <summary>
+/// Handles displaying na individual ItemRecipeUI
+/// </summary>
 public class ItemRecipeUI : MonoBehaviour
 {
 	[Header("References")]

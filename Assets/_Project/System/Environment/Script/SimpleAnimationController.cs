@@ -1,4 +1,7 @@
 using UnityEngine;
+/// <summary>
+/// Controls object SpriteRenderer, cycling between sprites
+/// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
 public class SimpleAnimationController : MonoBehaviour
 {

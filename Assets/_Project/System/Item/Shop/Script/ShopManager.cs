@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+/// <summary>
+/// Handles both the data and UI of the shop system
+/// </summary>
 public class ShopManager : MonoBehaviour
 {
 

@@ -29,7 +29,7 @@ public class SaveData
 	//----Environment Variables----
 	public List<string> ChestsOpenedList = new List<string>();
 
-	//----Quest Variables----
+	//----QuestUI Variables----
 	public List<SavedQuest> SavedQuestsList = new List<SavedQuest>();
 	public List<string> CompletedQuestsList = new List<string>();
 }
@@ -46,7 +46,7 @@ public struct SavedSlot
 }
 
 /// <summary>
-/// Holds the information of one Quest
+/// Holds the information of one QuestUI
 /// </summary>
 [Serializable]
 public struct SavedQuest

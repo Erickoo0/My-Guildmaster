@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour, ISaveable
 {
 
-	//[SerializeField] private QuestUI questUI;
+	//[SerializeField] private QuestMenuUI questUI;
 	[Header("Databases")]
 	[SerializeField] private QuestDatabase questDatabase;
 
@@ -193,7 +193,7 @@ public class QuestManager : MonoBehaviour, ISaveable
 				EventBus.RequestUpdateQuest();
 			} else
 			{
-				Debug.LogError($"Quest ID {questID} not found in database!");
+				Debug.LogError($"QuestUI ID {questID} not found in database!");
 			}
 		}
 	}

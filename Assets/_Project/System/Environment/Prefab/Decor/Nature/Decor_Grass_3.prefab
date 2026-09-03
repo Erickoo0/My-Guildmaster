@@ -9,20 +9,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2898324654032226565, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
+      propertyPath: m_Size.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898324654032226565, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
+      propertyPath: m_Size.y
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898324654032226565, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7276552820762397247, guid: 52cffbe528cf6b74b87964ec21dc5d3a, type: 3}
+      objectReference: {fileID: -7276552820762397247, guid: 8db281b15b2d25a4c919efa04f77de8d, type: 3}
+    - target: {fileID: 2898324654032226565, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866182263172150033, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
       propertyPath: m_Name
-      value: Grass 3 Variant
+      value: Decor_Grass_3
       objectReference: {fileID: 0}
     - target: {fileID: 7126811911008784501, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7126811911008784501, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.79
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7126811911008784501, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
       propertyPath: m_LocalPosition.z

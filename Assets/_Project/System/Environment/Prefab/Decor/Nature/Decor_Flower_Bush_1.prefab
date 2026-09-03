@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 466741428553030346, guid: 4897772e660db3d478d1da5fcd90c7e6, type: 3}
       propertyPath: m_Name
-      value: Flower Bush 1 Variant
+      value: Decor_Flower_Bush_1
       objectReference: {fileID: 0}
     - target: {fileID: 3888131258021951918, guid: 4897772e660db3d478d1da5fcd90c7e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.98605
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3888131258021951918, guid: 4897772e660db3d478d1da5fcd90c7e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.42707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3888131258021951918, guid: 4897772e660db3d478d1da5fcd90c7e6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -53,9 +53,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163142446359978206, guid: 4897772e660db3d478d1da5fcd90c7e6, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163142446359978206, guid: 4897772e660db3d478d1da5fcd90c7e6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8941175689805593186, guid: ce8299d9f4ef8af4098edb0fa28e068a, type: 3}
+      objectReference: {fileID: -5131177656303813786, guid: b39d5361a8d5b1e4d8731d7d05a1f763, type: 3}
+    - target: {fileID: 9163142446359978206, guid: 4897772e660db3d478d1da5fcd90c7e6, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

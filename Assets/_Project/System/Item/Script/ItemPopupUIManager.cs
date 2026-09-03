@@ -1,4 +1,7 @@
 using UnityEngine;
+/// <summary>
+/// Handles ItemPopupUI notifications 
+/// </summary>
 public class ItemPopupManager : MonoBehaviour
 {
 	[Header("Visual References")]
