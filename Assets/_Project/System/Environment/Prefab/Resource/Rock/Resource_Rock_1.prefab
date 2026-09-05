@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3289847791386282667, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_Name
-      value: Resource_Rock_1 Variant
+      value: Resource_Rock_1
       objectReference: {fileID: 0}
     - target: {fileID: 6122595831869960383, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_Sprite
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025651447484995430, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: id
-      value: cf8fe1d1-5520-4ce8-aca9-323cd0338c0d
+      value: 3c9e40e7-6364-4111-98f5-01447d08b2f5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_Name
-      value: Decor_Table_Square Variant
+      value: Decor_Table_Square
       objectReference: {fileID: 0}
     - target: {fileID: 7714553535268852933, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +67,22 @@ PrefabInstance:
     - target: {fileID: 7714553535268852933, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
+      propertyPath: m_Size.x
+      value: 2.237877
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
+      propertyPath: m_Size.y
+      value: 1.9516478
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04228592
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0896153
       objectReference: {fileID: 0}
     - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x

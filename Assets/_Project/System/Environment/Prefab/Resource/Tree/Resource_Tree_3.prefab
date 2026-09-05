@@ -94,10 +94,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025651447484995430, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: id
-      value: e60beaab-44b5-4c0c-9715-6d81aa494d4c
+      value: 8dc98b75-e649-4aa7-8571-d7760cfa2316
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3289847791386282667, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6621694707135316866}
   m_SourcePrefab: {fileID: 100100000, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+--- !u!1 &2636071429869863052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3289847791386282667, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+  m_PrefabInstance: {fileID: 662829441266600487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6621694707135316866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2636071429869863052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e461814b7ef324cabd6465989c99fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationController
+  animationData: {fileID: 11400000, guid: bc95ebef7adaebb4eb717dcd47abbdc6, type: 2}
+  minIdleTime: 2
+  maxIdleTime: 10

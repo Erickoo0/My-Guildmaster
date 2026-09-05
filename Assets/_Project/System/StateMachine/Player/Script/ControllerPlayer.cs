@@ -9,6 +9,8 @@ public class ControllerPlayer : ControllerBase
 {
 
 	[Header("References")]
+	public SpriteRenderer PlayerSpriteRenderer;
+	public Collider2D PlayerCollider;
 	[HideInInspector] public SkillControllerPlayer SkillController;
 	[HideInInspector] public Mana MpComponent;
 
@@ -17,6 +19,7 @@ public class ControllerPlayer : ControllerBase
 	[SerializeReference, SubclassSelector] public State<ControllerPlayer> IdleState;
 	[SerializeReference, SubclassSelector] public State<ControllerPlayer> MoveState;
 	[SerializeReference, SubclassSelector] public State<ControllerPlayer> DashState;
+	[SerializeReference, SubclassSelector] public State<ControllerPlayer> SitState;
 
 	[Header("Movement Settings")]
 	public float DefaultDashTime = 10f;
@@ -47,6 +50,7 @@ public class ControllerPlayer : ControllerBase
 		IdleState?.Setup(this, StateMachine);
 		MoveState?.Setup(this, StateMachine);
 		DashState?.Setup(this, StateMachine);
+		SitState?.Setup(this, StateMachine);
 	}
 
 	protected virtual void Start()

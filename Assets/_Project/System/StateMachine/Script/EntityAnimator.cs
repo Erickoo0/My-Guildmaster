@@ -69,12 +69,24 @@ public class EntityAnimator : MonoBehaviour, IFaceable
 			: new Vector2(0, Mathf.Sign(rawDirection.y));
 	}
 
-	public void StartSpellAnimation(int boolHash)
+	public void SetSpellAnimation(int boolHash)
 	{
 		_currentActionBoolHash = boolHash;
 		isEventRequested = false;
 		animator.SetBool(_currentActionBoolHash, true);
 	}
+
+	public void SetSitAnimation(bool isSitting)
+	{
+		if (animator == null)
+			return;
+
+		if (isSitting)
+			animator.SetBool("IsRunning", false);
+		animator.SetBool("IsSitting", isSitting);
+
+	}
+
 
 	public void OnAttackAnimationFinished()
 	{

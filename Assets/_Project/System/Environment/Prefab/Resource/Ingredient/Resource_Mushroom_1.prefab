@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3289847791386282667, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_Name
-      value: Resource_Mushroom_1 Variant
+      value: Resource_Mushroom_1
       objectReference: {fileID: 0}
     - target: {fileID: 6122595831869960383, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_Size.x
@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7025651447484995430, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: id
-      value: 098eefc7-c365-4970-a5ae-04249506e148
+      value: fb53aafc-03c9-4e04-b44b-3fed5211d468
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

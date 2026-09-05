@@ -59,7 +59,7 @@ public abstract class PlayerSkillStateBase : State<ControllerPlayer>
 		}
 
 		controller.EntityMover.SetMoveDirection(Vector2.zero);
-		controller.EntityAnimator.StartSpellAnimation(SkillDataInstance.AnimationTag);
+		controller.EntityAnimator.SetSpellAnimation(SkillDataInstance.AnimationTag);
 		controller.EntityAnimator.animator.Update(0f); // Force transition
 
 		// Get the exact time the event fires, rather than just clip length

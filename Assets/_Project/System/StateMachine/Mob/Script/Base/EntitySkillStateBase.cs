@@ -79,7 +79,7 @@ public abstract class EntitySkillStateBase : EntityActionStateBase
 
 		// 4. Start the animation
 		controller.EntityMover.SetMoveDirection(Vector2.zero);
-		controller.EntityAnimator.StartSpellAnimation(SkillDataInstance.AnimationTag);
+		controller.EntityAnimator.SetSpellAnimation(SkillDataInstance.AnimationTag);
 		controller.EntityAnimator.animator.Update(0f); // Force transition
 
 		// 5. Use the helper method to cleanly grab the timing

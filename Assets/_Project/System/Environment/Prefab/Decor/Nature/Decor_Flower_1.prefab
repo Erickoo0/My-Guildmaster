@@ -75,5 +75,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3205569930908425709, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5137719733897553888}
   m_SourcePrefab: {fileID: 100100000, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
+--- !u!1 &2160542835116796141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3205569930908425709, guid: e8cd1d32b54e87541a90a850affd1596, type: 3}
+  m_PrefabInstance: {fileID: 3569017615942595840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5137719733897553888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160542835116796141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e461814b7ef324cabd6465989c99fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationController
+  animationData: {fileID: 11400000, guid: dd79b03339ea7df4fa61671dceb717eb, type: 2}
+  minIdleTime: 2
+  maxIdleTime: 10

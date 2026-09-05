@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2304751176570688475, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
+      propertyPath: animationData
+      value: 
+      objectReference: {fileID: 11400000, guid: 232083c5c26efb849ad51b8c99fed247, type: 2}
     - target: {fileID: 2898324654032226565, guid: e9afb9352e3fc974e8f730219ee712a9, type: 3}
       propertyPath: m_Size.x
       value: 0.75
