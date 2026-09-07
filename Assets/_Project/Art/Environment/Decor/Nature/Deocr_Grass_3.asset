@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Deocr_Grass_3
   m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationData
   animationFrames:
-  - {fileID: 674351573900472722, guid: 1bb5515afa71f674f9bf97692000003d, type: 3}
-  - {fileID: 3729782408521118968, guid: 1bb5515afa71f674f9bf97692000003d, type: 3}
-  - {fileID: -2812853605762676113, guid: 1bb5515afa71f674f9bf97692000003d, type: 3}
-  - {fileID: 5218735149460312348, guid: 1bb5515afa71f674f9bf97692000003d, type: 3}
+  - {fileID: -7276552820762397247, guid: 8db281b15b2d25a4c919efa04f77de8d, type: 3}
+  - {fileID: -5656997277285648533, guid: 8db281b15b2d25a4c919efa04f77de8d, type: 3}
+  - {fileID: 6813870485640974726, guid: 8db281b15b2d25a4c919efa04f77de8d, type: 3}
+  - {fileID: 1843949273288695078, guid: 8db281b15b2d25a4c919efa04f77de8d, type: 3}
   fps: 4

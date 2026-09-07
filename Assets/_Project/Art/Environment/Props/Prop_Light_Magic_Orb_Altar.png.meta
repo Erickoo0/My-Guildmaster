@@ -1,28 +1,31 @@
 fileFormatVersion: 2
-guid: cec007fbf32843041bd037cd1b03dabc
+guid: 6bdce02670a142b4083694730cbbdd7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3624529711368697916
-    second: Golden Warrior Statue_0
+      213: -6652154031279289149
+    second: Magic Orb Altar_0
   - first:
-      213: 4765192946062851894
-    second: Golden Warrior Statue_1
+      213: -3765132131004464203
+    second: Magic Orb Altar_1
   - first:
-      213: -8652586903093352200
-    second: Golden Warrior Statue_2
+      213: -6192041176754221724
+    second: Magic Orb Altar_2
   - first:
-      213: -3349959281678645091
-    second: Golden Warrior Statue_3
+      213: -202076825977412686
+    second: Magic Orb Altar_3
   - first:
-      213: -5208271395376760786
-    second: Golden Warrior Statue_4
+      213: -5140092175166373207
+    second: Magic Orb Altar_4
   - first:
-      213: 2677704991479599207
-    second: Golden Warrior Statue_5
+      213: -2672932543462050811
+    second: Magic Orb Altar_5
   - first:
-      213: 7474020538229727713
-    second: Golden Warrior Statue_6
+      213: -1697700583889291297
+    second: Magic Orb Altar_6
+  - first:
+      213: 1031042156328743964
+    second: Magic Orb Altar_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -67,8 +70,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -118,155 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Golden Warrior Statue_0
+      name: Magic Orb Altar_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 41
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c7050c5e6513bdc0800000000000000
-      internalID: -3624529711368697916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golden Warrior Statue_1
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 41
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63ff544ccbd512240800000000000000
-      internalID: 4765192946062851894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golden Warrior Statue_2
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 0
-        width: 42
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8f86ce41e06dbe780800000000000000
-      internalID: -8652586903093352200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golden Warrior Statue_3
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 41
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d98858b38cd8281d0800000000000000
-      internalID: -3349959281678645091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golden Warrior Statue_4
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 0
-        width: 42
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e287db0b2c088b7b0800000000000000
-      internalID: -5208271395376760786
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golden Warrior Statue_5
-      rect:
-        serializedVersion: 2
-        x: 326
-        y: 0
-        width: 43
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7609e6ea08e192520800000000000000
-      internalID: 2677704991479599207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Golden Warrior Statue_6
-      rect:
-        serializedVersion: 2
-        x: 389
+        x: 0
         y: 0
         width: 44
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e12829941e09b760800000000000000
-      internalID: 7474020538229727713
+      spriteID: 3cc4a66372dcea3a0800000000000000
+      internalID: -6652154031279289149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic Orb Altar_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3c11f76409fbbc0800000000000000
+      internalID: -3765132131004464203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic Orb Altar_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d09f84b53711aa0800000000000000
+      internalID: -6192041176754221724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic Orb Altar_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3274a8234123df0800000000000000
+      internalID: -202076825977412686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic Orb Altar_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a2817a6669baa8b0800000000000000
+      internalID: -5140092175166373207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic Orb Altar_5
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504fc567306d7ead0800000000000000
+      internalID: -2672932543462050811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic Orb Altar_6
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd73e42505e8078e0800000000000000
+      internalID: -1697700583889291297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Magic Orb Altar_7
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 44
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c147d64e06ffe4e00800000000000000
+      internalID: 1031042156328743964
       vertices: []
       indices: 
       edges: []
@@ -275,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e17bbf3890b1fdd4eb3c72d6e88c961d
     internalID: 0
     vertices: []
     indices: 
@@ -283,15 +308,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":44.0,"y":50.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.05999999865889549},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Golden Warrior Statue_0: -3624529711368697916
-      Golden Warrior Statue_1: 4765192946062851894
-      Golden Warrior Statue_2: -8652586903093352200
-      Golden Warrior Statue_3: -3349959281678645091
-      Golden Warrior Statue_4: -5208271395376760786
-      Golden Warrior Statue_5: 2677704991479599207
-      Golden Warrior Statue_6: 7474020538229727713
+      Magic Orb Altar_0: -6652154031279289149
+      Magic Orb Altar_1: -3765132131004464203
+      Magic Orb Altar_2: -6192041176754221724
+      Magic Orb Altar_3: -202076825977412686
+      Magic Orb Altar_4: -5140092175166373207
+      Magic Orb Altar_5: -2672932543462050811
+      Magic Orb Altar_6: -1697700583889291297
+      Magic Orb Altar_7: 1031042156328743964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
