@@ -10,7 +10,7 @@ public class Teleporter : MonoBehaviour
 {
 	[Header("Teleporter Settings")]
 	[SerializeField] private Teleporter targetDestinationTeleporter;
-	[SerializeField] private GameLocation targetLocation;
+	[SerializeField] private GameLocation teleporterLocation;
 	[SerializeField] private FacingDirection faceDirection;
 	[SerializeField] private float teleportCooldown = 1f;
 	private float _teleportCooldownTimer;
@@ -54,7 +54,7 @@ public class Teleporter : MonoBehaviour
 
 		// 3. Update location
 		if (LocationManager.Instance != null)
-			LocationManager.Instance.UpdateLocation(targetDestinationTeleporter.targetLocation);
+			LocationManager.Instance.UpdateLocation(targetDestinationTeleporter.teleporterLocation);
 
 
 		// 4. Set the face direction 

@@ -117,7 +117,7 @@ public class PlacementManager : MonoBehaviour
 
 	private bool IsPlacementValid(Vector3 placementPosition)
 	{
-		if (LocationManager.Instance.CurrentLocation != GameLocation.Player_Guild)
+		if (LocationManager.Instance.CurrentLocation != GameLocation.Guild_Player_Interior)
 			return false;
 
 		if (EventSystem.current.IsPointerOverGameObject())

@@ -11,32 +11,32 @@ public enum GameLocation
 	// ==========================================
 	// 🍺 PUBLIC BUILDINGS & SHOPS (Interiors)
 	// ==========================================
-	Tavern,
-	Library,
-	Church,
-	Haven_Hills,
-	Clinic,
-	Community_Center,
-	Weapon_Shop,
-	Armor_Shop,
-	Potion_Shop,
-	Magic_Shop,
-	General_Store,
+	Tavern_Interior,
+	Library_Interior,
+	Church_Interior,
+	Haven_Hills_Interior,
+	Clinic_Interior,
+	Community_Center_Interior,
+	Weapon_Shop_Interior,
+	Armor_Shop_Interior,
+	Potion_Shop_Interior,
+	Magic_Shop_Interior,
+	General_Store_Interior,
 
 	// ==========================================
 	// ⚔️ GUILDS & FACTIONS (Interiors)
 	// ==========================================
-	Player_Guild,
-	Guild1,
-	Guild2,
-	Guild3,
+	Guild_Player_Interior,
+	Guild_Lioness_Interior,
+	Guild_Adventure_Interior,
+	Guild_Rainfall_Interior,
 
 	// ==========================================
 	// 🏠 PRIVATE RESIDENCES (Interiors)
 	// ==========================================
-	Player_Home,
-	Mai_Home,
-	Eric_Home,
+	Home_Player_Interior,
+	Home_Mai_Interior,
+	Home_Eric_Interior,
 	NPC2_Home,
 	NPC3_Home,
 	NPC4_Home,
@@ -50,8 +50,8 @@ public enum GameLocation
 	// ==========================================
 	// 💀 HOSTILE ZONES & DUNGEONS
 	// ==========================================
-	Goblin_Forest,
-	Forest_Path,
+	Misten_Forest,
+	Misten_Forest_Path,
 	Abandoned_Mine,
 
 	Dungeon1_Floor1,
