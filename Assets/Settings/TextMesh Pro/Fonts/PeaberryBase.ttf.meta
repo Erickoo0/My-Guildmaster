@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: f5f274b90828482409fa617ca8ffbdf2
+guid: c3761d7e77b09624a8a34c8d014f63ed
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
   fontSize: 16
-  forceTextureCase: 0
+  forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Alagard
+  - Peaberry
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 2
+  fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
