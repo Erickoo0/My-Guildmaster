@@ -7,11 +7,13 @@ public class Ailment : MonoBehaviour
 	private ControllerBase _controller;
 	private float _duration;
 	private EffectPayload _effectPayload; // For damage ailments
+	private EntityStats _entityStats;
 
 	[Header("References")]
 	private IStatProvider _statProvider;
 	private GameObject _target;
 	private float _tickTimer;
+
 	public AilmentType Type { get; private set; }
 	public float Potency { get; private set; }
 
@@ -38,6 +40,7 @@ public class Ailment : MonoBehaviour
 		_target = target;
 		_effectPayload = effectPayload;
 		_statProvider = _target?.GetComponent<IStatProvider>();
+		_entityStats = _statProvider?.EntityStats;
 		_controller = _target?.GetComponent<ControllerBase>();
 
 		ApplyInstantEffects();
@@ -67,44 +70,38 @@ public class Ailment : MonoBehaviour
 
 	private void ApplyInstantEffects()
 	{
+		if (_entityStats == null) return;
+
 		switch (Type)
 		{
 		case AilmentType.Freeze:
 			// Implement later
 			break;
 		case AilmentType.Chill:
-			if (_statProvider != null)
-				_statProvider.EntityStats.MoveSpeedMultiplier *= Potency;
+		case AilmentType.Slow:
+			_entityStats.MoveSpeedMultiplier *= Potency;
 			break;
 		case AilmentType.Shock:
-			if (_statProvider != null)
-				_statProvider.EntityStats.DamageTakenMultiplier *= Potency;
-			break;
-		case AilmentType.Slow:
-			if (_statProvider != null)
-				_statProvider.EntityStats.MoveSpeedMultiplier *= Potency;
+			_entityStats.DamageTakenMultiplier *= Potency;
 			break;
 		}
 	}
 
 	private void RevertInstantEffects()
 	{
+		if (_entityStats == null) return;
+
 		switch (Type)
 		{
 		case AilmentType.Freeze:
 			// Implement later
 			break;
 		case AilmentType.Chill:
-			if (_statProvider != null)
-				_statProvider.EntityStats.MoveSpeedMultiplier /= Potency;
+		case AilmentType.Slow:
+			_entityStats.MoveSpeedMultiplier /= Potency;
 			break;
 		case AilmentType.Shock:
-			if (_statProvider != null)
-				_statProvider.EntityStats.DamageTakenMultiplier /= Potency;
-			break;
-		case AilmentType.Slow:
-			if (_statProvider != null)
-				_statProvider.EntityStats.MoveSpeedMultiplier /= Potency;
+			_entityStats.DamageTakenMultiplier /= Potency;
 			break;
 		}
 	}

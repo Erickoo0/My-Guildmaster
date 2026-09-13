@@ -1,27 +1,33 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class PlayerStatsManager : MonoBehaviour
 {
 
 	[Header("References")]
+	[SerializeField] private SpriteRenderer _playerSpriteRenderer;
 	[SerializeField] private GameObject playerStatsPanel;
+
+	[Header("Core Stats")]
+	[SerializeField] private Image playerPortrait;
 	[SerializeField] private TextMeshProUGUI playerHpText;
 	[SerializeField] private TextMeshProUGUI playerMpText;
-	[SerializeField] private TextMeshProUGUI playerArmorText;
 	[SerializeField] private TextMeshProUGUI playerLvlText;
 	[SerializeField] private TextMeshProUGUI playerExpText;
-	private EntityStats _entityStatsComponent;
-	private Health _healthComponent;
-	private Level _levelComponent;
-	private Mana _manaComponent;
+
+	[Header("Combat & Defense UI")]
+	[SerializeField] private TextMeshProUGUI playerArmorText;
+	[SerializeField] private TextMeshProUGUI playerAttackText;
+	[SerializeField] private TextMeshProUGUI playerElementalStatsText;
+
 	private GameObject _player;
 	public static PlayerStatsManager Instance { get; private set; }
 
-	public Health HealthComponent => _healthComponent;
-	public Mana ManaComponent => _manaComponent;
-	public Level LevelComponent => _levelComponent;
-	public EntityStats EntityStatsComponent => _entityStatsComponent;
+	public Health HealthComponent { get; private set; }
+	public Mana ManaComponent { get; private set; }
+	public Level LevelComponent { get; private set; }
+	public EntityStats EntityStatsComponent { get; private set; }
 
 	private void Awake()
 	{
@@ -36,17 +42,23 @@ public class PlayerStatsManager : MonoBehaviour
 
 		// Get the components
 		_player = GameObject.FindGameObjectWithTag("Player");
-		_healthComponent = GetComponent<Health>();
-		_manaComponent = GetComponent<Mana>();
-		_levelComponent = GetComponent<Level>();
-		_entityStatsComponent = GetComponent<EntityStats>();
+		var visualComponent = _player.transform.Find("Visual");
+		_playerSpriteRenderer = visualComponent.GetComponent<SpriteRenderer>();
+		HealthComponent = GetComponent<Health>();
+		ManaComponent = GetComponent<Mana>();
+		LevelComponent = GetComponent<Level>();
+		EntityStatsComponent = GetComponent<EntityStats>();
 
 		UpdateStatsMenu();
 	}
 
-	private void Start() => HandleLevelUp();
+	private void Start()
+	{
+		SyncStatsToLevel();
+		UpdateStatsMenu();
+	}
 
-	private void Update()
+	private void LateUpdate()
 	{
 		if (_player != null)
 			transform.position = _player.transform.position;
@@ -54,44 +66,39 @@ public class PlayerStatsManager : MonoBehaviour
 
 	private void OnEnable()
 	{
-		// Catch and discard the broadcasted values as we dont need them here
-		_healthComponent.OnHpUpdated += UpdateStatsMenu;
-		_manaComponent.OnMpUpdated += UpdateStatsMenu;
-		_levelComponent.OnLevelUpdated += UpdateStatsMenu;
-		_levelComponent.OnLevelUpdated += HandleLevelUp;
-		_levelComponent.OnExperienceGained += UpdateStatsMenu;
-
+		HealthComponent.OnHpUpdated += UpdateStatsMenu;
+		ManaComponent.OnMpUpdated += UpdateStatsMenu;
+		LevelComponent.OnLevelUpdated += UpdateStatsMenu;
+		LevelComponent.OnLevelUpdated += SyncStatsToLevel;
+		LevelComponent.OnExperienceGained += UpdateStatsMenu;
 		EventBus.OnEntityDeathRequested += HandleEntityDeath;
 	}
 
 	private void OnDisable()
 	{
-		_healthComponent.OnHpUpdated -= UpdateStatsMenu;
-		_manaComponent.OnMpUpdated -= UpdateStatsMenu;
-		_levelComponent.OnLevelUpdated -= UpdateStatsMenu;
-		_levelComponent.OnLevelUpdated -= HandleLevelUp;
-		_levelComponent.OnExperienceGained -= UpdateStatsMenu;
+		HealthComponent.OnHpUpdated -= UpdateStatsMenu;
+		ManaComponent.OnMpUpdated -= UpdateStatsMenu;
+		LevelComponent.OnLevelUpdated -= UpdateStatsMenu;
+		LevelComponent.OnLevelUpdated -= SyncStatsToLevel;
+		LevelComponent.OnExperienceGained -= UpdateStatsMenu;
 		EventBus.OnEntityDeathRequested -= HandleEntityDeath;
 	}
 
-	private void HandleLevelUp()
+	private void SyncStatsToLevel()
 	{
-		if (_levelComponent == null) return;
+		int currentLvl = LevelComponent.LvlCurrent;
 
-		int currentLevel = _levelComponent.LvlCurrent;
-
-		if (_healthComponent != null) _healthComponent.RecalculateMaxHp(currentLevel);
-		if (_manaComponent != null) _manaComponent.RecalculateMaxMp(currentLevel);
-		if (_entityStatsComponent != null) _entityStatsComponent.RecalculateStats(currentLevel);
+		HealthComponent.RecalculateMaxHp(currentLvl);
+		ManaComponent.RecalculateMaxMp(currentLvl);
+		EntityStatsComponent.RecalculateStats(currentLvl);
 	}
 
 	private void HandleEntityDeath(GameObject entity)
 	{
-		// Get the level component of the dead entity and add experience to the player level component
+		// Get the level component of the dead entity and add its xp experience to the player level component
 		if (entity.TryGetComponent(out Level entityLevelComponent))
-		{
-			_levelComponent.AddExperience(entityLevelComponent.ExpYield);
-		}
+			LevelComponent.AddExperience(entityLevelComponent.ExpYield);
+
 	}
 
 	public void ToggleMenu(InputAction.CallbackContext context)
@@ -99,13 +106,45 @@ public class PlayerStatsManager : MonoBehaviour
 		if (!context.performed) return;
 		if (!playerStatsPanel.activeSelf) EventBus.RequestOpenMenu(playerStatsPanel);
 		else if (playerStatsPanel.activeSelf) EventBus.RequestCloseMenu(playerStatsPanel);
+
+		playerPortrait.sprite = _playerSpriteRenderer.sprite;
+
 	}
 
 	private void UpdateStatsMenu()
 	{
-		playerHpText.text = ($"HP: {_healthComponent.HpCurrent}/{_healthComponent.HpMax}");
-		playerMpText.text = ($"MP: {_manaComponent.MpCurrent}/{_manaComponent.MpMax}");
-		playerLvlText.text = ($"Lvl: {_levelComponent.LvlCurrent}");
-		playerExpText.text = ($"Exp: {_levelComponent.ExpCurrent}/{_levelComponent.ExpToNextLvl}");
+		if (playerHpText != null && HealthComponent != null)
+			playerHpText.text = $"HP: {HealthComponent.HpCurrent}/{HealthComponent.HpMax}";
+
+		if (playerMpText != null && ManaComponent != null)
+			playerMpText.text = $"MP: {ManaComponent.MpCurrent}/{ManaComponent.MpMax}";
+
+		if (playerLvlText != null && LevelComponent != null)
+			playerLvlText.text = $"Lvl: {LevelComponent.LvlCurrent}";
+
+		if (playerExpText != null && LevelComponent != null)
+			playerExpText.text = $"Xp: {LevelComponent.ExpCurrent}/{LevelComponent.ExpToNextLvl}";
+
+		// Combat Stats Update
+		if (EntityStatsComponent != null)
+		{
+			if (playerArmorText != null)
+				playerArmorText.text = $"Defense: {EntityStatsComponent.Defense:F0}";
+
+			if (playerAttackText != null)
+				playerAttackText.text = $"Atk Power: {EntityStatsComponent.AttackPower:F0}";
+
+			if (playerElementalStatsText != null)
+			{
+				playerElementalStatsText.text =
+					$"Fire Power: {EntityStatsComponent.AttackPowerFire:F0}\n" +
+					$"Water Power: {EntityStatsComponent.AttackPowerWater:F0}\n" +
+					$"Earth Power: {EntityStatsComponent.AttackPowerEarth:F0}\n" +
+					$"Air Power: {EntityStatsComponent.AttackPowerAir:F0}\n" +
+					$"Lightning Power: {EntityStatsComponent.AttackPowerLightning:F0}\n" +
+					$"Holy Power: {EntityStatsComponent.AttackPowerHoly:F0}\n" +
+					$"Dark Power: {EntityStatsComponent.AttackPowerDark:F0}";
+			}
+		}
 	}
 }

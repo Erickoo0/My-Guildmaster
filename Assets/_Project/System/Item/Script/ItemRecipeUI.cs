@@ -26,7 +26,7 @@ public class ItemRecipeUI : MonoBehaviour
 		{
 			// 2. Set the visuals
 			itemIcon.sprite = recipeData.ItemIcon[0]; // Just use the first frame for now
-			itemName.text = recipeData.ItemName;
+			//itemName.text = recipeData.ItemName;
 
 			// 3. Hook the button click
 			craftButton.onClick.RemoveAllListeners();

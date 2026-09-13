@@ -49,7 +49,8 @@ public class ItemSlotUI : MonoBehaviour, IItemSlotUI
 		bool shouldShow = hasItem && !_isBeingDragged;
 
 		// Set the text
-		_itemName.text = hasItem ? item.DataSo.ItemName : null;
+		if (_itemName != null)
+			_itemName.text = hasItem ? item.DataSo.ItemName : null;
 		_itemStack.text = hasItem ? item.stackSize.ToString() : null;
 
 		// Set the sprite

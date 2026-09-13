@@ -86,6 +86,7 @@ public class SkillTreeUI : MonoBehaviour
 	/// </summary>
 	private void CycleSkillSlot(int direction)
 	{
+		Debug.Log($"CycleSkillSlot({direction})");
 		if (_playerSkillController == null || _playerSkillController.SkillSlots.Count == 0) return;
 
 		int maxSlots = _playerSkillController.SkillSlots.Count;
