@@ -7,7 +7,7 @@ using Image = UnityEngine.UI.Image;
 
 /// <summary>
 /// A centralized manager that handles drag-and-drop logic and unified tooltips
-/// for Inventory Slots and Skill Nodes.
+/// for Inventory Slots, crafting resources, and skill nodes.
 /// </summary>
 public class MouseManager : MonoBehaviour
 {
@@ -22,20 +22,20 @@ public class MouseManager : MonoBehaviour
 	[SerializeField] private TMP_Text tooltipName;
 	[SerializeField] private TMP_Text tooltipDescription;
 	[SerializeField] private Vector2 tooltipOffset = new Vector2(100f, 50f);
-	[SerializeField] private Vector2 recipeTooltipOffset = new Vector2(400f, -200f);
+
 	private readonly List<RaycastResult> _raycastResults = new List<RaycastResult>();
 	private Vector2 _currentMousePosition;
 
 	// Raycast Variables
 	private PointerEventData _eventData;
-	private ItemRecipeUI _hoveredRecipe;
+	private CraftingResourceSlotUI _hoveredCraftingResourceSlot;
 
 	// Cached References
 	private SkillNodeUI _hoveredSkillNode;
 	private IItemSlotUI _hoveredSlotUI;
 	private IItemSlotUI _sourceSlotUI;
-
 	public static MouseManager Instance { get; private set; }
+
 
 	private void Awake()
 	{
@@ -78,7 +78,7 @@ public class MouseManager : MonoBehaviour
 		// Reset cached hover states
 		_hoveredSlotUI = null;
 		_hoveredSkillNode = null;
-		_hoveredRecipe = null;
+		_hoveredCraftingResourceSlot = null;
 
 		_eventData.position = _currentMousePosition;
 		_raycastResults.Clear();
@@ -95,11 +95,11 @@ public class MouseManager : MonoBehaviour
 			if (_hoveredSkillNode == null)
 				_hoveredSkillNode = result.gameObject.GetComponentInParent<SkillNodeUI>();
 
-			if (_hoveredRecipe == null)
-				_hoveredRecipe = result.gameObject.GetComponentInParent<ItemRecipeUI>();
+			if (_hoveredCraftingResourceSlot == null)
+				_hoveredCraftingResourceSlot = result.gameObject.GetComponentInParent<CraftingResourceSlotUI>();
 
 			// If we found a valid target, stop checking
-			if (_hoveredSlotUI != null || _hoveredSkillNode != null || _hoveredRecipe != null)
+			if (_hoveredSlotUI != null || _hoveredSkillNode != null || _hoveredCraftingResourceSlot != null)
 				break;
 		}
 	}
@@ -127,11 +127,10 @@ public class MouseManager : MonoBehaviour
 			return;
 		}
 
-		// 3. If hovering an Item Recipe
-		if (_hoveredRecipe != null)
+		// 3. If hovering a Crafting Resource Slot
+		if (_hoveredCraftingResourceSlot != null && _hoveredCraftingResourceSlot.CraftingResourceData != null)
 		{
-			Vector2 recipePosition = (Vector2)_hoveredRecipe.transform.position + recipeTooltipOffset;
-			DisplayTooltip(_hoveredRecipe.TooltipTitle, _hoveredRecipe.TooltipDescription, recipePosition);
+			DisplayTooltip(_hoveredCraftingResourceSlot.CraftingResourceData.ItemName, _hoveredCraftingResourceSlot.CraftingResourceData.ItemDescription);
 			return;
 		}
 

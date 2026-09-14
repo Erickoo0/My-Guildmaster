@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1913891083650325450}
   - component: {fileID: 3823741621019104522}
   - component: {fileID: 3449524290347581354}
+  - component: {fileID: -8711736705897650514}
   m_Layer: 5
-  m_Name: IngredientSlotUI
+  m_Name: CraftingResourceSlotUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +79,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-8711736705897650514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4635007648288044841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2a7767cc117444989d2b7f57bb8dce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CraftingResourceSlotUI
+  _icon: {fileID: 4137614226392442428}
+  _name: {fileID: 9112451907927994158}
+  _amount: {fileID: 4621749781386505935}
 --- !u!1 &7087161732732395855
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5875760867074748981, guid: 63eb1da11dbcba94dba493f733ac651f, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4290760407
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -271,6 +287,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3560558181321700382, guid: 63eb1da11dbcba94dba493f733ac651f, type: 3}
   m_PrefabInstance: {fileID: 3458496071381114139}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9112451907927994158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5875760867074748981, guid: 63eb1da11dbcba94dba493f733ac651f, type: 3}
+  m_PrefabInstance: {fileID: 3458496071381114139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &4650069242101921893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,3 +436,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6938037167794393217, guid: 4c16344304b222741a9ed0c6826c5a9a, type: 3}
   m_PrefabInstance: {fileID: 4650069242101921893}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4621749781386505935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 48305560599942826, guid: 4c16344304b222741a9ed0c6826c5a9a, type: 3}
+  m_PrefabInstance: {fileID: 4650069242101921893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI

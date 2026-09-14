@@ -49,6 +49,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1740303
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1437063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.16771126
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.6499305
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -92,9 +108,29 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6321852162523637459, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: _defaultItemsList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321852162523637459, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: _defaultItemsList.Array.data[0].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    - target: {fileID: 6321852162523637459, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: _defaultItemsList.Array.data[1].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    - target: {fileID: 6321852162523637459, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: _defaultItemsList.Array.data[2].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+    - target: {fileID: 6321852162523637459, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: _defaultItemsList.Array.data[3].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
     - target: {fileID: 7025651447484995430, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: id
-      value: c26efe3a-5fc7-4e3c-a00e-bbb5a127f9a8
+      value: 4d1666ef-bd22-4502-8d3a-58e9438b8389
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

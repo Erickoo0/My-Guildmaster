@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
   m_Name: Item_Prop_Chest_Iron_Reinforced
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Object_Chest_Iron_Reinforced
+  <ItemID>k__BackingField: Item_Prop_Chest_Iron_Reinforced
   <ItemName>k__BackingField: Iron Chest
   <ItemDescription>k__BackingField: Holds double the amount of items as a normal
     chest
   <Category>k__BackingField: 9
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
-  - {fileID: 8213334933265063372, guid: 5cfe85d9c8f16754387a0ae136c8d384, type: 3}
+  - {fileID: -1362058913294850930, guid: 57ae1e32b27e2c647b6e19b57e403cb3, type: 3}
   <ItemObject>k__BackingField: {fileID: 0}
   <ItemValue>k__BackingField: 10
   <IsSellable>k__BackingField: 1
