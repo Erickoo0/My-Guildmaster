@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5c969aef03fe9674e9736033a6fefdd1
+guid: 29f068879efcd71469a93e95452699bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5907086895721584000
-    second: Tavern Interior_0
+      213: -3901687813577277444
+    second: UI_Panel_Metal_Small_Transparent_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 7
-  spritePivot: {x: 0.5, y: 0.5}
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tavern Interior_0
+      name: UI_Panel_Metal_Small_Transparent_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1008
-        height: 608
+        x: 1
+        y: 1
+        width: 126
+        height: 127
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 36, y: 11, z: 13, w: 12}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08599dc0c303af150800000000000000
-      internalID: 5907086895721584000
+      spriteID: cff71470b9b6ad9c0800000000000000
+      internalID: -3901687813577277444
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 20ca8e6596de88541b782d23c3fad484
+    spriteID: a6dc9ccdaf72dbe4198ece7aba2cef66
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":600.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Tavern Interior_0: 5907086895721584000
+      UI_Panel_Metal_Small_Transparent_0: -3901687813577277444
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

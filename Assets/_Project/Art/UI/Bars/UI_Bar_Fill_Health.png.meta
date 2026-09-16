@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bd94ca13d947c6c4cbbc1c4baa957885
+guid: d4a240f1bfa0a154297e27b7f0aeefb2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7655082461560372178
-    second: Health Bar Fill_0
+      213: -1916835718763605957
+    second: UI_Bar_Fill_Health_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health Bar Fill_0
+      name: UI_Bar_Fill_Health_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 288
-        height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
+        width: 263
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e240f504f0fa3c590800000000000000
-      internalID: -7655082461560372178
+      spriteID: b309052d1180665e0800000000000000
+      internalID: -1916835718763605957
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 72599eeb574f9ca40873a2584546b227
+    spriteID: 896ac100794f6b6459e0be4facd4dd48
     internalID: 0
     vertices: []
     indices: 
@@ -135,9 +135,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":288.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":263.0,"y":65.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Health Bar Fill_0: -7655082461560372178
+      UI_Bar_Fill_Health_0: -1916835718763605957
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -27,6 +27,7 @@ public class ItemPopup : MonoBehaviour
 
 		// Set the text
 		itemName.text = itemInstance.DataSo.ItemName;
+		itemIconDisplay.sprite = itemInstance.DataSo.ItemIcon[0];
 		itemStackSize.text = itemInstance.stackSize.ToString();
 
 		Destroy(gameObject, lifetime);
