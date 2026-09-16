@@ -1,9 +1,9 @@
 using System;
-[Serializable]
 /// <summary>
 /// An instance of an item.
 /// Holds changable data about an item.
 /// </summary>
+[Serializable]
 public class ItemInstance
 {
 	public int stackSize; // Tracks current Amount in this instance

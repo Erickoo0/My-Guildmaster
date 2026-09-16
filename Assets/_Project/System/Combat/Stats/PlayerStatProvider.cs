@@ -5,12 +5,10 @@ public class PlayerStatProvider : MonoBehaviour, IStatProvider
 	private void Start()
 	{
 		EntityLevel.OnLevelUpdated += UpdateGameStat;
+		UpdateGameStat();
 	}
 
-	private void OnDisable()
-	{
-		EntityLevel.OnLevelUpdated -= UpdateGameStat;
-	}
+	private void OnDisable() => EntityLevel.OnLevelUpdated -= UpdateGameStat;
 	public Health EntityHealth => PlayerStatsManager.Instance.HealthComponent;
 	public Mana EntityMana => PlayerStatsManager.Instance.ManaComponent;
 	public Level EntityLevel => PlayerStatsManager.Instance.LevelComponent;

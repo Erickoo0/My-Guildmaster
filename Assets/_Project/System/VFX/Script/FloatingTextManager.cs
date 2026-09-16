@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.Pool;
+/// <summary>
+/// Handles the object pool and instaniation of FloatingText
+/// </summary>
 public class FloatingManager : MonoBehaviour
 {
 	[Header("References")]
@@ -25,7 +28,7 @@ public class FloatingManager : MonoBehaviour
 
 	private void Awake()
 	{
-		// Initialize the object pool
+		// Setup the object pool
 		_textPool = new ObjectPool<FloatingText>(
 			createFunc: CreatePooledItem,
 			actionOnGet: OnTakeFromPool,
@@ -55,7 +58,7 @@ public class FloatingManager : MonoBehaviour
 		Color baseColor = (amount >= 0) ? Color.green : Color.red;
 		Color randomizedColor = GetVariedColor(baseColor);
 
-		// 3. Initialize it, passing the pool so the object knows where to return
+		// 3. Setup it, passing the pool so the object knows where to return
 		textObject.Initialize(amount, position, randomizedColor, _textPool);
 	}
 

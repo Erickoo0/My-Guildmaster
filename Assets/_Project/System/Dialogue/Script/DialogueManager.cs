@@ -6,7 +6,7 @@ public class DialogueManager : MonoBehaviour
 	private DialogueGroup _currentDialogueGroup;
 	private DialogueNode _currentDialogueNode;
 	private int _currentLineIndex;
-	private Npc _currentSpeaker;
+	private ISpeaker _currentSpeaker;
 	private DialogueOptionController _dialogueOptionController;
 
 	[Header("References")]
@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
 	private float _optionSelectionBuffer = 0.5f;
 	private float _optionSelectionBufferTimer;
 	public static DialogueManager Instance { get; private set; }
-	public Npc CurrentSpeaker => _currentSpeaker;
+	public ISpeaker CurrentSpeaker => _currentSpeaker;
 
 	private void Awake()
 	{
@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
 	private void OnEnable() => EventBus.OnMenuClosed += HandleForcedClose;
 	private void OnDisable() => EventBus.OnMenuClosed -= HandleForcedClose;
 
-	public void StartDialogue(Npc speaker, ControllerPlayer controllerPlayer)
+	public void StartDialogue(ISpeaker speaker, ControllerPlayer controllerPlayer)
 	{
 		// Guard Clause
 		if (_currentDialogueNode != null) return;

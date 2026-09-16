@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe65a1c16bb03449abfce93e24961be, type: 3}
+  m_Name: Deocr_Grass_1
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleAnimationData
+  animationFrames:
+  - {fileID: -3892248032828748910, guid: 4101e1ae6680bae479f430f02da05f5e, type: 3}
+  - {fileID: 8454510317256140463, guid: 4101e1ae6680bae479f430f02da05f5e, type: 3}
+  - {fileID: 5256356097144023244, guid: 4101e1ae6680bae479f430f02da05f5e, type: 3}
+  - {fileID: 6137958078774489798, guid: 4101e1ae6680bae479f430f02da05f5e, type: 3}
+  fps: 4

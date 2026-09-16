@@ -18,7 +18,7 @@ MonoBehaviour:
   <Category>k__BackingField: 9
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
-  - {fileID: 5167690650097798016, guid: f64a592f7aa621041be4d4e5d7e9e60a, type: 3}
+  - {fileID: 5167690650097798016, guid: e34d9c6279212fb46bcaca6cfa3b3160, type: 3}
   <ItemObject>k__BackingField: {fileID: 0}
   <ItemValue>k__BackingField: 0
   <IsSellable>k__BackingField: 1

@@ -1,5 +1,10 @@
 using System;
 using UnityEngine;
+public enum MenuType
+{
+	None, Inventory, Quest, SkillTree, Crafting, Worker
+}
+
 public static class EventBus
 {
 
@@ -33,13 +38,21 @@ public static class EventBus
 	public static event Action<GameObject> OnMenuCloseRequested;
 	public static void RequestCloseMenu(GameObject menu = null) => OnMenuCloseRequested?.Invoke(menu);
 
+	// Used for prefabs which cant hold references to GameObject UI menus
+	public static event Action<MenuType> OnMenuToggleRequested;
+	public static void RequestMenuToggle(MenuType menuType) => OnMenuToggleRequested?.Invoke(menuType);
+
 	public static event Action<GameObject> OnMenuClosed;
 	public static void NotifyMenuClosed(GameObject menu) => OnMenuClosed?.Invoke(menu);
 
 	public static event Action<bool> OnPlayerMovementToggleRequested;
 	public static void RequestPlayerMovementToggle(bool canMove) => OnPlayerMovementToggleRequested?.Invoke(canMove);
 
-	//--------------------------Quest Events-------------------------
+	public static event Action<IItemStorage> OnStorageOpenRequested;
+	public static void RequestOpenStorage(IItemStorage storage) => OnStorageOpenRequested?.Invoke(storage);
+
+
+	//--------------------------QuestUI Events-------------------------
 	public static event Action<string, int> OnUpdateQuestObjectiveRequested;
 	public static void RequestUpdateQuestObjective(string targetID, int number) => OnUpdateQuestObjectiveRequested?.Invoke(targetID, number);
 

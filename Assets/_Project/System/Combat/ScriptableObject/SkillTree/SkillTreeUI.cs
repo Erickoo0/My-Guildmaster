@@ -86,6 +86,7 @@ public class SkillTreeUI : MonoBehaviour
 	/// </summary>
 	private void CycleSkillSlot(int direction)
 	{
+		Debug.Log($"CycleSkillSlot({direction})");
 		if (_playerSkillController == null || _playerSkillController.SkillSlots.Count == 0) return;
 
 		int maxSlots = _playerSkillController.SkillSlots.Count;
@@ -169,7 +170,7 @@ public class SkillTreeUI : MonoBehaviour
 			rt.anchoredPosition = nodePos;
 			_nodePositions[node.ID] = nodePos;
 
-			// Initialize data
+			// Setup data
 			SkillNodeUI nodeUI = go.GetComponent<SkillNodeUI>();
 			nodeUI?.Setup(node, _currentSkillTree, _skillTreeLedger, RefreshAllNodesUI);
 			_skillNodesUIList.Add(nodeUI);

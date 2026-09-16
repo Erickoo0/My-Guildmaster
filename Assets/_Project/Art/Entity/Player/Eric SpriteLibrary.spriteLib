@@ -963,6 +963,22 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: 5048167529325354526, guid: dd1863b93beaed240bd62ef38fdf966a, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 56
+  - m_Name: Sit
+    m_Hash: 854338608
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Sit_0
+      m_Hash: 935152436
+      m_Sprite: {fileID: 8188338880402499897, guid: 5c6f9a975e4957d4180e492caddb2ae4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8188338880402499897, guid: 5c6f9a975e4957d4180e492caddb2ae4, type: 3}
+    - m_Name: Sit_1
+      m_Hash: 12221346
+      m_Sprite: {fileID: -5767305286288549674, guid: 5c6f9a975e4957d4180e492caddb2ae4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5767305286288549674, guid: 5c6f9a975e4957d4180e492caddb2ae4, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 639174078102617036
+  m_ModificationHash: 639241697238246213
   m_Version: 1

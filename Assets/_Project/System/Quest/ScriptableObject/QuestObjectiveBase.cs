@@ -1,18 +1,22 @@
-﻿using UnityEngine;
-
-[System.Serializable]
+﻿using System;
+using UnityEngine;
+/// <summary>
+/// A base abstract class that defines a objective.
+/// Used by QuestSo to build quest objectives.
+/// </summary>
+[Serializable]
 public abstract class QuestObjectiveBase
 {
-    [SerializeField] private string objectiveTitle = "Objective Text";
-    public string ObjectiveTitle => objectiveTitle;
-    
-    // Is this objective tracked via event counters (Items/Kills) or static world conditions?
-    public abstract bool IsCountBased { get; }
-    public abstract int RequiredAmount { get; }
-    
-    // Used by Count-Based Objectives
-    public virtual string TargetID => string.Empty;
+	[SerializeField] private string objectiveTitle = "Objective Text";
+	public string ObjectiveTitle => objectiveTitle;
 
-    // Used by State-Based Objectives (Requirements)
-    public virtual bool IsConditionMet() => false;
+	// Is this objective tracked via event counters (Items/Kills) or static world conditions?
+	public abstract bool IsCountBased { get; }
+	public abstract int RequiredAmount { get; }
+
+	// Used by Count-Based Objectives
+	public virtual string TargetID => string.Empty;
+
+	// Used by State-Based Objectives (Requirements)
+	public virtual bool IsConditionMet() => false;
 }
