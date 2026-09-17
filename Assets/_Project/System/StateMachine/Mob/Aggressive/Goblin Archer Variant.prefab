@@ -322,15 +322,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: '_skillStatesList.Array.data[0]'
-      value: 3505743946400399514
+      value: 172364217381290059
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: '_skillStatesList.Array.data[1]'
-      value: 3505743987855065174
+      value: 172364217381290060
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: <ActionCooldown>k__BackingField
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[172364217381290059]'
+      value: Assembly-CSharp EntitySkillStateCast
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[172364217381290060]'
+      value: Assembly-CSharp EntitySkillStateCast
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[3505743946400399511]'
@@ -359,6 +367,14 @@ PrefabInstance:
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399514]._id
       value: Skill_Data_Projectile_Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[172364217381290059]._skillID
+      value: Skill_Data_Projectile_Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[172364217381290060]._skillID
+      value: Skill_Data_Projectile_Arrow_Charged
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743946400399514]._skillID

@@ -511,11 +511,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: '_skillStatesList.Array.data[0]'
-      value: 3505743958813966427
+      value: 172364237696925696
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: '_skillStatesList.Array.data[1]'
-      value: 3505743958813966428
+      value: 172364237696925697
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[172364237696925696]'
+      value: Assembly-CSharp EntitySkillStateCast
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: 'managedReferences[172364237696925697]'
+      value: Assembly-CSharp EntitySkillStateCast
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: 'managedReferences[3505743958813966427]'
@@ -531,6 +539,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: managedReferences[3505743958813966428]._id
+      value: Skill_Data_Projectile_Fireball_Large
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[172364237696925696]._skillID
+      value: Skill_Data_Projectile_Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: managedReferences[172364237696925697]._skillID
       value: Skill_Data_Projectile_Fireball_Large
       objectReference: {fileID: 0}
     - target: {fileID: 5275855554606090140, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}

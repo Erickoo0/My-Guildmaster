@@ -575,8 +575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobController
   entityID: 
-  _rigidBody2D: {fileID: 0}
   SkillController: {fileID: 0}
+  _rigidBody2D: {fileID: 0}
   AILerp: {fileID: 0}
   <WanderRadius>k__BackingField: 5
   <mobType>k__BackingField: 2
@@ -627,9 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a89079566738364fb20a30e9b007115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillControllerEntity
-  _skillDatabase: {fileID: 0}
-  _skillTreeDatabase: {fileID: 0}
-  <ActionCooldown>k__BackingField: 0.25
+  _skillDatabase: {fileID: 11400000, guid: 1c0f078a4a66e7d4ea1e539a194a00a2, type: 2}
+  _skillTreeDatabase: {fileID: 11400000, guid: a229d623b3d09f745844274270226db7, type: 2}
   _skillStatesList: []
   references:
     version: 2
@@ -672,7 +671,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtBox
   _health: {fileID: 0}
-  _invulnerabilityDuration: 0.5
 --- !u!114 &-1747576445313389302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,20 +757,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73248bb41aed5034386e27eb7f437214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemContainer
-  containerOpenedSprite: {fileID: 0}
-  interactable: 0
-  containerContents:
-  - itemDataSo: {fileID: 0}
+  _containerOpenedSprite: {fileID: 0}
+  _interactable: 1
+  _defaultItemsList:
+  - itemDataSo: {fileID: 11400000, guid: b03ffa1e91083be4583af9b99eff5538, type: 2}
     dropAmount: 1
-  - itemDataSo: {fileID: 0}
+  - itemDataSo: {fileID: 11400000, guid: b03ffa1e91083be4583af9b99eff5538, type: 2}
     dropAmount: 1
-  - itemDataSo: {fileID: 0}
+  - itemDataSo: {fileID: 11400000, guid: b03ffa1e91083be4583af9b99eff5538, type: 2}
     dropAmount: 1
-  - itemDataSo: {fileID: 0}
-    dropAmount: 1
-  - itemDataSo: {fileID: 0}
-    dropAmount: 1
-  spreadRadius: 1.5
+  _storageSize: 0
+  _spreadRadius: 1.5
 --- !u!114 &-8014178294535799309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,32 +938,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b452c037a7d465d48a6879a82343e1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityStats
-  MoveSpeedMultiplier: 1
-  DamageMultiplier: 1
-  DamageTakenMultiplier: 1
-  Defense: 0
-  AttackPower: 10
-  AttackPowerFire: 0
-  AttackPowerWater: 0
-  AttackPowerEarth: 0
-  AttackPowerLightning: 0
-  AttackPowerHoly: 0
-  AttackPowerDark: 0
-  DefenseBase: 0
-  DefensePerLvl: 1
-  AttackPowerBase: 10
-  AttackPowerPerLvl: 2
-  AttackPowerFireBase: 0
-  AttackPowerFirePerLvl: 0
-  AttackPowerWaterBase: 0
-  AttackPowerWaterPerLvl: 0
-  AttackPowerEarthBase: 0
-  AttackPowerEarthPerLvl: 0
-  AttackPowerLightningBase: 0
-  AttackPowerLightningPerLvl: 0
-  AttackPowerAirBase: 0
-  AttackPowerAirPerLvl: 0
-  AttackPowerHolyBase: 0
-  AttackPowerHolyPerLvl: 0
-  AttackPowerDarkBase: 0
-  AttackPowerDarkPerLvl: 0
+  moveSpeedMultiplier: 1
+  damageMultiplier: 1
+  damageTakenMultiplier: 1
+  defenseBase: 0
+  defensePerLvl: 1
+  attackPowerBase: 10
+  attackPowerPerLvl: 2
+  fireBase: 0
+  firePerLvl: 0
+  waterBase: 0
+  waterPerLvl: 0
+  earthBase: 0
+  earthPerLvl: 0
+  lightningBase: 0
+  lightningPerLvl: 0
+  airBase: 0
+  airPerLvl: 0
+  holyBase: 0
+  holyPerLvl: 0
+  darkBase: 0
+  darkPerLvl: 0

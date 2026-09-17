@@ -20,10 +20,10 @@ MonoBehaviour:
   DamageBase: 15
   DamageScalingStat: 0
   DamageScalingRatio: 1
+  CooldownBase: 5
   MpCostBase: 0
   CastTimeBase: 1
   CastBarDisplay: 0
-  HitImpactBase: 0.5
   EffectsList:
   - rid: 3505743946400399509
   RequirementsList:
@@ -48,6 +48,8 @@ MonoBehaviour:
           m_RotationOrder: 4
         <ProjectileCount>k__BackingField: 1
         <SpreadAngle>k__BackingField: 0
+        <BarrageCount>k__BackingField: 1
+        <BarrageDelay>k__BackingField: 0.2
         <MaxEnemiesHit>k__BackingField: 1
         <HitOncePerTarget>k__BackingField: 1
         <DestroyOnMaxHits>k__BackingField: 1
@@ -58,6 +60,7 @@ MonoBehaviour:
       data:
         <Amount>k__BackingField: 0
         <Type>k__BackingField: 0
+        <InvulnerableTimer>k__BackingField: 0.5
         <BonusHit>k__BackingField: 0
         <UseSkillBaseDamage>k__BackingField: 1
         <SkillDamageMultiplier>k__BackingField: 1
