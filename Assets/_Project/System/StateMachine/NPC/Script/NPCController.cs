@@ -34,7 +34,7 @@ public class NPCController : ControllerBase
 	[field: SerializeField] public NPCScheduleData NpcScheduleData { get; private set; }
 
 	[Header("Evaluation timers")]
-	public float evaluationTimer = 0f;
+	[HideInInspector] public float evaluationTimer = 0f;
 	private float _evaluationInterval = 0.5f;
 	private NPCScheduleController _scheduleController;
 	public State OverrideState { get; private set; }

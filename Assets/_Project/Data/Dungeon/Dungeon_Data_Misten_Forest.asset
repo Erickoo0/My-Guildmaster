@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0755dda66a5af4eb1db19137715feb, type: 3}
   m_Name: Dungeon_Data_Misten_Forest
   m_EditorClassIdentifier: Assembly-CSharp::DungeonData
-  dungeonLocation: 28
+  dungeonLocation: 29
   baseEnemyCount: 5
   enemiesPerRoundScaling: 2
   delayBetweenRounds: 5
