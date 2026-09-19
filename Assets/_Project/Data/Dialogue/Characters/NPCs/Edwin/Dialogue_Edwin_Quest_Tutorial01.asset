@@ -34,7 +34,10 @@ MonoBehaviour:
   - nodeID: Option1
     dialogueLines:
     - Well then, lets not waste any time.
-    - We have a lot of work to do to get this guild up and running.
+    - 'We have a lot of work to do to get this guild up and running.
+
+      Follow
+      me!'
     dialogueOptions: []
     nodeEvents:
     - rid: 3505743589636833361
@@ -49,7 +52,10 @@ MonoBehaviour:
     - Oh, they must have forgotten to mention.
     - Someone in the community center surely..
     - Well anyways! Let's not waste any time.
-    - We have a lot of work to do to get this guild up and running.
+    - 'We have a lot of work to do to get this guild up and running.
+
+      Follow
+      me!'
     dialogueOptions: []
     nodeEvents:
     - rid: 3505743589636833365

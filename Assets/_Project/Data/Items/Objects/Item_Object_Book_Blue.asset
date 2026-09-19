@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
+  m_Name: Item_Object_Book_Blue
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
+  <ItemID>k__BackingField: Item_Object_Book_Blue
+  <ItemName>k__BackingField: Blue Book
+  <ItemDescription>k__BackingField: A book with a blue cover. Read to gain a small
+    amount of xp
+  <Category>k__BackingField: 7
+  <Rarity>k__BackingField: 0
+  <ItemIcon>k__BackingField:
+  - {fileID: 1514090624923795274, guid: c93e61ba1c2fafb45b6b21ef60d0f0bd, type: 3}
+  <ItemObject>k__BackingField: {fileID: 0}
+  <ItemValue>k__BackingField: 20
+  <IsSellable>k__BackingField: 1
+  <IsStackable>k__BackingField: 0
+  <MaxStackSize>k__BackingField: 99
+  ItemProperties: []
+  <IsUsable>k__BackingField: 1
+  effects:
+  - rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

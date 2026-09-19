@@ -30,6 +30,7 @@ public abstract class HitBox : MonoBehaviour
 	{
 		// Safety Checks
 		if (!EnableHitBox || other.isTrigger) return;
+		if (other == null) return;
 		if (((1 << other.gameObject.layer) & VictimLayer) == 0) return;
 		if (other.transform.root.gameObject == _combatContext.User.transform.root.gameObject) return;
 
