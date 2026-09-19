@@ -1,11 +1,32 @@
+using System;
 using UnityEngine;
-public class EffectGiveXp : MonoBehaviour
+[Serializable]
+public class EffectGiveXp : Effect
 {
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	void Start()
-	{}
+	[field: SerializeField] public int Amount { get; private set; }
 
-	// Update is called once per frame
-	void Update()
-	{}
+	public override bool Execute(EffectPayload payload)
+	{
+		GameObject target = payload.Target != null ? payload.Target : payload.User;
+
+		if (target.TryGetComponent(out IStatProvider statProvider))
+		{
+			Level level = statProvider.EntityLevel;
+			if (level == null)
+				return false;
+
+			level.AddExperience(Amount);
+			return true;
+		}
+
+		return false;
+	}
+
+	public override Effect Clone()
+	{
+		return new EffectGiveXp
+		{
+			Amount = Amount
+		};
+	}
 }

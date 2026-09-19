@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: <NpcScheduleData>k__BackingField.WorkPOIList.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[5971589033871015936].requiredGameStat
@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[0]'
-      value: POI_Tavern_Entrance
+      value: POI_Library_Interior_NoTp
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[1]'
@@ -146,11 +146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[0]'
-      value: POI_Tavern_Interior_Entrance
+      value: POI_Tavern_Interior_Fireplace1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[1]'
-      value: POI_Tavern_Table2
+      value: POI_Tavern_Interior_Table1
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[2]'
@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_Name
-      value: Mai Variant
+      value: Mai
       objectReference: {fileID: 0}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
@@ -250,12 +250,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: shopList.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'shopList.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: e07ed1989f97d1f42937566338624945, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b87ab831ca491f743a08f52f95021875, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b8d56cc71eef5941a5ab16cf60ea5f7, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f076a79685ac46a409ecab3ff480422d, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 53631c9a6d2e4094fbc3277d056d5623, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: npcDialogueData.HomeDialogueNode
       value: 
@@ -277,6 +293,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ff8b49567eb1a0e438ece5899c9452c6, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: speechBubbleData.HomeSpeechBubbles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: speechBubbleData.WorkSpeechBubbles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: npcDialogueData.DefaultDialogueNode.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -293,6 +317,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a9a6c9cde6ad07c4f874c3a38e88a94d, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: speechBubbleData.HobbySpeechBubbles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.HobbyDialogueNode.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: eeae8b97e9def4b4987f5729359d4a08, type: 2}
@@ -301,6 +329,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 132f9a26b53e6064fafa877bee9eacc0, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HomeSpeechBubbles.Array.data[0]'
+      value: I'm sleepy.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HomeSpeechBubbles.Array.data[1]'
+      value: What's on TV today?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HomeSpeechBubbles.Array.data[2]'
+      value: Should I cook something?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HomeSpeechBubbles.Array.data[3]'
+      value: Maybe I should study.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.WorkSpeechBubbles.Array.data[0]'
+      value: Come browse, we have many interesting books!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.WorkSpeechBubbles.Array.data[1]'
+      value: There are many things you can learn!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.WorkSpeechBubbles.Array.data[2]'
+      value: Want to study some new spell books?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.DefaultDialogueNode.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: b03e8296f93f0124ea4b28be0c7e72e6, type: 2}
@@ -308,6 +364,22 @@ PrefabInstance:
       propertyPath: 'npcDialogueData.GlobalDialogueNodes.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: b03e8296f93f0124ea4b28be0c7e72e6, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HobbySpeechBubbles.Array.data[0]'
+      value: There are so many interesting books in the world.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HobbySpeechBubbles.Array.data[1]'
+      value: I want to write my own story one day.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HobbySpeechBubbles.Array.data[2]'
+      value: Can someone with no magic abilities still acquire magic?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.DefaultSpeechBubbles.Array.data[0]'
+      value: Should I get some cake...
+      objectReference: {fileID: 0}
     - target: {fileID: 3324052278730299444, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
       value: Mai

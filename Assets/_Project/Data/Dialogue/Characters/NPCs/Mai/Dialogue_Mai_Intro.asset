@@ -16,9 +16,10 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - Hello traveller, nice to meet you.
-    - 'My name is Mai. Come see me by the potion shop if you need some potions! '
-    - Looking forward to seeing you around.
+    - Hello there. You must be the new Guild Master.
+    - 'My name is Mai. I work at the local library. Come by if you''re ever looking
+      for a book. '
+    - I'll see you around!
     dialogueOptions: []
     nodeEvents:
     - rid: 3505743600646619138

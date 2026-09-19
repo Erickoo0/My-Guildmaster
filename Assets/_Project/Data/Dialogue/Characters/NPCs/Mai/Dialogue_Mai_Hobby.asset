@@ -16,10 +16,36 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - I love shopping, yayyy
-    dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    - I don't have much gold. But I still love shopping around, even if it's just
+      to look.
+    - Do you feel the same way?
+    dialogueOptions:
+    - optionName: Yes, I totally understand.
+      targetNodeID: Option_1
+      optionEvents: []
+    - optionName: Not really, whats the point?
+      targetNodeID: Option_2
+      optionEvents: []
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
+  - nodeID: Option_1
+    dialogueLines:
+    - Right?! Just because you can't have it, doesn't mean it's not fun to look!
+    dialogueOptions: []
+    nodeEvents: []
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  - nodeID: Option_2
+    dialogueLines:
+    - I think it's fun to look, even if you can't have it.
+    dialogueOptions: []
+    nodeEvents: []
+    requirements: []
+    selectionWeight: 0
+    isImportant: 0
+  references:
+    version: 2
+    RefIds: []
