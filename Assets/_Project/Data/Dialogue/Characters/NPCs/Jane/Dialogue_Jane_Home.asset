@@ -18,9 +18,10 @@ MonoBehaviour:
     dialogueLines:
     - Sorry about the mess.
     - I dont quite have the energy to clean.
+    - If there's nothing you need, I'd prefer to be alone...
+    - Sorry.
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0

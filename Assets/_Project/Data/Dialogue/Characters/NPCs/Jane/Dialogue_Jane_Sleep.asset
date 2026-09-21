@@ -16,11 +16,9 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - Sorry, could you leave me alone please?
-    - I'd rather not spend anymore time awake than I need to.
+    - Hello there... May I help you?
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0

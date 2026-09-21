@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_Name
-      value: Jane Variant
+      value: Jane
       objectReference: {fileID: 0}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName
@@ -25,17 +25,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4723107735738678597, guid: e99c368beeb70d3498aa1dc46f4af153, type: 3}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: shopList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'shopList.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 9a5af54d2141da74ba85747696a07a3a, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'shopList.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: a3fd52e4ba3e8e24486edaf2a521da1a, type: 2}
+      objectReference: {fileID: 11400000, guid: 76701d19b0ba42b47b0f8dbe197e7787, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'shopList.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 06d1c30a4eabb5e4c9dbe0d05343ac61, type: 2}
+      objectReference: {fileID: 11400000, guid: 6c4adf68cec84284bbfc5c0222af1d92, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bf4ec7f4a311af54e91d3c0d9500db72, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: npcDialogueData.DefaultDialogueNode.Array.size
       value: 1
@@ -53,6 +61,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3911c7a1586fab44cb3da170fe30d252, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: speechBubbleData.HobbySpeechBubbles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.HobbyDialogueNode.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 55e01033585515a4fba06491b475db46, type: 2}
@@ -61,6 +73,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7f7edc9843d2c8349b1b4502a059fa5d, type: 2}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HomeSpeechBubbles.Array.data[0]'
+      value: I wish I could stay home all day...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.WorkSpeechBubbles.Array.data[0]'
+      value: Looking for potions?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: 'npcDialogueData.DefaultDialogueNode.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 33a74167bcbb93f429b0617fa9a9403b, type: 2}
@@ -68,6 +88,14 @@ PrefabInstance:
       propertyPath: 'npcDialogueData.GlobalDialogueNodes.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 33a74167bcbb93f429b0617fa9a9403b, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HobbySpeechBubbles.Array.data[0]'
+      value: The flowers are lovely today.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HobbySpeechBubbles.Array.data[1]'
+      value: The weather is quiet.
+      objectReference: {fileID: 0}
     - target: {fileID: 7178337551593566575, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_SpriteLibraryAsset
       value: 

@@ -17,11 +17,13 @@ MonoBehaviour:
   - nodeID: Intro
     dialogueLines:
     - 'Oh, hello there... '
-    - I'm Jane, nice to meet you...
-    - If you need potions, you can find me.
+    - My name is Jane...
+    - I apologies. I don't do well with strangers.
+    - I run the Alchemy Store in Spell Harbor.
     dialogueOptions: []
     nodeEvents:
     - rid: 3505743600646619137
+    - rid: 172364273388355711
     requirements:
     - rid: 5971589033871016021
     selectionWeight: 0
@@ -29,6 +31,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 172364273388355711
+      type: {class: DialogueActionSetGameFlag, ns: , asm: Assembly-CSharp}
+      data:
+        flagToSet: 3
+        stateToSet: 1
     - rid: 3505743600646619137
       type: {class: DialogueActionIncrementStat, ns: , asm: Assembly-CSharp}
       data:
