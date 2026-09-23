@@ -12,6 +12,7 @@ public enum GameLocation
 	// 🍺 PUBLIC BUILDINGS & SHOPS (Interiors)
 	// ==========================================
 	Tavern_Interior,
+	Barracks_Interior,
 	Library_Interior,
 	Church_Interior,
 	Haven_Hills_Interior,

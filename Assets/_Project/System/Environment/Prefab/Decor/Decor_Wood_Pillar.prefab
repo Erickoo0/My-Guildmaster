@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377309885013309345, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_Name
-      value: Decor_Wood_Pillar Variant
+      value: Decor_Wood_Pillar
       objectReference: {fileID: 0}
     - target: {fileID: 7714553535268852933, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,19 +70,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_Size.x
-      value: 1.0625
+      value: 0.90896606
       objectReference: {fileID: 0}
     - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_Size.y
-      value: 5.0625
+      value: 4.230797
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.069625854
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.1153984
       objectReference: {fileID: 0}
     - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5
+      value: 0.47058824
       objectReference: {fileID: 0}
     - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7759140761209657896, guid: 037ef8a53c629ab4a9abdfd527a4a263, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
