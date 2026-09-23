@@ -19,6 +19,7 @@ MonoBehaviour:
     - Hello there, nice to meet you.
     - The names Eric. I'm one of the city guards.
     - If theres ever any trouble around, I'll be there to put it down.
+    - Don't hestitate to find me if you ever need help!
     dialogueOptions: []
     nodeEvents:
     - rid: 3505743600646619136

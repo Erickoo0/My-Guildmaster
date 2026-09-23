@@ -18,8 +18,8 @@ MonoBehaviour:
     dialogueLines:
     - Whats that? Your looking for a job to earn some gold?
     - Well, lucky for you, we do have a small problem up north of the city.
-    - A small tribe of Goblins have been causing trouble in the forest.
-    - The city guards have their hands tied with other trouble at the moment.
+    - A small tribe of Goblins have been causing trouble in the MIsten Forest.
+    - The city guards have their hands tied with other troubles at the moment.
     - If you could take care of the issue, the guards watch will be sure to repay
       you.
     dialogueOptions: []

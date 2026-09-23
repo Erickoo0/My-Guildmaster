@@ -6,9 +6,10 @@ public class CameraManager : MonoBehaviour
 
 	[Header("References")]
 	[SerializeField] private CinemachineConfiner2D _confiner;
+	[SerializeField] private CinemachineCamera _camera;
 
 	[Header("Location Bounds")]
-	[SerializeField] private LocationBound[] _locationBounds;
+	[SerializeField] private LocationData[] _locationBounds;
 
 	private void Start()
 	{
@@ -20,31 +21,36 @@ public class CameraManager : MonoBehaviour
 
 	private void HandleLocationChanged(GameLocation location)
 	{
-		Collider2D cameraBound = GetBoundsForLocation(location);
-		if (cameraBound == null)
+		LocationData locationData = GetLocationData(location);
+		if (locationData == null)
 		{
-			Debug.LogWarning($"No bounds found for location: {location}");
+			Debug.LogWarning($"No camera data found for location: {location}");
 			return;
 		}
 
-		_confiner.BoundingShape2D = cameraBound;
+		// 1. Update camera bounds
+		_confiner.BoundingShape2D = locationData.Bounds;
 		_confiner.InvalidateBoundingShapeCache();
+
+		// 2. Update camera zoom
+		_camera.Lens.OrthographicSize = locationData.ZoomLevel;
 	}
 
-	private Collider2D GetBoundsForLocation(GameLocation location)
+	private LocationData GetLocationData(GameLocation location)
 	{
 		for (int i = 0; i < _locationBounds.Length; i++)
 		{
 			if (_locationBounds[i].Location == location)
-				return _locationBounds[i].Bounds;
+				return _locationBounds[i];
 		}
 
 		return null;
 	}
 	[Serializable]
-	private class LocationBound
+	private class LocationData
 	{
 		public GameLocation Location;
 		public Collider2D Bounds;
+		public float ZoomLevel = 10f;
 	}
 }
