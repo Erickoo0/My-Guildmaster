@@ -16,19 +16,17 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - Welcome to Sky Haven! The best food stall in the city!
+    - Welcome to Haven Hills The best restaurant and best view in the city!
     - What can I get for ya?
     dialogueOptions:
     - optionName: Show me your menu.
       targetNodeID: 
-      dialogueEvent: OpenShop
-      eventParameter: 
+      optionEvents:
+      - rid: 172364438865707088
     - optionName: Just passing by.
       targetNodeID: Rejection
-      dialogueEvent: 
-      eventParameter: 
-    nodeEvent: 
-    nodeEventParameter: 
+      optionEvents: []
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
@@ -36,11 +34,13 @@ MonoBehaviour:
     dialogueLines:
     - Well, if your ever hungry, you know where to find me!
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 172364438865707088
+      type: {class: DialogueActionOpenShop, ns: , asm: Assembly-CSharp}
+      data: 

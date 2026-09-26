@@ -16,13 +16,12 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - Master...?
+    - Guild Master...?
     - I must be dreaming...
     - Can't even escape work in my sleep...
     - ZzZZz
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
