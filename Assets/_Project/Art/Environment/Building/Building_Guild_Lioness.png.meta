@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: ee77d2854e639b34fa9f2100bae347c3
+guid: e865f392d6d9071479642b4a603ed73a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8220173729927824445
-    second: Haven Hills Front_0
-  - first:
-      213: -5361575929599511821
-    second: Haven Hills Front_1
+      213: 1979927010914212032
+    second: Building_Guild_Lioness_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,8 +49,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -103,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Haven Hills Front_0
+      name: Building_Guild_Lioness_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 11
         y: 0
-        width: 128
-        height: 128
+        width: 235
+        height: 172
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.0859375}
+      pivot: {x: 0.50212765, y: 0.14534883}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d34885c747ce31270800000000000000
-      internalID: 8220173729927824445
+      spriteID: 0c81eb6502d1a7b10800000000000000
+      internalID: 1979927010914212032
       vertices: []
       indices: 
       edges: []
@@ -128,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4d3f805e270afb2448a415015d87a040
+    spriteID: 24aba62ee342eef46ad7eddadbfd4fd5
     internalID: 0
     vertices: []
     indices: 
@@ -136,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5078125,"y":0.34375},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Haven Hills Front_0: 8220173729927824445
+      Building_Guild_Lioness_0: 1979927010914212032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

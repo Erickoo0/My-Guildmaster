@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fefb62b8b8179b840a74cb54b6d5e3b4
+guid: 7e3bb7c9b633aec4c976857067f8f42c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3761523627253525227
-    second: House6_0
+      213: 9152275425831448029
+    second: Building_Church_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House6_0
+      name: Building_Church_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 16
+        y: 7
+        width: 176
+        height: 200
       alignment: 9
-      pivot: {x: 0.5078125, y: 0.109375}
+      pivot: {x: 0.5, y: 0.07}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 515905fb0326ccbc0800000000000000
-      internalID: -3761523627253525227
+      spriteID: ddd683b420a630f70800000000000000
+      internalID: 9152275425831448029
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b459b3adfbebfd445a1d3616bd18d7d3
+    spriteID: b14c3ef3898ae2b438841f55cac4dcda
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      House6_0: -3761523627253525227
+      Building_Church_0: 9152275425831448029
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

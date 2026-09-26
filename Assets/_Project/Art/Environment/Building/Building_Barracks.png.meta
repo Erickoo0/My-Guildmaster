@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 45c4189f8b0d8dd4b8262b5f615a24f2
+guid: a83f0b6a5942ec04181dab9902911c15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6610845423441128365
-    second: Guild 1 Hall_0
+      213: 8125399361494628278
+    second: Building_Barracks_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Guild 1 Hall_0
+      name: Building_Barracks_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 200
+        x: 4
+        y: 3
+        width: 202
+        height: 219
       alignment: 9
-      pivot: {x: 0.50390625, y: 0.13499999}
+      pivot: {x: 0.5, y: 0.4109589}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: daba93903e07ebb50800000000000000
-      internalID: 6610845423441128365
+      spriteID: 6b7b2184ba733c070800000000000000
+      internalID: 8125399361494628278
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a800abbd002b5b544948325af8af25cb
+    spriteID: 4a9f6c2600eff4b46b10f2e57ec3c41b
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Guild 1 Hall_0: 6610845423441128365
+      Building_Barracks_0: 8125399361494628278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

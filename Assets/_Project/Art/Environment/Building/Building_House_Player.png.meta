@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d5952376943125645aa28d33e809d621
+guid: 31033ed680e82294580ac25d84c30653
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1002981167658401213
-    second: Alchemy Store_0
+      213: -6871032511782127585
+    second: House2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alchemy Store_0
+      name: House2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 128
+        width: 146
+        height: 146
       alignment: 9
-      pivot: {x: 0.453125, y: 0.28125}
+      pivot: {x: 0.49315068, y: 0.19863014}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 342805921f1b412f0800000000000000
-      internalID: -1002981167658401213
+      spriteID: f18f017b55035a0a0800000000000000
+      internalID: -6871032511782127585
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d97dc74eb50000f44ad4a132061e3c97
+    spriteID: 8fca526ec0a325c4fbba945c6aa2c2f6
     internalID: 0
     vertices: []
     indices: 
@@ -135,9 +135,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.453125,"y":0.28125},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":146.0,"y":146.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Alchemy Store_0: -1002981167658401213
+      House2_0: -6871032511782127585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

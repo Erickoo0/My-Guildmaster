@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5a98421e7f65265429e0b83129d4538c
+guid: 857dd2c551f059846ab823230f16fc66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6506036955920984320
-    second: Church_0
+      213: 2491897223048795810
+    second: House4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Church_0
+      name: House4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 208
-        height: 208
+        width: 128
+        height: 128
       alignment: 9
-      pivot: {x: 0.5048077, y: 0.100961536}
+      pivot: {x: 0.5078125, y: 0.1171875}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00714caebd9e5b5a0800000000000000
-      internalID: -6506036955920984320
+      spriteID: 2a61b9c525ff49220800000000000000
+      internalID: 2491897223048795810
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e8c7964ef217be64b95ea4c77f06f1a2
+    spriteID: e9b97811a0be86c4793a28823b5d5052
     internalID: 0
     vertices: []
     indices: 
@@ -135,9 +135,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":208.0,"y":208.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.504807710647583,"y":0.10096153616905213},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Church_0: -6506036955920984320
+      House4_0: 2491897223048795810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

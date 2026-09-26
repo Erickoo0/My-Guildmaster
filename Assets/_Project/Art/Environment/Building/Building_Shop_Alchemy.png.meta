@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 21595acfc4760894c88b61641c1ddb3d
+guid: d1c0e146b9f657144b6dbf69fefdb284
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5093131891365191335
-    second: Tavern_0
+      213: 259096579231138417
+    second: Building_Store_Alchemy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tavern_0
+      name: Building_Store_Alchemy_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 320
-        height: 180
+        x: 8
+        y: 12
+        width: 175
+        height: 111
       alignment: 9
-      pivot: {x: 0.5, y: 0.21111111}
+      pivot: {x: 0.45714286, y: 0.20720722}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ae190b78707ea640800000000000000
-      internalID: 5093131891365191335
+      spriteID: 172479f47fe789300800000000000000
+      internalID: 259096579231138417
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 92d6aa0838192ea449da0cd5a8a0a9d4
+    spriteID: d9adb48c2ef28f84297e5da4d8218fc3
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":320.0,"y":180.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Tavern_0: 5093131891365191335
+      Building_Store_Alchemy_0: 259096579231138417
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

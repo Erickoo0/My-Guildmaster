@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: f98e630048f6b2d4c8f506478c175f9f
+guid: 87fc5253a01e3be46a11347fd82464fd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5391499930902814504
-    second: House1_0
+      213: 1045084630664051073
+    second: Library Background_0
+  - first:
+      213: 3735809194253531486
+    second: Library Background_1
+  - first:
+      213: 917764874753966582
+    second: Library Background_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +55,7 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -100,23 +106,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House1_0
+      name: Library Background_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 146
-        height: 146
+        width: 148
+        height: 128
       alignment: 9
-      pivot: {x: 0.49315068, y: 0.2260274}
+      pivot: {x: 0.4054054, y: 0.0859375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d0aef3d06b8d25b0800000000000000
-      internalID: -5391499930902814504
+      spriteID: 18973fa3fe2e08e00800000000000000
+      internalID: 1045084630664051073
       vertices: []
       indices: 
       edges: []
@@ -125,7 +131,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bd1db9df1fbc14444bd4b8c0a0b6ee70
+    spriteID: 05711ef63675fc1428c4e7295b3b8957
     internalID: 0
     vertices: []
     indices: 
@@ -135,9 +141,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":146.0,"y":146.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":148.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.4054054021835327,"y":0.0859375},"pivotPixels":{"x":45.0,"y":8.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      House1_0: -5391499930902814504
+      Library Background_0: 1045084630664051073
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
