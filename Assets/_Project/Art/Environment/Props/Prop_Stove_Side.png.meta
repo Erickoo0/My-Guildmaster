@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 51daf4b1eea4eb74099ee9c9c3d3a8ef
+guid: 6565e9cb360b4014b84c757957e65221
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2132112768568484654
-    second: Eric House Interior Walls_0
+      213: -66768408608336714
+    second: Prop_Stove_Side_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eric House Interior Walls_0
+      name: Prop_Stove_Side_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 376
-        height: 376
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 19
+        height: 35
+      alignment: 9
+      pivot: {x: 0.47368422, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2dc9660cbb63962e0800000000000000
-      internalID: -2132112768568484654
+      spriteID: 6b49ea27c7ac21ff0800000000000000
+      internalID: -66768408608336714
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bec93a95428615342b64c8da5c8a76db
+    spriteID: e38f73e774af58844a75d1c913df5544
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":376.0,"y":376.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Eric House Interior Walls_0: -2132112768568484654
+      Prop_Stove_Side_0: -66768408608336714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

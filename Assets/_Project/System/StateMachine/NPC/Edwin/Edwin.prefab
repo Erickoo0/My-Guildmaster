@@ -509,6 +509,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.HomePOIList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743512665063500].setFlagOnArrival
       value: 0
       objectReference: {fileID: 0}
@@ -635,6 +639,62 @@ PrefabInstance:
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743600646619144].requireEqualValue
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[0]'
+      value: POI_Eric_Interior_Home_Bookshelf
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[1]'
+      value: POI_Eric_Interior_Home_Sink
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[2]'
+      value: POI_Eric_Interior_Home_Stove
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[3]'
+      value: POI_Eric_Interior_Home_Fireplace
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[4]'
+      value: POI_Eric_Interior_Home_Washroom
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[5]'
+      value: POI_Eric_Interior_Home_Nightstand
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[0]'
+      value: POI_Player_Guild_Interior_Desk_Behind
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[0]'
+      value: POI_Tavern_Interior_Fireplace1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[1]'
+      value: POI_Tavern_Table1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[2]'
+      value: POI_Tavern_Table2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[3]'
+      value: POI_Tavern_Table3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[4]'
+      value: POI_Haven_Hills_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[5]'
+      value: POI_Community_Center_Right
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.SleepPOIList.Array.data[0]'
+      value: POI_Eric_Interior_Home_Bed
       objectReference: {fileID: 0}
     - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: managedReferences[3505743540369489930].requiredMinimumValue
@@ -978,7 +1038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: m_Name
-      value: Edwin Variant
+      value: Edwin
       objectReference: {fileID: 0}
     - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
       propertyPath: dialogueName

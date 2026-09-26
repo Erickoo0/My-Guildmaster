@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dcec3b23726bad445a7fd01cf63a865f
+guid: 409da980d8fbc1143a357784c5ce3cbc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2919143158372774273
-    second: Eric House Interior_0
+      213: -1784145047209274983
+    second: Decor_Kitchen_Counter_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eric House Interior_0
+      name: Decor_Kitchen_Counter_3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 376
-        height: 376
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 28
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 181325b7c31e28820800000000000000
-      internalID: 2919143158372774273
+      spriteID: 991915948817d37e0800000000000000
+      internalID: -1784145047209274983
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 26316fd5ff98ab64985261891f4bbd92
+    spriteID: 1c752dd5181b21d4584b1ea5fc8604a0
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":376.0,"y":376.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Eric House Interior_0: 2919143158372774273
+      Decor_Kitchen_Counter_3_0: -1784145047209274983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
