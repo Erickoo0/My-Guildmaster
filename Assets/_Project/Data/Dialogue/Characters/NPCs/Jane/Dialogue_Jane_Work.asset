@@ -16,18 +16,15 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - Hello there... are you looking for potions?
+    - Do you need any potions?
     dialogueOptions:
     - optionName: Yes I am.
       targetNodeID: 
-      dialogueEvent: OpenShop
-      eventParameter: 
+      optionEvents: []
     - optionName: Just passing by.
       targetNodeID: Rejection
-      dialogueEvent: 
-      eventParameter: 
-    nodeEvent: 
-    nodeEventParameter: 
+      optionEvents: []
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
@@ -35,8 +32,7 @@ MonoBehaviour:
     dialogueLines:
     - I see... Well, good day to you then.
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0

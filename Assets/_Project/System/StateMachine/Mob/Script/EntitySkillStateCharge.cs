@@ -6,13 +6,13 @@ public class EntitySkillStateCharge : EntitySkillStateBase
 	[Header("Charge Settings")]
 	[SerializeField] private float _chargeSpeedMultiplier = 5.0f;
 	[SerializeField] private float _overshootDistance = 4.0f;
-	private float _afterImageInterval = 0.04f;
-	private float _afterImageTimer;
-
-	private HitBox _chargeHitbox;
 
 	[Header("Timers & Tracking")]
+	private float _afterImageInterval = 0.04f;
+	private float _afterImageTimer;
+	private HitBox _chargeHitbox;
 	private float _chargeTimer;
+
 	private Collider2D _entityCollider;
 	private bool _isCharging;
 	private LayerMask _originalExcludeLayers;
@@ -42,14 +42,27 @@ public class EntitySkillStateCharge : EntitySkillStateBase
 		}
 	}
 
+	public override void Enter()
+	{
+		base.Enter();
+
+		_isCharging = false;
+		_chargeTimer = 0f;
+		_afterImageTimer = 0f;
+	}
+
 
 	public override void Update()
 	{
 		base.Update();
 
+		// Safety Check
+		if (stateMachine.CurrentState != this) return;
+
 		// Charge Phase Logic
 		if (_isCharging)
 		{
+			Debug.Log("Is Charging!!!!");
 			_chargeTimer -= Time.deltaTime;
 
 			// Handle AfterImages
@@ -68,8 +81,11 @@ public class EntitySkillStateCharge : EntitySkillStateBase
 
 	protected override void HandleAnimationEvent()
 	{
+		Debug.Log("Charge Animation Event Fired!");
 		// Safety Check
-		if (HasTriggered) return;
+		if (HasTriggered)
+			return;
+
 		HasTriggered = true;
 
 		float chargeSpeed = controller.EntityMover.moveSpeed*_chargeSpeedMultiplier;
@@ -81,11 +97,13 @@ public class EntitySkillStateCharge : EntitySkillStateBase
 		// 2. Calculate Charge Vector and Timing
 		TryUpdateAttackDirection();
 		Vector2 chargeDirection = SkillDirection;
-
-		float distanceToTarget = Vector2.Distance(controller.transform.position, controller.CurrentTarget.position);
+		float distanceToTarget = 0f;
+		if (controller.CurrentTarget != null)
+		{
+			distanceToTarget = Vector2.Distance(controller.transform.position, controller.CurrentTarget.position);
+		}
 		float totalDistance = distanceToTarget + _overshootDistance;
 		_chargeTimer = totalDistance/chargeSpeed;
-
 
 		// 3. Ignore collisions with victims during dash to avoid getting stuck
 		_originalExcludeLayers = _entityCollider.excludeLayers;

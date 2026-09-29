@@ -17,7 +17,7 @@ MonoBehaviour:
   - nodeID: Intro
     dialogueLines:
     - Hi there! New arriver huh?
-    - The names Stob, I run the Sky Haven food stall.
+    - The names Stob, I run the Haven Hills restaurant on the hill.
     - If your ever looking for a bite to eat, come on by.
     dialogueOptions: []
     nodeEvents:

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0755dda66a5af4eb1db19137715feb, type: 3}
   m_Name: Dungeon_Data_Misten_Forest
   m_EditorClassIdentifier: Assembly-CSharp::DungeonData
-  dungeonLocation: 28
+  dungeonLocation: 30
   baseEnemyCount: 5
   enemiesPerRoundScaling: 2
   delayBetweenRounds: 5
@@ -21,13 +21,16 @@ MonoBehaviour:
   enemySpawnPool:
   - enemyPrefab: {fileID: 7477142461379063261, guid: 44b7f2adab97d0d4996abeec5d9ec67f, type: 3}
     spawnWeight: 50
-    minRoundRequirement: 1
+    minRoundRequirement: 3
   - enemyPrefab: {fileID: 7501037571369695415, guid: 1a903ede916c51e4f9eeacaf2250015f, type: 3}
     spawnWeight: 50
-    minRoundRequirement: 1
+    minRoundRequirement: 4
   - enemyPrefab: {fileID: 8717484381973821104, guid: be47aeb0ca3d0354097f97a3112e8df7, type: 3}
     spawnWeight: 50
-    minRoundRequirement: 1
+    minRoundRequirement: 5
   - enemyPrefab: {fileID: 6651961568987034968, guid: 96e456628781c1b43bcb780d203d957a, type: 3}
+    spawnWeight: 50
+    minRoundRequirement: 2
+  - enemyPrefab: {fileID: 876451078706167436, guid: 1e6ccb532640f8641b55b7edc842bdfe, type: 3}
     spawnWeight: 50
     minRoundRequirement: 1

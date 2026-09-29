@@ -20,15 +20,12 @@ MonoBehaviour:
     - Do you like to read as well?
     dialogueOptions:
     - optionName: I love reading!
-      targetNodeID: 
-      dialogueEvent: 
-      eventParameter: 
+      targetNodeID: Option_1
+      optionEvents: []
     - optionName: No, not really.
-      targetNodeID: 
-      dialogueEvent: 
-      eventParameter: 
-    nodeEvent: 
-    nodeEventParameter: 
+      targetNodeID: Option_2
+      optionEvents: []
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
@@ -37,26 +34,16 @@ MonoBehaviour:
     - Thats lovely!
     - Please recommend me some books sometime.
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
   - nodeID: Option_2
     dialogueLines:
     - Oh, I see.
-    - Well, I guess reading is not for everyone
-    dialogueOptions:
-    - optionName: I love reading!
-      targetNodeID: 
-      dialogueEvent: 
-      eventParameter: 
-    - optionName: No, not really.
-      targetNodeID: 
-      dialogueEvent: 
-      eventParameter: 
-    nodeEvent: 
-    nodeEventParameter: 
+    - Well, I guess reading is not for everyone.
+    dialogueOptions: []
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0

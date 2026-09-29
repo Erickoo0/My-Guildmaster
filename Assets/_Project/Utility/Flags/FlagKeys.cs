@@ -9,13 +9,13 @@ public static class FlagKeys
 		NPC_Met_Stob,
 		NPC_Met_Jane,
 		NPC_Met_Eric,
-    
+
 		// SPELLS
 		Spell_Unlocked_Fireball,
 		Spell_Unlocked_Lightning_Orb,
 		Spell_Unlocked_Ice_Wall,
 		Spell_Unlocked_Heal,
-    
+
 		// WORLD & TIME
 		Event_Bridge_Repaired,
 		Season_First_Winter_Reached,
@@ -25,16 +25,15 @@ public static class FlagKeys
 	public enum GameStat
 	{
 		// NPC & DIALOGUE
-		NPCs_Met,
-		
+		Npcs_Met,
+
 		// QUESTS
 		Quest_Tutorial,
-		
+
 		// WORLD
 		SkyTower_HighestFloorReached,
-		
+
 		// STATS
 		Player_CurrentLevel
 	}
 }
-

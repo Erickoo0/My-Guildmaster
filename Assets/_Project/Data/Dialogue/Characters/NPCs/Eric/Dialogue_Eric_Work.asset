@@ -17,7 +17,7 @@ MonoBehaviour:
   - nodeID: Intro
     dialogueLines:
     - Hi there! Im here to protect and serve.
-    - Let me know if anyones causing trouble in town.
+    - Let me know if anyones causing trouble in the city!
     dialogueOptions: []
     nodeEvents: []
     requirements: []

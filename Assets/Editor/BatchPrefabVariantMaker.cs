@@ -33,7 +33,7 @@ public class BatchPrefabVariantMaker : EditorWindow
 
 		// 1. MEMORIZE POSITIONS: Find all instances in the open scene
 		Dictionary<GameObject, TransformData> sceneInstances = new Dictionary<GameObject, TransformData>();
-		GameObject[] allSceneObjects = FindObjectsOfType<GameObject>(true);
+		GameObject[] allSceneObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
 		foreach (GameObject sceneObj in allSceneObjects)
 		{

@@ -16,24 +16,20 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - Hello there Master!
+    - Hello there Guild Master!
     - I am here to assist with anything you may need.
     - What can I help you with?
     dialogueOptions:
     - optionName: Hire Workers
       targetNodeID: 
-      dialogueEvent: 
-      eventParameter: 
+      optionEvents: []
     - optionName: Manage Workers
       targetNodeID: 
-      dialogueEvent: 
-      eventParameter: 
+      optionEvents: []
     - optionName: Build Stations
       targetNodeID: 
-      dialogueEvent: 
-      eventParameter: 
-    nodeEvent: 
-    nodeEventParameter: 
+      optionEvents: []
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0

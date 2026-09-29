@@ -16,9 +16,9 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - I hate my job.
-    - I want to go home...
-    - 'Oh! Sorry, didnt see you there. '
+    - I love books, so working at the library surrounded by books is great.
+    - Though, I'd love to write my own book one day rather than sell other people's.
+    - A book, all about the mysteries of the Aurora Towers!
     dialogueOptions:
     - optionName: Browse Shop
       targetNodeID: 

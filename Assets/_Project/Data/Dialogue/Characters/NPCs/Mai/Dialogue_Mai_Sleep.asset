@@ -16,10 +16,12 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - You shouldnt wake a princess during her beauty sleep.
+    - Huh? It's the middle of the night, can i help you?
     dialogueOptions: []
-    nodeEvent: 
-    nodeEventParameter: 
+    nodeEvents: []
     requirements: []
     selectionWeight: 0
     isImportant: 0
+  references:
+    version: 2
+    RefIds: []

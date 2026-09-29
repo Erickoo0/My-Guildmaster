@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5789891194980568180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: entityID
+      value: NPC_Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.HomePOIList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: <NpcScheduleData>k__BackingField.HobbyPOIList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[0]'
+      value: POI_Shop_Alchemy_Interior_Bedroom
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[1]'
+      value: POI_Shop_Alchemy_Interior_Fireplace
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HomePOIList.Array.data[2]'
+      value: POI_Shop_Alchemy_Interior_Toilet
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.WorkPOIList.Array.data[0]'
+      value: POI_Shop_Alchemy_Interior_Counter_Inside
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[0]'
+      value: POI_Guild1_Garden_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[1]'
+      value: POI_Forest01
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[2]'
+      value: POI_Grand_Tree_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[3]'
+      value: POI_Grand_Shrine_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.HobbyPOIList.Array.data[4]'
+      value: POI_Haven_Hills_Front
+      objectReference: {fileID: 0}
+    - target: {fileID: -6023604561836040514, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: '<NpcScheduleData>k__BackingField.SleepPOIList.Array.data[0]'
+      value: POI_Shop_Alchemy_Interior_Bed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295489641667029861, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_Name
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: dialogueName
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: dialoguePortrait
+      value: 
+      objectReference: {fileID: 4723107735738678597, guid: e99c368beeb70d3498aa1dc46f4af153, type: 3}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: shopList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a5af54d2141da74ba85747696a07a3a, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 76701d19b0ba42b47b0f8dbe197e7787, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c4adf68cec84284bbfc5c0222af1d92, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'shopList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bf4ec7f4a311af54e91d3c0d9500db72, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: npcDialogueData.DefaultDialogueNode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: npcDialogueData.GlobalDialogueNodes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'npcDialogueData.HomeDialogueNode.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: df48c920032ba10449c30a4b16a7a504, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'npcDialogueData.WorkDialogueNode.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3911c7a1586fab44cb3da170fe30d252, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: speechBubbleData.HobbySpeechBubbles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'npcDialogueData.HobbyDialogueNode.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 55e01033585515a4fba06491b475db46, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'npcDialogueData.SleepDialogueNode.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f7edc9843d2c8349b1b4502a059fa5d, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HomeSpeechBubbles.Array.data[0]'
+      value: I wish I could stay home all day...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.WorkSpeechBubbles.Array.data[0]'
+      value: Looking for potions?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'npcDialogueData.DefaultDialogueNode.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 33a74167bcbb93f429b0617fa9a9403b, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'npcDialogueData.GlobalDialogueNodes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 33a74167bcbb93f429b0617fa9a9403b, type: 2}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HobbySpeechBubbles.Array.data[0]'
+      value: The flowers are lovely today.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2529391709761804287, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: 'speechBubbleData.HobbySpeechBubbles.Array.data[1]'
+      value: The weather is quiet.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178337551593566575, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_SpriteLibraryAsset
+      value: 
+      objectReference: {fileID: 7108339969198208228, guid: 6e957fbd3f9819040a26a1dcf7f40241, type: 3}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323937701070422547, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784717602424025579, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4723107735738678597, guid: e99c368beeb70d3498aa1dc46f4af153, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c97aa17d95a1c2b41b1bf599355a5d61, type: 3}

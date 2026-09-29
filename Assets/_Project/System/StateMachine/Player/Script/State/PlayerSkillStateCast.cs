@@ -82,7 +82,7 @@ public class PlayerSkillStateCast : PlayerSkillStateBase
 
 
 		// 6. Consume Mana
-		controller?.MpComponent.ConsumeMp(SkillDataInstance.MpCost);
+		controller?.StatProvider.EntityMana.ConsumeMp(SkillDataInstance.MpCost);
 
 		// 7. Set cooldown
 		HasTriggered = true;

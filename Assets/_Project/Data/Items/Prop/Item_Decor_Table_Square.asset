@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
+  m_Name: Item_Decor_Table_Square
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
+  <ItemID>k__BackingField: Item_Decor_Table_Square
+  <ItemName>k__BackingField: Square Table
+  <ItemDescription>k__BackingField: A wooden square table.
+  <Category>k__BackingField: 9
+  <Rarity>k__BackingField: 0
+  <ItemIcon>k__BackingField:
+  - {fileID: 4447194871968280890, guid: efe528624bf370b439f3dbf679f96191, type: 3}
+  <ItemObject>k__BackingField: {fileID: 0}
+  <ItemValue>k__BackingField: 5
+  <IsSellable>k__BackingField: 1
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
+  ItemProperties:
+  - rid: 172364478696128512
+  - rid: 172364478696128513
+  <IsUsable>k__BackingField: 0
+  effects: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 172364478696128512
+      type: {class: ItemPropertyPlaceable, ns: , asm: Assembly-CSharp}
+      data:
+        <PlaceablePrefab>k__BackingField: {fileID: 4910894883695726915, guid: 340b0ea406ea4c64eb98aa87eb878e53, type: 3}
+        <SnapToGrid>k__BackingField: 1
+        <AutoCalculateSize>k__BackingField: 1
+        <ManualGridSize>k__BackingField: {x: 1, y: 1}
+    - rid: 172364478696128513
+      type: {class: ItemPropertyCraftingRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        <RequiredResourcesList>k__BackingField:
+        - ItemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+          Amount: 1
+        <CraftingTime>k__BackingField: 5

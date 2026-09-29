@@ -16,7 +16,8 @@ MonoBehaviour:
   dialogueNodes:
   - nodeID: Intro
     dialogueLines:
-    - Hey there. Let me know if you spot anything suspiciouis.
+    - Im off-duty right now, but of course, if theres trouble, I won't hestitate
+      to jump in!
     dialogueOptions: []
     nodeEvents: []
     requirements: []
