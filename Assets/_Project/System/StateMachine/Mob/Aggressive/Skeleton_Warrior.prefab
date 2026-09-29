@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c215ee0fa30245844a9981b747d6c486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitBoxContact
+  EntityCollider: {fileID: 0}
   VictimLayer:
     serializedVersion: 2
     m_Bits: 64
-  entityCollider: {fileID: 0}
 --- !u!61 &5974232520554156274
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 800d034269520c546adb89b074600ca3, type: 2}
     - target: {fileID: 9181716830030837955, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: id
-      value: 946250e6-c427-4074-b69f-3f9ef3995b80
+      value: 889085db-26fa-41a4-918d-03ce47839128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

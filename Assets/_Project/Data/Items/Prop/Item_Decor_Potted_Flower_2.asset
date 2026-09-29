@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
   m_Name: Item_Decor_Potted_Flower_2
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Prop_Potted_Flower_2
+  <ItemID>k__BackingField: Item_Decor_Potted_Flower_2
   <ItemName>k__BackingField: Flower Pot
   <ItemDescription>k__BackingField: A pot of flowers
-  <Category>k__BackingField: 10
+  <Category>k__BackingField: 9
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
   - {fileID: 644237444706427117, guid: 21a7903798a771e4e9f0ff15e1645c55, type: 3}

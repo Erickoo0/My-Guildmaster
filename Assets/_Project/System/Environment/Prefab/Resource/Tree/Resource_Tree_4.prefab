@@ -50,11 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.47058827
+      value: 0.4901961
       objectReference: {fileID: 0}
     - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.086419754
+      value: 0.074074075
       objectReference: {fileID: 0}
     - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -87,14 +87,14 @@ PrefabInstance:
     - target: {fileID: 6122595831869960383, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6716156461439571400, guid: 34a97706a1faf3f419b655c25841d6f2, type: 3}
+      objectReference: {fileID: 7024825305411925, guid: 13a6253fb21ec0643b80c1f66406e22f, type: 3}
     - target: {fileID: 6122595831869960383, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7025651447484995430, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: id
-      value: e67998c2-762c-4543-a58b-e147edfb5543
+      value: d62e6d4e-89e8-4796-8be9-3a4cbe4de577
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

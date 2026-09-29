@@ -9,21 +9,19 @@ public class ControllerPlayer : ControllerBase
 {
 
 	[Header("References")]
+	[HideInInspector] public SkillControllerPlayer SkillController;
 	public SpriteRenderer PlayerSpriteRenderer;
 	public Collider2D PlayerCollider;
-	[HideInInspector] public SkillControllerPlayer SkillController;
-	[HideInInspector] public Mana MpComponent;
 
+	[Header("Movement Settings")]
+	public float DefaultDashTime = 10f;
+	[HideInInspector] public bool DashInput;
 
 	[Header("States")]
 	[SerializeReference, SubclassSelector] public State<ControllerPlayer> IdleState;
 	[SerializeReference, SubclassSelector] public State<ControllerPlayer> MoveState;
 	[SerializeReference, SubclassSelector] public State<ControllerPlayer> DashState;
 	[SerializeReference, SubclassSelector] public State<ControllerPlayer> SitState;
-
-	[Header("Movement Settings")]
-	public float DefaultDashTime = 10f;
-	[HideInInspector] public bool DashInput;
 
 	private bool _canMove = true;
 	private Camera _mainCam;
@@ -57,8 +55,6 @@ public class ControllerPlayer : ControllerBase
 	{
 		// Default to the idle state
 		StateMachine.SetupState(IdleState);
-
-		MpComponent = PlayerStatsManager.Instance.ManaComponent; // Avoid race condition
 	}
 
 	protected override void Update()

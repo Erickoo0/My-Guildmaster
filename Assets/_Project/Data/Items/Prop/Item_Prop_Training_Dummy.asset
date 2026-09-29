@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
   m_Name: Item_Prop_Training_Dummy
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Prop_Potted_Flower_1
-  <ItemName>k__BackingField: Flower Pot
-  <ItemDescription>k__BackingField: A pot of flowers
+  <ItemID>k__BackingField: Item_Prop_Training_Dummy
+  <ItemName>k__BackingField: Training Dummy
+  <ItemDescription>k__BackingField: A training dummy for target practice
   <Category>k__BackingField: 10
-  <Rarity>k__BackingField: 0
+  <Rarity>k__BackingField: 2
   <ItemIcon>k__BackingField:
-  - {fileID: 8603873165283763310, guid: 20e46518f272da444862e8f2779693df, type: 3}
+  - {fileID: 7149784436083788972, guid: 196d141e983078a4b8dea4ecbdd2c8f5, type: 3}
   <ItemObject>k__BackingField: {fileID: 0}
   <ItemValue>k__BackingField: 5
   <IsSellable>k__BackingField: 1
@@ -35,7 +35,7 @@ MonoBehaviour:
     - rid: 172364478696128512
       type: {class: ItemPropertyPlaceable, ns: , asm: Assembly-CSharp}
       data:
-        <PlaceablePrefab>k__BackingField: {fileID: 4542121372160118691, guid: 4cc75f0bde10a7747bbffeba8e525ee7, type: 3}
+        <PlaceablePrefab>k__BackingField: {fileID: 8066578262934996400, guid: c01591c85f8b90d469deb9787cc80f5d, type: 3}
         <SnapToGrid>k__BackingField: 1
         <AutoCalculateSize>k__BackingField: 1
         <ManualGridSize>k__BackingField: {x: 1, y: 1}

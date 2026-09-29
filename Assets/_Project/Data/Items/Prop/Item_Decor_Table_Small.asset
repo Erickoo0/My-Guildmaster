@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
   m_Name: Item_Decor_Table_Small
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Prop_Table_Small
+  <ItemID>k__BackingField: Item_Decor_Table_Small
   <ItemName>k__BackingField: Small Table
   <ItemDescription>k__BackingField: A wooden small table.
-  <Category>k__BackingField: 10
+  <Category>k__BackingField: 9
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
   - {fileID: 6758382566903366226, guid: 77acd075d006dcf46adff795295c5534, type: 3}

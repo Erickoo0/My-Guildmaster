@@ -20,7 +20,7 @@ public class SkillData : ScriptableObject
 	public float DamageScalingRatio = 1f;
 	public float CooldownBase = 5f;
 	public float MpCostBase = 0; // Not needed for enemies
-	public float CastTimeBase;
+	public float CastTimeBase = 1;
 
 	[Header("Game Feel Settings")]
 	public bool CastBarDisplay = true;

@@ -67,8 +67,8 @@ public class SkillControllerPlayer : SkillControllerBase
 			return;
 
 		// 5. Check mana
-		if (_controllerPlayer.MpComponent == null
-			|| !_controllerPlayer.MpComponent.HasEnoughMp(intendedPlayerSkill.MpCost))
+		if (_controllerPlayer.StatProvider.EntityMana == null
+			|| !_controllerPlayer.StatProvider.EntityMana.HasEnoughMp(intendedPlayerSkill.MpCost))
 			return;
 
 		// 5. Execute Spell

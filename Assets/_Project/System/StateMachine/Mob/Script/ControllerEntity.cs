@@ -37,6 +37,7 @@ public class ControllerEntity : ControllerBase
 	[SerializeReference, SubclassSelector] public EntityWanderStateBase WanderState;
 	[SerializeReference, SubclassSelector] public EntityChaseStateBase ChaseState;
 	[SerializeReference, SubclassSelector] public EntityKiteStateBase KiteState;
+
 	private readonly float _alertedTime = 1f;
 	private readonly Collider2D[] _targetingResults = new Collider2D[10]; // Pre-allocated array for targeting results
 	private float _alertedTimer;
@@ -49,9 +50,11 @@ public class ControllerEntity : ControllerBase
 		base.Awake();
 
 
-		_targetingFilter = ContactFilter2D.noFilter;
-		_rigidBody2D = GetComponent<Rigidbody2D>();
+		// Cached references
 		SkillController = GetComponent<SkillControllerEntity>();
+		StatProvider = GetComponent<IStatProvider>();
+		_rigidBody2D = GetComponent<Rigidbody2D>();
+		_targetingFilter = ContactFilter2D.noFilter;
 
 		// Disable AILerp movement by default (Controlled via states)
 		AILerp = GetComponent<AILerp>();
@@ -68,7 +71,7 @@ public class ControllerEntity : ControllerBase
 		ChaseState?.Setup(this, StateMachine);
 		KiteState?.Setup(this, StateMachine);
 
-		SpawnPosition = transform.position;
+		SpawnPosition = transform.position; // Cache the spawn position
 		StateMachine.SetupState(SpawnState);
 	}
 
