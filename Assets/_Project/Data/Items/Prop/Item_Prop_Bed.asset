@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Item_Prop_Bed
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
   <ItemID>k__BackingField: Item_Prop_Bed
-  <ItemName>k__BackingField: 
-  <ItemDescription>k__BackingField: 
+  <ItemName>k__BackingField: Bed
+  <ItemDescription>k__BackingField: A comfy soft bed
   <Category>k__BackingField: 9
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
@@ -37,12 +37,12 @@ MonoBehaviour:
       data:
         <RequiredResourcesList>k__BackingField:
         - ItemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
-          Amount: 25
+          Amount: 10
         <CraftingTime>k__BackingField: 5
     - rid: 5430880942515290190
       type: {class: ItemPropertyPlaceable, ns: , asm: Assembly-CSharp}
       data:
-        <PlaceablePrefab>k__BackingField: {fileID: 2348623092533263228, guid: b18e099a5fab6df488ac043bca4fdb32, type: 3}
+        <PlaceablePrefab>k__BackingField: {fileID: 4843845427537650429, guid: 317948762675bb740a0d954c2a20688e, type: 3}
         <SnapToGrid>k__BackingField: 1
         <AutoCalculateSize>k__BackingField: 1
         <ManualGridSize>k__BackingField: {x: 1, y: 1}
