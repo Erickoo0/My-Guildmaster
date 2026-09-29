@@ -96,7 +96,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: entityID
-      value: Entity_Aggressive_Mushroom
+      value: Entity_Neutral_Mushroom
       objectReference: {fileID: 0}
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: AttackState
@@ -108,6 +108,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: AttackStates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: <mobType>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5434272593035035782, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
@@ -420,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531220670705793847, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Name
-      value: Mushroom Variant
+      value: Mushroom_Red
       objectReference: {fileID: 0}
     - target: {fileID: 7759030371112986302, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_labelHash

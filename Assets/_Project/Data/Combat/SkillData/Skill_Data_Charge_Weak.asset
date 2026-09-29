@@ -22,7 +22,7 @@ MonoBehaviour:
   DamageScalingRatio: 1
   CooldownBase: 5
   MpCostBase: 0
-  CastTimeBase: 0
+  CastTimeBase: 1
   CastBarDisplay: 0
   EffectsList:
   - rid: 3505743946400399504
@@ -48,4 +48,4 @@ MonoBehaviour:
       type: {class: RequirementTargetRange, ns: , asm: Assembly-CSharp}
       data:
         minimumRange: 0
-        maximumRange: 4
+        maximumRange: 10

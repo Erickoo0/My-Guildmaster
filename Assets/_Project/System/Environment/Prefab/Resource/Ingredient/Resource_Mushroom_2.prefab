@@ -92,6 +92,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270653633705540766, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: hpBase
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2173192697753364943, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.48088
@@ -133,6 +137,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6565666
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5295973
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.14684105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.33136892
+      objectReference: {fileID: 0}
+    - target: {fileID: 2200329226899892002, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -168,9 +188,21 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6321852162523637459, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: _defaultItemsList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321852162523637459, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: _defaultItemsList.Array.data[0].dropAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321852162523637459, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
+      propertyPath: _defaultItemsList.Array.data[0].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 33eb9cc5658582249869d4b306b89893, type: 2}
     - target: {fileID: 7025651447484995430, guid: c373bcb85e36a3e439e469ffea93aaa2, type: 3}
       propertyPath: id
-      value: 67969f10-9648-408f-89fb-8de5f10db681
+      value: 8765d7f6-35e3-4bec-87ca-1d32bedda25d
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

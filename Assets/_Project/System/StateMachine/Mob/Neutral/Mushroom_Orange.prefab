@@ -115,6 +115,18 @@ PrefabInstance:
       propertyPath: <mobType>k__BackingField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1862256494693202073, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: _defaultItemsList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -1862256494693202073, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: _defaultItemsList.Array.data[3].dropAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1862256494693202073, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
+      propertyPath: _defaultItemsList.Array.data[3].itemDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bcc6e3b0c1756d489e96a6322b9559c, type: 2}
     - target: {fileID: 392546489883438871, guid: 7f093136a5b893640960dcc3a3f44a44, type: 3}
       propertyPath: m_Sprite
       value: 
