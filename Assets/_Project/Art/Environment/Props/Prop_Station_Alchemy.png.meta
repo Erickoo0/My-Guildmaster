@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 891e4462738479e43974f366f2be8bc9
+guid: 34bab21f5831d3b48acee6d1bd098cab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8155336999517921018
-    second: Item_Potion_Hp_Small_0
+      213: -3926065590636652159
+    second: Prop_Station_Alchemy_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item_Potion_Hp_Small_0
+      name: Prop_Station_Alchemy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 34
-        height: 34
+        width: 28
+        height: 32
       alignment: 9
-      pivot: {x: 0.5, y: 0.029411765}
+      pivot: {x: 0.5, y: 0.03125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6016220353c62de80800000000000000
-      internalID: -8155336999517921018
+      spriteID: 189d7318520d389c0800000000000000
+      internalID: -3926065590636652159
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f1f3fbc698176804d80e7118e4ffaa95
+    spriteID: b2582585d019ace42b2ad61e49eb9564
     internalID: 0
     vertices: []
     indices: 
@@ -133,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":34.0,"y":34.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Item_Potion_Hp_Small_0: -8155336999517921018
+      Prop_Station_Alchemy_0: -3926065590636652159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,55 +6,55 @@ using UnityEngine.UI;
 /// <summary>
 /// Handles displaying the crafting system ui and crafting items
 /// </summary>
-public class ItemCraftingMenuUI : MonoBehaviour
+public class CraftingStationUI : MonoBehaviour
 {
 	[Header("References")]
-	[SerializeField] private GameObject _craftingMenuPanel;
-	[SerializeField] private GameObject _itemRecipeUIPrefab;
-	[SerializeField] private Transform _itemRecipeContainer;
-	[SerializeField] private GameObject _craftingResourcePrefab;
-	[SerializeField] private Transform _craftingResourceContainer;
+	[SerializeField] private GameObject _menuPanel;
+	[SerializeField] private GameObject _recipeSlotPrefab;
+	[SerializeField] private Transform _recipeSlotContainer;
+	[SerializeField] private GameObject _reosurceSlotPrefab;
+	[SerializeField] private Transform _resourceSlotContainer;
 
 	[Header("Item Detail & Crafting")]
 	[SerializeField] private TextMeshProUGUI _itemName;
 	[SerializeField] private TextMeshProUGUI _itemDescription;
 	[SerializeField] private Image _itemIcon;
 	[SerializeField] private Button _craftButton;
-	private List<GameObject> _activeCraftingResourcesList = new List<GameObject>();
+	private List<GameObject> _activeResourceSlotsList = new List<GameObject>();
 
-	private List<ItemRecipeSlotUI> _itemRecipeSlotsList = new List<ItemRecipeSlotUI>();
+	private List<CraftingRecipeSlotUI> _recipeSlotsList = new List<CraftingRecipeSlotUI>();
 	private ItemDataSo _selectedRecipe;
 
 	private void Start()
 	{
-		EventBus.OnRecipeUnlocked += SpawnItemRecipeSlot;
+		EventBus.OnCraftingRecipeUnlocked += CreateRecipeSlotUI;
 		ItemStoragePlayer.Instance.OnSlotUpdated += HandleInventoryUpdated; // To turn the craft button on/off
 		_craftButton.onClick.AddListener(OnCraftButtonClicked);
 
-		// 1. Spawn all initial unlocked recipe slots
-		foreach (ItemDataSo recipe in RecipeManager.Instance.UnlockedRecipesList)
-			SpawnItemRecipeSlot(recipe);
+		// 1. Spawn all initial unlocked recipeSlotUI
+		foreach (ItemDataSo recipe in CraftingRecipeManager.Instance.UnlockedRecipesList)
+			CreateRecipeSlotUI(recipe);
 
 		// 2. Clear item details
-		ClearTooltip();
+		ClearItemDetails();
 	}
 
 	private void OnDestroy()
 	{
-		EventBus.OnRecipeUnlocked -= SpawnItemRecipeSlot;
+		EventBus.OnCraftingRecipeUnlocked -= CreateRecipeSlotUI;
 		ItemStoragePlayer.Instance.OnSlotUpdated -= HandleInventoryUpdated;
 	}
 
 	/// <summary>
-	/// Spawn a new item recipe slot for the given recipe
+	/// Create a new recipe slot UI for the given recipe
 	/// </summary>
-	private void SpawnItemRecipeSlot(ItemDataSo newRecipe)
+	private void CreateRecipeSlotUI(ItemDataSo newRecipe)
 	{
-		// 1. Spawn the prefab
-		GameObject itemRecipeUIObject = Instantiate(_itemRecipeUIPrefab, _itemRecipeContainer);
+		// 1. Create the recipeSlotUI
+		GameObject newRecipeSlot = Instantiate(_recipeSlotPrefab, _recipeSlotContainer);
 
 		// 2. Get the property and assign the data
-		if (itemRecipeUIObject.TryGetComponent(out ItemRecipeSlotUI slotUI))
+		if (newRecipeSlot.TryGetComponent(out CraftingRecipeSlotUI slotUI))
 		{
 			slotUI.Setup(newRecipe);
 
@@ -62,14 +62,14 @@ public class ItemCraftingMenuUI : MonoBehaviour
 			slotUI.OnRecipeSelected += HandleRecipeSelected;
 
 			// 3. Add to the list
-			_itemRecipeSlotsList.Add(slotUI);
+			_recipeSlotsList.Add(slotUI);
 		}
 	}
 
 	// Used to dispose the event variable
 	private void HandleInventoryUpdated(int _) => RefreshItemDetails();
 
-	private void HandleRecipeSelected(ItemRecipeSlotUI selectedSlot, ItemDataSo recipe)
+	private void HandleRecipeSelected(CraftingRecipeSlotUI selectedSlot, ItemDataSo recipe)
 	{
 		_selectedRecipe = recipe;
 
@@ -84,11 +84,10 @@ public class ItemCraftingMenuUI : MonoBehaviour
 
 	private void RefreshItemDetails()
 	{
-		// 1. Clear old crafting resource prefabs
-		foreach (GameObject craftingResource in _activeCraftingResourcesList)
-			Destroy(craftingResource);
-
-		_activeCraftingResourcesList.Clear();
+		// 1. Clear old resource slot prefabs
+		foreach (GameObject resourceSlotUI in _activeResourceSlotsList)
+			Destroy(resourceSlotUI);
+		_activeResourceSlotsList.Clear();
 
 		// 2. Safety Check
 		if (_selectedRecipe == null || !_selectedRecipe.TryGetProperty(out ItemPropertyCraftingRecipe recipe))
@@ -97,7 +96,7 @@ public class ItemCraftingMenuUI : MonoBehaviour
 			return;
 		}
 
-		// 3. Spawn new crafting resource prefabs and pass them the inventory counts
+		// 3. Spawn new resouece slot prefabs and pass them the inventory counts
 		foreach (ItemPropertyCraftingRecipe.ResourceRequirement requirement in recipe.RequiredResourcesList)
 		{
 			int totalFound = 0;
@@ -111,16 +110,24 @@ public class ItemCraftingMenuUI : MonoBehaviour
 			}
 
 			// 5. Create the prefab and add it to the list
-			GameObject craftingResourceSlot = Instantiate(_craftingResourcePrefab, _craftingResourceContainer);
-			_activeCraftingResourcesList.Add(craftingResourceSlot);
+			GameObject resourceSlotUI = Instantiate(_reosurceSlotPrefab, _resourceSlotContainer);
+			_activeResourceSlotsList.Add(resourceSlotUI);
 
 			// 6. Pass the data to the prefab
-			if (craftingResourceSlot.TryGetComponent(out CraftingResourceSlotUI craftingResourceSlotUI))
-				craftingResourceSlotUI.Setup(requirement.ItemDataSo, requirement.Amount, totalFound);
+			if (resourceSlotUI.TryGetComponent(out CraftingResourceSlotUI resourceSlot))
+				resourceSlot.Setup(requirement.ItemDataSo, requirement.Amount, totalFound);
 
 			// 7. Refresh the craft button
-			_craftButton.interactable = CraftingManager.Instance.HasResources(recipe);
+			_craftButton.interactable = CraftingStationManager.Instance.HasResources(recipe);
 		}
+	}
+
+	private void ClearItemDetails()
+	{
+		_selectedRecipe = null;
+		_itemName.text = "";
+		_itemDescription.text = "";
+		_craftButton.interactable = false;
 	}
 
 	private void OnCraftButtonClicked()
@@ -129,22 +136,14 @@ public class ItemCraftingMenuUI : MonoBehaviour
 			EventBus.RequestCraftItem(_selectedRecipe);
 	}
 
-	private void ClearTooltip()
-	{
-		_selectedRecipe = null;
-		_itemName.text = "";
-		_itemDescription.text = "";
-		_craftButton.interactable = false;
-	}
-
 	public void ToggleMenu(InputAction.CallbackContext context)
 	{
 		if (!context.performed)
 			return;
 
-		if (!_craftingMenuPanel.activeSelf)
-			EventBus.RequestOpenMenu(_craftingMenuPanel);
+		if (!_menuPanel.activeSelf)
+			EventBus.RequestOpenMenu(_menuPanel);
 		else
-			EventBus.RequestCloseMenu(_craftingMenuPanel);
+			EventBus.RequestCloseMenu(_menuPanel);
 	}
 }

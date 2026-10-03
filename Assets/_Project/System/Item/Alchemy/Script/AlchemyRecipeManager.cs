@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Handles unlocking ItemRecipes
+/// Handles unlocking of Alchemy Recipes.
 /// </summary>
-public class RecipeManager : MonoBehaviour
+public class AlchemyRecipeManager : MonoBehaviour
 {
 
 	[Header("Recipes")]
 	[SerializeField] private List<ItemDataSo> defaultRecipesList = new List<ItemDataSo>();
-	public static RecipeManager Instance { get; private set; }
+	public static AlchemyRecipeManager Instance { get; private set; }
 	public List<ItemDataSo> UnlockedRecipesList { get; private set; } = new List<ItemDataSo>();
 
 	private void Awake()
@@ -23,24 +23,23 @@ public class RecipeManager : MonoBehaviour
 
 	private void Start()
 	{
+		// Unlock all default recipes
 		foreach (ItemDataSo recipe in defaultRecipesList)
-		{
 			UnlockRecipe(recipe);
-		}
 	}
 
 	public void UnlockRecipe(ItemDataSo newRecipe)
 	{
-		// 1. Check if the newRecipe is already unlocked
+		// 1. Check if we already have this recipe unlocked
 		if (UnlockedRecipesList.Contains(newRecipe))
 			return;
 
-		// 2. Check if the newRecipe has a crafting recipe
-		if (!newRecipe.TryGetProperty<ItemPropertyCraftingRecipe>(out _))
-			return; // If it does not, stop here
+		// 2. Check if the new recipe has a alchemy recipe component
+		if (!newRecipe.TryGetProperty<ItemPropertyAlchemyRecipe>(out _))
+			return;
 
 		UnlockedRecipesList.Add(newRecipe);
-		EventBus.RequestRecipeUnlocked(newRecipe);
-		Debug.Log($"RecipeManager: Unlocked {newRecipe.ItemName} recipe");
+		EventBus.RequestAlchemyRecipeUnlocked(newRecipe);
+		Debug.Log($"AlchemyRecipeManager: Unlocked {newRecipe.ItemName} recipe");
 	}
 }

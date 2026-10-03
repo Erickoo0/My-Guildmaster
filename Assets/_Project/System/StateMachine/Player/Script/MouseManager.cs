@@ -128,9 +128,9 @@ public class MouseManager : MonoBehaviour
 		}
 
 		// 3. If hovering a Crafting Resource Slot
-		if (_hoveredCraftingResourceSlot != null && _hoveredCraftingResourceSlot.CraftingResourceData != null)
+		if (_hoveredCraftingResourceSlot != null && _hoveredCraftingResourceSlot.ResourceData != null)
 		{
-			DisplayTooltip(_hoveredCraftingResourceSlot.CraftingResourceData.ItemName, _hoveredCraftingResourceSlot.CraftingResourceData.ItemDescription);
+			DisplayTooltip(_hoveredCraftingResourceSlot.ResourceData.ItemName, _hoveredCraftingResourceSlot.ResourceData.ItemDescription);
 			return;
 		}
 

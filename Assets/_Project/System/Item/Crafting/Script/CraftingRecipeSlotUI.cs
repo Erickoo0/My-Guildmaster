@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
-/// Handles displaying an individual ItemRecipeSlotUI
+/// Handles displaying an individual CraftingRecipeSlotUI
 /// </summary>
-public class ItemRecipeSlotUI : MonoBehaviour
+public class CraftingRecipeSlotUI : MonoBehaviour
 {
 	[Header("References")]
 	[SerializeField] private Image _itemIcon;
@@ -14,7 +14,7 @@ public class ItemRecipeSlotUI : MonoBehaviour
 	public ItemDataSo RecipeData { get; private set; }
 
 
-	public event Action<ItemRecipeSlotUI, ItemDataSo> OnRecipeSelected;
+	public event Action<CraftingRecipeSlotUI, ItemDataSo> OnRecipeSelected;
 
 	public void Setup(ItemDataSo recipeData)
 	{

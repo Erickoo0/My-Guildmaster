@@ -16,15 +16,21 @@ public class ItemPropertyPlaceable : ItemPropertyBase
 	/// <summary>
 	/// Returns the automated grid size or the manual size if automation is turned off.
 	/// </summary>
-	public Vector2Int GetGridSize(Sprite itemSprite)
+	public Vector2Int GetGridSize()
 	{
-		if (AutoCalculateSize && itemSprite != null)
+		if (AutoCalculateSize && PlaceablePrefab != null)
 		{
-			// Use CeilToInt so a 1.2 unit sprite safely rounds up to 2 grid cells
-			int autoWidth = Mathf.Max(1, Mathf.CeilToInt(itemSprite.bounds.size.x));
-			int autoHeight = Mathf.Max(1, Mathf.CeilToInt(itemSprite.bounds.size.y));
+			Collider2D itemCollider = PlaceablePrefab.GetComponent<Collider2D>();
 
-			return new Vector2Int(autoWidth, autoHeight);
+			if (itemCollider != null)
+			{
+				// Use CeilToInt so a 1.2 unit sprite safely rounds up to 2 grid cells
+				int autoWidth = Mathf.Max(1, Mathf.CeilToInt(itemCollider.bounds.size.x));
+				int autoHeight = Mathf.Max(1, Mathf.CeilToInt(itemCollider.bounds.size.y));
+
+				return new Vector2Int(autoWidth, autoHeight);
+			}
+			Debug.LogWarning($"ItemPropertyPlaceable: AutoCalculate is true, but no Collider2D was found on '{PlaceablePrefab.name}'. Falling back to Manual Size.");
 		}
 
 		// Enforce a strict minimum of 1x1 if the user forgets and leaves Manual Size at 0x0

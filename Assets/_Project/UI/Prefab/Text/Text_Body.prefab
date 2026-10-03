@@ -68,7 +68,7 @@ MonoBehaviour:
   m_text: Hello, this text prefab repsents the base body that should be used for
     all ements within the game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 072442ad033ca1e47adde2d44e8440cb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2537508717537705745, guid: 072442ad033ca1e47adde2d44e8440cb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

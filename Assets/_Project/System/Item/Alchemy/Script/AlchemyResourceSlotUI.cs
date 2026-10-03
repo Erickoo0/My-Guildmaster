@@ -2,9 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
-/// Handles displaying a single required crafting resource slot in the crafting menu
+/// Handles displaying a single required AlchemyResourceSlotUI in the alchemy menu
 /// </summary>
-public class CraftingResourceSlotUI : MonoBehaviour
+public class AlchemyResourceSlotUI : MonoBehaviour
 {
 	[Header("References")]
 	[SerializeField] private Image _icon;

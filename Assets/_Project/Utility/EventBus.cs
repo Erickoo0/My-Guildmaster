@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 public enum MenuType
 {
-	None, Inventory, Quest, SkillTree, Crafting, Worker
+	None, Inventory, Quest, SkillTree, Crafting, Worker, Alchemy
 }
 
 public static class EventBus
@@ -85,6 +85,13 @@ public static class EventBus
 	public static event Action<ItemDataSo> OnCraftItemRequested;
 	public static void RequestCraftItem(ItemDataSo itemToCraft) => OnCraftItemRequested?.Invoke(itemToCraft);
 
-	public static event Action<ItemDataSo> OnRecipeUnlocked;
-	public static void RequestRecipeUnlocked(ItemDataSo unlockedItem) => OnRecipeUnlocked?.Invoke(unlockedItem);
+	public static event Action<ItemDataSo> OnCraftingRecipeUnlocked;
+	public static void RequestRecipeUnlocked(ItemDataSo unlockedRecipe) => OnCraftingRecipeUnlocked?.Invoke(unlockedRecipe);
+
+//-------------------------Alchemy Events-------------------------------
+	public static event Action<ItemDataSo> OnAlchemyBrewRequested;
+	public static void RequestAlchemyBrew(ItemDataSo itemToBrew) => OnAlchemyBrewRequested?.Invoke(itemToBrew);
+
+	public static event Action<ItemDataSo> OnAlchemyRecipeUnlocked;
+	public static void RequestAlchemyRecipeUnlocked(ItemDataSo unlockedRecipe) => OnAlchemyRecipeUnlocked?.Invoke(unlockedRecipe);
 }

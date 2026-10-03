@@ -1,10 +1,10 @@
 using UnityEngine;
 /// <summary>
-/// Handles crafting of items.
+/// Handles crafting of Crafting Recipes.
 /// </summary>
-public class CraftingManager : MonoBehaviour
+public class CraftingStationManager : MonoBehaviour
 {
-	public static CraftingManager Instance { get; private set; }
+	public static CraftingStationManager Instance { get; private set; }
 
 	private void Awake()
 	{
@@ -18,47 +18,49 @@ public class CraftingManager : MonoBehaviour
 
 	private void OnEnable() => EventBus.OnCraftItemRequested += HandleCraftItemRequest;
 
-	private void OnDestroy() => EventBus.OnCraftItemRequested -= HandleCraftItemRequest;
+	private void OnDisable() => EventBus.OnCraftItemRequested -= HandleCraftItemRequest;
 
 	private void HandleCraftItemRequest(ItemDataSo itemToCraft)
 	{
-		// 1. Ensure the item actually has a recipe
+		// 1. Check if the item has a Crafting Recipe component
 		if (!itemToCraft.TryGetProperty<ItemPropertyCraftingRecipe>(out ItemPropertyCraftingRecipe recipe))
 		{
-			Debug.LogWarning($"CraftingManager: No recipe found for {itemToCraft.ItemName}. Cannot craft.");
+			Debug.LogWarning($"CraftingStationManager: No Crafting Recipe found for {itemToCraft.ItemName}. Cannot craft.");
 			return;
 		}
 
-		// 2. Check for required resources
+		// 2. Check for required resources in inventory
 		if (!HasResources(recipe))
 		{
-			Debug.Log($"CraftingManager: Not enough resources to craft {itemToCraft.ItemName}.");
+			Debug.Log($"CraftingStationManager: Not enough resources to craft {itemToCraft.ItemName}.");
 			return;
 		}
 
 		// 3. Consume resources and craft the item
 		ConsumeResources(recipe);
 		GiveCraftedItem(itemToCraft);
-		Debug.Log($"CraftingManager: Crafted {itemToCraft.ItemName}!");
+		Debug.Log($"CraftingStationManager: Crafted {itemToCraft.ItemName}!");
 	}
 
 	public bool HasResources(ItemPropertyCraftingRecipe recipe)
 	{
-		// Loop through all required resources
+		// 1. Loop through all required resources in recipe
 		foreach (ItemPropertyCraftingRecipe.ResourceRequirement requiredResource in recipe.RequiredResourcesList)
 		{
 			int totalFound = 0;
 
-			// Loop through player inventory to search for matching ItemDataSo 
+			// 2. Loop through player inventory to search for matching ItemDataSo
 			for (int i = 0; i < ItemStoragePlayer.Instance.StorageCapacity; i++)
 			{
+				// 3. Get the item from i slot
 				ItemInstance item = ItemStoragePlayer.Instance.GetItem(i);
 
+				// 4. If item from i slot matches required resource, add to total
 				if (item != null && item.DataSo == requiredResource.ItemDataSo)
 					totalFound += item.stackSize;
 			}
 
-			// If not enough resource found, return false
+			// 5. Return false if total found is less than required amount
 			if (totalFound < requiredResource.Amount)
 				return false;
 		}
@@ -116,7 +118,7 @@ public class CraftingManager : MonoBehaviour
 		// 3. If adding to inventory failed
 		if (!wasAdded)
 		{
-			Debug.Log($"CraftingManager: Inventory is full. Dropping crafted item {craftedItem.DataSo.ItemName}.");
+			Debug.Log($"CraftingStationManager: Inventory is full. Dropping crafted item {craftedItem.DataSo.ItemName}.");
 
 			// 4. Find the player position
 			GameObject player = GameObject.FindGameObjectWithTag("Player");
