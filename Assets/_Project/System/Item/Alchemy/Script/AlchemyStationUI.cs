@@ -12,23 +12,25 @@ public class AlchemyStationUI : MonoBehaviour
 	[SerializeField] private GameObject _recipeSlotPrefab;
 	[SerializeField] private Transform _recipeSlotContainer;
 	[SerializeField] private GameObject _resourceSlotPrefab;
-	[SerializeField] private Transform _resourceSlotContainer;
+	[SerializeField] private Transform[] _resourceSlotContainers;
+	[SerializeField] private ItemSlotUI _itemSlotUI;
 
 	[Header("Item Detail & Brewing")]
 	[SerializeField] private TextMeshProUGUI _itemName;
 	[SerializeField] private TextMeshProUGUI _itemDescription;
 	[SerializeField] private Image _itemIcon;
 	[SerializeField] private Button _brewButton;
-	private readonly MenuType menuType = MenuType.Alchemy;
-	private List<GameObject> _activeResourceSlotsList = new List<GameObject>();
 
+	private List<GameObject> _activeResourceSlotsList = new List<GameObject>();
+	private AlchemyStationManager _currentAlchemyStation;
 	private List<AlchemyRecipeSlotUI> _recipeSlotsList = new List<AlchemyRecipeSlotUI>();
+
 	private ItemDataSo _selectedRecipe;
 
 	private void Start()
 	{
-		EventBus.OnMenuToggleRequested += HandleMenuToggle;
-		EventBus.OnAlchemyBrewRequested += CreateRecipeSlotUI;
+		EventBus.OnAlchemyStationOpened += HandleStationOpened;
+		EventBus.OnAlchemyRecipeUnlocked += CreateRecipeSlotUI;
 		ItemStoragePlayer.Instance.OnSlotUpdated += HandleInventoryUpdated;
 		_brewButton.onClick.AddListener(OnBrewButtonClicked);
 
@@ -42,15 +44,15 @@ public class AlchemyStationUI : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		EventBus.OnMenuToggleRequested -= HandleMenuToggle;
-		EventBus.OnAlchemyBrewRequested -= CreateRecipeSlotUI;
+		EventBus.OnAlchemyStationOpened -= HandleStationOpened;
+		EventBus.OnAlchemyRecipeUnlocked -= CreateRecipeSlotUI;
 		ItemStoragePlayer.Instance.OnSlotUpdated -= HandleInventoryUpdated;
+
+		if (_currentAlchemyStation != null)
+			_currentAlchemyStation.OnSlotUpdated -= HandleStationUpdated;
 	}
 
-	/// <summary>
-	/// Create a new recipe slot UI for the given recipe
-	/// </summary>
-	/// <param name="newRecipe"></param>
+
 	private void CreateRecipeSlotUI(ItemDataSo newRecipe)
 	{
 		// 1. Create the recipeSlotUI
@@ -69,7 +71,79 @@ public class AlchemyStationUI : MonoBehaviour
 		}
 	}
 
+	private void RefreshItemDetails()
+	{
+		_itemIcon.color = Color.white;
+
+		// 1. Clear old resource slot prefabs
+		foreach (GameObject resourceSlotUI in _activeResourceSlotsList)
+			Destroy(resourceSlotUI.gameObject);
+		_activeResourceSlotsList.Clear();
+
+		/// 2. Safety Check
+		if (_selectedRecipe == null || !_selectedRecipe.TryGetProperty(out ItemPropertyAlchemyRecipe recipe))
+		{
+			_brewButton.interactable = false;
+			return;
+		}
+
+		// 3. Spawn new resource slot prefabs into their specific containers and pass them the inventory counts
+		int containerIndex = 0;
+		foreach (ItemPropertyAlchemyRecipe.ResourceRequirement requirement in recipe.RequiredResourcesList)
+		{
+			// Safety Check
+			if (containerIndex >= _resourceSlotContainers.Length)
+			{
+				Debug.LogWarning("AlchemyStationUI: Not enough resource slot containers for all required resources.");
+				break;
+			}
+
+			int totalFound = 0;
+
+			// 4. Get the total ingredients found in inventory
+			for (int i = 0; i < ItemStoragePlayer.Instance.StorageCapacity; i++)
+			{
+				ItemInstance item = ItemStoragePlayer.Instance.GetItem(i);
+				if (item != null && item.DataSo == requirement.ItemDataSo)
+					totalFound += item.stackSize;
+			}
+
+			// 5. Create the prefab and add it to the list
+			Transform targetContainer = _resourceSlotContainers[containerIndex];
+			GameObject resourceSlotUI = Instantiate(_resourceSlotPrefab, targetContainer);
+			_activeResourceSlotsList.Add(resourceSlotUI);
+			containerIndex++;
+
+			// 6. Pass the data to the prefab
+			if (resourceSlotUI.TryGetComponent(out AlchemyResourceSlotUI resourceSlot))
+				resourceSlot.Setup(requirement.ItemDataSo, requirement.Amount, totalFound);
+		}
+
+		// 7. Check if the station has resources and the output slot is empty
+		bool hasResources = _currentAlchemyStation.HasResources(recipe);
+		bool itemSlotEmpty = _currentAlchemyStation.GetItem(0) == null;
+
+		_brewButton.interactable = hasResources && itemSlotEmpty;
+	}
+
+	private void ClearItemDetails()
+	{
+		_selectedRecipe = null;
+		_itemIcon.color = Color.clear;
+		_itemName.text = "";
+		_itemDescription.text = "";
+		_brewButton.interactable = false;
+	}
+
+	#region Event Handlers
+
 	private void HandleInventoryUpdated(int _) => RefreshItemDetails();
+
+	private void HandleStationUpdated(int _)
+	{
+		_itemSlotUI.RefreshSlotUI();
+		RefreshItemDetails();
+	}
 
 	private void HandleRecipeSelected(AlchemyRecipeSlotUI selectedSlot, ItemDataSo selectedRecipe)
 	{
@@ -83,69 +157,41 @@ public class AlchemyStationUI : MonoBehaviour
 		RefreshItemDetails();
 	}
 
-	private void RefreshItemDetails()
+	private void HandleStationOpened(AlchemyStationManager station)
 	{
-		// 1. Clear old resource slot prefabs
-		foreach (GameObject resourceSlotUI in _activeResourceSlotsList)
-			Destroy(resourceSlotUI.gameObject);
-		_activeResourceSlotsList.Clear();
-
-		/// 2. Safety Check
-		if (_selectedRecipe == null || !_selectedRecipe.TryGetProperty(out ItemPropertyAlchemyRecipe recipe))
+		// If the menu is already open AND they clicked the exact same station, close it!
+		if (_menuPanel.activeSelf && _currentAlchemyStation == station)
 		{
-			_brewButton.interactable = false;
+			EventBus.RequestCloseMenu(_menuPanel);
+			_currentAlchemyStation.OnSlotUpdated -= HandleStationUpdated;
+			_currentAlchemyStation = null;
+			ClearItemDetails();
 			return;
 		}
 
-		// 3. Spawn new resource slot prefabs and pass them the inventory counts
-		foreach (ItemPropertyAlchemyRecipe.ResourceRequirement requirement in recipe.RequiredResourcesList)
-		{
-			int totalFound = 0;
+		// 1. Unsubscribe from the previous station's slot updates
+		if (_currentAlchemyStation != null)
+			_currentAlchemyStation.OnSlotUpdated -= HandleStationUpdated;
 
-			// 4. Get the total ingredients found in inventory
-			for (int i = 0; i < ItemStoragePlayer.Instance.StorageCapacity; i++)
-			{
-				ItemInstance item = ItemStoragePlayer.Instance.GetItem(i);
-				if (item != null && item.DataSo == requirement.ItemDataSo)
-					totalFound += item.stackSize;
-			}
+		// 2. Subscribe to the new station's slot updates
+		_currentAlchemyStation = station;
+		_currentAlchemyStation.OnSlotUpdated += HandleStationUpdated;
 
-			// 5. Create the prefab and add it to the list
-			GameObject resourceSlotUI = Instantiate(_resourceSlotPrefab, _resourceSlotContainer);
-			_activeResourceSlotsList.Add(resourceSlotUI);
+		// 3. Bind the station to the UI
+		_itemSlotUI.Setup(_currentAlchemyStation, 0);
 
-			// 6. Pass the data to the prefab
-			if (resourceSlotUI.TryGetComponent(out AlchemyResourceSlotUI resourceSlot))
-				resourceSlot.Setup(requirement.ItemDataSo, requirement.Amount, totalFound);
+		// 4. Open the menu
+		if (!_menuPanel.activeSelf)
+			EventBus.RequestOpenMenu(_menuPanel);
 
-			// 7. Refresh the craft button
-			_brewButton.interactable = AlchemyStationManager.Instance.HasResources(recipe);
-		}
-	}
-
-	private void ClearItemDetails()
-	{
-		_selectedRecipe = null;
-		_itemName.text = "";
-		_itemDescription.text = "";
-		_brewButton.interactable = false;
+		RefreshItemDetails();
 	}
 
 	private void OnBrewButtonClicked()
 	{
 		if (_selectedRecipe != null)
-			EventBus.RequestAlchemyBrew(_selectedRecipe);
+			_currentAlchemyStation.TryBrew(_selectedRecipe);
 	}
 
-	public void HandleMenuToggle(MenuType requestedMenu)
-	{
-		// 1. Check ift he requested menu matches this UI menu
-		if (requestedMenu != menuType || _menuPanel == null)
-			return;
-
-		if (!_menuPanel.activeSelf)
-			EventBus.RequestOpenMenu(_menuPanel);
-		else
-			EventBus.RequestCloseMenu(_menuPanel);
-	}
+	#endregion
 }

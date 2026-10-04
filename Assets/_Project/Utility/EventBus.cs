@@ -89,8 +89,8 @@ public static class EventBus
 	public static void RequestRecipeUnlocked(ItemDataSo unlockedRecipe) => OnCraftingRecipeUnlocked?.Invoke(unlockedRecipe);
 
 //-------------------------Alchemy Events-------------------------------
-	public static event Action<ItemDataSo> OnAlchemyBrewRequested;
-	public static void RequestAlchemyBrew(ItemDataSo itemToBrew) => OnAlchemyBrewRequested?.Invoke(itemToBrew);
+	public static event Action<AlchemyStationManager> OnAlchemyStationOpened;
+	public static void RequestOpenAlchemyStation(AlchemyStationManager station) => OnAlchemyStationOpened?.Invoke(station);
 
 	public static event Action<ItemDataSo> OnAlchemyRecipeUnlocked;
 	public static void RequestAlchemyRecipeUnlocked(ItemDataSo unlockedRecipe) => OnAlchemyRecipeUnlocked?.Invoke(unlockedRecipe);

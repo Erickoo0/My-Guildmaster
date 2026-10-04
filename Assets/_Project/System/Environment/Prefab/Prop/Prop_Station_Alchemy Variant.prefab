@@ -122,14 +122,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5120103272461788588}
+      addedObject: {fileID: 1292715267640468397}
   m_SourcePrefab: {fileID: 100100000, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
 --- !u!1 &5731941931904548776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5956110584100873694, guid: ff17e8e81e8ab8749a42075575fd12f3, type: 3}
   m_PrefabInstance: {fileID: 2099708586196261494}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5120103272461788588
+--- !u!114 &1292715267640468397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,8 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5731941931904548776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd872742d534bf64ebb6dc86f6144e6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 55e652e32ff68be44857a403128e1d86, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableMenu
-  _isInteractable: 1
-  _menu: 6
+  m_EditorClassIdentifier: Assembly-CSharp::AlchemyStationManager
+  _interactable: 1

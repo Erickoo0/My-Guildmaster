@@ -1,44 +1,91 @@
+using System;
 using UnityEngine;
 /// <summary>
 /// Handles brewing of Alchemy Recipes.
 /// </summary>
-public class AlchemyStationManager : MonoBehaviour
+public class AlchemyStationManager : MonoBehaviour, IItemStorage, IInteractable
 {
-	public static AlchemyStationManager Instance { get; private set; }
+	[Header("Interaction")]
+	[SerializeField] private bool _interactable = true;
 
-	private void Awake()
+	[Header("Item Storage")]
+	private ItemInstance[] _itemSlot = new ItemInstance[1];
+	[Tooltip("The maximum number of items that can be stored in the station.")]
+	public int StorageCapacity => 1;
+	public bool CanDropToWorld => false;
+	public event Action<int> OnSlotUpdated;
+
+	#region Interaction Logic
+
+	public bool CanInteract() => _interactable;
+
+	public void Interact(ControllerPlayer player = null)
 	{
-		if (Instance != null && Instance != this)
-		{
-			Destroy(gameObject);
+		if (!CanInteract())
 			return;
-		}
-		Instance = this;
+
+		EventBus.RequestOpenAlchemyStation(this);
 	}
 
-	private void OnEnable() => EventBus.OnAlchemyBrewRequested += HandleAlchemyBrewRequest;
+	public ItemInstance GetItem(int index) => _itemSlot[0];
 
-	private void OnDisable() => EventBus.OnAlchemyBrewRequested -= HandleAlchemyBrewRequest;
+	public void SetItem(int index, ItemInstance item)
+	{
+		_itemSlot[0] = item;
+		RefreshSlot(0);
+	}
 
-	private void HandleAlchemyBrewRequest(ItemDataSo itemToBrew)
+	public void SwapItems(int indexA, int indexB) {} // Not used
+
+	public void DropItems(int index, Vector3 spawnPosition)
+	{
+		// 1. Check if slot is empty
+		if (_itemSlot[0] == null) return;
+
+		// 2. Get the item prefab
+		GameObject prefabToSpawn = _itemSlot[0].DataSo.ItemObject != null
+			? _itemSlot[0].DataSo.ItemObject
+			: ItemStoragePlayer.Instance.DefaultItemObjectPrefab;
+
+		// 3. Instantiate the item
+		GameObject droppedItem = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+		if (droppedItem.TryGetComponent(out ItemObject itemObject))
+			itemObject.SetItemObject(_itemSlot[0]);
+
+		// 4. Remove the item from the slot
+		_itemSlot[0] = null;
+		RefreshSlot(0);
+	}
+
+	public void RefreshSlot(int index) => OnSlotUpdated?.Invoke(index);
+
+	#endregion
+
+	#region Brewing Logic
+
+	public void TryBrew(ItemDataSo itemToBrew)
 	{
 		// 1. Check if the item has a Alchemy Recipe component
-		if (!itemToBrew.TryGetProperty<ItemPropertyAlchemyRecipe>(out ItemPropertyAlchemyRecipe recipe))
+		if (!itemToBrew.TryGetProperty(out ItemPropertyAlchemyRecipe recipe))
+			return;
+
+		// 2. Check if output slot is already full
+		if (_itemSlot[0] != null)
 		{
-			Debug.LogWarning($"AlchemyStationManager: No Alchemy Recipe found for {itemToBrew.ItemName}. Cannot brew.");
+			Debug.Log($"AlchemyStationManager: Output slot is already full.");
 			return;
 		}
 
-		// 2. Check for required resources in inventory
+		// 3. Check if the item has enough resources to brew
 		if (!HasResources(recipe))
 		{
-			Debug.Log($"ALchemyStationManager: Not enough resources to craft {itemToBrew.ItemName}.");
+			Debug.Log($"AlchemyStationManager: Not enough resources to brew {itemToBrew.ItemName}.");
 			return;
 		}
 
-		// 3. Consume resources and brew the item
+		// 4. Consume resources and brew the item
 		ConsumeResources(recipe);
-		GiveBrewedItem(itemToBrew);
+		SetItem(0, new ItemInstance(itemToBrew, 1));
 		Debug.Log($"AlchemyStationManager: Successfully brewed {itemToBrew.ItemName}.");
 	}
 
@@ -108,30 +155,5 @@ public class AlchemyStationManager : MonoBehaviour
 		}
 	}
 
-	private static void GiveBrewedItem(ItemDataSo itemToBrew)
-	{
-		// 1. Create a new ItemInstance with the crafted ItemDataSo
-		ItemInstance brewedItem = new ItemInstance(itemToBrew, 1);
-
-		// 2. Try to add it to the inventory
-		bool wasAdded = ItemStoragePlayer.Instance.AddItems(brewedItem);
-
-		// 3. If adding to inventory failed
-		if (!wasAdded)
-		{
-			Debug.Log($"AlchemyStationManager: Inventory is full. Dropping brewed item {brewedItem.DataSo.ItemName}.");
-
-			// 4. Find the player position
-			GameObject player = GameObject.FindGameObjectWithTag("Player");
-			Vector3 dropPosition = player != null ? player.transform.position : Vector3.zero;
-
-			// 5. Spawn the item
-			GameObject itemToSpawn = itemToBrew.ItemObject != null ? itemToBrew.ItemObject : ItemStoragePlayer.Instance.DefaultItemObjectPrefab;
-			GameObject droppedItem = Instantiate(itemToSpawn, dropPosition, Quaternion.identity);
-
-			// 6. Set the itemData
-			if (droppedItem.TryGetComponent(out ItemObject itemObject))
-				itemObject.SetItemObject(brewedItem, dropPosition);
-		}
-	}
+	#endregion
 }

@@ -22,5 +22,11 @@ public class AlchemyResourceSlotUI : MonoBehaviour
 
 		string colorTag = currentAmount >= requiredAmount ? "<color=#ffffff>" : "<color=#ff4444>";
 		_amount.text = $"{colorTag}{currentAmount} / {requiredAmount}</color>";
+
+		// 1. Force TextMeshPro to instantly calculate the height of the new text
+		_name.ForceMeshUpdate();
+
+		// 2. Force the Layout Group to rebuild the spacing right now, instead of waiting for the next frame
+		LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
 	}
 }

@@ -26,7 +26,7 @@ MonoBehaviour:
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
   ItemProperties:
-  - rid: 172364273388355712
+  - rid: 2862727027714687067
   <IsUsable>k__BackingField: 1
   effects:
   - rid: 3505743424659390464
@@ -34,13 +34,17 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 172364273388355712
-      type: {class: ItemPropertyCraftingRecipe, ns: , asm: Assembly-CSharp}
+    - rid: 2862727027714687067
+      type: {class: ItemPropertyAlchemyRecipe, ns: , asm: Assembly-CSharp}
       data:
         <RequiredResourcesList>k__BackingField:
-        - ItemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
+        - ItemDataSo: {fileID: 11400000, guid: 4bcc6e3b0c1756d489e96a6322b9559c, type: 2}
+          Amount: 3
+        - ItemDataSo: {fileID: 11400000, guid: 8a64b4a7b6c579e42931fc1c5f139bab, type: 2}
+          Amount: 2
+        - ItemDataSo: {fileID: 11400000, guid: df89db5f160f85145bf6443d6713bf02, type: 2}
           Amount: 1
-        <CraftingTime>k__BackingField: 5
+        <BrewingTime>k__BackingField: 0
     - rid: 3505743424659390464
       type: {class: EffectApplyBuff, ns: , asm: Assembly-CSharp}
       data:

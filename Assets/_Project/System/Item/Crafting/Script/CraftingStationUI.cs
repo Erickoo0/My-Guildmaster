@@ -84,6 +84,8 @@ public class CraftingStationUI : MonoBehaviour
 
 	private void RefreshItemDetails()
 	{
+		_itemIcon.color = Color.white;
+
 		// 1. Clear old resource slot prefabs
 		foreach (GameObject resourceSlotUI in _activeResourceSlotsList)
 			Destroy(resourceSlotUI);
@@ -125,6 +127,7 @@ public class CraftingStationUI : MonoBehaviour
 	private void ClearItemDetails()
 	{
 		_selectedRecipe = null;
+		_itemIcon.color = Color.clear;
 		_itemName.text = "";
 		_itemDescription.text = "";
 		_craftButton.interactable = false;
