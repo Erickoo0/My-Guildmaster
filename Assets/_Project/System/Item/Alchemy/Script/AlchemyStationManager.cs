@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 /// <summary>
 /// Handles brewing of Alchemy Recipes.
 /// </summary>
@@ -8,8 +9,41 @@ public class AlchemyStationManager : MonoBehaviour, IItemStorage, IInteractable
 	[Header("Interaction")]
 	[SerializeField] private bool _interactable = true;
 
+	[Header("Brewing")]
+	[SerializeField] private GameObject _brewingProgressBar;
+	[SerializeField] private Image _brewingProgressBarFill;
+	private float _brewDuration;
+	private float _brewTimer;
+	private ItemDataSo _brewingItem;
+
 	[Header("Item Storage")]
 	private ItemInstance[] _itemSlot = new ItemInstance[1];
+	public bool IsBrewing { get; private set; }
+	public float BrewProgress => IsBrewing ? _brewTimer/_brewDuration : 0f;
+
+	private void Start()
+	{
+		if (_brewingProgressBar != null)
+			_brewingProgressBar.SetActive(false);
+	}
+
+	private void Update()
+	{
+		if (!IsBrewing)
+			return;
+
+		// 1. Tick the timer
+		_brewTimer += Time.deltaTime;
+
+		// 2. Update the progress bar
+		if (_brewingProgressBar != null && _brewingProgressBarFill != null)
+			_brewingProgressBarFill.fillAmount = BrewProgress;
+
+		// 3. Check if brewing has finished
+		if (_brewTimer >= _brewDuration)
+			FinishBrewing();
+
+	}
 	[Tooltip("The maximum number of items that can be stored in the station.")]
 	public int StorageCapacity => 1;
 	public bool CanDropToWorld => false;
@@ -83,10 +117,29 @@ public class AlchemyStationManager : MonoBehaviour, IItemStorage, IInteractable
 			return;
 		}
 
-		// 4. Consume resources and brew the item
+		// 4. Consume resources
 		ConsumeResources(recipe);
-		SetItem(0, new ItemInstance(itemToBrew, 1));
-		Debug.Log($"AlchemyStationManager: Successfully brewed {itemToBrew.ItemName}.");
+
+		// 5. Start the brewing process
+		_brewingItem = itemToBrew;
+		_brewDuration = recipe.BrewingTime;
+		_brewTimer = 0f;
+		IsBrewing = true;
+		if (_brewingProgressBar != null)
+			_brewingProgressBar.SetActive(true);
+
+		Debug.Log($"AlchemyStationManager: Started brewing {itemToBrew.ItemName}. Takes {_brewDuration} seconds");
+	}
+
+	private void FinishBrewing()
+	{
+		IsBrewing = false;
+		SetItem(0, new ItemInstance(_brewingItem, 1));
+		_brewingItem = null;
+		if (_brewingProgressBar != null)
+			_brewingProgressBar.SetActive(false);
+
+		Debug.Log($"AlchemyStationManager: Finished brewing {_brewingItem.ItemName}");
 	}
 
 	public bool HasResources(ItemPropertyAlchemyRecipe recipe)

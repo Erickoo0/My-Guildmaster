@@ -15,10 +15,14 @@ public class AlchemyStationUI : MonoBehaviour
 	[SerializeField] private Transform[] _resourceSlotContainers;
 	[SerializeField] private ItemSlotUI _itemSlotUI;
 
-	[Header("Item Detail & Brewing")]
+	[Header("Item Detail")]
 	[SerializeField] private TextMeshProUGUI _itemName;
 	[SerializeField] private TextMeshProUGUI _itemDescription;
 	[SerializeField] private Image _itemIcon;
+
+	[Header("Brewing")]
+	[SerializeField] private GameObject _brewingProgressBar;
+	[SerializeField] private Image _brewingProgressBarFill;
 	[SerializeField] private Button _brewButton;
 
 	private List<GameObject> _activeResourceSlotsList = new List<GameObject>();
@@ -40,6 +44,20 @@ public class AlchemyStationUI : MonoBehaviour
 
 		// 2. Clear item details
 		ClearItemDetails();
+	}
+
+	private void Update()
+	{
+		// 1. Only run if menu is active
+		if (!_menuPanel.activeSelf || _currentAlchemyStation == null)
+			return;
+
+		// 2. Only run if alchemy station is brewing
+		if (_currentAlchemyStation.IsBrewing)
+		{
+			_brewingProgressBarFill.fillAmount = _currentAlchemyStation.BrewProgress;
+			_brewButton.interactable = false;
+		}
 	}
 
 	private void OnDestroy()
@@ -122,8 +140,12 @@ public class AlchemyStationUI : MonoBehaviour
 		// 7. Check if the station has resources and the output slot is empty
 		bool hasResources = _currentAlchemyStation.HasResources(recipe);
 		bool itemSlotEmpty = _currentAlchemyStation.GetItem(0) == null;
+		bool isBrewing = _currentAlchemyStation.IsBrewing;
 
-		_brewButton.interactable = hasResources && itemSlotEmpty;
+		_brewButton.interactable = hasResources && itemSlotEmpty && !isBrewing;
+
+		// 8. Reset the progress bar
+		_brewingProgressBarFill.fillAmount = 0f;
 	}
 
 	private void ClearItemDetails()
