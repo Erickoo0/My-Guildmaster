@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
   m_Name: Item_Food_Sugar
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
-  <ItemID>k__BackingField: Item_Food_Beef_Cooked
-  <ItemName>k__BackingField: Beef
-  <ItemDescription>k__BackingField: A juicy cooked rib eye steak.
+  <ItemID>k__BackingField: Item_Food_Sugar
+  <ItemName>k__BackingField: Sugar
+  <ItemDescription>k__BackingField: A fine grained powder with a sweet taste.
   <Category>k__BackingField: 6
   <Rarity>k__BackingField: 0
   <ItemIcon>k__BackingField:
-  - {fileID: -8574865088092240884, guid: 3dd23a6f41db3de4c8ecb09f09f74e69, type: 3}
+  - {fileID: -1079276903193962963, guid: f4d6a03e2eebb1b4e8ca6c64d5ed70a8, type: 3}
   <ItemObject>k__BackingField: {fileID: 0}
-  <ItemValue>k__BackingField: 25
+  <ItemValue>k__BackingField: 10
   <IsSellable>k__BackingField: 1
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
@@ -35,8 +35,8 @@ MonoBehaviour:
     - rid: 3505743419375091792
       type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
       data:
-        <HpHealBase>k__BackingField: 30
+        <HpHealBase>k__BackingField: 5
     - rid: 5430880807968309328
       type: {class: ItemPropertyFood, ns: , asm: Assembly-CSharp}
       data:
-        <SustenanceValue>k__BackingField: 20
+        <SustenanceValue>k__BackingField: 5
