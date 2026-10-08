@@ -103,12 +103,12 @@ TextureImporter:
       name: Item_Mob_Drop_Mushroom_Cap_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 4
-        width: 32
-        height: 28
+        x: 0
+        y: 0
+        width: 34
+        height: 34
       alignment: 9
-      pivot: {x: 0.5, y: 0.071428575}
+      pivot: {x: 0.5, y: 0.14705883}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,7 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":34.0,"y":34.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Item_Mob_Drop_Mushroom_Cap_0: 166414815918102389
   mipmapLimitGroupName: 

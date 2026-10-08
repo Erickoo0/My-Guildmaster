@@ -11,11 +11,11 @@ public class CraftingResourceSlotUI : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _name;
 	[SerializeField] private TextMeshProUGUI _amount;
 
-	public ItemDataSo CraftingResourceData { get; private set; }
+	public ItemDataSo ResourceData { get; private set; }
 
 	public void Setup(ItemDataSo itemData, int requiredAmount, int currentAmount)
 	{
-		CraftingResourceData = itemData;
+		ResourceData = itemData;
 
 		_icon.sprite = itemData.ItemIcon[0];
 		_name.text = itemData.ItemName;

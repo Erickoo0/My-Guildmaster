@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
+  m_Name: Item_Potion_Speed_Small
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
+  <ItemID>k__BackingField: Item_Potion_Speed_Small
+  <ItemName>k__BackingField: Small Speed Potion
+  <ItemDescription>k__BackingField: A Small Speed Potion that increases movement
+    speed by 25% for 2 minutes
+  <Category>k__BackingField: 5
+  <Rarity>k__BackingField: 1
+  <ItemIcon>k__BackingField:
+  - {fileID: -8565272562748849675, guid: 880d96a3ceec95b43bce497f8a8ba4d3, type: 3}
+  <ItemObject>k__BackingField: {fileID: 0}
+  <ItemValue>k__BackingField: 20
+  <IsSellable>k__BackingField: 1
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
+  ItemProperties:
+  - rid: 2862727027714687067
+  <IsUsable>k__BackingField: 1
+  effects:
+  - rid: 3505743424659390464
+  - rid: 3505743424659390541
+  references:
+    version: 2
+    RefIds:
+    - rid: 2862727027714687067
+      type: {class: ItemPropertyAlchemyRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        <RequiredResourcesList>k__BackingField:
+        - ItemDataSo: {fileID: 11400000, guid: 26397978965da934f8e19cce4dd1c488, type: 2}
+          Amount: 1
+        - ItemDataSo: {fileID: 11400000, guid: df89db5f160f85145bf6443d6713bf02, type: 2}
+          Amount: 1
+        - ItemDataSo: {fileID: 11400000, guid: d1d97ac410b4c1147ba4dfdf993fc10e, type: 2}
+          Amount: 1
+        <BrewingTime>k__BackingField: 20
+    - rid: 3505743424659390464
+      type: {class: EffectApplyBuff, ns: , asm: Assembly-CSharp}
+      data:
+        <Prefab>k__BackingField: {fileID: 6139296669300658502, guid: 75bbde1e2d2aaa547a410fdb4f7422b4, type: 3}
+        <Type>k__BackingField: 0
+        <Amount>k__BackingField: 50
+        <Duration>k__BackingField: 5
+    - rid: 3505743424659390541
+      type: {class: EffectHpHeal, ns: , asm: Assembly-CSharp}
+      data:
+        <HpHealBase>k__BackingField: 50

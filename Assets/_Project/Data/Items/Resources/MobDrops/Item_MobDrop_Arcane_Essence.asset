@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65672ba15d819354c888bad3e0e18fe6, type: 3}
+  m_Name: Item_MobDrop_Arcane_Essence
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDataSo
+  <ItemID>k__BackingField: Item_MobDrop_Arcane_Essence
+  <ItemName>k__BackingField: Arcane Essence
+  <ItemDescription>k__BackingField: A condensed essence of arcane dropped by magical
+    entities.
+  <Category>k__BackingField: 11
+  <Rarity>k__BackingField: 2
+  <ItemIcon>k__BackingField:
+  - {fileID: 2523771159863444628, guid: 4dd67defb89cafd418af14ad3c34111e, type: 3}
+  <ItemObject>k__BackingField: {fileID: 0}
+  <ItemValue>k__BackingField: 50
+  <IsSellable>k__BackingField: 1
+  <IsStackable>k__BackingField: 1
+  <MaxStackSize>k__BackingField: 99
+  ItemProperties:
+  - rid: -2
+  <IsUsable>k__BackingField: 0
+  effects: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

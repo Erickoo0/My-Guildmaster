@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlacementManager : MonoBehaviour
 {
-
 	[Header("References")]
 	[SerializeField] private Grid _worldGrid;
 	[SerializeField] private SpriteRenderer _ghostRenderer;
@@ -67,7 +66,6 @@ public class PlacementManager : MonoBehaviour
 		// 4. Check if placement is valid 
 		bool isValid = IsPlacementValid(centerBoxPosition);
 
-
 		// 5. Tint the ghost based on validity
 		_ghostRenderer.color = isValid ? new Color(1f, 1f, 1f, 0.7f) : new Color(1f, 1f, 1f, 0.3f);
 		_cellHighlightRenderer.color = isValid ? new Color(0f, 1f, 0f, 0.4f) : new Color(1f, 0f, 0f, 0.4f);
@@ -105,7 +103,9 @@ public class PlacementManager : MonoBehaviour
 		{
 			_ghostRenderer.sprite = _activeItem.DataSo.ItemIcon[0];
 			_ghostRenderer.enabled = true;
-			_currentCellSize = placeableProperty.GetGridSize(_activeItem.DataSo.ItemIcon[0]);
+
+			// Grabs the size based on the prefab's collider instead of the sprite
+			_currentCellSize = placeableProperty.GetGridSize();
 
 			if (placeableProperty.SnapToGrid)
 			{
@@ -125,6 +125,7 @@ public class PlacementManager : MonoBehaviour
 
 		// Calculate collision box
 		Vector2 collisionBoxSize = new Vector2(_currentCellSize.x - 0.1f, _currentCellSize.y - 0.1f);
+
 		// Safety net to ensure the physics box never becomes 0 or negative
 		collisionBoxSize.x = Mathf.Max(0.1f, collisionBoxSize.x);
 		collisionBoxSize.y = Mathf.Max(0.1f, collisionBoxSize.y);
