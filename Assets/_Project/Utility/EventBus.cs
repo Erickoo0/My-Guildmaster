@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 public enum MenuType
 {
-	None, Inventory, Quest, SkillTree, Crafting, Worker, Alchemy
+	None, Inventory, Quest, SkillTree, Crafting, Worker, Alchemy, Research
 }
 
 public static class EventBus
@@ -77,18 +77,23 @@ public static class EventBus
 	public static event Action<float, Vector3> OnHitImpactRequested;
 	public static void RequestHitImpact(float hitImpact, Vector3 position) => OnHitImpactRequested?.Invoke(hitImpact, position);
 
-//-------------------------Worker/Sustenance Events-------------------------
+	//-------------------------Worker/Sustenance Events-------------------------
 	public static event Action<int> OnTotalSustenanceChanged;
 	public static void RequestTotalSustenanceChanged(int newTotal) => OnTotalSustenanceChanged?.Invoke(newTotal);
 
-//-------------------------Crafting Events-------------------------
+
+	//-------------------------Research Events-------------------------
+	public static event Action OnResearchChanged;
+	public static void RequestResearchChanged() => OnResearchChanged?.Invoke();
+
+	//-------------------------Crafting Events-------------------------
 	public static event Action<ItemDataSo> OnCraftItemRequested;
 	public static void RequestCraftItem(ItemDataSo itemToCraft) => OnCraftItemRequested?.Invoke(itemToCraft);
 
 	public static event Action<ItemDataSo> OnCraftingRecipeUnlocked;
-	public static void RequestRecipeUnlocked(ItemDataSo unlockedRecipe) => OnCraftingRecipeUnlocked?.Invoke(unlockedRecipe);
+	public static void RequestCraftingRecipeUnlocked(ItemDataSo unlockedRecipe) => OnCraftingRecipeUnlocked?.Invoke(unlockedRecipe);
 
-//-------------------------Alchemy Events-------------------------------
+	//-------------------------Alchemy Events-------------------------------
 	public static event Action<AlchemyStationManager> OnAlchemyStationOpened;
 	public static void RequestOpenAlchemyStation(AlchemyStationManager station) => OnAlchemyStationOpened?.Invoke(station);
 

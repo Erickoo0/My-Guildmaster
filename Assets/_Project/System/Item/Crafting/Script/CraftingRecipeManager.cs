@@ -39,7 +39,7 @@ public class CraftingRecipeManager : MonoBehaviour
 			return; // If it does not, stop here
 
 		UnlockedRecipesList.Add(newRecipe);
-		EventBus.RequestRecipeUnlocked(newRecipe);
+		EventBus.RequestCraftingRecipeUnlocked(newRecipe);
 		Debug.Log($"CraftingRecipeManager: Unlocked {newRecipe.ItemName} recipe");
 	}
 }
