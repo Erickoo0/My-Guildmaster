@@ -13,12 +13,29 @@ public class ResearchTree : ScriptableObject
 
 	[Header("Research Nodes")]
 	[SerializeField] private List<ResearchNode> _researchNodesList = new List<ResearchNode>();
+
+	private Dictionary<string, ResearchNode> _researchNodeDictionary;
 	public Sprite BackgroundImage => _backgroundImage;
 	public Vector2 BackgroundDimensions => _backgroundDimensions;
 	public string ID { get; private set; } = "research_tree";
 	public IReadOnlyList<ResearchNode> ResearchNodesList => _researchNodesList;
 
 	private void OnValidate() => ValidateNodeIDs();
+
+	private void SetupDictionary()
+	{
+		// Safety Check
+		if (_researchNodeDictionary != null && _researchNodeDictionary.Count == _researchNodesList.Count)
+			return;
+
+		_researchNodeDictionary = new Dictionary<string, ResearchNode>();
+
+		foreach (ResearchNode researchNode in _researchNodesList)
+		{
+			if (researchNode != null && !string.IsNullOrEmpty(researchNode.ID))
+				_researchNodeDictionary[researchNode.ID] = researchNode;
+		}
+	}
 
 	/// <summary>
 	/// Searches the ResearchTree for a ResearchNode with the given ID.
@@ -29,12 +46,11 @@ public class ResearchTree : ScriptableObject
 		if (string.IsNullOrEmpty(researchNodeID))
 			return null;
 
-		// 2. Loop through all research nodes in the tree and find the specific node that matches the given ID
-		foreach (ResearchNode researchNode in _researchNodesList)
-		{
-			if (researchNode != null && researchNode.ID == researchNodeID)
-				return researchNode;
-		}
+		SetupDictionary();
+
+		// 2. Search the dictionary for the specific node that matches the given ID
+		if (_researchNodeDictionary.TryGetValue(researchNodeID, out ResearchNode researchNode))
+			return researchNode;
 
 		return null;
 	}

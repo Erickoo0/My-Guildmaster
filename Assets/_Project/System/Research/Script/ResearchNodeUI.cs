@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// </summary>
 public class ResearchNodeUI : MonoBehaviour
 {
-	public enum NodeState { Locked, Available, Unlocked }
+	public enum NodeState { Locked, Available, Researching, Unlocked }
 
 	[Header("References")]
 	[SerializeField] private Button _button;
@@ -17,13 +17,13 @@ public class ResearchNodeUI : MonoBehaviour
 	[SerializeField] private Image _tint;
 
 	[Header("State Colors")]
-	[SerializeField] private Color _colorLocked = new Color(0.45f, 0.45f, 0.45f, 0.1f);
-	[SerializeField] private Color _colorAvailable = new Color(0.85f, 0.8f, 0.4f, 0.1f);
-	[SerializeField] private Color _colorUnlocked = new Color(0.45f, 0.75f, 0.5f, 0.1f);
+	[SerializeField] private Color _colorLocked = new Color(0.45f, 0.45f, 0.45f, 0.2f);
+	[SerializeField] private Color _colorAvailable = new Color(0.85f, 0.8f, 0.4f, 0.2f);
+	[SerializeField] private Color _colorResearching = new Color(0.25f, 0.65f, 0.95f, 0.2f);
+	[SerializeField] private Color _colorUnlocked = new Color(0.45f, 0.75f, 0.5f, 0.2f);
 
 	private Action<ResearchNode> _onResearchNodeSelected;
 	private ResearchManager _researchManager;
-
 	private ResearchNode _researchNode;
 
 	// ResearchUI will call this everytime it instantiates a ResearchNodeUI
@@ -41,7 +41,6 @@ public class ResearchNodeUI : MonoBehaviour
 		_icon.sprite = _researchNode.Icon;
 		_icon.enabled = _researchNode.Icon != null;
 		_displayName.text = _researchNode.DisplayName;
-		//_description.text = _researchNode.Description;
 
 		RefreshUI();
 	}
@@ -56,7 +55,6 @@ public class ResearchNodeUI : MonoBehaviour
 		ApplyStateVisuals(nodeState);
 
 		_displayName.text = _researchNode.DisplayName;
-		//_description.text = _researchNode.Description;
 	}
 
 	//-----HELPER METHODS------
@@ -64,6 +62,9 @@ public class ResearchNodeUI : MonoBehaviour
 	{
 		if (_researchManager.ResearchLedger != null && _researchManager.ResearchLedger.CheckResearchNodeUnlocked(_researchNode.ID))
 			return NodeState.Unlocked;
+
+		if (_researchManager.ResearchLedger.ActiveResearchNodeID == _researchNode.ID)
+			return NodeState.Researching;
 
 		if (_researchManager.CanUnlockResearchNode(_researchNode.ID))
 			return NodeState.Available;
@@ -77,6 +78,10 @@ public class ResearchNodeUI : MonoBehaviour
 		{
 		case NodeState.Unlocked:
 			_tint.color = _colorUnlocked;
+			_icon.color = Color.white;
+			break;
+		case NodeState.Researching:
+			_tint.color = _colorResearching;
 			_icon.color = Color.white;
 			break;
 		case NodeState.Available:

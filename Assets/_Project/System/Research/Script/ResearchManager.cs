@@ -14,6 +14,7 @@ public class ResearchManager : MonoBehaviour
 
 	public ResearchTree ResearchTree => _researchTree;
 	public ResearchLedger ResearchLedger => _researchLedger;
+	public ResearchNode ActiveResearchNode { get; private set; }
 
 	private void Awake()
 	{
@@ -33,6 +34,20 @@ public class ResearchManager : MonoBehaviour
 		EventBus.RequestResearchChanged();
 	}
 
+	private void Update()
+	{
+		// 1. Check if we are actively researching
+		if (!_researchLedger.IsResearching || ActiveResearchNode == null)
+			return;
+
+		// 2. Tick the timer
+		_researchLedger.AddResearchProgress(Time.deltaTime);
+
+		// 4. Check for completion
+		if (_researchLedger.CurrentResearchProgress >= ActiveResearchNode.ResearchTime)
+			CompleteResearch(ActiveResearchNode);
+	}
+
 	private void SetupLedger()
 	{
 		if (_researchTree == null)
@@ -47,45 +62,29 @@ public class ResearchManager : MonoBehaviour
 	/// <summary>
 	/// Checks if a ResearchNode can be unlocked.
 	/// </summary>
-	public bool CanUnlockResearchNode(string researchNodeID)
-	{
-		// Safety Check
-		if (_researchTree == null || _researchLedger == null)
-			return false;
-
-		// 1. Check if the ResearchNode can be unlocked
-		if (!_researchTree.CanUnlockResearchNode(researchNodeID, _researchLedger))
-			return false;
-
-		// 2. Check if the ResearchNode exists in the research tree
-		ResearchNode researchNode = _researchTree.GetResearchNodeByID(researchNodeID);
-		if (researchNode == null)
-			return false;
-
-		return true;
-	}
+	public bool CanUnlockResearchNode(string researchNodeID) => _researchTree.CanUnlockResearchNode(researchNodeID, _researchLedger);
 
 	/// <summary>
 	/// Attempts to unlock a ResearchNode and apply its rewards
 	/// </summary>
-	public bool TryUnlockResearchNode(string researchNodeID)
+	public bool TryStartResearch(string researchNodeID)
 	{
 		// 1. Check if unlockable
 		if (!CanUnlockResearchNode(researchNodeID))
 			return false;
 
-		// 2. Get the ResearchNode from the ResearchTree
-		ResearchNode researchNode = _researchTree.GetResearchNodeByID(researchNodeID);
-		if (researchNode == null)
+		// 2. Check if already researching 
+		if (_researchLedger.IsResearching)
+		{
+			Debug.Log($"ResearchManager: Already researching another node");
 			return false;
+		}
 
-		// 3. Unlock the node
-		_researchLedger.UnlockResearchNode(researchNodeID);
+		// 3. Set the active research
+		ActiveResearchNode = _researchTree.GetResearchNodeByID(researchNodeID);
+		_researchLedger.SetActiveResearch(researchNodeID);
 
-		// 4. Apply the rewards
-		researchNode.ApplyRewards();
-
-		// 5. Notify observers
+		// 4. Notify observers
 		EventBus.RequestResearchChanged();
 
 		return true;
@@ -111,5 +110,13 @@ public class ResearchManager : MonoBehaviour
 				if (reward != null && reward.IsPersistent)
 					reward.ApplyReward();
 		}
+	}
+
+	private void CompleteResearch(ResearchNode researchNode)
+	{
+		_researchLedger.UnlockResearchNode(researchNode.ID);
+		_researchLedger.ClearActiveResearch();
+		researchNode.ApplyRewards();
+		EventBus.RequestResearchChanged();
 	}
 }

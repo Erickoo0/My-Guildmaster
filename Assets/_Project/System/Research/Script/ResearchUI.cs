@@ -12,12 +12,15 @@ public class ResearchUI : MonoBehaviour
 	[SerializeField] private GameObject _researchMenu;
 	[SerializeField] private GameObject _researchNodePrefab;
 	[SerializeField] private RectTransform _researchNodeContainer;
-	[SerializeField] private Button _researchNodeButton;
 
 	[Header("Node Details")]
 	[SerializeField] private Image _researchNodeIcon;
 	[SerializeField] private TextMeshProUGUI _researchNodeName;
 	[SerializeField] private TextMeshProUGUI _researchNodeDescription;
+	[SerializeField] private Button _researchNodeButton;
+	[SerializeField] private TextMeshProUGUI _researchNodeButtonText;
+	[SerializeField] private Image _progressBarFill;
+
 
 	[Header("Connection Lines")]
 	[SerializeField] private RectTransform _connectionLinePrefab;
@@ -25,8 +28,25 @@ public class ResearchUI : MonoBehaviour
 	private readonly List<RectTransform> _connectionLinesList = new List<RectTransform>();
 	private readonly Dictionary<string, Vector2> _researchNodePositionsList = new Dictionary<string, Vector2>();
 	private readonly List<ResearchNodeUI> _researchNodeUIList = new List<ResearchNodeUI>();
-
+	private ResearchLedger _researchLedger;
 	private ResearchNode _selectedResearchNode;
+
+	private void Start()
+	{
+		_researchLedger = ResearchManager.Instance.ResearchLedger;
+
+		BuildResearchTree();
+	}
+
+	private void Update()
+	{
+		// Only if menu is opened
+		if (!_researchMenu.activeSelf)
+			return;
+
+		RefreshResearchProgress();
+	}
+
 
 	private void OnEnable()
 	{
@@ -61,7 +81,7 @@ public class ResearchUI : MonoBehaviour
 	private void OpenMenu()
 	{
 		EventBus.RequestOpenMenu(_researchMenu);
-		BuildResearchTree();
+		RefreshUI();
 	}
 
 	private void CloseMenu()
@@ -142,6 +162,8 @@ public class ResearchUI : MonoBehaviour
 			researchNodeUI.RefreshUI();
 
 		// 2. Refresh selected research node details
+
+		// 3. If there is no active research node, reset UI elements.
 		if (_selectedResearchNode == null)
 		{
 			_researchNodeIcon.sprite = null;
@@ -149,15 +171,62 @@ public class ResearchUI : MonoBehaviour
 			_researchNodeName.text = "Select Research";
 			_researchNodeDescription.text = "";
 			_researchNodeButton.interactable = false;
+			_progressBarFill.fillAmount = 0f;
+			_researchNodeButtonText.text = "Research";
+
+			RefreshResearchProgress();
 			return;
-		} else
+		}
+		// 4. If there is an active research node, refresh UI elements.
+		else
 		{
 			_researchNodeIcon.sprite = _selectedResearchNode.Icon;
 			_researchNodeIcon.enabled = true;
 			_researchNodeName.text = _selectedResearchNode.DisplayName;
 			_researchNodeDescription.text = _selectedResearchNode.Description;
-			_researchNodeButton.interactable = ResearchManager.Instance.CanUnlockResearchNode(_selectedResearchNode.ID);
+
+			// 5. If the selected research node is unlocked, update the button text.
+			if (_researchLedger.CheckResearchNodeUnlocked(_selectedResearchNode.ID))
+			{
+				_researchNodeButtonText.text = "Unlocked";
+				_researchNodeButton.interactable = false;
+			}
+
+			// 6. If the selected research node is the one being researched, update the button text.
+			else if (_researchLedger.ActiveResearchNodeID == _selectedResearchNode.ID)
+			{
+				_researchNodeButtonText.text = "Researching";
+				_researchNodeButton.interactable = false;
+			}
+			// 7 If the selected research node is available or locked
+			else
+			{
+				_researchNodeButtonText.text = "Research";
+				bool canUnlock = ResearchManager.Instance.CanUnlockResearchNode(_selectedResearchNode.ID);
+				bool isBusy = _researchLedger.IsResearching;
+				_researchNodeButton.interactable = canUnlock && !isBusy;
+			}
 		}
+		RefreshResearchProgress();
+	}
+
+	private void RefreshResearchProgress()
+	{
+		// 1. Check if researching
+		if (!_researchLedger.IsResearching)
+		{
+			_progressBarFill.fillAmount = 0f;
+			return;
+		}
+		ResearchNode activeResearchNode = ResearchManager.Instance.ResearchTree.GetResearchNodeByID(_researchLedger.ActiveResearchNodeID);
+		if (activeResearchNode == null)
+		{
+			_progressBarFill.fillAmount = 0f;
+			return;
+		}
+
+		float total = activeResearchNode.ResearchTime;
+		_progressBarFill.fillAmount = total > 0f ? (_researchLedger.CurrentResearchProgress/total) : 1f;
 	}
 
 	private void ClearUI()
@@ -193,7 +262,7 @@ public class ResearchUI : MonoBehaviour
 		if (_selectedResearchNode == null)
 			return;
 
-		bool changed = ResearchManager.Instance.TryUnlockResearchNode(_selectedResearchNode.ID);
+		bool changed = ResearchManager.Instance.TryStartResearch(_selectedResearchNode.ID);
 
 		if (changed)
 			RefreshUI();

@@ -11,6 +11,9 @@ public class ResearchLedger
 	[SerializeField] private string _researchTreeID;
 	[SerializeField] private List<string> _unlockedResearchNodeIDs;
 
+	[SerializeField] private string _activeResearchNodeID;
+	[SerializeField] private float _currentResearchProgress;
+
 	// Constructor
 	public ResearchLedger(string researchTreeID)
 	{
@@ -18,8 +21,27 @@ public class ResearchLedger
 		_unlockedResearchNodeIDs = new List<string>();
 	}
 
+	public string ActiveResearchNodeID => _activeResearchNodeID;
+	public float CurrentResearchProgress => _currentResearchProgress;
+
 	public string ResearchTreeID => _researchTreeID;
 	public IReadOnlyList<string> UnlockedResearchNodeIDs => _unlockedResearchNodeIDs;
+
+	public bool IsResearching => !string.IsNullOrWhiteSpace(_activeResearchNodeID);
+
+	public void SetActiveResearch(string researchNodeID)
+	{
+		_activeResearchNodeID = researchNodeID;
+		_currentResearchProgress = 0f;
+	}
+
+	public void AddResearchProgress(float deltaTime) => _currentResearchProgress += deltaTime;
+
+	public void ClearActiveResearch()
+	{
+		_activeResearchNodeID = null;
+		_currentResearchProgress = 0f;
+	}
 
 	/// <summary>
 	/// Checks if the given ResearchNode has been unlocked.
@@ -35,7 +57,7 @@ public class ResearchLedger
 
 	/// <summary>
 	/// Marks a ResearchNode as unlocked.
-	/// ResearchManager and ResearchLedgerController will handle the rest.
+	/// ResearchManager will handle the rest.
 	/// </summary>
 	/// <param name="researchNodeID"></param>
 	public void UnlockResearchNode(string researchNodeID)

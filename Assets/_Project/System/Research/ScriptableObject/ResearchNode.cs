@@ -18,6 +18,7 @@ public class ResearchNode
 	[SerializeField] private Vector2 _position;
 
 	[Header("Prerequisites")]
+	[SerializeField] private float _researchTime = 10f;
 	[SerializeField] private List<ResearchNodePrerequisite> _prerequisitesList = new List<ResearchNodePrerequisite>();
 
 	[Header("Rewards")]
@@ -28,6 +29,7 @@ public class ResearchNode
 	public Sprite Icon => _icon;
 	public string Description => _description;
 	public Vector2 Position => _position;
+	public float ResearchTime => _researchTime;
 	public IReadOnlyList<ResearchNodePrerequisite> PrerequisitesList => _prerequisitesList;
 	public IReadOnlyList<ResearchReward> RewardsList => _rewardsList;
 
