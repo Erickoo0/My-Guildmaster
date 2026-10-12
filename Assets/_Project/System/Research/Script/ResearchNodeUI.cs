@@ -13,13 +13,13 @@ public class ResearchNodeUI : MonoBehaviour
 	[SerializeField] private Button _button;
 	[SerializeField] private Image _icon;
 	[SerializeField] private TextMeshProUGUI _displayName;
-	[SerializeField] private TextMeshProUGUI _description;
+	//[SerializeField] private TextMeshProUGUI _description;
 	[SerializeField] private Image _tint;
 
 	[Header("State Colors")]
-	[SerializeField] private Color _colorLocked = new Color(0.45f, 0.45f, 0.45f, 0.4f);
-	[SerializeField] private Color _colorAvailable = new Color(0.85f, 0.8f, 0.4f, 0.6f);
-	[SerializeField] private Color _colorUnlocked = new Color(0.45f, 0.75f, 0.5f, 0.85f);
+	[SerializeField] private Color _colorLocked = new Color(0.45f, 0.45f, 0.45f, 0.1f);
+	[SerializeField] private Color _colorAvailable = new Color(0.85f, 0.8f, 0.4f, 0.1f);
+	[SerializeField] private Color _colorUnlocked = new Color(0.45f, 0.75f, 0.5f, 0.1f);
 
 	private Action<ResearchNode> _onResearchNodeSelected;
 	private ResearchManager _researchManager;
@@ -41,7 +41,7 @@ public class ResearchNodeUI : MonoBehaviour
 		_icon.sprite = _researchNode.Icon;
 		_icon.enabled = _researchNode.Icon != null;
 		_displayName.text = _researchNode.DisplayName;
-		_description.text = _researchNode.Description;
+		//_description.text = _researchNode.Description;
 
 		RefreshUI();
 	}
@@ -56,7 +56,7 @@ public class ResearchNodeUI : MonoBehaviour
 		ApplyStateVisuals(nodeState);
 
 		_displayName.text = _researchNode.DisplayName;
-		_description.text = _researchNode.Description;
+		//_description.text = _researchNode.Description;
 	}
 
 	//-----HELPER METHODS------

@@ -44,5 +44,5 @@ MonoBehaviour:
       data:
         <RequiredResourcesList>k__BackingField:
         - ItemDataSo: {fileID: 11400000, guid: 97cf344e9342f374484f42c86ce310b6, type: 2}
-          Amount: 1
+          Amount: 8
         <CraftingTime>k__BackingField: 5

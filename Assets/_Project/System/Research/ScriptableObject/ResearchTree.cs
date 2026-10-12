@@ -7,8 +7,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Research_Tree_Guild", menuName = "Research/Research Tree")]
 public class ResearchTree : ScriptableObject
 {
+	[Header("Editor Visualization")]
+	[SerializeField] private Sprite _backgroundImage;
+	[SerializeField] private Vector2 _backgroundDimensions = new Vector2(500f, 550f); // Match your in-game UI RectTransform size
+
 	[Header("Research Nodes")]
 	[SerializeField] private List<ResearchNode> _researchNodesList = new List<ResearchNode>();
+	public Sprite BackgroundImage => _backgroundImage;
+	public Vector2 BackgroundDimensions => _backgroundDimensions;
 	public string ID { get; private set; } = "research_tree";
 	public IReadOnlyList<ResearchNode> ResearchNodesList => _researchNodesList;
 

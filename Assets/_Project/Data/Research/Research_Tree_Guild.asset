@@ -12,4 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c32af05406a5446ae0c275c24d0695, type: 3}
   m_Name: Research_Tree_Guild
   m_EditorClassIdentifier: Assembly-CSharp::ResearchTree
-  _researchNodesList: []
+  _researchNodesList:
+  - _id: ResearchNode_Test_1
+    _displayName: Test Number 1
+    _icon: {fileID: 2653299967159091974, guid: cf9043473696e5646917d3b1b21d6d45, type: 3}
+    _description: This is a test of number 1
+    _position: {x: 0, y: 160}
+    _prerequisitesList: []
+    _rewardsList:
+    - rid: 2862727231813714015
+  - _id: ResearchNode_Test_2
+    _displayName: Test Number 2
+    _icon: {fileID: -5354132887745660483, guid: a3ba3e0e198da8247a968c6477c4bc45, type: 3}
+    _description: This is a test of number 2
+    _position: {x: 0, y: -50}
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Test_1
+    _rewardsList:
+    - rid: 2862727231813714016
+  references:
+    version: 2
+    RefIds:
+    - rid: 2862727231813714015
+      type: {class: ResearchRewardCraftingRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: 
+        _recipe: {fileID: 11400000, guid: b03fea6bfff27d84f86039f612632e1b, type: 2}
+    - rid: 2862727231813714016
+      type: {class: ResearchRewardAlchemyRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: 
+        _recipe: {fileID: 11400000, guid: 9a5af54d2141da74ba85747696a07a3a, type: 2}
