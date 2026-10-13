@@ -12,36 +12,174 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c32af05406a5446ae0c275c24d0695, type: 3}
   m_Name: Research_Tree_Guild
   m_EditorClassIdentifier: Assembly-CSharp::ResearchTree
+  _backgroundImage: {fileID: -2090169657439640913, guid: c4001ae97da7d2f4f9afa22c01a2c283, type: 3}
+  _backgroundDimensions: {x: 465, y: 490}
   _researchNodesList:
-  - _id: ResearchNode_Test_1
-    _displayName: Test Number 1
-    _icon: {fileID: 2653299967159091974, guid: cf9043473696e5646917d3b1b21d6d45, type: 3}
-    _description: This is a test of number 1
-    _position: {x: 0, y: 160}
+  - _id: ResearchNode_Guild_Tier_1
+    _displayName: Guild Tier 1
+    _icon: {fileID: 0}
+    _description: Upgrades Guild to Tier 1
+    _position: {x: -0, y: 200}
+    _researchTime: 10
     _prerequisitesList: []
-    _rewardsList:
-    - rid: 2862727231813714015
-  - _id: ResearchNode_Test_2
-    _displayName: Test Number 2
-    _icon: {fileID: -5354132887745660483, guid: a3ba3e0e198da8247a968c6477c4bc45, type: 3}
-    _description: This is a test of number 2
-    _position: {x: 0, y: -50}
+    _rewardsList: []
+  - _id: ResearchNode_Guild_Tier_2
+    _displayName: Guild Tier 2
+    _icon: {fileID: 0}
+    _description: Upgrades Guild to Tier 2
+    _position: {x: 0, y: 40}
+    _researchTime: 10
     _prerequisitesList:
-    - _requiredResearchNodeID: ResearchNode_Test_1
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_1
+    _rewardsList: []
+  - _id: ResearchNode_Guild_Tier_3
+    _displayName: Guild Tier 3
+    _icon: {fileID: 0}
+    _description: Upgrades Guild to Tier 3
+    _position: {x: 0, y: -120}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_2
+    _rewardsList: []
+  - _id: ResearchNode_Tier1_Alchemy
+    _displayName: Alchemy
+    _icon: {fileID: 0}
+    _description: Unlocks the Alchemy Station and basic potion recipes
+    _position: {x: 100, y: 200}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_1
     _rewardsList:
-    - rid: 2862727231813714016
+    - rid: 2862727234023850092
+    - rid: 2862727234023850094
+    - rid: 2862727234023850095
+  - _id: ResearchNode_Tier1_Storage
+    _displayName: Storage
+    _icon: {fileID: 0}
+    _description: Unlocks the Chest recipe
+    _position: {x: -110, y: 200}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_1
+    _rewardsList:
+    - rid: 2862727234023850092
+  - _id: ResearchNode_Tier2_Storage_Advanced
+    _displayName: Advanced Storage
+    _icon: {fileID: 0}
+    _description: Unlocks larger chests
+    _position: {x: -110, y: 40}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_2
+    - _requiredResearchNodeID: ResearchNode_Tier1_Storage
+    _rewardsList:
+    - rid: 2862727234023850101
+    - rid: 2862727234023850102
+  - _id: ResearchNode_Tier2_Alchemy_Advanced
+    _displayName: Advanced Alchemy
+    _icon: {fileID: 0}
+    _description: Unlocks more advanced alchemy recipes
+    _position: {x: 100, y: 40}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_2
+    - _requiredResearchNodeID: ResearchNode_Tier1_Alchemy
+    _rewardsList:
+    - rid: 2862727234023850096
+    - rid: 2862727234023850098
+    - rid: 2862727234023850099
+    - rid: 2862727234023850100
+  - _id: ResearchNode_Tier2_Alchemy_Expert
+    _displayName: Alchemy Expert
+    _icon: {fileID: 0}
+    _description: Improves Alchemy brewing speeds and improves recipe costs
+    _position: {x: 190, y: 20}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Tier2_Alchemy_Advanced
+    _rewardsList: []
+  - _id: ResearchNode_Tier2_Worker_Efficiency_1
+    _displayName: Worker Efficiency 1
+    _icon: {fileID: 0}
+    _description: 'Improves Worker work speed and sustenance rate '
+    _position: {x: -110, y: -30}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_2
+    _rewardsList: []
+  - _id: ResearchNode_Tier3_Worker_Efficiency_2
+    _displayName: Worker Efficiency 2
+    _icon: {fileID: 0}
+    _description: Improves Workers growth rate
+    _position: {x: -110, y: -120}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_3
+    - _requiredResearchNodeID: ResearchNode_Tier2_Worker_Efficiency_1
+    _rewardsList: []
+  - _id: ResearchNode_Tier3_Glyph_Research
+    _displayName: Glyph Research
+    _icon: {fileID: 0}
+    _description: Unlocks the ability to research powerful glyphs
+    _position: {x: 100, y: -120}
+    _researchTime: 10
+    _prerequisitesList:
+    - _requiredResearchNodeID: ResearchNode_Guild_Tier_3
+    _rewardsList: []
   references:
     version: 2
     RefIds:
-    - rid: 2862727231813714015
+    - rid: 2862727234023850092
       type: {class: ResearchRewardCraftingRecipe, ns: , asm: Assembly-CSharp}
       data:
         _isPersistent: 1
-        _rewardDescription: 
-        _recipe: {fileID: 11400000, guid: b03fea6bfff27d84f86039f612632e1b, type: 2}
-    - rid: 2862727231813714016
+        _rewardDescription: Unlock Alchemy Station
+        _recipe: {fileID: 11400000, guid: 81b1e4aafc8c58044a8f30e19d81b653, type: 2}
+    - rid: 2862727234023850094
       type: {class: ResearchRewardAlchemyRecipe, ns: , asm: Assembly-CSharp}
       data:
         _isPersistent: 1
-        _rewardDescription: 
+        _rewardDescription: Unlock Small Hp Potion
+        _recipe: {fileID: 11400000, guid: 76701d19b0ba42b47b0f8dbe197e7787, type: 2}
+    - rid: 2862727234023850095
+      type: {class: ResearchRewardAlchemyRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: Unlock Small Mp Potion
+        _recipe: {fileID: 11400000, guid: bf4ec7f4a311af54e91d3c0d9500db72, type: 2}
+    - rid: 2862727234023850096
+      type: {class: ResearchRewardAlchemyRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: Unlocks Medium Hp Potion
         _recipe: {fileID: 11400000, guid: 9a5af54d2141da74ba85747696a07a3a, type: 2}
+    - rid: 2862727234023850098
+      type: {class: ResearchRewardAlchemyRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: Unlocks Medium Mp Potion
+        _recipe: {fileID: 11400000, guid: 6c4adf68cec84284bbfc5c0222af1d92, type: 2}
+    - rid: 2862727234023850099
+      type: {class: ResearchRewardAlchemyRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: Unlocks Small Speed Potion
+        _recipe: {fileID: 11400000, guid: 95cb273da8871054ca8a2c35c46e8a3f, type: 2}
+    - rid: 2862727234023850100
+      type: {class: ResearchRewardAlchemyRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: Unlocks Small Shield Potion
+        _recipe: {fileID: 11400000, guid: f9378c91741894743ac8bd6a64d752f4, type: 2}
+    - rid: 2862727234023850101
+      type: {class: ResearchRewardCraftingRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: Unlocks Iron Chest
+        _recipe: {fileID: 11400000, guid: 3b2d4f829f0cf494f997695e4670e48e, type: 2}
+    - rid: 2862727234023850102
+      type: {class: ResearchRewardCraftingRecipe, ns: , asm: Assembly-CSharp}
+      data:
+        _isPersistent: 1
+        _rewardDescription: Unlocks Reinforced Iron Chest
+        _recipe: {fileID: 11400000, guid: 734dcc3feacd1474384d152e1864f916, type: 2}
