@@ -81,6 +81,17 @@ public static class EventBus
 	public static event Action<int> OnTotalSustenanceChanged;
 	public static void RequestTotalSustenanceChanged(int newTotal) => OnTotalSustenanceChanged?.Invoke(newTotal);
 
+	public static event Action OnWorkerDataChanged;
+	public static void RequestWorkerDataChanged() => OnWorkerDataChanged?.Invoke();
+
+	public static event Action<WorkerData> OnWorkerHireRequested;
+	public static void RequestWorkerHire(WorkerData workerData) => OnWorkerHireRequested?.Invoke(workerData);
+
+	public static event Action<WorkerData> OnWorkerReleaseRequested;
+	public static void RequestWorkerRelease(WorkerData workerData) => OnWorkerReleaseRequested?.Invoke(workerData);
+
+	public static event Action<WorkerData, WorkerAssignmentType> OnWorkerAssignRequested;
+	public static void RequestWorkerAssign(WorkerData workerData, WorkerAssignmentType assignmentType) => OnWorkerAssignRequested?.Invoke(workerData, assignmentType);
 
 	//-------------------------Research Events-------------------------
 	public static event Action OnResearchChanged;

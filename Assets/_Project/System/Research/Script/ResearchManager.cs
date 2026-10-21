@@ -41,7 +41,8 @@ public class ResearchManager : MonoBehaviour
 			return;
 
 		// 2. Tick the timer
-		_researchLedger.AddResearchProgress(Time.deltaTime);
+		float researchWorkMultiplier = WorkerManager.Instance.GetWorkerWorkMultiplier(WorkerAssignmentType.Research);
+		_researchLedger.AddResearchProgress(Time.deltaTime*researchWorkMultiplier);
 
 		// 4. Check for completion
 		if (_researchLedger.CurrentResearchProgress >= ActiveResearchNode.ResearchTime)
