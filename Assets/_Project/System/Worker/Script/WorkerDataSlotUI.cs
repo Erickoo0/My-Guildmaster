@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,33 +16,27 @@ public class WorkerDataSlotUI : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _sustenanceRequired;
 	[SerializeField] private TextMeshProUGUI _assignment;
 	[SerializeField] private TextMeshProUGUI _status;
-	[SerializeField] private Button _unassignButton;
-	[SerializeField] private Button _releaseButton;
+	[SerializeField] private Button _slotButton;
 
 	private WorkerData _workerData;
 
-	private void OnDestroy()
-	{
-		_unassignButton.onClick.RemoveAllListeners();
-		_releaseButton.onClick.RemoveAllListeners();
-	}
+	private void OnDestroy() => _slotButton.onClick.RemoveAllListeners();
 
-	public void Setup(WorkerData workerData)
+
+	public void Setup(WorkerData workerData, Action<WorkerData> onSlotSelected)
 	{
 		_workerData = workerData;
 		_workerPortrait.sprite = workerData.WorkerPortrait;
 		_workerName.text = workerData.WorkerName;
 		_workerSkillLevel.text = $"Skill Level: {workerData.SkillLevel}";
 		_workerMaintenanceLevel.text = $"Maintenance Level: {workerData.MaintenanceLevel}";
-		_salary.text = $"Salary: {workerData.Salary}";
-		_sustenanceRequired.text = $"Sustenance Rate: {workerData.SustenanceRequiredPerDay}";
+		_salary.text = workerData.Salary.ToString();
+		_sustenanceRequired.text = workerData.SustenanceRequiredPerDay.ToString();
 		_assignment.text = $"Assignment: {workerData.AssignmentType}";
 		_status.text = $"Status: {workerData.Status}";
 
-		_unassignButton.onClick.RemoveAllListeners();
-		_unassignButton.onClick.AddListener(UnassignWorker);
-		_releaseButton.onClick.RemoveAllListeners();
-		_releaseButton.onClick.AddListener(ReleaseWorker);
+		_slotButton.onClick.RemoveAllListeners();
+		_slotButton.onClick.AddListener(() => onSlotSelected?.Invoke(workerData));
 	}
 
 	public void AssignToAlchemy() => AssignWorker(WorkerAssignmentType.Alchemy);

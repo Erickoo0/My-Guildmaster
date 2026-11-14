@@ -9,7 +9,13 @@ public class WorkerUI : MonoBehaviour
 
 	[Header("References")]
 	[SerializeField] private GameObject _workerMenuPanel;
-	[SerializeField] private Button _hireButton;
+	[SerializeField] private TextMeshProUGUI _header;
+
+	[Header("Tabs")]
+	[SerializeField] private Button _recruitTabButton;
+	[SerializeField] private Button _workerTabButton;
+	[SerializeField] private GameObject _recruitPanel;
+	[SerializeField] private GameObject _workerPanel;
 
 	[Header("Worker Lists")]
 	[SerializeField] private WorkerRecruitSlotUI _recruitSlotPrefab;
@@ -22,7 +28,18 @@ public class WorkerUI : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _dailySustenanceText;
 	[SerializeField] private TextMeshProUGUI _dailySalaryText;
 
-	[Header("Worker Information")]
+	[Header("Recruits Panel")]
+	[SerializeField] private GameObject _recruitDetailsPanel;
+	[SerializeField] private Image _recruitPortrait;
+	[SerializeField] private TextMeshProUGUI _recruitName;
+	[SerializeField] private TextMeshProUGUI _recruitSkillLevel;
+	[SerializeField] private TextMeshProUGUI _recruitMaintenanceLevel;
+	[SerializeField] private TextMeshProUGUI _recruitSalary;
+	[SerializeField] private TextMeshProUGUI _recruitDescription;
+	[SerializeField] private Button _hireButton;
+
+	[Header("Workers Panel")]
+	[SerializeField] private GameObject _workerDetailsPanel;
 	[SerializeField] private Image _workerPortrait;
 	[SerializeField] private TextMeshProUGUI _workerName;
 	[SerializeField] private TextMeshProUGUI _workerSpecialization;
@@ -30,8 +47,13 @@ public class WorkerUI : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _workerMaintenanceLevel;
 	[SerializeField] private TextMeshProUGUI _workerSalary;
 	[SerializeField] private TextMeshProUGUI _workerDescription;
-	private readonly MenuType _menuType = MenuType.Worker;
+	[SerializeField] private TextMeshProUGUI _workerAssignment;
+	[SerializeField] private TextMeshProUGUI _workerStatus;
+	[SerializeField] private Button _unassignButton;
+	[SerializeField] private Button _releaseButton;
 
+	private readonly MenuType _menuType = MenuType.Worker;
+	private WorkerUITab _currentTab = WorkerUITab.Recruits;
 	private WorkerData _selectedWorker;
 
 	private void Start()
@@ -41,10 +63,15 @@ public class WorkerUI : MonoBehaviour
 		EventBus.OnWorkerDataChanged += RefreshUI;
 
 		_hireButton.onClick.AddListener(HireWorker);
+		_unassignButton.onClick.AddListener(UnassignWorker);
+		_releaseButton.onClick.AddListener(ReleaseWorker);
+		_recruitTabButton.onClick.AddListener(() => SwitchTab(WorkerUITab.Recruits));
+		_workerTabButton.onClick.AddListener(() => SwitchTab(WorkerUITab.Workers));
 
 		UpdateSustenanceDisplay(WorkerManager.Instance.CurrentSustenance);
 		RefreshUI();
-		ClearWorkerDetails();
+		SwitchTab(WorkerUITab.Recruits);
+		//ClearWorkerDetails();
 	}
 
 	private void OnDestroy()
@@ -54,6 +81,10 @@ public class WorkerUI : MonoBehaviour
 		EventBus.OnWorkerDataChanged -= RefreshUI;
 
 		_hireButton.onClick.RemoveListener(HireWorker);
+		_unassignButton.onClick.RemoveListener(UnassignWorker);
+		_releaseButton.onClick.RemoveListener(ReleaseWorker);
+		_recruitTabButton.onClick.RemoveAllListeners();
+		_workerTabButton.onClick.RemoveAllListeners();
 	}
 
 	private void HandleMenuToggle(MenuType requestedMenu)
@@ -68,9 +99,47 @@ public class WorkerUI : MonoBehaviour
 			EventBus.RequestOpenMenu(_workerMenuPanel);
 			UpdateSustenanceDisplay(WorkerManager.Instance.CurrentSustenance);
 			RefreshUI();
+			SwitchTab(_currentTab);
 
 		} else if (_workerMenuPanel.activeSelf)
 			EventBus.RequestCloseMenu(_workerMenuPanel);
+	}
+
+	private void SwitchTab(WorkerUITab tab)
+	{
+		ClearWorkerDetails();
+
+		if (tab == WorkerUITab.Recruits)
+		{
+			// Swap Lists
+			_recruitPanel.SetActive(true);
+			_workerPanel.SetActive(false);
+
+			// Swap Detail Panels
+			_recruitDetailsPanel.SetActive(true);
+			_workerDetailsPanel.SetActive(false);
+
+			// Update Buttons & Text
+			_recruitTabButton.interactable = false;
+			_workerTabButton.interactable = true;
+			_header.text = "Recruits";
+		} else if (tab == WorkerUITab.Workers)
+		{
+			// Swap Lists
+			_workerPanel.SetActive(true);
+			_recruitPanel.SetActive(false);
+
+			// Swap Detail Panels
+			_workerDetailsPanel.SetActive(true);
+			_recruitDetailsPanel.SetActive(false);
+
+			// Update Buttons & Text
+			_workerTabButton.interactable = false;
+			_recruitTabButton.interactable = true;
+			_header.text = "Workers";
+		}
+
+		_currentTab = tab;
 	}
 
 	private void UpdateSustenanceDisplay(int totalSustenance) => totalSustenanceText.text = $"{totalSustenance}";
@@ -85,6 +154,8 @@ public class WorkerUI : MonoBehaviour
 
 		_dailySustenanceText.text = $"Daily Sustenance: {WorkerManager.Instance.GetTotalDailySustenance()}";
 		_dailySalaryText.text = $"Daily Salary: {WorkerManager.Instance.GetTotalDailySalary()}";
+		if (_selectedWorker != null)
+			SelectWorker(_selectedWorker);
 	}
 
 	private void RefreshRecruitSlots()
@@ -100,7 +171,7 @@ public class WorkerUI : MonoBehaviour
 		foreach (WorkerData workerData in WorkerManager.Instance.RecruitPoolList)
 		{
 			WorkerRecruitSlotUI recruitSlotUI = Instantiate(_recruitSlotPrefab, _recruitSlotContainer);
-			recruitSlotUI.Setup(workerData, SelectRecruit);
+			recruitSlotUI.Setup(workerData, SelectWorker);
 		}
 	}
 
@@ -115,7 +186,7 @@ public class WorkerUI : MonoBehaviour
 		foreach (WorkerData workerData in WorkerManager.Instance.HiredWorkersList)
 		{
 			WorkerDataSlotUI workerSlotUI = Instantiate(_workerSlotPrefab, _workerSlotContainer);
-			workerSlotUI.Setup(workerData);
+			workerSlotUI.Setup(workerData, SelectWorker);
 		}
 	}
 
@@ -125,17 +196,35 @@ public class WorkerUI : MonoBehaviour
 			Destroy(container.GetChild(i).gameObject);
 	}
 
-	private void SelectRecruit(WorkerData recruit)
+	private void SelectWorker(WorkerData worker)
 	{
-		_selectedWorker = recruit;
-		_workerPortrait.sprite = _selectedWorker.WorkerPortrait;
-		_workerName.text = _selectedWorker.WorkerName;
-		_workerSkillLevel.text = "Skill Level: " + _selectedWorker.SkillLevel.ToString();
-		_workerMaintenanceLevel.text = "Maintenance Level: " + _selectedWorker.MaintenanceLevel.ToString();
-		_workerSalary.text = "Salary: " + _selectedWorker.Salary.ToString();
+		_selectedWorker = worker;
 
-		if (_selectedWorker != null)
+		if (_currentTab == WorkerUITab.Recruits)
+		{
+			_recruitPortrait.sprite = _selectedWorker.WorkerPortrait;
+			_recruitPortrait.enabled = true;
+			_recruitName.text = _selectedWorker.WorkerName;
+			_recruitSkillLevel.text = "Skill Level: " + _selectedWorker.SkillLevel.ToString();
+			_recruitMaintenanceLevel.text = "Maintenance Level: " + _selectedWorker.MaintenanceLevel.ToString();
+			_recruitSalary.text = "Salary: " + _selectedWorker.Salary.ToString();
 			_hireButton.interactable = true;
+			_recruitDescription.text = "This is a description of the recruit.";
+		} else if (_currentTab == WorkerUITab.Workers)
+		{
+			_workerPortrait.sprite = _selectedWorker.WorkerPortrait;
+			_workerPortrait.enabled = true;
+			_workerName.text = _selectedWorker.WorkerName;
+			_workerSkillLevel.text = "Skill Level: " + _selectedWorker.SkillLevel.ToString();
+			_workerMaintenanceLevel.text = "Maintenance Level: " + _selectedWorker.MaintenanceLevel.ToString();
+			_workerSalary.text = "Salary: " + _selectedWorker.Salary.ToString();
+			_workerAssignment.text = _selectedWorker.AssignmentType.ToString();
+			_workerStatus.text = _selectedWorker.Status.ToString();
+			_unassignButton.interactable = _selectedWorker.AssignmentType != WorkerAssignmentType.None;
+			_releaseButton.interactable = true;
+			_workerSpecialization.text = "";
+			_workerDescription.text = "This is a description of the worker.";
+		}
 	}
 
 	private void HireWorker()
@@ -144,19 +233,52 @@ public class WorkerUI : MonoBehaviour
 			return;
 
 		EventBus.RequestWorkerHire(_selectedWorker);
+		ClearWorkerDetails();
+	}
 
+	private void UnassignWorker()
+	{
+		if (_selectedWorker == null)
+			return;
+
+		EventBus.RequestWorkerAssign(_selectedWorker, WorkerAssignmentType.None);
+	}
+
+	private void ReleaseWorker()
+	{
+		if (_selectedWorker == null)
+			return;
+
+		EventBus.RequestWorkerRelease(_selectedWorker);
 		ClearWorkerDetails();
 	}
 
 	private void ClearWorkerDetails()
 	{
 		_selectedWorker = null;
+
+		// Clear Recruit Details
+		_recruitPortrait.sprite = null;
+		_recruitPortrait.enabled = false;
+		_recruitName.text = "Select a recruit";
+		_recruitSkillLevel.text = "";
+		_recruitMaintenanceLevel.text = "";
+		_recruitSalary.text = "";
+		_hireButton.interactable = false;
+		_recruitDescription.text = "";
+
+		// Clear Worker Details
 		_workerPortrait.sprite = null;
-		_workerName.text = "Select a recruit";
+		_workerPortrait.enabled = false;
+		_workerName.text = "Select a worker";
 		_workerSkillLevel.text = "";
 		_workerMaintenanceLevel.text = "";
 		_workerSalary.text = "";
-
-		_hireButton.interactable = false;
+		_workerAssignment.text = "";
+		_workerStatus.text = "";
+		_unassignButton.interactable = false;
+		_releaseButton.interactable = false;
 	}
+
+	private enum WorkerUITab { Recruits, Workers }
 }
